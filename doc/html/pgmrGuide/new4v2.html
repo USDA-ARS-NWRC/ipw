@@ -1,0 +1,143 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>What's New for IPW Programmers</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../images/usda.gif" alt="USDA">
+<IMG SRC="../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>What's New for IPW Programmers</H1>
+
+ 
+<P>
+For version 2 of IPW, numerous changes and additions were made to the
+original version in order to advance the project further toward these
+objectives:
+
+<OL>
+  <LI> minimize time and effort required for maintenance, and
+  <LI> maximize <A HREF="../design/portable.html">portability</A>.
+</OL>
+
+From a programmer's perspective, this is what's new in version 2:
+
+<UL>
+
+<LI>
+Integrated original IPW library with ERLC library (the library developed at
+the EPA research lab in Corvallis, Oregon), and separated into
+two new libraries based on functionality instead of site: <TT>libipw
+</TT> and <TT>libmodel</TT>:
+
+  <UL>
+    <LI>
+    <TT>libipw</TT> contains all the library functions related to IPW images
+
+    <LI>
+    <TT>libmodel</TT> contains all the functions for physical modeling
+  </UL>
+<p>
+
+<LI>
+GNU's <TT>autoconf</TT> was utilized to produce the <TT>configure</TT> script.
+This simplifies the configuration process, and makes it easier to install
+IPW on new types of systems which conform to system requirements listed in
+the <A HREF=" https://www.nmepscor.org/trac/IPW/wiki/SystemRequirements">System Requirements</A>.
+<p>
+
+<LI>
+Grouped IPW commands (called "primitives" in the original version)
+into categories by topic to facilitate user and programmer understanding
+of the available commands.
+<p>
+
+<LI>
+All source code is now compatible with the ANSI/ISO standard for the C
+programming language.
+<p>
+
+<LI>
+Expanded the use of include files for GNU <TT>make</TT> to simplify
+individual Makefiles.
+<p>
+
+<LI>
+Added a standard target called <TT>help</TT> to all the <TT>make</TT>
+include files.  When the programmer specifies this target for the <TT>make</TT>
+command, a list of available targets is displayed.
+<p>
+
+<LI>
+Separated the manual page documentation from the source code files to allow
+editing of documentation without confusing <TT>make</TT> into thinking
+that the source code needed to be recompiled.
+<p>
+
+<LI>
+The single source file for manual page is used to build two versions of
+manual page: troff version for use with Unix <TT>man</TT> command, and a HTML
+version for use with Web browsers.  The single file insures consistency
+between both versions of the manual page.
+<p>
+
+<LI>
+Manual page documentation for IPW commands published on the Web to allow
+interested people to see what IPW software offers, and to evaluate it
+in terms of their own needs.
+<p>
+
+<LI>
+Allows a site with IPW version 2 installed to use the Web versions of
+the manual pages as their local on-line documentation for IPW.
+<p>
+
+<LI>
+The name and one-line description for each IPW command are now kept
+in a single place (i.e., in the command's Makefile) to ensure that
+the command's manual page is consistent with command lists (such as
+those displayed by the <TT>ipw</TT> command).
+<p>
+
+<LI>
+Manual pages for library functions are also treated the same as commands'
+manual pages: troff and Web versions are both derived from a single source
+file.
+<p>
+
+<LI>
+X/Open's Single Unix Specification was adopted as the standard for the
+target Unix system for IPW.
+<p>
+
+<LI>
+Several new libraries developed:
+
+  <UL>
+    <LI>one for energy-balance snowmelt model (<TT>libsnobal</TT>)
+    <LI>one for General Cartographic Transformation Package (<TT>libgctp</TT>)
+    <LI>one for a higher-level interface to IPW images (<TT>libimage</TT>)
+    <LI>one for using string options for commands (<TT>libstropts</TT>)
+  </UL>
+
+</UL>
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 29 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

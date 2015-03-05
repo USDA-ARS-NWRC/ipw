@@ -1,0 +1,132 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates LE flux (W/m2, +/-) using a simplified form of
+the Penman-Monteith combination approach. Inputs are as follows:
+</P>
+<PRE>
+        ta, ea, u, Rn, lai, cond 
+</PRE><PRE>
+        ta     = air temperature  (C)
+        ea     =  actual vapor pressure at ta (Pa)
+        u      = wind speed (m/s)
+        Rn     = net radiation (W/m2, +/-) 
+        lai    = projected (1-sided) leaf area index
+        cond   = bulk canopy conductivity (m/s)
+</PRE><P>
+Assumptions: No stability correction, G is estimated, 
+canopy height and z0 are a function of lai.  Use with 
+daily data.
+</P>
+
+<H2>OPTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+none
+</P>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jun 1993</DT>
+<DD>
+written by J. Kimball, OSU, EPA-ERL.
+</DD>
+</DL>
+
+<DL>
+<DT>Oct 1993</DT>
+<DD>
+modified <B>%name</B> by adding a stability function for
+the calculation of aerodynamic resistance based on a 
+bulk Richardson number.
+</DD>
+</DL>
+
+<DL>
+<DT>Oct 1994</DT>
+<DD>
+made <B>%name</B> more generalizeable.
+</DD>
+</DL>
+
+<DL>
+<DT>Jun 1995</DT>
+<DD>
+Converted to IPW by J. Domingo, OSU, EPA NHEERL/WED
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>    <B><A href="bowvap.html">bowvap</A></B>,
+<B><A href="penmanx.html">penmanx</A></B>,
+<B><A href="ipmx.html">ipmx</A></B>,
+<B><A href="ptaylorx.html">ptaylorx</A></B>,
+<B><A href="iptx.html">iptx</A></B>,
+<B><A href="ptx.html">ptx</A></B>,
+<B><A href="trb_Ri.html">trb_Ri</A></B>,
+<B><A href="itrbxfr.html">itrbxfr</A></B>,
+<B><A href="trbxfr.html">trbxfr</A></B>
+</DD>
+</DL>
+ 
+<P>
+<A HREF="../bib.html#Brutsaert 1982">Brutsaert 1982</A>,
+<A HREF="../bib.html#Mahrt, Ek 1984">Mahrt, Ek 1984</A>,
+<A HREF="../bib.html#Monteith, Unsworth 1990">Monteith, Unsworth 1990</A>,
+<A HREF="../bib.html#Pereira, Nova 1992">Pereira, Nova 1992</A>,
+<A HREF="../bib.html#Priestley, Taylor, 1972">Priestley, Taylor, 1972</A>,
+<A HREF="../bib.html#Running, Coughlan 1988">Running, Coughlan 1988</A>,
+<A HREF="../bib.html#Stewart 1984">Stewart 1984</A>
+</P>
+ 

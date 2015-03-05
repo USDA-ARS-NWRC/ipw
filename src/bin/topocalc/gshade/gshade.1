@@ -1,0 +1,117 @@
+.TH "gshade" "1" "10 April 1998" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBgshade\fP - cosine of illumination angle (global-scale)
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBgshade\fP [ \fB-m\fP \fImask\fP ] [ \fB-s\fP \fIsolar_image\fP ] [ \fB-z\fP ] [ \fB-i\fP \fIimage\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Gshade is part of a family of large area, or "global", scale radiation
+transfer simulation, and solar/terrain geometry calculation tools,
+developed after the small-scale radiation transfer and terrain structure
+tools, developed at UCSB by Jeff Dozier, Jim Frew, and Ralph Dubayah.
+.PP
+All of the global-scale radiation transfer tools are designated by
+the "g" prefix in front of the small-scale tool's name.  These tools
+assume that solar geometry, atmospheric properties, and sun rise and sun
+set vary over the grid, and they also correct for earth curvature when
+computing horizons, terrain and sky view factors, and illumantion angles.
+.PP
+These global-scale radiation and terrain processing tools can be applied
+to areas of size, up to the entire earth.  The global-scale radiation
+and terrain processing tools were originally developed by Kelly Longley,
+Oregon State University, at the Corvallis, Oregon, EPA lab, in the early
+1990's.
+.PP
+Gshade is the global-scale version of the program shade.
+Gshade calculates the cosine of the local illumination angle.
+The 2-band input image contains slope and aspect, as output by
+ggradient.
+.PP
+The solar image is a 2-band image output by the program gsunlight.
+Band 0 of the solar image is cosine solar zenith angle or zenith
+angle (deg) if \fB-z is set.  Band 1 is solar azimuth as degrees_ccw
+from south (+ E, - W).
+.PP
+Both the solar_image and the input image are required.  They can come
+from either the command line (\fB-s or \fB-i), or one from the command line,
+and one from the stdin.  The output image is written to stdout.
+.SH OPTIONS
+.TP
+\fB-m\fP \fImask\fP
+mask image
+.sp
+.TP
+\fB-s\fP \fIsolar_image\fP
+solar_image, with 2-bands; band 0 is cosine solar zenith angle,
+band 1 is azimuth as degrees_ccw from south (+ E, - W)
+(defaults to stdin)
+.sp
+.TP
+\fB-z\fP
+flag for solar zenith angles (band 0, solar_image) in degrees
+.sp
+.TP
+\fB-i\fP \fIimage\fP
+input slope/azimuth file (defaults to stdin)
+.SH OPERANDS
+.PP
+	solar_image	2-band image, output from program gsunlight
+	image		2-band image, output from ggradient
+.PP
+.SH EXAMPLES
+.PP
+to create a shaded relief image for a dem of the US for June 21, 1990,
+at 10AM GMT:
+.sp
+.nf
+.ft CR
+	mkgeoh .... | gsunlight -t 1990,06,21,10 >solar_image
+	gradient US_dem | gshade -s solar_image > US_shade.out
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     None
+.ft R
+.fi
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+Input and solar_images must be in lat/lon geographic projection:
+latitudes and longitudes in decimal degrees (90 N to -90 S),
+and (-180 to 180 deg +E/-W)
+.SH HISTORY
+.TP
+Jul 1990
+  Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+(modified version of original IPW shade program)
+.SH BUGS
+.PP
+None
+.SH SEE ALSO
+.TP
+IPW
+	\fBmkgeoh\fP,
+\fBggradient\fP,
+\fBgradient\fP,
+\fBshade\fP
+.PP
+Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain parameters
+	for radiation modeling from digital elevation data". IEEE
+	Transactions on Geoscience and Remote Sensing, vol. 28, no. 5,
+	pp. 963-969.
+.PP
+Marks, D., R. Dubayah, and K. Longley, 1991.  "Modeling the topographic
+	and spectral variability of clear-sky solar radiation at regional
+	to continental scales.  Proceedings 1991 IGARSS Symposium,
+	Remote Sensing:  Global Monitoring for Earth Management, Espoo,
+	Finland, Vol. 3, pp. 1711.

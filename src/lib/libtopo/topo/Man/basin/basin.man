@@ -1,0 +1,91 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "topo.h"
+
+fpixel_t
+basin(
+    int        seedX,      /* sample number of seed point          */
+    int        seedY,      /* line number of seed point            */
+    fpixel_t * slope,      /* array of sin(slope) data for pixels  */
+    fpixel_t * exposure,   /* array of exposure data for pixels    */
+    fpixel_t * elev,       /* array of elevation data for pixels   */
+    pixel_t  * bmask,      /* output basin mask                    */
+    int        x_count,    /* number of samples in image           */
+    int        y_count,    /* number of lines in image             */
+    fpixel_t   flat,       /* threshold for "flat" slopes          */
+    int        clipFlag,   /* clip basin to a specific altitude?   */
+    fpixel_t   clipElev)   /* elevation at which to clip the basin */
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Given a seed point and slope and exposure data, the <B>%name</B> function
+recursively climbs "upstream", marking cells as it goes, in order to 
+delineate a basin.
+<P>
+Upstream neighbors are determinded by the exposure direction of the
+current cell.
+<P>
+Flat regions are always considered uphill, no matter what their 
+orientation.  The "flat" argument allows the programmer to specify a
+nonzero sin(slope) tolerance for flatness.
+<P>
+If an array of elevations is fed to the procedure through the 
+"elev" argument, then the lowest point on the boundary is computed
+and returned to the calling procedure.  If "elev" is NULL, the 
+function returns 0.0.  
+<P>
+<B>%name</B> also implements clipping of the basin to a specified maximum
+altitude.  If "clipFlag" is TRUE, and "elev" is non-NULL, then the 
+recursion stops before climbing abouve the elevation specified by 
+"clipElev".
+<P>
+The intended use of the clipping and return-the-lowest-point features
+is for pit masking.  Two calls to <B>%name</B> are to be made in the pit
+masking process.  The first call delineates the entire basin starting
+with the pit seed point.  The lowest point on the boundary from this
+first call is then passed to a second call to <B>%name</B> as a clipping 
+threshold, thus delineating only the extent of the pit.
+
+<H2>RETURN VALUE</H2>
+
+<P>
+If an array of elevations is fed to the procedure through the 
+"elev" argument, then the lowest point on the boundary is computed
+and returned to the calling procedure.  If "elev" is NULL, the 
+function returns 0.0.  
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>May 1995</DT>
+<DD>
+Started by Kevin L. Novins, ERL-C.  Based on Qdips program
+by Marks and Dozier.
+</DD>
+
+<P>
+
+<DT>Jul 1995</DT>
+<DD>
+Modified to include features necessary for pit masking.
+</DD>
+
+<P>
+
+<DT>Jun 1998
+<DD>
+Extracted from <B>bmask</B> and <B>pmask</B> programs, and
+placed in a separate library.  J. Domingo, OSU.
+</DD>
+
+</DL>

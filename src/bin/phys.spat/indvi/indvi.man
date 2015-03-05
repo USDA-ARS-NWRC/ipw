@@ -1,0 +1,100 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <I>(image)</I>
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates normalized difference vegetation index (ndvi)
+from visible and IR satellite data such as AVHRR channels 1 &amp; 2
+(<I>see: Tucker, et al., 1986; Fung, et al., 1987</I>):
+</P><PRE>
+	{IR - VIS} / {IR + VIS}
+</PRE><P>
+Output is a 1-byte image between -1 and 1.
+Input image band 0 is Visible, and band 1 is IR.
+</P>
+
+<H2>OPTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>(image)</I></DT>
+<DD>
+2-band visible and IR input image
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<PRE>
+	mux vis ir | <B>%name</B>
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Input image must have more than one band.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Apr 1992</DT>
+<DD>
+Written by D. Marks, USEPA, Corvallis, OR
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<B><A href="imath.html">imath</A></B>,
+<B><A href="iadd.html">iadd</A></B>,
+<B><A href="mult.html">mult</A></B>
+</DD>
+</DL>
+ 
+<DL>
+<DT>Unix</DT>
+<DD>
+mux
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Tucker 1986">Tucker 1986</A>,
+<A HREF="../bib.html#Fung 1987">Fung 1987</A>,
+</P>
+

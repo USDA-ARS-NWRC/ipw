@@ -1,0 +1,80 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+char *
+	int zone,	/* minutes west of Greenwich */
+	int isdst)	/* is Daylight Savings Time? */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> returns the short time zone name given an offset from GMT
+(now known as UTC) time and a flag as to whether Daylight Savings
+time is in effect.  DST can affect the string returned.
+</P><P>
+Since a single longitude can run through multiple countries, the
+string returned is not correct for all countries.  Many times do
+not have timezone's associated with them, so are returned as a
+string of the form &quot;GMT+0:00&quot; where &quot;+0:00&quot; is the offset given.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+A static string represtening the timezone name.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>May 1993</DT>
+<DD>
+	Written by Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>UNIX</DT>
+<DD>	timezone
+
+</DD>
+
+</DL>
+

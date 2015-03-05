@@ -1,0 +1,69 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>IPW Text Data Files</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../images/usda.gif" alt="USDA">
+<IMG SRC="../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>IPW Text Data Files</H1>
+
+
+<P>
+A text data file for IPW contains a sequence or series of <B>data records</B>.
+An example would be a temporal data set containing hourly measurements of
+one or more meteorological parameters at a specific geographic location.
+<P>
+A data record contains one or more data values, which are usually numeric
+values.  Each data value is refered to as a <B>field</B> in the data record.
+<P>
+For example, the IPW command <B><A HREF="../man1/rh2vp.html">rh2vp</A></B>
+accepts a text data file whose data records have two fields: air temperature
+(in Celsius) and relative humidity (as a decimal fraction between 0 and 1.0):
+<PRE>
+        20.4      0.3
+        25.1      0.25
+        16.9      0.78
+        ...
+</PRE>
+
+<B>Format</B>
+<P>
+The format of a text data file is somewhat flexible.  The fields of each data
+record are separated by one or more whitespace characters (spaces and tabs).
+<P>
+It is recommended that each data record should be on a separate line in the
+file.  Specifically, all the fields of a data record should be on a single
+line in the file, and a line in the data file should contain the fields of
+just one data record.
+<P>
+Although many IPW commands will accept text data files containing a data record
+with its fields on different lines as well as data files containing a line
+with more than one data record, a few commands require one data record
+per line.  Therefore, the one-record-per-line format is recommended for
+compatibility and consistency across all IPW commands.
+<P>
+This format also makes it easier for a user to visually examine a data text
+file.  Furthermore, the user can utilize the UNIX commands "<B>cut</B>" and
+"<B>paste</B>" in the preparation and processing of text data files.
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

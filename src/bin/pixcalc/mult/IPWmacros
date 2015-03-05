@@ -1,0 +1,3 @@
+%define(name,"mult")
+%define(description,"perform multiplication or division on pixels (DEPRECIATED)")
+%define(category,"Pixel Calculations")

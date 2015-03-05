@@ -1,0 +1,62 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+addr_t
+ecalloc(
+	int    nelem,	|* # of elements in array	*|
+	int    elsize)	|* size of each element		*|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B>() is the IPW interface to the UNIX function calloc().
+It allocates an array of nelem elements, each of which is
+elsize in size.
+<B>%name</B> checks that its arguments are positive nonzero values and
+sets an IPW error condition if the allocation fails.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+pointer to allocated memory; else NULL if allocation failed
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

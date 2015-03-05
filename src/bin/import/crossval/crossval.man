@@ -1,0 +1,207 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-p</B> <I>infile</I> ] [ <B>-c</B> <I>textfile</I> ] [ <B>-n</B> <I>neibs</I> ]
+      [ <B>-d</B> <I>nodata value</I> ]  [ <B>-h</B> <I>header</I> ]  [ <B>-m</B> <I>mask</I> ]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> estimates the interpolation error in the
+inverse-distance-squared algorithm
+used by the
+<B><A HREF="surface.html">surface</A></B>
+and
+<B><A HREF="msurface.html">msurface</A></B>
+programs.
+<B>%name</B> reads in a text file of data points   
+(format: easting northing value) and outputs a 
+text file containing the results of a cross-validation analysis.
+For each point in the input file, <B>%name</B> ignores that point, and
+interpolates an output value using the nearest <I>neibs</I> input points.
+</P><P>
+The output file contains the same number of lines as the input
+points file, and the following five columns:  
+</P><PRE>
+        easting  northing  value  crossval-value  residual
+</PRE><P>
+Above, &quot;residual&quot; is computed as: value minus crossval-value.
+The residuals from a cross-validation can be used to
+assess the accuracy of an interpolated surface.  Note,
+however, that the cross-validation procedure only assesses
+accuracy at locations where measurement stations exist, providing
+at best a rough estimate of overall interpolation accuracy.  
+</P><P>
+NOTE:   Without the <B>-c</b> option, <B>%name</B> can be used to
+interpolate 
+an IPW image, exactly like the
+<B><A HREF="surface.html">surface</A></B>
+program.  This 
+functionality was left in mainly for debugging/testing
+purposes, but it may be useful since it has the ability
+to ignore nodata values, while the
+<B><A HREF="surface.html">surface</A></B>
+program does
+not.  <B>%name</B>'s surface interpolation is much slower,
+however.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-c</B> <I>textfile</I>
+<DD>
+Perform a cross-validation and send output to the
+file <I>textfile</I>.  <I>textfile</I> contains the following
+five columns:  easting, northing, value, crossval-value,
+and residual (value minus crossval-value)
+</DD>
+
+<P>
+<DT><B>-n</B> <I>neibs</I>
+<DD>
+The number of nearest neighbors used for interpolation will
+be <I>npoints</I> (default: 12).
+</DD>
+
+<P>
+<DT><B>-p</B> <I>infile</I>
+<DD>
+Points will be read in from <I>infile</I> (default: standard input).
+The input file contains three values per line, formatted:
+</DD>
+
+<PRE>
+     easting  northing  value
+</PRE>
+
+<P>
+<DT><B>-h</B> <I>header</I>
+<DD>
+Use this option only for conventional image interpolation, NOT for
+cross-validation.  The <B>-h</B> and <B>-c</b> options are exclusive.
+The IPW header file <I>header</I> (default: standard input) will
+be used to determine the number of lines, samples, bits per
+pixel (from the &quot;BI&quot; header) and geodetic information (from
+the &quot;GEO&quot; header).  If <I>header</I> contains an &quot;LQ&quot;
+header, it will be used for the floating point mapping in the output
+image; otherwise the mapping will be derived from the data.
+</DD>
+</DL>
+
+<P>At least one of <B>-h</B> and <B>-p</b> must be specified.
+</P>
+
+<DL>
+<DT><B>-d</B> <I>nodata value</I>
+<DD>
+Points with the value <I>nodata value</I> (default: -9999) will
+be ignored by the interpolation routine.
+</DD>
+
+<P>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+This option is only valid when using the <B>-h</B> option:
+The file <I>mask</I> (default: none) will be used to define what
+parts of the output surface are filled in.  Points in <I>mask</I>
+that are 0 will be left 0 in the output image.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+The following will cross-validate the file Tmin.stations, using
+12 neighbors and ignoring values of -9999, to create the output
+file Tmin.error:
+</P><PRE>
+        crossval -p Tmin.stations -j Tmin.error
+</PRE>
+<H2>FILES</H2>
+
+<P>
+None.
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT>error reading point <I>npoint</I> from input file
+</DT>
+
+<P>
+<DT>input header has no geodetic header
+</DT>
+<DD>The input header file must have a GEO header.
+</DD>
+
+<P>
+<DT>input geographic projection units are degrees - must be be Euclidean
+</DT>
+<DD>The geodetic coordinates defined in the input image must
+be appropriate for Euclidean distance calculations:
+</DD>
+<PRE>
+     d = sqrt( (x1-x2)^2 + (y1-y2)^2 )
+</PRE>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+When using the <B>-c</b> option, the input points file may not come
+from stdin.
+</P><P>
+The mask and header file must be single band.
+</P><P>
+Map projection distortions can introduce significant
+error in distance computations as the spatial extent of
+the image increases, or if an improper map projection is used.
+For example, interpolating a surface over an Arctic region while
+using a US Albers projection would produce unusual (and incorrect)
+results.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Oct 1994</DT>
+<DD>
+Written by Rusty Dodson, MERSC, ERL-C.             
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW:</DT>
+<DD><B><A href="surface.html">surface</A></B>,
+<B><A href="mkgeoh.html">mkgeoh</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Dodson 1997">Dodson 1997</A>
+</P>
+

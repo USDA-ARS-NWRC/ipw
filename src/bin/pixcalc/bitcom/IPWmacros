@@ -1,0 +1,3 @@
+%define(name,"bitcom")
+%define(description,"bitwise combination of pixels (AND, OR, exclusive-OR)")
+%define(category,"Pixel Calculations")

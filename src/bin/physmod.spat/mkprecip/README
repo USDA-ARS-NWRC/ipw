@@ -1,0 +1,6 @@
+Oct 30, 1996
+
+This is a 2nd version of the 'mkprecip' program with the following change:
+
+the "calc_snow" routine has been modified to use a different range
+of temperatures and snow densities.

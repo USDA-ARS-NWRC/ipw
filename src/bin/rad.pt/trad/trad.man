@@ -1,0 +1,180 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-z</B> <I>elev</I> [ <B>-m</B> ] [ <B>-c</B> ] [ <B>-K</B> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Trad is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+</P><P>
+Trad calculates incoming longwave radiation from the atmosphere
+on a horizontal surface for a specified elevation for a clear atmosphere
+from input pairs of air temperature and vapor pressure.
+(After Marks and Dozier, 1979).
+</P><P>
+Input is to stdin; output to stdout.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-z</B> <I>elev</I>
+<DD>
+<I>elev</I> is the specified elevation in meters.
+</DD>
+
+<P>
+<DT><B>-m</B> 
+<DD>
+The input values for vapor pressure are in millibars.
+(default: Pa).
+</DD>
+
+<P>
+<DT><B>-c</B> 
+<DD>
+Also output thermal rad for very cloudy atmosphere.
+(cloud emissivity: 0.998).
+</DD>
+
+<P>
+<DT><B>-K</B> 
+<DD>
+The input values for air temperatures is in degrees K
+(default: C).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate incoming thermal radiation at the Park City weather station,
+using the following input data set:
+</P><PRE>
+	ta	vp
+	8	540
+	10	560
+	6	520
+	3	490
+	0	495
+</PRE><PRE>
+	trad -z 2940
+</PRE>
+<P>
+yields:
+</P>
+<PRE>
+	208.15
+	214.98
+	201.46
+	191.69
+	184.16
+</PRE><PRE>
+	trad -z 2940 -c
+</PRE>
+<P>
+yields:
+</P>
+<PRE>
+	208.15	350.5
+	214.98	360.12
+	201.46	340.20
+	191.69	325.81
+	184.16	311.88
+</PRE>
+
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>May 1986</DT>
+<DD>
+	Written by D. Marks, CSL, UCSB;
+</DD>
+</DL>
+
+<DL>
+<DT>Jun 1995</DT>
+<DD>
+	Converted to IPW by J. Domingo, OSU, EPA NHEERL/WED
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="standard/cvtime.html">standard cvtime</A></B>,
+<B><A href="standard/albedo.html">albedo</A></B>,
+<B><A href="standard/bowvap.html">bowvap</A></B>,
+<B><A href="standard/dewpt.html">dewpt</A></B>,
+<B><A href="standard/gsnow.html">gsnow</A></B>,
+<B><A href="standard/mse.html">mse</A></B>,
+<B><A href="standard/penmonx.html">penmonx</A></B>,
+<B><A href="standard/pmx.html">pmx</A></B>,
+<B><A href="standard/pott.html">pott</A></B>,
+<B><A href="standard/ptaylorx.html">ptaylorx</A></B>,
+<B><A href="standard/ptx.html">ptx</A></B>,
+<B><A href="standard/rh2vp.html">rh2vp</A></B>,
+<B><A href="standard/satvp.html">satvp</A></B>,
+<B><A href="standard/sling.html">sling</A></B>,
+<B><A href="standard/soilt.html">soilt</A></B>,
+<B><A href="standard/soiltmp.html">soiltmp</A></B>,
+<B><A href="standard/srftmp.html">srftmp</A></B>,
+<B><A href="standard/swe.html">swe</A></B>,
+<B><A href="standard/swp.html">swp</A></B>,
+<B><A href="standard/thermin.html">thermin</A></B>,
+<B><A href="standard/trb_Ri.html">trb_Ri</A></B>,
+<B><A href="standard/trbxfr.html">trbxfr</A></B>,
+<B><A href="standard/vptr.html">vptr</A></B>,
+<B><A href="standard/zpr.html">zpr</A></B>
+</DD>
+</DL>
+<P>
+<A HREF="../bib.html#Marks 1979">Marks &amp; Dozier 1979</A>,
+<A HREF="../bib.html#Brutsaert 1975">Brutsaert 1975</A>
+</P>
+

@@ -1,0 +1,155 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads a time-mass-temperature precipitation data set, and 
+parses the data into events, and computes time since last precipitation
+event for use by the program
+<B><A href="standard/albedo.html">albedo</A></B>
+which estimates time-albedo decay as a function of grain-size increase.
+</P>
+<P>
+Expects the input precipitation data set to have three values per line:
+</P><PRE>
+	time	mass	temp
+	(hrs)	(mm)	(C)
+	====================
+	151	0	-1.8
+	152	0	-2
+	153	0	-2
+	154	2.2	-2.3
+	155	4.4	-3
+	156	1.2	-4.2
+	157	0.4	-4.6
+	158	0	-4.7
+	159	0	-4.8
+	160	0.4	-5.5
+	161	0.5	-5.1
+	162	0.3	-5
+	163	0.7	-5.8
+	164	0.1	-6.5
+	165	0	-8.5
+	166	0	-9.2
+	167	0	-9.1
+	168	0	-10.1
+	169	0	-10.6
+</PRE><P>
+Will output <I>NA></I> until the first precipitation event,
+and then outputs the following:
+</P><PRE>
+	Delta	time	elapsed 	event number
+	(days)	(hrs)	time (hrs)		
+	=============================================
+	0.0000	151.0	150.0:		no precip
+	0.0417	152.0	151.0: 		no precip
+	0.0833	153.0	152.0: 		no precip
+	0.0000	154.0	153.0		2
+	0.0000	155.0	154.0		2
+	0.0000	156.0	155.0		2
+	0.0000	157.0	156.0		2
+	0.0000	158.0	157.0:		no precip
+	0.0417	159.0	158.0:		no precip
+	0.0000	160.0	159.0		3
+	0.0000	161.0	160.0		3
+	0.0000	162.0	161.0		3
+	0.0000	163.0	162.0		3
+	0.0000	164.0	163.0		3
+	0.0000	165.0	164.0:		no precip
+	0.0417	166.0	165.0:		no precip
+	0.0833	167.0	166.0:		no precip
+	0.1250	168.0	167.0:		no precip
+	0.1667	169.0	168.0:		no precip
+</PRE><P>
+
+<H2>OPTIONS</H2>
+
+<P>None
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+See above.
+</P>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>input line must have exactly 3 fields
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Mar 2006</DT>
+<DD>
+	Written by D. Marks, ARS-NWRC, Boise, ID.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD> <B><A href="standard/albedo.html">albedo</A></B>,
+<B><A href="standard/ialbedo.html">ialbedo</A></B>,
+<B><A href="local/mkpcp.html">mkpcp</A></B>,
+<B><A href="local/mkpcp_a.html">mkpcp_a</A></B>,
+<B><A href="standard/mkprecip.html">mkprecip</A></B>,
+<B><A href="standard/snobal.html">snobal</A></B>,
+<B><A href="standard/isnobal.html">isnobal</A></B>,
+</DD>
+</DL>
+
+<DL>
+<DT>UNIX</DT>
+
+<DD><B>awk</B></DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A>,
+<A HREF="../bib.html#Choudhury 1981">Choudhury 1981</A>,
+<A HREF="../bib.html#Marshall, Warren 1987">Marshall and Warren 1987</A>,
+<A HREF="../bib.html#Warren 1980">Warren and Wiscombe 1980</A>
+<A HREF="../bib.html#Wiscombe 1980">Wiscombe and Warren 1980</A>
+</P>
+

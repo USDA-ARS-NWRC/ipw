@@ -1,0 +1,3 @@
+%define(name,"bih")
+%define(description,"get BIH header associated with file descriptor")
+%define(category,"bih")

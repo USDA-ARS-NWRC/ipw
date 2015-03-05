@@ -1,0 +1,78 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "fpio.h"
+
+int
+mnxfp(
+	fpixel_t   *x,		|* multiplexed vectors		 *|
+	int         npixv,	|* length of vectors		 *|
+	int         nbands,	|* # multiplexed bands		 *|
+	fpixel_t   *mmval)	|* min,max values		 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> finds the minima and maxima of the nbands interleaved
+vectors of length npixv and of type fpixel_t.  The minima and
+maxima of the bands are interleaved, i.e. the minimum and
+maximum of band n are in mmval[2*n] and mmval[2*n+1].
+</P><P>
+<B>%name</B> is normally used with the fpio package to find the
+parameters necessary to write the floating-point pixels as
+pixel_t's.
+</P><P>
+If the returned pointer &quot;mmval&quot; is used as an argument to lqhmake, it
+must first be tested to see if the values are equal.  The following
+code should follow a call to <B>%name</B> that will be used this way:
+</P><PRE>
+	if (parm.mmval[0] == parm.mmval[1]) {
+		parm.mmval[1] += 1;
+	}
+</PRE>
+<H2>RETURN VALUE</H2>
+
+<P>
+OK (for backward compatibility)
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

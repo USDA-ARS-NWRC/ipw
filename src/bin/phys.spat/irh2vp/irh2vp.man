@@ -1,0 +1,195 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-i</B> ] [ <B>-c</B> ] [ <B>-b</B> <I>nbits</I> ] [ <B>-m</B> <I>mask</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties over an area.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs to simulate the process at a point
+by D. Marks, during the 1980's at UCSB.
+<B>%name</B> is the spatial version of <B>rh2vp</B>.
+</P>
+
+<P>
+<B>%name</B> reads a two-band <I>image</I> (default: standard input)
+containing relative humidity (RH) and air temperature (Ta),
+or vapor pressure (vp) and Ta,
+and writes image of the corresponding vp or RH to the standard output.
+</P><P>
+(see <I>General Meterology, Byers, 1974</I>)
+</P>
+
+<P>
+If <B>-i</b> is specified, then the operation is reversed:  the input image
+contains vp and Ta, and the output image will be the corresponding RH.
+</P><P>
+If <B>-c</b> is specified, then the conversion to RH is clipped so that no
+values are less than 0.0 or exceed 1.0, or vp is clipped so that no
+values are less than 0.0 or exceed sat_vp.  It is recommended that input
+bands be checked using &quot;imgstat&quot; to verify that image min/max is
+appropriate for either RH or vp. Then the <B>-c</b> option can be used to
+clean up noise in the data.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-i</B> 
+<DD>
+Perform the inverse operation of vapor pressure to relative
+humidity.
+</DD>
+
+<P>
+<DT><B>-c</B> 
+<DD>
+clip RH values to between 0.0 and 1.0, or vp values to
+between 0.0 and sat_vp.
+</DD>
+
+<P>
+<DT><B>-b</B> <I>nbits</I>
+<DD>
+Use <I>nbits</I> per output pixel (default: 16).
+</DD>
+
+<P>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+Use <I>mask</I> as a mask image.  Any points in <I>mask</I> that are 0
+will have the corresponding output pixel set to 0.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image	input 2-band image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+Given relative humidity and air temperature images:
+</P><PRE>
+	mux humidity temp | irh2vp
+</PRE><P>
+generates vapor pressure.  Likewise:
+</P><PRE>
+	mux vappres temp | irh2vp -i
+</PRE><P>
+generates relative humidity.
+</P>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>image has <I>bands</I> bands; 2 band images only
+</DT>
+<DD><BR>	The input image must have exactly two bands.
+</DD>
+
+<P>
+<DT>input file has no LQH; raw values used
+</DT>
+<DD><BR>	No LQ header was found in the input image.  This is likely
+	to result in incorrect output.
+</DD>
+
+<P>
+<DT>Bad input RH, Bad input vp
+</DT>
+<DD><BR>	if <B>-c</b> (clip) not set, program will terminate on bad input
+	RH (values &lt; 0.0 or &gt; 1.0) or vp (values &lt; 0.0 or &gt; sat_vp).
+	Even very small errors will cause the program to terminate.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<DL>
+<DT>Oct 1990</DT>
+<DD>
+	Added <B>-b</b> #output bits option; now scales LQH based on
+data min and max.  K. Longley, OSU, EPA ERL-C
+</DD>
+</DL>
+
+<DL>
+<DT>Mar 1997</DT>
+<DD>
+	Converted to &quot;<B>%name</B>&quot; from &quot;rh2vp&quot; to conform to
+conventions of satvp -- isatvp, dewpt -- idewpt.  Old
+program &quot;hythrm&quot; also modified, and renamed &quot;rh2vp&quot;.
+Added <B>-c</b> option to prevent negative values or RH &gt; 1.0,
+or vp &gt; sat_vp; D. Marks, USGS, NHEERL, Corvallis, OR.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+
+<H2>SEE ALSO</H2>
+ 
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="idewpt.html">idewpt</A></B>,
+<B><A href="dewpt.html">dewpt</A></B>,
+<B><A href="rh2vp.html">rh2vp</A></B>,
+<B><A href="isatvp.html">isatvp</A></B>,
+<B><A href="satvp.html">satvp</A></B>,
+<B><A href="sling.html">sling</A></B>,
+<B><A href="vptr.html">vptr</A></B>,
+</DD>
+</DL>
+ 
+<DL>
+<DT>Unix</DT>
+<DD>
+mux
+</DD>
+</DL>
+ 
+<P>
+<A HREF="../bib.html#Byers 1974">Byers 1974</A>,
+</P>
+ 

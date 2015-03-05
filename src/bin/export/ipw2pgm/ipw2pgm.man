@@ -1,0 +1,123 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+ <I>ipw2ppm </I>[<I>-v</I>]<I> </I>[<I>-m mask</I>]<I> </I>[<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads an IPW image and outputs a PGM image suitable for
+processing by other image processing or image manipulation
+packages.  The IPW data values are scaled to between 0 and 255
+and then written as a PGM image.  For 1-byte IPW images, no
+scaling is necessary and the program operates much faster.
+</P><P>
+The program ipw2ppm is a more general form of this program, but
+can run significantly slower.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-v</B> 
+<DD>
+<B>%name</B> will print the dimensions of the image to the
+standard error.
+</DD>
+
+<P>
+<DT><B>-m</B> 
+<DD>
+Use <I>mask</I> as a mask image.  Any points in <I>mask</I> that are
+0 will have the corresponding points in the output image
+set to 0 (black).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>ipw2ppm </I>[<I>-v</I>]<I> </I>[<I>-m mask</I>]<I> </I>[<I>image</I>]</DT>
+
+<DD>	image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To convert &quot;900315.ipw&quot; to a PGM image using &quot;col.mask&quot; as a mask.
+</P><PRE>
+	ipw2pgm  -m col.mask  900315.ipw
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>image must have 1 band.
+</DT>
+<DD><BR>	Only single band images are supported.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Only binary PGM images are output.  No support for ASCII PGM
+images is planned.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Mar 1993</DT>
+<DD>
+	Written by Dana Jacobsen, ERL-C.  Based on <I>ipw2ppm</I>.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="ipw2hds.html">ipw2hds</A></B>,
+<B><A href="ipw2ppm.html">ipw2ppm</A></B>,
+<B><A href="ipw2pbm.html">ipw2pbm</A></B>,
+<B><A href="ipw2ps.html">ipw2ps</A></B>,
+<B><A href="ipw2sun.html">ipw2sun</A></B>,
+<B><A href="ipw2xim.html">ipw2xim</A></B>,
+<B><A href="ipw2xyz.html">ipw2xyz</A></B>,
+	<B><A href="pbm2ipw.html">pbm2ipw</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Image</DT>
+<DD>	PPM, PGM, PNM, xv, xli, xloadimage, pnmtops
+</DD>
+</DL>
+<P>&quot;PBMPLUS -- Extended Portable Bitmap Toolkit&quot;, Jef Poskanzer,
+10 December, 1991.  Anonymous ftp from export.lcs.mit.edu:
+/contrib/pbmplus.tar.Z.
+</P>
+

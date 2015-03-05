@@ -1,0 +1,59 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "bih.h"
+
+BIH_T **
+bih(
+        int     fd)             |* image file descriptor	*|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+
+<H2>RETURN VALUE</H2>
+
+<P>
+pointer to the BIH header array associated with file descriptor fd; or
+NULL if there are no BIH headers associated with file descriptor fd.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None.
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

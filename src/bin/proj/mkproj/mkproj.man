@@ -1,0 +1,423 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-d</B> <I>datum-code</I> ] [ <B>-u</B> <I>unit-code</I> ] <B>-p</B> <I>name</I>
+       [ <I>projection-specific options</I> ]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+%name is part of an extensive suite of projection transformation
+tools coded into IPW by Kelly Longley (OSU) at the EPA Laboratory
+in Corvallis, Oregon.  All are based on the libraries from the
+General Cartographic Transformation Package (GCTP), which were converted
+to C from fortran during early 1990 by Ms. Longley.
+</P><P>
+%name was written in 1994, by Robert McGowan, to provide a universal
+tool for creation of projection defination files.  It replaces all of
+individual programs (mkalbers, mkgeo, mklambert, mklamcc, mkutm,...)
+that were written to provide this ability for specific projections.
+</P><P>
+%name creates a projection definition file for any of the defined map 
+projections listed below (see OPTIONS, -p).  The output projection file 
+contains the 15 projection parameters defined in the USGS General 
+Cartographic Transformation Package and used by program reproj to 
+reproject an image.  (See GCTP documentation for a description of the
+parameters.)
+</P><P>
+The output file is written in ASCII to stdout with values
+in the following order:
+</P><PRE>
+        projection ID code
+        units code
+        zone code (used only by UTM and SPCS)
+        datum code
+        projection parameters (15 values)
+</PRE>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-d</B> <I>datum-code</I></DT>
+<DD>
+datum code used to define shape of the standard sphere. Used
+to set the semimajor axis and eccentricity squared of the 
+ellipsoid. (default: 0)
+<PRE>
+
+0=Clarke 1866  7=WGS 66        14=Australian National
+1=Clarke 1880  8=GRS 1980      15=Krassovsky
+2=Bessel       9=Airy          16=Hough
+3=Int'l 1967  10=Mod. Everest  17=Mercury 1960
+4=Int'l 1909  11=Mod. Airy     18=Mod. Mercury 1968
+5=WGS 72      12=Walbeck       19=Sphere, rad. 6370997m
+6=Everest     13=Southeast Asia
+</PRE></DD>
+
+<DT><B>-u</B> <I>unit-code</I></DT>
+<DD>
+projection units. (default: 2)
+<PRE>
+0=radians   2=meters        4=degrees of arc
+1=feet      3=sec of arc    5=packed DMS (DDDMMMSSS.SS)
+</PRE></DD>
+
+<DT><B>-p</B> <I>name</I></DT>
+<DD>
+projection type. The name must be one of the following:
+<PRE>
+      NAME    PROJECTION TYPE
+      ====    ===============
+      albers  Albers Conical
+      azmeqd  Azimuthal Equidistant
+      eqrect  Equirectangular
+      equidc  Equidistant Conic
+      geo     Geographic
+      gnomon  Gnomonic
+      gvnsp   General Vertical Near-Side Perspective
+      hom     (Hotine) Oblique Mercator
+      lamaz   Lambert Azimuthal Equal Area
+      lamcc   Lambert Conformal Conic
+      mercat  Mercator
+      miller  Miller Cylindrical
+      ortho   Orthographic
+      polyc   Polyconic
+      ps      Polar Stereographic
+      snsoid  Sinusoidal
+      som     Space Oblique Mercator
+      spcs    State Plane Coordinate (SPCS)
+      stereo  Stereographic
+      tm      Transverse Mercator (TM)
+      utm     Universal Transverse Mercator (UTM)
+      vgrint  Van der Grinten
+</PRE></DD>
+
+</DL>
+
+<P>
+Each projection type has its own set of additional options, which may appear
+in any order on the command line.
+</P>
+
+<PRE>
+albers:  <B>-l</B> <I>long,lat</I> [ <B>-s</B> <I>stlat,stlat</I> ] [ <B>-o</B> <I>east,north</I> ]
+         [ <B>-a</B> <I>axis</I> ] [ <B>-e</B> <I>eccsq</I> ]
+
+azmeqd:  <B>-l</B> <I>long,lat</I> [ <B>-o</B> <I>east,north</I> ] [ <B>-r</B> <I>radius</I> ] 
+
+eqrect:  <B>-l</B> <I>long,lat</I> [ <B>-o</B> <I>east,north</I> ] [ <B>-r</B> <I>radius</I> ] 
+
+equidc:  <B>-l</B> <I>long,lat</I> <B>-s</B> <I>stlat</I>[,<I>stlat</I>] [ <B>-o</B> <I>east,north</I> ] 
+         [ <B>-a</B> <I>axis</I> ] [ <B>-e</B> <I>eccsq</I> ] 
+
+geo   :   (<I>no additonal parameters</I>)
+
+gnomon:  <B>-l</B> <I>long,lat</I> [ <B>-o</B> <I>east,north</I> ] [ <B>-r</B> <I>radius</I> ] 
+
+gvnsp :  <B>-l</B> <I>long,lat</I> <B>-h</B> <I>height</I> [ <B>-o</B> <I>east,north</I> ] [ <B>-r</B> <I>radius</I> ] 
+
+hom   :  <B>-l</B> <I>long1,lat1,long2,lat2</I> |
+         <B>-z</B> <I>azim,long</I> <B>-c</B> <I>scale,stlat</I> [ <B>-o</B> <I>east,north</I> ] 
+         [ <B>-a</B> <I>axis</I> ] [ <B>-e</B> <I>eccsq</I> ] 
+
+lamaz :  <B>-l</B> <I>long,lat</I> [ <B>-o</B> <I>east,north</I> ] [ <B>-r</B> <I>radius</I> ] 
+
+lamcc :  <B>-l</B> <I>long,lat</I> [ <B>-s</B> <I>stlat,stlat</I> ] [ <B>-o</B> <I>east,north</I> ] 
+         [ <B>-a</B> <I>axis</I> ] [ <B>-e</B> <I>eccsq</I> ] 
+
+mercat:  <B>-l</B> <I>long,lat</I> [ <B>-o</B> <I>east,north</I> ] [ <B>-a</B> <I>axis</I> ] [ <B>-e</B> <I>eccsq</I> ] 
+
+miller:  <B>-l</B> <I>long</I> [ <B>-o</B> <I>east,north</I> ] [ <B>-r</B> <I>radius</I> ] 
+
+ortho :  <B>-l</B> <I>long,lat</I> [ <B>-o</B> <I>east,north</I> ] [ <B>-r</B> <I>radius</I> ] 
+
+polyc :  <B>-l</B> <I>long,lat</I> [ <B>-o</B> <I>east,north</I> ] [ <B>-a</B> <I>axis</I> ] [ <B>-e</B> <I>eccsq</I> ] 
+
+ps    :  <B>-l</B> <I>long,lat</I> [ <B>-o</B> <I>east,north</I> ] [ <B>-a</B> <I>axis</I> ] [ <B>-e</B> <I>eccsq</I> ] 
+
+snsoid:  <B>-l</B> <I>long</I> [ <B>-o</B> <I>east,north</I> ] [ <B>-r</B> <I>radius</I> ] 
+
+som   :  <B>-l</B> <I>long</I> | <B>-w</B> <I>path</I> [ <B>-i</B> <I>inclin</I> ] [ <B>-t</B> <I>minutes</I> ]
+         [ <B>-r</B> <I>ratio</I> ] [ <B>-f</B> <I>flag</I> ] [ <B>-o</B> <I>east,north</I> ] [ <B>-a</B> <I>axis</I> ]
+         [ <B>-e</B> <I>eccsq</I> ] 
+
+spcs  :  <B>-n</B> <I>zone</I>
+
+stereo:  <B>-l</B> <I>long,lat</I> [ <B>-o</B> <I>east,north</I> ] [ <B>-r</B> <I>radius</I> ] 
+
+tm    :  <B>-l</B> <I>long,lat</I> [ <B>-c</B> <I>scale</I> ] [ <B>-o</B> <I>east,north</I> ] [ <B>-a</B> <I>axis</I> ] 
+         [ <B>-e</B> <I>eccsq</I> ] 
+
+utm   :  <B>-l</B> <I>long,lat</I> | <B>-n</B> <I>zone</I>
+
+vgrint:  <B>-l</B> <I>long,lat</I> [ <B>-o</B> <I>east,north</I> ] [ <B>-r</B> <I>radius</I> ] 
+
+</PRE>
+
+<DL>
+
+<DT><B>-a</B> <I>axis</I></DT>
+<DD>
+(<TT>albers, equidc, hom, lamcc, mercat, polyc, ps, som, tm</TT>)<BR>
+     semi-major axis of the ellipsoid, in units chosen by <B>-u</B>
+(not used if <B>-d</B> is specified)
+</DD>
+
+<P>
+<DT><B>-c</B> <I>scale,stlat</I></DT>
+<DD>
+(<TT>tm</TT>)<BR>
+     scale factor at central meridian<BR>
+<BR>
+(<TT>hom</TT>)<BR>
+     scale factor at center of projection, followed by latitude of
+projection origin
+</DD>
+
+<P>
+<DT><B>-e</B> <I>eccsq</I></DT>
+<DD>
+(<TT>albers, equidc, hom, lamcc, mercat, polyc, ps, som, tm</TT>)
+<BR>
+     eccentricity squared of ellipsoid:
+<P>
+If <I>eccsq</I>=0, then the earth is assumed to be a sphere.
+<P>
+<DD>
+If 0 < <I>eccsq</I> <= 1, then <I>eccsq</I> is the eccentricity squared
+of the ellipsoid.
+<P>
+If <I>eccsq</I> > 1, then <I>eccsq</I> is the semi-minor axis of
+of the ellipsoid, in the same units as the semi-major axis
+<P>
+Not used if <B>-d</B> is specified.  If used, <B>-a</B> must also be used.
+</DD>
+
+<P>
+<DT><B>-f</B> <I>flag</I></DT>
+<DD>
+(<TT>som</TT>)
+<BR>
+     Landsat end-of-path flag (default: 0)<BR>
+set to 1 to see portions of rows 1, 2 as part of rows 246, 247
+</DD>
+
+<P>
+<DT><B>-h</B> <I>height</I></DT>
+<DD>
+(<TT>gvnsp</TT>)
+<BR>
+     height of perspective point
+</DD>
+
+<P>
+<DT><B>-i</B> <I>inclin</I></DT>
+<DD>
+(<TT>som</TT>)
+<BR>
+     inclination of orbit at ascending node, measured counter-clockwise
+from the equator
+</DD>
+
+<P>
+<DT><B>-l</B> <I>long,lat</I></DT>
+<DD>
+     longitude (+E/-W) and latitude (+N/-S) of:
+<P>
+(<TT>azmeqd, gnomon, gvnsp, lamaz, ortho, stereo</TT>)<BR>
+     center of projection
+<P>
+(<TT>utm</TT>)<BR>
+     any point in the UTM zone
+<P>
+(<TT>hom</TT>)<BR>
+     two points on the centerline of projection
+<P>
+(<TT>eqrect, mercat</TT>)<BR>
+     longitude of central meridian, latitude of true scale
+<P>
+(<TT>ps</TT>)<BR>
+     longitude down below pole of map, latitude of true scale
+<P>
+(<TT>albers, equidc, lamcc, polyc, tm, vgrint</TT>)<BR>
+     longitude of central meridian, latitude of origin
+<P>
+(<TT>miller, snsoid</TT>)<BR>
+    central meridian (longitude only)
+<P>
+(<TT>som</TT>)<BR>
+    acending node of orbit (longitude only)
+</DD>
+
+<P>
+<DT><B>-n</B> <I>zone</I></DT>
+<DD>
+(<TT>utm</TT>)<BR>
+     UTM zone code (use negative codes for Southern hemisphere
+<P>
+(<TT>spcs</TT>)<BR>
+     SPCS zone code
+</DD>
+
+<P>
+<DT><B>-o</B> <I>east,north</I></DT>
+<DD>
+offset of upper-left corner of image from origin of projection,
+in the units chosen with the <B>-u</B> option.  Use negative numbers for
+offsets west or south of origin.  Also known as false-easting and
+false-northing. (default: 0,0)
+</DD>
+
+<P>
+<DT><B>-r</B> <I>radius</I> or <I>ratio</I></DT>
+<DD>
+(<TT>azmeqd, eqrect, gnomon, gvnsp, lamaz, miller, ortho, snsoid,
+stereo, vgrint</TT>)<BR>
+     radius of sphere of reference, in units chosen with the <B>-u</B>
+option (default: 6370997) (NOTE: if you choose units other
+than meters, you will need to change this number)
+<P>
+(<TT>som</TT>)<BR>
+     Landsat ratio, to compensate for confusion at northern
+end of orbit (default: 0.5201613);
+</DD>
+
+<P>
+<DT><B>-s</B> <I>stlat,stlat</I></DT>
+<DD>
+(<TT>albers, equidc, lamcc</TT>)<BR>
+     standard parallel(s) for the projection
+</DD>
+
+<P>
+<DT><B>-t</B> <I>minutes</I></DT>
+<DD>
+(<TT>som</TT>)<BR>
+     orbit period, in minutes
+</DD>
+
+<P>
+<DT><B>-w</B> <I>path</I></DT>
+<DD>
+(<TT>som</TT>)<BR>
+     Landsat path number (used to calculate longitude of ascending orbit)
+</DD>
+
+<P>
+<DT><B>-z</B> <I>azim,long</I></DT>
+<DD>
+(<TT>hom</TT>)<BR>
+     azimuth angle of centerline (clockwise from north), followed by
+longitude of centerline's intersection with central meridian
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+None.
+
+<H2>EXAMPLES</H2>
+
+<P>
+To create the parameter definition file for a geodetic projection:
+</P>
+<PRE>
+    mkproj -p geo &gt; geo.defs
+</PRE>
+
+<P>
+Parameters for an Albers Conical Equal Area projection of the
+continental U.S.:
+</P>
+<PRE>
+    mkproj -p albers -s 29.5,45.5 -l -96,23 &gt; usalbers.defs
+</PRE>
+
+<P>
+Parameters for a Lambert Azimuthal Equal Area  projection of 
+North America:
+</P>
+<PRE>
+    mkproj -p lamaz -l -100,45 &gt; nalambert.defs
+</PRE>
+
+<P>
+Parameters for a Lambert Conformal Conic projection of the U.S.:
+</P>
+<PRE>
+    mkproj -p lamcc -l -96,23 -s 29.5,45.5 &gt; uslamcc.defs
+</PRE>
+
+<P>
+Parameters for a Universal Transvers Mercator projection of
+Western Oregon:
+</P>
+<PRE>
+    mkproj -p utm -n 10 &gt; west.ore.defs
+                   or
+    mkproj -p utm -l -121,45 &gt; west.ore.defs
+</PRE>
+
+<H2>FILES</H2>
+
+None.
+
+<H2>DIAGNOSTICS</H2>
+
+None.
+
+<H2>RESTRICTIONS</H2>
+
+None.
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Feb 1994</DT>
+<DD>
+Written by Robert McCowen, Computer Sciences Corp.,
+Environmental Research Laboratory, Corvallis, OR
+</DD>
+
+<P>
+
+<DT>Jun 1996</DT>
+<DD>
+Internal housecleaning for more readable code.
+Fixed minor bugs.  J. Domingo, OSU
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+None.
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="mkgeo.html">mkgeo</A></B>,
+<B><A href="mklambert.html">mklambert</A></B>,
+<B><A href="mklamcc.html">mklamcc</A></B>,
+<B><A href="mkalbers.html">mkalbers</A></B>,
+<B><A href="mkutm.html">mkutm</A></B>,
+<B><A href="reproj.html">reproj</A></B>,
+<B><A href="reproj_area.html">reproj_area</A></B>,
+<B><A href="transcoord.html">transcoord</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Evenden 1983">Evenden 1983</A>,
+<A HREF="../bib.html#Elassal 1987">Elassal 1987</A>,
+<A HREF="../bib.html#Snyder 1987">Snyder 1987</A>,
+<A HREF="../bib.html#Snyder 1989">Snyder 1989</A>
+</P>
+

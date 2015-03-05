@@ -1,0 +1,76 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+double
+zerobr(
+	double	a,		|* spanning guess for root	*|
+	double	b,		|* spanning guess for root	*|
+	double	t,		|* tolerable relative error	*|
+	double	(*f)() )	|* pointer to function		*|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Returns zero of a function by Brent's algorithm (R. Brent,
+Algorithms for Minimization without Derivatives).
+</P>
+<H2>RETURN VALUE</H2>
+
+<PRE>
+     errno = 0	zero breakpoint
+</PRE><P>
+errno != 0	error occurred, and message stored via 'usrerr' routine
+</P>
+<PRE>
+		(the function f is also assumed to do this)
+</PRE>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1982</DT>
+<DD>
+	Written by J. Dozier, Department of Geography, UCSB
+10/21/92:	Converted to IPW by D. Marks, USGS, EPA, ERL/C;
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

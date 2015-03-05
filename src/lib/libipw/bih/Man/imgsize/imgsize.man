@@ -1,0 +1,68 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "bih.h"
+
+long
+imgsize(
+	int             fd)	|* image file descriptor	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> computes the total number of image data (pixel) bytes in the
+image accessed via file descriptor fd.
+</P><P>
+The value returned by <B>%name</B> does NOT include the bytes occupied by
+header data (e.g., for an image with 512 lines, 512 samples, 1 band,
+and 1 byte per pixel, the value returned by <B>%name</B> will be 512*512).
+</P><P>
+<B>%name</B> is typically called by application programs that modify image
+headers and then copy all image data by calling ucopy.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+total # bytes in image
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

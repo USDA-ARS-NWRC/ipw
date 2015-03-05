@@ -1,0 +1,2 @@
+%define(name,"bih")
+%define(description,"basic image headers")

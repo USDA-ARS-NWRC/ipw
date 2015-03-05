@@ -1,0 +1,72 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "mapproj.h"
+
+struct projdef *
+read_proj(
+	char	*filename)	|* name of projection def file	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads the given projection definition file, writes the
+contents into a projdef struct, and returns a pointer to the
+struct.  The projection definition files are ASCII files with the
+following format:
+</P>
+<PRE>
+	projection ID
+	units code
+	zone code
+	datum code
+	projection parameters (15 values)
+</PRE>
+<H2>RETURN VALUE</H2>
+
+<P>
+non-NULL	pointer to allocated &amp; initialized projdef struct
+</P><P>
+NULL		error occurred; message stored via 'usrerr'
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

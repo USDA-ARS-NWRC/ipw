@@ -1,0 +1,62 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "fpio.h"
+
+int
+fpvread(
+	int             fd,	  |* input file descriptor	 *|
+	REG_2 fpixel_t *buf,	  |* -> floating-point buffer	 *|
+	REG_5 int       npixv)	  |* # pixel vectors to read	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads npixv floating-point vectors from file descriptor fd
+into buf.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+number of floating-point vectors read; else ERROR for failure
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_fpiocb
+</P>
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

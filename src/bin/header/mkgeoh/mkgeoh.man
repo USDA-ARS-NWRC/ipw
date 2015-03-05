@@ -1,0 +1,168 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-o</B> <I>u</I>,<I>v</I> <B>-d</B> <I>du</I>,<I>dv</I> <B>-u</B> <I>units</I> <B>-c</B> <I>csys</I> [ <B>-b</B> <I>band</I>[,<I>...</I>] ]
+      [ <B>-f</B> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> constructs an IPW geodetic header (GEOH) and inserts it into
+the headers of <I>image</I> (default: standard input).  If the specified
+bands already have GEO headers, they are overridden, and a warning
+message is generated.
+</P><P>
+If the <B>-f</b> option is specified, then only the headers are written to
+the standard output, and any input image data is ignored.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-o</B> <I>u</I>,<I>v</I>
+<DD>
+The coordinates of image line 0 and sample 0 in <I>csys</I> are
+<I>u</I> and <I>v</I>, respectively.
+</DD>
+
+<P>
+<DT><B>-d</B> <I>du</I>,<I>dv</I>
+<DD>
+The distances between adjacent image lines and samples in
+<I>csys</I> are <I>du</I> and <I>dv</I>, respectively.
+</DD>
+
+<P>
+<DT><B>-u</B> <I>units</I>
+<DD>
+<I>u</I>, <I>v</I>, <I>du</I>, and <I>dv</I> are specified in <I>units</I> (e.g.,
+&quot;meters&quot;, &quot;km&quot;).
+</DD>
+
+<P>
+<DT><B>-c</B> <I>csys</I>
+<DD>
+The geodetic coordinate system identifier is <I>csys</I> (e.g.,
+&quot;UTM&quot;, &quot;Lambert&quot;).  See the manual for
+<A HREF="mkproj.html">mkproj</A> for a list
+of standard names for coordinate systems.
+</DD>
+
+<P>
+
+<DT><B>-b</B> <I>band</I>[,<I>...</I>]
+<DD>
+The &quot;geo&quot; header will be applied only to the specified
+<I>band</I>s (default: all bands).
+</DD>
+
+<P>
+<DT><B>-f</B> 
+<DD>
+Force header output only.  Do not attempt to copy pixel
+data from <I>image</I> to the standard output.  Note that there
+must still be at least an input BIH, and any input headers
+(except superseded &quot;geo&quot; headers) will still be copied to
+the standard output.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>input image (default: standard input)
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To create a &quot;geo&quot; header appropriate for a 5-meter grid located
+in the Sierra Nevada, California:
+</P><PRE>
+	mkgeoh -c UTM -u meters -o 4051800,349350 -d -5,5
+</PRE><P>
+Note the negative line spacing:  UTM northings run in the opposite
+direction from IPW line numbers.
+</P>
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT>bad band number: <I>band</I>
+</DT>
+<DD>A nonexistent input band was specified with <B>-b</b>.
+</DD>
+
+<P>
+<DT>band <I>band</I>: replacing previous GEO header
+</DT>
+<DD>Band <I>band</I> already had a &quot;geo&quot; header, which was replaced
+by the newly-created one.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+There are not yet any standard identifiers for <I>csys</I> and <I>units</I>,
+although some IPW programs such as gradient assume that any units
+beginning with &quot;m&quot; are meters.  There is work underway to develop
+standard <I>csys</I> names.  See the IPW program <B>mkproj</B>.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="mkproj.html">mkproj</A></B>,
+<B><A href="reproj.html">reproj</A></B>,
+<B><A href="flip.html">flip</A></B>,
+<B><A href="gradient.html">gradient</A></B>,
+<B><A href="hor1d.html">hor1d</A></B>,
+<B><A href="horizon.html">horizon</A></B>,
+<B><A href="mkbih.html">mkbih</A></B>,
+<B><A href="prhdr.html">prhdr</A></B>,
+<B><A href="rmhdr.html">rmhdr</A></B>,
+<B><A href="transpose.html">transpose</A></B>,
+<B><A href="viewcalc.html">viewcalc</A></B>,
+<B><A href="window.html">window</A></B>,
+<B><A href="zoom.html">zoom</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A><BR>
+</P>
+

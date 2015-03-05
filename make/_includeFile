@@ -1,0 +1,30 @@
+#  This Makefile defines macros and rules for the include files for
+#  categories of IPW functions and IPW libraries.
+#
+#  This Makefile expects these macros to be defined:
+#
+#	INCLUDE_FILES = name of include files associated with the category or
+#			  library
+#
+#	INCLUDE_DIR = path to the directory with the include files
+
+INSTALLED_INCLUDES := $(foreach file, $(INCLUDE_FILES), $(TOP_DIR)/h/$(file))
+
+.PHONY : install-include uninstall-include
+
+install-include : $(INSTALLED_INCLUDES)
+
+ifeq ($(strip $(INSTALLED_INCLUDES)),)
+
+uninstall-include :
+
+else
+
+$(INSTALLED_INCLUDES) : $(TOP_DIR)/h/% : $(INCLUDE_DIR)/%
+	@printf "Installing include file \"$<\" ...\n"
+	@$(INSTALL) -c $< $@
+
+uninstall-include :
+	rm -f $(INSTALLED_INCLUDES)
+
+endif  # INSTALLED_INCLUDES empty

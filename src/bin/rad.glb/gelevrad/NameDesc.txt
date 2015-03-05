@@ -1,0 +1,1 @@
+gelevrad - beam and diffuse irradiance from elevation

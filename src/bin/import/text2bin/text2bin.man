@@ -1,0 +1,121 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-1</B> ] [ <B>-2</B> ] [ <B>-4</B> ] [<I>file ...</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads text integers from <I>file</I> (default: standard input) and
+writes thier binary equivalents to the standard output.  If more
+than one <I>file</I> are specified, then they are read in sequence.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-1</B> 
+<DD>
+Convert input to 1-byte (char) integers.
+</DD>
+
+<P>
+<DT><B>-2</B> 
+<DD>
+Convert input to 2-byte (short) integers.
+</DD>
+
+<P>
+<DT><B>-4</B> 
+<DD>
+Convert input to 4-byte (long) integers.
+</DD>
+</DL>
+
+<P>Exactly one of <B>-1</b>, <B>-2</b>, or <B>-4</b> must be specified.
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+
+<DT><I>file</I>
+<DD>Input file to read text integers from (default: standard input).
+</DD>
+
+</DL>
+
+
+<H2>EXAMPLES</H2>
+
+<P>
+To convert 256 text integers to an IPW lookup table:
+</P><PRE>
+      %name -1 | mkbih -l 1 -s 256 -y 1
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT><I>file</I>: bad input
+</DT>
+<DD><BR>	An input value could not be converted to an integer.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+<B>%name</B> is not an IPW program, but is provided with IPW for use in
+shell scripts.
+</P><P>
+Negative input values, or input values too large to be represented
+in the specified number of output bytes, will be converted to
+binary in a machine-dependent fashion.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+
+<p>
+
+<DT>Dec 1997</DT>
+<DD>
+Ported to version 2, and renamed from <B>atob</B> to <B>%name</B>.
+J. Domingo, OSU.
+</DD>
+
+</DL>
+
+<H2>BUGS</H2>
+
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW:</DT>
+<DD><B><A href="bin2text.html">bin2text</A></B>
+
+</DD>
+
+</DL>
+

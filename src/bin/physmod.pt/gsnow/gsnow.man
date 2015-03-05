@@ -1,0 +1,164 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-z</B> <I>elev </I> ] [ <B>-K</B> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+</P><P>
+<B>%name</B> calculates heat flow between snow layer and soil accounting
+for both conduction and vapor transport;
+(After Anderson, 1976, pg. 45-47; Davis, 1980)
+Soil texture is assumed to be that of a sandy mineral soil
+ranging from 0.3 J/(m sec K) for very dry (Peixoto & Oort, 1992)
+to 2.2 J/(m sec K) for very wet or saturated (see Oke, 1978).
+Air pressure set from elevation (sea level is default);
+Temperatures in C (default) or K.
+</P><P>
+Reads infile from stdin:
+</P><PRE>
+	rho, tsno, tg, zs, zg
+</PRE><P>
+where:
+</P>
+<PRE>
+	rho   = snow density (kg/m**3)
+	tsno  = snow temperature (C or K if "<B>-K</B>" is set)
+	tg    = soil temperature (C or K if "<B>-K</B>" is set)
+	zs    = height above surface of tsno measurement (m)
+	zg    = depth of tg measurement (m)
+</PRE><P>
+Outputs G, heat transfer between soil and snow (W/m**2) for three
+thermal conductivities (wet sand, dry sand, and moist sand)
+to stdout;
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-z</B> <I>elev </I>
+<DD>
+<I>elev</I> is measurement site elevation (default: sea level)
+</DD>
+
+<P>
+<DT><B>-K</B> 
+<DD>
+Input temperatures are in degrees K (default: C)
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate soil heat flux for a site at 3450m:
+</P><PRE>
+	paste rho tsno tg zs zg | gsnow -z 3450
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Sep 1987</DT>
+<DD>
+Written by D. Marks, CRSEO, UCSB;
+</DD>
+</DL>
+
+<DL>
+<DT>May 1995</DT>
+<DD>
+Converted to IPW by J. Domingo, OSU, ERL-C
+</DD>
+</DL>
+
+<DL>
+<DT>June 2002</DT>
+<DD>
+Added output for range of thermal conductivites,
+D. Marks, NWRC;
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>	<B><A href="albedo.html">albedo</A></B>,
+<B><A href="bowvap.html">bowvap</A></B>,
+<B><A href="dewpt.html">dewpt</A></B>,
+<B><A href="mse.html">mse</A></B>,
+<B><A href="penmonx.html">penmonx</A></B>,
+<B><A href="pmx.html">pmx</A></B>,
+<B><A href="pott.html">pott</A></B>,
+<B><A href="ptaylorx.html">ptaylorx</A></B>,
+<B><A href="ptx.html">ptx</A></B>,
+<B><A href="rh2vp.html">rh2vp</A></B>,
+<B><A href="satvp.html">satvp</A></B>,
+<B><A href="sling.html">sling</A></B>,
+<B><A href="soilt.html">soilt</A></B>,
+<B><A href="soiltmp.html">soiltmp</A></B>,
+<B><A href="srftmp.html">srftmp</A></B>,
+<B><A href="swe.html">swe</A></B>,
+<B><A href="swp.html">swp</A></B>,
+<B><A href="thermin.html">thermin</A></B>,
+<B><A href="trad.html">trad</A></B>,
+<B><A href="trb_Ri.html">trb_Ri</A></B>,
+<B><A href="trbxfr.html">trbxfr</A></B>,
+<B><A href="vptr.html">vptr</A></B>,
+<B><A href="zpr.html">zpr</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Unix</DT>
+<DD>	paste
+</DD>
+ 
+<P>
+<A HREF="../bib.html#Anderson 1976">Anderson 1976</A>,
+<A HREF="../bib.html#Davis 1982">Davis 1982</A>,
+<A HREF="../bib.html#Oke 1978">Oke 1978</A>,
+<A HREF="../bib.html#Peixoto 1992">Peixoto & Oort 1992</A>
+</P>
+ 

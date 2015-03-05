@@ -1,0 +1,67 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+int
+uremove(
+	const char   *filename)	   |* name of file to remove	*|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+remove cause the file whose name is the string pointed to by filename
+to be removed.  Subsequent attempts to open the file will fail,
+unless it is created anew.
+</P><P>
+<B>%name</B> is typically used by application programs to delete scratch
+files.
+</P><P>
+If the file is open, then the behavior of remove is
+implementation-defined.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+OK	success
+</P><P>
+ERROR	for failure
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

@@ -1,0 +1,178 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-l</B> ] [ <B>-s</B> ] [ <B>-b</B> ] [ <B>-y</B> ] [ <B>-f</B> ] [ <B>-m</B> ] [ <I>image</I> ...]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> prints a short description of bands, dimensions, and
+bytes / pixel of an IPW image.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-l</B> 
+<DD>
+print the number of lines in each image.
+</DD>
+
+<P>
+<DT><B>-s</B> 
+<DD>
+print the number of samples in each image.
+</DD>
+
+<P>
+<DT><B>-b</B> 
+<DD>
+print the number of bands in each image.
+</DD>
+
+<P>
+<DT><B>-y</B> 
+<DD>
+print a list of bytes / pixel in each image.
+</DD>
+
+<P>
+<DT><B>-f</B> 
+<DD>
+print the filename of each image.
+</DD>
+
+<P>
+<DT><B>-m</B> 
+<DD>
+strip labels for easier machine readable output.
+This is useful in a shell script; see below.
+Note:  <B>-m</b> alone implies -mlsbyf
+</DD>
+</DL>
+
+<P>If no options are specified, then the default is:  <B>-lsbyf</B>
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I> ...</DT>
+
+<DD>input image(s)
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To print all information in &quot;image1&quot; and &quot;image2&quot;:
+</P><PRE>
+     ipwfile image1 image2
+</PRE><P>
+would return something like:
+</P><PRE>
+     File: &quot;image1&quot;  Bands: 3  Lines: 480  Samples: 500 Bytes/Pixel: 1 1 1 
+     File: &quot;image2&quot;  Bands: 1  Lines: 380  Samples: 200 Bytes/Pixel: 1
+</PRE><P>
+To print the number of bands in &quot;image&quot;:
+</P><PRE>
+     ipwfile -b image
+</PRE><P>
+To print machine readable output with <B>-m</b>:
+</P><PRE>
+     ipwfile -m image1 image2
+</PRE><P>
+would return something like:
+</P><PRE>
+     &quot;image1&quot; 3 480 500 1 1 1
+     &quot;image2&quot; 1 380 200 1
+</PRE><P>
+Use <B>-m</b> to set image parameters in Bourne shell variables (see
+RESTRICTIONS below):
+</P><PRE>
+     set - `ipwfile -m image1`
+     file=$1
+     bands=$2
+     lines=$3
+     samps=$4
+     ...
+</PRE><P>
+or to set just one:
+</P><PRE>
+     bands=`ipwfile -mb image1`
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None.
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+No matter what order the options are specified, the results are
+returned in this order:  file, bands, lines, samples, bytes...
+</P><P>
+&quot;set - `<B>%name</B> <B>-m</b> image`&quot;  won't work predictably if your
+filenames have spaces in them (admitably odd but possible).
+Use instead:
+</P><PRE>
+    file=&quot;`ipwfile -fm image`&quot;
+    lines=&quot;`ipwfile -lm image`&quot;
+    bands=&quot;`ipwfile -bm image`&quot;
+    ...
+</PRE>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Feb 1993</DT>
+<DD>
+Written by Jim Davidson, UCSB.
+From IPW, Version 1.0
+</DD>
+
+<P>
+
+<DT>Apr 1997</DT>
+<DD>
+Added uclose to close open files. J. Domingo, OSU
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW:</DT>
+<DD><B><A href="cmpimg.html">cmpimg</A></B>,
+<B><A href="prhdr.html">prhdr</A></B>
+</DD>
+
+<P>
+<DT>Image:</DT>
+
+<DD>pnmfile, tiffinfo, rlehdr, xli, xloadimage, xv
+</DD>
+</DL>
+

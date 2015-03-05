@@ -1,0 +1,52 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include	"ipw.h"
+#include	"envphys.h"
+
+double
+bevap(
+     double  netrad,   /* net allwave radiation (W/m^2)  */
+     double  advec,    /* advected heat (W/m^2)          */
+     double  bowen,    /* Bowen ratio (H/LE)             */
+     double  storage,  /* change in heat storage (W/m^2) */
+     double  ts)       /* surface temperature (K)        */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates the evaporation rate from a saturated
+surface using the Bowen ratio technique.
+
+<H2>RETURN VALUE</H2>
+
+<P>
+evaporation rate (kg/(sec m^2) (which is also the specific discharge
+in mm/sec)
+
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Apr 1984</DT>
+<DD>
+written by D. Marks, CSL, UCSB;
+</DD>
+
+<P>
+<DT>June 1995</DT>
+<DD>
+Ported from QDIPS to IPW by J. Domingo, OSU
+</DD>
+
+</DL>
+
+

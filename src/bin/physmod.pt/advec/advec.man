@@ -1,0 +1,142 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-r</B> ] [ <B>-K</B> ]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+</P><P>
+<B>%name</B> calculates the advected energy for a snowcover from
+inputs on precipitation density, depth, temperature,
+and snow surface temperature.
+</P><P>
+Input is from standard input;
+</P><PRE>
+         rho, zp, tp, ts
+
+         rho = precipitation density (kg/m^3)
+         zp  = precipitation depth (m)
+         tp  = precipitation temperature (C)
+         ts  = snow temperature (C)
+</PRE><P>
+Output is advected heat (J), and specific heat of precipitation.
+Output to standard output.
+</P><P>
+(see: <I>General Meteorology, Byers, 1974;
+Marks, 1988;
+Marks and Dozier, 1992</I>)
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-r</B> 
+<DD>
+precipitation is rain (default: snow)
+</DD>
+
+<P>
+<DT><B>-K</B> 
+<DD>
+input temperatures are in K (default: C)
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate advection caused by 10mm of 2 deg rain on 0 deg snow:
+</P><PRE>
+	echo &quot;1000 .01 2.0 0.0&quot; | advec -r 
+yields:
+        advection     specific heat
+        84252.00      4212.60
+</PRE><P>
+To calculate advection caused by 40cm of -8 deg, 150kg/m^3 snow on -2 deg snow:
+</P><PRE>
+        echo &quot;150 .4 -8.0 -2.0&quot; | advec -r
+yields:
+        advection     specific heat
+        -1525716.00   4238.10
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Sep 1987</DT>
+<DD>
+written by D. Marks, CRSEO, UCSB;
+</DD>
+</DL>
+
+<DL>
+<DT>May 1995</DT>
+<DD>
+Converted to IPW by J. Domingo, OSU, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="gsnow.html">gsnow</A></B>,
+<B><A href="isnobal.html">isnobal</A></B>,
+<B><A href="snobal.html">snobal</A></B>,
+<B><A href="mkprecip.html">mkprecip</A></B>,
+</DD>
+</DL>
+
+<DL>
+<DT>Unix</DT>
+<DD>
+echo
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Byers 1974">Byers 1974</A>,
+<A HREF="../bib.html#Marks 1988">Marks 1988</A>,
+<A HREF="../bib.html#Marks 1992b">Marks 1992b</A>
+</P>
+

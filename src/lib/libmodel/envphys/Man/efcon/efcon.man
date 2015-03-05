@@ -1,0 +1,58 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include	"ipw.h"
+#include	"envphys.h"
+
+double
+efcon(
+     double  k,     /* layer thermal conductivity (J/(m K sec)) */
+     double  t,     /* layer temperature (K)                    */
+     double  p)     /* air pressure (Pa)                        */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates the effective thermal conductivity for a layer
+accounting for both conduction and vapor diffusion.
+Saturation within the layer is assumed.
+See page 46 of reference below.
+
+<H2>RETURN VALUE</H2>
+
+<P>
+effective thermal conductivity (J/(m K sec))
+
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Jul 1984</DT>
+<DD>
+written by D. Marks, CSL (GSFC), UCSB;
+</DD>
+
+<P>
+
+<DT>May 1995</DT>
+<DD>
+Ported from QDIPS to IPW.  J. Domingo, OSU.
+</DD>
+
+</DL>
+
+<H2>SEE ALSO</H2>
+
+<P>
+<A HREF="../bib.html#Anderson 1976">Anderson 1976</A><BR>
+</P>
+
+

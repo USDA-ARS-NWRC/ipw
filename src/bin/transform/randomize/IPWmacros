@@ -1,0 +1,3 @@
+%define(name,"randomize")
+%define(description,"randomly shuffle lines of an IPW image")
+%define(category,"Image Transformation")

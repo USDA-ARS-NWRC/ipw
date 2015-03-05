@@ -1,0 +1,136 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-i</B> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates either air pressure for specified elev, or if
+&quot;<B>-i</b>&quot; option is specified, air density (kg/m^3) and elevation
+from specified press &amp; temp.
+</P><P>
+(see <I>General Meteorology, Byers, 1974</I>)
+</P><P>
+Inputs:	elev (m) or air pressure (Pa) and air temp (C)
+<P>
+Input is to stdin; output to stdout.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-i</B> 
+<DD>
+Perform the inverse calculation: calculate the air
+density (kg/m^3) and elevation (m) from a specified
+pressure (Pa) and temperature (C).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate pressure at every 500m from sea level to the top of
+the 4000m:
+</P><PRE>
+         <B>zpr</B>
+                      input elev:    air pressure:
+                           0
+                                          101324.6
+                           1000
+                                           89906.3
+                           2000
+                                           79553.0
+                           3000
+                                           70187.0
+                           4000
+                                           61734.6
+</PRE><P>
+To calculate elevation from a pressure of 55000Pa, and a temperature of
+3 C:
+</P><PRE>
+        zpr -i
+                input pa and ta:       air density:     elev:
+                        55000 3
+                                          0.694        5053.0
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>May 1990</DT>
+<DD>
+Written by D. Marks, ERL-C;
+</DD>
+</DL>
+
+<DL>
+<DT>Jun 1995</DT>
+<DD>
+Converted to IPW by J. Domingo, OSU, EPA NHEERL/WED
+</DD>
+</DL>
+
+<DL>
+<DT>Feb 1997</DT>
+<DD>
+Added air density to inverse solution, D. Marks,
+USGS, EPA NHEERL/WED
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="mse.html">mse</A></B>,
+<B><A href="ipott.html">ipott</A></B>,
+<B><A href="pott.html">pott</A></B>,
+<B><A href="sling.html">sling</A></B>,
+<B><A href="vptr.html">vptr</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Byers 1974">Byers 1974</A>
+</P>
+

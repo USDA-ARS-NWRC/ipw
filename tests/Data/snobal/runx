@@ -1,0 +1,3 @@
+#!/bin/csh
+
+snobal -z 1142.0 -t 60 -m 0.01 -d 0.25 -s sn -h mh -p pr -i in -o snobal.out -O normal -c  

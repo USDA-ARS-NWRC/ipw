@@ -1,0 +1,3 @@
+%define(name,"beta_0")
+%define(description,"compute beta_0 for Henyey-Greenstein function")
+%define(category,"radiation")

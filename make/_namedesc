@@ -1,0 +1,29 @@
+#  This include file for Makefile defines macros and rules for the
+#  name and description files for IPW commands and library functions.
+#
+#  These macros control the behavior of this include file:
+#
+#	NAME	    = name of command or function
+#	DESCRIPTION = one-line brief description of command or function
+#	MAN_SECTION = the section where command's or function's man page
+#			resides (1 or 3 respectively)
+#	PATH_TO_MAN = the relative path from the HTML file with the list of
+#			commands or functions to the associated man pages
+
+.PHONY : name-desc
+name-desc : $(NAME_DESC_TXT) $(NAME_DESC_HTML)
+
+$(NAME_DESC_TXT) : Makefile $(IPW_MACRO_FILE)
+	@printf "Making file \"$@\"\n"
+	@printf "$(NAME) - $(DESCRIPTION)\n" > $@
+
+$(NAME_DESC_HTML) : Makefile $(IPW_MACRO_FILE)
+	@printf "Making file \"$@\"\n"
+	@printf "  <LI><A HREF=\"$(PATH_TO_MAN)/man$(MAN_SECTION)/$(NAME).html\">$(NAME)</A>\n" > $@
+	@printf "       - $(DESCRIPTION)\n" >> $@
+
+.PHONY : redo-name-desc clean-name-desc
+redo-name-desc : clean-name-desc name-desc
+
+clean-name-desc :
+	rm -f $(NAME_DESC_TXT) $(NAME_DESC_HTML)

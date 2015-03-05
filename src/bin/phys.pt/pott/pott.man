@@ -1,0 +1,160 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-i</B> ] [ <B>-l</B> <I>val</I> ] [ <B>-s</B> <I>val</I> ] [ <B>-L</B> ] <I>&lt;{ta elev}</I>
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+</P><P>
+<B>%name</B> does the following:
+</P>
+<PRE>
+    1) calculates sea-level or potential temperature from air
+       temperature at specified elevation,
+    2) or inverts sea-level or potential temperature to calculate
+       air temperature at a specified elevation.
+</PRE>
+<P>
+(see <I>General Meteorology, Byers, 1974</I>)
+</P><P>
+The input is from stdin, output is written to stdout.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-i</B> 
+<DD>
+invert sea-level or potential temperature to calculate air temp
+(default is to calculate sea-level or potential temp from air temp)
+
+<P>
+<DT><B>-l</B> <I>val</I>
+<DD>
+lapse rate used in estimation of pressure or linear adjustment
+(default: -6.5 C/km)
+
+<P>
+<DT><B>-s</B> <I>val</I>
+<DD>
+sea-level temp. used in estimation of pressure (default: 26.84 C)
+
+<P>
+<DT><B>-L</B> 
+<DD>
+do simple linear adjustment based on lapse rate &amp; elevation
+</DD>
+</DL>
+
+<P>input conatins values of air temperature (C) and elevation (m) or
+
+<P>sea-level or potential temperature (C) and elevation (m) if <B>-i</b> is set
+
+<P>(defaults to stdin)
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To convert air temperature to potential temperature,
+using default lapse rate and sea-level temperatures:
+</P><PRE>
+	paste ta elev | <B>%name</B>
+</PRE><P>
+To convert air temperatures from met stations to sea-level temperatures
+using a simple linear lapse rate of -5.5C/km:
+</P><PRE>
+	paste ta elev | <B>%name</B> -l -5.5 -L
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>May 1986</DT>
+<DD>
+Written by D. Marks, CSL, UCSB;
+</DD>
+</DL>
+
+<DL>
+<DT>May 1995</DT>
+<DD>
+Converted to IPW by J. Domingo, OSU, ERL-C;
+</DD>
+</DL>
+
+<DL>
+<DT>Sep 1996</DT>
+<DD>
+Added lapse rate adjustment, and linear option,
+D. Marks, USGS;
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="ipott.html">ipott</A></B>,
+<B><A href="mse.html">mse</A></B>,
+<B><A href="zpr.html">zpr</A></B>,
+<B><A href="soiltmp.html">soiltmp</A></B>,
+<B><A href="srftmp.html">srftmp</A></B>,
+<B><A href="deltaT.html">deltaT</A></B>,
+<B><A href="deltaz.html">deltaz</A></B>
+</DD>
+</DL>
+ 
+<DL>
+<DT>Unix</DT>
+<DD>    paste
+</DD>
+</DL>
+ 
+<P>
+<A HREF="../bib.html#Byers 1974">Byers 1974</A>,
+<A HREF="../bib.html#Dodson, Marks 1997">Dodson, Marks 1997</A>
+</P>
+

@@ -1,0 +1,51 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "radiation.h"
+
+double
+betanaught(
+     double  u0,     /* cosine of illumination angle   */
+     double  g)      /* scattering asymmetry parameter */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> computes the value of beta_0 for a Henyey-Greenstein
+scattering function, using a recursive relationship for the
+Legendre coefficients.  beta_0 is the integral of the phase
+function over the downward hemisphere.
+
+<H2>RETURN VALUE</H2>
+
+<P>
+beta_0 for Henyey-Greenstein scattering function
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+<B>%name</B> Warns if the Legendre polynomial doesn't converge.
+Values are printed to standard error to allow user to determine if this
+is a problem.
+
+<H2>HISTORY</H2>
+
+
+<DL>
+
+<DT>Jul 1989</DT>
+<DD>
+Written by J. Dozier
+</DD>
+
+</DL>
+
+

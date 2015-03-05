@@ -1,0 +1,3 @@
+%define(name,"crhmake")
+%define(description,"make an IPW CRH header")
+%define(category,"crh")

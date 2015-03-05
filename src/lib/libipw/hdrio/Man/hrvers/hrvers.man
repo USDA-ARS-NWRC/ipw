@@ -1,0 +1,64 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "hdrio.h"
+
+char *
+hrvers(
+	int     fd)		|* input file descriptor	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Hrvers returns the version string of the image header currently being
+read from file descriptor fd, or NULL if there is no current image
+header.
+</P><P>
+Call <B>%name</B> after you call hrname, if you need to know the header's
+RCS revision level.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+Current header version string, or NULL.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_hdriocb
+</P>
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

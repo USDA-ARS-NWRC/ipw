@@ -1,0 +1,73 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "bih.h"
+
+BIH_T *
+bihmake(
+	int        nbytes,	|* # bytes / pixel		 *|
+	int        nbits,	|* # bits / pixel		 *|
+	STRVEC_T   *history,	|* -> history strings	 	 *|
+	STRVEC_T   *annot,	|* -> annotation strings	 *|
+	BIH_T      *oldp,	|* ? get per-img stuff here	 *|
+	int         nlines,	|* # lines			 *|
+	int         nsamps,	|* # samples / line		 *|
+	int         nbands)	|* # bands			 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Bihmake allocates a single BI header.  The header is
+initialized with the remaining arguments.  If nbytes is zero,
+it will be made large enough to contain nbits.  If nbits is
+zero, it will be set to CHAR_BIT * nbytes.  If bihp is null,
+then the per-image portion of the header is initialized from
+nlines, nsamps, and nbands.  Otherwise (bihp not NULL), a link
+is made to the per-image portion of *bihp.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+pointer to new BI header; NULL if error
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

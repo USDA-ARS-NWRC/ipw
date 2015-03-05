@@ -1,0 +1,1 @@
+zone2str - convert time zone (in minutes) to string

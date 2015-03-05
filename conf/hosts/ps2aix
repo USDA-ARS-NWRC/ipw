@@ -1,0 +1,40 @@
+/*
+ * host.h for IBM PS/2 Model 80 + AIX
+ */
+
+#define	CC_UCHAR	1
+#define	CC_ULONG	1
+#define	CC_USHORT	1
+
+#define	CC_NOBCOPY	0
+#define	CC_NOBZERO	0
+
+#define	CC_INDEX	0
+#define	CC_RINDEX	0
+
+#define	CC_SAMESIZE	0
+
+#define	OPT_BUF		4096
+#define	PIXEL		unsigned
+#define	FPIXEL		float
+#define	FPIXEL_DIG	FLT_DIG
+#define FPIXEL_MAX	FLT_MAX
+#define FPIXEL_MIN	-(FLT_MAX)
+#define	XSIZE		unsigned
+#define	XTIME		long
+
+#define	REG_1		register
+#define	REG_2		register
+#define	REG_3		register
+#define	REG_4
+#define	REG_5
+#define	REG_6
+
+#define	FREG_1
+#define	FREG_2
+#define	FREG_3
+#define	FREG_4
+#define	FREG_5
+#define	FREG_6
+
+/* $Header: /home/ipw/h/conf/RCS/ps2aix,v 1.4 90/01/28 13:19:34 frew Exp $ */

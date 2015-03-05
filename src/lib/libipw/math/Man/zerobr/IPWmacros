@@ -1,0 +1,3 @@
+%define(name,"zerobr")
+%define(description,"finds zero of a function by Brent's algorithm")
+%define(category,"math")

@@ -1,0 +1,45 @@
+/*
+ * host.h for AIX 3.2
+ */
+
+#define _POSIX_SOURCE			/* lots of things don't get
+					 * included without this	*/
+
+#define	CC_UCHAR	1
+#define	CC_ULONG	1
+#define	CC_USHORT	1
+
+#define	CC_NOBCOPY	0
+#define	CC_NOBZERO	0
+
+#define	CC_INDEX	0
+#define	CC_RINDEX	0
+
+#define	CC_SAMESIZE	0
+
+#define CC_EXTRA_STDIO	1
+#define CC_HAVE_SYSCONF	1
+#define CC_USE_UNISTD   1
+
+#define	OPT_BUF		16384           /* pipe size is 32K !!          */
+#define	PIXEL		unsigned
+#define	FPIXEL		float
+#define	FPIXEL_DIG	FLT_DIG
+#define FPIXEL_MAX	FLT_MAX
+#define FPIXEL_MIN	-(FLT_MAX)
+#define	XSIZE		unsigned long
+#define	XTIME		long
+
+#define	REG_1		register
+#define	REG_2		register
+#define	REG_3		register
+#define	REG_4		register
+#define	REG_5		register
+#define	REG_6		register
+
+#define	FREG_1
+#define	FREG_2
+#define	FREG_3
+#define	FREG_4
+#define	FREG_5
+#define	FREG_6

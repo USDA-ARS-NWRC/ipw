@@ -1,0 +1,126 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <I>argument</I>
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> tests whether its single argument is a postive nonzero
+decimal integer.  This command
+is used mainly as an argument checker by IPW shell scripts.
+</P>
+
+<H2>OPTIONS</H2>
+
+<P>
+None.
+</P>
+
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>argument</I>
+<DD>
+Argument to test.
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+Here's a segment of a shell script that check for certain options that
+require positive integers for arguments:
+
+<PRE>
+     optstring='i:o:k:'
+     synopsis='[-i in_nbits] [-o out_nbits] [-k bkgd]'
+ 
+     # get command-line arguments
+ 
+     set -- `getopt "$optstring" $* 2>/dev/null` ||
+             exec usage $0 "$synopsis" 'make look-up table'
+
+     while :; do
+        case $1 in
+        --)  shift
+             break
+             ;;
+        -i)  ibits=$2
+             isposint $ibits ||
+                  exec sherror $0 "$ibits: not a positive integer"
+             shift
+             ;;
+        -o)  obits=$2
+             isposint $obits ||
+                  exec sherror $0 "$obits: not a positive integer"
+             shift
+             ;;
+        -k)  const=$2
+             isposint $const ||
+                  exec sherror $0 "$const: not a positive integer"
+             shift
+             ;;
+        *)   exec sherror $pgm '"getopt" failed'
+             ;;
+        esac
+        shift
+     done
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+<B>%name</B> returns an exit status that indicates whether or
+not the argument is a positive integer.
+
+<DL>
+
+<DT>0
+<DD>
+<I>argument</I> is a positive nonzero integer.
+</DD>
+
+<p>
+
+<DT>1
+<DD>
+<I>argument</I> is not a positive nonzero integer.
+</DD>
+
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Nov 1990
+<DD>
+Written by J. Frew, UCSB.
+</DD>
+</DL>
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+

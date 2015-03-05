@@ -1,0 +1,66 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+void
+no_tty(
+	int             fd)	|* file descriptor		 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+If the argument file descriptor is connected to a terminal, then
+<B>%name</B> calls either usage() (if the file descriptor is the standard
+input) or error() (for all other cases).
+</P><P>
+Call <B>%name</B> to guarantee that an image file descriptor is not attached
+to a terminal.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

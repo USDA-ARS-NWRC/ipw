@@ -1,0 +1,65 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+char *
+dtoa(
+	char      *s,		|* -> output string		 *|
+	double     d)		|* input double-precision number *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Ftoa stores the ASCII representation of &quot;d&quot;, followed by an EOS, into
+the character array pointed to by &quot;s&quot;.
+</P><P>
+The array pointed to by &quot;s&quot; must be large enough to hold the ASCII
+representation of &quot;d&quot;, plus a trailing EOS.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+Ftoa returns the value of the pointer &quot;s&quot;.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

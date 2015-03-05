@@ -1,0 +1,385 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-i</B> <I>infmt</I> ] [ <B>-o</B> <I>outfmt</I> ] [ <B>-y</B> <I>year</I> ] [ <B>-l</B> <I>zone</I> ]
+      [ <B>-g</B> <I>zone</I> ] [ <B>-h</B> ] [ <B>-s</B> ]  [ <I>date-time</I> ]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> converts between various date-time formats.  A date-time format
+is specified in one of two ways: 1) using predefined formats, or 2) using
+format codes.  Predefined formats are referenced by name, and are listed below:
+<PRE>
+    Name   Interpretation
+  
+    jd     Julian Days (decimal days; Jan 1, midnight = 0.0)
+    jd1    Julian Days (decimal days; Jan 1, midnight = 1.0;
+                        hence "jd1" is equivalent to "jd"+1)
+    wy     Water Year Days (decimal days; Oct 1, midnight = 0.0)
+    wy1    Water Year Days (decimal days; Oct 1, midnight = 1.0;
+                            hence "wy1" is equivalent to "wy"+1)
+    date   yyyy,mm,dd,hh,mm,ss
+</PRE><P>
+Formats other than those predefined above can be specified using format
+codes in a format string.  If the argument to either the <B>-i</B> or
+the <B>-o</B> options is not one of the predefined formats, then <B>%name</B>
+treats it as a format string.
+<P>
+A format string explicitly describes the format of a date-time, using
+characters and format codes.  Characters represent themselves, while
+format codes represent components of a date-time.  A format code is a
+character sequence that begins with a percent sign ("%").
+<P>
+<B>Input formats</B>
+<P>
+A character in an input format string indicates that that character
+must be in the date-time in the designated location.  Format codes
+available for input formats are:
+<PRE>
+    Code   Interpretation
+
+    %y     year within century (1 or 2 digits, e.g., 98, 07, 7)
+    %Y     year (up to 4 digits; note: 90 = 90, not 1990)
+    %m     month (1 or 2 digits; range = 1 to 12)
+    %d     day of month (1 or 2 digits; range = 1 .. 31)
+    %j     day of year (1 to 3 digits; range= 1 to 366)
+    %Jd    Julian day (decimal days; Oct 1, midnight = 0.0)
+    %J1    Julian day (decimal days; Oct 1, midnight = 1.0;
+                       hence "J1" is equivalent to "Jd"+1)
+    %wy    wateryear within century (1 or 2 digits)
+    %wY    wateryear (up to 4 digits)
+    %wd    day of wateryear (1 to 3 digits; range = 1 to 366)
+    %Wd    wateryear day (decimal days; Oct 1, midnight = 0.0)
+    %W1    wateryear day (decimal days; Oct 1, midnight = 1.0;
+                          hence "W1" is equivalent to "Wd"+1)
+
+    %H     hour (1 or 2 digits; range = 0 (midnight) to 23)
+    %M     minutes (1 or 2 digits; range = 0 to 59)
+    %S     seconds (1 or 2 digits; range = 0 to 59)
+    %h     hour (12-hour clock; 1 or 2 digits; range = 1 to 12)
+    %a     am/pm for 12-hour clock (= "am" or "pm")
+    %A     am/pm for 12-hour clock (= "AM" or "PM")
+
+    %%     a single "%"
+    %?     matches any character
+    %+     1 or more whitespace characters
+    %*     0 or more whitespace characters
+</PRE><P>
+For example, the input format string
+<PRE>
+    "%y/%m/%d"
+</PRE><P>
+will accept the date February 9, 1998 in any of these forms
+<PRE>
+    98/2/9
+    98/2/09
+    98/02/09
+    98/02/9
+</PRE><P>
+Certain format codes are not compatible, and therefore, cannot be
+used with an input format string.  For example, the "%y" and "%wy" 
+codes are not compatible, as are the "%H" and "%h" codes.
+</PRE><P>
+The "%Jd", "%Jd1" and "%Wyd", "%Wyd1" are format codes that duplicate
+the pre-defined formats jd, jd1, wy, and wy1 formats.  They are not
+compatible with anything else except the "%Y", "%y", or "%wy", "%wY"
+codes.  If these are not included, the default year or wateryear are assumed.
+<P>
+When reading an input date-time using a format string, <B>%name</B>
+uses default values for those components that are not explicitly specified.
+These defaults are:
+<PRE>
+    Component     Default value for input
+
+    year          current year
+    century       century of current year (for %y)
+    month         1 (January)
+    day           1 (1st day of month)
+    yearday       1 (January 1st)
+
+    wateryear     current wateryear
+    century for   century of current wateryear (for %wy)
+      wateryear
+    waterday      1 (October 1st)
+
+    hour          0 (midnite)
+    minutes       0
+    seconds       0
+    AM/PM         AM
+</PRE><P>
+<B>Output formats</B>
+<P>
+A character in an output format string indicates that that
+character will appear in the formated date-time at the designated
+location.  Format codes for output formats are:
+<PRE>
+    Code   Interpretation
+
+    %y     year within century (2 digits, e.g., 07, 98)
+    %Y     complete year (4 digits)
+    %m     month (2 digits, e.g., 03, 11)
+    %^m      month (1 or 2 digits, e.g., 3, 11)
+    %d     day (2 digits, e.g., 06, 30)
+    %^d      day (1 or 2 digits, e.g., 6, 30)
+    %j     yearday (3 digits, e.g., 007, 045, 338)
+    %^j      yearday (1 to 3 digits, e.g., 7, 45, 338)
+    %Jd    Julian day (decimal days; Oct 1, midnight = 0.0)
+    %J1    Julian day (decimal days; Oct 1, midnight = 1.0;
+                       hence "J1" is equivalent to "Jd"+1)
+    %wy    water year within century (2 digits)
+    %wY      complete wateryear (4 digits)
+    %w     waterday (3 digits, e.g., 009, 071, 266)
+    %^w      waterday (1 to 3 digits, e.g., 009, 071, 266)
+    %Wd    wateryear day (decimal days; Oct 1, midnight = 0.0)
+    %W1    wateryear day (decimal days; Oct 1, midnight = 1.0;
+                          hence "W1" is equivalent to "Wd"+1)
+ 
+    %H     hour (2 digits, e.g., 00, 22)
+    %^H      hour (1 or 2 digits, e.g., 0, 22)
+    %M     minute of day (2 digits, e.g., 00, 30)
+    %S     seconds of day (2 digits, e.g., 05, 59)
+    %h     hour (12-hour clock; 2 digits, e.g., 01, 12)
+    %^h      hour (12-hour clock; 1 to 2 digits, e.g., 1, 12)
+    %a     "am" or "pm" for 12-hour clock
+    %A     "AM" or "PM" for 12-hour clock
+
+    %%     a single "%"
+</PRE><P>
+Unlike input format codes, any of the output format codes can be used in
+the single format string.  For example, the output format string
+<PRE>
+    "On %y/%m/%d, yearday = %^j, water year and day = %wY, %w"
+</PRE><P>
+would format the date-time of February 9, 1998, 4:30 pm as
+<PRE>
+    "On 98/02/09, yearday = 40, water year and day = 1998, 132"
+</PRE><P>
+Output times will be the same time zone as input times unless the
+<B>-l</b> (from GMT to local) or <B>-g</b> (from local to GMT) options
+are specified.
+<P>
+Default time unit for "jd" and "wy" formats is decimal days.  If the
+hours (<B>-h</b>) or seconds (<B>-s</b>) option is specified, then the
+requested time units will be used for input and output.
+
+
+<H2>OPTIONS</H2>
+
+<DL>
+
+<DT><B>-i</B> <I>infmt</I>
+<DD>
+<I>infmt</I> is the input format; it is either the name of a predefined
+format, or a string using format codes.  (default: the format string
+"%Y_%m_%d+%H:%M:%S").
+</DD>
+
+<P>
+<DT><B>-o</B> <I>outfmt</I>
+<DD>
+<I>outfmt</I> is the output format; it is either the name of a predefined
+format, or a string using format codes.  (default: the format string
+"%Y_%m_%d+%H:%M:%S").
+</DD>
+
+<P>
+<DT><B>-y</B> <I>year</I>
+<DD>
+This option is required when the following predefined formats are
+used for the input format (<B>-i</B> option): "jd", "jd1", "wy", and "wy1".
+</DD>
+
+<P>
+<DT><B>-l</B> <I>zone</I>
+<DD>
+Convert the date-time from GMT to the local time zone.  The local
+time zone, <I>zone</I>, is specified as minutes west of Greenwich.
+</DD>
+
+<P>
+<DT><B>-g</B> <I>zone</I>
+<DD>
+Convert the date-time from the local time zone to GMT.  The local
+time zone, <I>zone</I>, is specified as minutes west of Greenwich.
+convert from local time zone to GMT (minutes west of Greenwich)
+</DD>
+
+</DL>
+
+<P>At most one of <B>-l</b> or <B>-g</b> may be specified.
+</P>
+
+<DL>
+
+<DT><B>-h</B> 
+<DD>
+For the predefined formats "jd", "jd1", "wy", and "wy1", unit of time is
+decimal hours (default: decimal days).
+</DD>
+
+<P>
+<DT><B>-s</B> 
+<DD>
+For the predefined formats "jd", "jd1", "wy", and "wy1", unit of time is
+decimal seconds (default: decimal days).
+</DD>
+
+</DL>
+
+<P>At most one of <B>-h</b> or <B>-s</b> may be specified.
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+
+<DT><I>date-time</I>
+<DD>
+The date-time to be converted.  It must match the specified input format.
+(default: A sequence of date-times will be read from standard input,
+with one date-time per line).
+</DD>
+
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To determine the yearday for February 9, 1998:
+<PRE>
+    prompt> cvtime -i "%y/%m/%d" -o %^j 98/02/09
+    40
+    prompt>
+</PRE><P>
+The following example would produce the same output as the previous example:
+<PRE>
+    cvtime -o %^j 1998_02_09+00:00:00
+</PRE><P>
+This following example can be used to convert the date-time October 7, 1998,
+4 pm into the filename extension ".99007_16":
+<PRE>
+    cvtime -i "%m/%d/%y %h %a" -o ".%wy%w_%H" "10/7/98 4 pm"
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT>Input and output formats are the same
+<DD>
+</DD>
+
+<P>
+<DT><B>-h</b> and <B>-s</b> options are mutually exclusive
+<DD>
+</DD>
+
+<P>
+<DT><B>-g</b> and <B>-l</b> options are mutually exclusive
+<DD>
+</DD>
+
+<P>
+<DT>Must specify <B>-y</b> year option
+<DD>
+If the input format is "jd", "jd1", "wy" or "wy1", then a year
+must be supplied.
+</DD>
+
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Sep 1986</DT>
+<DD>
+Qdips program &quot;anytime&quot; written by D. Marks, CSL, UCSB
+</DD>
+
+<P>
+
+<DT>Oct 1990</DT>
+<DD>
+IPW version <B>%name</B> written to replace Qdips program
+&quot;anytime&quot; by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+</DD>
+
+<P>
+
+<DT>Aug 1995</DT>
+<DD>
+Added &quot;jd1&quot; and &quot;wy1&quot; time formats.  J. Domingo, OSU
+</DD>
+
+<P>
+
+<DT>Nov 1996</DT>
+<DD>
+Fixed bug when input format was water year day.  J. Domingo, OSU
+</DD>
+
+<P>
+
+<DT>Aug 1997</DT>
+<DD>
+Converted to IPW Version 2.0; replaced use of Unix time structure
+"unixtime" with IPW time structure "datetime_t", which uses standard library
+functions and eliminates the need for seperate subroutine calls;  added input
+value checking for date function to cvtime.c (previously done by unixtime).
+J. Domingo, OSU & D. Marks, USGS, ERL-C
+</DD>
+
+<P>
+<DT>Nov 1998</DT>
+<DD>
+Added the use of format codes.  Also allowed a single date-time to be
+specified as the sole operand.  J. Domingo, OSU
+</DD>
+
+<P>
+<DT>Feb 1999</DT>
+<DD>
+Added format codes %Jd, %J1, %Wd, and %W1 to allow use of decimal
+days within formatted input and output.  D. Marks, ARS, NWRC
+</DD>
+
+</DL>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+
+<DT>IPW</DT>
+<DD>
+<B><A href="addtime.html">addtime</A></B>
+</DD>
+</DL>
+
+<P>
+
+<DT>UNIX</DT>
+<DD>date, printf
+</DD>
+
+</DL>

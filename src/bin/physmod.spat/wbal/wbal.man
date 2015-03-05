@@ -1,0 +1,172 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-m</B> <I>mask</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Simple water balance model:
+</P>
+<P>
+Calculates runoff, soil storage, and actual
+evapotranspiration, given precipitation, PET (potential
+evapotranspiration), initial soil storage, maximum soil
+storage capacity, and a runoff base flow threshold.
+Usually run at a mounthly time-step, to match model
+asumptions with results.
+A weekly or daily time-step could be used, but some of the
+because no time lag is coded into the model, it may deplete
+soil moisture to quickly.
+<BR>
+Model based on the following algorithm:
+</P><P>
+<PRE>
+	AvW	= max (Stor + P, 0)
+	Sat	= AvW / Smax
+	ET	= aet (PET, Sat)
+   if (AvW + ET &lt; 0)	{note that ET is negative if
+			flux is away from the surface}
+	ET	= -AvW
+	AvW	+= ET
+	Sat	= AvW / Smax
+	BF	= baseflow(Bthresh, Sat)
+	BF	= min (AvW, min (BF, Smax))
+	Ovf	= max (Avw - BF - Smax, 0)
+	RO	= Ovf + BF
+	Sat	= AvW / Smax
+	Stor	= max (AvW - RO, 0)
+</PRE>
+<P>
+where:
+</P>
+<PRE>
+	AvW	= available water
+	Stor	= soil water storage
+	P	= total precipitation
+	Sat	= % soil saturation
+	Smax	= max soil water storage
+	ET	= actual evapotranspiration
+	PET	= potential evapotranspiration
+	BF	= runoff base flow
+	Bthresh	= threshold runoff base flow
+	Ovf	= storage overflow
+	RO	= runoff
+</PRE>
+<P>
+All water units are (mm H2O)/(unit area).
+A three-band output image containing runoff, storage, and et
+is written to stdout.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+mask image
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+<PRE>
+input image	five-band input image (defaults to stdin)
+		containing the following bands:
+
+		Band 0	P	= precipitation
+		Band 1	PET	= potential evapotranspiration
+		Band 2	Stor	= soil storage
+		Band 3	Smax	= maximum soil storage
+		Band 4	Bthresh = base flow threshold factor
+				  (note: currently this is the runoff
+			  	   for Sept. of the previous year;
+</PRE>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To compute the water balance over a basin:
+</P>
+<DD>
+mux pcp pet stor, smax bflow | wbal -m basin_mask
+</DD>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+<DT>
+terminates with error message;
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>May 1990</DT>
+<DD>
+Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+<BR>
+Water balance algorithm by Jayne Dolph and Danny Marks,
+EPA ERL-C
+</DD>
+</DL>
+
+<DL>
+<DT>Feb 1991</DT>
+<DD>
+Modified to compute actual ET and to compute runoff base
+flow as a function of a threshold value and percent
+saturation, by Danny Marks, EPA ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="ipmx.html">ipmx</A></B>,
+<B><A href="iptx.html">iptx</A></B>,
+<B><A href="isnobal.html">isnobal</A></B>,
+<B><A href="itrbxfr.html">itrbxfr</A></B>,
+<B><A href="penmonx.html">penmonx</A></B>,
+<B><A href="pmx.html">pmx</A></B>,
+<B><A href="ptaylorx.html">ptaylorx</A></B>,
+<B><A href="ptx.html">ptx</A></B>,
+<B><A href="snobal.html">snobal</A></B>,
+<B><A href="trb_Ri.html">trb_Ri</A></B>,
+<B><A href="trbxfr.html">trbxfr</A></B>
+</DD>
+</DL>
+<P>
+<A HREF="../bib.html#Marks 1993">Marks, King, & Dolph, 1993</A>
+</P>
+

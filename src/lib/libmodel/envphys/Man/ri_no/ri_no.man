@@ -1,0 +1,41 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include	"ipw.h"
+#include	"envphys.h"
+
+double
+ri_no(
+     double  z2,   /* upper height (m)                          */
+     double  z1,   /* lower height (m) (maybe roughness length) */
+     double  t2,   /* virtual temperature at z2 (K)             */
+     double  t1,   /*    "        "       "  z1  "              */
+     double  u2,   /* wind speed at z2 (m/s)                    */
+     double  u1)   /*  "     "   "  z1   "   (may be zero)      */
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+%name calculates the bulk Richardson number at the geometric
+mean height between two given heights.
+</P>
+
+<H2>RETURN VALUE</H2>
+
+bulk Richardson number
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jun 1995</DT>
+<DD>
+Converted from QDIPS (originally named "Ri_no") to IPW by J. Domingo, OSU.
+</DD>
+</DL>
+

@@ -1,0 +1,174 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-n</B> <I>npoints</I> ] [ <B>-d</B> <I>dem_image</I> ] [ <B>-p</B> <I>infile</I> ]
+      [ <B>-b</B> <I>bits</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads a DEM image and an ASCII file of station data points 
+(easting northing elevation).  The output image contains <B>%name</B>
+values, where <B>%name</B> is the DEM elevation minus the weighted-mean
+station elevation.  The weighted-mean station elevation is 
+computed by inverse-distance-squared weighting based on the <I>npoints</I>
+nearest station points.
+</P><P>
+The purpose of the <B>%name</B> measure is to quantitatively flag regions
+which may be susceptible to interpolation error when station data are
+used to estimate the distributions of elevation-sensitive parameters
+(such as temperature, precipitation, or humidity). 
+Large positive (negative) values of <B>%name</B> indicate grid
+cells which are much higher (lower) than the weighted mean elevation
+of the <I>npoints</I> nearest measurement stations.  Large <B>%name</B> values
+indicate that station information will be extrapolated far beyond
+the elevational range of the local measurement stations
+(see Dodson and Marks, 1997).
+</P><P>
+If you wish to use a mask image to define an area of interest, 
+add the mask as a second band to <I>dem_image</I>.  (Use the mux command.)
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-d</B> <I>dem_image</I>
+<DD>
+The DEM image to be used for calculations.  This image
+defines the geodetic extent of the output image.
+An optional second band can be added to <I>dem_image</I>
+if a mask is desired.  Cells with zero values in the 
+mask band will be given an output value of zero.	
+</DD>
+
+<P>
+<DT><B>-n</B> <I>npoints</I>
+<DD>
+The number of nearest neighbors used for interpolation will
+be <I>npoints</I> (default: 12).
+</DD>
+
+<P>
+<DT><B>-p</B> <I>infile</I>
+<DD>
+Points will be read in from <I>infile</I> (default: standard input).
+The input file contains three values per line, formatted:
+</DD>
+
+<P>easting  northing  elevation
+</P>
+
+<P>where the easting and northing are specified in the same
+coordinate system as given in the &quot;geo&quot; header.
+</P>
+
+<P>
+<DT><B>-b</B> <I>bits</I>
+<DD>
+The output image will have <I>bits</I> bits of LQ precision.
+(default: 8)
+</DD>
+
+<P>NOTE:   use lots of lqh precision, as the LQ header min/max values
+are currently taken from the deltaZ values computed using
+DEM and station extrema, rather than the range of deltaZ
+values which actually occur.  (see 'future directions' below) 
+</P>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+The file &quot;pts_ll&quot; contains longitude, latitude, and elevation
+for a set of climatological stations.  The images &quot;dem&quot; and &quot;mask&quot;
+pertain to the region defined by &quot;pts_ll&quot;, but on an Albers
+map projection.  First convert the station locations to 
+Albers coordinates:
+</P><PRE>
+	transcoord -i geo.defs -o albers.defs pts_ll &gt; pts_alb
+</PRE><P>
+Then to calculate <B>%name</B> over a masked area within the DEM image,
+using the nearest 4 measurement stations:
+</P><PRE>
+	mux dem mask | deltaz -n 4 -p pts_alb &gt; dZ_image
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>error reading point <I>npoint</I> from input file
+</DT>
+
+<P>
+<DT>input header has no geodetic header
+</DT>
+<DD><BR>	The input header file must have a GEO header.
+</DD>
+
+<P>
+<DT>input geo units are degrees - must be Euclidean units
+</DT>
+<DD><BR>	The geodetic coordinates defined in the input header
+         	must be appropriate for Euclidean distance calculations:
+         		d = sqrt( (x1-x2)^2 + (y1-y2)^2 )
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The dem image may not have more than two bands.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Dec 1994</DT>
+<DD>
+	Written by Rusty Dodson, MERSC, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+LQ precision can be very grainy when <I>bits</I> is low.  See
+Future Directions above.
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="mkbih.html">mkbih</A></B>,
+<B><A href="mkgeoh.html">mkgeoh</A></B>,
+<B><A href="mkproj.html">mkproj</A></B>,
+<B><A href="mux.html">mux</A></B>,
+<B><A href="reproj.html">reproj</A></B>,
+<B><A href="transcoord.html">transcoord</A></B>
+</DD>
+</DL>
+<P>Dodson, R., and D. Marks, 1997. &quot;Daily air temperature interpolated
+at high spatial resolution over a large mountainous region&quot;, Climate
+Research, vol. 8, pp. 1-20.
+</P>
+

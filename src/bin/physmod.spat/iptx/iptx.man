@@ -1,0 +1,110 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-m</B> <I>mask</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates potential evaporation (PE) using the
+Priestley-Taylor (1972) approach.
+This method is designed to estimate the
+total evaporative flux over a wet surface. The PE flux is thus
+representative of potential evaporation (PE). The program reads
+a 3-band image file containing the following daily data:
+</P>
+<PRE>
+	band	contents
+	----    --------
+	0	net radiation (negative away from surface)
+	1	air temperature (C)
+	2	Priestly Taylor Parameter (approximately 1.26)
+</PRE>
+<P>
+If no input file is specified, the programs reads from the input
+image from standard input.  The program outputs a single-band image
+of PE samples to standard output.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+Use the 1-band image <I>mask</I> to mask the input image.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+<DD>
+input image:	3-band input image
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+mux rn ta pt_parm | <B>%name</B> <B>-m</b> basin_mask
+</P>
+<H2>FILES</H2>
+
+<PRE>
+     $TMPDIR/iptx*	temporary file
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Assumptions:
+</P>
+<DD>
+G is 10% of Rn; Surface is saturated and le due to turbulent
+vapor flux is minimal and well correlated with Rn. This
+assumption works well over short canopies (grass) but
+not over forested canopies (McNaughton and Black 1973;
+Priestley and Taylor 1972).
+</DD>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Aug 1995</DT>
+<DD>
+Converted the point-model program ptx to work over
+an IPW image.  J. Domingo, OSU, EPA NHEERL/WED
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+<H2>SEE ALSO</H2>
+
+<P>
+ipmx, itrbxfr, mux, penmanx, pmx, ptx, ptaylorx, trb_Ri, trbxfr
+</P>
+<P>
+<A HREF="../bib.html#McNaughton, Black 1973">McNaughton & Black, 1973</A>,
+<A HREF="../bib.html#Monteith, Unsworth 1990">Monteith & Unsworth, 1990</A>,
+<A HREF="../bib.html#Priestley, Taylor 1972">Priestley & Taylor, 1972</A>
+</P>
+

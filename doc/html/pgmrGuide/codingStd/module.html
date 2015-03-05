@@ -1,0 +1,158 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Modules</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../../images/usda.gif" alt="USDA">
+<IMG SRC="../../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Modules</H1>
+
+
+<P>
+The fundamental modular unit in C is the source file. Compiled source files are
+the basic units which can be linked together to form executable programs.
+
+<P>
+IPW tries to maintain a one-to-one relationship between source files and
+functions.  This eliminates the possibility that
+an executable program will contain unused modules, since only identifiers
+that are explicitly referenced will be loaded. Of course, source files may
+also contain an arbitrary number of top-level static identifiers, since they
+are invisible during the linking process.
+
+<P>
+Source files are named after the most significant global function they
+contain. This makes it easier for maintainers to find the
+source file associated with a particular identifier.
+
+<P>
+There are some general rules for deciding how to modularize a particular
+programming problem. First of all, the overall problem should be divided into
+levels of abstraction. Functions at one level should ideally call only
+functions at the same or next lower level. Global data structures should
+likewise be allotted to particular levels, and not accessed by functions
+outside those levels. A good example of this model is the IPW scheme
+for image header I/O, in which the various layers (header-specific,
+<CODE>hdrio</CODE>, and <CODE>uio</CODE>) each have associated global
+data structures, and each call only the next lower layer:
+
+<P>
+
+<TABLE align=center border cellpadding=5>
+
+<TR>
+    <TH>layer</TH>   <TH>functions</TH>        <TH>data structure</TH>
+</TR>
+
+<TR>
+    <TD>BIH</TD>     <TD>bihread, bihwrite</TD>    <TD>BIH_T **_bih[]</TD>
+</TR>
+
+<TR>
+    <TD>hdrio</TD>       <TD>hrname, hgetrec, hwprmb, hputrec</TD>
+					<TD>HDRIO_T _hdriocb[]
+</TR>
+
+<TR>
+    <TD>uio</TD>         <TD>ubof, ugets, uputs</TD>     <TD>UIO_T _uiocb[]</TD>
+</TR>
+
+</TABLE>
+
+<P>
+Code should not be duplicated if there is any possibility of sharing it. If
+you find yourself doing the same thing in two or more functions, it's worth
+it to generalize that action into a separate function: there will be fewer
+lines of code to keep track of, fewer duplicated fixes to make if the code
+proves buggy, and a smaller overall program.
+
+<P>
+A general principle for deciding what actions should be encapsulated in a
+single function is that a function should be fully explicable by a simple
+sentence; i.e., one verb and one object. To the extent that a function
+deviates from this criterion, it should be considered a candidate for:
+
+<UL>
+  <LI>consolidation with another function
+    <P>
+  <LI>splitting into two or more functions
+    <P>
+  <LI>expansion into another level of abstraction
+</UL>
+
+<P>
+Functions should be kept small enough to be easily comprehended. A source
+file should be small enough that you would not worry about losing track of
+the order of the pages in a printed version.  Deep nesting of blocks, or
+many blocks containing block-scoped local variables, are also indications
+that a function may be too large.
+
+<P>
+Ideally, all communication between a function and the "outside world"
+should be via either the formal arguments, or the function's return value.
+However, it is also desirable to minimize the number of arguments in a
+function. As a practical matter, beyond about 5 arguments, it becomes much
+more difficult for the programmer to remember the order of the arguments,
+and what each argument does. Functional grouping of the arguments can
+mitigate this somewhat (e.g., input arguments come first, then output
+arguments), as can other regularities in argument order (e.g., all IPW
+I/O routines accept arguments in the order: file descriptor, buffer, count).
+
+<P>
+IPW allows functions to communicate via global data structures, in lieu of
+arguments that would otherwise convey the following:
+
+<UL>
+  <LI>information unused in the called function, but required by functions
+      further downthe calling hierarchy
+   <P>
+  <LI>environmental or contextual information that, once set, is used by several
+      functions but never modified.
+</UL>
+
+<P>
+The resulting simplification of function calling sequences has proven
+worthwhile; however, this use of globals requires some discipline on the
+part of the programmer, since there is nothing in C to prevent any function
+from modifying a global to which it has access.  All functions that
+explicitly access or modify global variables MUST identify those variables
+in their documentation.
+
+<P>
+The meaning of an argument should be invariant; i.e., "op-code"
+arguments which alter the interpretation of other arguments should be
+avoided. The one permissible exception to this is an argument which signals
+whether additional arguments follow, in afunction which accepts a variable
+number of arguments.
+
+<P>
+The type <CODE>void</CODE> should always be used for functions which return
+no value.
+
+<P>
+Functions should not require a special calling sequence to be initialized;
+instead, they should rely on either compile-time initialization of local
+<CODE>static</CODE>, or run-time initialization triggered by a local
+<CODE>static</CODE> flag.
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

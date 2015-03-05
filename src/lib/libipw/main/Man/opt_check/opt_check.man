@@ -1,0 +1,79 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+void opt_check(int n_min, int n_max, int n_opts, OPTION_T *opt, ...)
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> checks that at least n_min and at most n_max of the
+following n_opts option descriptors point to options that were
+specified on the command line.  If the check fails, an error message
+is printed and execution terminates.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>must specify at least <I>n_min</I> of: <I>options</I>
+may specify no more than <I>n_max</I> of: <I>options</I>
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+	Modified for ANSI C.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1997</DT>
+<DD>
+	Updated for IPW version 2.0  J. Domingo, OSU
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+
+<H2>SEE ALSO</H2>
+
+
+

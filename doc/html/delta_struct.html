@@ -1,0 +1,68 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Structural Changes in Version 2</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="images/usda.gif" alt="USDA">
+<IMG SRC="images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Structural Changes in Version 2</H1>
+
+
+<P><B>Portability</B></P>
+<P>
+All IPW C code now meets the ANSI/ISO Standard.
+IPW will install and run on any Unix system that complies with
+<A HREF="http://www.rdg.opengroup.org/public/tech/unix">
+X-Open's Single Unix Specification</A>, and an ANSI/ISO Standard C compiler.
+(see <A HREF="design/portable.html">design portability</A>)
+</P>
+<P><B>Configuration and Installation</B></P>
+<P>
+GNU's <TT>autoconf</TT> was used to generate a <TT>configure</TT> script.
+This simplifies the configuration process, making it much easier to install
+IPW on new systems that conform to the
+<A HREF=" https://www.nmepscor.org/trac/IPW/wiki/SystemRequirements">system requirements</A>.
+</P>
+<P><B>The Make Utility</B></P>
+<P>
+The original IPW command <TT>ipwmake</TT> has been eliminated.
+IPW now requires <A HREF="http://www.gnu.org">GNU</A>'s version of "make",
+which provides a more functional
+make utility that can be standardized on any conforming Unix platform
+(see <A HREF=" https://www.nmepscor.org/trac/IPW/wiki/SystemRequirements">System Requirements</A>).
+</P>
+<P><B>Documentation and Manual Pages</B></P>
+<P>
+All documentation is now available only in HTML, for viewing through
+a web browser.
+The original IPW command <TT>ipwman</TT> has been eliminated.
+Manual pages have been separated from the source code, and are produced
+automatically by <TT>gmake</TT> in both HTML and Unix man page formats.
+Either a web browser is used to view manual pages
+(see <A HREF="userGuide/index.html">Users Guide</A> or
+<A HREF="pgmrGuide/index.html">Programmers Guide</A>),
+or, if the proper $MANPATH is set, the Unix <TT>man</TT> command can be
+used to view standard on-line manual pages.
+</P>
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="intro.html">IPW documentation</A>  /
+Last revised 29 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

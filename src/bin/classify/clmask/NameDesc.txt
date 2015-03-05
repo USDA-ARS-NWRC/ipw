@@ -1,0 +1,1 @@
+clmask - make class mask image from an IPW image

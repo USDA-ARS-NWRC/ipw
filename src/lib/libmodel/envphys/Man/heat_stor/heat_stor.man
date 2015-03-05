@@ -1,0 +1,54 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "envphys.h"
+
+double
+heat_stor(
+     double  cp,        /* specific heat of layer (J/kg/K) */
+     double  spm,       /* layer specific mass (kg/m^2)    */
+     double  tdif)      /* temperature change (K)          */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates the change in heat storage in a
+homogeneous layer as a function of the change in average layer temperature.
+<P>
+The layer's specific mass (the argument <I>spm</I>) can be computed
+by multiplying the layer's thickness (m) by its density (kg/m^3).
+
+
+<H2>RETURN VALUE</H2>
+
+<P>
+heat storage  (J/m^2)
+</P>
+
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Aug 1984</DT>
+<DD>
+written by D. Marks, CSL (GSFC), UCSB;
+</DD>
+
+<P>
+
+<DT>May 1995</DT>
+<DD>
+Ported from QDIPS to IPW.  J. Domingo, OSU.
+</DD>
+
+</DL>
+
+

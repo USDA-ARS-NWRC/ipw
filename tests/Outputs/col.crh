@@ -1,0 +1,32 @@
+!<header> basic_image_i -1 $Revision: 1.11 $
+byteorder = 3210 
+nlines = 120 
+nsamps = 150 
+nbands = 1 
+!<header> basic_image 0 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+history = gtoporad -b 8 -n 
+history = resamp -l 6 -s 6 rad.10 
+history = mkcrh -f -c Data/classvals -i Data/rad.10.ipw 
+!<header> lq 0 $Revision: 1.6 $
+units = W m^-2 
+map = 0 0 
+map = 255 133.4626923 
+!<header> geo 0 $Revision: 1.7 $
+bline = 52.95833333325 
+bsamp = -124.45833333325 
+dline = -0.1000000002 
+dsamp = 0.1000000002 
+units = degrees 
+coord_sys_ID = geographic 
+!<header> cr 0 $Revision: 1.1 $
+nclass = 5 
+floor = 0 
+ceil = 5 
+class = -5 0 -1 
+class = 0 50 25 
+class = 50 100 75 
+class = 100 150 125 
+class = 150 200 175 
+!<header> image -1 $Revision: 1.5 $

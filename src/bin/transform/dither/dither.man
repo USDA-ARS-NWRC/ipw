@@ -1,0 +1,116 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-r</B> <I>rank</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Dither converts the input image into a bilevel (1 bit per pixel)
+output image, using ordered dithering.  &quot;Black&quot; output pixels are
+assigned the value 0; &quot;white&quot; output pixels are assigned the value 1.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-r</B> <I>rank</I>
+<DD>
+Use a <B>%name</B> matrix of rank <I>rank</I> (default 4).  Possible
+values are 4, 8, or 16, for simulating 16, 64, or 256 gray
+levels, respectively.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image
+		Image to be dithered
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To display &quot;image&quot; on a monochrome Sun workstation using a standard
+version of xli (not modified to accept ipw image formats):
+</P><PRE>
+	dither image | ipw2sun | xli stdin
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Before using <B>%name</B>, make sure that the output device (e.g.,
+Postscript printer) or display software (e.g. xv, xloadimage)
+does not already incorporate a better halftoning algorithm.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+</DD>
+</DL>
+
+<DL>
+<DT>May 1993</DT>
+<DD>
+	Converted to ANSI C.  Ran through Purify.
+Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="ipw2sun.html">ipw2sun</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Image</DT>
+<DD>	ppmdither, rledither, to8, xv, xli, xloadimage
+</DD>
+</DL>
+<P>David F. Rogers, &quot;Procedural Elements for Computer Graphics&quot;,
+	McGraw-Hill, 1985, p. 107.
+</P>
+<P>Frew, J., 1990. The Image Processing Workbench. PhD Thesis, Department
+	if Geography, University of California, Santa Barbara, 382p.
+</P>
+

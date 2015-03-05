@@ -1,0 +1,3 @@
+%define(name,"geohwrite")
+%define(description,"write an IPW GEOH header")
+%define(category,"geoh")

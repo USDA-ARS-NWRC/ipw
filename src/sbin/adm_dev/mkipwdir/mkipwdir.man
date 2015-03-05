@@ -1,0 +1,156 @@
+<H2>NAME</H2>
+
+<P>
+<B>%name</B> - %description
+</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <I>path</I> ]
+</PRE>
+
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> creates a private IPW directory structure for
+use in developing new IPW software.  This structure is:
+
+<PRE>
+    <I>path</I>            top of IPW directory structure
+      |
+      +- aux/          auxiliary commands and files
+      |
+      +- bin/          user commands
+      |
+      +- h/            C header files
+      |
+      +- lib/          libraries
+      |
+      +- man/          manual pages (troff versions)
+      |   |
+      |   +- man1/        commands
+      |   |
+      |   +- man3/        library functions
+      |   |
+      |   +- man5/        header files, file formats
+      |
+      +- sbin/         system commands
+      |
+      +- src/          source directory
+      |   |
+      |   +- bin/         commands
+      |   |
+      |   +- lib/         libraries
+      |   |
+      |   +- sbin/        header files, file formats
+      |
+      +- tests/        tests
+      |
+      +- www/          Web documentation including manual pages
+          |            (HTML versions)
+          |
+          +- man1/        commands
+          |
+          +- man3/        library functions
+          |
+          +- man5/        header files, file formats
+</PRE>
+
+<P>
+If <I>path</I> refers to an existing directory, then <B>%name</B>
+scans this directory for the subdirectories listed above (i.e., bin,
+h, lib, etc).  Any missing subdirectories are created; any existing
+subdirectories are left untouched.
+
+<H2>OPTIONS </H2>
+
+<P>
+None.
+</P>
+
+
+<H2>OPERANDS</H2>
+
+<DL>
+
+<DT><I>path</I>
+<DD>
+Create the IPW directory structure in the subdirectory specified by
+<I>path</I>.  If <path> does not exist, it will be created first.
+(Default: current directory)
+</DD>
+
+</DL>
+
+
+<H2>EXAMPLES</H2>
+
+<P>
+This example creates a subdirectory in the current directory called
+"ipw" which has the IPW directory structure noted above:
+ 
+<PRE>
+     %name ipw
+</PRE>
+
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT><SAMP><I>dir</I> already exists, but is not a directory</SAMP>
+<DD>
+The command was attempting to make the directory <I>dir</I>, but it
+found that <I>dir</I> already exists and is <B>not</B> a directory.
+</DD>
+
+</DL>
+
+
+<H2>NOTES</H2>
+
+<P>
+None.
+</P>
+
+
+<H2>HISTORY </H2>
+
+<DL>
+
+<DT>May 1998
+<DD>
+Written by J. Domingo, OSU
+</DD>
+
+<p>
+
+<DT>Oct 1999
+<DD>
+Added the "aux" subdirectory.  Fixed bug when checking for existence
+of a directory.  J. Domingo, OSU
+</DD>
+
+</DL>
+
+
+<H2>SEE ALSO</H2>
+
+<DL>
+
+<DT>Unix:
+<DD>
+mkdir
+</DD>
+
+</DL>

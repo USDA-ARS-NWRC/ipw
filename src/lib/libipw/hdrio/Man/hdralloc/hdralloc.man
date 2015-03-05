@@ -1,0 +1,79 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "hdrio.h"
+
+addr_t
+hdralloc(
+	int             n,
+	int             size,
+	int             fd,
+	const char     *name)
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> allocates a n objects of size bytes each.  If the allocation
+fails, then &quot;name&quot; and &quot;fd&quot; (if not equal to ERROR) are used to
+post error messages with usrerr() and uferr(), respectively.
+</P><P>
+Example:
+</P>
+<PRE>
+	xxhpp = hdralloc(nbands, sizeof(XXH_T *), fd, XXH_HNAME);
+	xxhp = hdralloc(1, sizeof(XXH_T), fd, XXH_HNAME);
+</PRE><P>
+<B>%name</B> may be called by the header ingest functions (<I>xx</I>hread) to
+allocate both individual headers and an array of header pointers.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+generic pointer to newly allocated header; NULL if allocation failed.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>can't allocate <I>name</I> header
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

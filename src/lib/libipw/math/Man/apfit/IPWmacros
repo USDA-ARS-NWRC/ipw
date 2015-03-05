@@ -1,0 +1,3 @@
+%define(name,"apfit")
+%define(description,"least-squares polynomial fit")
+%define(category,"math")

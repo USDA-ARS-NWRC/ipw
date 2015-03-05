@@ -1,0 +1,110 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Use of &quot;static&quot;</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../../images/usda.gif" alt="USDA">
+<IMG SRC="../../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Use of &quot;static&quot;</H1>
+
+
+<P>
+The <CODE>static</CODE> keyword is unfortunately overloaded in C, affecting
+both the
+visibility and the extent of a declaration
+[<A HREF="../../bib.html#Harbison 1987">Harbison 1987</A>].
+In IPW,
+there are three situations in which the static storage class may be used. 
+
+<P>
+First, top-level definitions may be made <CODE>static</CODE> to keep them
+from being accessed outside the module in which they appear.
+
+<P>
+Second, local variables may be made <CODE>static</CODE> if they are
+aggregates that must be
+initialized, or if their addresses are required to initialize other
+aggregates. This use of <CODE>static</CODE> is common in IPW; e.g., with the
+<CODE>OPTION_T</CODE> type to collect program arguments, and with
+the <CODE>GETHDR_T</CODE> type to control input image header processing.
+
+<P>
+Example:
+
+<PRE>
+{
+        static OPTION_T opt_b = {
+                'b ' , "begin line,sample",
+                REAL_OPTARGS, "coord",
+                OPTIONAL, 2, 2
+        };
+
+        ...
+
+        static OPTION_T operands = {
+                OPERAND, "input image file",
+                STR_OPERANDS, "image",
+                OPTIONAL, 1, 1,
+        };
+
+        static OPTION_T *optv[] = {
+                &opt_b,
+                ...
+                &operands,
+                0
+        };
+}
+</PRE>
+
+<P>
+Finally, local variables may be made <CODE>static</CODE>
+to preserve their values between
+calls to the function in which they are defined. This method is used
+chiefly for one-time initialization of dynamic data structures:
+
+<P>
+Example:
+
+<PRE>
+int
+foo(void)
+{
+        static bool_t        already = FALSE;
+
+        if (!already) {
+                already = TRUE;
+
+                /* <I>initialization code goes here</I> */
+        }
+}
+</PRE>
+
+<P>
+Local <CODE>static</CODE> variables should never be used as "implicit" arguments
+(i.e., to affect the behavior of the function as perceived by its caller.)
+
+<CODE>static</CODE> definitions should not appear in nested blocks
+(i.e., anywhere
+within a block except at the beginning of a function).
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

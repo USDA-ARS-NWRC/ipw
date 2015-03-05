@@ -1,0 +1,109 @@
+.TH "lqhx" "1" "10 April 1998" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBlqhx\fP - modify an IPW image's linear quantization wth new LQ header
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBlqhx\fP [ \fB-h\fP \fIheader\fP ] [ \fB-i\fP \fIimage\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBlqhx\fP copies \fIimage\fP to the standard output, requantizing its
+pixels according to the quantization parameters of the \fIheader\fP
+image.  Specifically, the output bands will have the same pixel
+sizes as \fIheader\fP, and will receive (and be quantized according
+to) any corresponding "lq" (linear quantization) headers in
+\fIheader\fP.
+.SH OPTIONS
+.TP
+\fB-h\fP \fIheader\fP
+Read quantization parameters from \fIheader\fP (default:
+standard input).  Pixel size information (number of
+bytes, number of bits) is obtained from the BIH (basic
+image header).  Any "lq" headers in \fIheader\fP (there must
+be at least one) are copied to the output image.  Any
+other headers or image data in \fIheader\fP is ignored.
+.sp
+.TP
+\fB-i\fP \fIimage\fP
+Read image data from \fIimage\fP (default: standard input).
+.PP
+At least one of \fB-h and/or \fB-i must be specified.
+.SH OPERANDS
+.PP
+None
+.SH EXAMPLES
+.PP
+To requantize "image2" to the same pixel sizes and ranges of
+values as in "image1":
+.sp
+.nf
+.ft CR
+	lqhx -h image1 -i image2
+.ft R
+.fi
+
+.PP
+To requantize a single-band "image" such that the input values
+0 .. 1 are distributed over 10 bits:
+.sp
+.nf
+.ft CR
+	mkbih -s 1 -l 1 -i 10 -f  |  mklqh -m 0,0,1023,1 -f  | \\
+		lqhx -i image
+.ft R
+.fi
+
+.PP
+Note that the -s and -l options are required by mkbih, even
+though those header fields are subsequently ignored.
+.SH FILES
+.PP
+None
+.SH DIAGNOSTICS
+.sp
+.TP
+new LQH not valid
+.br
+	The \fIheader\fP file has an invalid "lq" header, or does not
+	have any "lq" headers.
+.sp
+.TP
+input image and LQH file have different # bands
+.br
+	The \fIheader\fP and \fIimage\fP files must have the same number
+	of bands.
+.SH RESTRICTIONS
+.PP
+\fBlqhx\fP does not check that the quantization borrowed from \fIheader\fP
+is appropriate for \fIimage\fP, i.e., that the pixel values in \fIimage\fP
+lie in the ranges specified by the "lq" headers in \fIheader\fP.
+Pixels below (above) the range of output values will be set to
+the lowest (highest) output value.
+.SH HISTORY
+.TP
+Jul 1990
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+.TP
+Apr 1993
+	Ran through Purify.  Dana Jacobsen, ERL-C.
+.TP
+Aug 1997
+	Converted to IPW Version 2.0, D. Marks, USGS, ERL-C
+.SH BUGS
+.PP
+None
+.SH SEE ALSO
+.TP
+IPW
+	\fBlutx\fP,
+\fBmkbih\fP,
+\fBmklqh\fP,
+\fBrequant\fP
+.PP
+Frew 1990
+.br

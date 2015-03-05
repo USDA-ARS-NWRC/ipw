@@ -1,0 +1,3 @@
+%define(name,"window")
+%define(description,"extract a region (window) of an IPW image")
+%define(category,"Image Transformation")

@@ -1,0 +1,3 @@
+%define(name,"scale")
+%define(description,"multiply all pixels by a scaling factor (DEPRECIATED)")
+%define(category,"Pixel Calculations")

@@ -1,0 +1,66 @@
+.TH "bmask" "1" "9 June 1998" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBbmask\fP - create a basin-delineation mask
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBbmask\fP \fB-p\fP \fIl\fP,\fIs\fP [ \fB-f\fP \fIflat\fP ] [ \fB-m\fP \fIpit_mask\fP ]
+      [ \fIimage\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Given a seed point and 2-band gradient file, \fBbmask\fP returns a mask
+that marks all cells that drain through the seed point.
+.SH OPTIONS
+.TP
+\fB-p\fP \fIl\fP,\fIs\fP
+specify the seed point (line, sample)
+.sp
+.TP
+\fB-f\fP \fIflat\fP
+specify the flatness threshold.  All slopes in the gradient
+file less than \fIflat\fP are considered 0 (default .001).
+.sp
+.TP
+\fB-m\fP \fIpit_mask\fP
+specify a pit mask.  All nonzero entries in the pit mask
+are marked with 0 slope before calculation.
+.SH OPERANDS
+.TP
+\fIimage\fP
+2-band gradient image (default: standard input).
+.SH EXAMPLES
+.PP
+To compute the basin mask for a noisy DEM, with pour point at l=265,
+s=201:
+.sp
+.nf
+.ft CR
+    mux elev gradient | pmask -f 0.005 >pit_mask
+    bmask -p 265,201 -f 0.01 -m pit_mask gradient >basin_mask
+.ft R
+.fi
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.SH HISTORY
+.TP
+May 1995
+Kevin L. Novins, ERL-C.  Based on Qdips program
+by D. Marks.
+.sp
+.TP
+Jun 1998
+Separated source code shared with \fBpmask\fP command into
+a separate library.  J. Domingo, OSU.
+.SH SEE ALSO
+.TP
+IPW:
+\fBpmask\fP,
+\fBgradient\fP
+.PP
+Marks 1984

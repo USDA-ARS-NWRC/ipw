@@ -1,0 +1,62 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+int
+uwflush(
+	int     fd)		|* file descriptor		 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> forces any pending UIO output to be written to file
+descriptor fd.
+</P><P>
+<B>%name</B> is usually called to force pending output down a pipe before
+beginning a potentially lengthy calculation.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+OK	for success
+</P><P>
+ERROR	for failure
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_uiocb
+</P>
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

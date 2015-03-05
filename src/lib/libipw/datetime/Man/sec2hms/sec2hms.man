@@ -1,0 +1,65 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+void
+sec2hms(
+    int      total_secs,	|* total time as seconds	*|
+    int    * hrs,		|* output: [0 - ...		*|
+    int    * mins,		|* output: [1 - 59]		*|
+    int    * secs)		|* output: [1 - 59]		*|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> converts a time expressed as total number of seconds
+as hours, minutes, and seconds.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

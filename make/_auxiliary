@@ -1,0 +1,176 @@
+#  This Makefile contains macros and rules associated with auxiliary
+#  scripts and files.  At least one of these macros should be defined
+#  for this Makefile:
+#
+#	AUX_SCRIPTS = list of auxiliary scripts
+#	AUX_PGMS    = list of auxiliary programs
+#	AUX_FILES   = list of auxiliary files
+#
+#  plus this macro must be defined:
+#
+#	NAME = name of the IPW command that these auxiliary scripts,
+#	         programs and files are associated with
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#  AUX_DIR = auxiliary directory associated with the current directory where
+#	     auxiliary scripts, programs and files are installed =
+#    1) explicitly defined, or
+#    2) $(TOP_DIR)/aux/$(NAME)
+
+ifndef AUX_DIR
+  AUX_DIR := $(TOP_DIR)/aux/$(NAME)
+endif
+
+.PHONY : aux-dir
+aux-dir : $(AUX_DIR)
+$(AUX_DIR) :
+	mkdir $(AUX_DIR)
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#  Auxiliary scripts
+
+ifdef AUX_SCRIPTS
+
+AUX_BASENAMES := $(basename $(AUX_SCRIPTS))
+
+#  Separate out scripts based on their extensions
+SH_SCRIPTS   := $(filter %.sh,  $(AUX_SCRIPTS))
+AWK_SCRIPTS  := $(filter %.awk, $(AUX_SCRIPTS))
+SED_SCRIPTS  := $(filter %.sed, $(AUX_SCRIPTS))
+PERL_SCRIPTS := $(filter %.pl,  $(AUX_SCRIPTS))
+
+#  To make a script, process it and remove its extension
+$(SH_SCRIPTS:.sh=) : % : %.sh $(IPW_MACRO_FILE)
+	$(mk-script)
+$(AWK_SCRIPTS:.awk=) : % : %.awk $(IPW_MACRO_FILE)
+	$(mk-script)
+$(SED_SCRIPTS:.sed=) : % : %.sed $(IPW_MACRO_FILE)
+	$(mk-script)
+$(PERL_SCRIPTS:.pl=) : % : %.pl $(IPW_MACRO_FILE)
+	$(mk-script)
+
+# - - - - - - - -
+
+#  Target to make all the auxiliary scripts
+
+aux-cmds := aux-cmds
+aux-scripts := aux-scripts
+
+.PHONY : aux-scripts
+aux-scripts : $(AUX_BASENAMES)
+
+#  Rules to install auxiliary scripts
+
+ifdef AUX_BASENAMES
+INSTALLED_AUX_SCRIPTS := $(foreach x, $(AUX_BASENAMES), $(AUX_DIR)/$(x))
+$(INSTALLED_AUX_SCRIPTS) : $(AUX_DIR)/% : %
+	$(INSTALL) -c -m $(SCRIPT_MODE) $< $@
+endif
+
+install-aux := install-aux
+
+
+#  Define target to clean up local copies of auxiliary scripts.
+
+clean-aux := clean-aux
+clean-aux-scripts := clean-aux-scripts
+
+.PHONY : clean-aux-scripts
+clean-aux-scripts :
+	rm -f $(AUX_BASENAMES)
+
+endif  # AUX_SCRIPTS
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+#  Auxiliary programs
+
+ifdef AUX_PGMS
+
+#  Each program has its own subdirectory where its source files are kept
+
+LOCAL_AUX_PGMS := $(foreach pgm, $(AUX_PGMS), $(pgm)/$(pgm))
+
+$(LOCAL_AUX_PGMS) :
+	$(MAKE) -C $(dir $@) pgm
+
+# - - - - - - - -
+
+#  Target to make the auxiliary programs
+
+aux-cmds := aux-cmds
+aux-pgms := aux-pgms
+
+.PHONY : aux-pgms
+aux-pgms : $(LOCAL_AUX_PGMS)
+
+#  Rules to install auxiliary programs
+
+INSTALLED_AUX_PGMS := $(foreach pgm, $(AUX_PGMS), $(AUX_DIR)/$(pgm))
+$(INSTALLED_AUX_PGMS) :
+	$(MAKE) -C $(notdir $@) install
+
+install-aux := install-aux
+
+
+#  Target to clean up local copies of auxiliary programs.
+
+clean-aux += clean-aux-pgms
+clean-aux-pgms := clean-aux-pgms
+
+.PHONY : clean-aux-pgms
+clean-aux-pgms :
+	@for pgm in $(AUX_PGMS) ; do \
+		$(MAKE) -C $$pgm clean ; \
+		status=$$? ;		    \
+		if [ $$status -ne 0 -a $(KEEP_GOING) -eq 0 ] ; then     \
+			exit $$status ;	 \
+		fi ;			    \
+	done
+
+endif  # AUX_PGMS
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+#  Auxiliary files
+
+ifdef AUX_FILES
+
+INSTALLED_AUX_FILES := $(foreach x, $(AUX_FILES), $(AUX_DIR)/$(x))
+
+#  An auxiliary file may contain a path component preceeding the file name.
+$(INSTALLED_AUX_FILES) : $(AUX_DIR)/% : %
+	@dir=$(dir $<) ; \
+		if [ ! -d $(AUX_DIR)/$$dir ] ; then \
+			mkdir -p $(AUX_DIR)/$$dir ; \
+		fi
+	$(INSTALL) -c $< $@
+
+install-aux := install-aux
+
+endif  # AUX_FILES
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ifdef aux-cmds
+   .PHONY : aux-cmds
+   aux-cmds : $(aux-scripts) $(aux-pgms)
+endif
+
+ifdef clean-aux
+   .PHONY : clean-aux
+   clean-aux : $(clean-aux-scripts) $(clean-aux-pgms)
+endif
+
+
+ifdef install-aux
+  .PHONY : install-aux uninstall-aux
+  install-aux : aux-dir $(INSTALLED_AUX_SCRIPTS) $(INSTALLED_AUX_PGMS) $(INSTALLED_AUX_FILES)
+
+  #  Define target for parent Makefile's "uninstall" target
+  uninstall-aux := uninstall-aux
+  uninstall-aux :
+	rm -rf $(AUX_DIR)/*
+endif

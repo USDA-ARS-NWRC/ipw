@@ -1,0 +1,208 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-d</B> <I>year</I>,<I>month</I>,<I>day</I> <B>-b</B> <I>lat</I>[,<I>lat</I>,<I>lat</I>] <B>-l</B> <I>lon</I>[,<I>lon</I>,<I>lon</I>]
+       [ <B>-r</B> ] [ <B>-z</B> <I>zone</I> ] [ <B>-y</B> ] [ <B>-q</B> <I>npts</I> ] [ <B>-a</B> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Sunlight calculates times of sunrise and sunset, given a date,
+latitude, and longitude.  It can optionally also calculate times,
+weights, and sun angles for numerical integration of solar
+radiation over the day, currently with either 15 or 21 Kronrod
+quadrature points.  Time returned is in GMT, unless a zone (with
+optional daylight savings flag) is specified.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-d</B> <I>year</I>,<I>month</I>,<I>day</I>
+<DD>
+The date is <I>year</I>, <I>month</I>, <I>day</I>.
+</DD>
+
+<P>
+<DT><B>-b</B> <I>lat</I>[,<I>lat</I>,<I>lat</I>]
+<DD>
+The latitude is <I>lat</I>, specified in degress, minutes, seconds
+unless <B>-r</b> is specified, in which case it is in radians.
+</DD>
+
+<P>
+<DT><B>-l</B> <I>lon</I>[,<I>lon</I>,<I>lon</I>]
+<DD>
+The longitude is <I>lon</I>, specified in degress, minutes, seconds
+unless <B>-r</b> is specified, in which case it is in radians.
+</DD>
+
+<P>
+<DT><B>-r</B> 
+<DD>
+The latitude and longitude options are taken to be radians
+rather than degrees, minutes, seconds.
+</DD>
+
+<P>
+<DT><B>-z</B> <I>zone</I>
+<DD>
+The time zone is <I>zone</I> minutes west of Greenwich (UTC).
+</DD>
+
+<P>
+<DT><B>-y</B> 
+<DD>
+Daylight Savings time is in effect.
+</DD>
+
+<P>
+<DT><B>-q</B> <I>npts</I>
+<DD>
+Quadrature points will also be printed.  The number of points
+used will be <I>npts</I>.
+</DD>
+
+<P>
+<DT><B>-a</B> 
+<DD>
+The output will be abbreviated for use in shell scripts.  If
+the &quot;<B>-q</b>&quot; option is not specified, this will result
+in output of:
+</DD><PRE>
+
+	daylength sunrise solar_noon sunset
+
+</PRE><DD>
+in decimal hours.
+If the &quot;<B>-q</b>&quot; option is specified, daylength and
+solar times will not be printed, and this will result in output of
+only the quadrature points.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate the day length, radian lat/lon, and sunrise/sunset times
+for a site in the Columbia Basin on June 22, 1990:
+</P><PRE>
+	sunlight -d 1990,6,22 -b 37 -l -112,30 -z 480
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT><B>-q</b>: only 15 or 21 pts supported
+</DT>
+<DD><BR>	The only supported values for number of quadrature points is
+15 and 21.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Using the <B>-a</b> option inhibits printing of sunrise and sunset times only
+when combined with the <B>-q</b> option.
+</P>
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Apr 1988</DT>
+<DD>
+	Written by Jeff Dozier, UCSB.
+</DD>
+</DL>
+
+<DL>
+<DT>May 1993</DT>
+<DD>
+	Use new zonetime function instead of Sun-specific
+timezone function.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 2006</DT>
+<DD>
+	Added output of decimal daylength, sunrise, solar noon and sunset
+times for <B>-a</b> option in the absence of the <B>-q</b> option.
+Danny Marks, ARS-NWRC.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="elevrad.html">elevrad</A></B>,
+<B><A href="gelevrad.html">gelevrad</A></B>,
+<B><A href="gsunlight.html">gsunlight</A></B>,
+<B><A href="gtoporad.html">gtoporad</A></B>,
+<B><A href="solar.html">solar</A></B>,
+<B><A href="sunang.html">sunang</A></B>,
+<B><A href="sunweights.html">sunweights</A></B>,
+<B><A href="toporad.html">toporad</A></B>
+</DD>
+</DL>
+<P>Dozier, J., 1980.  &quot;A clear-sky spectral solar radiation model for
+snow-covered mountainous terrain&quot;.  Water Resources Research,
+vol. 16, pp. 709-718.
+</P>
+<P>Dozier, J., and J. Frew, 1981.  &quot;Atmospheric corrections to satellite
+radiometric data over rugged terrain&quot;.  Remote Sensing of
+Environment, vol. 11, pp. 191-205.
+</P>
+<P>Dozier, J., J. Bruno, and P. Downey, 1991.  &quot;A faster solution to the
+horizon problem&quot;, Computers and Geosciences, volume 7,
+number 2, pp. 145-151.
+</P>
+<P>Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain parameters
+for radiation modeling from digital elevation data&quot;. IEEE
+Transactions on Geoscience and Remote Sensing, vol. 28, no. 5,
+pp. 963-969.
+</P>
+<P>Dubayah, R., J. Dozier, and F. Davis, 1990.  &quot;Topographic distribution
+of clear-sky radiation over the Konza Prairie, Kansas&quot;.  Water
+Resources Research, vol. 26, no. 4, pp. 679-691.
+</P>
+<P>Marks, D., R. Dubayah, and K. Longley, 1991.  &quot;Modeling the topographic
+and spectral variability of clear-sky solar radiation at regional
+to continental scales.  Proceedings 1991 IGARSS Symposium,
+Remote Sensing:  Global Monitoring for Earth Management, Espoo,
+Finland, Vol. 3, pp. 1711.
+</P>
+<P>Dubayah, R., and V. Van Katwijk, 1992.  &quot;The topographic distribution
+of annual incoming solar radiation in the Rio Grande basin&quot;.
+Geophysical Research Letters, vol. 19, pp. 2231-2234.
+</P>
+<P>Dubayah, R., 1994.  &quot;Modeling a solar radiation topoclimatology for the
+Rio Grande River Basin&quot;.  Journal of Vegetation Science, vol. 5,
+pp. 627-640.
+</P>
+

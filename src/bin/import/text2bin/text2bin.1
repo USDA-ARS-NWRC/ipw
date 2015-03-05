@@ -1,0 +1,76 @@
+.TH "text2bin" "1" "10 April 1998" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBtext2bin\fP - convert text file with integers to binary file
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBtext2bin\fP [ \fB-1\fP ] [ \fB-2\fP ] [ \fB-4\fP ] [\fIfile ...\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBtext2bin\fP reads text integers from \fIfile\fP (default: standard input) and
+writes thier binary equivalents to the standard output.  If more
+than one \fIfile\fP are specified, then they are read in sequence.
+.SH OPTIONS
+.TP
+\fB-1\fP
+Convert input to 1-byte (char) integers.
+.sp
+.TP
+\fB-2\fP
+Convert input to 2-byte (short) integers.
+.sp
+.TP
+\fB-4\fP
+Convert input to 4-byte (long) integers.
+.PP
+Exactly one of \fB-1, \fB-2, or \fB-4 must be specified.
+.SH OPERANDS
+.TP
+\fIfile\fP
+Input file to read text integers from (default: standard input).
+.SH EXAMPLES
+.PP
+To convert 256 text integers to an IPW lookup table:
+.sp
+.nf
+.ft CR
+      text2bin -1 | mkbih -l 1 -s 256 -y 1
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+\fIfile\fP: bad input
+.br
+	An input value could not be converted to an integer.
+.SH RESTRICTIONS
+.PP
+\fBtext2bin\fP is not an IPW program, but is provided with IPW for use in
+shell scripts.
+.PP
+Negative input values, or input values too large to be represented
+in the specified number of output bytes, will be converted to
+binary in a machine-dependent fashion.
+.SH HISTORY
+.TP
+Jul 1990
+Written by James Frew, UCSB.
+.TP
+Dec 1997
+Ported to version 2, and renamed from \fBatob\fP to \fBtext2bin\fP.
+J. Domingo, OSU.
+.SH BUGS
+.SH SEE ALSO
+.TP
+IPW:
+\fBbin2text\fP

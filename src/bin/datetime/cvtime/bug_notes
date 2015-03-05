@@ -1,0 +1,14 @@
+10/10/2005: D. Marks
+cvtime:  when using a defined input format, you must
+include the  year.  cvtime cannot determine the year
+from the "-y" field, rather than unputting it as part
+of the input stream;
+
+always returns the current year in the test for leap year...
+not able to interpret the year from the "-y" field.
+
+Works when using the pre-defined input formats (jd, jd1,
+wy, wy1)
+
+Temp soln: always input the year with the input stream, 
+avoiding the use of -y

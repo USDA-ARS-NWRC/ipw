@@ -1,0 +1,63 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+bool_t
+ueof(
+	int             fd)	|* file descriptor		 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> tests whether there any any data remaining to be read from file
+descriptor fd, which must have been opened for reading by uropen.
+</P><P>
+<B>%name</B> is typically called after an application program has finished
+reading an image, to ensure that the header correctly represented the
+size of the image.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+TRUE	End-of-file has been reached
+</P><P>
+FALSE	End-of-file has not been reached
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_uiocb
+</P>
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

@@ -1,0 +1,111 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>IPW Image Headers</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../images/usda.gif" alt="USDA">
+<IMG SRC="../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>IPW Image Headers</H1>
+
+
+<P>
+In addition to the pixel data, an IPW image file also contains information
+about the attributes of the pixel data as well as the image itself.  This
+ancilliary information is stored in the image's <B>headers</B>.  As their
+name implies, headers are stored at the beginning of the image file, i.e.,
+the top or "head" of the file.
+
+<P>
+<B>Basic Image Header</B>
+
+<P>
+There are several types of headers.  Each IPW image has a <B>basic image (BI)
+header</B> which describes the dimensions of the image:
+
+<UL>
+  <LI>the number of lines in the image,
+  <LI>the number of samples per line, and
+  <LI>the number of bands in the image (i.e., pixels per sample).
+</UL>
+
+The BI header also contains basic information about each band in the image:
+
+<UL>
+  <LI>the number of bits used to store the pixels in each band,
+  <LI>the number of bytes used to store these bits, and
+  <LI>annotative text describing the band (optional).
+</UL>
+
+The BI header for an IPW image is created using the IPW command 
+<A HREF="../man1/mkbih.html"><B>mkbih</B></A>.
+
+<P>
+<B>Optional Header Types</B>
+
+<P>
+Besides the BI header, there are several types of optional headers which
+are listed in the table below.  Each optional header in an IPW image is
+associated with a particular band in the image.  Like the BI header, each
+type of optional header has a corresponding IPW command for creating
+that type of header.
+
+<P>
+<TABLE border align=center cellpadding="5">
+
+<TR>
+  <TH>Header type</TH>  <TH>Description</TH>  <TH>IPW command</TH>
+</TR>
+
+<TR>
+  <TD>LQ</TD>   <TD>linear quantization parameters for pixel data</TD>
+			<TD><A HREF="../man1/mklqh.html"><B>mklqh</B></A></TD>
+</TR>
+
+<TR>
+  <TD>GEO</TD>  <TD>geographic information for an image</TD>
+			<TD><A HREF="../man1/mkgeoh.html"><B>mkgeoh</B></A></TD>
+</TR>
+
+<TR>
+  <TD>WIN</TD>  <TD>coordinates of a window (subregion) of an image</TD>
+			<TD><A HREF="../man1/mkwinh.html"><B>mkwinh</B></A></TD>
+</TR>
+
+<TR>
+  <TD>CR</TD>   <TD>range information for classes of pixel data</TD>
+			<TD><A HREF="../man1/mkcrh.html"><B>mkcrh</B></A></TD>
+</TR>
+
+<TR>
+  <TD>SUN</TD>  <TD>sun position information</TD>
+			<TD><A HREF="../man1/mksunh.html"><B>mksunh</B></A></TD>
+</TR>
+
+<TR>
+  <TD>SAT</TD>  <TD>satellite parameters</TD>
+			<TD><A HREF="../man1/mksath.html"><B>mksath</B></A></TD>
+</TR>
+
+</TABLE>
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

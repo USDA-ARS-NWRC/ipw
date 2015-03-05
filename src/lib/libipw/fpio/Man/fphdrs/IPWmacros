@@ -1,0 +1,3 @@
+%define(name,"fphdrs")
+%define(description,"read, then write any floating-point headers")
+%define(category,"fpio")

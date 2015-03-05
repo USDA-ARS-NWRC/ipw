@@ -1,0 +1,87 @@
+.TH "despike" "1" "10 April 1998" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBdespike\fP - remove abnormally large pixel values (spikes)
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBdespike\fP [ \fB-l\fP \fIlval\fP ] [ \fB-p\fP \fImult\fP ] [ \fB-m\fP \fImask\fP ] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBdespike\fP reads an single band \fIimage\fP (default: standard input) and
+outputs a corresponding image to the standard output that has spikes
+removed.
+.PP
+To determine whether a value is a spike, the pixel is first compared
+to \fIlval\fP.  If it is below \fIlval\fP, it is not a spike.  If it is
+above \fIlval\fP, but is larger than \fImult\fP times larger than it's 8
+neighbors average, it is a spike and is replaced with the average.
+.SH OPTIONS
+.TP
+\fB-l\fP \fIlval\fP
+Any value below \fIlval\fP (default: 0) will be passed through
+unchanged.
+.sp
+.TP
+\fB-p\fP \fImult\fP
+Any value larger than \fImult\fP (default: 2) times the average
+of it's	8 neighbors will be replaced with the average.  If
+the pixel is on a corner, the edge line or column will be
+replicated.
+.sp
+.TP
+\fB-m\fP \fImask\fP
+Use \fImask\fP as a mask image.  Any points in \fImask\fP that are
+0 will have the corresponding points in \fIimage\fP passed
+through unchanged.
+.SH OPERANDS
+.PP
+None.
+.SH EXAMPLES
+.PP
+To replace every value of 255 and above with an average:
+.sp
+.nf
+.ft CR
+	despike -l 255 -p 0 image
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     None
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+image has \fIbands\fP bands; single band images only
+.br
+	Only single band images are supported.
+.SH RESTRICTIONS
+.PP
+Only single band images are supported.
+.SH HISTORY
+.TP
+Jul 1993
+  Written by Dana Jacobsen, Computer Sciences Corporation,
+Environmental Protection Agency Laboratory, Corvallis, OR.
+.SH BUGS
+.PP
+Images with more than one byte do not work.
+.PP
+Some more thought should go into the filter function.  This one
+an deal with "salt" but not "pepper" distortion.
+.PP
+Even with a mask on, while not changing values within the mask,
+the mask gets used as data values.
+.PP
+\fIlval\fP should be the image minimum value, rather than 0.
+.SH SEE ALSO
+.TP
+IPW
+	\fBconvol\fP

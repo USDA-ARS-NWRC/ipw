@@ -1,0 +1,110 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-m</B> <I>mask</I> ] [ <I>image</I> ]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads a single band image and
+writes the sum of all unmasked pixels to the standard output.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+Use <I>mask</I> as a mask image.  Any points in <I>mask</I> that
+are 0 will not contribute to the sum.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I></DT>
+<DD>input image (default: standard input)
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+If the file &quot;precip&quot; contains yearly precipitation volume for an
+area, and &quot;basin&quot; is a mask of a watershed, then the following
+command will give the total precipitation influx into the basin:
+</P><PRE>
+        imgsum -m basin  precip
+</PRE><P>
+Note that this works only for volume data.  If your data is a
+depth, then you must first multiply each point by the area of
+the pixel.  This only works for Equal-Area projections however.
+</P>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT>image has <I>bands</I> bands; single band images only
+</DT>
+<DD>Only single band images are supported.  To sum multiple
+images, use <B>iadd</B> to add the bands together first.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Nov 1990</DT>
+<DD>
+Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+</DD>
+
+<P>
+
+<DT>Apr 1993</DT>
+<DD>
+Corrected &quot;too many bands&quot; message.
+Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+Susceptible to overflow error.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW:</DT>
+<DD><B><A href="iadd.html">iadd</A></B>,
+<B><A href="imgstat.html">imgstat</A></B>,
+<B><A href="mult.html">mult</A></B>,
+<B><A href="scale.html">scale</A></B>
+</DD>
+</DL>
+

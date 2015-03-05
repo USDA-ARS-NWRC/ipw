@@ -1,0 +1,47 @@
+#  This Makefile contains rules common to every IPW Makefile.
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ifdef LOCAL_IPW_MACROS
+  $(IPW_MACRO_FILE) : Makefile
+	@printf "Updating file \"$(IPW_MACRO_FILE)\"\n"
+	@rm -f $@
+  ifdef NAME
+	@printf "%%define(name,\"$(NAME)\")\n" >> $@
+  endif
+  ifdef DESCRIPTION
+	@printf "%%define(description,\"$(DESCRIPTION)\")\n" >> $@
+  endif
+  ifdef CATEGORY
+	@printf "%%define(category,\"$(CATEGORY)\")\n" >> $@
+  endif
+  ifdef AUX_DIR
+	@printf "%%define(auxDir,\"$(AUX_DIR)\")\n"	>> $@
+  endif
+endif
+
+.PHONY : clean-ipwmacro
+clean-ipwmacro :
+ifdef LOCAL_IPW_MACROS
+	rm -f $(IPW_MACRO_FILE)
+endif
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#  For debugging source code
+
+$(DEBUG_DIR) :
+	mkdir $@
+
+$(DEBUG_OBJS) : $(DEBUG_DIR)/%.o : %.c
+	$(CC) $(CFLAGS) -g -c -o $@ $^
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ifdef HELP_FILE
+
+  .PHONY : help
+  help : 
+	@ $(PAGER) $(IPW)/make/Help/$(HELP_FILE).hlp
+
+endif

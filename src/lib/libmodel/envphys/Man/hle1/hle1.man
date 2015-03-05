@@ -1,0 +1,73 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "envphys.h"
+
+int
+hle1(
+      double   press,   /* air pressure (Pa)   		        */
+      double   ta,      /* air temperature (K) at height za     */
+      double   ts,      /* surface temperature (K)   	        */
+      double   za,      /* height of air temp measurement (m)   */
+      double   ea,      /* vapor pressure (Pa) at height zq     */
+      double   es,      /* vapor pressure (Pa) at surface       */
+      double   zq,      /* height of spec hum measurement (m)   */
+      double   u,       /* wind speed (m/s) at height zu        */
+      double   zu,      /* height of wind speed measurement (m) */
+      double   z0,      /* roughness length (m)   		*/
+
+   /* output variables */
+
+      double  *h,       /* sens heat flux (+ to surf) (W/m^2)   */
+      double  *le,      /* latent heat flux (+ to surf) (W/m^2) */
+      double  *e)       /* mass flux (+ to surf) (kg/m^2/s)     */
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> computes sensible and latent heat flux and mass flux given
+measurements of temperature and specific humidity at surface
+and one height, wind speed at one height, and roughness
+length.  The temperature, humidity, and wind speed measurements
+need not all be at the same height.
+
+<H2>RETURN VALUE</H2>
+
+<PRE>
+     0      successful calculation
+    -1      no convergence
+    -2      bad input
+</PRE>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jun 1987</DT>
+<DD>
+Written as a Qdips program by J. Dozier, CRSEO, UCSB;
+</DD>
+
+<P>
+
+<DT>Oct 1990</DT>
+<DD>
+Translated into IPW by K. Longley, OSU, ERLC;
+</DD>
+
+</DL>
+
+<H2>SEE ALSO</H2>
+
+<P>
+<A HREF="../bib.html#Brutsaert 1982">Brutsaert 1982</A><BR>
+</P>
+
+

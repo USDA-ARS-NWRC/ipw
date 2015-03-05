@@ -1,0 +1,62 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "mapproj.h"
+
+char *
+get_proj_name(
+	int	proj_id)	|* projection ID		 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> returns the name of the geographic projection that
+corresponds to the given projection ID.  If the ID is not valid,
+the name &quot;(unknown)&quot; is returned.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+pointer to character string containing projection name
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The returned character string is in static memory, so do NOT
+attempt to &quot;free&quot; it.
+</P>
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

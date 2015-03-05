@@ -1,0 +1,141 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>IPW Macros</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../images/usda.gif" alt="USDA">
+<IMG SRC="../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>IPW Macros</H1>
+
+ 
+<P>
+IPW macros are simple text macros used to place information into certain types
+of text files in the IPW software.  Each use of an IPW macro in a text
+file is known as a <B>macro call</B>.  There are two types of macro calls:
+
+<P>
+
+<TABLE border align=center cellpadding="5">
+
+<TR>  <TH>Type of IPW macro call</TH>  <TH>Format</TH>
+
+<TR>  <TD>Without arguments</TD>       <TD><CODE>&#37;<I>macro</I></CODE></TD>
+<TR>  <TD>With arguments</TD>          <TD><CODE>&#37;<I>macro</I>(<I>argument</I>,...)</CODE></TD>
+
+</TABLE>
+
+<P>
+Each macro call is replaced with the <B>definition</B> of the named macro,
+which is simply a string of text.
+
+<P>
+<B>Macros without arguments</B>
+
+<P>
+Macros without arguments are the more common variety of IPW macros.  The
+definition of this type of macro is simply a fixed string of text; therefore,
+each call to a particular macro is replaced with the same string.
+
+<P>
+A common example of an argument-less macro is found in the source files for
+the manual pages for IPW commands.  Throughout the source file for a command's
+manual page, the IPW macro
+
+<PRE>
+    &#37;name
+</PRE>
+
+appears everywhere the command's name would appear.  Each call to this
+macro is replaced with the command's name as it is specified in the command's
+<CODE>Makefile</CODE>.  The use of this macro in the manual page's source
+file allows the command to be easily renamed by simply changing its
+<CODE>Makefile</CODE>, and by not requiring any changes to the source file
+for the manual page.
+
+<P>
+<B>Macros with arguments</B>
+
+<P>
+The less common, but more powerful type of IPW macros has a list of arguments
+that affect the string substituted for each macro call.  Each reference to
+an argument in the macro's definition is replaced with the actual argument.
+An <B>argument reference</B> in a macro's definition has one of two formats:
+
+<PRE>
+    %<I>n</I>  or  %{<I>n</I>}
+</PRE>
+
+where <CODE><I>n</I></CODE> is an unsigned integer.  This integer is the
+number of the argument being referred to.  The first argument is argument 1,
+the second argument is argument 2, and so on.  For example, every
+occurence of <CODE>"%1"</CODE> in the macro's definition is replaced with
+the first argument.
+
+<P>
+This type of macro is typically used in the generation of the
+HTML documentation for IPW software.  Each HTML document has a standard
+format which includes a &lt;HEAD> section that specifies the document's
+title, followed by the start of the &lt;BODY> section that begins with a
+level-one heading (i.e., a &lt;H1> heading).
+
+<P>
+To ensure all the HTML documents have this same format, there is an IPW
+macro called <CODE>"&#37;Title_And_H1"</CODE> which takes two arguments:
+the document's title and its level-one heading.  As an example, here
+is the macro call used to produce the section in the User's Guide about
+<A HREF="../userGuide/hdrFormat.html">the format of IPW image headers</A>:
+
+<PRE>
+    &#37;Title_And_H1(IPW Header Format,Format of IPW Image Headers)
+</PRE>
+
+In most instances, a document's title and level-one heading are the same;
+therefore, there is another macro called <CODE>"&#37;Title"</CODE> that
+takes one argument using it as both title and heading:
+
+<PRE>
+    &#37;Title  <I>is defined as</I>  "&#37;Title_And_H1(%1,%1)"
+</PRE>
+
+<P>
+<B>Macro processor <CODE>"ipwMacro"</CODE></B>
+
+<P>
+IPW macros are processed by a Perl script called <CODE>"ipwMacro"</CODE>.
+Various <CODE>include</CODE> files used in IPW Makefiles invoke this
+auxiliary script.  For more detailed information about IPW macros,
+consult the source file for this script:
+<CODE>"$IPW/make/src/ipwMacro.pl"</CODE>.
+
+<P>
+<B><CODE>"IPWmacros"</CODE> file</B>
+
+<P>
+Many IPW macros are derived from information specified in various Makefiles
+throughout IPW's source directory.  In these instances, the <CODE>"make"</CODE>
+utility automatically generates a file called <CODE>"IPWmacros"</CODE>
+which contains the macros' definitions (e.g., <CODE>%name</CODE>).
+In those directories where this file exists, the <CODE>ipwMacro</CODE>
+script uses the file whenever it's invoked.
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

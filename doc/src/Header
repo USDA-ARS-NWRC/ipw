@@ -1,0 +1,5 @@
+%include(%IPW/doc/src/BodyColors)
+
+<IMG SRC="%{ipw_href_path}images/usda.gif" alt="USDA">
+<IMG SRC="%{ipw_href_path}images/ars.gif" alt="ARS">
+<HR>

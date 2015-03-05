@@ -1,0 +1,96 @@
+/* GRID2IPW - Convert a grid to an IPW image, using the perl script "grid2ipw".
+/*
+/* Rusty Dodson, ERL-C, 12/15/93.
+
+&args ingrid ipwimg bits nodata
+
+&if [show program] ne GRID &then &return GRID2IPW Error: must be run from GRID
+
+&if [null %ingrid%] &then &call usage
+&if ^ [exists %ingrid% -grid] &then &do
+  &type Grid "%ingrid%" not found.
+  &call usage
+&end
+
+/* set defaults 
+reset
+setmask off /***** do this or masked cells are written as -9999
+&if [null %bits%] &then &set bits = 8
+&if [null %nodata%] &then &set nodata = 0
+
+/* deal with tmp files
+&set tmpgrid = [scratchname -prefix tmpgrd -directory]
+&set tmppre =  [scratchname -prefix tmpfil -file]
+&if [exists %tmpgrid% -grid] &then kill %tmpgrid% all
+&sys \rm %tmppre%.bip %tmppre%.hdr %tmppre%.info >& /dev/null
+
+/*** get grid parameters
+&describe %ingrid%
+&set intmin = 0.0
+&set intmax = ( 2 ** %bits% ) - 1
+&set intrange = %intmax%
+&if %nodata% < %GRD$ZMIN% &then &do
+    &set fltmin = %nodata%
+    &set nodata = %intmin%
+&end
+&else &set fltmin = %GRD$ZMIN%
+&if %nodata% > %GRD$ZMAX% &then &do
+    &set fltmax = %nodata%
+    &set nodata = %intmax%
+&end
+&else &set fltmax = %GRD$ZMAX%
+&set fltrange = 1.0 * ( %fltmax% - %fltmin% )   /* *1.0 forces float
+&set bline  = %GRD$YMAX% - ( %GRD$DY% / 2.0 )
+&set bsamp  = %GRD$XMIN% + ( %GRD$DX% / 2.0 )
+&set dline  = %GRD$DY% * -1.0
+&set dsamp  = %GRD$DX% 
+&set bands  = 1
+
+/* write image parameters to temp file
+&set hdr = [open %tmppre%.info status -write]
+&if %status% ne 0 &then &return ERROR: couldn't open tmpfile %tmppre%.info
+
+&set x = [write %hdr% [quote lines %GRD$NROWS%]]
+&set x = [write %hdr% [quote samps %GRD$NCOLS%]]
+&set x = [write %hdr% [quote bits  %bits%]]
+&set x = [write %hdr% [quote bands %bands%]]
+&set x = [write %hdr% [quote bline %bline%]]
+&set x = [write %hdr% [quote bsamp %bsamp%]]
+&set x = [write %hdr% [quote dline %dline%]]
+&set x = [write %hdr% [quote dsamp %dsamp%]]
+&set x = [write %hdr% [quote fmin %fltmin%]]
+&set x = [write %hdr% [quote fmax %fltmax%]]
+&set x = [write %hdr% [quote imin %intmin%]]
+&set x = [write %hdr% [quote imax %intmax%]]
+
+&if [close %hdr%] ne 0 &then &return ERROR: couldn't close %tmppre%.info
+
+/* rescale to integer, and convert nodata to desired value
+&type Rescaling to integer range 0-%intmax% for image transfer ...
+
+%tmpgrid% = con(isnull(%ingrid%), %nodata%, ~
+     int((( ( (%ingrid% - float(%fltmin%)) / %fltrange% ) ~
+           * float(%intrange%) ) + %intmin% ) + 0.5))
+
+/* write image data to temp file
+arc gridimage %tmpgrid% none %tmppre% bip
+
+/* convert image to ipw
+&sys grid2ipw %tmppre% %ipwimg%
+
+/* clean up
+&sys \rm %tmppre%.bip %tmppre%.hdr %tmppre%.info %tmppre%.bpw ~
+         %tmppre%.stx >& /dev/null
+&if [exists %tmpgrid% -grid] &then kill %tmpgrid% all
+
+&return
+ 
+&routine usage
+  &type Usage: GRID2IPW <grid> <ipw_image> {bits} {nodata_val}
+  &type 
+  &type         - default {bits} (LQ precision) is 8.
+  &type         - default {nodata_val} is 0.
+  &type         - a pre-existing <ipw_image> will be overwritten    
+  &type         - pathnames to <ipw_img> are ok, but may not have
+  &type           any capital letters                            
+

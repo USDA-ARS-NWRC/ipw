@@ -1,0 +1,3 @@
+%define(name,"reproj")
+%define(description,"reproject an IPW image to a new geographic projection")
+%define(category,"Geographic (Map) Projections")

@@ -1,0 +1,70 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "fpio.h"
+
+fpixel_t **
+fpmap(
+	int             fd)  	|* image file descriptor	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> accesses the per-band fpixel[pixel] conversion arrays associated
+with file descriptor fd.
+</P><P>
+If <B>%name</B> is called BEFORE any floating-point header I/O has occurred
+on fd, then a default pixel&lt;-&gt;fpixel conversion will be established,
+which will be unaffected by subsequent floating-point header I/O.
+</P><P>
+IPW programs use <B>%name</B> if they wish to modify the default
+conversion(s) from pixels to fpixels.  Such programs typically read
+pixels with pvread, apply the map(s) explicitly, then write fpixels
+with fpvwrite.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+pointer to band-indexed array of map arrays, or NULL for error.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

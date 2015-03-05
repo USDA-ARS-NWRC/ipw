@@ -1,0 +1,59 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "solar.h"
+
+int
+sunpath(
+     double   lat,      /* latitude (radians)          */
+     double   lon,      /* longitude (radians)         */
+     double   declin,   /* solar declination (radians) */
+     double   omega,    /* solar longitude (radians)   */
+
+  /* output parameters */
+
+     double  *cosZ,     /* cosine of solar zenith      */
+     double  *azm)      /* solar azimuth (radians)
+                             (0 = south, > 0 = east)   */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates the sun angle (the azimuth and zenith angles
+of the sun's position) on a horizontal surface for a given geodetic
+location on Earth (specified by <I>latitude</I> and <I>longitude</I>) and the
+given position of the sun (specified by its declination and longitude).
+</P>
+
+<H2>RETURN VALUE</H2>
+
+<P>
+0	calculations succeeded, output parameters assigned.
+<P>
+1	if sun below horizon and cosZ is negative
+<P>
+ERROR	if error in arguments (writes message via usrerr)
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>May 1989</DT>
+<DD>
+Written by J. Dozier
+</DD>
+</DL>
+
+
+<H2>SEE ALSO</H2>
+
+
+

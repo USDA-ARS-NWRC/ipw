@@ -1,0 +1,48 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "envphys.h"
+
+double
+evap(
+     double  le,        /* latent heat transfer (W/m^2)  */
+     double  ts)        /* surface temperature (K)       */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates the evaporation or condensation rate from
+or onto a surface. 
+
+
+<H2>RETURN VALUE</H2>
+
+rate of water gain or loss (kg/sec/m^2) which is also the specific discharge in mm/sec
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1984</DT>
+<DD>
+written by D. Marks, CSL (GSFC), UCSB;
+</DD>
+
+<P>
+
+<DT>Jun 1995</DT>
+<DD>
+Converted from QIDPS to IPW by J. Domingo, OSU.
+</DD>
+
+</DL>
+
+

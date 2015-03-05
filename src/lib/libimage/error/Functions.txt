@@ -1,0 +1,4 @@
+
+error - error codes and their messages
+
+  ipw_strerr - get message for IPW error code

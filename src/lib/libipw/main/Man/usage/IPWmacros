@@ -1,0 +1,3 @@
+%define(name,"usage")
+%define(description,"print usage message and exit")
+%define(category,"main")

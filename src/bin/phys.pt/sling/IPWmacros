@@ -1,0 +1,3 @@
+%define(name,"sling")
+%define(description,"vapor pressure from wet/dry bulb temperatures")
+%define(category,"Environmental Physics and Properties: Point")

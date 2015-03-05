@@ -1,0 +1,132 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+</P><P>
+<B>%name</B> calculates soil water potential (SWP), and saturated and
+unsaturated hydraulic conductivity from %sand, %clay,
+and % soil water content (SWC) by volume.
+Outputs SWP in kPa and hyd. cond in both m/s and cm/hr,
+saturated SWP and hydraulic conductivity, and
+water content ((m^3 h2o)/(m^3 of soil))*100 at 10 kPa, and at saturation.
+(after <I>Saxton, et al, Soil Science Society of America Journal,
+Vol. 50, pp. 1031-1036, 1986</I>)
+
+<H2>OPTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate SWP, saturated and unsaturated hydraulic conductivity
+from the following inputs:
+</P><PRE>
+     %sand   %clay   SWC
+     65      10      0.02
+     65      10      0.10
+     65      10      0.20
+     65      10      0.30
+     65      10      0.40
+</PRE>
+<PRE>
+        paste sand clay SWC | <B>%name</B>
+</PRE><P>
+yields:
+</P><PRE>
+     %h2o    swp(kPa)        hyC(m/s)        hyC(cm/hr)
+      2 %    3643603.2       5.18e-58        1.87e-52
+     10 %       1201.8       3.68e-14        1.33e-08
+     20 %         38.0       1.12e-08        4.02e-03
+     30 %          8.3       7.50e-07        2.70e-01
+     40 %          3.8       6.14e-06        2.21e+00
+</PRE><PRE>
+             satswp(kPa)     SathyC(m/s)     SathyC(cm/hr)
+             3.3             7.44e-06        2.68e+00
+</PRE><PRE>
+             10kPa_h2o       sat_h2o
+             26.2            41.2
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Sep 1992</DT>
+<DD>
+Written by D. Marks, ERL-C, Corvallis, OR;
+</DD>
+</DL>
+
+<DL>
+<DT>Jun 1995</DT>
+<DD>
+Converted to IPW by J. Domingo, OSU, EPA NHEERL/WED
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="mse.html">mse</A></B>,
+<B><A href="ipott.html">ipott</A></B>,
+<B><A href="pott.html">pott</A></B>,
+<B><A href="soilt.html">soilt</A></B>,
+<B><A href="soiltmp.html">soiltmp</A></B>,
+<B><A href="srftmp.html">srftmp</A></B>,
+<B><A href="wbal.html">wbal</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Kern 1995">Kern 1995</A>,
+<A HREF="../bib.html#Saxton 1986">Saxton 1986</A>
+</P>
+ 

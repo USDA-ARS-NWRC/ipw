@@ -1,0 +1,72 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+int	
+seval(
+	double	x[],
+	double	y[],
+	int	nx,
+	double	c[],
+	double	*u,
+	double	*s,
+	int	m)
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+
+<H2>RETURN VALUE</H2>
+
+<P>
+OK	coefficients computed
+</P><P>
+ERROR	error occurred, and message stored via 'usrerr' routine
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jun 1996</DT>
+<DD>
+	Converted from QDIPS to IPW by J. Domingo, OSU
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

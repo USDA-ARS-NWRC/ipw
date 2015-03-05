@@ -1,0 +1,134 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-m</B> <I>mask</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads an IPW image (default: standard input) and computes its
+histogram.  The histogram is written to the standard output as a
+single-line IPW image, whose sample offsets represent the pixel values
+in the input image, and whose pixel values are frequency counts.
+</P>
+
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+histogram only those pixels which are non-zero in <I>mask</I>.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I></DT>
+
+<DD>input image (default: standard input)
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+Given a DEM &quot;elev&quot; and a drainage basin mask &quot;basin&quot;, the following
+command will calculate a histogram of the elevations within the
+basin:
+</P><PRE>
+	hist -m basin elev
+</PRE><P>
+To generate a single-band histogram and convert it to text for
+further processing by non-IPW software:
+</P><PRE>
+	demux -b {band} | hist | rmhdr | bin2text -4
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT>different size pixels: bands 0,<I>band</I>
+</DT>
+<DD>All input bands must have the same number of bits and
+bytes per pixel.  This is because the number of possible
+pixel values in the input image governs the number of
+samples in the single output line.
+</DD>
+
+<P>
+<DT>mask is not same size as input image
+</DT>
+<DD>If <B>-m</b> is specified, then <I>mask</I> must have the same number
+of lines and samples as the input image.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jan 1989</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+
+<P>
+<DT>Nov 1990</DT>
+<DD>
+Output pixel size in each band is minimum necessary
+to hold the largest output value.  James Frew, UCSB.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="bin2text.html">bin2text</A></B>,
+<B><A href="classeq.html">classeq</A></B>,
+<B><A href="cnhist.html">cnhist</A></B>,
+<B><A href="cnhist.all.html">cnhist.all</A></B>,
+<B><A href="grhist.html">grhist</A></B>,
+<B><A href="histeq.html">histeq</A></B>,
+<B><A href="rmhdr.html">rmhdr</A></B>
+</DD>
+
+<P>
+
+<DT>Image:</DT>
+<DD>imhist, pgmhist, ppmhist, rlehisto, fbhist, xv
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A><BR>
+</P>
+

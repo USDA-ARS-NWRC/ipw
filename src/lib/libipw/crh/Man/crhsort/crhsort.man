@@ -1,0 +1,67 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "crh.h"
+
+int
+crhsort(
+	CRH_T   *crhp,		|* -> CRH for a specific band	    *|
+	int	 sortkey)	|* = SORT_BY_CLASS or SORT_BY_RANGE *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<PRE>
+     crhsort sorts the given CRH header according to the given sort key:
+</PRE>
+<P>
+SORT_BY_CLASS or SORT_BY_RANGE.
+</P><P>
+<B>%name</B> is called by IPW application programs to sort the CRH
+header by class number or by range.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+OK for success, ERROR for failure
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

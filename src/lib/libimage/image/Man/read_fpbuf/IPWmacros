@@ -1,0 +1,3 @@
+%define(name,"read_fpbuf")
+%define(description,"read floating-point pixels from image into buffer")
+%define(category,"image")

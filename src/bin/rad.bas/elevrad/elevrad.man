@@ -1,0 +1,198 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-z</B> <I>elev</I> <B>-t</B> <I>tau</I> <B>-w</B> <I>omega</I> <B>-g</B> <I>gfact</I> <B>-r</B> <I>R0</I> <B>-s</B> <I>S0</I> <B>-u</B> <I>cos</I>
+      [ <B>-n</B> <I>bits0</I>[,<I>bits1</I>] ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Elevrad reads elevations from <I>image</I> (default: standard input)
+and writes a 2-band image containing beam radiation (normal to
+sun) and diffuse radiation (on a horizontal surface) to the
+standard output.
+</P><P>
+Elevrad is essentially the spatial or grid version of the twostream
+command.  It is used mainly as a preproccessor for the toporad
+command.  Stoporad is set up for use over snowcovered regions, and
+gelevrad is set up for use over large spatial extents, where solar
+geometry cannot be assumed constant over the grid (approx 100km or
+larger).
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-z</B> <I>elev</I>
+<DD>
+The elevation of optical depth measurement is <I>elev</I> meters.
+</DD>
+
+<P>
+<DT><B>-t</B> <I>tau</I>
+<DD>
+The optical depth at <I>elev</I> is <I>tau</I>.
+</DD>
+
+<P>
+<DT><B>-w</B> <I>omega</I>
+<DD>
+The single-scattering albedo is <I>omega</I>.
+</DD>
+
+<P>
+<DT><B>-g</B> <I>gfact</I>
+<DD>
+The scattering asymmetry factor is <I>gfact</I>.
+</DD>
+
+<P>
+<DT><B>-r</B> <I>R0</I>
+<DD>
+The mean surface albedo is <I>R0</I>.
+</DD>
+
+<P>
+<DT><B>-s</B> <I>S0</I>
+<DD>
+The exoatmospheric solar irradiance is <I>S0</I>.  This can be
+calculated with the IPW command &quot;solar&quot;.
+</DD>
+
+<P>
+<DT><B>-u</B> <I>cos</I>
+<DD>
+The cosine of the solar zenith angle is <I>cos</I>.  This can be
+calculated with the IPW command &quot;sunang&quot;.
+</DD>
+
+<P>
+<DT><B>-n</B> <I>bits0</I>[,<I>bits1</I>]
+<DD>
+The number of bits in the output band(s) is <I>bits0</I>
+and <I>bits1</I> (default: same number as in the input image).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate beam and diffuse radiation with specified parameters
+on a section of the Columbia basin in June of 1990:
+</P><PRE>
+	elevrad -z 100 -t .2 -w .85 -g .55 -r .155 -s 150.214 \
+		-u 0.816876  image
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Apr 1988</DT>
+<DD>
+	Written by Jeff Dozier, UCSB.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="ggradient.html">ggradient</A></B>,
+<B><A href="ghorizon.html">ghorizon</A></B>,
+<B><A href="gradient.html">gradient</A></B>,
+<B><A href="gshade.html">gshade</A></B>,
+<B><A href="gsunlight.html">gsunlight</A></B>,
+	<B><A href="gtoporad.html">gtoporad</A></B>,
+<B><A href="gtopquad.24.html">gtopquad.24</A></B>,
+<B><A href="gtopquad.html">gtopquad</A></B>,
+<B><A href="gviewf.html">gviewf</A></B>,
+<B><A href="gviewf-mp.html">gviewf-mp</A></B>,
+<B><A href="hor1d.html">hor1d</A></B>,
+	<B><A href="horizon.html">horizon</A></B>,
+<B><A href="salbedo.html">salbedo</A></B>,
+<B><A href="selevrad.html">selevrad</A></B>,
+<B><A href="solar.html">solar</A></B>,
+<B><A href="stoporad.html">stoporad</A></B>,
+<B><A href="sunang.html">sunang</A></B>,
+<B><A href="sunlight.html">sunlight</A></B>,
+	<B><A href="sunweights.html">sunweights</A></B>,
+<B><A href="toporad.html">toporad</A></B>,
+<B><A href="toporad.24.html">toporad.24</A></B>,
+<B><A href="topquad.html">topquad</A></B>,
+<B><A href="viewf.html">viewf</A></B>
+</DD>
+</DL>
+<P>Dozier, J., 1980.  &quot;A clear-sky spectral solar radiation model for
+	snow-covered mountainous terrain&quot;.  Water Resources Research,
+	vol. 16, pp. 709-718.
+</P>
+<P>Dozier, J., and J. Frew, 1981.  &quot;Atmospheric corrections to satellite
+	radiometric data over rugged terrain&quot;.  Remote Sensing of
+	Environment, vol. 11, pp. 191-205.
+</P>
+<P>Dozier, J., J. Bruno, and P. Downey, 1991.  &quot;A faster solution to the
+	horizon problem&quot;, Computers and Geosciences, volume 7,
+	number 2, pp. 145-151.
+</P>
+<P>Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain parameters
+	for radiation modeling from digital elevation data&quot;. IEEE
+	Transactions on Geoscience and Remote Sensing, vol. 28, no. 5,
+	pp. 963-969.
+</P>
+<P>Dubayah, R., J. Dozier, and F. Davis, 1990.  &quot;Topographic distribution
+	of clear-sky radiation over the Konza Prairie, Kansas&quot;.  Water
+	Resources Research, vol. 26, no. 4, pp. 679-691.
+</P>
+<P>Marks, D., R. Dubayah, and K. Longley, 1991.  &quot;Modeling the topographic
+	and spectral variability of clear-sky solar radiation at regional
+	to continental scales.  Proceedings 1991 IGARSS Symposium,
+	Remote Sensing:  Global Monitoring for Earth Management, Espoo,
+	Finland, Vol. 3, pp. 1711.
+</P>
+<P>Dubayah, R., and V. Van Katwijk, 1992.  &quot;The topographic distribution
+	of annual incoming solar radiation in the Rio Grande basin&quot;.
+	Geophysical Research Letters, vol. 19, pp. 2231-2234.
+</P>
+<P>Dubayah, R., 1994.  &quot;Modeling a solar radiation topoclimatology for the
+	Rio Grande River Basin&quot;.  Journal of Vegetation Science, vol. 5,
+	pp. 627-640.
+</P>
+

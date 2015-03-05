@@ -1,0 +1,131 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Implementing IPW Commands as Scripts</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../images/usda.gif" alt="USDA">
+<IMG SRC="../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Implementing IPW Commands as Scripts</H1>
+
+
+<P>
+<B>Source File</B>
+
+<P>
+An IPW command may be implemented as a shell script written for one of these
+interpreters:
+
+<UL>
+  <LI>sh - shell, the standard command language interpreter
+  <LI>awk - pattern scanning and processing language
+  <LI>sed - stream editor
+  <LI><A HREF="http://www.perl.com">perl</A> -
+		Practical Extraction and Reporting Language
+</UL>
+
+A script has a source file which is a text file containing commands
+for a particular interpreter.  The extension
+in the source file's name denotes which interpreter the script is
+written for: <CODE>".sh"</CODE>, <CODE>".awk"</CODE>, <CODE>".sed"</CODE>, or
+<CODE>".pl"</CODE> (for perl).  A sample source file for a <CODE>"sh"</CODE>
+script is provided with IPW: see the file
+<CODE>"$(IPW)/src/samples/command/script.sh"</CODE>.
+
+<P>
+<B>Makefile</B>
+
+<P>
+The format Makefile for a script is quite simple:
+
+<PRE>
+    SCRIPT := foo.<I>ext</I>
+    DESCRIPTION := blah blah blah
+
+    include $(IPW)/make/command
+</PRE>
+
+The macro <CODE>SCRIPT</CODE> specifies the name of the
+script's source file.
+A sample of a script's Makefile is provided in the file
+<CODE>"$(IPW)/src/samples/command/Makefile.script"</CODE>.
+
+<P>
+<B>Making an executable version of the script</B>
+
+<P>
+An executable version of the script is made from its source file by
+using the target <CODE>"cmd"</CODE>:
+
+<PRE>
+    make cmd
+</PRE>
+
+The executable file has the same name as the source file, but without
+the extension.  For example, if the source file is named <CODE>"foo.sh"</CODE>,
+then the executable file is called <CODE>"foo"</CODE>.
+
+<P>
+In accordance to Unix conventions, the first line of the executable
+file specifies the full path of the associated interpreter using the
+<CODE>"#! "</CODE> notation.  The paths for all the interpreters are
+determined during the configuration phase of the installing IPW.
+The contents of this first line is determined by the source file's
+extension.  For example, if the source file is named <CODE>"foo.sh"</CODE>,
+then the executable file is called <CODE>"foo"</CODE>, and has a first
+line which would look something like this:
+
+<PRE>
+    #! /bin/sh
+</PRE>
+
+<P>
+The contents of the source file are copied into the executable after
+this first line.  Each line is scanned for IPW macros, the most
+frequently used macro being <CODE>"%description"</CODE>.  This
+macro places the script's description from its Makefile into the
+executable file, so that it can be displayed in diagnostic messages.
+
+<P>
+<B>Shell-support commands</B>
+
+<P>
+Certain tasks are common among these scripts, and are encapsulated
+into separate <A HREF="shSupCmds.html">supporting shell commands</A>
+that can be invoked from any script.  These support commands are
+located in IPW's library directory <CODE>"$(IPW)/lib"</CODE>.
+Because this directory is typically not part of the search path for
+user commands, it must be added to to the PATH environment
+variable near the beginning of the script:
+
+<PRE>
+    PATH="$PATH:$IPW/lib"
+</PRE>
+
+An alternative is to specify the full path to a shell support command
+when invoking it:
+
+<PRE>
+    $IPW/lib/sherror $0 "You can't do that!"
+</PRE>
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,98 @@
+.TH "ipmx" "1" "29 April 2009" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBipmx\fP - latent heat flux (LE) using Penman-Monteith method
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBipmx\fP [ \fB-m\fP \fImask\fP ] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBipmx\fP calculates LE flux (W/m2, +/-) using the Penman-Monteith
+approach (Monteith and Unsworth 1990). The program reads
+.sp
+.nf
+.ft CR
+     a 6-band image file containing the following daily data:
+.ft R
+.fi
+
+.sp
+.nf
+.ft CR
+	band	contents
+	----    --------
+	0	air temperature (C)
+	1	actual vapor pressure at air temperature (Pa)
+	2	wind speed (m/s)
+	3	net radiation (W/m^2, negative away from surface)
+	4	projected (1-sided) leaf area index
+	5	bulk canopy conductivity (m/s)
+.ft R
+.fi
+
+.PP
+If no input file is specified, the programs reads from the input
+image from standard input.  The program outputs a 4-band image
+to standard output:
+.sp
+.nf
+.ft CR
+	band	contents
+	----    --------
+	0	latent energy flux (W/m^2)
+	1	proportion of LE due to radiation (W/m^2)
+	2	proportion of LE due to vapor pressure deficit (W/m^2)
+	3	aerodynamic resistance (s/m)
+.ft R
+.fi
+.SH OPTIONS
+.TP
+\fB-m\fP \fImask\fP
+Use the 1-band image \fImask\fP to mask the input image.
+.SH OPERANDS
+.TP
+[\fIimage\fP]
+input image 6-band image
+.SH EXAMPLES
+.PP
+To calculate evaptranspiration using Penmann-Montieth over a basin within
+a dem image:
+.sp
+.nf
+.ft CR
+	mux ta vp ws rn lai cc | ipmx -m basin mask
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+	$TMPDIR/ipmx*	temporary file
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+None
+.SH RESTRICTIONS
+.PP
+Assumptions:
+No stability correction, G is estimated, canopy height and z0 are
+a function of lai.
+.SH HISTORY
+.TP
+Aug 1995
+Converted the point-model program pmx to work over
+an IPW image.  J. Domingo, OSU, EPA NHEERL/WED
+.SH BUGS
+.PP
+None
+.SH SEE ALSO
+.PP
+iptx, itrbxfr, penmonx, pmx, ptaylorx, ptx, trb_Ri, trbxfr
+.PP
+Monteith and Unsworth, 1990

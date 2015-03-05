@@ -1,0 +1,3 @@
+%define(name,"pix2fp")
+%define(description,"map pixel values to floating-point values using image's LQ header")
+%define(category,"Linear Quantization")

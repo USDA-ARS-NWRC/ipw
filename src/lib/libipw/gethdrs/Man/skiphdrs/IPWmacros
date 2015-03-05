@@ -1,0 +1,3 @@
+%define(name,"skiphdrs")
+%define(description,"skip IPW image headers")
+%define(category,"gethdrs")

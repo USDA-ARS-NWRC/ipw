@@ -1,0 +1,3 @@
+%define(name,"uwflush")
+%define(description,"flush buffered UIO output")
+%define(category,"uio")

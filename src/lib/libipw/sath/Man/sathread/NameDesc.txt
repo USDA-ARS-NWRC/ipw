@@ -1,0 +1,1 @@
+sathread - read an IPW SATH header

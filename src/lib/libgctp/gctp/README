@@ -1,0 +1,9 @@
+
+This version of the GCTP library came from the src.related directory of the
+GRASS 4.0 source code.  The version in the 'Fortran' subdirectory is from
+directory /usr/packages/sparc/las/world/v2_0/baseline/source/support/geolib
+of the LAS (Land Analysis System) source code.
+
+We do not currently have the GCTP documentation from the USGS.  The projection
+parameters are documented in the LAS 5.0 Programmers Manual for function
+PROJON, in the "Geometric Registration Routines" chapter.

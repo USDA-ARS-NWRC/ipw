@@ -1,0 +1,3 @@
+%define(name,"fillbands")
+%define(description,"create bands between two bands using linear interpolation")
+%define(category,"Image Transformation")

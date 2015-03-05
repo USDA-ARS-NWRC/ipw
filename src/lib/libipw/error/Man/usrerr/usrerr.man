@@ -1,0 +1,57 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+void usrerr(const char *format, ...)
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Usrerr saves the error message described by the printf-style &quot;format&quot;
+and &quot;args&quot; in a place accessible to the _error() error handler.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_usrerr
+</P>
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

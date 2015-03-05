@@ -1,0 +1,16 @@
+!<header> basic_image_i -1 $Revision: 1.11 $
+byteorder = 3210 
+nlines = 3 
+nsamps = 4 
+nbands = 1 
+!<header> basic_image 0 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+history = window -b 1,2 -n 3,4 Data/small.ipw 
+!<header> win 0 $Revision: 1.7 $
+bline = 1 
+bsamp = 2 
+dline = 1 
+dsamp = 1 
+!<header> image -1 $Revision: 1.5 $
+5678?@ABIJKL

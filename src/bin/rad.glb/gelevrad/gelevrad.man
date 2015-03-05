@@ -1,0 +1,219 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-z</B> <I>elev</I> <B>-w</B> <I>omega</I> <B>-g</B> <I>gfact</I> <B>-s</B> <I>S0</I> [ <B>-m</B> <I>mask</I> ]
+      [ <B>-n</B> <I>bits</I>[,<I>bits</I>] ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Gelevrad is part of a family of large area, or &quot;global&quot;, scale radiation
+transfer simulation, and solar geometry calculation tools, developed
+after the small-scale radiation transfer tools, developed at UCSB by
+Jeff Dozier and Ralph Dubayah.
+</P><P>
+All of the global-scale radiation transfer tools are designated by
+the &quot;g&quot; prefix in front of the small-scale tool's name.  These tools
+assume that solar geometry, atmospheric properties, and sun rise and sun
+set vary over the grid, and they also correct for earth curvature.
+The global-scale radiation transfer tools can be applied to areas of
+size, up to the entire earth.  The global-scale radiation transfer tools
+were originally developed by Kelly Longley, Oregon State University,
+at the Corvallis, Oregon, EPA lab, in the early 1990's.
+</P><P>
+Gelevrad is the &quot;global&quot; version of elevrad.  That is, it is designed
+to be run over areas large enough so that solar geometry cannot be
+assumed constant at a given time (areas larger than 0.25 to 0.5 deg
+(lat,long) square).  It assumes that cos(solar zenith) is calculated
+over the grid in geodetic coordinates using the program gshade.
+It also allows a spatially distributed optical depth estimate (tau),
+and mean surface albedo (which can be estimate from satellite imagery),
+but constant value images could be used (see ftransform).  Over snow,
+albedo can be estimated using the programs &quot;albedo&quot; for a constant
+value, or &quot;salbedo&quot; for albedo over a grid.
+</P><P>
+Gelevrad calculates values for beam radiation (normal to sun)
+and diffuse radiation (on a horizontal surface) as a function
+of elevation, zenith angle, single-scattering albedo, scattering
+asymmetry parameter and mean surface albedo.  It is mainly used
+as a preprocessor for gtoporad.
+</P><P>
+The output image is a two-band image of beam and diffuse irradiance.
+The output projection is the same as the input image.  Gelevrad doesn't
+check the projection, but it should be geodetic.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-z</B> <I>elev</I>
+<DD>
+elevation of optical depth instrument (m)
+</DD>
+
+<P>
+<DT><B>-w</B> <I>omega</I>
+<DD>
+single-scattering albedo
+</DD>
+
+<P>
+<DT><B>-g</B> <I>gfact</I>
+<DD>
+scattering asymmetry parameter
+</DD>
+
+<P>
+<DT><B>-s</B> <I>S0</I>
+<DD>
+exoatmospheric solar irradiance
+</DD>
+
+<P>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+mask image
+</DD>
+
+<P>
+<DT><B>-n</B> <I>bits</I>[,<I>bits</I>]
+<DD>
+# output bits (default: same as band 0 of input); band 0 could
+be different than band 1.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image	4-band input image: (defaults to stdin)
+</DD><P>
+		band	contents
+		----------------
+		0	elevation (m)
+		1	cosine solar zenith angle
+		2	mean surface albedo
+		3	optical depth at z (m)
+</P><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To estimate solar beam and diffuse irradiance over a dem grid
+representing the Columbia River basin for June 22, 1990, in the spectral
+window of 0.58-0.68um, using values for the elevation of the optical
+depth estimate, the single-scattering albedo, and scattering asymmetry
+parameter, recommended for a relatively clean atmospherer
+by Dozier (1980):
+</P><P>
+<B>%name</B> <B>-z</b> 100 <B>-w</b> 0.85 <B>-g</b> 0.55 <B>-s</b> 150.214 image
+</P>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+(modified version of IPW elevrad program written by
+Jeff Dozier, UCSB)
+</DD>
+</DL>
+
+<DL>
+<DT>Oct 1990</DT>
+<DD>
+	Made tau (optical depth) an input image band instead of
+an argument, K. Longley OSU, EPA ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="elevrad.html">elevrad</A></B>,
+<B><A href="ggradient.html">ggradient</A></B>,
+<B><A href="ghorizon.html">ghorizon</A></B>,
+<B><A href="gradient.html">gradient</A></B>,
+<B><A href="gshade.html">gshade</A></B>,
+<B><A href="gsunlight.html">gsunlight</A></B>,
+</DD>
+</DL>
+<P>gtoporad, gtopquad.24, gtopquad, gviewf, gviewf-mp, hor1d, horizon,
+salbedo, selevrad, solar, stoporad, sunang, sunlight, sunweights,
+toporad, toporad.24, topquad, twostream, viewf
+</P>
+<P>Dozier, J., 1980.  &quot;A clear-sky spectral solar radiation model for
+	snow-covered mountainous terrain&quot;.  Water Resources Research,
+	vol. 16, pp. 709-718.
+</P>
+<P>Dozier, J., and J. Frew, 1981.  &quot;Atmospheric corrections to satellite
+	radiometric data over rugged terrain&quot;.  Remote Sensing of
+	Environment, vol. 11, pp. 191-205.
+</P>
+<P>Dozier, J., J. Bruno, and P. Downey, &quot;A faster solution to the
+	horizon problem&quot;, Computers and Geosciences, volume 7,
+	number 2, pp. 145-151, 1981.
+</P>
+<P>Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain parameters
+	for radiation modeling from digital elevation data&quot;. IEEE
+	Transactions on Geoscience and Remote Sensing, vol. 28, no. 5,
+	pp. 963-969.
+</P>
+<P>Dubayah, R., J. Dozier, and F. Davis, 1990.  &quot;Topographic distribution
+	of clear-sky radiation over the Konza Prairie, Kansas&quot;.  Water
+	Resources Research, vol. 26, no. 4, pp. 679-691.
+</P>
+<P>Marks, D., R. Dubayah, and K. Longley, 1991.  &quot;Modeling the topographic
+	and spectral variability of clear-sky solar radiation at regional
+	to continental scales.  Proceedings 1991 IGARSS Symposium,
+	Remote Sensing:  Global Monitoring for Earth Management, Espoo,
+	Finland, Vol. 3, pp. 1711.
+</P>
+<P>Dubayah, R., and V. Van Katwijk, 1992.  &quot;The topographic distribution
+	of annual incoming solar radiation in the Rio Grande basin&quot;.
+	Geophysical Research Letters, vol. 19, pp. 2231-2234.
+</P>
+<P>Dubayah, R., 1994.  &quot;Modeling a solar radiation topoclimatology for the
+	Rio Grande River Basin&quot;.  Journal of Vegetation Science, vol. 5,
+	pp. 627-640.
+</P>
+

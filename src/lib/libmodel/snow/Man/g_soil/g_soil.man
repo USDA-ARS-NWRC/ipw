@@ -1,0 +1,68 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "snow.h"
+
+double
+g_soil(
+     double  rho,    /* snow layer's density (kg/m^3)             */
+     double  tsno,   /* snow layer's temperature (K)              */
+     double  tg,     /* soil temperature (K)                      */
+     double  ds,     /* snow layer's thickness (m)                */
+     double  dg,     /* depth of soil temperature measurement (m) */
+     double  pa)     /* air pressure (Pa)                         */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates the heat flow between a snow layer and the
+soil accounting for both conduction and vapor transport.  See pages
+45 - 47 in the reference below.
+Assumes soil texture to be as in a moist sandy soil, based on 
+heat flux data from RMSP (A. Winstral & D. Marks, NWRC, 2003)
+</P>
+
+<H2>RETURN VALUE</H2>
+
+<P>
+heat transfer between soil and snow (J/m^2)
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Aug 1984</DT>
+<DD>
+written by D. Marks, CSL (GSFC), UCSB;
+</DD>
+
+<P>
+
+<DT>May 1995</DT>
+<DD>
+Converted from QDIPS to IPW by J. Domingo, OSU
+</DD>
+
+<DL>
+<DT>Sep 2003</DT>
+<DD>
+Modified to use conductivity for a 
+moist sandy soil, by D. Marks, NWRC.
+</DD>
+</DL>
+
+<H2>SEE ALSO</H2>
+
+<P>
+<A HREF="../bib.html#Anderson 1976">Anderson 1976</A><BR>
+</P>
+
+

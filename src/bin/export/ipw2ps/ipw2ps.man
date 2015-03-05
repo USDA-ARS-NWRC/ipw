@@ -1,0 +1,162 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-r</B> ] [ <B>-w</B> <I>width</I> ] [ <B>-h</B> <I>height</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> converts the input IPW image to a PostScript stream suitable
+for rendering the image on a PostScript output device (e.g. Apple
+LaserWriter, Sun NeWS, etc.).
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-r</B> 
+<DD>
+Rotate the image 90 degrees on output.  This is useful to
+maximize the displayed size of an image that is wider than it
+is high.
+</DD>
+
+<P>
+<DT><B>-h</B> <I>height</I>
+<DD>
+The PostScript image should be no more than <I>height</I> inches
+high (default: 9.5).
+</DD>
+
+<P>
+<DT><B>-w</B> <I>width</I>
+<DD>
+The PostScript image should be no more than <I>width</I> inches
+wide (default: 7.0).
+</DD>
+</DL>
+
+<P>Note that <B>-h</b> and <B>-w</b> define a bounding box for the PostScript image.
+
+<P>They do NOT change the image's aspect ratio.
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To render &quot;image&quot; on a PostScript printer:
+</P><PRE>
+	ipw2ps image | lpr
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>image height <I>height</I> too large (max 11 inches)
+image width <I>width</I> too large (max 8.5 inches)
+</DT>
+<DD><BR>	The output PostScript image must fit on an 8.5 by 11 inch
+	sheet of paper.
+</DD>
+
+<P>
+<DT>image height <I>height</I> too small
+image width <I>width</I> too small
+</DT>
+<DD><BR>	<I>height</I> and <I>width</I> must be greater than 0.
+</DD>
+
+<P>
+<DT>input image must have only 1 band
+input image must have only 1 byte per pixel
+</DT>
+<DD><BR>	These are limitations imposed by PostScript's &quot;image&quot;
+	operator.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The input image must have only one band.
+</P><P>
+PostScript output devices use halftone screening to simulate multiple
+gray levels.  Aliasing will occur as the pixel density of the output
+image approaches the halftone screen frequency.
+</P><P>
+Alternatives to <B>%name</B> exist.  The program ipw2pgm will convert IPW
+images to a PGM image which can be converted to PostScript through
+a filter by pnmtops, or with a GUI using interactive scaling using
+xv.  The program ipw2ppm can be used to create color images.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+</DD>
+</DL>
+
+<DL>
+<DT>May 1993</DT>
+<DD>
+	Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+doesn't create &quot;standard&quot; post script
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="ipw2hds.html">ipw2hds</A></B>,
+<B><A href="ipw2pbm.html">ipw2pbm</A></B>,
+<B><A href="ipw2pgm.html">ipw2pgm</A></B>,
+<B><A href="ipw2ppm.html">ipw2ppm</A></B>,
+<B><A href="ipw2sun.html">ipw2sun</A></B>,
+<B><A href="ipw2xim.html">ipw2xim</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>UNIX</DT>
+<DD>	lpr
+</DD>
+</DL>
+
+<DL>
+<DT>Image</DT>
+<DD>	pnmtops, ras2ps, rash, rletops, tiff2ps, xli, xloadimage, xv
+</DD>
+</DL>
+

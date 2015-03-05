@@ -1,0 +1,3 @@
+%define(name,"itoa")
+%define(description,"convert integer to string")
+%define(category,"math")

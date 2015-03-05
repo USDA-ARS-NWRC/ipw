@@ -1,0 +1,3 @@
+%define(name,"hwprmb")
+%define(description,"write preamble record")
+%define(category,"hdrio")

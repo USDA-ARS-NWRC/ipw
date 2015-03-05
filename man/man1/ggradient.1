@@ -1,0 +1,127 @@
+.TH "ggradient" "1" "10 April 1998" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBggradient\fP - slope and aspect from elevation (global-scale)
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBggradient\fP [ \fB-s\fP ] [ \fB-a\fP ] [ \fB-i\fP \fISbits\fP[,\fIAbits\fP] ] [ \fB-m\fP \fImask\fP ]
+      [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Ggradient is part of a family of large area, or "global", scale radiation
+transfer simulation, and solar geometry calculation tools, developed
+after the small-scale radiation transfer tools, developed at UCSB by
+Jeff Dozier and Ralph Dubayah.
+.PP
+All of the global-scale radiation transfer tools are designated by
+the "g" prefix in front of the small-scale tool's name.  These tools
+assume that solar geometry, atmospheric properties, and sun rise and sun
+set vary over the grid, and they also correct for earth curvature.
+The global-scale radiation transfer tools can be applied to areas of
+size, up to the entire earth.  The global-scale radiation transfer tools
+were originally developed by Kelly Longley, Oregon State University,
+at the Corvallis, Oregon, EPA lab, in the early 1990's.
+.PP
+Ggradient is the global-scale version of the program gradient.
+Ggradient reads elevations from \fIimage\fP (default: standard input)
+and writes a 2-band image of the slope and aspect (the magnitude
+and direction of the gradient) to the standard output.  This program
+differs from the gradient program in that the input image must be
+be in a latitude/longitude geodetic projection, and the output is
+corrected for variation in x- and y-distances over a geodetic grid.
+.PP
+Ggradient computes the slope and aspect of each pixel in a
+global-scale elevation image (with latitude/longitude geodetic
+projection).  The 2-band output image has slope	as its first band
+and aspect as its second.  Slope is stored as sin(S) with range
+from 0 to 1.  Aspect is stored with range from -pi to pi.  Aspect 0
+is toward the south, with negative west of south and positive
+east of south.
+.SH OPTIONS
+.TP
+\fB-s\fP
+compute slope image only (default both)
+.sp
+.TP
+\fB-a\fP
+compute aspect image only
+.sp
+.TP
+\fB-i\fP \fISbits\fP[,\fIAbits\fP]
+# bits in output linear quantization (default 8)
+band 0 (slope) can be different from band 1 (aspect)
+.sp
+.TP
+\fB-m\fP \fImask\fP
+mask image
+.SH OPERANDS
+.TP
+[\fIimage\fP]
+	image	1-band elevation image, in geodetic (lat, long) projection
+		(stdin)
+.sp
+.SH EXAMPLES
+.PP
+To compute a gradient image over a 10km DEM of the US:
+.sp
+.nf
+.ft CR
+	ggradient -m US_mask US_dem
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     None
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+Input image must have geodetic header, and must be in lat/lon projection
+.br
+	Illegal latitudes in GEO header
+	Illegal longitudes in GEO header
+	Input image has no geodetic header - must be lat/lon projection
+.SH RESTRICTIONS
+.PP
+Image must contain GEO header with latitude-longitude (units: degrees)
+projection.
+.SH HISTORY
+.TP
+Apr 199
+	Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+(modified version of original IPW gradient program)
+.TP
+Jul 1993
+	Conferted to ANSI C.  Dana Jacobsen, ERL-C.
+.SH BUGS
+.PP
+None that we know of
+.SH SEE ALSO
+.TP
+IPW
+	\fBgradient\fP,
+\fBgshade\fP,
+\fBshade\fP
+.PP
+Dozier, J., 1980.  "A clear-sky spectral solar radiation model for
+	snow-covered mountainous terrain".  Water Resources Research,
+	vol. 16, pp. 709-718.
+.PP
+Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain parameters
+	for radiation modeling from digital elevation data". IEEE
+	Transactions on Geoscience and Remote Sensing, vol. 28, no. 5,
+	pp. 963-969.
+.PP
+Marks, D., R. Dubayah, and K. Longley, 1991.  "Modeling the topographic
+	and spectral variability of clear-sky solar radiation at regional
+	to continental scales.  Proceedings 1991 IGARSS Symposium,
+	Remote Sensing: Global Monitoring for Earth Management, Espoo,
+	Finland, Vol. 3, pp. 1711.

@@ -1,0 +1,66 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+char *
+walksv(
+	REG_1 STRVEC_T *p,
+	bool_t          reset)
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> sequentially accesses the strings in strvec p.  If reset is
+true, then the first string is accessed.  If reset is false, then the
+next string is accessed.
+</P><P>
+Calling addsv or delsv may confuse <B>%name</B>'s notion of what the &quot;next&quot;
+string is.  Calling <B>%name</B> with reset == TRUE avoids this problem.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+pointer to string in p.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

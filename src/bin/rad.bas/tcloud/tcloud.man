@@ -1,0 +1,113 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads a 2 band <I>image</I> (default: standard input) containing
+the daily diurnal temperature range (from deltaT) and writes the
+cloudiness attenuation of solar radiation to the standard output
+as an 8-bit IPW image.
+</P><P>
+The input image contains the two bands: band 0 contains the output
+of the program deltaT, and band 1 contains the mean of the monthly
+runs of deltaT.
+</P><P>
+The output image is calculated as Bristow and Campbell (1984):
+</P><PRE>
+	cloud_coef = 1 - exp(-B deltaT ^ C)
+</PRE><P>
+where:
+</P><PRE>
+	B = 0.036 exp (-0.154 mean_deltaT)
+	C = 2.4 (constant)
+</PRE>
+<H2>OPTIONS</H2>
+
+
+<P>None
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image	2-band input image of deltaT and mean monthly deltaT
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate cloud attenuation of radiation image &quot;rad_image&quot;:
+</P><P>
+mux deltaT mean_deltaT  |  <B>%name</B>  | mux - rad_image | mult 
+</P>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>image has <I>bands</I> bands, 2 band images only
+</DT>
+<DD><BR>	The input image must have exactly two bands.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Oct 1993</DT>
+<DD>
+	Written by Danny Marks, USGS, EPA ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="deltaT.html">deltaT</A></B>,
+<B><A href="mult.html">mult</A></B>,
+<B><A href="mux.html">mux</A></B>
+</DD>
+</DL>
+<P>Bristow, K.L, and G.S. Campbell, 1984.  &quot;On the relationship between
+	incoming solar radiation and daily maximum and minimum
+	temperature,&quot; Agricultural and Forest Meteorology, vol. 31,
+	pp. 159-166.
+</P>
+<P>Running, S., R. Nemani, and R. Hungerford, 1987.  &quot;Extrapolation of
+	synoptic meteorological data in mountainous terrain and its
+	use for simulating forest evapotranspiration and photosynthesis,&quot;
+	Canadian Journal of Forest Research, vol. 17, pp. 472-483.
+</P>
+

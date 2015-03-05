@@ -1,0 +1,3 @@
+%define(name,"rh2vp")
+%define(description,"convert between relative humidity and vapor pressure")
+%define(category,"Environmental Physics and Properties: Point")

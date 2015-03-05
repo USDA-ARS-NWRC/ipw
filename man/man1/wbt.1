@@ -1,0 +1,101 @@
+.TH "wbt" "1" "1 April 2014" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBwbt\fP - wet or ice bulb temperature from air temperature, RH and air pressure
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBwbt\fP [ \fB-z\fP \fIelev \fP ] [ \fB-p\fP \fIpressure \fP ] [ \fB-d\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBwbt\fP is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as "qdips" (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+.PP
+\fBwbt\fP computes wet or ice bulb temperature from input values of
+air temperature (C), and relative humidity(0 to 1.0) from a fixed site
+air pressure(Pa), using Richard Essery's equations for the
+psychrometric constant, its value at specific temperatures using the
+Clausius-Clapeyron equation, and solves for the Tw or Ti
+using the Newton-Raphson iterative approximation.
+It returns wet or ice bulb temperture (C);
+works at all temperatures (accounting for both fusion and vaporization).
+<\\P>
+.PP
+Routine \fBwetbulb\fP is called to compute wet or ice bulb temperature from
+values of air and dewpoint temperatures (K), and air pressure (Pa),
+using Richard Essery's equations for the psychrometric constant,
+its value at specific temperatures from the Clausius-Clapeyron equation,
+and solves for the Tw or Ti using the Newton-Raphson iterative approximation.
+It returns wet or ice bulb temperture (K);
+works at all temperatures (accounting for both fusion and vaporization).
+.PP
+\fBwbt\fP reads air temperature and RH pairs from standard input;
+Optional elevation, z, is used to calcualte air pressure;
+Optional total air pressure (Pa); default is
+sea level standard of 101324.6 Pa;
+Optional output of dewpoint temp along with wet or ice bulb temp(C);
+Output is to standard output;
+.PP
+(see \fIGeneral Meterology, Byers, 1974\fP)
+.SH OPTIONS
+.TP
+\fB-z\fP \fIelev \fP
+Use \fIelev\fP to calculate air pressure (default: sea level).
+.sp
+.TP
+\fB-p\fP \fIpressure \fP
+\fIpressure\fP is the total air pressure (default: sea level
+standard of 101324.6 Pa).
+.sp
+.TP
+\fB-d\fP
+Dew point temperatures are also outputed in degrees C.
+.SH OPERANDS
+.PP
+none
+.SH EXAMPLES
+.PP
+To calculate ice-bulb and dewpoint temperatures from air temperature and RH measured
+at a site near Park City, Utah:
+.sp
+.nf
+.ft CR
+	\fBwbt\fP -z 3105 -d < {-8.2 0.923}
+	output: Tw = -8.56; Td = -9.11
+.ft R
+.fi
+.SH FILES
+.PP
+none
+.SH DIAGNOSTICS
+.PP
+none
+.SH RESTRICTIONS
+.PP
+none
+.SH HISTORY
+.TP
+Feb 2012
+Written by D. Marks, NWRC, USDA-ARS;
+.SH BUGS
+.PP
+none
+.SH SEE ALSO
+.TP
+IPW:
+\fBdewpt\fP,
+\fBidewpt\fP,
+\fBirh2vp\fP,
+\fBrh2vp\fP,
+\fBisatvp\fP,
+\fBsatvp\fP,
+\fBsling\fP,
+\fBvptr\fP,
+\fBwetbulb\fP
+.PP
+Byers 1974,

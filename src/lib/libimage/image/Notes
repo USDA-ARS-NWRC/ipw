@@ -1,0 +1,59 @@
+to open an existing image for integer or floating-point pixel IO:
+
+X   open_image(	char * filename,
+		int access)       /* either PIXEL_ACCESS, FPIXEL_ACCESS */
+
+    returns IMAGE *
+
+to retrieve basic image info:
+
+X   int nlines(IMAGE * image)
+X   int nsamples(IMAGE * image)
+X   int nbands(IMAGE * image)
+X   int access(IMAGE * image)		returns PIXEL_ACCESS or FPIXEL_ACCESS
+
+O   int nbits(IMAGE * image, int band)   --> bih_nbits(image->bih[band])
+O   int nbytes(IMAGE * image, int band)  --> bih_nbytes(image->bih[band])
+
+X   STRVEC_T * history(IMAGE * image, band)	reserved memory (do not free)
+X   STRVEC_T * annotation(IMAGE * image, band)	reserved memory (do not free)
+
+X   bool_t has_lqh(IMAGE * image, int band)
+X   FPIXEL lqh_min(IMAGE * image, int band)
+X   FPIXEL lqh_max(IMAGE * image, int band)
+O   char * lqh_units(IMAGE * image, int band)	reserved memory (do not free)
+
+to create a new image for integer pixel IO:
+
+X   new_image ( char * filename,
+		int nlines,
+		int nsamples,
+		int nbands,
+		int nbits[])	/* array of {nbands} values; value = nbit */
+
+to create a new image for floating-point IO:
+
+    a) call "new_image" (now implies PIXEL_ACCESS)
+X   b) call (void) set_lqh(IMAGE * image, FPIXEL mins[], FPIXEL maxs[],
+		 	    char * units[])
+
+to assign per-band basic information:
+
+X   void set_history(IMAGE * image, int band, STRVEC_T * history)
+X   void set_annotation(IMAGE * image, int band, STRVEC_T * annotation)
+
+to return a string for ipw_errno
+
+    char * ipw_strerr(int ipw_errno)
+
+to access a GEO header of an image:
+
+    #include "geoh.h"
+
+X   GEOH_T * get_geoh(IMAGE * image, int band)
+	returns NULL only if no header; exits if error in arguments
+	returns a pointer to reserved memory (application program should not
+		free this memory)
+X   void set_geoh(IMAGE * image, int band, GEOH_T * geoh)
+	this routine assumes that the geoh is reserved memory or static
+	memory (therefore, the image library does not free it up)

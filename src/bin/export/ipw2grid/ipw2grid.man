@@ -1,0 +1,96 @@
+<H2>NAME</H2>
+
+<P>
+<B>%name</B> - %description
+</P>
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <I>ipw_img</I> <I>out_prefix</I>
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> converts a single-band IPW image into an Arc/Info image.
+This command is invoked by the AML scripts "ipw2grid.aml" and
+"ipw2stack.aml".
+
+<H2>OPTIONS </H2>
+
+<P>
+None.
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+
+<DT><I>ipw_img</I>
+<DD>
+Input IPW image to convert.
+</DD>
+
+<P>
+
+<DT><I>out_prefix</I>
+<DD>
+Prefix for output files: the files "<I>out_prefix</I>.bip" and
+"<I>out_prefix</I>.hdr" are read by the IMAGEGRID command in Arc/Info, while
+the file "<I>out_prefix</I>.lq" is read the AML script "ipw2grid.aml".
+</DD>
+
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+None, since this command is invoked from an AML script.
+</P>
+
+<H2>FILES</H2>
+
+<PRE>
+    $IPW/aux/%name/ipw2grid.aml    AML script (single-band IPW images)
+    $IPW/aux/%name/ipw2stack.aml   AML script (multi-band IPW images)
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+
+<H2>NOTES</H2>
+
+<P>
+This command is not directly invoked by the user; rather it is
+called by the AML scripts "ipw2grid.aml" and "ipw2stack.aml".
+
+<H2>HISTORY </H2>
+
+<DL>
+
+<DT>Apr 1996
+<DD>
+Written by Rusty Dodson.
+</DD>
+
+<P>
+
+<DT>Jun 1998
+<DD>
+Added to IPW version 2.  J. Domingo, OSU
+</DD>
+
+</DL>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+
+<DT>IPW:
+<DD>
+<A HREF="grid2ipw.html">grid2ipw</A>
+</DD>
+
+</DL>

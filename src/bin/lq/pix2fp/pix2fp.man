@@ -1,0 +1,118 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-i</B> <I>image</I> ] [ <B>-v</B> <I>value_file</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads a file <I>value_file</I> (default: standard input) containing
+raw (unmapped) pixel values, and a single band IPW <I>image</I> (default:
+standard input) that contains an LQ header, and writes floating point
+values (the raw values mapped through the LQ header) to the standard
+output.
+</P><P>
+The input values are integers, not bytes (it is a file of ASCII
+text, not a raw image), and the output is a table with two
+columns containing the pixel value and the mapped value.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-i</B> <I>image</I>
+<DD>
+Use <I>image</I> (default: standard input) as the input image to
+obtain the LQ header.
+</DD>
+
+<P>
+<DT><B>-v</B> <I>value_file</I>
+<DD>
+Use <I>value_file</I> (default: standard input) as the file
+containing raw values.
+</DD>
+</DL>
+
+<P>At least one of <B>-i</b> and/or <B>-v</b> must be specified.
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>	None
+</P><P>
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+Given a file containing raw elevation data (straight from the
+sensor, not in meters), and an image with has an LQ header that
+correctly maps this raw data into floating point (meters perhaps):
+</P><PRE>
+	pix2fp  -i elevmap  -v raw.001
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>At least one of <B>-i</b>,<B>-v</b> must be specified
+</DT>
+<DD><BR>	<B>%name</B> needs two data files, at least one of which must
+	be specified on the command line.
+</DD>
+
+<P>
+<DT>image file <I>image</I> has no LQH
+</DT>
+<DD><BR>	The mapping from pixel value to floating point is done
+	using the LQ header from <I>image</I>.  This file must have
+	an LQ header, or there is no way to map the values.
+</DD>
+
+<P>
+<DT>image file <I>image</I> has more than one band
+</DT>
+<DD><BR>	Only single band images are accepted.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Only single band images are supported.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>May 1991</DT>
+<DD>
+	Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+<H2>SEE ALSO</H2>
+
+<P>IPW	iimport, primg
+</P>
+

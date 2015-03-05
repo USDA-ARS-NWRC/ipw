@@ -1,0 +1,68 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+void
+local2gmt(
+	datetime_t     *dt,	|* local date-time		 *|
+	int		zone,	|* local time zone (minutes of
+				   time west of Greenwich)       *|
+	bool_t		isDST)	|* daylight savings time?	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> converts a local date-time into Greenwich Mean Time (GMT)
+which is also known as Coordinated Universal Time (UTC).  The
+local time zone is specified by the number of minutes of time
+west of Greenwich.  isDST indicates where or not daylight savings
+time is in effect for the local time zone.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

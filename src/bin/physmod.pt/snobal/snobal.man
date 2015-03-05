@@ -1,0 +1,562 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-z</B> <I>elev</I> <B>-t</B> <I>data-tstep</I>[,<I>norm-tstep</I>[,<I>med-tstep</I>[,<I>sm-tstep</I>]]]
+      [ <B>-m</B> <I>max-h2o </I> ] [ <B>-d</B> <I>max-active </I> ] [ <B>-s</B> <I>snfile </I> ]
+      [ <B>-h</B> <I>mhfile </I> ] [ <B>-p</B> <I>prfile </I> ] [ <B>-i</B> <I>infile </I> ]
+      [ <B>-o</B> <I>outfile </I> ] [ <B>-O</B> <I>output-mode </I> ] [ <B>-c</B> ] [ <B>-K</B> ]
+      [ <B>-T</B> <I>norm-threshold</I>[,<I>med-threshold</I>[,<I>sm-threshold</I>]]<I> </I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is an
+interactive point model using the energy balance to calculate
+snowmelt, and to predict runoff, from input data on
+snow properties, measurement heights &amp; depths, and energy
+exchanges.  Similar to the approach used by <I>Anderson (1976)</I>,
+and <I>Morris (1982)</I>, but designed to run on simpler,
+more generalizable inputs.
+The model was first presented by <I>Marks (1988)</I>,
+described conceptually by <I>Marks, et. al (1992)</I> and
+<I>Marks and Dozier (1992)</I>, and then described in great detail
+by <I>Marks, et. al (1997)</I>.
+<P>
+The model approximates the snow cover as being composed of
+two layers, a surface fixed-thickness active layer and a
+lower layer, solving for the temperature (C) and specific
+mass (kg/m^2) or mass per unit area (from density * depth
+(kg/m^3 * m)) for each, and computing total snowcover temperature
+and specific mass from these.
+<P>
+Melt is computed in either layer when the accumulated energy
+exceeds the &quot;cold content&quot; or when the &quot;cold content&quot;
+is &gt; 0.0.  Cold content is the energy required to bring the snow
+cover temperature up to freezing (0 C).  Runoff is estimated
+when the accumulated melt and liquid H2O content exceed a
+specified threshold.
+Model assumes a soil thermal conductivity that was derived from
+heat flux data collected at the ARS Reynolds Creek RMSP site, which
+approximates a moist sandy soil.
+<P>
+This version of the model was designed for detailed point
+simulations to test conditions and data for setting up the
+spatial, topographically distributed version of the model:
+isnobal.
+<P>
+Inputs:
+<P>
+Input data are specified for the snow properties and the
+measurement heights and depths.  Each set of data must have
+at least one record; this required record defines the initial
+conditions for the model run.  Any subsequent optional
+records are treated as update/verification data, and are
+used to reset the snow properties and measurement heights
+and depths.  These records are also used to determine the
+model error for the snow properties.  These inputs can all
+come from input text files, or the model will prompt the
+user for them at the start of and during the model run.  The
+records must be specified in chronological order.
+<P>
+snow properties record format:
+<PRE>
+     time_s    =   time since start (decimal hrs) (first
+                   entry is model run's start time)
+     z_s       =   total snowcover depth (m)
+     rho       =   average snowcover density (kg/m^3)
+     T_s_0     =   active snow layer temperature (C)
+     T_s       =   average snowcover temperature (C)
+     h2o_sat   =   % of liquid H2O saturation (relative
+                   water content, i.e., ratio of water in
+                   snowcover to water that snowcover could
+                   hold at saturation)
+</PRE><P>
+measurement heights &amp; depths record format:
+<PRE>
+     time_z   =   time since start (decimal hrs) (first entry must
+                  match time_s in first entry of snow properties)
+     z_u      =   height above the ground of wind speed measurement (m)
+     z_T      =   height above the ground of air temperature and vapor
+                  pressure measurement (m) (z_u can equal z_T)
+     z_0      =   roughness length (m) (for snow: 0.01 to 0.0001)
+     z_g      =   depth of soil-temperature measurement (m) (0 to 1.0)
+</PRE><P>
+Optional precipitation data can be provided as input to the
+model.  These data are used to calculate advected heat from
+the precipitation (snow or rain or both) and to update the
+specific mass of the snow cover.  Rain either becomes runoff
+(if there is little or no snow) or is added to the liquid
+water content.
+<P>
+Like the records for the snow properties and measurement
+heights, the precipitation records must be in chronological
+order.
+<P>
+precipitation record format:
+</P><PRE>
+     time_pp    =   time since start (decimal hrs) (first
+                    entry must be &gt;= start time)
+     m_pp       =   total precip. mass (kg/m^2)
+     %_snow     =   % of precip. mass that was snow (0 to 1.0)
+     rho_snow   =   density of snowfall (kg/m^3)
+     T_pp       =   average precip. temperature (C) (from dew
+                    point temperature if available, or can be
+                    estimated from air temperature during
+                    storm, or minimum daily temperature)
+</PRE><P>
+The model will parse mixed rain/snow events.  It is designed
+to accept inputs that could be derived from typical NRCS
+Snotel data such as total precipitation, snow mass increase,
+and temperature.  The user must estimate average density and
+percent snow if depth data are unavailable.  The model makes
+the following assumptions about the snow temperature, rain
+temperature, and liquid water saturation of the snow:
+</P><PRE>
+     when 0.0 &lt; %_snow &lt; 1.0, (a mixed rain/snow event)
+          snow temperature = 0.0
+          rain temperature = T_pp
+          liquid H2O sat.  = 100%
+
+     when %_snow = 1.0 and T_pp =&gt; 0.0, (a warm snow-only event)
+          snow temperature = 0.0
+          liquid H2O sat.  = 100%
+
+     when %_snow = 1.0 and T_pp &lt; 0.0, (a cold snow event)
+          snow temperature = T_pp
+          liquid H2O sat.  = 0%
+</PRE><P>
+Input records of certain climate parameters are required to
+drive the model.  These records are read from either an
+input file or standard input.
+<P>
+input data record format:
+</P><PRE>
+     S_n    =   net solar radiation (W/m^2)
+     I_lw   =   incoming thermal (longwave) radiation (W/m^2)
+     T_a    =   air temperature (C)
+     e_a    =   vapor pressure (Pa)
+     u      =   wind speed (m/sec)
+     T_g    =   soil temperature (C)
+     [ro]   =   specific discharge/runoff (m/sec) (may be omitted)
+</PRE><P>
+Time Steps (data timestep and run timesteps):
+<P>
+The &quot;data timestep&quot; is the time interval between the input
+records of climate data.  The model assumes that this interval
+is constant.  Because the snowcover energy balance is
+very sensitive to diurnal variations in climate (radiation,
+temperature, etc.), the &quot;data timestep&quot; must be 360 minutes
+(6 hours) or less.  Best results are achieved with a data
+timestep of 180 minutes (3 hours) or less.  Data timesteps
+greater than 60 minutes must be multiples of whole hours
+(e.g., 120 minutes, or 180 minutes).
+<P>
+A &quot;run timestep&quot; is the internal timestep that the model
+actually runs at.  Because input values are assumed to be
+averages over a run timestep, it is always 60 minutes (1
+hour) or less to insure a stable model solution.  Solution
+instabilities occur when the run timestep is too long to
+account for rapid changes in the EB (eg.  sun rise or sunset),
+or when a layer's mass is too small to accommodate the
+assumption of an average flux over the run timestep.
+<P>
+There are 3 lengths of run timesteps: &quot;normal, medium, and
+small&quot;.  By default, the model uses the normal run timestep
+which is the longest of the three run timesteps.  The normal
+timestep must divide evenly into the data timestep (i.e.,
+the data timestep is an integer multiple of the normal run
+timestep).  The input data for a normal run timestep (climate
+data and some precipitation values) are computed from
+the input records by linear interpolation.
+<P>
+The shorter run timesteps (medium and small) are only used
+as a layer's mass diminishes to further insure solution stability.
+When either layer's mass drops below a specified
+threshold, the model divides a larger run timestep into
+shorter run timesteps (e.g., divides a normal run timestep
+into medium run timesteps).  There are three mass thresholds;
+one for each run timestep: normal, medium, and small.
+When a layer's mass falls below the threshold for the the
+small run timestep, the model removes the layer.
+<P>
+Just as the normal run timestep divides evenly into the data
+timestep, each of the two shorter run timesteps must divide
+evenly into the next larger run timestep (medium into normal,
+small into medium).  And like the normal timesteps, the
+input data for medium and small timesteps are linearly
+interpolated from the input records.
+<P>
+Outputs:
+<P>
+The model writes output records to either an output file or
+standard output.
+<P>
+output record format:
+</P><PRE>
+     time_s       =   elapsed time since start of model run (hours)
+     R_n          =   net allwave rad (W/m^2)
+     H            =   sensible heat transfer (W/m^2)
+     L_v_E        =   latent heat exchange (W/m^2)
+     G            =   snow/soil heat exchange (W/m^2)
+     M            =   advected heat from precip. (W/m^2)
+     delta_Q      =   sum of e.b. terms for snowcover (W/m^2)
+     G_0          =   heat exchange between snow layers (W/m^2)
+     delta_Q_0    =   sum of e.b. terms for surface layer (W/m^2)
+     cc_s_0       =   surface layer cold content (J/m^2)
+     cc_s_l       =   lower layer cold content (J/m^2)
+     cc_s         =   snowcover cold content (J/m^2)
+     E_s          =   evaporation (kg/m^2)
+     melt         =   melt (kg/m^2)
+     ro_predict   =   predicted runoff (kg, or mm/m^2)
+     [ro_error]   =   runoff error (kg, or mm/m^2)
+     z_s_0        =   predicted depth of surface layer (m)
+     z_s_l        =   predicted   &quot;   of lower layer (m)
+     z_s          =   predicted   &quot;   of snowcover (m)
+     rho          =   predicted average snow density (kg/m^3)
+     m_s_0        =   predicted specific mass of surface layer (kg/m^2)
+     m_s_l        =   predicted    &quot;      &quot;   of lower layer (kg/m^2)
+     m_s          =   predicted    &quot;      &quot;   of snowcover (kg/m^2)
+     h2o          =   predicted liquid H2O in snowcover (kg/m^2)
+     T_s_0        =   predicted temperature of surface layer (C)
+     T_s_l        =   predicted      &quot;      of lower layer (C)
+     T_s          =   predicted average temp of snowcover (C)
+</PRE><P>
+For each update/verification record with snow properties,
+the model outputs an error record to standard output.
+<P>
+error record format for each update record:
+</P><PRE>
+     time_diff    =   time of update
+     diff_z_s     =   predicted - measured z_s
+     diff_rho     =   predicted - measured rho
+     diff_m_s     =   predicted - computed m_s
+     diff_T_s_0   =   predicted - measured T_s_0
+     diff_T_s     =   predicted - measured T_s
+     diff_h2o     =   predicted - measured H2O present in snowcover
+</PRE>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-z</B> <I>elev</I>
+<DD>
+<I>elev</I> is site elevation (m); used to compute air pressure.
+</DD>
+
+<P>
+
+<DT><B>-t</B> <I>data-tstep</I>[,<I>norm-tstep</I>[,<I>med-tstep</I>[,<I>sm-tstep</I>]]]
+<DD>
+<I>data-tstep</I> is time step for the input climate data
+(minutes).  If more than 60 minutes (1 hour), than it
+must a multiple of 60 minutes, e.g., 120 minutes (2
+hrs), 180 min (3 hrs), etc.  Maximum is 360 minutes (6
+hours).
+
+<P><I>norm-tstep</I> is the normal run timestep.  It must divide
+the data timestep evenly (default: 60 min or the data
+timestep, whichever is smaller).
+</P>
+
+<P><I>med-tstep</I> is the medium run timestep.  It must divide
+the normal run timestep evenly (default: 15 min or the
+normal timestep, whichever is smaller).
+</P>
+
+<P><I>sm-tstep</I> is the small run timestep.  It must divide the
+medium run timestep evenly (default: 1 min).
+</DD>
+
+<P>
+
+<DT><B>-m</B> <I>max-h2o</I>
+<DD>
+<I>max-h2o</I> is snowcover maximum liquid H2O content as
+volume ratio: V_water/(V_snow-V_ice) ; used to predict
+runoff (default: 0.01).
+</DD>
+
+<P>
+
+<DT><B>-d</B> <I>max-active</I>
+<DD>
+<I>max-active</I> is maximum depth for active snow layer (m)
+(default: 0.25 m).
+</DD>
+
+<P>
+
+<DT><B>-s</B> <I>snfile</I>
+<DD>
+<I>snfile</I> is optional input file with snow properties
+</DD>
+
+<P>
+
+<DT><B>-h</B> <I>mhfile </I>
+<DD>
+<I>mhfile</I> is optional input file with measurement heights
+&amp; depths
+</DD>
+
+<P>
+
+<DT><B>-p</B> <I>prfile </I>
+<DD>
+<I>prfile</I> is optional input file with precipitation data
+</DD>
+
+<P>
+
+<DT><B>-i</B> <I>infile </I>
+<DD>
+<I>infile</I> is optional input file with climate data
+</DD>
+
+<P>
+
+<DT><B>-o</B> <I>outfile </I>
+<DD>
+<I>outfile</I> is optional output data file
+</DD>
+
+<P>
+
+<DT><B>-O</B> <I>output-mode </I>
+<DD>
+<I>output-mode</I> controls the rate at which output records
+are written.  The 3 modes are:
+</DD>
+
+<PRE>
+     data     1 output record for each climate data record
+     normal   1 output record for each normal run timestep
+     all      1 output record for each run timestep: normal,
+                   medium and small
+</PRE>
+
+<P>
+
+<DT><B>-c</B> 
+<DD>
+Continue the model run if there's no snowcover on
+ground (a subsequent snowfall may reestablish the snowcover).
+(default:  the model stops when the snowcover
+is gone)
+</DD>
+
+<P>
+
+<DT><B>-K</B> 
+<DD>
+Accept/output temperatures in degrees K (default:
+degrees C).
+</DD>
+
+<P>
+
+<DT><B>-T</B> <I>norm-threshold</I>[,<I>med-threshold</I>[,<I>sm-threshold</I>]]<I> </I>
+<DD>
+If a layer's mass is below <I>norm-threshold</I>, the model
+divides each normal run timestep into medium run
+timesteps (default 60 kg/m^2).
+
+<P>If a layer's mass is below <I>med-threshold</I>, the model
+divides each medium run timestep into small run
+timesteps (default 10 kg/m^2).
+
+<P>If a layer's mass is below <I>sm-threshold</I>, the model considers
+the layer non-existent, i.e., it removes the
+layer (default 1 kg/m^2).
+</DD>
+
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+none
+</P>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Aug 1984</DT>
+<DD>written by D. Marks, (GSFC) CSL, UCSB;
+</DD>
+
+<P>
+
+<DT>Sep 1984</DT>
+<DD>broken into subroutines by D. Marks, CSL, UCSB;
+</DD>
+
+</P>
+
+<DT>Jul 1985</DT>
+<DD>handling of var. defs, and externals improved by D. Marks, CSL, UCSB;
+</DD>
+
+<P>
+
+<DT>Apr 1986</DT>
+<DD>2-layer update by D. Marks, CSL, UCSB;
+</DD>
+
+<P>
+
+<DT>Jun 1987</DT>
+<DD>Brutsaert H&amp;LE method added, D. Marks, CRSEO, UCSB;
+</DD>
+
+<P>
+
+<DT>Jan 1990</DT>
+<DD>made less interactive with new input files
+specified on run-string by Kelly Longley, OSU;
+</DD>
+
+<P>
+
+<DT>May 1995</DT>
+<DD>Converted to IPW by J. Domingo, OSU, US EPA;
+</DD>
+
+<P>
+
+<DT>Feb 1996</DT>
+<DD>Renamed some options.  Added <B>-c</b>, <B>-K</b>
+options.  Integrated man page into source
+code so &quot;ipwman&quot; now works with <B>%name</B> (i.e.,
+&quot;help.<B>%name</B>&quot; now obsolete).  Renamed variables
+to coincide with notation in related
+articles, e.g., <I>Marks and Dozier (1992)</I>.  Major internal restructuring
+of routines to simplify later modifications.  J. Domingo, OSU;
+</DD>
+
+<P>
+
+<DT>Mar 1996</DT>
+<DD>Added run timesteps and thresholds.  Added related options
+<B>-O</b> and <B>-T</b>.  J. Domingo, OSU;
+</DD>
+
+<P>
+
+<DT>Apr 1996</DT>
+<DD>Added feature for accepting mixed rain/snow precipitation events;
+changed format of precip update files, J. Domingo, OSU; D. Marks, USGS;
+</DD>
+
+<P>
+
+<DT>Jul 1996</DT>
+<DD>Internal structure modified so that actual model routines are now
+in a library that's shared with <B>isnobal</B>, J. Domingo, OSU;
+</DD>
+
+<P>
+
+<DT>Sep 2003</DT>
+<DD>Soil conductivity in routine <I>g_soil.c</I>
+changed to that of a moist sandy soil
+from a wet or saturated sandy soil, D. Marks, NWRC;
+</DD>
+
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT> 
+<DD>
+<B><A HREF="advec.html">advec</A></B>,
+<B><A HREF="albedo.html">albedo</A></B>,
+<B><A HREF="elevrad.html">elevrad</A></B>,
+<B><A HREF="glob.alb.html">glob.alb</A></B>,
+<B><A HREF="gsnow.html">gsnow</A></B>,
+<B><A HREF="gradient.html">gradient</A></B>,
+<B><A HREF="horizon.html">horizon</A></B>,
+<B><A HREF="refdx.html">refdx</A></B>,
+<B><A HREF="shade.html">shade</A></B>,
+<B><A HREF="stoporad.html">stoporad</A></B>,
+<B><A HREF="solar.html">solar</A></B>,
+<B><A HREF="selevrad.html">selevrad</A></B>,
+<B><A HREF="sunlight.html">sunlight</A></B>,
+<B><A HREF="thermin.html">thermin</A></B>,
+<B><A HREF="tcloud.html">tcloud</A></B>,
+<B><A HREF="toporad.html">toporad</A></B>,
+<B><A HREF="toporad.24.html">toporad.24</A></B>,
+<B><A HREF="topquad.html">topquad</A></B>,
+<B><A HREF="topotherm.html">topotherm</A></B>,
+<B><A HREF="trad.html">trad</A></B>,
+<B><A HREF="viewf.html">viewf</A></B>,
+<B><A HREF="topotherm.html">topotherm</A></B>,
+<B><A HREF="isnobal.html">isnobal</A></B>,
+<B><A HREF="snowmass.html">snowmass</A></B>,
+<B><A HREF="swe.html">swe</A></B>,
+<B><A HREF="wbal.html">wbal</A></B>,
+<B><A HREF="dewpt.html">dewpt</A></B>,
+<B><A HREF="deltaT.html">deltaT</A></B>,
+<B><A HREF="deltaz.html">deltaz</A></B>,
+<B><A HREF="pott.html">pott</A></B>,
+<B><A HREF="rh2vp.html">rh2vp</A></B>,
+<B><A HREF="satvp.html">satvp</A></B>,
+<B><A HREF="sling.html">sling</A></B>,
+<B><A HREF="surface.html">surface</A></B>,
+<B><A HREF="surftmp.html">surftmp</A></B>,
+<B><A HREF="vptr.html">vptr</A></B>,
+<B><A HREF="zpr.html">zpr</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Anderson 1976">Anderson 1976</A>,
+<A HREF="../bib.html#Morris 1982">Morris 1982</A>,
+<A HREF="../bib.html#Marks 1988">Marks 1988</A>,
+<A HREF="../bib.html#Marks 1992a">Marks 1992a</A>,
+<A HREF="../bib.html#Marks 1992b">Marks 1992b</A>,
+<A HREF="../bib.html#Garen 1996">Garen 1996</A>,
+<A HREF="../bib.html#Van Heeswijk 1996">Van Heeswijk 1996</A>,
+<A HREF="../bib.html#Marks 1998">Marks 1998</A>,
+<A HREF="../bib.html#Marks 1999a">Marks 1999a</A>,
+<A HREF="../bib.html#Susong 1999">Susong 1999</A>
+</P>
+

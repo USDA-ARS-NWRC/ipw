@@ -1,0 +1,168 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-s</B> <I>gradient</I> ] [ <B>-h</B> <I>horizons</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads a gradient image (calculated by &quot;gradient&quot;) and
+a horizon angle image (calculated by &quot;horizon&quot;) and writes a
+2-band image of the corresponding sky view and terrain
+configuration factors to the standard output.
+</P><P>
+The input horizon angle image should be multiband, with each
+band representing the horizon in one of <I>nbands</I> equiangularly
+spaced directions (i.e., the result of &quot;mux&quot;ing together several
+output images from &quot;horizon&quot;).  They need to be evenly spaced,
+but need not be in consecutive order.
+</P><P>
+Band 0 of the output image is the sky view factor, defined as
+the fraction (0 .. 1) of a pixel's overlying hemisphere (centered
+at the pixel's zenith) that is subtended by sky (as opposed to
+surrounding terrain).
+</P><P>
+Band 1 of the output image is the terrain configuration factor,
+defined as:
+</P><PRE>
+	1 + cos(slope)
+       ----------------   -  (sky view factor)
+              2
+</PRE>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-s</B> <I>gradient</I>
+<DD>
+Read slopes and aspects from <I>gradient</I> (default: standard
+input).
+</DD>
+
+<P>
+<DT><B>-h</B> <I>horizons</I>
+<DD>
+Read horizon angles from <I>horizons</I> (default: standard
+input).
+</DD>
+</DL>
+
+<P>At least one of <B>-s</b> and/or <B>-h</b> must be specified.
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+<B>%name</B> is almost always invoked by viewf, which first calculates
+the necessary gradient and horizon images.
+</P>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT># samples different in two input files
+files unequal # pixels
+</DT>
+<DD><BR>	The gradient and horizon angle images must have the same
+	number of lines and samples.
+</DD>
+
+<P>
+<DT>band 0 of input not slope
+input slope/azimuth file must have 2 bands
+slope/azm image has no LQH
+</DT>
+<DD><BR>	The gradient image must be a valid output from the gradient
+	program.
+</DD>
+
+<P>
+<DT>horizon image has no HORH
+horizon image has no LQH
+</DT>
+<DD><BR>	The horizon image must be composed of valid outputs from the
+	horizon program.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="ggradient.html">ggradient</A></B>,
+<B><A href="ghorizon.html">ghorizon</A></B>,
+<B><A href="gradient.html">gradient</A></B>,
+<B><A href="gshade.html">gshade</A></B>,
+<B><A href="gviewf.html">gviewf</A></B>,
+<B><A href="gviewf-mp.html">gviewf-mp</A></B>,
+	<B><A href="hor1d.html">hor1d</A></B>,
+<B><A href="horizon.html">horizon</A></B>,
+<B><A href="shade.html">shade</A></B>,
+<B><A href="viewcalc.html">viewcalc</A></B>,
+<B><A href="viewf.html">viewf</A></B>
+</DD>
+</DL>
+<P>Dozier, J., 1980.  A clear-sky spectral solar radiation model for
+	snow-covered mountainous terrain.  Water Resources Research,
+	vol. 16, pp 709-718.
+</P>
+<P>Dozier, J., J. Bruno, and P. Downey, 1981.  A faster solution to
+	the horizon problem.  Computers and Geosciences, vol. 7,
+	no. 2, pp 145-151.
+</P>
+<P>Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain
+	parameters for radiation modeling from digital elevation
+	data.  IEEE Transactions on Geoscience and Remote Sensing,
+	vol. 28, no. 5, pp 963-969.
+</P>
+<P>Frew, J., 1990.  The Image Processing Workbench.  Ph.D. Thesis,
+	Department of Geography, University of California, Santa
+	Barbara, CA, 382pp.
+</P>
+<P>Marks, D., R. Dubayah, and K. Longley, 1991.  Modeling the
+	topographic and spectral variability of clear-sky solar
+	radiation at regional to continental scales.  Proceedings
+	1991 IGARSS Symposium, Remote Sensing: Global Monitoringr
+	for Earth Management, Espoo, Finland, vol. 3, pp 1711.
+</P>
+

@@ -1,0 +1,4 @@
+#! /bin/sh
+
+cd_conf='cd conf'
+echo $cd_conf ; $cd_conf ; ./configure

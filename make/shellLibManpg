@@ -1,0 +1,26 @@
+#  This Makefile defines macros and rules for manual pages for commands
+#  in the IPW shell library.
+#
+#  This Makefile expects these macros to be defined:
+#
+#	NAME        = name of the shell command (the file containing the
+#		     source for the manpage is assumed to be NAME.man)
+#	DESCRIPTION = one-line description for the man page
+
+MAN_SECTION := 1
+CMD_TYPE := Library
+
+include $(IPW)/make/manpage
+
+PATH_TO_MAN := ..
+
+include $(IPW)/make/_namedesc
+
+.PHONY : clean uninstall uninstall+clean
+
+clean : clean-man clean-name-desc
+	rm -f $(IPW_MACRO_FILE)
+
+uninstall : uninstall-man
+
+uninstall+clean : uninstall clean

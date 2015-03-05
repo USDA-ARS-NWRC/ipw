@@ -1,0 +1,215 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-n</B> <I>#bits</I>[,<I>#bits</I>] ] <B>-z</B> <I>elev</I> <B>-t</B> <I>tau</I> <B>-w</B> <I>omega</I>
+      <B>-g</B> <I>gfact</I> <B>-x</B> <I>w1</I>,<I>w2</I>
+      <I>\
+ -s start -d day -f zone -y year	-b d</I>,<I>m</I>,<I>s -l d</I>,<I>m</I>,<I>s \
+ -a gsize -m maxgsz -c dirt </I>[<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Selevrad is a modification of the program elevrad designed to deal only
+with snow-covered terrain.  A group of radiation transfer programs along
+these lines were developed by Kelly Longley, OSU, ERL-C, in early 1990.
+</P><P>
+Selevrad is a script that combines salbedo and elevrad to compute the
+topographic distribution of beam and diffuse radiation over snow.
+</P><P>
+Selevrad computes beam &amp; diffuse radiation over a topographic grid
+over snow using a two-stream atmospheric radiation model.
+If the sun is below the horizon at the specified time, a message is 
+printed to the screen and no output image is generated.
+</P><P>
+Surface albedo is calculated by program salbedo to calculate R0.
+R0, reflectance of the substrate is set as the mean surface albedo.
+</P><P>
+Input water year days are assumed to be in GMT unless the -f (time
+zone conversion: minutes west of Greenwich) option is specified.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-n</B> <I>#bits</I>[,<I>#bits</I>]
+<DD>
+# bits in output image
+
+<P>
+<DT><B>-z</B> <I>elev</I>
+<DD>
+elevation of optical depth measurement
+
+<P>
+<DT><B>-t</B> <I>tau</I>
+<DD>
+optical depth at z
+
+<P>
+<DT><B>-w</B> <I>omega</I>
+<DD>
+single-scattering albedo
+
+<P>
+<DT><B>-g</B> <I>gfact</I>
+<DD>
+scattering asymmetry parameter
+
+<P>
+<DT><B>-x</B> <I>w1</I>,<I>w2</I>
+<DD>
+wavelength range, micrometers (.28,.7 for IR; .7,2.8 for vis)
+
+<P>
+<DT><B>-s</B> 
+<DD>
+day of last snow storm (water year day)
+
+<P>
+<DT><B>-d</B> 
+<DD>
+current day (water year day)
+
+<P>
+<DT><B>-f</B> 
+<DD>
+time zone conversion (minutes west of Greenwich)
+
+<P>
+<DT><B>-y</B> 
+<DD>
+water year
+
+<P>
+<DT><B>-b</B> 
+<DD>
+latitude (degrees, minutes, seconds)
+
+<P>
+<DT><B>-l</B> 
+<DD>
+longitude (degrees, minutes, seconds)
+
+<P>
+<DT><B>-a</B> 
+<DD>
+grain size for albedo calculation
+
+<P>
+<DT><B>-m</B> 
+<DD>
+maximum grain size
+
+<P>
+<DT><B>-c</B> 
+<DD>
+contaimination factor for visible albedo
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>\
+ -s start -d day -f zone -y year	-b d</I>,<I>m</I>,<I>s -l d</I>,<I>m</I>,<I>s \
+ -a gsize -m maxgsz -c dirt </I>[<I>image</I>]</DT>
+
+<DD>	image	The input image file has three bands in this order:
+			elevation
+			slope
+			azimuth
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To compute visible beam and diffuse irradiance over the Park City, Utah,
+area, for 9:00AM, February 15, 1995:
+</P><P>
+<B>%name</B> <B>-z</b> 100 <B>-t</b> 0.2 <B>-w</b> 0.85 <B>-g</b> 0.3 <B>-x</b> 0.28,0.7 -s 124.0 -d 137.375 \
+</P>
+<PRE>
+	-f 420 -y 1995 -b 40,37,12 -l -111,31,58 -a 100 -m 800 -c 1.0
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>May 1991</DT>
+<DD>
+  Written by Kelly Longley, Oregon State University,
+Environmental Protection Agency Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="albedo.html">albedo</A></B>,
+<B><A href="elevrad.html">elevrad</A></B>,
+<B><A href="salbedo.html">salbedo</A></B>,
+<B><A href="stoporad.html">stoporad</A></B>,
+<B><A href="toporad.html">toporad</A></B>
+</DD>
+</DL>
+<P>Dozier, J., 1980.  &quot;A clear-sky spectral solar radiation model for
+	snow-covered mountainous terrain&quot;.  Water Resources Research,
+	vol. 16, pp. 709-718.
+</P>
+<P>Dozier, J., and J. Frew, 1981.  &quot;Atmospheric corrections to satellite
+	radiometric data over rugged terrain&quot;.  Remote Sensing of
+	Environment, vol. 11, pp. 191-205.
+</P>
+<P>Dozier, J., J. Bruno, and P. Downey, 1991.  &quot;A faster solution to the
+	horizon problem&quot;, Computers and Geosciences, volume 7,
+	number 2, pp. 145-151.
+</P>
+<P>Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain parameters
+	for radiation modeling from digital elevation data&quot;. IEEE
+	Transactions on Geoscience and Remote Sensing, vol. 28, no. 5,
+	pp. 963-969.
+</P>
+<P>Dubayah, R., 1994.  &quot;Modeling a solar radiation topoclimatology for the
+	Rio Grande River Basin&quot;.  Journal of Vegetation Science, vol. 5,
+	pp. 627-640.
+</P>
+<P>Marks, D., J. Domingo, D. Susong, and D. Garen, 1997.  &quot;A topographically##		distributed energy balance snowmelt model,&quot; submitted to WWater
+	Resources Research.
+</P>
+

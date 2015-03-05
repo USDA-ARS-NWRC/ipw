@@ -1,0 +1,157 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Expressions and statements</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../../images/usda.gif" alt="USDA">
+<IMG SRC="../../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Expressions and statements</H1>
+
+
+<P>
+There should be no more than one statement per line of source text.
+The preferred place to break up expressions that won't fit on a single line
+is before the lowest-precedence operator in the expression.
+
+<P>
+The conditional operator <CODE>"... ? ... : ..."</CODE> should be avoided,
+unless it results in
+substantially more readable code than the equivalent <CODE>if-else</CODE>.
+
+<P>
+The comma operator should not be used to substitute for a block of statements.
+The only recommended use of a comma operator is in the initialization or
+increment clauses of a for loop.
+
+<P>
+Example:
+
+<PRE>
+/* reverse the order of chars in s */
+for (i = 0, j = strlen(s) - 1; i < j; ++i, --j) {
+         char  tmp;
+
+         tmp = s[i];
+         s[i] = s[j];
+         s[j] = tmp;
+}
+</PRE>
+
+<P>
+Side effects which rely on the evaluation order of <CODE>"&&"</CODE> or
+<CODE>"||"</CODE> should be avoided.
+
+<P>
+Example:
+
+<PRE>
+/* bad */
+if (i_filename != NULL
+    && (i_fd = uropen(i_filename)) == ERROR) {
+        error("can't open %s", i_filename);
+}
+
+/* good */
+if (i_filename != NULL) {
+        i_fd = uropen(i_filename);
+        if (i_fd == ERROR) {
+	        error("can't open %s", i_filename);
+        }
+}
+</PRE>
+
+<P>
+In this example, the recommended form emphasizes that:
+
+<UL>
+  <LI><CODE>i_fd</CODE> is set only when <CODE>i_filename</CODE> is
+	non-<CODE>NULL</CODE>.
+    <P>
+  <LI>The error message is a direct consequence of the call to
+	<CODE>uropen</CODE>, but only an indirect consequence of whether
+	<CODE>i_filename</CODE> is <CODE>NULL</CODE>.
+</UL>
+
+<P>
+Expressions with side effects should NEVER appear in a function argument list.
+
+<P>
+Logical expressions are usually clearer if they are reformulated to eliminate a
+leading <CODE>"!"</CODE>.
+
+<P>
+Example:
+
+<PRE>
+/* bad */
+if (!(i < 0 || i >= n) ) {
+        ...
+}
+
+/* good */
+if (i >= 0 && i < n) {
+        ...
+}
+
+/* acceptable */
+if (! isascii(c)) {
+        ...
+}
+</PRE>
+
+<P>
+Embedded assignment expressions should be avoided, except where necessary for
+loop control, in which case it is ESSENTIAL that the assignment expression
+be fully parenthesized and explicitly tested.
+
+<P>
+Example:
+
+<PRE>
+/* BAD */                          /* good */
+while (c = nextc()) {              while ((c = nextc() ) != EOS) {
+        ...                                 ...
+}                                  }
+</PRE>
+
+<P>
+Confusion about operator precedence in C is a rich source of bugs. In general,
+expressions should be fully parenthesized if they contain:
+
+<UL>
+  <LI>both <CODE>"||"</CODE> and <CODE>"&&"</CODE>
+  <LI>multiple bitwise operators
+  <LI>any mixture of logical, bitwise, and arithmetic operators
+</UL>
+
+<P>
+Use of white space should not suggest a misleading operator precedence.
+
+<P>
+Example:
+
+<PRE>
+a+b * c
+</PRE>
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

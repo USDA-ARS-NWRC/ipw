@@ -1,0 +1,122 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Introduction</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../../images/usda.gif" alt="USDA">
+<IMG SRC="../../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Introduction</H1>
+
+
+<P>
+This standard contains rules and guidelines to which all IPW source code should
+conform.  The purpose of this standard is to ensure the <B>readability</B>
+and <B>maintainability</B> of IPW. IPW functions and programs are
+intended to be general-purpose tools, and as such must be understood, and
+often maintained (debugged and modified), by persons other than the author;
+thus, it is essential that code be designed from the beginning with the
+goal of easing the task of the human reader. The underlying purpose of the
+code must be evident in its structure, nomenclature, and formatting.
+
+<P>
+Several techniques are employed to achieve the goal of readable code:
+
+<UL>
+  <LI>straightforward implementation
+  <LI>internal documentation
+  <LI>uniform style
+</UL>
+
+<P>
+Simplicity is perhaps the most important readability technique: the less
+complicated a piece of code is, the easier it will be to understand, and
+the more confidently it will be used and modified. In describing the
+original implementation of UNIX,its chief designer noted that:
+
+<BLOCKQUOTE>
+Throughout, simplicity has been substituted for efficiency. Complex
+algorithms are used only if their complexity can be localized.
+[<A HREF="../../bib.html#Thompson 1978">Thompson 1978</A>]
+</BLOCKQUOTE>
+
+<P>
+The coding standard encourages simplicity by choosing the most straightforward
+path through the varieties of possible C implementations of common coding
+situations. IPW source code should be self-documenting. The coding standard
+encourage this in a variety of ways: through standard comment formats;
+through guidelines for name selection; and through guidelines for
+modularization, so that the overall program structure reflects the
+underlying problem.
+
+<P>
+Every effort is made to avoid variations in the appearance of the source
+code that do not directly correspond to some aspect of the underlying problem:
+
+<BLOCKQUOTE>
+Every time we gave someone responsibility for a new module he or she
+would rewrite it according to his or her standards (allegedly to clean up
+the other person's bad habits). This process never converges and I feel
+that it is similar to the dog or wolf who stakes out his "turf" by
+urinating on each bush on its perimeter.  Only coding conventions stop
+this process.
+[<A HREF="../../bib.html#Stonebraker 1986">Stonebraker 1986</A>]
+</BLOCKQUOTE>
+
+<P>
+For example, C programmers have traditionally been vociferous advocates
+of numerous styles of placing the braces around compound statements. Some
+common styles include:
+
+<PRE>
+    control {
+            statements
+    }
+
+    control
+    {
+            statements
+    }
+
+    control
+            {
+            statements
+            }
+</PRE>
+
+<P>
+[<A HREF="../../bib.html#Kernighan 1978">Kernighan 1978</A>,
+ <A HREF="../../bib.html#Minow 1984">Minow 1984</A>,
+ <A HREF="../../bib.html#Plum 1984">Plum 1984</A>].
+
+It has yet to be demonstrated
+that any brace-placement style is clearly superior. However, most
+advocates of one particular style would agree that use of a <B>single</B>
+style (even if not their favorite) is important; otherwise, the reader
+of the code must decide whether or not a sudden change in brace-
+placement style is indicative of some logical change in the code.
+In such cases, the coding standard arbitrarily mandates the use of one
+out of several variant renderings. Of course, in situations where one
+of several otherwise equivalent constructs is clearly the most readable,
+use of that construct is mandated.
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

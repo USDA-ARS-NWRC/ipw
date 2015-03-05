@@ -1,0 +1,58 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "bih.h"
+
+char *
+hostorder(void)
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+%name returns a string indicating the byte order (endianness) of the host
+system.
+<H2>RETURN VALUE</H2>
+
+<P>
+<DL>
+<DT>&quot;3210&quot;</DT>
+<DD>Big-endian</DD>
+<DT>&quot;0123&quot;</DT>
+<DD>Little-endian</DD>
+</DL>
+</P>
+
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>The return value points to static data which is overwritten by each call.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+
+<H2>SEE ALSO</H2>

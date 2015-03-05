@@ -1,0 +1,1 @@
+yearday - returns the yearday (day of year) for a given date

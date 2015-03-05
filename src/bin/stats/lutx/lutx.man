@@ -1,0 +1,141 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-l</B> <I>lut</I> ] [ <B>-i</B> <I>image</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> copies the input <I>image</I> to the standard output, transforming
+its pixel values according to the lookup table <I>lut</I>.
+</P><P>
+A lookup table, like a histogram, is a single-line IPW image.  To
+transform a pixel from a given band through a lookup table, the
+value of the pixel is interpreted as an image sample coordinate.
+The appropriate band at that sample in the lookup table supplies
+the replacement pixel value.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-l</B> <I>lut</I>
+<DD>
+Read lookup table from <I>lut</I> (default: standard input).
+</DD>
+
+<P>
+<DT><B>-i</B> <I>image</I>
+<DD>
+Read image from <I>image</I> (default: standard input).
+</DD>
+</DL>
+
+<P>At least one of <B>-l</b> and/or <B>-i</b> must be specified.
+</P>
+
+<H2>OPERANDS</H2>
+
+
+
+
+<H2>EXAMPLES</H2>
+
+<P>
+To produce a histogram-equalized version of &quot;image&quot;:
+</P><PRE>
+	hist image | histeq | lutx -i image
+</PRE><P>
+To convert &quot;image&quot; with 12-bit pixels to 8-bit pixels, with
+linear scaling:
+</P><PRE>
+	interp | mklut -i 12 | lutx -i image
+	0 0
+	4095 255
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT><I>n</I>-element LUT can't map <I>nbits</I>-bit pixels
+</DT>
+<DD><BR>	The number of elements (samples) in the lookup table
+	must be at least as large as the number of possible
+	pixel values in any band of the input image.
+</DD>
+
+<P>
+<DT>image and LUT have different # bands
+</DT>
+<DD><BR>	<I>image</I> and <I>lut</I> must have the same number of bands.
+</DD>
+
+<P>
+<DT>not a lookup table (# lines &gt; 1)
+</DT>
+<DD><BR>	<I>lut</I> must be a 1-line IPW image.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+All input image headers are copied to the output image, even those
+(such as &quot;lq&quot; headers) whose contents may be invalidated by <B>%name</B>'s
+arbitrary modifications to the input pixel values.  There seems to
+be no simple solution to this problem.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+	Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="hist.html">hist</A></B>,
+<B><A href="histeq.html">histeq</A></B>,
+<B><A href="interp.html">interp</A></B>,
+<B><A href="lqhx.html">lqhx</A></B>,
+<B><A href="mklut.html">mklut</A></B>,
+<B><A href="requant.html">requant</A></B>
+</DD>
+</DL>
+<P>Frew, J., 1990.  The Image Processing Workbench.  Ph.D. Thesis,
+	Department of Geography, University of California, Santa
+	Barbara, CA, 382pp.
+</P>
+

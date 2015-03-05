@@ -1,0 +1,205 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-h</B> <I>lqh</I> ] [ <B>-m</B> <I>lo</I>,<I>hi</I> ] [ <B>-b</B> <I>bits</I> ] [ <B>-v</B> ] <I>image</I>
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> changes the linear quantization header of an IPW image to
+that specified by a given &quot;lq&quot; header <I>lqh</I>, or with low and high
+values (<I>lo</I> and <I>hi</I>), or to a given number of bits <I>bits</I>.
+</P><P>
+If a &quot;lq&quot; header is supplied with the <B>-h</b> option, the <B>-m</b> and <B>-b</b> options
+are not valid, as that information is contained within the &quot;lq&quot; header.
+If a multi-band image is given as input, and the <B>-m</b> or <B>-b</b> option is
+used, all the bands will have the specified quantization change
+applied.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-h</B> <I>lqh</I>
+<DD>
+Use <I>lqh</I> as the new linear quantization header.
+</DD>
+
+<P>
+<DT><B>-m</B> <I>lo</I>,<I>hi</I>
+<DD>
+<I>lo</I> and <I>hi</I> will be the low and high floating point values
+for the new LQH.
+</DD>
+
+<P>
+<DT><B>-b</B> <I>bits</I>
+<DD>
+The requantized image will use <I>bits</I> bits per pixel.
+</DD>
+</DL>
+
+<P>If <B>-h</b> is specified, the <B>-m</b> and <B>-b</b> options may not be used.
+</P>
+
+<DL>
+<DT><B>-v</B> 
+<DD>
+Print a text version of the &quot;lq&quot; headers before and after
+remapping on the standard error.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I></DT>
+
+<DD>	image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+Given a 12-bit image &quot;elev&quot;, an 8-bit image can be obtained:
+</P><PRE>
+	requant -b 8  elev
+</PRE><P>
+After processing, an NDVI image may have values ranging from -0.3
+to 0.7.  To obtain a standard -1.0 to 1.0 mapping:
+</P><PRE>
+	requant -m -1,1
+</PRE><P>
+If multiple images need to have the same lqh, the program lqmm
+can be used to find the minimum and maximum of all the images,
+followed by a loop to requantize each image.  In the C-Shell, this
+could be used to give the images 'img*' all the same LQH:
+</P><PRE>
+	set minmax=`lqmm img*`
+	foreach image (img*)
+		requant -m $minmax[1],$minmax[2] $image &gt; $image.req
+	end
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>No LQ header on output image -- copying image
+</DT>
+<DD><BR>	No linear quantization header was found in the input image,
+	nor was one given with the <B>-h</b> option, so a simple copy of
+	the image data was done.
+</DD>
+
+<P>
+<DT><I>bits</I> bits does not permit <I>bkpts</I> breakpoints
+</DT>
+<DD><BR>	The image has multiple breakpoints, and the new quantization
+	does not have enough bits to fit them all.  Either raise the
+	number of bits, or use the <B>-m</b> option to throw out all the
+	breakpoints.
+</DD>
+
+<P>
+<DT>can't use both an LQH header and <I>opt</I> option
+</DT>
+<DD><BR>	When a seperate linear quantization header is given, it has
+	all the information needed to requantize the image.  The <B>-m</b>
+	and/or <B>-b</b> options would be redundant.
+</DD>
+
+<P>
+<DT>input image and LQH file have different # bands
+</DT>
+<DD><BR>	The input image and the given &quot;lq&quot; header must have the same
+	number of bands, as each band can have different quantizations.
+</DD>
+
+<P>
+<DT>error during LQH header remap of band <I>band</I>
+</DT>
+<DD><BR>	Something has gone wrong during the remap of the &quot;lq&quot; headers
+	to a different number of bits.  Use the <B>-v</b> option to attempt
+	to determine the cause.
+</DD>
+
+<P>
+<DT>binary search not yet implemented
+</DT>
+<DD><BR>	The IPW library being used has not had the binary search
+	implemented, so will need to be updated.  See the Restrictions
+	section for more information on this.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+If requantization of bits is done without changing the low and high
+LQ values, the breakpoints are preserved.  This is usually what is
+desired, but is different than the behavior of requantize which threw
+away any special &quot;lq&quot; headers.  This also will only work with the fixed
+IPW fpio library routine, which were corrected at the time this was
+written.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Program &quot;requantize&quot; written by Kelly Longley, ERL-C
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1993</DT>
+<DD>
+	Re-written as &quot;<B>%name</B>&quot;, by Dana Jacobsen, ERL-C.
+Program description based on pgm &quot;requantize&quot;;
+Much of the <B>%name</B> code based on lqhx in the base IPW
+programs, by Jim Frew (1990) of UCSB.
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1997</DT>
+<DD>
+	Converted to IPW Version 2.0, D. Marks, USGS, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="lqhx.html">lqhx</A></B>,
+<B><A href="lutx.html">lutx</A></B>,
+<B><A href="interp.html">interp</A></B>,
+<B><A href="mklut.html">mklut</A></B>,
+<B><A href="lqmm.html">lqmm</A></B>
+</DD>
+</DL>
+

@@ -1,0 +1,95 @@
+<HTML>
+
+<HEAD>
+ <TITLE>IPW function: crhdup</TITLE>
+</HEAD>
+
+<BODY>
+
+<H1 ALIGN=CENTER>crhdup</H1>
+
+<P ALIGN=CENTER>IPW Library Function<BR>
+Library - libipw<BR>
+Category - crh</P>
+
+<HR WIDTH="100%">
+
+<H2>NAME</H2>
+
+<P><B>crhdup</B> - duplicate an IPW CRH header</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "crh.h"
+
+CRH_T **
+crhdup(
+	CRH_T **oldhpp,		|* -> old CRH array		 *|
+	int     nbands)		|* # header bands		 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>crhdup</B> creates a duplicate of the IPW CRH header pointed to by
+&quot;oldhpp&quot;.
+</P><P>
+<B>crhdup</B> is an easy way for applications programs to create a new CRH
+(e.g., for an output image, after having read the CRH for an input
+image).
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+A pointer to the duplicate header is returned.  NULL is returned if
+an error occurs.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 10 April 1998  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>

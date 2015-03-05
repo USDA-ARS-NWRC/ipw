@@ -1,0 +1,1 @@
+seval - evaluation of spline at m points

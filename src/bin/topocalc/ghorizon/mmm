@@ -1,0 +1,9 @@
+double  *coslon;		/* -> table of cos(longitudes)	 */
+double  *sinlon;		/* -> table of sin(longitudes)	 */
+double	coslat;			/* cos(latitude)		 */
+double	sinlat;			/* sin(latitude)		 */
+double	cosazm;			/* cos of azimuth		 */
+double	sinazm;			/* sin of azimuth		 */
+double  *cosdist;		/* -> table of cos(dist)	 */
+double  *sindist;		/* -> table of sin(dist)	 */
+#else

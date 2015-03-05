@@ -1,0 +1,236 @@
+#  This Makefile defines macros and rules for IPW binary directories that
+#  contain subdirectories representing categories of commands.
+#
+#  This Makefile expects these macros to be defined:
+#
+#	CMD_TYPE = the type of commands in the binary directory
+#		     either "User" or "System"
+#	DIRS     = list of subdirectories representing the categories
+#		     (one directory per category; the order of the list
+#		      is used in generating documentation)
+#
+#  These macros are optional:
+#
+#	INDEX_FILE = name of command index file to build (user commands only)
+#
+#	TITLE_START = text string to start the title in the files with the
+#			list of commands.  (used only if not in IPW directory
+#			structure; the title is
+#			"$(TITLE_START) IPW {User|System} Commands";
+#			example: "Jane Doe's")
+#
+#  Output files:
+#
+#	$(COMMANDS_TXT) = "Commands.txt"
+#
+#		Text file with list of commands by categories; displayed
+#		by the "ipw" command.
+#
+#	$(COMMANDS_HTML) = "Commands.html"
+#
+#		HTML document with a list of commands by categories; the
+#		document is installed in associated HTML doc directory:
+#		    for standard commands:
+#			user)    $IPW/doc/html/userGuide/categories/All.html
+#			system)  $IPW/doc/html/pgmrGuide/syscmds.html
+#		    for local commands:
+#			user)    $IPW/local/doc/html/categories/All.html
+#			system)  $IPW/local/doc/html/syscmds.html
+#		    for commands outside IPW (e.g., ~user/ipw/src/...):
+#			user)    ~user/ipw/doc/html/categories/All.html
+#			system)  ~user/ipw/doc/html/syscmds.html
+#
+#	$(CATEGORY_LIST) = "Categories.html"  (for user commands only)
+#
+#		HTML document with a list of categories;
+#		the document is installed in associated HTML doc directory:
+#		    for standard commands:
+#			$IPW/doc/html/userGuide/categories/Index.html
+#		    for local commands:
+#			$IPW/local/doc/html/categories/Index.html
+#		    for commands outside IPW (e.g., ~user/ipw/src/...):
+#			~user/ipw/doc/html/categories/Index.html
+#
+#	$(INDEX_FILE)  (for user commands only)
+#
+#		Alphabetical index of all user commands and their keywords.
+#		The rule for building this file is supplied in the parent
+#		Makefile.
+
+
+.PHONY : default
+default : all
+
+HELP_FILE := bin_dir
+TARGETS := cmd install-cmd man install-man uninstall-man clean-man
+
+include $(IPW)/make/_macros
+include $(IPW)/make/_directory
+include $(IPW)/make/_rules
+ 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ifdef IN_IPW_STD_SRC
+  TITLE_START := Standard
+else
+  ifdef IN_IPW_LOCAL_SRC
+    TITLE_START := Local
+  endif
+endif
+CMD_TITLE := $(strip $(TITLE_START) IPW $(CMD_TYPE) Commands)
+
+ifeq ($(CMD_TYPE),User)
+  ifdef IN_IPW_STD_SRC
+    INSTALLED_CMDS_LIST := $(PATH_TO_DOC_HTML)/userGuide/categories/All.html
+    INSTALLED_CTGRY_LIST := $(PATH_TO_DOC_HTML)/userGuide/categories/Index.html
+    IPWMACRO_OPTS := "-Dipw_href_path=../../"
+  else
+    INSTALLED_CMDS_LIST := $(PATH_TO_DOC_HTML)/categories/All.html
+    INSTALLED_CTGRY_LIST := $(PATH_TO_DOC_HTML)/categories/Index.html
+    ifdef IN_IPW_LOCAL_SRC
+      IPWMACRO_OPTS := "-Dipw_href_path=../../"
+    else
+      IPWMACRO_OPTS := "-Dipw_href_path=$(IPW_HREF_PATH)/"
+    endif
+  endif
+
+  category-list := $(CATEGORY_LIST)
+  CTGRY_TITLE := $(strip $(TITLE_START) IPW Command Categories)
+
+  ifdef INDEX_FILE
+    index := index
+    clean-index := clean-index
+    .PHONY : $(index) $(clean-index)
+  endif
+
+else  # System commands
+  ifdef IN_IPW_STD_SRC
+    INSTALLED_CMDS_LIST := $(PATH_TO_DOC_HTML)/pgmrGuide/syscmds.html
+    IPWMACRO_OPTS := "-Dipw_href_path=../"
+  else
+    INSTALLED_CMDS_LIST := $(PATH_TO_DOC_HTML)/syscmds.html
+    ifdef IN_IPW_LOCAL_SRC
+      IPWMACRO_OPTS := "-Dipw_href_path=../"
+    else
+      IPWMACRO_OPTS := "-Dipw_href_path=$(IPW_HREF_PATH)/"
+    endif
+  endif
+endif
+ 
+IPWMACRO_OPTS := $(IPWMACRO_OPTS) "-DMod_Date=$(shell date '+%e %B %Y')"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.PHONY : all all.DIRS
+all : all.DIRS cmd-list $(index)
+
+.PHONY : install install.DIRS uninstall uninstall.DIRS
+.PHONY : uninstall+clean uninstall+clean.DIRS
+
+install : install.DIRS $(INSTALLED_CMDS_LIST) $(INSTALLED_CTGRY_LIST)
+
+uninstall uninstall+clean : % : %.DIRS
+	rm -f $(INSTALLED_CMDS_LIST)
+ifeq ($(CMD_TYPE),User)
+	rm -f $(INSTALLED_CTGRY_LIST)
+endif
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+#  Build the master list of IPW commands by categories for the "ipw" command.
+
+.PHONY : cmd-list list-files
+cmd-list : cmd-list.DIRS list-files
+
+list-files : $(COMMANDS_TXT) $(COMMANDS_HTML) $(category-list)
+
+CMD_TXT_FILES := $(foreach dir, $(DIRS), $(dir)/$(COMMANDS_TXT))
+$(COMMANDS_TXT) : $(CMD_TXT_FILES)
+	@printf "Making file \"$@\"\n"
+	@printf "$(CMD_TITLE)\n"	> $@
+ifeq ($(CMD_TXT_FILES),)
+	@printf "\n(No commands installed.)\n" >> $@
+else
+	@cat $^ 			>> $@
+endif
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#  The HTML file with all the commands in this bin directory
+
+CMD_HTML_FILES := $(foreach dir, $(DIRS), $(dir)/$(COMMANDS_HTML))
+
+$(COMMANDS_HTML) : $(CMD_HTML_FILES)
+	@printf "Making file \"$@\"\n"
+	@printf "%%Title(\"$(CMD_TITLE)\")\n" | $(IPW_MACRO_DOC) - > $@
+ifeq ($(CMD_HTML_FILES),)
+	@printf "<P><I>No commands installed.</I>\n" >> $@
+else
+	@cat $^ >> $@
+endif
+	@$(IPW_MACRO_DOC) $(DOC_SRC_DIR)/PageBottom2 >> $@
+
+$(INSTALLED_CMDS_LIST) : $(COMMANDS_HTML)
+	@$(INSTALL) -c $< $@
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#  Only create the list of command categories for user commands
+
+ifeq ($(CMD_TYPE),User)
+
+  CATGRY_NAME_FILES := $(foreach dir, $(DIRS), $(dir)/$(CATGRY_NAME_HTML))
+
+  $(category-list) : $(CATGRY_NAME_FILES)
+	@printf "Making file \"$@\"\n"
+	@printf "%%Title(\"$(CTGRY_TITLE)\")\n" | $(IPW_MACRO_DOC) - >$@
+  ifeq ($(CATGRY_NAME_FILES),)
+	@printf "<P><I>No categories installed.</I>\n"	    >> $@
+  else
+	@printf "<P>\n\n<UL>\n"		    >> $@
+	@cat $^ 			    >> $@
+	@printf "</UL>\n\n<UL>\n"	    >> $@
+	@printf "  <LI><A HREF=\"%s\">All the commands by category</A>\n" \
+		'All.html' >> $@
+	@printf "</UL>\n\n"		    >> $@
+  endif
+  ifdef IN_IPW_STD_SRC
+	@printf "</UL>\n\n<UL>\n"	    >> $@
+	@printf "  <LI><A HREF=\"%s\">Local command categories</A>\n" \
+		'../../local/categories/Index.html' >> $@
+	@printf "</UL>\n\n"		    >> $@
+  endif
+	@$(IPW_MACRO_DOC) $(DOC_SRC_DIR)/PageBottom2 >> $@
+
+  $(INSTALLED_CTGRY_LIST) : $(category-list)
+	@$(INSTALL) -c $< $@
+
+endif
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.PHONY : redo-cmd-list clean-cmd-list
+redo-cmd-list : clean-cmd-list redo-cmd-list.DIRS cmd-list
+ 
+clean-cmd-list :
+	rm -f $(COMMANDS_TXT) $(COMMANDS_HTML) $(category-list)
+
+#  Targets for recursing on subdirectories
+ 
+cmd-list.DIRS redo-cmd-list.DIRS all.DIRS install.DIRS clean.DIRS \
+    uninstall.DIRS uninstall+clean.DIRS :
+ifdef DIRS
+	@target=$(@:.DIRS=) ; subdirs='$(DIRS)' ; \
+	    $(recurse-on-subdirs)
+endif
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.PHONY : clean clean.DIRS
+clean uninstall+clean : % : clean-cmd-list $(clean-index) %.DIRS
+
+ifdef clean-index
+  clean-index :
+	rm -f $(INDEX_FILE)
+endif

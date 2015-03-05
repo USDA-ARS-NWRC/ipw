@@ -1,0 +1,3 @@
+%define(name,"ustdout")
+%define(description,"initialize UIO on standard output")
+%define(category,"uio")

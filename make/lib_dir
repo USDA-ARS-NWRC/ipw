@@ -1,0 +1,164 @@
+#  This Makefile defines macros and rules for IPW library directories that
+#  contain subdirectories representing various IPW libraries
+#
+#  This Makefile expects these macros to be defined:
+#
+#	DIRS     = list of subdirectories to be processed
+#
+#  This macro is optional:
+#
+#	TITLE_START = text string to start the title in the files with the
+#			list of libraries.  (used only if not in IPW directory
+#			structure; the title is "$(TITLE_START) IPW Libraries";
+#			example: "Jane Doe's")
+ 
+HELP_FILE := lib_dir
+TARGETS := funcs add-funcs delete-funcs \
+	   man install-man uninstall-man clean-man \
+	   debug install-debug uninstall-debug clean-debug
+
+.PHONY : default
+default : all
+ 
+include $(IPW)/make/_macros
+include $(IPW)/make/_directory
+include $(IPW)/make/_rules
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.PHONY : all all.DIRS libs install-libs uninstall-libs
+
+all.DIRS :
+    ifdef DIRS
+	@target=$(@:.DIRS=) ; subdirs='$(DIRS)' ; \
+	    $(recurse-on-subdirs)
+    endif
+
+libs :
+    ifdef DIRS
+	@target=library ; subdirs='$(DIRS)' ; \
+	    $(recurse-on-subdirs)
+    endif
+
+install-libs uninstall-libs :
+    ifdef DIRS
+	@target=$(@:libs=lib) ; subdirs='$(DIRS)' ; \
+	    $(recurse-on-subdirs)
+    endif
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+IPWMACRO_OPTS := "-DMod_Date=$(shell date '+%e %B %Y')"
+ifdef IN_IPW_LOCAL_SRC
+  IPWMACRO_OPTS += "-Dipw_href_path=../../"
+else
+  IPWMACRO_OPTS += "-Dipw_href_path=$(IPW_HREF_PATH)/"
+endif
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#  If this library source directory is NOT in the standard IPW source
+#  directory, then build the files with a list of the libraries.
+#	Text file with list = LIB_LIST_TXT
+#	HTML file with list = LIB_LIST_HTML
+
+ifndef IN_IPW_STD_SRC
+
+  ifdef IN_IPW_LOCAL_SRC
+    TITLE := Local IPW Libraries
+  else
+    TITLE := $(strip $(TITLE_START) IPW Libraries)
+  endif
+
+  clean-lists := clean-lists
+  install-lists := install-lists
+  uninstall-lists := uninstall-lists
+  .PHONY : $(lib-list) lib-list.DIRS redo-lib-list $(clean-lists) \
+		$(install-lists) $(uninstall-lists)
+
+  lib-list : lib-list.DIRS $(LIB_LIST_TXT) $(LIB_LIST_HTML)
+
+  all : all.DIRS $(LIB_LIST_TXT) $(LIB_LIST_HTML)
+
+  LIB_TXT_FILES := $(foreach dir, $(DIRS), $(dir)/$(NAME_DESC_TXT))
+  $(LIB_LIST_TXT) : $(LIB_TXT_FILES)
+	@printf "Making file \"$@\"\n"
+	@printf "$(TITLE)\n\n"	> $@
+  ifeq ($(LIB_TXT_FILES),)
+	@printf "(No libraries installed.)\n" >> $@
+  else
+	@cat $(LIB_TXT_FILES) | $(IPW)/make/bin/nameDesc >> $@
+  endif
+
+
+  LIB_HTML_FILES := $(foreach dir, $(DIRS), $(dir)/$(NAME_DESC_HTML))
+  $(LIB_LIST_HTML) : $(LIB_HTML_FILES)
+	@printf "Making file \"$@\"\n"
+	@printf "%%Title(\"$(TITLE)\")\n" | $(IPW_MACRO_DOC) - >$@
+  ifeq ($(LIB_HTML_FILES),)
+	@printf "<P><I>No libraries installed.</I>\n" >> $@
+  else
+	@printf "<UL>\n" >> $@
+	@cat $^	>> $@
+	@printf "</UL>\n" >> $@
+  endif
+	@$(IPW_MACRO_DOC) $(DOC_SRC_DIR)/PageBottom2 >> $@
+
+
+  lib-list.DIRS :
+    ifdef DIRS
+	@target=name-desc ; subdirs='$(DIRS)' ; \
+	    $(recurse-on-subdirs)
+    endif
+
+  redo-lib-list : clean-lists lib-list
+
+  $(clean-lists) :
+	rm -f $(LIB_LIST_TXT) $(LIB_LIST_HTML)
+
+  INSTALLED_LIST_HTML := $(PATH_TO_DOC_HTML)/libs/index.html
+
+  $(install-lists) : $(INSTALLED_LIST_HTML)
+    ifdef DIRS
+	@target=install-list ; subdirs='$(DIRS)' ; \
+	    $(recurse-on-subdirs)
+    endif
+
+  $(INSTALLED_LIST_HTML) : $(LIB_LIST_HTML)
+	@$(INSTALL) -c $< $@
+
+  $(uninstall-lists) :
+	rm -f $(INSTALLED_LIST_HTML)
+
+else
+
+  all : all.DIRS
+
+endif  # not IN_IPW_STD_SRC
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.PHONY : install install.DIRS uninstall uninstall.DIRS
+
+install : $(install-lists) install.DIRS
+
+uninstall : $(uninstall-lists) uninstall.DIRS
+
+.PHONY : uninstall+clean uninstall+clean.DIRS
+
+uninstall+clean : $(uninstall-lists) $(clean-lists) uninstall+clean.DIRS
+
+install.DIRS uninstall.DIRS uninstall+clean.DIRS :
+    ifdef DIRS
+	@target=$(@:.DIRS=) ; subdirs='$(DIRS)' ; \
+	    $(recurse-on-subdirs)
+    endif
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.PHONY : clean
+clean : $(clean-lists)
+    ifdef DIRS
+	@target=$@ ; subdirs='$(DIRS)' ; \
+	    $(recurse-on-subdirs)
+    endif

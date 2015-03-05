@@ -1,0 +1,117 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [<I>begin </I>[<I>end</I>]]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads an IPW histogram image from the standard input and
+writes a cumulative normalized histogram as text to the standard output.
+If specified, only pixel values greater than or equal to <I>begin</I>, and
+less than or equal to <I>end</I>, will be considered.
+</P>
+
+<H2>OPTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>begin</I>
+<DD>
+Begin processing at the input value with this index number
+(default: 0).  The output values prior to this index number will be 0.
+</DD>
+
+<P>
+
+<DT><I>end</I>
+<DD>
+Cease processing after the input value with this index
+number (default: last input value).  The remaining
+output values will be 1.
+</DD>
+
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To view a cumulative histogram of "image":
+<PRE>
+	hist image | cnhist | graph -a | plot
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None.
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="btoa.html">btoa</A></B>,
+<B><A href="cnhist.all.html">cnhist.all</A></B>,
+<B><A href="grhist.html">grhist</A></B>,
+<B><A href="hist.html">hist</A></B>,
+<B><A href="histeq.html">histeq</A></B>,
+<B><A href="rmhdr.html">rmhdr</A></B>
+</DD>
+
+<P>
+
+<DT>UNIX:</DT>
+<DD>awk, graph, plot
+</DD>
+
+<P>
+<DT>GNU:</DT>
+<DD>graph, xplot
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A><BR>
+</P>
+

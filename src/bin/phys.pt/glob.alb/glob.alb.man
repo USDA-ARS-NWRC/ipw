@@ -1,0 +1,147 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-s</B> <I>start</I> [ <B>-n</B> <I>max-albeldo</I> ] [ <B>-d</B> <I>decay-range</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+</P><P>
+First cut at estimating albedo changes with time and sun angle;
+Estimates decay with time by approximating a a set of measured
+values from two years of data from the Mammoth Mt. site;
+Time decay curve approximated by a second order Chebyshev
+polynomial (see routine decay());
+Increase with zenith angle approximated with a simple
+function of (1-cos(z)) in function diurnal();
+Both give results that approximate measured values, and agree
+with results in <I>Choudhury (1981)</I>, and <I>McGuffie
+and Henderson-Sellers (1985)</I>, both of which present an analysis
+of the broad band albedo of snow in some detail;
+</P><P>
+Default n_alb is reasonable for new snow in mid season;
+Higher values may be used in early season, and lower in melting
+conditions; Default dkr is also a reasonable value for
+mid season; smaller values may be used in early season, and
+larger during melting conditions;
+Input, to stdin, is:
+</P><PRE>
+	time	cosz
+</PRE><P>
+where time is in decimal days; When cosz is 0.0 (sun below
+horizon) the albedo is set to 0.0;
+</P><P>
+Output to stdout.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-s</B> <I>start</I>
+<DD>
+<I>start</I> is time of last snow storm (decimal days)
+</DD>
+
+<P>
+<DT><B>-n</B> <I>max-albeldo</I>
+<DD>
+<I>max-albedo</I> is maximum normal albedo when cosz = 1.0
+at that time (default: 0.82).
+</DD>
+
+<P>
+<DT><B>-d</B> <I>decay-range</I>
+<DD>
+<I>decay-range</I> is albedo decay range (default=0.18)
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To estimate albedo over snow starting on water year day 120:
+</P><PRE>
+	paste time cosz | <B>%name</B> -s 105.5
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jun 1987</DT>
+<DD>
+Written by D. Marks, CSL, UCSB;
+</DD>
+</DL>
+
+<DL>
+<DT>May 1995</DT>
+<DD>
+Converted to IPW by J. Domingo, OSU, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="albedo.html">albedo</A></B>,
+<B><A href="salbedo.html">salbedo</A></B>,
+<B><A href="cvtime.html">cvtime</A></B>,
+<B><A href="sunang.html">sunang</A></B>
+</DD>
+</DL>
+ 
+<DL>
+<DT>Unix</DT>
+<DD>
+paste
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Choudhury 1981">Choudhury 1981</A>,
+<A HREF="../bib.html#McGuffie, Henderson-Sellers 1985">McGuffie, Henderson-Seller
+s 1985</A>,
+</P>
+ 

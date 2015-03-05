@@ -1,0 +1,16 @@
+<HTML>
+
+<HEAD>
+ <TITLE>IPW function: %name</TITLE>
+</HEAD>
+
+<BODY>
+
+<H1 ALIGN=CENTER>%name</H1>
+
+<P ALIGN=CENTER>IPW Library Function<BR>
+Library - %library<BR>
+Category - %category</P>
+
+<HR WIDTH="100%">
+

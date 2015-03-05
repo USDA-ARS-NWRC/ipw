@@ -1,0 +1,43 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "radiation.h"
+
+void
+delta_edd(
+     double  *omega,   /* single-scattering albedo       */
+     double  *g,       /* scattering asymmetry parameter */
+     double  *tau)     /* optical depth                  */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> computes the delta-Eddington transformations of its
+arguments.
+
+<H2>RETURN VALUE</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Mar 1988</DT>
+<DD>
+Written by J. Dozier
+</DD>
+
+</DL>
+
+

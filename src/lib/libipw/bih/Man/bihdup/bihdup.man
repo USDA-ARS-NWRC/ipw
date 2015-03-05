@@ -1,0 +1,71 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "bih.h"
+
+BIH_T **
+bihdup(
+	BIH_T         **oldhpp)	    |* -> old BIH array		 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Bihdup creates a duplicate of the IPW basic image header pointed to
+by &quot;old&quot;.
+</P><P>
+Bihdup is an easy way for applications programs to create a new BIH
+(e.g., for an output image, after having read the BIH for an input
+image).
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+A pointer to the duplicate header is returned.  NULL is returned if
+an error occurs.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>can't duplicate BIH &quot;byteorder&quot; string
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

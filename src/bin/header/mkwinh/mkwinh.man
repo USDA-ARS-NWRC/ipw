@@ -1,0 +1,128 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-b</B> <I>line</I>,<I>sample</I> ] [ <B>-d</B> <I>dline</I>,<I>dsamp</I> ] [ <B>-f</B> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> constructs an IPW window header (WINH) and inserts it into
+the headers of <I>image</I> (default: standard input).  If the specified
+bands already have WIN headers, they are overridden, and a warning
+message is generated.
+<P>
+If the <B>-f</b> option is specified, then only the headers are written to
+the standard output, and any input image data is ignored.
+<P>
+The &quot;win&quot; header will always be applied to all bands of the image.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-b</B> <I>line</I>,<I>sample</I>
+<DD>
+<I>line</I>,<I>sample</I> are the window coordinates of line 0 and
+sample 0 in the input image (default: 0,0).
+</DD>
+
+<P>
+<DT><B>-d</B> <I>dline</I>,<I>dsamp</I>
+<DD>
+<I>dline</I>,<I>dsamp</I> are the window line and sample spacings in
+the input image (default: 1,1).
+</DD>
+
+<P>
+<DT><B>-f</B> 
+<DD>
+Force header output only.  Do not attempt to copy pixel
+data from <I>image</I> to the standard output.  Note that there
+must still be at least an input BIH, and any input headers
+(except superseded &quot;win&quot; headers) will still be copied to
+the standard output.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I></DT>
+
+<DD>input image (default: standard input)
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To add a window header indicating that the window coordinates of
+the image origin are line 7, sample 5:
+</P><PRE>
+	mkwinh -b 7,5
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None.
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+
+<P>
+<DT>Apr 1993</DT>
+<DD>
+Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="flip.html">flip</A></B>,
+<B><A href="mkbih.html">mkbih</A></B>,
+<B><A href="prhdr.html">prhdr</A></B>,
+<B><A href="rmhdr.html">rmhdr</A></B>,
+<B><A href="transpose.html">transpose</A></B>,
+<B><A href="window.html">window</A></B>,
+<B><A href="zoom.html">zoom</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A><BR>
+</P>
+

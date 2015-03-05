@@ -1,0 +1,70 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "radiation.h"
+
+int
+twostream(
+     double  *gamma,   /* vector of gamma coefficients    */
+     double   omega,   /* single-scattering albedo        */
+     double   mu0,     /* cosine of incidence angle       */
+     double   tau,     /* optical depth of layer          */
+     double   r0,      /* reflectance of substrate        */
+
+  /* output variables */
+
+     double  *refl,    /* reflectance of layer            */
+     double  *trans,   /* total transmittance of layer
+                            (compensated for mu0)         */
+     double  *btrans)  /* direct transmittance of layer
+                            (compensated for mu0)         */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> provides the twostream solution for a single-layer
+atmosphere over a horizontal surface, using the solution method in
+Meador 1980.
+</P>
+
+<H2>RETURN VALUE</H2>
+
+<P>
+OK for success
+<P>
+ERROR for failure
+<P>
+1 if the layer is semi-infinite
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Oct 1988</DT>
+<DD>
+Written by J. Dozier
+</DD>
+</DL>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<A HREF="mwgamma.html">mwgamma()</A>
+</DD>
+</DL>
+ 
+<P>
+<A HREF="../bib.html#Meador 1980">Meador 1980</A><BR>
+</P>
+
+

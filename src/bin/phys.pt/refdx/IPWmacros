@@ -1,0 +1,3 @@
+%define(name,"refdx")
+%define(description,"refractive index from wavelengths")
+%define(category,"Environmental Physics and Properties: Point")

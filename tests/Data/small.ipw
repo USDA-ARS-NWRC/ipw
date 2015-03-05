@@ -1,0 +1,10 @@
+!<header> basic_image_i -1 $Revision: 1.11 $
+byteorder = 0123 
+nlines = 5 
+nsamps = 8 
+nbands = 1 
+!<header> basic_image 0 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+!<header> image -1 $Revision: 1.5 $
+)*+,-./03456789:=>?@ABCDGHIJKLMNQRSTUVWX

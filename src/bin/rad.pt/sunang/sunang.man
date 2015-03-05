@@ -1,0 +1,267 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-t</B> <I>yr</I>,<I>mon</I>,<I>day</I>,<I>hr</I>[,<I>min</I>[,<I>sec</I>]] ] <B>-b</B> <I>deg</I>[,<I>min</I>,[,<I>sec</I>]]
+      <B>-l</B> <I>deg</I>[,<I>min</I>[,<I>sec</I>]] [ <B>-s</B> <I>slope</I> ] [ <B>-a</B> <I>azm</I> ] [ <B>-r</B> ]
+      [ <B>-y</B> ] [ <B>-d</B> ] [ <B>-z</B> <I>zone</I> ] [ <B>-f</B> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates the sun angle (the azimuth and zenith angles
+of the sun's position) for a given geodetic location at either a
+single date and time (<B>-t</b> option) or a list of dates and times
+(<B>-t</b> option absent).  The sun angles are written to standard
+output.
+</P><P>
+If only a single date and time is specified with the <B>-t</b> option,
+the output is in the format:
+</P><PRE>
+	GMT {weekday} {month} {day} {hr}:{min}:{sec} {year}
+	-z {degrees} -u {cos(z)} -a {degrees}  [-d {radius vector}]
+</PRE><P>
+The first line contains the date and time.  The second line
+contains the zenith angle, the cosine of the zenith angle, and
+the solar azimuth.  If the <B>-d</b> option is specified, then the Earth-
+Sun radius vector is added to the second line.  This second line
+is suitable for direct substitution into the command lines of
+several other IPW programs (horizon, shade, etc.).
+</P><P>
+If the <B>-t</b> option is not present, then a list of dates and times
+is read from standard input where each date and time is in this
+format:
+</P><PRE>
+	{year},{month},{day},{hr},{min},{sec}
+</PRE><P>
+Note:  If date/time is read from standard input, then {min}, {sec} are
+not optional, and each line must include {year},{month},{day},{hr},{min},{sec}
+even if {min}, {sec} are 0.
+</P><P>
+For each date and time, a single line is written that contains
+the zenith angle, the cosine of the zenith angle, the solar
+azimuth, and the optional radius vector (<B>-d</b> option):
+</P><PRE>
+	{zenith} {cosine(zenith)} {azimuth} [ {radius vector} ]
+</PRE><P>
+Times are in GMT by default, unless a zone is specified.  Latitudes
+in southern hemisphere and longitudes in western hemisphere are
+negative.  The azimuth reference is 0 toward the south, with
+negative azimuths west of south.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-t</B> <I>yr</I>,<I>mon</I>,<I>day</I>,<I>hr</I>[,<I>min</I>[,<I>sec</I>]]
+<DD>
+Calculate sun angle on date <I>yr</I>/<I>mon</I>/<I>day</I> at time
+<I>hr</I>:<I>min</I>:<I>sec</I> GMT.  <I>yr</I> must be fully specified
+(i.e., 90 means 90 A.D., not 1990).  <I>hr</I> is 24-hour time.
+(Default: read dates and times from standard input.)
+</DD>
+
+<P>
+<DT><B>-b</B> <I>deg</I>[,<I>min</I>,[,<I>sec</I>]]
+<DD>
+Calculate sun angle at latitude <I>deg</I>,<I>min</I>,<I>sec</I>.
+South latitudes are negative.
+</DD>
+
+<P>
+<DT><B>-l</B> <I>deg</I>[,<I>min</I>[,<I>sec</I>]]
+<DD>
+Calculate sun angle at longitude <I>deg</I>,<I>min</I>,<I>sec</I>.
+West longitudes are negative.
+</DD>
+
+</DL>
+
+<P>
+When read from command line, <I>min</I> and <I>sec</I> for the <B>-t</b>, <B>-b</b>,
+and <B>-l</b> options default to 0 if not specified. If Date/Time is read from
+standard input, <I>min</I> and <I>sec</I> must be included, even if they are 0.
+</P>
+
+<DL>
+<DT><B>-s</B> <I>slope</I>
+<DD>
+Calculate sun angle for a surface with a slope of
+<I>deg</I> (0 .. 90) degrees (default: 0).
+</DD>
+
+<P>
+<DT><B>-a</B> <I>azm</I>
+<DD>
+Calculate sun angle for a surface with an azimuth of
+<I>deg</I> (-180 .. 180) degrees (default: 0).
+</DD>
+
+<P>
+<DT><B>-r</B> 
+<DD>
+All angles are specified in radians (default: degrees,
+minutes, seconds for <B>-b</b> and <B>-l</b>; decimal degrees for
+<B>-s</b> and <B>-a</b>).
+</DD>
+
+<P>
+<DT><B>-z</B> <I>zone</I>
+<DD>
+The time values are in the time zone which is <I>min</I> minutes
+west of Greenwich (default: 0).  For example, if input times
+are in Pacific Standard Time, then <I>min</I> would be 480.
+</DD>
+
+<P>
+<DT><B>-y</B> 
+<DD>
+The time values are in daylight savings time (default:
+standard time).
+</DD>
+
+<P>
+<DT><B>-d</B> 
+<DD>
+Print Earth-Sun radius vector in addition to the sun angle.
+</DD>
+
+<P>
+<DT><B>-f</B> 
+<DD>
+Force the printing of date, time, and zenith angle, even
+when the output is not to a terminal.  Only applies to the
+<B>-t</b> option.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate the sun angle in Santa Barbara on 15 February 1990
+at 12:30 PM Pacific Standard Time:
+<PRE>
+	sunang -b 34,25 -l -119,54 -t 1990,2,15,12,30 -z 480
+</PRE><P>
+The output would be:
+</P><PRE>
+	GMT Thu Feb 15 20:30:00 1990
+	-z 47.122 -u 0.680436 -a -5.413
+</PRE><P>
+Given a DEM image for the Santa Barbara area, the following could
+be used to generate an index of local beam irradiance (discounting
+atmospheric effects):
+</P><PRE>
+	gradient {dem} | shade `sunang {options as above} | tail -1`
+</PRE>
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None.
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+<B>-r</b> does not change the output representations of zenith and
+azimuth -- they are always printed as decimal degrees.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+
+<P>
+
+<DT>Aug 1992</DT>
+<DD>
+Moved support files (ephemeris, gmt, julday, rotate,
+sunpath, tmconv, unixtime, weekday, xdysize, yrday) into
+libipw/<B>%name</B> since they are used by other programs also.
+Dana Jacobsen, ERL-C.
+</DD>
+
+<P>
+
+<DT>Apr 1993</DT>
+<DD>
+Added <B>-f</b> option.  Dana Jacobsen, ERL-C.	
+</DD>
+
+<P>
+
+<DT>Apr 1993</DT>
+<DD>
+Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+
+<P>
+<DT>Sep 1995</DT>
+<DD>
+Added ability to process a list of dates and times from
+standard input be making <B>-t</b> option optional.  J. Domingo, OSU.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="ggradient.html">ggradient</A></B>,
+<B><A href="gradient.html">gradient</A></B>,
+<B><A href="gsunlight.html">gsunlight</A></B>,
+<B><A href="hor1d.html">hor1d</A></B>,
+<B><A href="horizon.html">horizon</A></B>,
+<B><A href="shade.html">shade</A></B>,
+<B><A href="solar.html">solar</A></B>,
+<B><A href="sunlight.html">sunlight</A></B>,
+<B><A href="sunweights.html">sunweights</A></B>,
+</DD>
+
+<P>
+
+<DT>UNIX:</DT>
+<DD>tail
+</DD>
+
+</DL>
+
+<P>
+<A HREF="../bib.html#Wilson 1980">Wilson 1980</A>,
+<A HREF="../bib.html#Dozier 1980">Dozier 1980</A>,
+<A HREF="../bib.html#Dozier 1990">Dozier 1990</A>,
+<A HREF="../bib.html#Dubayah 1990">Dubayah 1990</A>,
+<A HREF="../bib.html#Frew 1990">Frew 1990</A>,
+<A HREF="../bib.html#Marks 1991">Marks 1991</A>
+</P>
+

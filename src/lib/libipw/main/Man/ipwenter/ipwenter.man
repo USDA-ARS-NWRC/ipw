@@ -1,0 +1,174 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+void
+ipwenter(argc, argv, optv, descrip)
+	int             argc,	   |* argc (from main()) 	 *|
+	char          **argv,	   |* argv (from main()) 	 *|
+	OPTION_T      **optv,	   |* -> option descriptors	 *|
+	const char     *descrip)   |* program description string *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> should be the first executable statement in an IPW program's
+main function.  Its chief function is to parse the command-line
+arguments in argv according to the option descriptions supplied
+in optv.  It also performs any necessary initialization of the IPW
+subsystems (e.g., for IPW libraries).
+</P><P>
+optv is usually a static array, which is in turn initialized with
+the addresses of static option descriptors, one per possible option.
+For example:
+
+<PRE>
+     main(argc, argv)
+          int          argc;
+          char          *argv[];
+     {
+
+     /* "-a" option; no arguments */
+
+          static OPTION_T opt_a = {
+               'a',
+               "(option description)",
+          };
+
+     /* "-b" option; &gt;= 3 integer arguments */
+
+          static OPTION_T opt_b = {
+               'b',
+               "(option description)",
+               INT_OPTARGS,
+               "(arg description)",
+               OPTIONAL,
+               3,
+          };
+
+     /* "-c" option; &gt;= 1 real argument;
+                     must be specified */
+
+          static OPTION_T opt_c = {
+               'c',
+               "(option description)",
+               REAL_OPTARGS,
+               "(arg description)",
+               REQUIRED,
+          };
+
+     /* "-d" option; &gt;= 1 and &lt;= 4 string arguments;
+                     must be specified */
+
+          static OPTION_T opt_d = {
+               'd',
+               &quot;(option description)&quot;,
+               STR_OPTARGS,
+               &quot;(arg description)&quot;,
+               REQUIRED,
+               1,
+               4,
+          };
+</PRE>
+<P>
+operand; the &quot;placeholder&quot; is the single word placed on the synopsis
+line in the usage message.  <I>REQUIRED,OPTIONAL</I> and the <I>min,max</I>
+number of &quot;arguments&quot; (i.e. operands) are interpreted analogously to
+options.
+<P>
+This example describes the most common situation, 0 or more string
+operands (e.g. file names).
+
+<PRE>
+          static OPTION_T operands = {
+               OPERAND,
+               &quot;(operand description)&quot;,
+               STR_OPERANDS,
+               &quot;(operand placeholder)&quot;,
+               OPTIONAL
+          };
+</PRE>
+<P>
+vector of option descriptors; must be 0-terminated.  Operand
+descriptors must FOLLOW all option descriptors.
+
+<PRE>
+          static OPTION_T *optv[] = {
+               &amp;opt_a,
+               &amp;opt_b,
+               &amp;opt_c,
+               &amp;opt_d,
+               &amp;operands,
+               0
+          };
+
+          ipwenter(argc, argv, optv, IPW_DESCRIPTION);
+          ...
+     }
+</PRE>
+<P>
+Because commas are interpreted as separators between the arguments
+for an option, a special constant exists for the situation where
+an option accepts a single string argument which may contain
+commas.
+
+<PRE>
+	static OPTION_T opt_e = {
+               'e',
+               "arithmetic expression to evaluate",
+               STR_OPTARGS,
+               "string"
+               REQUIRED,
+               ONE_ARG_WITH_COMMAS,
+	};
+</PRE>
+
+<H2>RETURN VALUE</H2>
+
+<P>
+None.  If <B>%name</B> detects an error, it displays a diagnostic message
+and terminates the program.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Apr 1997</DT>
+<DD>
+	Moved initialization code for &quot;o_byteorder&quot; to
+&quot;../bih/_bihinit.c&quot;  J. Domingo, OSU
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+
+<H2>SEE ALSO</H2>
+
+
+

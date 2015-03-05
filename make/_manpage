@@ -1,0 +1,124 @@
+#  This Makefile defines macros and rules for IPW manpages.
+#
+#  This Makefile expects these macros to be defined:
+#
+#	NAME       = name of the IPW manpage (the file containing the
+#		     source for the manpage is assumed to be MANPG.man)
+#	MANSECTION = # of the section of the manual where the manpage goes
+#	CMD_TYPE   = one of these: "User", "System", or "Library"
+#		 	(this macro needs to be defined only when
+#			 MANSECTION = 1)
+#
+#  This macro may already be defined:
+#
+#	IPWMACRO_OPTS
+
+IPW_MANPG  := $(NAME).man
+HTML_MANPG := $(NAME).html
+UNIX_MANPG := $(NAME).$(MAN_SECTION)
+
+HTML2UM := $(IPW)/make/bin/html2um
+
+ifeq ($(MAN_SECTION),1)
+  ifeq ($(CMD_TYPE),Library)
+    MAN_HEADER := IPW Shell-Library Commands
+    MANPG_TOP := $(DOC_SRC_DIR)/ManTop-SupCmd
+  else
+    MAN_HEADER := IPW $(CMD_TYPE) Commands
+    MANPG_TOP := $(DOC_SRC_DIR)/ManTop-Cmd
+  endif
+else
+  ifeq ($(MAN_SECTION),3)
+    MAN_HEADER := IPW Library Functions
+    MANPG_TOP := $(DOC_SRC_DIR)/ManTop-Func
+  else
+    ifeq ($(MAN_SECTION),5)
+      MAN_HEADER := IPW Header Files
+      MANPG_TOP := $(DOC_SRC_DIR)/ManTop-Hdr
+    endif
+  endif
+endif
+
+MANPG_BOTTOM := $(DOC_SRC_DIR)/ManBottom
+
+# ----------------------------------------------------------------------------
+
+#  The modification date of the source file for the man page
+
+MOD_DATE := $(shell $(MODDATE) $(IPW_MANPG))
+
+# ----------------------------------------------------------------------------
+
+IPWMACRO_OPTS += "-DMod_Date=$(MOD_DATE)"
+ifdef IN_IPW_STD_SRC
+  IPWMACRO_OPTS += "-Dipw_href_path=../"
+else
+  ifdef IN_IPW_LOCAL_SRC
+    IPWMACRO_OPTS += "-Dipw_href_path=../../"
+  else
+    IPWMACRO_OPTS += "-Dipw_href_path=$(IPW_HREF_PATH)/"
+  endif
+endif
+
+ifeq ($(MAN_SECTION),1)
+  IPWMACRO_OPTS += "-Dcmd_type=$(CMD_TYPE)"
+else
+  ifeq ($(MAN_SECTION),5)
+    UCFIRST_DESC := $(shell perl -e '$$_ = "\u$(DESCRIPTION)"; print;')
+    IPWMACRO_OPTS += "-DDescription=$(UCFIRST_DESC)"
+  endif
+endif
+
+$(HTML_MANPG) : $(IPW_MANPG) $(IPW_MACRO_FILE)
+	@printf "Making HTML man page \"$@\"\n"
+	@$(IPW_MACRO_DOC) $(IPW_MACRO_FILE) $(MANPG_TOP) > $@
+	@$(IPW_MACRO_DOC) $(IPW_MACRO_FILE) $(IPW_MANPG) >> $@
+	@$(IPW_MACRO_DOC) $(IPW_MACRO_FILE) $(MANPG_BOTTOM) >> $@
+
+$(UNIX_MANPG) : $(HTML_MANPG) $(IPW_MACRO_FILE)
+	@printf "Making Unix man page \"$@\"\n"
+	@$(HTML2UM) $(NAME) $(MAN_SECTION) "$(MOD_DATE)" "IPW v2" \
+		"$(MAN_HEADER)" < $(HTML_MANPG) > $@
+
+
+.PHONY : man install-man
+man : $(HTML_MANPG) $(UNIX_MANPG)
+
+INSTALLED_HTML_MANPG := $(DOC_HTML_DIR)/man$(MAN_SECTION)/$(HTML_MANPG)
+$(INSTALLED_HTML_MANPG) : $(HTML_MANPG)
+	@printf "Installing HTML man page \"$^\"\n"
+	@$(INSTALL) -c $< $@
+INSTALLED_UNIX_MANPG := $(MAN_DIR)/man$(MAN_SECTION)/$(UNIX_MANPG)
+$(INSTALLED_UNIX_MANPG) : $(UNIX_MANPG)
+	@printf "Installing Unix man page \"$^\"\n"
+	@$(INSTALL) -c $< $@
+
+install-man : $(INSTALLED_HTML_MANPG) $(INSTALLED_UNIX_MANPG)
+
+
+.PHONY : clean-man uninstall-man
+clean-man :
+	rm -f $(HTML_MANPG) $(UNIX_MANPG)
+
+uninstall-man :
+	rm -f $(INSTALLED_HTML_MANPG) $(INSTALLED_UNIX_MANPG)
+
+
+ifeq ($(MAN_SECTION),1)
+  COPY_CMD := cp $(IPW)/src/samples/command/sample.man $(IPW_MANPG)
+else
+  ifeq ($(MAN_SECTION),3)
+    COPY_CMD := cp $(IPW)/src/samples/function/sample.man $(IPW_MANPG)
+  endif
+endif
+
+ifdef COPY_CMD
+  .PHONY : sample-man
+  sample-man :
+	@if [ -f $(IPW_MANPG) ] ; then \
+		printf "Error: The file \"$(IPW_MANPG)\" already exists\n" ; \
+	else \
+		printf "$(COPY_CMD)\n" ; \
+		$(COPY_CMD); \
+	fi
+endif

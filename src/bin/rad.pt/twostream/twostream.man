@@ -1,0 +1,328 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-u</B> <I>mu0</I>] [ <B>-0</B> ] [ <B>-t</B> <I>tau</I>] [ <B>-w</B> <I>omega</I>] [ <B>-g</B> <I>g</I>] [ <B>-r</B> <I>R0</I>] [ <B>-s</B> <I>S0</I>] [ <B>-d</B> ]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Provides <B>%name</B> solution for single-layer atmosphere over
+horizontal surface, using solution method in:
+<I>Two-stream approximations to radiative transfer in planetary
+atmospheres: a unified
+description of existing methods and a new improvement</I>,
+<A HREF="../bib.html#Meador 1980">Meador &amp; Weaver, 1980</A>,
+or will use the delta-Eddington method, if the <B>-d</B> flag
+is set
+(see:
+<A HREF="../bib.html#Wiscombe Joseph 1977">Wiscombe &amp; Joseph 1977</A>).
+</P><P>
+Basically, <B>%name</B> is the "point" version of <B>toporad</B>,
+without the topographic and horizon corrections.
+</P><P>
+Input variables
+</P>
+<PRE>
+	mu0		cosine of incidence angle
+	tau		optical depth of layer
+	omega		single-scattering albedo
+	g		asymmetry factor
+	R0		reflectance of substrate
+	S0		direct beam irradiance at top of layer
+</PRE>
+
+<P>
+Output variables
+</P>
+<PRE>
+	refl		reflectance of layer
+	trans		total transmittance of layer
+			(compensated for mu0)
+	btrans		direct transmittance of layer
+			(not compensated for mu0)
+	up_irr		upwelling irradiance
+	tot_irr		total irradiance at layer bottom
+	birrad		direct irradiance normal to beam
+</PRE>
+<P>
+Program is designed as either a diagnostic (with all inputs from
+command line) or to read some or all inputs from stdin.
+If inputs are from stdin, then order must be as above, omitting
+those inputs from command line.
+If inputs are from stdin, <B>%name</B> can be driven by inputs from a data stream defined in
+an input file.
+If any of the inputs are from stdin, outputs are combined with inputs,
+one record per line.
+<BR>
+That is, if tau, omega, g, and R0 are defined on the command line:
+</P><PRE>
+	twostream -t 0.2 -w 0.85 -g 0.3 -r 0.5
+</PRE><P>
+then mu0 and S0 can either be input from the keyboard, or from a file:
+</P><PRE>
+	0.68 159
+	0.75 159
+	0.80 159
+</PRE><P>
+and output will be:
+</P><PRE>
+mu0   tau0 omega  g   rho0 S0     refl     trans   btrans  up_flux dn_flux dir bot
+0.68  0.2  0.85  0.3  0.5  159  0.472814 0.912634 0.745189 51.1207 98.674  118.485
+0.75  0.2  0.85  0.3  0.5  159  0.47005  0.925142 0.765928 56.0534 110.323 121.783
+0.8   0.2  0.85  0.3  0.5  159  0.468397 0.932817 0.778801 59.5801 118.654 123.829
+</PRE><P>
+If inputs are from command line, outputs are tagged with definitions.
+Using the example above:
+</P><PRE>
+	twostream -u 0.68 -t 0.2 -w 0.85 -g 0.3 -r 0.5 -s 159
+</PRE><P>
+the output will be:
+</P><PRE>
+	reflectance 0.472814
+	transmittance 0.912634
+	direct transmittance 0.745189
+	upwelling irradiance 51.1207
+	total irradiance at bottom 98.674
+	direct irradiance normal to beam 118.485
+</PRE>
+</P>
+
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-u</B> <I>mu0</I>
+<DD>
+The cosine of the incidence angle is <I>cos</I> (from program sunang;
+default: read value from the standard input).
+</DD>
+
+<P>
+<DT><B>-0</B> 
+<DD>
+Do not force an error if <I>mu0</I> is <= 0.0; set all outputs to 0.0 and go on.
+<BR>
+Program will fail if incidence angle is <= 0.0, unless <B>-0</B> has
+been set.
+</DD>
+
+<P>
+<DT><B>-t</B> <I>tau</I>
+<DD>
+The optical depth is <I>tau</I> (default: read value from the
+standard input).  0 implies an infinite optical depth.
+</DD>
+
+<P>
+<DT><B>-w</B> <I>omega</I>
+<DD>
+The single-scattering albedo is <I>omega</I> (default: read value
+from the standard input).
+</DD>
+
+<P>
+<DT><B>-g</B> <I>g</I>
+<DD>
+The asymmetry factor is <I>g</I> (default: read value from the
+standard input).
+</DD>
+
+<P>
+<DT><B>-r</B> <I>R0</I>
+<DD>
+The reflectance of the substrate is <I>R0</I> (default: read value
+from the standard input).  If <I>R0</I> is negative, it will be
+set to zero.
+</DD>
+
+<P>
+<DT><B>-s</B> <I>S0</I>
+<DD>
+The direct beam irradiance is <I>S0</I> This is usually the solar
+constant for the specified wavelength band, on the specified
+date, at the top of the atmosphere, from program solar.
+(default: read value from the standard input).  If <I>S0</I> is
+negative, it will be set to 1/<I>cos</I>, or 1 if <I>cos</I> is not
+specified.
+</DD>
+
+<P>
+<DT><B>-d</B> 
+<DD>
+The delta-Eddington method will be used (default: use the
+Meador-Weaver hybrid method).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>	None
+</P><P>
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate transmission through the atmosphere on February 15, 1990,
+in Santa Barbara, CA, at 12:30PM, in the spectral window 0.58 to 0.68
+microns, using the Meador-Weaver method:
+</P><P>
+To get the cosine of the incidence angle (for the <B>-u</b> option):
+</P><PRE>
+	sunang -b 34,25 -l -119,54 -t 1990,2,15,12,30 -z 480
+</PRE><P>
+which yields:	-z 47.122 <B>-u</b> 0.680436 -a -5.413
+</P><P>
+To get the direct beam at the top of the atmosphere (for the <B>-s</b> option):
+</P><PRE>
+	solar -d 1990,2,15 -w .58,.68
+</PRE><P>
+which yields: 	159.019 W m^-2
+</P><PRE>
+	twostream -u 0.68 -t 0.2 -w 0.85 -g 0.3 -r 0.5 -s 159
+</PRE><PRE>
+	This yields:
+	reflectance				=	0.472814
+	transmittance				=	0.912634
+	direct transmittance			=	0.745189
+	upwelling irradiance			=	51.1207
+	total irradiance at bottom		=	98.674
+	direct irradiance normal to beam	=	118.485
+</PRE><P>
+To do the same thing, using the delta-Eddington method:
+</P><PRE>
+	twostream -u 0.68 -t 0.2 -w 0.85 -g 0.3 -r 0.5 -s 159 -d
+</PRE><P>
+which yields:
+</P>
+<PRE>
+	reflectance				=	0.472836
+	transmittance				=	0.911853
+	direct transmittance			=	0.762146
+	upwelling irradiance			=	51.123
+	total irradiance at bottom		=	98.5896
+	direct irradiance normal to beam	=	121.181
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>u0 must be &gt; 0 and &lt;= 1
+</DT>
+<DD><BR>	<I>cos</I> must be greater than 0, and less than or equal to 1, unless <B>-0</B> flag is set.
+</DD>
+
+<P>
+<DT>betanaught: no convergence - u0=1 g=1 sum= {. . .}
+</DT>
+<DD><BR>	The betanaught procedure was unable to get the Legendre
+	polynomial to converge.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Jan 1989</DT>
+<DD>
+Written by Jeff Dozier, UCSB.
+</DD>
+
+<P>
+
+<DT>Jul 1998</DT>
+<DD>
+Converted to IPW, Version 2.0, J. Domingo, OSU.
+</DD>
+
+<P>
+
+<DT>May 1999</DT>
+<DD>
+Cleaned up man page, D. Marks, ARS.
+</DD>
+
+<P>
+
+<DT>May 1999</DT>
+<DD>
+Added <B>-0</B> flag to allow mu0 to be <= 0.0,
+D. Marks, ARS.
+</DD>
+
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="elevrad.html">elevrad</A></B>,
+<B><A href="ggradient.html">ggradient</A></B>,
+<B><A href="ghorizon.html">ghorizon</A></B>,
+<B><A href="gradient.html">gradient</A></B>,
+<B><A href="gshade.html">gshade</A></B>,
+<B><A href="gsunlight.html">gsunlight</A></B>,
+<B><A href="gtoporad.html">gtoporad</A></B>,
+<B><A href="gtopquad.24.html">gtopquad.24</A></B>,
+<B><A href="gtopquad.html">gtopquad</A></B>,
+<B><A href="gviewf.html">gviewf</A></B>,
+<B><A href="gviewf-mp.html">gviewf-mp</A></B>,
+<B><A href="hor1d.html">hor1d</A></B>,
+<B><A href="horizon.html">horizon</A></B>,
+<B><A href="salbedo.html">salbedo</A></B>,
+<B><A href="selevrad.html">selevrad</A></B>,
+<B><A href="solar.html">solar</A></B>,
+<B><A href="stoporad.html">stoporad</A></B>,
+<B><A href="sunang.html">sunang</A></B>,
+<B><A href="sunlight.html">sunlight</A></B>,
+<B><A href="sunweights.html">sunweights</A></B>,
+<B><A href="toporad.html">toporad</A></B>,
+<B><A href="toporad.24.html">toporad.24</A></B>,
+<B><A href="topquad.html">topquad</A></B>,
+<B><A href="viewf.html">viewf</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Cogley 1980">Cogley 1980</A>,
+<A HREF="../bib.html#Dozier 1980">Dozier 1980</A>,
+<A HREF="../bib.html#Dozier 1981">Dozier 1981</A>,
+<A HREF="../bib.html#Dubayah 1990">Dubayah 1990</A>,
+<A HREF="../bib.html#Dubayah 1992">Dubayah 1992</A>,
+<A HREF="../bib.html#Dubayah 1994">Dubayah 1994</A>,
+<A HREF="../bib.html#Kneizys 1988">Kneizys 198</A>,
+<A HREF="../bib.html#Marks 1991">Marks 1991</A>,
+<A HREF="../bib.html#Meador 1980">Meador 1980</A>,
+<A HREF="../bib.html#Shettle 1970">Shettle 1970</A>,
+<A HREF="../bib.html#Wiscombe 1977">Wiscombe 1977</A>,
+<A HREF="../bib.html#Wiscombe Joseph 1977">Wiscombe &amp; Joseph 1977</A>.
+</P>
+

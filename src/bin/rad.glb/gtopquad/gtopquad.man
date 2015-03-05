@@ -1,0 +1,248 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-n</B> ] <B>-z</B> <I>elev</I> <B>-w</B> <I>omega</I> <B>-g</B> <I>gfact</I> [ <B>-s</B> <I>S0</I> ]
+      [ <B>-x</B> <I>w1</I>,<I>w2</I> ] [ <B>-m</B> <I>mask</I> ] [ <B>-k</B> <I>prefix</I> ] <B>-d</B> <I>y</I>,<I>m</I>,<I>d</I>
+      [ <B>-q</B> <I>npts</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Gtopquad is part of a family of large area, or &quot;global&quot;, scale radiation
+transfer simulation, and solar/terrain geometry calculation tools,
+developed after the small-scale radiation transfer and terrain structure
+tools, developed at UCSB by Jeff Dozier, Jim Frew, and Ralph Dubayah.
+</P><P>
+All of the global-scale radiation transfer tools are designated by
+the &quot;g&quot; prefix in front of the small-scale tool's name.  These tools
+assume that solar geometry, atmospheric properties, and sun rise and sun
+set vary over the grid, and they also correct for earth curvature when
+computing horizons, terrain and sky view factors, and illumantion angles.
+</P><P>
+These global-scale radiation and terrain processing tools can be applied
+to areas of size, up to the entire earth.  The global-scale radiation
+and terrain processing tools were originally developed by Kelly Longley,
+Oregon State University, at the Corvallis, Oregon, EPA lab, in the early
+1990's.
+</P><P>
+Gtopquad is the global-scale version of the program topquad.
+Gtopquad computes daily integrated radiation over a global-scale
+topographic grid, using a two-stream atmospheric radiation model and
+21-point Kronrod quadrature between sunrise and sunset for each pixel.
+It is implemented as a shell script which makes repeated calls to
+gshade, gelevrad, gsunlight, gviewf, ghorizon, and gtoporad.
+</P><P>
+The input image file has eight bands in the following order:
+</P><PRE>
+	elevation			(dem data)
+	slope				(from ggradient)
+	azimuth				(from ggradient)
+	sky view factor			(from gviewf)
+	terrain configuration factor	(from gviewf)
+	surface albedo			(estimate or data)
+	reflectance of substrate	(estimate or data)
+	optical depth			(estimate or data)
+</PRE>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-n</B> 
+<DD>
+net radiation instead of incoming
+
+<P>
+<DT><B>-z</B> <I>elev</I>
+<DD>
+elevation of optical depth measurement
+
+<P>
+<DT><B>-w</B> <I>omega</I>
+<DD>
+single-scattering albedo
+
+<P>
+<DT><B>-g</B> <I>gfact</I>
+<DD>
+scattering asymmetry parameter
+
+<P>
+<DT><B>-s</B> <I>S0</I>
+<DD>
+exoatmospheric solar irradiance (Wm^2, from pgm solar), or
+
+<P>
+<DT><B>-x</B> <I>w1</I>,<I>w2</I>
+<DD>
+wavelength range, micrometers
+
+<P>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+mask image
+
+<P>
+<DT><B>-k</B> <I>prefix</I>
+<DD>
+keep all radiation images from gtoporad; file names will be
+&lt;prefix&gt;.0, ..., &lt;prefix&gt;.20
+
+<P>
+<DT><B>-d</B> <I>y</I>,<I>m</I>,<I>d</I>
+<DD>
+date (year, month, day)
+
+<P>
+<DT><B>-q</B> <I>npts</I>
+<DD>
+# Kronrod quadrature points (15 or 21; default: 21)
+</DD>
+</DL>
+
+<P><B>-z</b>, <B>-w</b>, <B>-g</b>, and <B>-d</b> are required;  either <B>-s</b> or <B>-x</b> must be supplied.
+
+<P>Year must be complete (1994, not 94).
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image	eight-band input image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To simulate daily integrated radiation, in the visible portion of the
+solar spectrum, for February 15, 1994, using standard values for elev
+of optical depth measurement, single-scattering albedo, and scattering
+asymmetry parameter:
+</P><PRE>
+	gtopquad -n -z 100 -w 0.85 -g 0.55 -x 0.28,0.7 -m basin_mask \
+		 -d 1994,02,15 input_image
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Either <B>-x</b>, exoatmospheric solar irradiance, or <B>-x</b>, wavelength range,
+but not both, must be supplied.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Aug 1990</DT>
+<DD>
+	Written by Kelly Longley, Oregon State University,
+Environmental Protection Agency Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<DL>
+<DT>Oct 1990</DT>
+<DD>
+	Changed tau and R0 to input image bands instead of
+arguments Kelly Longley, Oregon State University, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>Jul 1995</DT>
+<DD>
+	Added trap to remove temp files.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="albedo.html">albedo</A></B>,
+<B><A href="elevrad.html">elevrad</A></B>,
+<B><A href="gelevrad.html">gelevrad</A></B>,
+<B><A href="ggradient.html">ggradient</A></B>,
+<B><A href="ghorizon.html">ghorizon</A></B>,
+<B><A href="gradient.html">gradient</A></B>,
+	<B><A href="gsunlight.html">gsunlight</A></B>,
+<B><A href="gshade.html">gshade</A></B>,
+<B><A href="gtoporad.html">gtoporad</A></B>,
+<B><A href="gviewf.html">gviewf</A></B>,
+<B><A href="horizon.html">horizon</A></B>,
+<B><A href="shade.html">shade</A></B>,
+<B><A href="solar.html">solar</A></B>,
+	<B><A href="sunlight.html">sunlight</A></B>,
+<B><A href="toporad.html">toporad</A></B>,
+<B><A href="viewf.html">viewf</A></B>
+</DD>
+</DL>
+<P>Marks, D., and J. Dozier, 1979.  &quot;A clear-sky longwave radiation model
+	for remote alpine areas&quot;, Archiv fur Meteorologie, Geophysik
+	und Bioklimatologie, Series B, vol. 27, no. 23, pp. 159-187.
+</P>
+<P>Dozier, J., 1980.  &quot;A clear-sky spectral solar radiation model for
+	snow-covered mountainous terrain&quot;.  Water Resources Research,
+	vol. 16, pp. 709-718.
+</P>
+<P>Dozier, J., and J. Frew, 1981.  &quot;Atmospheric corrections to satellite
+	radiometric data over rugged terrain&quot;.  Remote Sensing of
+	Environment, vol. 11, pp. 191-205.
+</P>
+<P>Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain parameters
+	for radiation modeling from digital elevation data&quot;. IEEE
+	Transactions on Geoscience and Remote Sensing, vol. 28, no. 5,
+	pp. 963-969.
+</P>
+<P>Dubayah, R., J. Dozier, and F. Davis, 1990.  &quot;Topographic distribution
+	of clear-sky radiation over the Konza Prairie, Kansas&quot;.  Water
+	Resources Research, vol. 26, no. 4, pp. 679-691.
+</P>
+<P>Dozier, J., J. Bruno, and P. Downey, 1991.  &quot;A faster solution to the
+	horizon problem&quot;, Computers and Geosciences, volume 7,
+	number 2, pp. 145-151.
+</P>
+<P>Marks, D., R. Dubayah, and K. Longley, 1991.  &quot;Modeling the topographic
+	and spectral variability of clear-sky solar radiation at regional
+	to continental scales.  Proceedings 1991 IGARSS Symposium,
+	Remote Sensing:  Global Monitoring for Earth Management, Espoo,
+	Finland, Vol. 3, pp. 1711.
+</P>
+<P>Dubayah, R., and V. Van Katwijk, 1992.  &quot;The topographic distribution
+	of annual incoming solar radiation in the Rio Grande basin&quot;.
+	Geophysical Research Letters, vol. 19, pp. 2231-2234.
+</P>
+<P>Dubayah, R., 1994.  &quot;Modeling a solar radiation topoclimatology for the
+	Rio Grande River Basin&quot;.  Journal of Vegetation Science, vol. 5,
+	pp. 627-640.
+</P>
+

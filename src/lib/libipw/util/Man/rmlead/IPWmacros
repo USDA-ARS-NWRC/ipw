@@ -1,0 +1,3 @@
+%define(name,"rmlead")
+%define(description,"skip leading white space in string")
+%define(category,"util")

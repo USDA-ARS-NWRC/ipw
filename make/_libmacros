@@ -1,0 +1,35 @@
+#  This Makefile defines macros for IPW libraries
+#
+#  This Makefile expects these macros to be defined:
+#
+#	LIB_NAME	= name of the library
+#
+#  These macros are optional:
+#
+#	LIB_BUILD_DIR 	= the directory where the library is built
+#			  (default = $(TOP_DIR)/src/lib/build)
+#
+#	LIB_INSTALL_DIR	= the directory where the library is installed
+#			  (default = $(TOP_DIR)/lib)
+
+ifndef LIB_BUILD_DIR
+  LIB_BUILD_DIR := $(TOP_DIR)/src/lib/build
+endif
+
+ifndef LIB_INSTALL_DIR
+  LIB_INSTALL_DIR := $(TOP_DIR)/lib
+endif
+
+#  Construct the full pathname of the built library
+
+LIB_FILENAME := lib$(LIB_NAME).a
+LIB_PATH := $(LIB_BUILD_DIR)/$(LIB_FILENAME)
+INSTALLED_LIB := $(LIB_INSTALL_DIR)/$(LIB_FILENAME)
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#  Debugging version of library
+
+DEBUG_LIB_FILENAME := $(LIB_FILENAME:.a=$(DEBUG_LIB_SUFFIX).a)
+DEBUG_LIB_PATH := $(LIB_BUILD_DIR)/$(DEBUG_LIB_FILENAME)
+INSTALLED_DEBUG_LIB := $(LIB_INSTALL_DIR)/$(DEBUG_LIB_FILENAME)

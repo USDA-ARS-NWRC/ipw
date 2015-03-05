@@ -1,0 +1,143 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-d</B> <I>delta-x</I> [ <B>-s</B> <I>first-x </I> ] [ <B>-n</B> <I>count </I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Akintrp nterpolates to regular intervals from irregular x-y data pairs
+using Akima's (1978) spline interpolation method.  The x-values are
+independant, and the y-values are dependant.  Input is read from
+standard input; output is written to standard output.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-d</B> <I>delta-x</I>
+<DD>
+<I>delta-x</I> is the desired x interval.
+</DD>
+
+<P>
+<DT><B>-s</B> <I>first-x </I>
+<DD>
+<I>first-x</I> is the starting x value (default: the first x
+value read in).
+</DD>
+
+<P>
+<DT><B>-n</B> <I>count </I>
+<DD>
+<I>count</I> is the number of x intervals (default: (the last
+x value read in - the starting x value) / delta-x).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>	None
+</P><P>
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To interpolate stream discharge at an hourly interval over a 24 hr
+period from the following input data set, where time is in hrs from
+midnight on the previous day:
+</P><PRE>
+	time(hrs)	Q(m^3/s)
+	-1.5		1.0
+	6.5		1.2
+	9.0		0.9
+	13.5		2.5
+	16.0		5.0
+	19.5		9.3
+	21.0		5.5
+	30.0		1.4
+</PRE><PRE>
+	paste time q | akintrp -d 1.0 s 0
+</PRE>
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>May 1986</DT>
+<DD>
+	Written by D. Marks, CSL, UCSB
+</DD>
+</DL>
+
+<DL>
+<DT>Jun 1996</DT>
+<DD>
+	Ported to IPW by J. Domingo, OSU
+</DD>
+</DL>
+
+<DL>
+<DT>Sep 1997</DT>
+<DD>
+	Converted to IPW Version 2.0 by D. Marks, USGS, ERL-C
+</DD>
+</DL>
+
+<DL>
+<DT>Oct 1997</DT>
+<DD>
+	Fixed bug with "-n" option, D. Marks, USGS, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="ezint.html">ezint</A></B>,
+<B><A href="interp.html">interp</A></B>,
+<B><A href="qdint.html">qdint</A></B>,
+<B><A href="smooth.html">smooth</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Unix</DT>
+<DD>	paste
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Akima 1978">Akima 1978</A><BR>
+</P>
+

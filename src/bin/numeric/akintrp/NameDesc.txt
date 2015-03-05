@@ -1,0 +1,1 @@
+akintrp - interpolate irregular x,y data pairs using Akima's spline method

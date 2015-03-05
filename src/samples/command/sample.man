@@ -1,0 +1,518 @@
+<!--  Comments in this man page appear as HTML comments, i.e., those	  -->
+<!--  lines that begin with the 4 characters "<!--".  Because they   	  -->
+<!--  are HTML comments, they will not be displayed in the HTML		  -->
+<!--  version of this man page.  And they will be filtered out of the	  -->
+<!--  troff version.  Therefore, the comments can be left in this man	  -->
+<!--  page until it is completed.  Upon completion of the man page,  	  -->
+<!--  the comments can removed by filtering this file through the	  -->
+<!--  command:								  -->
+<!--									  -->
+<!--		grep -v "^<!--"						  -->
+<!--									  -->
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  The sections in an IPW command's man page are:			  -->
+<!--  									  -->
+<!--      NAME								  -->
+<!--      SYNOPSIS							  -->
+<!--      DESCRIPTION							  -->
+<!--      OPTIONS							  -->
+<!--      OPERANDS							  -->
+<!--      EXAMPLES							  -->
+<!--      FILES								  -->
+<!--      DIAGNOSTICS							  -->
+<!--      NOTES								  -->
+<!--      HISTORY							  -->
+<!--      SEE ALSO							  -->
+<!--  									  -->
+<!--  These various sections are described below.  The name of each	  -->
+<!--  section is a 2nd-level header.  If a section has no accompanying	  -->
+<!--  text, then it should have the text				  -->
+<!--  									  -->
+<!--       <P>None.</P>							  -->
+<!--  									  -->
+<!--  to explicitly indicate that the section is empty instead of	  -->
+<!--  missing.								  -->
+<!--  									  -->
+<!--  Use the IPW macro "%name" to refer to the command, instead of	  -->
+<!--  using its name explicity.  Except for examples of actual uses of	  -->
+<!--  the command, this macro should be surrounded by bold tags, i.e.,	  -->
+<!--  									  -->
+<!--       <B>%name</B>							  -->
+<!--  									  -->
+<!--  Do NOT use tabs in pre-formated text, i.e., text surrounded by	  -->
+<!--  the tags "<PRE>" and "</PRE>".  There is no guarantee		  -->
+<!--  that tabs will display correctly.  Use only spaces.		  -->
+<!--  									  -->
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  NAME section							  -->
+<!--  									  -->
+<!--  It specifies the name of the command, and its brief one-line	  -->
+<!--  description.  Both the name and description are specified in the	  -->
+<!--  command's Makefile, and are inserted in the man page through the	  -->
+<!--  use of IPW macros.						  -->
+<!--  									  -->
+<!--  As a general guideline, try to keep the length of the name and	  -->
+<!--  description, plus two spaces and a "-" character, less than 60	  -->
+<!--  characters:							  -->
+<!--  									  -->
+<!--               1         2         3         4         5         6	  -->
+<!--      123456789012345678901234567890123456789012345678901234567890	  -->
+<!--      name - description..........................................	  -->
+<!--  									  -->
+<!--  The description is searched for keywords by the "man" command	  -->
+<!--  when the "-k" option is specified.  Therefore, try to write a	  -->
+<!--  description that summarizes the command using words that might	  -->
+<!--  help a user locate the command.  Look at existing IPW man pages	  -->
+<!--  for a good idea for how to word the description, and to get an	  -->
+<!--  idea of the proper length.					  -->
+<!--  									  -->
+<H2>NAME</H2>
+
+<P>
+<B>%name</B> - %description
+</P>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  SYNOPSIS section							  -->
+<!--  									  -->
+<!--  This section specifies how the command is invoked from the	  -->
+<!--  command line.  It lists the command's options and operands.	  -->
+<!--  the command.  In the synopsis, text that should be typed in	  -->
+<!--  as shown is in bold, e.g., the command's name and its options.	  -->
+<!--  Any text that varies is in italics, e.g., the arguments for the	  -->
+<!--  options as well as the command's operands.  Any option, argument	  -->
+<!--  for an option, or operand that is optional should be surrounded by  -->
+<!--  square brackets, i.e., "[" ... "]".				  -->
+<!--  									  -->
+<!--  This section is tagged as pre-formatted text.  The first line	  -->
+<!--  should be left-justified; any additional lines should be indented	  -->
+<!--  5 spaces.  Check both the HTML version and troff versions of the	  -->
+<!--  man page to verify that this section appears readable.  To improve  -->
+<!--  readability, the arguments for an option should be on the same	  -->
+<!--  line as the option.						  -->
+<!--  									  -->
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-z</B> <I>elev</I> <B>-b</B> <I>band</I>[,...] [ <B>-K</B> ] [ <B>-m</B> <I>mask</I> ]
+     [ <B>-t</B> <I>big-threshold</I>[,<I>medium-threshold</I>[,<I>small-threshold</I>]] ]
+     [ <I>image</I> ]
+</PRE>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  DESCRIPTION section						  -->
+<!--  									  -->
+<!--  This section describes what the command does.  Each paragraph	  -->
+<!--  should be preceeded by a paragraph tag "<P>".			  -->
+<!--  									  -->
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is an interactive point model using the energy
+balance to calculate snowmelt, and to predict runoff, from
+input data on snow properties, measurement heights & depths,
+and energy exchanges.  Similar to the approach used by
+<I>Anderson (1976)</I>, and <I>Morris (1982)</I>, but designed
+to run on simpler, more generalizable inputs.  The model was
+first presented by <I>Marks (1988)</I>, described conceptually
+by <I>Marks, et. al (1992)</I> and <I>Marks and Dozier (1992)</I>,
+and then described in great detail by <I>Marks, et. al (1997)</I>.
+<P>
+The model approximates the snow cover as being composed of two
+layers, a surface fixed-thickness active layer and a lower
+layer, solving for the temperature (C) and specific mass (kg/m^2)
+or mass per unit area (from density * depth (kg/m^3 * m)) for
+each, and computing total snowcover temperature and specific
+mass from these.
+
+<!--  Information in columns like tables should be specified as		  -->
+<!--  PRE-formatted text.						  -->
+<!--  									  -->
+<PRE>
+    band      input parameter
+
+     0        T_a = air temperature (C)
+     1        e_a = vapor pressure (Pa)
+     2        T_g = soil temperature (C)
+     3        S_n = net solar radiation (W/m^2)
+</PRE>
+
+<!--  Indented text should also be specified as PRE-formatted text.	  -->
+<!--  Do NOT use list tags to indent text.				  -->
+<!--  									  -->
+<PRE>
+     when 0.0 < %_snow < 1.0, (a mixed rain/snow event):
+          snow temperature = 0.0
+          rain temperature = T_pp
+          liquid H2O sat. = 100%
+
+     when %_snow = 1.0 and T_pp => 0.0, (a warm snow-only event):
+          snow temperature = 0.0
+          liquid H2O sat. = 100%
+
+     when %_snow = 1.0 and T_pp < 0.0, (a cold snow event):
+          snow temperature = T_pp
+          liquid H2O sat. = 0%
+</PRE>
+
+<!--  A reference to another IPW command should be specified as a link	  -->
+<!--  to that command's man page.  The link should be in boldface, so	  -->
+<!--  that the referenced command will stand out in the troff version	  -->
+<!--  of the man page.							  -->
+<!--  									  -->
+<P>
+<B>%name</B> uses a simplified version of the algorithm used
+by the <B><A HREF="foo.html">foo</A></B> command.  ...
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  OPTIONS section							  -->
+<!--  									  -->
+<!--  This section describes the command's options individually.  The	  -->
+<!--  options are formatted as a definition list.  Each option and its	  -->
+<!--  arguments should be formatted as in the SYNOPSIS section (i.e.,	  -->
+<!--  the option in bold; arguments in italics).  To provide some	  -->
+<!--  spacing between each option, put a paragraph tag "<P>"		  -->
+<!--  between options.							  -->
+<!--  									  -->
+<H2>OPTIONS </H2>
+
+<DL>
+<DT><B>-z</B> <I>elev</I>
+
+<DD>
+<I>elev</I> is the elevation of the reference location (m);
+used to compute air pressure.
+</DD>
+
+<P>
+
+<DT><B>-b</B> <I>band</I>[,...]
+
+<DD>
+Perform the calculation on only the specified bands of the input image.
+</DD>
+
+<!--  If the option is optional (i.e., it was enclosed by square	  -->
+<!--  brackets in the SYNOPSIS section), do NOT include the brackets in	  -->
+<!--  the definition term.  But make sure to describe what the default	  -->
+<!--  is if the option is not used.					  -->
+<!--  									  -->
+<P>
+
+<DT><B>-K</B>
+
+<DD>
+Accept/output temperatures in degrees K (default: degrees C).
+</DD>
+
+<!--  If the description for an option contains more than 1 paragraph,	  -->
+<!--  place the closing tag "</DD>" after the first			  -->
+<!--  paragraph.  Then place a paragraph tag "<P>" before		  -->
+<!--  all the subsequent paragraphs.					  -->
+<!--  									  -->
+<P>
+
+<DT><B>-t</B> <I>big-threshold</I>[,<I>medium-threshold</I>[,<I>small-threshold</I>]]
+
+<DD>
+This is an example of an optional option which must have at least
+one argument: <I>big-threshold</I>.  This description of the option
+should state any default value, e.g., (default: 60 kg/m^2).
+</DD>
+<P>
+If the option has two arguments, the second argument is taken to
+be the <I>medium-threshold</I> (default 10 kg/m^2).
+<P>
+If the option has three arguments, the third argument is taken to
+be the <I>small-threshold</I> (default 1 kg/m^2).
+
+<P>
+
+<DT><B>-m</B> <I>mask</I>
+<DD>
+Use <I>mask</I> as a mask image.  Calculations are performed only for
+those points in the input image whose corresponding points in <I>mask</I>
+are not 0.
+</DD>
+
+<!--  Any descriptive text that isn't associated with one particular	  -->
+<!--  option should be placed outside the definition list.  To do this,	  -->
+<!--  terminate the definition list before the descriptive text, and	  -->
+<!--  format the text as a paragraph.  If more options follow the	  -->
+<!--  descriptive text, then start another definition list.		  -->
+<!--  									  -->
+<P>
+
+<DT><B>-a</B> <I>limit</I>
+<DD>
+{description of option a}
+</DD>
+
+<P>
+
+<DT><B>-b</B> <I>number</I>
+<DD>
+{description of option b}
+</DD>
+
+</DL>
+
+<P>
+At least one of <B>-a</B> or <B>-b</B> must be specified.
+
+<DL>
+
+<DT><B>-c</B>
+<DD>
+{description of option c}
+</DD>
+
+<!--  Make sure that the closing tag for definition list is present.	  -->
+<!--  									  -->
+</DL>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  OPERANDS section							  -->
+<!--  									  -->
+<!--  This section describes any operands that the command accepts	  -->
+<!--  (usually an IPW image).  The operands are formatted like the 	  -->
+<!--  command's options: in a definition list.				  -->
+<!--  									  -->
+<H2>OPERANDS</H2>
+
+<DL>
+
+<DT><I>image</I>
+<DD>
+Use <I>image</I> as the input image (default: standard input).
+</DD>
+
+</DL>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  EXAMPLES section							  -->
+<!--  									  -->
+<!--  This section provides examples of how the command is used.  Try	  -->
+<!--  to provide examples of typical uses of the command.  Actual	  -->
+<!--  command-lines that would be entered by the user should be 	  -->
+<!--  pre-formatted text.						  -->
+<!--  									  -->
+<H2>EXAMPLES</H2>
+
+<P>
+If the file "inputs" is a 4-band image of input parameters, then
+this example runs the model at a reference elevation of 1500 meters
+using the first and third bands of the image:
+ 
+<PRE>
+     %name -z 1500 -b 0,2 inputs
+</PRE>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  FILES section							  -->
+<!--  									  -->
+<!--  This section lists files related to the command, e.g., auxiliary	  -->
+<!--  files like configuration files.  Only list those files that the	  -->
+<!--  user would be concerned with; do NOT list temporary files.	  -->
+<!--  									  -->
+<!--  This section is pre-formatted text of two columns.  The first	  -->
+<!--  column is the name of the file; the second column is a brief	  -->
+<!--  description of the file.						  -->
+<!--  									  -->
+<!--  Remember not to use tab characters in this section; use only	  -->
+<!--  spaces.								  -->
+<!--  									  -->
+<H2>FILES</H2>
+
+<PRE>
+     $(IPW)/aux/proj/std          Standard geographic projections
+     $(HOME)/ipw/foo.config       User's configuration file for
+                                    Foo modeling
+</PRE>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  DIAGNOSTICS section						  -->
+<!--  									  -->
+<!--  This section lists those diagnostic messages that the command may	  -->
+<!--  produce.  Each message should be accompanied by an explanation	  -->
+<!--  that details the cause of the message and suggests any possible	  -->
+<!--  corrective action the user may take.				  -->
+<!--  									  -->
+<!--  Like the OPTIONS and OPERANDS section, this section is formatted	  -->
+<!--  as a definition list.  In addition, each diagnostic message is	  -->
+<!--  tagged as sample text, i.e, surrounded by the tags "<SAMP>"	  -->
+<!--  and "</SAMP>".							  -->
+<!--  									  -->
+<!--  List only those messages that are unique to the command, i.e.,	  -->
+<!--  those messages that are in the command's source code.  Do NOT	  -->
+<!--  include messages that originate from a shared library.		  -->
+<!--  									  -->
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT><SAMP>elevation below sea level: <I>elev</I></SAMP>
+<DD>
+The elevation <I>elev</I> must be 0 or positive.
+</DD>
+
+<P>
+
+<DT><SAMP>medium threshold (<I>#</I>) exceeds big threshold (<I>#</I>)</SAMP>
+<DD>
+The <I>medium-threshold</I> must be equal to or smaller than the
+<I>big-threshold</I>.
+</DD>
+
+<P>
+
+<DT><SAMP>small threshold (<I>#</I>) exceeds medium threshold (<I>#</I>)</SAMP>
+<DD>
+The <I>small-threshold</I> must be equal to or smaller than the
+<I>medium-threshold</I>.
+</DD>
+
+</DL>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  NOTES section							  -->
+<!--  									  -->
+<!--  This section describes any unusual caveats that the user should	  -->
+<!--  be aware of when using the command.  One example would be any	  -->
+<!--  known limitations or deficiencies.				  -->
+<!--  									  -->
+<H2>NOTES</H2>
+
+<P>
+Map projection distortions can introduce significant error
+in distance computations as the spatial extent of the image
+increases, or if an improper map projection is used.  For
+example, interpolating a surface over an Arctic region while
+using a US Albers projection would produce unusual (and
+incorrect) results.
+
+<!--  Another example for this section is any considerations		  -->
+<!--  regarding the signficant use of resources by the command.		  -->
+<!--  									  -->
+
+<P>
+This command requires the entire input image to be
+read into memory.
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  HISTORY section							  -->
+<!--  									  -->
+<!--  This section lists the changes the command has undergone.  Only	  -->
+<!--  those changes that affect the user should be documented.  Any	  -->
+<!--  internal changes (e.g., restructuring of the source code) should	  -->
+<!--  NOT be included here.						  -->
+<!--  									  -->
+<!--  The changes are formatted in a definition list in chronological	  -->
+<!--  order.  The date of each change is a 3-letter abbreviation for	  -->
+<!--  the month with the 4-digit year.					  -->
+<!--  									  -->
+<H2>HISTORY </H2>
+
+<DL>
+
+<DT>Aug 1984
+<DD>
+Written by J. Doe, UCSB
+</DD>
+
+<P>
+
+<DT>Jun 1987
+<DD>
+Added the <B>-K</B> option.  Z. Smith, USGS
+</DD>
+
+<P>
+
+<DT>Feb 1996
+<DD>
+Increased the number of thresholds from two to three to improve
+model stability over small temperature variations.  K. Brown, OSU
+</DD>
+
+</DL>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  SEE ALSO section							  -->
+<!--  									  -->
+<!--  This section lists related IPW and Unix commands as well as any	  -->
+<!--  relevant papers and references.  All the commands appear in a	  -->
+<!--  definition list with the IPW commands preceeding the Unix		  -->
+<!--  commands.  Each IPW command should be a link to its man		  -->
+<!--  page.								  -->
+<!--  									  -->
+<H2>SEE ALSO</H2>
+
+<DL>
+
+<DT>IPW:
+<DD>
+<A HREF="advec.html">advec</A>,
+<A HREF="deltaT.html">deltaT</A>,
+<A HREF="gradient.html">gradient</A>,
+<A HREF="zpr.html">zpr</A>
+</DD>
+
+<P>
+
+<DT>Unix:
+<DD>
+diff, grep
+</DD>
+
+</DL>
+
+<!--  Relevant papers and references are then listed in alphabetical	  -->
+<!--  order.  Each item should formatted as a separate paragraph	  -->
+<!--  following standard bibliographic notation.			  -->
+<!--  									  -->
+<P>
+Frew, J., 1990. The Image Processing Workbench. PhD Thesis,
+Department of Geography, University of California, Santa Barbara,
+CA, 382 pp.
+<P>
+Marks, D., J. Dozier, and R.E. Davis, 1992.  Climate and
+energy exchange at the snow surface in the alpine
+region of the Sierra Nevada: 1. Meteorological measurements
+and monitoring.  <I>Water Resources Research</I>, vol.
+28, no. 11, pp. 3029-3042.
+<P>
+Marks, D., and J. Dozier, 1992.  Climate and energy exchange
+at the snow surface in the alpine region of the Sierra
+Nevada:  2. Snow cover energy balance.  <I>Water Resources
+Research</I>, vol. 28, no. 11, pp. 3043-3054.
+
+
+<!--  If two or more commands share the references, one alternative	  -->
+<!--  is to place all the references into a separate bibliography	  -->
+<!--  document, and simply include a list of citations as links into	  -->
+<!--  this document.							  -->
+<!--  									  -->
+<!--  The IPW software uses this approach.  The convention for naming	  -->
+<!--  anchors in the bibliography is the first author's last name	  -->
+<!--  followed by the year.  If there are two or more references by	  -->
+<!--  an author in the same year, a suffix of a single lowercase	  -->
+<!--  letter is used to distinguish between them.			  -->
+<!--  									  -->
+<P>
+<A HREF="../../bib.html#Frew 1990">Frew 1990</A>,
+<A HREF="../../bib.html#Marks 1992a">Marks 1992a</A>,
+<A HREF="../../bib.html#Marks 1992b">Marks 1992b</A>
+

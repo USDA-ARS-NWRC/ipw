@@ -1,0 +1,291 @@
+<!--  Comments in this man page appear as HTML comments, i.e., those	  -->
+<!--  lines that begin with the 4 characters "<!--".  Because they   	  -->
+<!--  are HTML comments, they will not be displayed in the HTML		  -->
+<!--  version of this man page.  And they will be filtered out of the	  -->
+<!--  troff version.  Therefore, the comments can be left in this man	  -->
+<!--  page until it is completed.  Upon completion of the man page,  	  -->
+<!--  the comments can removed by filtering this file through the	  -->
+<!--  command:								  -->
+<!--									  -->
+<!--		grep -v "^<!--"						  -->
+<!--									  -->
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  The sections in an IPW library function's man page are:		  -->
+<!--  									  -->
+<!--      NAME								  -->
+<!--      SYNOPSIS							  -->
+<!--      DESCRIPTION							  -->
+<!--      RETURN VALUE							  -->
+<!--      HISTORY      (optional)					  -->
+<!--      SEE ALSO     (optional)					  -->
+<!--  									  -->
+<!--  These various sections are described below.  The name of each	  -->
+<!--  section is a 2nd-level header.					  -->
+<!--  									  -->
+<!--  Use the IPW macro "%name" to refer to the function, instead of	  -->
+<!--  using its name explicity.  Except for examples of actual uses of	  -->
+<!--  the command, this macro should be surrounded by bold tags, i.e.,	  -->
+<!--  									  -->
+<!--       <B>%name</B>							  -->
+<!--  									  -->
+<!--  Do NOT use tabs in pre-formated text, i.e., text surrounded by	  -->
+<!--  the tags "<PRE>" and "</PRE>".  There is no guarantee		  -->
+<!--  that tabs will display correctly.  Use only spaces.		  -->
+<!--  									  -->
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  NAME section							  -->
+<!--  									  -->
+<!--  It specifies the name of the function, and its brief one-line	  -->
+<!--  description.  Both the name and description are specified in the	  -->
+<!--  function's Makefile, and are inserted in the man page through the	  -->
+<!--  use of IPW macros.						  -->
+<!--  									  -->
+<!--  As a general guideline, try to keep the length of the name and	  -->
+<!--  description, plus two spaces and a "-" character, less than 60	  -->
+<!--  characters:							  -->
+<!--  									  -->
+<!--               1         2         3         4         5         6	  -->
+<!--      123456789012345678901234567890123456789012345678901234567890	  -->
+<!--      name - description..........................................	  -->
+<!--  									  -->
+<!--  The description is searched for keywords by the "man" command	  -->
+<!--  when the "-k" option is specified.  Therefore, try to write a	  -->
+<!--  description that summarizes the function using words that might	  -->
+<!--  help a programmer locate the function.  Look at existing IPW	  -->
+<!--  man pages for a good idea for how to word the description,	  -->
+<!--  and to get an idea of the proper length.				  -->
+<!--  									  -->
+<H2>NAME</H2>
+
+<P>
+<B>%name</B> - %description
+</P>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  SYNOPSIS section							  -->
+<!--  									  -->
+<!--  This section specifies how the function is invoked within an	  -->
+<!--  IPW program.  It is tagged as pre-formatted text.			  -->
+<!--  									  -->
+<!--  Any header files that must be included are listed first.  Next	  -->
+<!--  comes the function's prototype with the function's type and name	  -->
+<!--  on separate lines.  Each argument for the function is also on	  -->
+<!--  a separate line indented 5 spaces.  A brief comment should	  -->
+<!--  describe each argument including its units of measure.		  -->
+<!--  									  -->
+<!--  Remember not to use tabs in the pre-formatted text.		  -->
+<!--  									  -->
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "snow.h"
+
+double
+%name(
+     double  rho,    /* snow layer's density (kg/m^3)             */
+     double  tsno,   /* snow layer's temperature (K)              */
+     double  tg,     /* soil temperature (K)                      */
+     double  ds,     /* snow layer's thickness (m)                */
+     double  dg,     /* dpeth of soil temperature measurement (m) */
+     double  pa)     /* air pressure (Pa)                         */
+</PRE>
+
+<!--  If the function has no arguments, then place the "void)"		  -->
+<!--  on the same line as the function's name.				  -->
+<!--  									  -->
+<PRE>
+#include "ipw.h"
+#include "bih.h"
+
+char *
+%name(void)
+</PRE>
+
+<!--  If the function has output arguments (i.e., arguments which	  -->
+<!--  are used to return additional values), they appear last in the	  -->
+<!--  argument list, and are clearly marked as such.			  -->
+<!--  									  -->
+<PRE>
+#include "ipw.h"
+
+void
+%name(
+     int    total_secs,   /* total time as seconds */
+
+  /* outputs */
+
+     int  * hrs,          /* 0 - ...               */
+     int  * mins,         /* 1 - 59                */
+     int  * secs)         /* 1 - 59                */
+</PRE>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  DESCRIPTION section						  -->
+<!--  									  -->
+<!--  This section describes what the function does.  Each paragraph	  -->
+<!--  should be preceeded by a paragraph tag "<P>".  The names of	  -->
+<!--  arguments should be itacilized.					  -->
+<!--  									  -->
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates the sun angle (the azimuth and zenith
+angles of the sun's position) for a given geodetic location
+(specified by <I>latitude</I> and <I>longitude</I>) and a given
+date and time (specified by <I>datetime</I>). 
+
+<!--  Information in columns like tables should be specified as		  -->
+<!--  PRE-formatted text.						  -->
+<!--  									  -->
+<P>
+<B>%name</B> reads the given projection definition file, writes the
+contents into a projdef struct, and returns a pointer to the
+struct. The projection definition files are ASCII files with
+the following format: 
+<PRE>
+    projection ID
+    units code
+    zone code
+    datum code
+    projection parameters (15 values)
+</PRE>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  RETURN VALUE section						  -->
+<!--  									  -->
+<!--  This section describes the value returned by the function.	  -->
+<!--  If the function doesn't return any value (i.e., its type is	  -->
+<!--  "void"), then this section should simply be "None.".		  -->
+<!--  									  -->
+<H2>RETURN VALUE</H2>
+
+<P>
+Number of days in the month.
+
+<!--  If there is a small list of possible return values, then		  -->
+<!--  they are formatted as a definition list.				  -->
+<!--  									  -->
+<DL>
+
+<DT>!= NULL
+<DD>
+Pointer to new header structure.
+</DD>
+
+<P>
+
+<DT>NULL
+<DD>
+Error occurred; a message explaining it was stored with the
+"usrerr" function.
+</DD>
+
+</DL>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  HISTORY section  (optional)					  -->
+<!--  									  -->
+<!--  This optional section lists the changes the function has		  -->
+<!--  undergone.  Only those changes that affect the function's		  -->
+<!--  external behavior should be documented.  Any internal changes	  -->
+<!--  (e.g., restructuring of the source code) should NOT be included	  -->
+<!--  here, but rather in the function's source code.			  -->
+<!--  									  -->
+<!--  The changes are formatted in a definition list in chronological	  -->
+<!--  order.  The date of each change is a 3-letter abbreviation for	  -->
+<!--  the month with the 4-digit year.					  -->
+<!--  									  -->
+<H2>HISTORY </H2>
+
+<DL>
+
+<DT>Dec 1983 
+<DD>
+Written by D. Marks, CSL/UCSB. 
+</DD>
+
+<P>
+
+<DT>Oct 1992 
+<DD>
+Converted from QDIPS to IPW by D. Marks, USGS, EPA ERL/C.
+</DD>
+
+</DL>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  SEE ALSO section  (optional)					  -->
+<!--  									  -->
+<!--  This optional section lists related IPW and Unix functions as	  -->
+<!--  well as any relevant papers and references.  All the functions	  -->
+<!--  appear in a definition list with the IPW functions preceeding	  -->
+<!--  the Unix functions.  Each IPW functions should be a link to its	  -->
+<!--  man page.								  -->
+<!--  									  -->
+<!--  To assist in completing this section, there is a pre-defined	  -->
+<!--  target in the Makefiles for the man pages for library functions	  -->
+<!--  called "list-of-links".  This target will print a list of		  -->
+<!--  the other library functions in the same category as a given	  -->
+<!--  library function.  The list is printed as HTML text, therefore,	  -->
+<!--  it can be stored in a file, and then placed into the source	  -->
+<!--  file for a man page:						  -->
+<!--  									  -->
+<!--      make list-of-links > temp					  -->
+<!--      edit the source file "foo.man" and read in the file "temp"	  -->
+<!--  									  -->
+<H2>SEE ALSO</H2>
+
+<DL>
+
+<DT>IPW:
+<DD>
+<A HREF="mwgamma.html">mwgamma()</A>,
+<A HREF="twostream.html">twostream()</A>
+</DD>
+
+<P>
+
+<DT>Unix:
+<DD>
+fread(), fwrite()
+</DD>
+
+</DL>
+
+<!--  Relevant papers and references are then listed in alphabetical	  -->
+<!--  order.  Each item should formatted as a separate paragraph	  -->
+<!--  following standard bibliographic notation.			  -->
+<!--  									  -->
+<P>
+Brutsaert, W., 1975. On a derivable formula for long-wave
+radiation from clear skies.  <I>Water Resources Research</I>,
+vol. 11, no. 5, pp 742-744. 
+<P>
+Marks, D., and J. Dozier, and R.E. Davis, 1979. A clear-sky
+longwave radiation model for remote alpine areas. <I>Archiv
+fur Meteorologie, Geophysik und Bioklimatologie, Series B</I>,
+vol. 27, no. 23, pp. 159-187. 
+
+<!--  If two or more functions share the references, one alternative	  -->
+<!--  is to place all the references into a separate bibliography	  -->
+<!--  document, and simply include a list of citations as links into	  -->
+<!--  this document.							  -->
+<!--  									  -->
+<!--  The IPW software uses this approach.  The convention for naming	  -->
+<!--  anchors in the bibliography is the first author's last name	  -->
+<!--  followed by the year.  If there are two or more references by	  -->
+<!--  an author in the same year, a suffix of a single lowercase	  -->
+<!--  letter is used to distinguish between them.			  -->
+<!--  									  -->
+<P>
+<A HREF="../../bib.html#Brutsaert 1975">Brutsaert 1975</A>,
+<A HREF="../../bib.html#Marks 1979">Marks 1979</A>
+

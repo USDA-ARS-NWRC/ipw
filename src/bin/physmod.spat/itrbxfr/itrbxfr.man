@@ -1,0 +1,153 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-d</B> <I>delta_t</I> [ <B>-z</B> <I>upper_height</I> ] [ <B>-m</B> <I>mask</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates potential turbulent transfer using Brutsaert's description
+of the Businger-Dyer approach, using the Obukhov length for
+stability determination: (Refs in hle1)
+Air pressure is set from elevation at each grid point.
+Reads five-band image from specified file (or stdin):
+</P><PRE>
+	RH, ta, elev, u, z0
+</PRE><PRE>
+	band	contents
+	====	===================
+	0	RH   = relative humidity
+	1	ta   = air temperature (C)
+	2	elev = site elevation (m)
+	3	u    = upper wind speed (m/sec)
+	4	z0   = roughness length (m)
+</PRE>
+<P>
+Assumptions:
+</P>
+<PRE>
+	Lower wind speed (u0) = 0.0 m/s
+	Surface temperature (ts) = air temperature (ta)
+	Lower vapor pressure (es) = saturation vapor pressure at ts
+	Upper vapor pressure (ea) is calculated from RH: ea = RH * es
+</PRE><P>
+Writes three-band output image to stdout:
+</P><PRE>
+	band	Contents:
+	====	======================
+	0	h  = sens heat flux (+ to surf) (W/m^2)
+	1	le = latent heat flux (+ to surf) (W/m^2)
+	2	mm = water gain/loss (+/-mm m^-2)
+</PRE>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-d</B> <I>delta_t</I>
+<DD>
+delta time (hrs)
+</DD>
+<P>
+<DT><B>-z</B> <I>upper_height</I>
+<DD>
+upper height (meters) - defaults to 3.0 meters
+</DD>
+<P>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+mask image
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>input image:	five-band input image containing
+RH, ta, elev, u, and z0 (defaults to stdin)
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<DD>
+mux rh ta elev ws z0 | <B>%name</B> <B>-d</b> 1.0 <B>-m</b> mask_image
+</DD>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+<DT>terminates with error message;
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Actual surface temperatures and humidities cannot be used in the input.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Apr 1990</DT>
+<DD>
+Modified D. Marks' point model (QDIPS program trbxfr) to
+run over an IPW image, by Kelly Longley, Oregon State
+University, Environmental Research Laboratory, Corvallis
+</DD>
+</DL>
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Can now process classified image bands,
+by K. Longley, OSU, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>Oct 1990</DT>
+<DD>
+Added <B>-z</b> option to specify upper height,
+by K. Longley, OSU, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="bowvap.html">bowvap</A></B>,
+<B><A href="ipmx.html">ipmx</A></B>,
+<B><A href="iptx.html">iptx</A></B>,
+<B><A href="penmonx.html">penmonx</A></B>,
+<B><A href="ptx.html">ptx</A></B>,
+<B><A href="pmx.html">pmx</A></B>,
+<B><A href="trbxfr.html">trbxfr</A></B>,
+<B><A href="hle1.html">hle1</A></B>
+</DD>
+</DL>
+<P>
+<A HREF="../bib.html#Brutsaert 1982">Brutsaert, 1982</A>,
+<A HREF="../bib.html#Marks 1992b">Marks 1992b</A>
+</P>

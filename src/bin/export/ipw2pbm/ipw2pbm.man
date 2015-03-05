@@ -1,0 +1,144 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [<I> image </I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads <I>image</I> (default: standard input) and writes its
+equivalent to the standard output in either the PGM &quot;portable graymap&quot;
+format (if <I>image</I> has 1 band) or the PPM &quot;portable pixmap&quot; format (if
+<I>image</I> has 3 bands).
+</P>
+<H2>OPTIONS</H2>
+
+
+<P>None
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I> image </I>]</DT>
+
+<DD>	image	1- or 3-band input image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To display an IPW image using &quot;xv&quot; on an X window system display:
+</P><PRE>
+	ipw2pbm image | xv
+</PRE><P>
+To display a 3-band IPW image as a color image using xli:
+</P><PRE>
+	mux red green blue | ipw2pbm | xli stdin
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>The following diagnostics indicate violations of restrictions imposed
+by the PGM or PPM image formats:
+</DT>
+
+<P>
+<DT><I>nbits</I>-bit pixels (must be &lt;= 8)
+</DT>
+<DD><BR>	&quot;raw&quot;-format PGM or PPM images cannot have more than 8 bits
+	per pixel
+</DD>
+
+<P>
+<DT><I>nbands</I> bands (must be either 1 or 3)
+</DT>
+<DD><BR>	PGM images must have 1 band.  PPM images must have 3 bands.
+</DD>
+
+<P>
+<DT>pixel sizes differ: bands 0, <I>band</I>
+</DT>
+<DD><BR>	All 3 bands in a PPM image must have the same number of bits
+	per pixel.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Nov 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="dither.html">dither</A></B>,
+<B><A href="ipw2hds.html">ipw2hds</A></B>,
+<B><A href="ipw2ps.html">ipw2ps</A></B>,
+<B><A href="ipw2pgm.html">ipw2pgm</A></B>,
+<B><A href="ipw2ppm.html">ipw2ppm</A></B>,
+<B><A href="ipw2sun.html">ipw2sun</A></B>,
+<B><A href="ipw2xim.html">ipw2xim</A></B>,
+	<B><A href="pbm2ipw.html">pbm2ipw</A></B> 
+</DD>
+</DL>
+
+<DL>
+<DT>UNIX</DT>
+<DD>	pbm, pgm, ppm
+</DD>
+</DL>
+
+<DL>
+<DT>Image</DT>
+<DD>	xli, xloadimage, xv
+</DD>
+</DL>
+<P>&quot;PBMPLUS -- Extended Portable Bitmap Toolkit&quot;, Jef Poskanzer,
+	10 December, 1991.  Anonymous ftp from export.lcs.mit.edu:
+	/contrib/pbmplus.tar.Z.
+</P>
+<P>xv and xloadimage are also available on export.lcs.mit.edu.
+</P>
+<P>versions of xv, xli, and xloadimage that will read ipw formats directly
+are available via ftp from morpheus.cor.epa.gov
+</P>
+<P>Frew, J., 1990.  The Image Processing Workbench.  Ph.D. Thesis,
+	Department of Geography, University of California, Santa
+	Barbara, CA, 382pp.
+</P>
+

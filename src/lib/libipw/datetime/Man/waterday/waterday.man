@@ -1,0 +1,68 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+int
+waterday(
+	int 	year,		|* e.g., 1997			*|
+	int 	month,		|* [1 - 12]			*|
+	int 	day)		|* [1 - 31]			*|
+	int    *wateryear)	|* output [ year or year + 1 ]	*|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> returns the day of the water year for the given date.
+The &quot;water year&quot; runs from October 1 to September 30.  Water years
+are designated by the year they *end* in.  For example, the 1997
+water year runs from Oct 1, 1996 to September 30, 1997.
+The output parameter 'wateryear' is assigned the water year for
+the given date.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+1 - 366
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

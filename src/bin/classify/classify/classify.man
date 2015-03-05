@@ -1,0 +1,157 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-i</B> <I>class_file</I> ] [ <B>-h</B> <I>crh</I> ] [ <B>-m</B> <I>mask</I> ]
+      [ <B>-f</B> <I>floor</I> ] [ <B>-c</B> <I>ceil</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads an IPW image and creates an image whose pixel values
+contain class identifiers for the corresponding input image pixel.
+The classes are defined by the given input file containing lo,hi
+and representative values for each class or by the given class range
+header.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-i</B> <I>class_file</I>
+<DD>
+input file containing lo, hi and representative values (floating
+point) for each class; must be sorted in increasing data values,
+seperated by &quot;white space&quot; (blanks or tabs, not commas);
+</DD>
+
+<P>Note 1: the number of classes is specified in the class range
+file, and that will be reported in the crh; it will, however,
+be mapped as nclasses + 1, to include a NO_DATA class.
+</P>
+
+<P>Note 2: classes defined in the class range file must be
+continuous, such that there are no unclassified gaps in the
+ranges;
+</P>
+
+<P>Note 3: the class representative value must be =&gt; &quot;lo&quot;,
+and &lt; &quot;hi&quot;; &quot;hi&quot; is considered either part of the next class,
+or beyond the range of the data;
+</P>
+
+<P>
+<DT><B>-h</B> <I>crh</I>
+<DD>
+input class range header (incompatible with <B>-i</b> option;
+at least one of <B>-i</b>, <B>-h</b> must be specified)
+
+<P>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+mask image - for all 0 pixels in mask image, set corresponding
+classified pixel to NO_DATA (class 0)
+
+<P>
+<DT><B>-f</B> <I>floor</I>
+<DD>
+class value for data values &lt; lo (defaults to NO_DATA)
+(ignored if <B>-h</b> option specified)
+
+<P>
+<DT><B>-c</B> <I>ceil</I>
+<DD>
+class value for data values &gt; hi (defaults to NO_DATA)
+(ignored if <B>-h</b> option specified)
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image	input image (defaults to stdin)
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To convert a dem to a classified image with two specified elevation
+classes, with everyting below set to 0 (NO_DATA), and everything above
+set to class 2:
+1) the class range file &quot;cf&quot; looks like this:
+</P>
+<PRE>
+	1500 3000 2000
+	3000 5000 3500
+</PRE><P>
+and 2) the command is:
+</P>
+<PRE>
+	classify -i cf -c 2 dem &gt;dem.class
+</PRE>
+
+<H2>FILES</H2>
+
+<PRE>
+     either a class range definition file, or a class range header must be
+     supplied
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+either the <B>-i</b> or <B>-h</b> option may be supplied, but not both
+requirements for the class range file (<B>-i</b> option) are very restrictive
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>May 1990</DT>
+<DD>
+  Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1997</DT>
+<DD>
+  Converted to IPW Version 2.0, D. Marks, USGS, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+The requirements for the class range file are cumbersome and restrictive;
+It would be nice to relax this to allow discontinuous classes,
+and assignment of any desired representative value.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="classeq.html">classeq</A></B>,
+<B><A href="clmask.html">clmask</A></B>,
+<B><A href="declass.html">declass</A></B>,
+<B><A href="mkcrh.html">mkcrh</A></B>
+</DD>
+</DL>
+

@@ -1,0 +1,3 @@
+%define(name,"hputrec")
+%define(description,"encode and write a header record")
+%define(category,"hdrio")

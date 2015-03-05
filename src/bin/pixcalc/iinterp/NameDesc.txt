@@ -1,0 +1,1 @@
+iinterp - linearly interpolate single-band image using set of data pairs

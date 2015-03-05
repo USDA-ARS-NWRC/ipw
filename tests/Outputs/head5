@@ -1,0 +1,26 @@
+!<header> basic_image_i -1 $Revision: 1.11 $
+byteorder = 3210 
+nlines = 1 
+nsamps = 1 
+nbands = 1 
+!<header> basic_image 0 $Revision: 1.11 $
+bytes = 2 
+bits = 10 
+history = mklqh -m 0,462,1023,895 -u W m^-2 -f 
+history = mksath -p EOS1 -s TM -l North America -d 19921201 -t 221510.213 -f 
+history = mksunh -z 0.838671 -a 1.064651 -f 
+!<header> lq 0 $Revision: 1.6 $
+units = W m^-2 
+map = 0 462 
+map = 1023 895 
+!<header> sat 0 $Revision: 1.2 $
+platform = EOS1 
+sensor = TM 
+location = North America 
+gmdate = 19921201 
+gmtime = 221510.213 
+!<header> sun 0 $Revision: 1.1 $
+cos_sun = 0.83867102861404 
+zen_sun = 0.57595783472061 
+azm_sun = 1.0646510124207 
+!<header> image -1 $Revision: 1.5 $

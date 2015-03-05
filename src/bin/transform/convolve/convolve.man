@@ -1,0 +1,164 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-i</B> <I>image</I> ] [ <B>-c</B> <I>coefs</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Convolve performs spatial convolution on an IPW image, using an
+arbitrary kernel read from a file or from the standard input.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-i</B> <I>image</I>
+<DD>
+Use <I>image</I> as the input image file (default: standard input).
+</DD>
+
+<P>
+<DT><B>-c</B> <I>coefs</I>
+<DD>
+Use <I>coefs</I> as the kernel coefficient file (default: standard
+input).  This file is described in the FILES section below.
+</DD>
+</DL>
+
+<P>At least one of <B>-i</b> and/or <B>-c</b> must be specified.
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>	image (stdin)
+		if the -i option is not specified
+</P><P>
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To sharpen an image by adding it's Laplacian, reading the kernel
+from the standard input:
+</P><PRE>
+	convolve -i image
+	3 3
+	0 -1 0
+	-1 5 -1
+	0 -1 0
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     <I>coefs</I>
+     	This is the kernel coefficient file and is given as input
+     	to the program.  It is an ASCII file formatted:
+     		value		description
+     		-----		-----------
+     		1		#rows in kernel
+     		2		#columns in kernel
+     		3		coefficient[0][0]
+     		...		...
+     		#cols+2		coefficient[0][#cols-1]
+     		#cols+3		coefficient[1][0]
+     		...		...
+     	Values may be separated by any sequence of blanks, tabs,
+     	and newlines.  If the kernel does not sum to zero, it is
+     	normalized to sum to 1.0.
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT><I>rows</I>x<I>cols</I> kernel is bigger than <I>nlines</I>x<I>nsamps</I> image
+</DT>
+<DD><BR>	The kernel cannot be bigger than the image
+</DD>
+
+<P>
+<DT>Sorry, only single-band input images accepted
+</DT>
+<DD><BR>	The input image may not have more than 1 band
+</DD>
+
+<P>
+<DT>bad kernel size: <I>rows</I>x<I>cols</I>
+</DT>
+<DD><BR>	The kernel dimensions must be nonzero positive integers
+</DD>
+
+<P>
+<DT>both kernel dimensions must be odd
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+#rows and #columns must both be odd.
+</P><P>
+There must be enough virtual memory to accommodate #rows output lines.
+</P><P>
+The normalization process can cause kernels that differ only
+slightly to produce radically different results
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+	Converted to ANSI prototypes, Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>May 1993</DT>
+<DD>
+	Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+<B>%name</B>.c: kmap has a morass of pointers to allocated space that has
+no way of being cleanly freed.
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="resamp.html">resamp</A></B>,
+<B><A href="smooth.html">smooth</A></B>,
+<B><A href="zoom.html">zoom</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Image</DT>
+<DD>	pnm, pnmconvol, pnmsmooth
+</DD>
+</DL>
+<P>Frew, J., 1990. The Image Processing Workbench. PhD Thesis, Department
+	if Geography, University of California, Santa Barbara, 382p.
+</P>
+

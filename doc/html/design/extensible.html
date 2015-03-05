@@ -1,0 +1,75 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>IPW Design Goal - Extensibility</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../images/usda.gif" alt="USDA">
+<IMG SRC="../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>IPW Design Goal - Extensibility</H1>
+
+
+<P>
+A key design goal of the IPW implementation is extensibility. It is expected
+that IPW will never be "finished", but will constantly be modified as new
+applications arise.  It is essential that the design of IPW allow for this
+evolutionary growth.
+</P>
+
+<B>No arbitrary limits of magnitude</B>
+<P>
+To the maximum extent possible, there are no limits of magnitude
+incorporated into IPW. One aspect of this is avoiding static limits where
+dynamic limits may be used instead, such as in the allocation of internal
+data structures. Another is to minimize chances of resource exhaustion,
+such as not reading an entire image into memory if it can be processed in
+smaller pieces.
+<P>
+Such limits as exist are imposed by the underlying C and UNIX e .
+For example, various image dimensions are manipulated as long or unsigned
+long integers.  The number of simultaneously open files in a process is
+limited by the operating system. Every effort is made to ensure that limits
+like these are the only ones imposed by IPW .
+<P>
+
+<B>Design for growth</B>
+<P>
+Like most scientific software, IPW will probably be used long beyond its
+originally envisioned life span. It is therefore important that the software
+be designed for growth over time, both in terms of migrating to new platforms,
+and adding functionality. To this end, almost all of the underlying structures
+in IPW are open-ended. For example, new types of image header data may be
+easily added, and are harmlessly ignored by older programs that don't
+recognize them. The pipe-filter paradigm, described below,
+allows new programs to seamlessly inter-operate with existing ones.
+<P>
+
+<B>New data sources</B>
+<P>
+IPW operates on generic multi-band images. Nothing about the software is
+restricted to or specialized for a particular data source (sensor,
+data system, etc.). IPW's internal data format is extremely simple, and
+it has proven easy to write ingest programs to convert new types of data
+to the IPW format. This is important, since once an ingest program has
+been written, the rest of IPW i s available to the new data source.
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,3 @@
+%define(name,"crhdup")
+%define(description,"duplicate an IPW CRH header")
+%define(category,"crh")

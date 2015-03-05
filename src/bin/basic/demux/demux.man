@@ -1,0 +1,135 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-b</B> <I>band</I>[,<I>...</I>] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> extracts the specified bands from image, or from the standard
+input.  The image consisting of only the specified bands is written
+to the standard output.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-b</B> <I>band</I>[,<I>...</I>]
+<DD>
+extract the specified bands.  The bands will appear in the
+output image in the order specified.  A range of bands can
+be selected by specifying the starting band and the ending
+band separated by a minus sign, e.g., "0-3" selects band 0
+through band 3.  If the ending band is not specified, the
+default is the last band, e.g., "2-" selects the all the
+bands from band 2 to the last band.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I></DT>
+<DD>
+Input image (default: standard input).
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To reverse the order of a 2 band image:
+</P><PRE>
+     demux -b 1,0 image
+</PRE><P>
+To create a 3 band image consisting of the first 3 bands of &quot;image&quot;:
+</P><PRE>
+     demux -b 0,1,2 image
+
+     <I>or</I>
+
+     demux -b 0-2 image
+</PRE>
+<P>
+To extract all but the first band of an image:
+<PRE>
+     demux -b 1- image
+</PRE>
+
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT><I>band</I>: bad input band number
+<DD>The input image does not contain the specified band.
+</DD>
+
+<P>
+<DT>&quot;<I>header</I>&quot; header, band <I>band</I>: no such band
+</DT>
+<DD>The specified <I>header</I> in the input image pertains to a
+nonexistent band (i.e., the input image is corrupted).
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+
+<P>
+
+<DT>May 1993</DT>
+<DD>
+Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<P>
+
+<DT>Jun 1998</DT>
+<DD>
+Modified so that ranges of bands can be specified with the <B>-b</B> option.
+Also fixed bug with BI headers when input bands were being swapped (as in
+the example above).  J. Domingo, OSU.
+</DD>
+</DL>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="mux.html">mux</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A><BR>
+</P>
+

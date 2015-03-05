@@ -1,0 +1,113 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>IPW Design Goal - Leverage UNIX</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../images/usda.gif" alt="USDA">
+<IMG SRC="../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>IPW Design Goal - Leverage UNIX</H1>
+
+
+<P>
+The UNIX computing environment provides an abundance of support facilities
+that IPW takes advantage of. In keeping with the principle of uniqueness,
+every attempt is made to exploit an existing feature of UNIX before adding
+a new feature to IPW.
+<P>
+
+<B>Pipes and filters</B>
+<P>
+One of the principal contributions of UNIX has been the paradigm of pipes and
+filters [Ritchie1974]: constraining programs to a single primary input and
+a single output stream, and providing a command-level operator to connect
+the output of one command to the primary input of another. This leads to a
+data-driven model of computing that adapts naturally to image processing
+[Hunt1982]. To the extent possible, all IPW programs are written as filters,
+and combining IPW (and non-IPW) programs into pipelines is fundamental to
+IPW application-building.
+<P>
+
+<B>Sequential processing</B>
+<P>
+The pipe-filter model has an important side effect in that it mandates serial
+processing: a program reading from a pipeline cannot rewind or randomly
+access its input stream; similarly, data written to a pipe cannot be read back.
+In some respects this is a salubrious constraint, since implementations of
+serial processing code tend to be simple and compact; however, some
+operations (e.g. requantization) require repeated passes over data, which
+in turn require large memories or the use of scratch files if the filter
+paradigm is to be maintained.
+
+<P>
+<B>Shell</B>
+<P>
+The UNIX shell is actually a high-level programming language, whose operands
+are individual programs (or scripts of programs). IPW takes advantage of
+this by making liberal use of shell scripts to construct application programs.
+Experience in shell programming is immediately transferable to IPW application
+development.
+<P>
+
+<B>Other UNIX commands</B> (awk, sed, etc.)
+<P>
+Almost all UNIX implementations contain powerful standard utilities that IPW
+takes advantage of. The awk text-processing language and sed stream editor
+are used as prototyping tools for, and often in the final versions of, several
+applications, since much IPW processing involves manipulating data that are
+stored in ASCII (e.g. image headers) or may be easily converted between
+ASCII and binary (e.g. lookup tables). IPW source code is maintained with the
+make recompilation manager and RCS revision control software. In general,
+any existing UNIX utility that is either widely available, or freely
+distributable with IPW, may be an integral part of the overall IPW environment.
+<P>
+
+<B>File system</B>
+<P>
+UNIX's hierarchical file system provides a ready-made image data cataloging
+system. While a relational model might be more appropriate for an image
+catalog, the hierarchical model is eminently usable, and is provided on
+all UNIX implementations.
+<P>
+
+<B>Command syntax</B>
+<P>
+IPW commands use a UNIX standard command-line syntax [Hemenway1984]
+and thus resemble most other UNIX commands. While it may be argued that
+this syntax is not terribly user-friendly, it is consistent, and once
+mastered, is portable to all UNIX environments. Here IPW piggybacks on
+the user's existing UNIX experience, rather than constructing an
+arguably better but inconsistent interface.
+<P>
+
+<B>C</B>
+<P>
+The C language is supported in all UNIX environments and is thus the
+natural implementation language for IPW . C has often been called a "portable
+assembly language," in that it allows most of the low-level bit and byte
+manipulations formerly possible only in assembly languages. Such operations
+are a cornerstone of image processing, another reason why C is a suitable
+language for IPW . Finally, with suitable discipline, it is possible to
+write C code that is both readable and efficient, both of which are
+important for extensible image processing code.
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

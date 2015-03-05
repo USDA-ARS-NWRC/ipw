@@ -1,0 +1,5 @@
+%define(SH,@SH_PATH@)
+%define(AWK,@AWK_PATH@)
+%define(SED,@SED_PATH@)
+%define(PERL,@PERL_PATH@)
+%define(GRAPH,@GRAPH_PATH@)

@@ -1,0 +1,51 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "geoh.h"
+
+GEOH_T **name(old)
+GEOH_T **old;
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> creates a duplicate of the IPW GEOH header pointed to by
+&quot;old&quot;.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+A pointer to the duplicate header is returned.  NULL is returned if
+an error occurs.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+
+<H2>DIAGNOSTICS</H2>
+
+
+<H2>RESTRICTIONS</H2>
+
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+
+<H2>SEE ALSO</H2>
+
+
+

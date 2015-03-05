@@ -1,0 +1,68 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "crh.h"
+
+CRH_T *
+crhmake(
+	int         nclass,	|* #classes     		 *|
+	fpixel_t   *lo,		|* array of lower range values   *|
+	fpixel_t   *hi,		|* array of higher range values  *|
+	fpixel_t   *rep,	|* array of representative vals  *|
+	pixel_t	    floor,	|* class floor value		 *|
+	pixel_t	    ceil,	|* class ceiling value		 *|
+	char       *annot,	|* annotation                    *|
+	char       *units)	|* units of data                 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> allocates a single IPW CR header.  The header is initialized
+with the arguments.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+pointer to new CR header; NULL if error
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

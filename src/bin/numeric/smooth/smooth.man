@@ -1,0 +1,102 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-n</B> <I>order</I> 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+smooths a vector using a running average of specified order, specified
+by the &quot;<B>-n</b>&quot; field.  The output value is the running average of the last
+&quot;order&quot; values of input;  The output vector will always have (order - 1)
+fewer values than the input vector.
+</P><P>
+Inputs:	vector of values;
+Input is to stdin; output to stdout.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-n</B> <I>order</I>
+<DD>
+smoothing order (must be an integer)
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+<B>%name</B> <B>-n</b> 14 &lt;v1
+</P>
+<PRE>
+	computes a 14-value running average for the vector &quot;v1&quot;,
+	outputting a smoothed vector that is 13 values shorter than &quot;v1&quot;
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Mar 1997</DT>
+<DD>
+	Written by D. Marks, USGS, EPA NHEERL/WED
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1997</DT>
+<DD>
+	Converted to IPW Version 2.0, D. Marks, USGS, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="convolve.html">convolve</A></B>,
+<B><A href="interp.html">interp</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Newton 1988">Newton 1988</A><BR>
+</P>
+

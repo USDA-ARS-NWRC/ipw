@@ -1,0 +1,10 @@
+20a21,29
+> # On OS X 10.6 (Snow Leopard) with Xcode 3.2, there's a subtle path bug with
+> # GNU Make and /bin/sh (IPW ticket #22).  Workaround: use Bash shell.
+> ifeq ($(shell uname -s),Darwin)
+>   OS_X_VERSION := $(shell sw_vers -productVersion)
+>   ifeq ($(findstring 10.6.,$(OS_X_VERSION)),10.6.)
+>     SHELL := /bin/bash
+>   endif
+> endif
+> 

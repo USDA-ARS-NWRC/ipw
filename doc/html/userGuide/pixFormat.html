@@ -1,0 +1,186 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Format of Pixel Data in IPW Images</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../images/usda.gif" alt="USDA">
+<IMG SRC="../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Format of Pixel Data in IPW Images</H1>
+
+
+<P>
+The pixels in an IPW image are floating-point values.  These
+values usually represent physical quantities such as air temperature,
+precipitation, elevation, etc.
+
+<P>
+Pixels are stored as binary data in an IPW image file.  Each band in an
+IPW image uses a fixed number of bits to store the pixels in that band.
+Different bands in an image may use different numbers of bits to store
+their respective pixels.  For example, a 2-band image might use 8 bits to
+store the pixels in its first band (band 0) while using 12 bits to store
+the pixels in its second band (band 1).
+
+<P>
+The number of bits used to store a pixel determines the range of possible
+binary values:
+
+<PRE>
+    <I>N</I><sup> </sup>     = number of bits used to store pixels in a band
+    2<sup><I>N</I></sup>     = number of possible binary values
+    0<sup> </sup>     = minimum binary value
+    2<sup><I>N</I></sup> - 1 = maximum binary value
+</PRE>
+
+For example, if 8 bits are used to stored a band of pixels, then the set of
+possible binary values has 256 values ranging from 0 to 255.
+
+<P>
+<B>Linear Quantization: storing floating-point pixels as binary values</B>
+
+<P>
+The range of binary values used to store a band of pixels represents a range of
+floating-point values.  For example, a band of pixels representing air
+temperatures in Celsuis might range from -40 C to 50 C.
+
+<P>
+Although the range of pixel values is finite, the set of possible
+pixel values is infinite because they are floating-point values.
+Using a finite set of binary values to represent this infinite set of pixel
+values is called <B>quantization</B>.
+
+<P>
+Logically, the minimum binary value (0) represents the minimum pixel value,
+while the maximum binary value (2<SUP><I>N</I></SUP> - 1) represents the
+maximum pixel value.  Combining the previous two examples, if the pixels
+representing air temperatures from -40 C to 50 C are stored using 8 bits each,
+then the binary value 0 represents the pixel value -40 C, while the binary
+value 255 represents the pixel value 50 C.
+
+<P>
+To determine the binary value that represents any other floating-point pixel
+value other than the minimum and maximum values, this formula is used:
+
+<PRE>
+    <I>b</I> = round( (<I>x</I> - <I>MIN<SUB>pix</SUB></I>)/<I>P</I> )
+</PRE>
+
+where
+
+<PRE>
+    <I>x</I><sub>   </sub>   = floating-point pixel value
+    <I>b</I><sub>   </sub>   = corresponding binary value
+    <I>MIN<SUB>pix</SUB></I> = minimum floating-point pixel value
+    <I>P</I><sub>   </sub>   = precision (see below)
+    round<sub>  </sub>= function to round to nearest integer
+</PRE>
+
+Because this formula is a linear function, the representation of floating-point
+pixels as binary values in an IPW image is referred to as
+<B>linear quantization</B>.
+
+<P>
+<B>Precision</B>
+
+<P>
+Because of quantization, each floating-point pixel value does
+<B>not</B> have a unique corresponding binary value.  However, each binary
+value does represent a unique floating-point pixel value.  Because the
+quantization is linear, the difference between the floating-point pixel
+values for two adjacent binary values is the same regardless of which
+two binary values are considered.  This fixed difference is known as
+the quantization's <B>precision</B>, and is calculated as follows:
+
+<PRE>
+    <I>P</I> = (<I>MAX<SUB>pix</SUB></I> - <I>MIN<SUB>pix</SUB></I>) / (2<SUP><I>N</I></SUP> - 1)
+</PRE>
+
+<P>
+Using the previous example where 8 bits are used to store pixel values for
+air temperatures ranging from -40 C to 50 C, the precision of this
+particular quantization is:
+
+<PRE>
+    <I>P</I> = (50 C - -40 C) / (2<SUP>8</SUP> - 1) = .353 C
+      = .353 C
+</PRE>
+    
+Therefore, each binary value in this particular quantization represents a
+step of .353 C in the range of corresponding pixel values.  Using this
+precision, the function for computing binary values in this example becomes:
+
+<PRE>
+    <I>b</I> = round( (<I>x</I> - -40 C)/.353 C )
+</PRE>
+
+Hence, freezing (i.e., 0 C) is represented by the binary value 113.
+
+<P>
+Another way of looking at precision is to realize that any two floating-point
+pixel values that differ by more than the precision of a particular
+quantization will be represented by different binary values.
+
+<P>
+<B>Mapping binary values to floating-point pixels</B>
+
+<P>
+The formula to determine the floating-point pixel value represented by
+a particular binary value is simply the inverse of the function above:
+
+<PRE>
+    <I>x</I> = <I>MIN<SUB>pix</SUB></I>  +  <I>b</I> * <I>P</I>
+
+    <I>(Note:  The asterisk character "*" represents multiplication.)</I>
+</PRE>
+
+Using the above example with 8-bit quantization for air temperatures, this
+function becomes:
+
+<PRE>
+    <I>x</I> = -40 C  +  <I>b</I> * .353 C
+</PRE>
+
+Hence, the binary value 78 represents the pixel value -12.47 C.
+
+<P>
+<B>Linear quantization (LQ) headers</B>
+
+<P>
+The parameters for linear quantization are stored in a band's LQ header.
+See the <A HREF="hdrFormat.html">previous section of this user's guide</A>
+for a general description of an IPW image header.  The <CODE><B>map</B></CODE>
+datum lines in an LQ header specify the range of floating-point pixel values
+for the designated band:
+
+<PRE>
+     !&lt;header> lq 0 $Revision: 1.4 $
+     map = 0 0
+     map = 255 56.78
+</PRE>
+
+In this example, the first datum line specifies that the binary value 0 maps
+into the pixel value 0, and the second datum line specifies that the binary
+value 255 maps into the pixel value 56.78; therefore, the pixel values in
+this image's first band (band 0) range from 0 to 56.78.
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

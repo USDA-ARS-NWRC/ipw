@@ -1,0 +1,140 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-c</B> <I>class</I> [ <B>-i</B> <I>image</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads an IPW image and creates an output image with all
+points but those containing the value <I>class</I> set to 0.  This can
+be used as a mask image for other utilities.  Used in conjunction
+with the IPW program classify, a mask can be made that covers many
+values.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-c</B> <I>class</I>
+<DD>
+Set all pixel values not equal to <I>class</I> to 0 in the
+output image.  All pixels with values equal to <I>class</I>
+will be passed through.
+</DD>
+
+<P>
+<DT><B>-i</B> <I>image</I>
+<DD>
+Use <I>image</I> as the input image (default: standard input).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+If pixel 58 holds lakes in &quot;state.dem&quot;, a mask with just the lakes
+can be created with:
+</P><PRE>
+	clmask  -c 58  -i state.dem   &gt; lakes.mask
+</PRE><P>
+<B>%name</B> can be used by itself if the image contains a single value
+that needs to be masked, or in conjunction with classify.  The
+classify program lets you turn whole ranges of pixel values into
+&quot;classifications&quot;.  This would let you convert all pixel values
+between 1 and 50 into one pixel value, then <B>%name</B> could be run
+with that pixel value as it's class, thus creating a mask with
+all values outside of 1-50 in the original image set to 0.
+</P><P>
+If &quot;class_file&quot; mapped values 1-50 into pixel value 1, the
+following would create a mask for all values between 1 and 50
+in the file &quot;state.dem&quot;:
+</P><PRE>
+	classify -i class_file state.dem | clmask -c 1 &gt; ground.mask
+</PRE><P>
+The IPW program lutx can be used to invert a mask if so desired.
+If the processing was to take place on the above mask for all
+pixels outside of 1-50 instead of inside, the following produces
+an inverted mask:
+</P><PRE>
+	mklut | lutx -i ground.mask &gt; water.mask
+	0 255
+	1 0
+</PRE><P>
+this can also be used to fix the slope of the water pixels to 0:
+</P><PRE>
+	mux slope ground.mask | bitcom -a -m &gt; slope.fixed
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>May 1990</DT>
+<DD>
+  Written by Kelly Longley, Oregon State University,
+Environmental Protection Agency Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<DL>
+<DT>Jul 1993</DT>
+<DD>
+  Modified to handle multi-byte images and use an inline awk
+script.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1997</DT>
+<DD>
+  Converted to IPW Version 2.0, D. Marks, USGS, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="bitcom.html">bitcom</A></B>,
+<B><A href="classeq.html">classeq</A></B>,
+<B><A href="classify.html">classify</A></B>,
+<B><A href="lutx.html">lutx</A></B>,
+<B><A href="mklut.html">mklut</A></B>
+</DD>
+</DL>
+

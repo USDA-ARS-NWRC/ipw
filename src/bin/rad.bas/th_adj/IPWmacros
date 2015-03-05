@@ -1,0 +1,3 @@
+%define(name,"th_adj")
+%define(description,"thermal radiation adjustment for veg, clouds or both")
+%define(category,"Radiation Modeling: Basin-Scale")

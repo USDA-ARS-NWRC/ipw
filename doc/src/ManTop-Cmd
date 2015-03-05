@@ -1,0 +1,15 @@
+<HTML>
+
+<HEAD>
+ <TITLE>IPW command: %name</TITLE>
+</HEAD>
+
+<BODY>
+
+<H1 ALIGN=CENTER>%name</H1>
+
+<P ALIGN=CENTER>IPW %cmd_type Command<BR>
+Category - %category</P>
+
+<HR WIDTH="100%">
+

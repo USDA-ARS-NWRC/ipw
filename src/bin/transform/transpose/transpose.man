@@ -1,0 +1,107 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [<I> image </I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads <I>image</I> (default: standard input) and writes its
+<B>%name</B> to the standard output.
+</P>
+<H2>OPTIONS</H2>
+
+
+<P>None
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I> image </I>]</DT>
+
+<DD>	image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To rotate an image 90 degrees clockwise:
+</P><PRE>
+	flip -s image | transpose
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>output image won't fit in memory
+</DT>
+<DD><BR>	The entire image must fit into virtual memory.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The entire image must fit into (virtual) memory.
+</P><P>
+If the output image does not have the canonical IPW line (top to
+bottom) and sample (left to right) order, then it will be given
+an orientation (&quot;or&quot;) header describing the non-standard ordering.
+</P><P>
+Geodetic (&quot;geo&quot;) headers, window (&quot;win&quot;) headers, and orientation
+(&quot;or&quot;) headers will be modified if they are present.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+	Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="flip.html">flip</A></B>,
+<B><A href="skew.html">skew</A></B>,
+<B><A href="rotate.html">rotate</A></B>
+</DD>
+</DL>
+<P>Frew, J., 1990.  The Image Processing Workbench.  Ph.D. Thesis,
+	Department of Geography, University of California, Santa
+	Barbara, CA, 382pp.
+</P>
+

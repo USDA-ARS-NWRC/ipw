@@ -1,0 +1,9 @@
+Consolidated the single global variables in _errno.c, _fderr.c, and _usrerr.c
+into a single file: _vars.c
+
+Merged the file "__bug.c" into the file "_bug.c"
+
+Instead of having each routine check for standard C by testing for the
+macro "__STDC__", have the local include file "_error.h" test for the
+IPW-specific macro "STANDARD_C".
+

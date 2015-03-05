@@ -1,0 +1,76 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+int
+uwrite(
+	int             fd,	   |* output file descriptor	 *|
+	const addr_t    buf,	   |* buffer to write from	 *|
+	int             nbytes)	   |* number of bytes to write	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is a reliable interface to the UNIX write function.  The
+various types of write errors are detected and folded into a single
+error return.
+</P><P>
+It is considered an error for UNIX write to return any number other
+than the number of bytes that were requested to be written.
+</P><P>
+Use <B>%name</B> wherever you would normally use the UNIX system call
+write.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+&gt;= 0	number of bytes written
+</P><P>
+ERROR	for failure
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_uiocb
+</P>
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>&quot;incomplete write&quot;
+</DT>
+<DD><BR>	some number of bytes less than the number requested were
+	written.  This is not necessarily due to a hard I/O error.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+
+<H2>SEE ALSO</H2>
+
+
+

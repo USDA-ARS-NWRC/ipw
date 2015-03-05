@@ -1,0 +1,62 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "radiation.h"
+
+double 
+brutsaert(
+     double  ta,       /* air temp (K)                   */
+     double  lambda,   /* temperature lapse rate (deg/m) */
+     double  ea,       /* vapor pressure (Pa)            */
+     double  z,        /* elevation (z)                  */
+     double  pa)       /* air pressure (Pa)              */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates atmospheric emissivity
+using a modified form of the equations by W. Brutsaert (see
+the reference below).
+</P>
+
+<H2>RETURN VALUE</H2>
+
+<P>
+atmospheric emissivity
+</P>
+
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Dec 1983</DT>
+<DD>
+Written by D. Marks, CSL/UCSB;
+</DD>
+
+<P>
+
+<DT>Oct 1992</DT>
+<DD>
+Converted from QDIPS to IPW by D. Marks, USGS, EPA ERL/C;
+</DD>
+
+</DL>
+
+
+<H2>SEE ALSO</H2>
+
+<P>
+<A HREF="../bib.html#Brutsaert 1975">Brutsaert 1975</A>,
+<A HREF="../bib.html#Marks 1979">Marks 1979</A>
+</P>
+
+

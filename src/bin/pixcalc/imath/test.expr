@@ -1,0 +1,5 @@
+   #   A file to test the token routine
+
+b0 > 0
+    ?   b1 * 0.5   #  do this if b0 positive
+    :   -7         #  otherwise do this

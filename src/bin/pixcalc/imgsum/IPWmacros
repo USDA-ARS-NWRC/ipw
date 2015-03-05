@@ -1,0 +1,3 @@
+%define(name,"imgsum")
+%define(description,"sum all pixels in an image")
+%define(category,"Pixel Calculations")

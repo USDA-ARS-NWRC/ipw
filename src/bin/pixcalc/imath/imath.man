@@ -1,0 +1,553 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-expr</B> <I>string</I> ] [ <B>-file</B> <I>string</I> ] <B>-minmax</B> <I>min,max</I>
+     [ <B>-units</B> <I>string</I> ] [ <B>-bits</B> <I>n</I> ] [ <B>-mask</B> <I>image</I> ] [ <B>-lines</B> <I>n</I> ]
+     [ <B>-samps</B> <I>n</I> ] [ <B>-names</B> <I>name,...</I> ] [ <I>image</I> ]
+</PRE>
+
+
+<H2>DESCRIPTION </H2>
+
+<P>
+<B>%name</B> calculates an arithmetic expression for each sample
+in an input image.  The results are written to standard output as a
+single-band image.
+
+<P>
+The expression is made up of operators and operands.
+The following arithmetic operators are recognized:
+
+<PRE>
+     Arithmetic operators
+
+     +     addition
+     -     subtraction
+     *     multiplication
+     /     division
+     ^     exponentation
+     -     negation (unary operator)
+</PRE>
+
+<P>
+Each operator has one or more operands as arguments.  An operand is
+a basic component or term in the expression.  There are four types
+of operands: numbers, special variables, band-references, and functions.
+<P>
+Numbers are just numeric constants.  A number is either an integer or
+or a floating-point value.  A floating-point value is a number with
+a decimal point, or a number in scientific notation with an exponent.
+
+<PRE>
+     Examples of floating-point numbers
+
+     .9345
+     -12.08
+     5e3          (= 5 * 10^3 = 5 * 1000 = 5000)
+     -.3E-11
+</PRE>
+
+No whitespace is allowed before or after the letter "e" in the scientific
+notation.  A negative number has a leading minus sign ("-"),
+but a positive number has no leading plus sign.
+<P>
+There are several pre-defined variables that can be used in expressions:
+
+<PRE>
+     Special variables
+
+     pi
+     e		(base of natural logarithms)
+     nbands     (number of bands in input image)
+     sum        (sum of all bands of current sample)
+     min        (minimum of all bands of current sample)
+     max        (maximum of all bands of current sample)
+     median     (median of all bands of current sample)
+</PRE>
+
+<P>
+A band reference denotes a particular pixel of the input sample.
+A band reference is the word "band" concatenated with an unsigned integer.
+Bands are numbered starting at 0, so the first band is "band0", the second band
+is "band1", and so on.  The word "band" can be shortened to just the letter
+"b", e.g., "b0", "b3".
+<P>
+A second form of a band reference uses a bracket notation.  This form has
+the word "band" (or "b") followed by an expression surrounded by brackets,
+i.e., "[" expression "]".
+
+<PRE>
+     Examples of the bracket form of band references
+
+     band[0]
+     band [ b0 ]     (band 0 selects which band is referenced)
+     b[nbands-1]     (fetch the last band)
+</PRE>
+
+Whitespace may be used before and after the brackets.
+
+<P>
+The <B>-names</B> option can be used to specify names for the bands
+that can be used as alternatives to standard band references.
+
+<P>
+Various standard mathematical functions can be used in expressions.
+A function has an associated list of one or more arguments.  Each
+argument to a function can be any valid expression.  The list of
+arguments follows the function's name as a parenthesized list separated
+by commas.
+
+<PRE>
+    Functions
+
+    min(<I>x</I>, ...)       minimum of a list of values
+    max(<I>x</I>, ...)       maximum of a list of values
+    median(<I>x</I>, ...)    median of a list of values
+
+    log(<I>x</I>)            natural logarithm of <I>x</I>
+    log10(<I>x</I>)          base 10 logarithm of <I>x</I>
+
+    cos(<I>x</I>)            cosine of <I>x</I>  (<I>x</I> in radians)
+    sin(<I>x</I>)            sine of <I>x</I>    (<I>x</I> in radians)
+    tan(<I>x</I>)            tangent of <I>x</I> (<I>x</I> in radians)
+
+    arccos(<I>x</I>)         arc cosine of <I>x</I>
+    arcsin(<I>x</I>)         arc sine of <I>x</I>
+    arctan(<I>x</I>)         arc tangent of <I>x</I>
+
+    trunc(<I>x</I>)          integer portion of <I>x</I>
+    round(<I>x</I>)          round <I>x</I> to nearest integer
+</PRE>
+
+<P>
+The conditional operator is a trinary operator that selects one of two
+possible expressions based upon the value of a third expression.  The
+format of the conditional operator is:
+
+<PRE>
+     expression1 ? expression2 : expression3
+</PRE>
+
+<P>
+The first expression is called the "conditional expression".  It is evaluated
+first.  If the result is non-zero, then the second expression is evaluated.
+If the result of the conditional expression is 0, then the third expression
+is evaluated.
+
+<P>
+A conditional expression usually contains one or more relational operators.
+
+<PRE>
+     Relational operators
+
+     =      equality
+     !=     non-equality
+     <>     non-equality
+
+     <      less than
+     <=     less than or equal to
+     =<     less than or equal to
+
+     >      greater than or equal to
+     >=     greater than or equal to
+     =>     greater than or equal to
+</PRE>
+
+<P>
+Each relation operator yields either 1 or 0 as result (1 if the relation
+between the operands is true; 0 if the relation is false).
+<P>
+More complex conditional expressions can be built using logical operators.
+
+<PRE>
+     Logical operators
+
+     not    logical negation (non-zero becomes 0; 0 becomes 1)
+     !      logical negation
+
+     and    logical AND (returns 1 if both operands are non-zero)
+     &&     logical AND
+
+     or     logical OR (returns 1 if either operand is non-zero)
+     ||     logical OR
+</PRE>
+
+<P>
+In an expression with 2 or more different operators, the interpretation
+of the expression is controlled by the operators' precedence.
+
+<PRE>
+     Precedence of operators
+
+     Highest    unary -
+                ^
+                *, /
+                +, -
+                =, !=, <>, <, <=, =<, >, >=, =>
+                not, !
+                and, &&, or, ||
+     Lowest     ?:
+</PRE>
+
+<P>
+The precedence of operators can be overridden with the use of parenthenses;
+for example:
+
+<PRE>
+      band0 * (7 + band1)
+</PRE>
+
+<P>
+Almost all the operators associate from left to right; therefore, the
+expression
+
+<PRE>
+     x <I>op</I> y <I>op</I> z
+</PRE>
+
+<P>
+is interpreted as
+
+<PRE>
+     ( x <I>op</I> y ) <I>op</I> z
+</PRE>
+
+<P>
+The exceptions is the exponentation operator ("^") which
+associates from right to left; therefore, the expression
+
+<PRE>
+     x ^ y ^ z
+</PRE>
+
+<P>
+is interpreted as
+
+<PRE>
+     x ^ ( y ^ z )
+</PRE>
+
+<P>
+If an expression is read from a text file with <B>-file</B> option, then
+comments can be placed in the file.  A comment begins with the "#" character
+and extends to the end of the current line.
+
+<H2>OPTIONS </H2>
+
+<DL>
+
+<DT><B>-expr</B> <I>string</I>
+
+<DD>
+<I>string</I> is the arithmetic expression to calculate over
+every sample of the input image.  Note: if the string contains spaces,
+it will need to be quoted to indicate it's a single string to the shell.
+</DD>
+
+<P>
+
+<DT><B>-file</B> <I>string</I>
+
+<DD>
+<I>string</I> is the name of a text file containing the arithmetic
+expression.  Use "-" to specify standard input.
+</DD>
+
+</DL>
+
+<P>
+Either <B>-expr</B> or <B>-file</B> must be specified.
+
+<DL>
+
+<DT><B>-minmax</B> <I>min,max</I>
+<DD>
+<I>min</I> and <I>max</I> are the minimum and maximum floating-point
+pixel values for the output image's LQ header.
+</DD>
+
+<P>
+
+<DT><B>-units</B> <I>string</I>
+<DD>
+Use <I>string</I> as the units string in the output image's LQ
+header (default: no units string).
+</DD>
+
+<P>
+
+<DT><B>-bits</B> <I>n</I>
+<DD>
+Use <I>n</I> as the number of bits for the output image
+(default: 8).
+</DD>
+
+<P>
+
+<DT><B>-mask</B> <I>image</I>
+<DD>
+Use <I>mask</I> as a mask image.  Calculations are performed only for
+those points in the input image whose corresponding points in <I>mask</I>
+are not 0.
+</DD>
+
+<P>
+
+<DT><B>-lines</B> <I>n</I>
+<DD>
+Set the number of lines in the output image to <I>n</I> (default: 1).
+</DD>
+
+<P>
+
+<DT><B>-samps</B> <I>n</I>
+<DD>
+Set the number of lines in the output image to <I>n</I> (default: 1).
+</DD>
+
+</DL>
+
+<P>
+Note: options <B>-lines</B> and <B>-samps</B> can only be used when
+the expression is a constant expression (i.e., it reduces to a single
+number), and when no input image is specified.
+
+<DL>
+
+<DT><B>-names</B> <I>name,...</I>
+<DD>
+Specify names for the bands that can be used in the expression.  The
+first <I>name</I> refers to band 0, the second <I>name</I> refers to
+band 1, and so on.  A valid band name is a letter followed by zero or
+more letters, digits, and underscores.
+</DD>
+
+</DL>
+
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I>
+
+<DD>Use <I>image</I> as the input image (default: standard input unless
+the expression is a constant expression; in this case, the default
+is no input image).
+</DD>
+</DL>
+
+
+<H2>EXAMPLES</H2>
+
+First, some examples of expressions.
+
+<P>To add the first two bands of an image:
+
+<PRE>
+     -expr "b0 + b1"
+</PRE>
+
+<P>To extract the third band of an image:
+
+<PRE>
+     -expr b3
+</PRE>
+
+The above example is equivalent to a <B>demux</B> command; however,
+it's slower.
+
+<P>To make an image of a constant value -4.5 for every point:
+
+<PRE>
+     -expr -4.5
+</PRE>
+
+<P>To create a mask for all the points where the first band is
+positive:
+
+<PRE>
+     %name -expr "b0 > 0 ? 1 : 0" -minmax 0,1 < <I>image</I>
+</PRE>
+
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<B>Possible messages during initialization:</B>
+
+<P>
+<DT>minimum >= maximum in LQ header
+<DD></DD>
+
+<P>
+<DT>can't open input image
+<DD></DD>
+
+<P>
+<DT>can't access standard input for input image
+<DD></DD>
+
+<P>
+<DT>nbits must be between 1 and %d
+<DD></DD>
+
+<P>
+<DT>can't access standard output for output image
+<DD></DD>
+
+</DL>
+
+<DL>
+
+<P>
+<B>Possible messages while checking expression:</B>
+
+<P>
+<DT>empty expression
+<DD>
+The string argument to <B>-expr</B> has no expression.
+</DD>
+
+<P>
+<DT>Missing digit(s) after decimal point
+<DD></DD>
+
+<P>
+<DT>Missing exponent
+<DD>
+A floating-point number in scientific notation is missing the integer
+after the letter "e".
+</DD>
+
+<P>
+<DT>Invalid word or symbol
+<DD>
+Invalid character(s) found in the expression.
+</DD>
+
+<P>
+<DT>Expected a basic expression operand
+<DD></DD>
+
+<P>
+<DT>Expected '-' or a basic expression operand
+<DD></DD>
+
+<P>
+<DT>Expected operand or '('
+<DD></DD>
+
+<P>
+<DT>Expected '['
+<DD></DD>
+
+<P>
+<DT>Expected ']'
+<DD></DD>
+
+<P>
+<DT>Expected '('
+<DD></DD>
+
+<P>
+<DT>Expected ','
+<DD></DD>
+
+<P>
+<DT>Expected ')'
+<DD></DD>
+
+<P>
+<DT>Expected colon ':'
+<DD></DD>
+
+<P>
+<DT>Expected expression
+<DD></DD>
+
+</DL>
+
+<DL>
+<B>Possible message while calculating the expression:</B>
+
+<P>
+<DT>Division by zero
+<DD></DD>
+
+<P>
+<DT>Accessing band %d, but only %d band%s
+<DD>
+Encountered a band reference that refers to a non-existant band.
+</DD>
+
+<P>
+<DT>Negative band index: %d
+<DD></DD>
+
+</DL>
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>None.</P>
+
+
+<H2>HISTORY </H2>
+
+<DL>
+
+<DT>Nov 1997
+<DD>
+Written by J. Domingo, OSU
+</DD>
+
+<p>
+
+<DT>Apr 1998
+<DD>
+Added the <B>-file</B> option.  J. Domingo, OSU
+</DD>
+
+
+<p>
+
+<DT>Jun 1998
+<DD>
+Added the min, max, and median functions.  J. Domingo, OSU
+</DD>
+</DL>
+
+
+<H2>BUGS</H2>
+
+<P>None.</P>
+
+
+<H2>SEE ALSO </H2>
+
+<DL>
+<DT>IPW:</DT> 
+<DD>
+<B><A HREF="bitcom.html">bitcom</A></B>
+<B><A HREF="iadd.html">iadd</A></B>,
+<B><A HREF="lincom.html">lincom</A></B>
+<B><A HREF="mult.html">mult</A></B>,
+<B><A HREF="scale.html">scale</A></B>,
+</DD>
+</DL>
+
+

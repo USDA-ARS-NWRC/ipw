@@ -1,0 +1,114 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-m</B> <I>mask</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates LE flux (W/m2, +/-) using the Penman-Monteith
+approach (Monteith and Unsworth 1990). The program reads
+</P>
+<PRE>
+     a 6-band image file containing the following daily data:
+</PRE><PRE>
+	band	contents
+	----    --------
+	0	air temperature (C)
+	1	actual vapor pressure at air temperature (Pa)
+	2	wind speed (m/s)
+	3	net radiation (W/m^2, negative away from surface)
+	4	projected (1-sided) leaf area index
+	5	bulk canopy conductivity (m/s)
+</PRE><P>
+If no input file is specified, the programs reads from the input
+image from standard input.  The program outputs a 4-band image
+to standard output:
+</P><PRE>
+	band	contents
+	----    --------
+	0	latent energy flux (W/m^2)
+	1	proportion of LE due to radiation (W/m^2)
+	2	proportion of LE due to vapor pressure deficit (W/m^2)
+	3	aerodynamic resistance (s/m)
+</PRE>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+Use the 1-band image <I>mask</I> to mask the input image.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+<DD>
+input image 6-band image
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate evaptranspiration using Penmann-Montieth over a basin within
+a dem image:
+</P><PRE>
+	mux ta vp ws rn lai cc | ipmx -m basin mask
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+	$TMPDIR/ipmx*	temporary file
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Assumptions:
+</P>
+<DD>
+No stability correction, G is estimated, canopy height and z0 are
+a function of lai.
+</DD>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Aug 1995</DT>
+<DD>
+Converted the point-model program pmx to work over
+an IPW image.  J. Domingo, OSU, EPA NHEERL/WED
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<P>iptx, itrbxfr, penmonx, pmx, ptaylorx, ptx, trb_Ri, trbxfr
+</P>
+<P>
+<A HREF="../bib.html#Monteith, Unsworth 1990">Monteith and Unsworth, 1990</A>
+</P>
+

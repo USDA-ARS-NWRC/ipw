@@ -1,0 +1,99 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-b</B> <I>bits</I> ] [ <I>image</I> ]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads a multi-band image and
+outputs a multi-band image in which the sum of all bands is a surface
+with value 1.0 everywhere (within the available image precision).
+<P>
+When all bands of an input pixel are 0.0, the program will
+output zeros (i.e. these output pixels will not sum to 1.0).  
+<P>
+NOTE:  This program is very sensitive to quantization error.  The 
+larger the number of image bits used, the closer the sum of the
+output bands gets to 1.0.
+</P>
+
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-b</B> <I>bits</I>
+<DD>
+Use <I>bits</I> bits per output pixel (default: 16).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I>
+<DD>
+multi-band input image (default: standard input)
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None.
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The image must have more than one band.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Dec 1993
+<DD>
+Started by Paul Hardin, ERL-C.
+</DD>
+
+<P>
+
+<DT>Aug 1994
+<DD>
+Working version completed by Rusty Dodson, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:
+<DD>
+<B><A HREF="demux.html">demux</A></B>,
+<B><A HREF="mux.html">mux</A></B>,
+<B><A HREF="iadd.html">iadd</A></B> 
+</DD>
+</DL>
+

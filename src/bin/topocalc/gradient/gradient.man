@@ -1,0 +1,184 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-s</B> ] [ <B>-a</B> ] [ <B>-d</B> <I>deltaL</I>[,<I>deltaS</I>] ]
+      [ <B>-i</B> <I>Sbits</I>[,<I>Abits</I>] ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads elevations from <I>image</I> (default: standard input)
+and writes a 2-band image of the slope and aspect (the magnitude
+and direction of the <B>%name</B>) to the standard output.
+</P><P>
+The 2-band output image has slope as its first band and
+aspect as its second.  Slope is stored as sin(S) with range
+from 0 to 1.  Aspect is stored as radians from south (aspect 0
+is toward the south) with range from -pi to pi, with negative
+values to the west and positive values to the east.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-s</B> 
+<DD>
+compute slope image only (default: compute both slope and
+aspect images).
+</DD>
+
+<P>
+<DT><B>-a</B> 
+<DD>
+compute aspect image only (default: compute both slope and
+aspect images).
+</DD>
+
+<P>
+<DT><B>-d</B> <I>deltaL</I>[,<I>deltaS</I>]
+<DD>
+grid spacing (default: get grid spacing from the &quot;geo&quot;
+header or set to 1 if no &quot;geo&quot; header).  If <I>deltaS</I> is
+also specified, use <I>deltaL</I> for the input line spacing
+and <I>deltaS</I> for the input sample spacing.
+</DD>
+
+<P>
+<DT><B>-i</B> <I>Sbits</I>[,<I>Abits</I>]
+<DD>
+Use <I>Sbits</I> per output pixel (default: 8).  If <I>Abits</I> is
+also specified, use <I>Sbits</I> bits per slope pixel and
+<I>Abits</I> bits per aspect pixel.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image
+		elevation image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To produce a nice-looking shaded-relief map from the DEM &quot;elev.utah&quot;
+we can use the program shade, which needs slopes and aspects:
+</P><PRE>
+	gradient elev.utah | shade -z 45 -a -135
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT># bits must be &gt;= 1
+<B>-d</b> <I>delta</I>,<I>delta</I> : must be positive
+</DT>
+<DD><BR>	The arguments to the <B>-d</b> and <B>-i</b> options must be positive
+	nonzero integers.
+</DD>
+
+<P>
+<DT>input file has <I>nbands</I> bands
+</DT>
+<DD><BR>	The input image must have only 1 band.
+</DD>
+
+<P>
+<DT>Elevation file has no GEOH, spacing set to 1.0
+input file has no LQH; raw values used
+input units &quot;<I>units</I>&quot;, should be &quot;m&quot;
+</DT>
+<DD><BR>	These deficiencies in the input image will introduce
+	linear errors into the slope calculations.
+</DD>
+
+<P>
+<DT>Elevation file should be standard orientation
+</DT>
+<DD><BR>	The output azimuth values will have a systematic bias
+	corresponding to the non-standard orientation of the
+	input image.
+</DD>
+
+<P>
+<DT>spacing in geodetic header ignored
+</DT>
+<DD><BR>	The <B>-d</b> option overrides any pixel spacing information
+	in the input image.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+<B>%name</B> is optimized for terrain calculations (e.g., storing
+slopes as sines offers increased precision for shallow slopes,
+which are more common in nature), and may therefore be less
+than ideal as a generic image derivative program.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+	Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>May 1993</DT>
+<DD>
+	Changed aspect calculation to explicitly handle cases
+of dx or dy being zero.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+<B>-i</b> should not be used for bits in output!  Use -n or -b, but that
+would break all the scripts that depend on <B>%name</B> as it is.
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="demux.html">demux</A></B>,
+<B><A href="ggradient.html">ggradient</A></B>,
+<B><A href="mkgeoh.html">mkgeoh</A></B>,
+<B><A href="mklqh.html">mklqh</A></B>,
+<B><A href="shade.html">shade</A></B>
+</DD>
+</DL>
+<P>Frew, J., 1990. The Image Processing Workbench. PhD Thesis, Department
+	if Geography, University of California, Santa Barbara, 382p.
+</P>
+

@@ -1,0 +1,101 @@
+.TH "ptx" "1" "10 April 1998" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBptx\fP - potential evaporation (PE) using simplified Priestly-Taylor method
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBptx\fP
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBptx\fP calculates LE flux using a simplified Priestly-Taylor
+approach. This method is designed to estimate the total
+evaporative flux over a wet surface using only air temperature
+radiation, and the Priestly-Taylor coef.  The LE flux is
+representative of potential evaporation (PE).
+.PP
+Assumptions:
+.PP
+G is 10% of Rn; Surface is saturated and le due to turbulent
+vapor flux is minimal and well correlated with Rn. This
+assumption works well over short canopies (grass) but
+not over forested canopies (\fIMcNaughton and Black, 1973\fP;
+\fIPriestley and Taylor, 1972\fP).
+The program is designed to
+be driven from daily data, and reads input from a file or from stdin:
+.sp
+.nf
+.ft CR
+        Rn, ta, PP
+.ft R
+.fi
+
+.sp
+.nf
+.ft CR
+        Rn    = Net radiation (negative away from surface)
+        ta    = Air temperature (C)
+        PP    = Priestly Taylor Parameter (approx 1.26)
+.ft R
+.fi
+
+.PP
+PP can be set to the standard value (1.26), or calculated using the method
+described by \fIPereira and Nova (1992)\fP.
+.PP
+Output is to stdout.
+.SH OPTIONS
+.PP
+none
+.SH OPERANDS
+.PP
+none
+.SH EXAMPLES
+.PP
+none
+.SH FILES
+.PP
+none
+.SH DIAGNOSTICS
+.PP
+none
+.SH RESTRICTIONS
+.PP
+none
+.SH HISTORY
+.TP
+Jun 1993
+updated from Danny Mark's trbxfr program by John
+Kimball OSU, EPA-ERL
+.TP
+Oct 1994
+Updated and simplified from ptaylorx point
+model, John Kimball, SWR School of Forestry, University of Montana
+.TP
+May 1995
+Converted to IPW by J. Domingo, OSU, ERL-C
+.SH BUGS
+.PP
+none
+.SH SEE ALSO
+.TP
+IPW:
+    \fBbowvap\fP,
+\fBpenmanx\fP,
+\fBipmx\fP,
+\fBpmx\fP,
+\fBptaylorx\fP,
+\fBiptx\fP,
+\fBtrb_Ri\fP,
+\fBitrbxfr\fP,
+\fBtrbxfr\fP
+.PP
+Brutsaert 1982,
+McNaughton, Black 1973
+Monteith, Unsworth 1990,
+Pereira, Nova 1992,
+Priestley, Taylor, 1972,
+Running, Coughlan 1988,

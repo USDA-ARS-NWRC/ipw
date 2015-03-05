@@ -1,0 +1,21 @@
+!<header> basic_image_i -1 $Revision: 1.11 $
+byteorder = 3210 
+nlines = 1 
+nsamps = 1 
+nbands = 1 
+!<header> basic_image 0 $Revision: 1.11 $
+bytes = 2 
+bits = 10 
+history = mklqh -m 0,0,1023,1 -f 
+history = mkgeoh -c utm -u meters -o 4051800,349350 -d 5,5 -f 
+!<header> lq 0 $Revision: 1.6 $
+map = 0 0 
+map = 1023 1 
+!<header> geo 0 $Revision: 1.7 $
+bline = 4051800 
+bsamp = 349350 
+dline = 5 
+dsamp = 5 
+units = meters 
+coord_sys_ID = utm 
+!<header> image -1 $Revision: 1.5 $

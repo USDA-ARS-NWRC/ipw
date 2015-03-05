@@ -1,0 +1,73 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "hdrio.h"
+
+int
+hgetrec(
+	int     fd,		|* input file descriptor	 *|
+	char   *comment,	|* -> comment string		 *|
+	char   *key,		|* -> keyword string		 *|
+	char   *value)		|* -> value string		 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads a header record from file descriptor fd.  The comment,
+key, and value fields of the record are copied into the arrays pointed
+to by comment, key, and value, respectively.
+</P><P>
+All extracted fields have trailing blanks stripped and are
+EOS-terminated.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+HGOT_DATA	success
+HGOT_PRMB	a header preamble was encountered
+ERROR		bad header record; error/EOF on fd; etc.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>header record field 1 is neither key nor comment
+header record has key without value
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The arrays pointed to by comment, key, and value must each have
+enough space for (HREC_MAX + 1) characters.
+</P>
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

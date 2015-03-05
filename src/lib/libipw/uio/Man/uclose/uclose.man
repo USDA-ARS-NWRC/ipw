@@ -1,0 +1,61 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+int
+uclose(
+	int             fd)	    |* file descriptor		 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> closes an IPW file descriptor and clears the associated UIO
+control block.  If the descriptor refers to an output file, any
+pending buffered output is first flushed.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+OK	The file was closed succesfully.
+</P><P>
+ERROR	An error occurred.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_uiocb[fd]	UIO control block for file descriptor fd
+</P>
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

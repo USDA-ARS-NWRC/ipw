@@ -1,0 +1,119 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-l</B> <I>lval</I> ] [ <B>-p</B> <I>mult</I> ] [ <B>-m</B> <I>mask</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads an single band <I>image</I> (default: standard input) and
+outputs a corresponding image to the standard output that has spikes
+removed.
+</P><P>
+To determine whether a value is a spike, the pixel is first compared
+to <I>lval</I>.  If it is below <I>lval</I>, it is not a spike.  If it is
+above <I>lval</I>, but is larger than <I>mult</I> times larger than it's 8
+neighbors average, it is a spike and is replaced with the average.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-l</B> <I>lval</I>
+<DD>
+Any value below <I>lval</I> (default: 0) will be passed through
+unchanged.
+</DD>
+
+<P>
+<DT><B>-p</B> <I>mult</I>
+<DD>
+Any value larger than <I>mult</I> (default: 2) times the average
+of it's	8 neighbors will be replaced with the average.  If
+the pixel is on a corner, the edge line or column will be
+replicated.
+</DD>
+
+<P>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+Use <I>mask</I> as a mask image.  Any points in <I>mask</I> that are
+0 will have the corresponding points in <I>image</I> passed
+through unchanged.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To replace every value of 255 and above with an average:
+</P><PRE>
+	despike -l 255 -p 0 image
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>image has <I>bands</I> bands; single band images only
+</DT>
+<DD><BR>	Only single band images are supported.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Only single band images are supported.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1993</DT>
+<DD>
+  Written by Dana Jacobsen, Computer Sciences Corporation,
+Environmental Protection Agency Laboratory, Corvallis, OR.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+Images with more than one byte do not work.
+</P><P>
+Some more thought should go into the filter function.  This one
+an deal with &quot;salt&quot; but not &quot;pepper&quot; distortion.
+</P><P>
+Even with a mask on, while not changing values within the mask,
+the mask gets used as data values.
+</P><P>
+<I>lval</I> should be the image minimum value, rather than 0.
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="convol.html">convol</A></B>
+</DD>
+</DL>
+

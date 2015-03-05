@@ -1,0 +1,64 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "hdrio.h"
+
+int
+hrband(
+	int      fd)		|* input file descriptor	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> returns the band number of the image header currently being
+read from file descriptor fd, or NO_BAND if the header applies to all
+bands in the image.
+</P><P>
+Call <B>%name</B> after you call hrname, to see which band (if any) the
+header belongs to.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+Current image header band number, or NO_BAND.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_hdriocb[fd]
+</P>
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+The NO_BAND value is necessarily negative, since any positive integer
+is a valid band number.  It is therefore easy to mistake NO_BAND for
+an error return.
+</P><P>
+Hrband returns NO_BAND even if there is no current image header
+</P>
+<H2>SEE ALSO</H2>
+
+
+

@@ -1,0 +1,132 @@
+##
+## NAME
+##	gviewf-mp -- compute view factors from global-scale elevation image
+##
+## SYNOPSIS
+##	gviewf-mp [-x] [-m mask] image
+##
+## DESCRIPTION
+##	Gviewf-mp is a "quasi multi-processor" version of the program gviewf.
+##	It was derived by modification of the program gviewf.  It is designed
+##	such that it submits up to 4 seperate jobs at a time, waiting until
+##	they complete before continuing on.  This has the effect taking
+##	advantage of multi-processor machines, when mult-threaded compilers
+##	are not available.
+##
+##	All manual descriptions for gviewf-mp are identical to those for gviewf.
+##
+##	Gviewf is part of a family of large area, or "global", scale radiation
+##	transfer simulation, and solar/terrain geometry calculation tools,
+##	developed after the small-scale radiation transfer and terrain structure
+##	tools, developed at UCSB by Jeff Dozier, Jim Frew, and Ralph Dubayah.
+##
+##	All of the global-scale radiation transfer tools are designated by
+##	the "g" prefix in front of the small-scale tool's name.  These tools
+##	assume that solar geometry, atmospheric properties, and sun rise and sun
+##	set vary over the grid, and they also correct for earth curvature when
+##	computing horizons, terrain and sky view factors, and illumantion angles.
+##
+##	These global-scale radiation and terrain processing tools can be applied
+##	to areas of size, up to the entire earth.  The global-scale radiation
+##	and terrain processing tools were originally developed by Kelly Longley,
+##	Oregon State University, at the Corvallis, Oregon, EPA lab, in the early
+##	1990's.
+##
+##	Gviewf is the global-scale version of the program viewf.
+##	gviewf reads elevation data from {image} (default: standard input)
+##	and writes the corresponding sky view and terrain configuration
+##	factors to the standard output.
+##
+##	gviewf first calculates the gradient using the IPW command ggradient,
+##	then a 16-angle (32-angle with the -x option) horizon image using
+##	ghorizon.  It then passes these to viewcalc.
+##
+##	When the input file covers a large area (over one degree -- about
+##	100 kilometers -- in either dimension), it is recommended that
+##	gviewf be used instead of viewf.
+##
+## OPTIONS
+##	-x	use 32 horizon directions (16 default)
+##	-m	mask image
+##
+## OPERAND
+##	image	elevation image (geodetic (lat,long) coordinate system)
+##
+## EXAMPLES
+##	To calculate horizons, in 32 directions, over basin within a large
+##	area dem, on a machine with 4 processors:
+##
+##		gviewf-mp -x -m basin_mask dem_image
+##
+## FILES
+##	$TMPDIR/gviewf.{NNNNN}/*
+##
+##		Temporary directory containing intermediate gradient
+##		and horizon files.
+##
+## DIAGNOSTICS
+##	See ggradient, ghorizon, gviewf, and viewcalc.
+##
+## RESTRICTIONS
+##	gviewf cannot read the elevation image from standard input.
+##
+##	The input elevation image must use the Geographic (lat/lon)
+##	coordinate system.
+##
+## FUTURE DIRECTIONS
+##	See viewf.
+##
+## HISTORY
+##	8/6/90   Written by Kelly Longley, Oregon State University,
+##		 Environmental Protection Agency Laboratory, Corvallis OR
+##	4/17/91	 Now uses ghorizon instead of shew, transpose and hor1d.
+##	8/3/95	 New option to use 32 horizons instead of 16.
+##
+## BUGS
+##	The use of 16 horizon images used to be hard-coded in gviewf.  This
+##	was originally done to save cpu time, and because it was thought that
+##	would yield sufficient resolution even in very rugged terrain.  In
+##	practice, that was not always the case.  The -x option allows 32 horizon
+##	directions, and, while this is slower than 16, does it usually is not
+##	prohibitively slow.  For DEM resolutions less than 15 arc-sec (500m)
+##	the -x (32 horizon directions) is recommended.
+##
+## SEE ALSO
+##	IPW:  ggradient, ghorizon, gradient, gshade, viewcalc, viewf
+##
+##	Dozier, J., 1980.  "A clear-sky spectral solar radiation model for
+##		snow-covered mountainous terrain".  Water Resources Research,
+##		vol. 16, pp. 709-718.
+##
+##	Dozier, J., and J. Frew, 1981.  "Atmospheric corrections to satellite
+##		radiometric data over rugged terrain".  Remote Sensing of
+##		Environment, vol. 11, pp. 191-205.
+##
+##	Dozier, J., J. Bruno, and P. Downey, 1991.  "A faster solution to the
+##		horizon problem", Computers and Geosciences, volume 7,
+##		number 2, pp. 145-151.
+##
+##	Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain parameters
+##		for radiation modeling from digital elevation data". IEEE
+##		Transactions on Geoscience and Remote Sensing, vol. 28, no. 5,
+##		pp. 963-969.
+##
+##	Dubayah, R., J. Dozier, and F. Davis, 1990.  "Topographic distribution
+##		of clear-sky radiation over the Konza Prairie, Kansas".  Water
+##		Resources Research, vol. 26, no. 4, pp. 679-691.
+##
+##	Marks, D., R. Dubayah, and K. Longley, 1991.  "Modeling the topographic
+##		and spectral variability of clear-sky solar radiation at regional
+##		to continental scales.  Proceedings 1991 IGARSS Symposium,
+##		Remote Sensing:  Global Monitoring for Earth Management, Espoo,
+##		Finland, Vol. 3, pp. 1711.
+##
+##	Dubayah, R., and V. Van Katwijk, 1992.  "The topographic distribution
+##		of annual incoming solar radiation in the Rio Grande basin".
+##		Geophysical Research Letters, vol. 19, pp. 2231-2234.
+##
+##	Dubayah, R., 1994.  "Modeling a solar radiation topoclimatology for the
+##		Rio Grande River Basin".  Journal of Vegetation Science, vol. 5,
+##		pp. 627-640.
+##
+

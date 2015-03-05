@@ -1,0 +1,3 @@
+%define(name,"deltaz")
+%define(description,"differences from mean-weighted station elevations")
+%define(category,"Topographic Calculations")

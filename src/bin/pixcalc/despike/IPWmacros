@@ -1,0 +1,3 @@
+%define(name,"despike")
+%define(description,"remove abnormally large pixel values (spikes)")
+%define(category,"Pixel Calculations")

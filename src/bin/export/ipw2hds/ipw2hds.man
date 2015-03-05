@@ -1,0 +1,109 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads an IPW image (default: standard input) and writes an
+equivalent image in HDS sixel format to the standard output.  The
+output is suitable for display on an HDS 3200 series terminal
+without further processing.
+</P>
+<H2>OPTIONS</H2>
+
+
+<P>Nonw
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To display &quot;image&quot; on an HDS 3200 terminal:
+</P><PRE>
+	dither image | ipw2hds
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>input image must be single-band
+</DT>
+
+<P>
+<DT>input image must have 1-bit pixels
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The input image must have 1 band and 1 bit per pixel.
+</P><P>
+<B>%name</B> may be usable with other sixel-oriented devices such as
+DEC printers, but this has not been tested.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="demux.html">demux</A></B>,
+<B><A href="dither.html">dither</A></B>,
+<B><A href="ipw2pbm.html">ipw2pbm</A></B>,
+<B><A href="ipw2pgm.html">ipw2pgm</A></B>,
+<B><A href="ipw2ppm.html">ipw2ppm</A></B>,
+<B><A href="ipw2ps.html">ipw2ps</A></B>,
+<B><A href="ipw2sun.html">ipw2sun</A></B>,
+	<B><A href="ipw2xim.html">ipw2xim</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Image</DT>
+<DD>	ppmtosixel xli, xloadimage, xv
+</DD>
+</DL>
+<P>&quot;HDS3200 Programmer's Reference Manual&quot;, Human Designed Systems,
+Philadelphia, 1988, # DN-13C4-8802-1
+</P>
+

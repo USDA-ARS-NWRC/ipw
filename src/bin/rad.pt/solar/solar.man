@@ -1,0 +1,142 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-w</B> <I>um</I>[,<I>um2</I>] ] [ <B>-d</B> <I>year</I>,<I>month</I>,<I>day</I> ] [ <B>-a</B> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Solar calculates exoatmospheric direct <B>%name</B> irradiance.  If two
+arguments to <B>-w</b> are given, the integral of <B>%name</B> irradiance over
+the range will be calculated.  If one argument is given, the
+spectral irradiance will be calculated.
+</P><P>
+If no wavelengths are specified on the command line, single
+wavelengths in um will be read from the standard input and the
+spectral irradiance calculated for each.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-w</B> <I>um</I>[,<I>um2</I>]
+<DD>
+If two arguments are given, the integral of <B>%name</B> irradiance
+in the range <I>um</I> to <I>um2</I> will be calculated.  If one
+argument is given, the spectral irradiance will be calculated.
+If no arguments are given, single wavelengths will be read
+from the standard input.
+</DD>
+
+<P>
+<DT><B>-d</B> <I>year</I>,<I>month</I>,<I>day</I>
+<DD>
+The date is <I>year</I>, <I>month</I>, <I>day</I>.  This is used to
+calculate the <B>%name</B> radius vector which divides the result.
+If no date is given, the <B>%name</B> radius vector is taken as 1.
+</DD>
+
+<P>
+<DT><B>-a</B> 
+<DD>
+No unit annotation will be printed, just the numbers.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>	None
+</P><P>
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate the <B>%name</B> irradance between .58 um and .68 um on
+June 22, 1990:
+</P><PRE>
+	solar -d 1990,6,22 -w .58,.68
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Apr 1988</DT>
+<DD>
+	Written by Jeff Dozier, UCSB.
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+	Cleaned up and converted to ANSI C.
+Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>Jun 1996</DT>
+<DD>
+	Moved <B>%name</B> data from include file into C source file.
+Modified initialization of <B>%name</B> data so table
+transposition no longer needed.  J. Domingo, OSU
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="elevrad.html">elevrad</A></B>,
+<B><A href="sunlight.html">sunlight</A></B>,
+<B><A href="topquad.html">topquad</A></B>,
+<B><A href="toporad.html">toporad</A></B>,
+<B><A href="twostream.html">twostream</A></B>
+</DD>
+</DL>
+<P>Dozier, J., 1980.  &quot;A clear-sky spectral solar radiation model for
+	snow-covered mountainous terrain&quot;.  Water Resources Research,
+	vol. 16, pp. 709-718.
+</P>
+<P>Dozier, J., and J. Frew, 1981.  &quot;Atmospheric corrections to satellite
+	radiometric data over rugged terrain&quot;.  Remote Sensing of
+	Environment, vol. 11, pp. 191-205.
+</P>
+<P>Dubayah, R., 1994.  &quot;Modeling a solar radiation topoclimatology for the
+	Rio Grande River Basin&quot;.  Journal of Vegetation Science, vol. 5,
+	pp. 627-640.
+</P>
+

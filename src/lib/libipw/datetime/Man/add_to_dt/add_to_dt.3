@@ -1,0 +1,39 @@
+.TH "add_to_dt" "3" "10 April 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBadd_to_dt\fP - add given
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+void
+add_to_dt(
+	datetime_t     *dt,	   |* date-time			 *|
+	int		days,	   |* # of days to add		 *|
+	int		seconds)   |* # of seconds to add	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBadd_to_dt\fP adds a given number of days and seconds to a given
+date and time.  Either or both of the number of days and seconds can
+be 0 or negative.
+.SH RETURN VALUE
+.PP
+None.
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

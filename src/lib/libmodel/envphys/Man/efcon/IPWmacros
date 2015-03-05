@@ -1,0 +1,3 @@
+%define(name,"efcon")
+%define(description,"calculates equivalent thermal conductivity")
+%define(category,"envphys")

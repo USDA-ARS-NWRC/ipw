@@ -1,0 +1,86 @@
+<HTML>
+
+<HEAD>
+ <TITLE>IPW function: uwopen</TITLE>
+</HEAD>
+
+<BODY>
+
+<H1 ALIGN=CENTER>uwopen</H1>
+
+<P ALIGN=CENTER>IPW Library Function<BR>
+Library - libipw<BR>
+Category - uio</P>
+
+<HR WIDTH="100%">
+
+<H2>NAME</H2>
+
+<P><B>uwopen</B> - open UNIX file for writing</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+int
+uwopen(
+	const char     *name)	|* file name			 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>uwopen</B> opens the file name for writing.  The file is truncated if it
+already exists.
+</P><P>
+Use <B>uwopen</B> wherever you would normally use the UNIX system call
+creat() to open a file for writing.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+&gt;= 0	A writable UNIX file descriptor for successful open.
+</P><P>
+ERROR	Error occurred.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 10 April 1998  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>

@@ -1,0 +1,168 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-s</B> ] [ <B>-a</B> ] [ <B>-i</B> <I>Sbits</I>[,<I>Abits</I>] ] [ <B>-m</B> <I>mask</I> ]
+      [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Ggradient is part of a family of large area, or &quot;global&quot;, scale radiation
+transfer simulation, and solar geometry calculation tools, developed
+after the small-scale radiation transfer tools, developed at UCSB by
+Jeff Dozier and Ralph Dubayah.
+</P><P>
+All of the global-scale radiation transfer tools are designated by
+the &quot;g&quot; prefix in front of the small-scale tool's name.  These tools
+assume that solar geometry, atmospheric properties, and sun rise and sun
+set vary over the grid, and they also correct for earth curvature.
+The global-scale radiation transfer tools can be applied to areas of
+size, up to the entire earth.  The global-scale radiation transfer tools
+were originally developed by Kelly Longley, Oregon State University,
+at the Corvallis, Oregon, EPA lab, in the early 1990's.
+</P><P>
+Ggradient is the global-scale version of the program gradient.
+Ggradient reads elevations from <I>image</I> (default: standard input)
+and writes a 2-band image of the slope and aspect (the magnitude
+and direction of the gradient) to the standard output.  This program
+differs from the gradient program in that the input image must be
+be in a latitude/longitude geodetic projection, and the output is
+corrected for variation in x- and y-distances over a geodetic grid.
+</P><P>
+Ggradient computes the slope and aspect of each pixel in a
+global-scale elevation image (with latitude/longitude geodetic
+projection).  The 2-band output image has slope	as its first band
+and aspect as its second.  Slope is stored as sin(S) with range
+from 0 to 1.  Aspect is stored with range from -pi to pi.  Aspect 0
+is toward the south, with negative west of south and positive
+east of south.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-s</B> 
+<DD>
+compute slope image only (default both)
+</DD>
+
+<P>
+<DT><B>-a</B> 
+<DD>
+compute aspect image only
+</DD>
+
+<P>
+<DT><B>-i</B> <I>Sbits</I>[,<I>Abits</I>]
+<DD>
+# bits in output linear quantization (default 8)
+band 0 (slope) can be different from band 1 (aspect)
+</DD>
+
+<P>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+mask image
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image	1-band elevation image, in geodetic (lat, long) projection
+		(stdin)
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To compute a gradient image over a 10km DEM of the US:
+</P>
+<PRE>
+	ggradient -m US_mask US_dem
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>Input image must have geodetic header, and must be in lat/lon projection
+</DT>
+<DD><BR>	Illegal latitudes in GEO header
+	Illegal longitudes in GEO header
+	Input image has no geodetic header - must be lat/lon projection
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Image must contain GEO header with latitude-longitude (units: degrees)
+projection.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Apr 199</DT>
+<DD>
+	Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+(modified version of original IPW gradient program)
+</DD>
+</DL>
+
+<DL>
+<DT>Jul 1993</DT>
+<DD>
+	Conferted to ANSI C.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="gradient.html">gradient</A></B>,
+<B><A href="gshade.html">gshade</A></B>,
+<B><A href="shade.html">shade</A></B>
+</DD>
+</DL>
+<P>Dozier, J., 1980.  &quot;A clear-sky spectral solar radiation model for
+	snow-covered mountainous terrain&quot;.  Water Resources Research,
+	vol. 16, pp. 709-718.
+</P>
+<P>Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain parameters
+	for radiation modeling from digital elevation data&quot;. IEEE
+	Transactions on Geoscience and Remote Sensing, vol. 28, no. 5,
+	pp. 963-969.
+</P>
+<P>Marks, D., R. Dubayah, and K. Longley, 1991.  &quot;Modeling the topographic
+	and spectral variability of clear-sky solar radiation at regional
+	to continental scales.  Proceedings 1991 IGARSS Symposium,
+	Remote Sensing: Global Monitoring for Earth Management, Espoo,
+	Finland, Vol. 3, pp. 1711.
+</P>
+

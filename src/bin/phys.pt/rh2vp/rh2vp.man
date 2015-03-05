@@ -1,0 +1,174 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-i</B> ] [ <B>-c</B> ] [ <B>-F</B> ] [ <B>-m</B> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> converts relative humidity (RH) to vapor pressure,
+or the inverse;
+Reads input air temp and RH, or air temp and vapor pressure
+from stdin;
+</P><P>
+(see <I>General Meterology, Byers, 1974</I>)
+</P>
+<P>
+Air temperature input in C (default) or F if <B>-F</b> option set;
+Input RH from 0 to 1.0, or vapor pressure in Pa;
+</P><P>
+If <B>-i</b> is set, input air temp and vapor pressure are converted to RH;
+</P><P>
+If <B>-c</b> is set, output RH is clipped to not exceed 100%, or vapor
+pressure to exceed sat vapor pressure.
+</P><P>
+Calculates vapor pressure in Pa (default) or mb, or RH from 0 to 1.0;
+</P><P>
+Output is to standard output;
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-i</B> 
+<DD>
+perform inverse operation converting vapor pressure to RH
+</DD>
+
+<P>
+<DT><B>-c</B> 
+<DD>
+clip output RH to &lt;= 1.0, or vp &lt;= svp
+</DD>
+
+<P>
+<DT><B>-F</B> 
+<DD>
+Air temperatures are inputed in degrees F (default: C).
+</DD>
+
+<P>
+<DT><B>-m</B> 
+<DD>
+The output values for vapor pressure are in millibars.
+(default: Pa).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To convert air temperature (C) and RH to vapor pressure (Pa), clipping
+the result to make sure that RH is always &lt;1.0:
+</P><PRE>
+	paste ta rh | <B>%name</B> -c
+</PRE><P>
+To convert air temperature (F) and RH to vapor pressure in mb:
+</P><PRE>
+	paste ta_f rh | <B>%name</B> -F -m
+</PRE><P>
+To convert air temperature (C) and vapor pressure (Pa) to RH,
+clipping the result to make sure that vapor pressure is always less
+than the saturation vapor pressure at that air temperature:
+</P><PRE>
+	paste ta vp | <B>%name</B> -i -c
+</PRE>
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>checks for RH or vp &lt; 0.0, and dies on error.
+</DT>
+
+<P>
+<DT>checks for RH &gt; 1.0, or vp &gt; sat_vp, and either sets to saturation
+</DT>
+<DD><BR>	if <B>-c</b> (clipping) is set, or dies on error.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>May 1986</DT>
+<DD>
+Written as qdips program <B>hytherm</B> to convert
+hygro-thermograph data by D. Marks, CSL, UCSB;
+</DD>
+</DL>
+
+<DL>
+<DT>May 1995</DT>
+<DD>
+Converted to IPW as pgm <B>hythrm</B> by J. Domingo,
+OSU, ERL-C;
+</DD>
+</DL>
+
+<DL>
+<DT>Mar 1997</DT>
+<DD>
+Converted to <B>%name</B>, using C as default for Ta, and Pa
+as default units for vp, to conform with satvp and
+isatvp conventions; added <B>-i</b> and <B>-c</b> options,
+and changed -C  to a <B>-F</b> option, and modified RH format
+from 0-100 to 0-1.0; D. Marks, USGS, ERL-C;
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="irh2vp.html">irh2vp</A></B>,
+<B><A href="satvp.html">satvp</A></B>,
+<B><A href="isatvp.html">isatvp</A></B>,
+<B><A href="dewpt.html">dewpt</A></B>,
+<B><A href="idewpt.html">idewpt</A></B>
+<B><A href="sling.html">sling</A></B>,
+<B><A href="vptr.html">vptr</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Unix</DT>
+<DD>
+paste
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Byers 1974">Byers 1974</A>,
+</P>
+ 

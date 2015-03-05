@@ -1,0 +1,3 @@
+%define(name,"random")
+%define(description,"generate random values")
+%define(category,"Numeric Data in Text Files")

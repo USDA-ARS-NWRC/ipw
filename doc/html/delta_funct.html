@@ -1,0 +1,120 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Functional Changes in Version 2</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="images/usda.gif" alt="USDA">
+<IMG SRC="images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Functional Changes in Version 2</H1>
+
+ 
+<P><B>Hydro-Climatic Modeling Utilities</B></P>
+<P>
+<I>Version 2</I> includes about 200 commands, with over 120 of these directly
+related to hydro-climatic modeling and analysis.
+IPW commands are grouped into functional categories as follows:
+</P><P>
+<UL>
+<LI>Environmental Physics and Properties: Point 
+<LI>Environmental Physics and Properties: Spatial 
+<LI>Physical Modeling: Point 
+<LI>Physical Modeling: Spatial 
+<LI>Radiation Modeling: Point 
+<LI>Radiation Modeling: Basin-Scale 
+<LI>Radiation Modeling: Global-Scale 
+<LI>DEM Processing 
+<LI>Geographic Projection 
+<LI>Format Conversion 
+<LI>Data, and Image Import/Export 
+<LI>Basic Data Processing 
+<LI>Image Query 
+<LI>Image Computation 
+<LI>Image Filters, Orientation, Sampling 
+<LI>Image Header Manipulation 
+<LI>Band Combination and Separation 
+<LI>Image Classification and Transformation 
+<LI>Miscellaneous
+</UL>
+</P>
+<P><B>Integration of Point Processing into IPW</B></P>
+<P>
+Procedures for processing point data have been fully integrated into
+<I>Version 2</I> including the integration of library functions and
+procedures for developing point utilities.
+Point processing programs can be used to test and develop algorithms
+and solutions which numerically represent physical processes.
+These can then be easily converted to a spatial context, using the same
+library routines.
+</P>
+<P><B>Integration of IPW and Physical Modeling Libraries</B></P>
+<P>
+Integrated IPW and physical modeling libraries developed by USGS.
+Separated these into:
+</P><P>
+<UL>
+<LI><A HREF="pgmrGuide/libipw.html"><TT>libipw</TT></A>
+-- contains all library functions related to IPW images</LI>
+<LI><A HREF="pgmrGuide/libmodel.html"><TT>libmodel</TT></A>
+-- contains all the functions for physical modeling</LI>
+</UL>
+</P><P>
+Added several new libraries:
+</P><P>
+<UL>
+<LI><A HREF="pgmrGuide/libsnobal.html"><TT>libsnobal</TT></A>
+-- functions for energy balance snowmelt modeling</LI>
+<LI><A HREF="pgmrGuide/libgctp.html"><TT>libgctp</TT></A>
+-- functions from the General Cartographic Transformation Package</LI>
+<LI><A HREF="pgmrGuide/libtopo.html"><TT>libtopo</TT></A>
+-- functions for topographic calculations</LI>
+<LI><A HREF="pgmrGuide/libimage.html"><TT>libimage</TT></A>
+-- functions for higher-level interface to IPW images</LI>
+<LI><A HREF="pgmrGuide/libstropts.html"><TT>libstropts</TT></A>
+-- functions for using string options for commands</LI>
+</UL>
+</P>
+<P>
+For a detailed list of all changes and additions included in
+<I>IPW Version 2</I> see:
+<A HREF="pgmrGuide/new4v2.html">What's New</A>.
+</P>
+<P><B>Image Display Utilities</B></P>
+<P>
+Two image display utilities were modified to interpret and display IPW
+images.
+<TT>xli</TT> Version 1.6 by Graeme Gill, which was derived from
+<TT>xloadimage</TT>, and <TT>xv</TT> Version 3.10a by John Bradley.
+</P><P>
+<UL>
+<LI><A HREF="ftp://juniper.nwrc.ars.usda.gov/pub/ipw/xloadimage+ipw.tar.Z"><TT>xloadimage+ipw.tar.Z</TT></A></LI>
+<LI><A HREF="ftp://juniper.nwrc.ars.usda.gov/pub/ipw/xv-3.10a+ipw.tar.gz"><TT>xv-3.10a+ipw.tar.gz</TT></A></LI>
+</UL>
+</P>
+<P><B>Bibliography</B></P>
+<P>
+Inclusion of a hyper-text linked bibliography containing nearly 100
+references relating to IPW algorithms, utilities,
+commands, and applications.
+</P>
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

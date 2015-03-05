@@ -1,0 +1,1 @@
+mkprecip - make precipitation images for 'isnobal' command

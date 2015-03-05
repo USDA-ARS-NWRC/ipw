@@ -1,0 +1,100 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>White space</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../../images/usda.gif" alt="USDA">
+<IMG SRC="../../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>White space</H1>
+
+
+<P>
+Properly used, white space in source code contributes significantly to
+its readability. However, lack of standard usages for white space can lead
+to confusing stylistic variations. The following guidelines are admittedly
+arbitrary, but adherence to them helps minimize distracting and essentially
+spurious variations in the appearance of the IPW source code.
+
+<P>
+White space is MANDATORY in the following circumstances:
+
+<UL>
+   <LI>preceding and following C keywords (except at the beginning and end of
+	a cast)
+   <LI>preceding and following binary operators
+   <LI>following ";" and ","
+</UL>
+
+<P>
+White space is PROHIBITED in the following circumstances:
+
+<UL>
+   <LI>preceding ";" and ","
+   <LI>between a function name and "("
+   <LI>on the concave side of a "(" or ")"
+   <LI>between a unary operator and its operand
+</UL>
+
+<P>
+Blank lines are MANDATORY in the following circumstances:
+
+<UL>
+   <LI>before each case or default in a switch
+</UL>
+
+<P>
+Blank lines are PROHIBITED in the following circumstances:
+
+<UL>
+   <LI>within an expression or simple statement
+</UL>
+
+<P>
+Source lines that are too long must be broken by inserting a newline,
+after either a comma or a binary operator. The continuation line should be
+indented 1 space more than the immediately preceding "(", or 2 spaces more
+than the immediately preceding "=", as appropriate.
+
+<P>
+Examples:
+
+<PRE>
+printf("Usage:%s options . . .\\n ",
+       progname);
+
+if (a < b &&
+    a > A_MAX) {
+	...
+}
+
+result = f(a) +
+         f(a * b);
+</PRE>
+
+<P>
+The use of embedded form-feed characters to paginate source code is
+discouraged: it is to easy to add or delete source lines without remembering
+to adjust the pagination, and readily-available tools exist to paginate C
+source code automatically.
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

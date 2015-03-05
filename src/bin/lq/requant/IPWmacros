@@ -1,0 +1,3 @@
+%define(name,"requant")
+%define(description,"modify the linear quantization of an IPW image")
+%define(category,"Linear Quantization")

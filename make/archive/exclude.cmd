@@ -1,0 +1,15 @@
+.*/IPWmacros.*
+.*/NameDesc\..*
+\.o$
+\.1$
+\.html$
+\.tar$
+\.gz$
+\.Z$
+\.noExport$
+/Debug$
+/Debug/.*
+/Old$
+/Old/.*
+/Work$
+/Work/.*

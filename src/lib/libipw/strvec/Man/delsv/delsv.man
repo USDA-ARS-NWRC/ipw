@@ -1,0 +1,64 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+STRVEC_T *
+delsv(
+	REG_1 STRVEC_T *p,
+	REG_2 int       i)
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> deletes the i'th string from strvec p.
+</P><P>
+There is no error indication if the i'th string doesn't exist -- <B>%name</B>
+just returns.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+p
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

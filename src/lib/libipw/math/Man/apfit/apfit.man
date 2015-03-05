@@ -1,0 +1,51 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+void
+apfit(
+     double     *arx,      /* array of x values                        */
+     double     *ary,      /* array of y values                        */
+     long        n,        /* length of arrays                         */
+     long        d,        /* length of output array c                 */
+     double     *c,        /* output: array of polynomial coefficients */
+     const int   savemem)  /* use less memory and run slower?          */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> determines a polynomial function to fit an array of observed
+values.  It performs a least-squares polynomial fit to yield
+the coefficients of the desired fitting function:
+<PRE>
+     fity(n) = c[0] + c[1]*n + c[2]*n^2 + c[3]*n^3 + ... + c[d]*n^d
+</PRE>
+If argument <I>savemem</I> is true, the routine will take up a significantly
+smaller chunk of memory, but also run significantly slower.
+</P>
+
+<H2>RETURN VALUE</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>1992</DT>
+<DD>
+Written by Dana Jacobsen, EPA ERL-C
+</DD>
+
+</DL>
+
+

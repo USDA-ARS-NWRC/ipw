@@ -1,0 +1,57 @@
+/* IPWSTACK - converts a multi-band IPW image to a GRID stack, using
+/*		IPW2GRID on each band.    
+/*
+/* Rusty Dodson, 5/1/96.
+
+&args ipwimg stack type 
+
+&if [null %ipwimg%] or [null %stack%] &then &do
+  &type Usage: IPW2STACK <ipw_img> <stack> {type} 
+  &type
+  &type               {type} - i=integer  f=float  (default: i)
+  &type               Output stack is <stack>.
+  &type               Existing grids named <stack>_n will be killed.
+  &return
+&end
+&if [exist %stack% -file] or [exist %stack% -dir] &then
+  &return ERROR:  %stack% already exists as a stack, grid, cover, file, or dir.
+&if not [exist %ipwimg% -file] &then
+    &return ERROR:  ipw file %ipwimg% not found.
+
+&if [show program] ne GRID &then &return ERROR: must be run from GRID
+
+&if [null %type%] &then &set type = i
+&if %type% ne i and %type% ne f &then &return ERROR: {type} must be i or f
+
+&set tmppre = [scratchname -prefix tmppre -file]
+&set tmptxt = [scratchname -prefix tmptxt -file]
+&set tmpimg = [scratchname -prefix tmpimg -file]
+
+/* get nbands in ipw image
+&system ipwfile -mb %ipwimg% | sed 's/ //g' >! %tmptxt%
+&set txtfile = [open %tmptxt% status -read]
+&set bands   = [read %txtfile% status]
+&if %status% ne 0 &then &type ERROR: couldn't read file %tmptxt%
+&if [close %txtfile%] ne 0 &then &type ERROR: couldn't close file %tmptxt%
+&if [calc %bands% < 2] &then &do
+    &type ERROR:  image is not multi-band or is not ipw. (nbands = %bands%)
+    &call cleanup
+&end
+
+&do i = 1 &to %bands%
+    &set b = %i% - 1
+    &type ***** Doing band %i% of %bands% *****
+    &system demux -b %b% %ipwimg% >! %tmpimg%
+    &if [exist %stack%_%i% -grid] &then kill %stack%_%i% 
+    ipw2grid %tmpimg% %stack%_%i% %type%
+    &system echo "%stack%_%i%" >> %tmptxt%
+&end
+
+makestack %stack% FILE %tmptxt% 
+
+&call cleanup
+&return
+
+&routine cleanup
+&set out = [delete  %tmpimg% -file]
+&set out = [delete  %tmptxt% -file]

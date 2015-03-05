@@ -1,0 +1,274 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-p</B> <I>points_file</I><I> </I>[<I><B>-n</B> npoints</I>]<I> </I>[<I><B>-b</B> bits</I>]<I> </I>[<I><B>-f</B> nodata flag</I>]
+               <I> </I>[<I><B>-q</B> min,max</I>]<I> </I>[<I><B>-g</B> </I>]<I> </I>[<I><B>-m</B> mask</I>]<I> image</I>
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> works in conjunction with the &quot;msurfprep&quot; program to
+provide a much faster means of interpolating multiple surfaces from
+the same set of input data points.
+<P>
+<B>%name</B> reads in an ASCII file of data points and a multi-band
+IPW image of nearest-neighbor information (created by &quot;msurfprep&quot;)
+and constructs an IPW image by spatial interpolation using an 
+inverse-distance squared weighting algorithm.  
+</P><P>
+The only difference between <B>%name</B> and
+the IPW &quot;surface&quot; program is that <B>%name</B>
+reads nearest-neighbor
+information from an image, rather than performing an exhaustive
+search for each pixel value to be interpolated.  The nearest-
+neighbor image is produced by the program &quot;msurfprep&quot;.
+<B>%name</B>  
+also handles cases of missing data, while surface does not.  
+Note that while surface reads {# of output bits} and lq header
+information (if any) from its input header, <B>%name</B> gets these
+values from the command line.  
+</P><P>
+<B>%name</B> is best suited for tasks which require many interpolations
+over the same set of points, but using different data each time 
+(e.g. for producing 365 daily temperature surfaces from a single
+set of meterological stations where each station has 365 
+temperature observations).
+</P><PRE>
+     WARNING:  The pixel values of the input nearest-neighbor
+               image are simply the positions of each
+               point within {points file}.  When the msurface
+               program is run, it must be given a {points file}
+               that corresponds EXACTLY with the easting/northing values
+               that were used by msurfprep.  This means that the points
+               files used by msurfprep and msurface must not be sorted
+               differently.  If the points files are not compatible,
+               msurface may run with no errors and output
+               gargage.  To verify that the points files are
+               compatible, use awk to extract the first two fields of
+               each points file, and then compare these fields with
+               the Unix &quot;diff&quot; command.  (See EXAMPLES below.)
+</PRE>
+<H2>OPTIONS</H2>
+
+<DL>
+<P>
+<DT><B>-p</B> <I>points</I>
+<DD>
+Points will be read in from {points file}.
+The input file contains three values per line, formatted:
+</DD>
+
+<P>easting  northing  value
+</P>
+
+<P>where the easting and northing are specified in the same
+coordinate system as given in the &quot;geo&quot; header.
+</P>
+
+<P>NOTE:  The easting/northing values in this file must 
+correspond exactly with the point file used by the msurfprep
+command to create <I>image</I>.  (See EXAMPLES below.)
+</P>
+
+<P>
+<DT><B>-n</B> 
+<DD>
+The number of nearest neighbors used for interpolation will
+be <I>npoints</I> (default: 4).  This number may not be larger
+than the number of bands in the input image.  If many 
+nodata values exist, <I>npoints</I> should be smaller than the
+number of input bands in <I>image</I>.  Otherwise, if <B>%name</B>
+fails to find <I>npoints</I> valid data values from <I>image</I>, 
+it must perform an exhaustive search (slow).
+</DD>
+
+<P>
+<DT><B>-f</B> 
+<DD>
+Points with the value {nodata flag} (default: -9999) will
+be ignored by the interpolation routine.
+</DD>
+
+<P>
+<DT><B>-b</B> 
+<DD>
+Use <I>bits</I> bits per output pixel (default: 8).
+</DD>
+
+<P>
+<DT><B>-q</B> 
+<DD>
+Use <I>val,val</I> as the min,max values in the output lq header.
+The default is to use the min,max of the point values
+in {points file}.
+</DD>
+
+<P>
+<DT><B>-g</B> 
+<DD>
+Use spherical great-circle-distance computation.
+If <B>-g</B> is not set, use default Euclidean distance computation.
+</DD>
+
+<P>
+<DT><B>-m</B> 
+<DD>
+The file <I>mask</I> (default: none) will be used to define what
+parts of the output surface are filled in.  Points in <I>mask</I>
+that are 0 will be left 0 in the output image.
+</DD>
+
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+image
+<DD>
+An image made by msurfprep which contains nearest-neighbor
+information.  Band 0 of {image} stores, for each pixel,
+the position in {points file} of the nearest point.  Band 1
+stores the next-nearest point, etc.
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To create an input nearest-neighbor image:
+</P><PRE>
+	msurfprep -h hdr.file -p pt.file1 &gt; neibs.img
+</PRE><P>
+To interpolate a surface with <B>%name</B>:
+</P><PRE>
+	msurface -p pt.file2 neibs.img &gt; outsurf.img
+</PRE><P>
+To check that pt.file1 and pt.file2 refer to the same set of
+eastings/northings:
+</P><PRE>
+	awk '{print $1,$2}' pt.file1 &gt; foo1
+	awk '{print $1,$2}' pt.file2 &gt; foo2
+	diff foo1 foo2 
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>error reading point <I>npoint</I> from input file
+</DT>
+
+<P>
+<DT>requested # points exceeds # bands in input image         
+</DT>
+<DD><BR>	<I>npoints</I> may not be greater than the number of
+	stored neighbors (bands) in the input image.
+</DD>
+
+<P>
+<DT>input image and point file do not reference the same set of points.
+</DT>
+<DD><BR>	<B>%name</B> compares the coordinate values in {point file} to
+	those stored in the header of the input image.  If the  
+	values don't match exactly, the program terminates.
+</DD>
+
+<P>
+<DT>input image has no geodetic header
+</DT>
+<DD><BR>	The input image must have a GEO header.
+</DD>
+
+<P>
+<DT>WARNING: Using Euclidean distance with 'deg' units.
+</DT>
+<DD><BR>     If units are degrees, one usually wants to use the <B>-g</B> option
+	     for spherical distance computation.
+</DD>
+
+<P>
+<DT>WARNING: Using geo distance with seemingly non-geo units.
+</DT>
+<DD><BR>             <B>-g</B> was invoked, but coordinates are beyond the range
+             of valild latitudes/longitites.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+If the input point file has large amounts of missing data
+observations, then <B>%name</B> will run slowly.  If <B>%name</B> fails
+to get <I>npoints</I> valid data points from the input image for a 
+given cell to be interpolated, then it is 
+forced to perform an exhaustive search on all of the input points.
+Therefore, when nodata values are present, the number of bands in 
+the input image should be as large as possible.
+</P><P>
+The mask image must be single band.
+</P><P>
+Map projection distortions can introduce significant
+error in distance computations as the spatial extent of
+the image increases, or if an improper map projection is used.
+For example, interpolating a surface over an Arctic region while
+using a US Albers projection would produce unusual (and incorrect)
+results.
+</P>
+
+<H2>FUTURE DIRECTIONS</H2>
+
+<P>
+The <B>-g</B> option is slow!  Need to implement trig lookup tables.
+</P>
+
+<H2>HISTORY</H2>
+
+<DT>
+Jul, 1994
+</DT><DD>
+Written by Rusty Dodson, MERSC, ERL-C.
+</DD>
+
+<DT>
+Jun, 1995
+</DT><DD>
+Added -q and -g options, Rusty Dodson, MERSC, ERL-C.
+</DD>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="msurfprep.html">msurfprep</A></B>,
+<B><A href="surface.html">surface</A></B>,
+<B><A href="mkproj.html">mkproj</A></B>,
+<B><A href="reproj.html">reproj</A></B>,
+<B><A href="mkgeoh.html">mkgeoh</A></B>,
+<B><A href="mkbih.html">mkbih</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Unix</DT>
+<DD>	awk, diff
+</DD>
+</DL>
+

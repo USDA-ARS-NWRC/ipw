@@ -1,0 +1,201 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-a</B> ] [ <B>-r</B> ] [ <B>-c</B> <I>coords</I> ] [ <B>-i</B> <I>image</I> ] [ <B>-g</B> <I>band</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> prints input image pixels as text to the standard output,
+one sample per line.  The pixel values for each band are printed
+in band order from left to right, separated by white space.
+If a pair of input coordinates do not lie on the input image,
+<B>%name</B> will return &quot;na&quot; instead of a pixel value. 
+</P><P>
+With the <B>-g</b> option, input coordinates should be listed
+in the order (easting, northing), with northings sorted from 
+north to south.  In most cases this corresponds to _decreasing_
+northings.
+</P><P>
+Without the <B>-g</b> option, input coordinates should be listed in 
+the order (line, sample), sorted by _increasing_ line number.
+Note that this is the opposite situation from the <B>-g</b> case.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-a</B> 
+<DD>
+Print all pixels in image (default: print only pixels
+specified in <I>coords</I> or on standard input).
+</DD>
+
+<P>
+<DT><B>-c</B> <I>coords</I>
+<DD>
+Read pixel coordinates <I>coords</I> (default: standard input).
+With <B>-g</b>, pixels should be (easting northing).
+Without <B>-g</b>, pixels should be (line sample).
+</DD>
+</DL>
+
+<P>At most one of <B>-a</b> or <B>-c</b> may be specified.
+</P>
+
+<DL>
+<DT><B>-i</B> <I>image</I>
+<DD>
+Read image data from <I>image</I> (default: standard input).
+</DD>
+</DL>
+
+<P>At least one of <B>-a</b>, <B>-c</b>, and/or <B>-i</b> must be specified.
+</P>
+
+<DL>
+<DT><B>-r</B> 
+<DD>
+Print raw pixel values, bypassing any conversion to
+floating point (such as via input &quot;lq&quot; headers).
+</DD>
+
+<P>
+<DT><B>-g</B> <I>band</I>
+<DD>
+Pixel coordinates are specified in the
+coordinates of band <I>band</I>'s geodetic (&quot;geo&quot;) header.
+Without <B>-g</b>, coords should be in units of image line,sample.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To interactively examine pixel values in &quot;image&quot;, type:
+</P><PRE>
+	primg -i image
+</PRE><P>
+then type the pixel coordinates (line sample) on the standard input.
+(note that the coordinates must be typed in increasing line order).
+</P><P>
+Or, if image has a geo header in band 0, type:
+</P><PRE>
+	primg -g 0 -i image
+</PRE><P>
+then type the pixel coordinates (easting northing). 
+(note that the northings must be sorted from north to south).
+</P><P>
+If &quot;basin&quot; contains the (line,sample) coordinates of the corners
+of a drainage basin in the DEM &quot;dem&quot;, and <I>line</I>,<I>samp</I> are the
+coordinates of an arbitrary point within the drainage basin, then:
+</P><PRE>
+	poly -s {line},{samp} basin | primg -i dem
+</PRE><P>
+will print all of the pixel values in &quot;dem&quot; that lie within the
+drainage basin.
+</P>
+<H2>FILES</H2>
+
+<PRE>
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>bad coordinate file line: <I>text</I>
+</DT>
+<DD><BR>	<I>coords</I> contains a line <I>text</I> that cannot be parsed as
+	two numbers.
+</DD>
+
+<P>
+<DT>bad coordinate pair: <I>line</I>,<I>sample</I>
+</DT>
+<DD><BR>	<I>line</I>,<I>sample</I> are illegal coordinates for the input image.  
+</DD>
+
+<P>
+<DT>unsorted coordinates: <I>line</I>,<I>sample</I>
+</DT>
+<DD><BR>	The input coordinates must be sorted in ascending line
+	order or north-&gt;south order if using <B>-g</b>
+	(sample (easting) order is unimportant).
+</DD>
+
+<P>
+<DT>requested geo band &gt; nbands
+requested band has bad or missing geo header
+</DT>
+<DD><BR>	The requested band number for <B>-g</b> does not exist 
+	or is invalid. 
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The input coordinates must be sorted in ascending line
+order or north-&gt;south order if using <B>-g</b>
+(sample (easting) order is unimportant).
+</P><P>
+<B>-a</b> without <B>-r</b> can be very slow.
+</P><P>
+<B>-g</b> requires a geo header.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+</DD>
+</DL>
+
+<DL>
+<DT>Nov 1995</DT>
+<DD>
+ Added <B>-g</b> option.  Rusty Dodson, MERSC, NHEERL-WED.
+(This option obsoletes the 'cell2point' program.)
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+If a requested coordinate pair lies exactly on the upper or left
+image edge, <B>%name</B> assumes the point lies on the image (and
+returns a pixel value).
+If the coordinate pair lies exactly on the lower or right
+image edge, <B>%name</B> will return &quot;na&quot;.
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="poly.html">poly</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>UNIX</DT>
+<DD>	sort
+</DD>
+</DL>
+

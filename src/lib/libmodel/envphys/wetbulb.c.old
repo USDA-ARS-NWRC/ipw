@@ -1,0 +1,53 @@
+#include <math.h>
+
+#include "ipw.h"
+#include "envphys.h"
+
+double
+wetbulb(
+	double	ta,	/* air tempterature (K) */
+	double	dpt,	/* dewpoint temperature (K) */
+	double	press)	/* total air pressure (Pa)  */
+{
+	double	qa;
+	double	qw;
+	double	xlh;
+	double	xlhv;
+	double	xlhf;
+	double	fu_fac;
+	double	e;
+
+	if (ta <= 0. || dpt <= 0. || press <= 0. || ta < dpt)
+		error("ta, dpt, press negative or zero");
+
+	/* find latent heat of vaporization, or vaporization + fusion */
+	if (ta <= FREEZE) {
+		xlhv = LH_VAP((ta + dpt) / 2.0);
+		xlhf = LH_FUS((ta + dpt) / 2.0);
+		xlh  = xlhv + xlhf;
+	}
+	else if (dpt <= FREEZE) {
+		xlhv = LH_VAP((ta + dpt) / 2.0);
+		xlhf = LH_FUS((FREEZE + dpt) / 2.0);
+		fu_fac = ((FREEZE - dpt) / (ta - dpt));
+		xlh  = xlhv + (fu_fac * xlhf);
+	}
+	else
+		xlh = LH_VAP((ta+dpt)/2);
+
+	/* saturation specific humidity at dpt */
+	e = sati(dpt);
+	qa = SPEC_HUM(e,press);
+
+	/* specific humidity */
+	qw = qa + (CP_AIR/xlh) / (ta-dpt);
+
+	/* check result */
+	if (qw < 0.0)
+		error("combination of ta, dpt & press not possible");
+
+	/* convert to vapor pressure */
+	e = INV_SPEC_HUM(qw,press);
+
+	return(e);
+}

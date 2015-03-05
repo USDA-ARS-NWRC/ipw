@@ -1,0 +1,1 @@
+annotation - get annotation of an image's band

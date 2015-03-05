@@ -1,0 +1,312 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-v</B> ] [ <B>-b</B> ] [ <B>-m</B> <I>mask</I> ] [ <B>-c</B> <I>colormap</I> ] [ <B>-g</B> ]
+      [ <B>-G</B> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads an IPW image and outputs a PPM or PGM image suitable
+for processing by other image processing or image manipulation
+packages.  Since IPW images hold single values per pixel, a colormap
+file is used to map the single value into the three-dimensional RGB
+color space.  If desired, a 3-band IPW image containing each R, G,
+and B color channel can be used to directly create a color image.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-v</B> 
+<DD>
+<B>%name</B> will print extra information on the standard error.
+This includes a description of the input image and a table
+showing the color mapping to be used.
+</DD>
+
+<P>
+<DT><B>-b</B> 
+<DD>
+A colorbar will be added at the bottom of the image.  No
+annotation is provided and the bar is of fixed width, but
+it can give an idea of the colors used and their mapping.
+</DD>
+
+<P>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+Use <I>mask</I> as a mask image.  Any points in <I>mask</I> that are
+0 will have the corresponding points in <I>image</I> set to
+special values.  If a 3-band image is used, the special
+value is 0,0,0 (black).  If a single-band image is used, the
+special value may be set in the colormap file or defaults
+to 255,255,255 (white).
+</DD>
+
+<P>
+<DT><B>-c</B> <I>colormap</I>
+<DD>
+Use <I>colormap</I> as a colormap file.  The format of the file
+is described in the FILES section of this manual.  A
+colormap file details the mapping of IPW pixel or data
+values into RGB colors.
+</DD>
+
+<P>
+<DT><B>-g</B> 
+<DD>
+A linear graymap is used as the colormap function (described
+below in the FILES section) and a PGM image is output.  The
+output may be slightly different than that of ipw2pgm.
+</DD>
+
+<P>
+<DT><B>-G</B> 
+<DD>
+A PGM (Portable Gray Map) image is output.  The values
+written will be that of the R (red) channel -- G and B
+will be ignored.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To convert &quot;900315.ipw&quot; to a PPM image using &quot;col.1k&quot; as a mask and
+&quot;temperature.map&quot; as a colormap file:
+</P><PRE>
+	ipw2ppm -m col.1k  -c temperature.map  900315.ipw
+</PRE><P>
+To print &quot;columbia.ipw&quot; on a color PostScript printer using
+&quot;ndvi.map&quot; as a colormap file:
+</P><PRE>
+	ipw2ppm -c ndvi.map columbia.ipw | pnmtops | lpr -Pcolorps
+</PRE><P>
+To create a false color image from AVHRR images:
+</P><PRE>
+	mux av.ch2 av.ch1 av.ch1 | ipw2ppm
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+      A colormap file consists of a lines of the form:
+  # &lt;arbitrary text&gt;
+     This is a comment line.  Any line with a '#' symbol in the first
+     column will be treated as a comment and ignored.
+  D &lt;data-value&gt;  &lt;red&gt; &lt;green&gt; &lt;blue&gt;  &lt;fit&gt;
+     This is a data line.
+     &lt;data-value&gt; is a floating point number or a special value.  Data
+     values which are numbers must occur in sorted order with the
+     smallest number first.
+     Possible special values are:
+     	-    The minimum value in the image
+     	+    The maximum value in the image
+     	+X   The absolute maximum value [max(abs(minv), abs(maxv))]
+     	-X   The negative of the absolute maximum value
+     	-F   The minimum mapped value
+     	+F   The maximum mapped value
+     &lt;fit&gt; is the kind of fit that should be used.  This field is optional.
+     The default is &quot;lin&quot; which will give a linear fit.  Currently
+     there are no other fits.
+     If a data value occurs outside of the mapped range and is not
+     assigned a pixel, it is mapped to white.
+  P &lt;pixel&gt;       &lt;red&gt; &lt;green&gt; &lt;blue&gt;
+     This is a pixel line.
+     &lt;pixel&gt; is the IPW data value to assign a color to, or the special
+     value &quot;M&quot; which is the color of the mask.  If no color is assigned
+     to the mask value, it will default to white.
+     Pixel lines may occur in any order, even occuring interspersed with
+     the Data lines.
+     Pixel values are assigned AFTER Data lines, so they override the
+     interpolated values given by the Data lines.
+  Those are the three different kinds of lines supported.
+     &lt;red&gt; &lt;green&gt; and &lt;blue&gt; are RGB values for a color.  They may
+     range from 0 to 255.  Black is 0, 0, 0; White is 255, 255, 255.
+     White space must seperate the fields. Any number of spaces or
+     tabs constitute white space, but not newlines.
+     If no colormap file is given, colors are interpolated as follows:
+  # maps negative values to blue, positive to red
+  D -X    0   0 255
+  D  0    0   0   0
+  D +X  255   0   0
+  # maps mask to white
+  P  M  255 255 255
+     If graymap is requested with the '-g' option, the program will
+     output a PGM (Portable Gray Map) instead of a PPM.  This makes
+     the output file 3 times smaller.  Most programs that support PPM
+     images will also support PGM and PBM images.  The colormap looks
+     like:
+  # maps minimum value to black, maximum value to white
+  D -    0   0   0
+  D +  255 255 255
+  # maps mask to white
+  P  M  255 255 255
+     This is a different colormap than what ipw2pgm uses.  ipw2pgm
+     uses a colormap that would have -F and +F instead of - and +.
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>image must have 1 or 3 bands.
+</DT>
+<DD><BR>	The image given must have either 1 band (colormap) or
+	3 bands (each band corresponds to an RGB channel).
+</DD>
+
+<P>
+<DT>image has over %d bits per pixel.  Please reduce it.
+</DT>
+<DD><BR>	The image has too many bits to successfully make a color
+	map.  The IPW program requantize should be used.
+</DD>
+
+<P>
+<DT>ipw2ppm takes only one image.
+ipw2ppm currently supports only one image.  mux your images together.
+</DT>
+<DD><BR>	Only one image can be given as an argument.  If seperate
+	IPW images represent the R, G, and B channels, use the IPW
+	program mux to join the images together.
+</DD>
+
+<P>
+<DT>Colorbars are not supported on 3 band images.
+</DT>
+<DD><BR>	Colorbars only work on single-band (colormapped) images.
+</DD>
+
+<P>
+<DT>Graymap scaling is not supported on 3 band images.
+3 band images are always written in PPM format.
+</DT>
+<DD><BR>	3 band images are used with seperate R, G, and B channels,
+	so will automatically generate a color image.  If a
+	grayscale image is needed, pipe the output of <B>%name</B>
+	through the PBMPlus program ppmtopgm.
+</DD>
+
+<P>
+<DT>3 band images are RGB mapped, not color mapped.
+</DT>
+<DD><BR>	A 3 band image does not use a colormap file.  The colormap
+	file is used to turn a single-band IPW image into color
+	through the use of pixel and data value mappings to RGB
+	values.  A 3 band image directly maps to RGB.
+</DD>
+
+<P>
+<DT>Colormap: <I>type</I> &lt;value&gt; &lt;red&gt; &lt;green&gt; &lt;blue&gt;
+</DT>
+<DD><BR>	The format of the colormap file is incorrect.  See the
+	above FILES section of this manual for a description.
+</DD>
+
+<P>
+<DT>Only linear [lin] fits are currently supported.
+</DT>
+<DD><BR>	Currently no other interpolations are supported between
+	data values other than linear.
+</DD>
+
+<P>
+<DT>rgb values must be between 0 and 255.
+</DT>
+<DD><BR>	RGB values are defined for values between 0 (off) and 255
+	(on full).  Values inbetween cover the range of intensity
+	for that channel.  This is 8 bits per channel, or enough
+	for a 24-bit image spanning 16.7 million colors.
+</DD>
+
+<P>
+<DT>pixel value <I>pixel</I> out of range.
+</DT>
+<DD><BR>	The IPW input image does not have enough bits to support
+	a pixel value that large.  The maximum value for an 8-bit
+	IPW image is 256, 12-bits is 4096, 16-bits is 65536.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Takes a lot of memory.  A 512x512 image with mask will take over
+2 megabytes.  A 1024x1024 image with no mask will take 4 megabytes.
+</P><P>
+Only binary PBM images are output.  No support for ASCII PBM
+images is planned.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Apr 1992</DT>
+<DD>
+	Written by Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>Mar 1993</DT>
+<DD>
+	Changed to allow input from stdin at the expense of
+memory.  Added 3 band support and +/-F mapping.
+Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>Jun 1995</DT>
+<DD>
+	3-band images seperately quantized.
+Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="ipw2pgm.html">ipw2pgm</A></B>,
+<B><A href="ipw2pbm.html">ipw2pbm</A></B>,
+<B><A href="ipw2ps.html">ipw2ps</A></B>,
+<B><A href="ipw2sun.html">ipw2sun</A></B>,
+<B><A href="ipw2hds.html">ipw2hds</A></B>,
+<B><A href="ipw2ps.html">ipw2ps</A></B>,
+<B><A href="ipw2xim.html">ipw2xim</A></B>,
+	<B><A href="ipw2xyz.html">ipw2xyz</A></B>,
+<B><A href="pbm2ipw.html">pbm2ipw</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Image</DT>
+<DD>	xv, xli, xloadimage, PBM, PPM, pnmtops
+</DD>
+</DL>
+<P>&quot;PBMPLUS -- Extended Portable Bitmap Toolkit&quot;, Jef Poskanzer,
+10 December, 1991.  Anonymous ftp from export.lcs.mit.edu:
+/contrib/pbmplus.tar.Z.
+</P>
+

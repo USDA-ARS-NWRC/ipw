@@ -1,0 +1,3 @@
+%define(name,"wedge")
+%define(description,"linear combination of line and sample coordinates")
+%define(category,"Image Transformation")

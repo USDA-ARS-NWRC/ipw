@@ -1,0 +1,214 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-r</B> <I>lo</I>,<I>hi</I> [ <B>-n</B> <I>num </I> ] [ <B>-d</B> <I>inc </I> ] [ <B>-s</B> <I>func </I> ]
+      [ <B>-f</B> <I>format </I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Seq was originally written as the &quot;qdips&quot; program &quot;sequence&quot; by Jeff
+Dozier, at UCSB.  It was converted to ipw in 1989.
+</P><P>
+Seq generates a sequence of numbers between <I>lo</I> and <I>hi</I>
+inclusive.  The number of points and spacing can be set with
+other options (default: 100 points with linear spacing).
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-r</B> <I>lo</I>,<I>hi</I>
+<DD>
+The numbers will range from <I>lo</I> to <I>hi</I>, inclusive.
+</DD>
+
+<P>
+<DT><B>-n</B> <I>num </I>
+<DD>
+<I>num</I> (default: 100) numbers will be generated.
+</DD>
+
+<P>
+<DT><B>-d</B> <I>inc </I>
+<DD>
+The spacing between points will be <I>inc</I> (default: use
+the spacing function and <I>num</I> to determine).
+</DD>
+</DL>
+
+<P>At most one of <B>-n</b> or <B>-d</b> may be specified.
+</P>
+
+<DL>
+<DT><B>-s</B> <I>func </I>
+<DD>
+The numbers will be spaced using a <I>func</I> (default: linear)
+function.  Acceptable values are &quot;lin&quot;, &quot;log&quot;, &quot;exp&quot;, and
+&quot;sqrt&quot;.
+</DD>
+
+<P>
+<DT><B>-f</B> <I>format </I>
+<DD>
+The numbers will be printed using the C format <I>format</I>
+(default: &quot;%g&quot;).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To generate 4 equally spaced points between 200 and 600:
+</P><PRE>
+	seq -r 200,600 -n 4
+</PRE><P>
+To generate a list of wavelengths (in nm) between 200 and 400, for
+processing by refdx to determine the refractive index of ice at 0C
+in 2-nm increments:
+</P><PRE>
+	seq -r 200,400 | refdx -s ice -t 0 -u nm
+</PRE><P>
+To generate 30 numbers between 0 and 10, with exponential spacing:
+</P><PRE>
+	seq -r 0,10 -n 30 -s exp
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT><B>-d</b> specified, <B>-n</b> ignored
+</DT>
+<DD><BR>	If <B>-n</b> (number of points to generate) is specified as well as
+	<B>-d</b> (the spacing between points), the <B>-n</b> option is ignored.
+</DD>
+
+<P>
+<DT><B>-n</b> too small, must be &gt;= 3
+</DT>
+<DD><BR>	At least 3 points must be requested.
+</DD>
+
+<P>
+<DT>[ <B>-f</b> ..%..g.. or ..%..f.. or ..%..e.. ]
+</DT>
+<DD><BR>	The format specification must be a valid C printf-style
+	format.
+</DD>
+
+<P>
+<DT>range error: lo equals hi
+</DT>
+<DD><BR>	The low and high values are equal.
+</DD>
+
+<P>
+<DT>no negative numbers with <I>func</I> spacing
+</DT>
+<DD><BR>	The &quot;log&quot; and &quot;sqrt&quot; spacing functions do not allow negative
+	numbers.
+</DD>
+
+<P>
+<DT>no non-positive numbers with <I>func</I> spacing
+</DT>
+<DD><BR>	The &quot;log&quot; spacing function does not allow zero.
+</DD>
+
+<P>
+<DT>increment negative or zero
+</DT>
+<DD><BR>	The spacing between points (the increment) must be positive
+	if <I>lo</I> is less than <I>hi</I>.
+</DD>
+
+<P>
+<DT>increment positive or zero
+</DT>
+<DD><BR>	The spacing between points (the increment) must be negative
+	if <I>lo</I> is greater than <I>hi</I>.
+</DD>
+
+<P>
+<DT>math function error
+</DT>
+<DD><BR>	A value given to the spacing function was invalid.
+</DD>
+
+<P>
+<DT>range error: increment out of range
+range error: start out of range
+range error: fin out of range
+</DT>
+<DD><BR>	The function being ued has caused one of the variables
+	to go out of range.  Lower the range values.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jul 1989</DT>
+<DD>
+	Written by Jeff Dozier, UCSB.
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+	Error messages modifed.  Added range chacking.
+Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1997</DT>
+<DD>
+	Converted to IPW Version 2.0, by D. Marks, USGS, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="interp.html">interp</A></B>,
+<B><A href="poly.html">poly</A></B>,
+<B><A href="random.html">random</A></B>,
+<B><A href="refdx.html">refdx</A></B>
+</DD>
+</DL>
+

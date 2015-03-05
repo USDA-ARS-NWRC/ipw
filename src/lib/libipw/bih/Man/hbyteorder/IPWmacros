@@ -1,0 +1,3 @@
+%define(name,"hbyteorder")
+%define(description,"image byte order")
+%define(category,"bih")

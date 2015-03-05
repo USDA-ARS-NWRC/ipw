@@ -1,0 +1,94 @@
+<H2>NAME</H2>
+
+<P>
+<B>%name</B> - %description
+</P>
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "bih.h"
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Basic image headers for IPW images describe the images'
+basic properties, e.g., the number of lines in the image,
+the number of samples per line, the number of pixels (bands)
+per sample, the number of bits per pixel, etc.
+
+<P>
+There are two typedefs for processing the basic image headers.
+The first typedef defines the <B>per-image</B> component of the
+basic image header:
+
+<PRE>
+    typedef <B>BIHI_T</B> has these fields:
+
+        char * byteorder;   /* byte order         */
+        int    nlines;      /* # of lines         */
+        int    nsamps;      /* # samples per line */
+        int    nbands;      /* # of bands         */
+</PRE>
+ 
+<P>        
+The second typedef defines the <B>per-band</B> information
+in the basic image header:
+
+<PRE>
+    typedef <B>BIH_T</B> has these fields:
+
+        BIHI_T   * img;       /* -> per-image component        */
+        int        nbytes;    /* # bytes per pixel             */
+        int        nbits;     /* # bits per pixel              */
+        STRVEC_T * history;   /* -> processing history strings */
+        STRVEC_T * annot;     /* -> annotation strings         */
+</PRE>
+
+<P>
+<B>Macros</B>
+<P>
+
+The following macros are defined for accessing the fields in the
+BIH_T structure:
+
+<PRE>
+    BIH_T * p;
+
+    bih_byteorder(p)
+    bih_nlines(p)
+    bih_nsamps(p)
+    bih_nbands(p)
+    bih_nbytes(p)
+    bih_nbits(p)
+    bih_history(p)
+    bih_annot(p)
+</PRE>
+
+
+<H2>SEE ALSO</H2>
+
+<DL>
+
+<DT>IPW:
+<DD>
+<A HREF="../man3/bihmake.html">bihmake()</A>,
+<A HREF="../man3/bihdup.html">bihdup()</A>,
+<A HREF="../man3/bihread.html">bihread()</A>,
+<A HREF="../man3/bihwrite.html">bihwrite()</A>,
+<A HREF="../man3/bih.html">bih()</A>,
+<A HREF="../man3/hbyteorder.html">hbyteorder()</A>,
+<A HREF="../man3/hnlines.html">hnlines()</A>,
+<A HREF="../man3/hnsamps.html">hnsamps()</A>,
+<A HREF="../man3/hnbands.html">hnbands()</A>,
+<A HREF="../man3/hnbits.html">hnbits()</A>,
+<A HREF="../man3/hnbytes.html">hnbytes()</A>,
+<A HREF="../man3/hostorder.html">hostorder()</A>,
+<A HREF="../man3/imgsize.html">imgsize()</A>,
+<A HREF="../man3/sampsize.html">sampsize()</A>,
+<A HREF="../man3/no_history.html">no_history()</A>
+</DD>
+
+</DL>

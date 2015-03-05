@@ -1,0 +1,76 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>C preprocessor</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../../images/usda.gif" alt="USDA">
+<IMG SRC="../../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>C preprocessor</H1>
+
+
+<P>
+The C preprocessor is a powerful tool for enhancing the readability and
+maintainability of C source code. Use of macros to parameterize literal
+constants allows those constants to be easily changed should the need arise,
+and is a useful form of documentation. Collecting oft-used macros and
+declarations into header files simplifies their maintenance.
+
+<P>
+Within a source file, preprocessor directives are grouped and ordered as
+follows:
+
+<UL>
+   <LI>system-level <CODE>#include</CODE>
+   <LI>IPW <CODE>#include</CODE>
+   <LI>local (program or module) #include</CODE>
+   <LI><CODE>#define</CODE> constants
+   <LI><CODE>#define</CODE> macros
+</UL>
+
+<P>
+Each group is preceded by a blank line.  Preprocessor directives always begin
+in column 1. There is no whitespace between the <CODE>"#"</CODE>
+and the directive name.
+
+In <CODE>#define</CODE> directives, the macro name begins at tab stop 1
+(column 9) and the
+replacement text begins at tab stop 3 (column 25), or at the next available
+tab stop.  In all other directives, a single space separates the directive
+from the subsequent expression, filename, etc.
+
+<P>
+Examples:
+
+<PRE>
+#include <stdio.h>
+
+#include "ipw.h "
+
+#include "lutx.h "
+
+#define LUT_NBITS       8
+#define LUT_SIZE        (1 << LUT_NBITS )
+#define	VALID_IDX(i)    ( (i) >= 0 && (i) < LUT_SIZE )
+</PRE>
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

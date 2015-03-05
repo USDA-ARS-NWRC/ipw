@@ -1,0 +1,67 @@
+This file describes the programming interface to the MValloc package. When
+using non-ANSI compilers that don't use funcion prototypes pay special 
+attention to the DANGER note below.
+
+
+*** The supported element types are:
+
+MV_CHAR, MV_SHORT, MV_INT, MV_LONG, MV_FLOAT, MV_DOUBLE, MV_VOIDP
+
+One can get a signed/unsigned variant of the integral types my assigning the
+pointer returned from MValloc to the correct pointer type (see example
+below).
+
+*** The function call interface is:
+
+void *MValloc(int eltype, int dimension, ...)
+
+      The MValloc function returns a void pointer that represents the
+      starting location of the n-dimensional matrix requested (or NULL 
+      on error). The first argument is one of the supported element types 
+      (listed above), the second argument is the number of dimensions 
+      for this object (1 for vector, 2 for matrix, 3 or larger for higher 
+      dimensional objects).  The remaining arguments are the sizes of 
+      each of the dimensions, supplied as long ints. For example:
+
+      short          *short_array  = MValloc(MV_SHORT, 1, 200L);
+      unsigned short *ushort_array = MValloc(MV_SHORT, 1, 200L);
+      double        **matrix       = MValloc(MV_DOUBLE, 2, 100L, 100L);
+      int        *****hyper        = MValloc(MV_INT, 5, 3L, 3L, 3L, 3L, 3L);
+
+void  MVfree(void *mvobj)
+
+      The MVfree function checks to make sure the pointer given represents
+      an MVobject, and if so, MVfree free's all memory associated with the
+      object. 
+
+int   MVdimension(void *mvobj)
+
+      The MVdimension function checks to make sure the pointer given 
+      represents an MVobject, and if so, MVdimension returns the number
+      of dimensions in the specified object.  Returns -1 on error.
+
+long  MVsize(void *mvobj, int dimension)
+
+      The MVsize function checks to make sure the pointer given 
+      represents an MVobject, and if so, MVsize returns the size of 
+      the specified dimension (0 based), or -1 on error.  For example, 
+      given the 2-dimensional double matrix allocated above we could say:
+
+      int rows = MVsize(matrix, 0);
+      int cols = MVsize(matrix, 1);
+
+int   MVtype(void *mvobj)
+
+      The MVtype function checks to make sure the pointer given 
+      represents an MVobject, and if so, MVtype returns the number
+      associated with the element type (eg. MV_CHAR).  Returns -1 on error.
+
+************************ DANGER *******************************************
+
+When on a non-ANSI compiler that does not use the function prototypes given
+in mvalloc.h, the programmer must be careful to cast the arguments of all
+mvalloc functions to the correct types.  In particular, the free and query
+functions require a void *mvobj and this should be explicity cast by the
+programmer (things like double * may have a different representation).
+Also, the sizes given in MValloc() should all be long ints, which was
+necessary to make this package usefull in the 16 bit world.

@@ -1,0 +1,3 @@
+%define(name,"sunhwrite")
+%define(description,"write an IPW SUNH header")
+%define(category,"sunh")

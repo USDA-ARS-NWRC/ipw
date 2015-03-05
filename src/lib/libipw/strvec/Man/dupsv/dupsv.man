@@ -1,0 +1,64 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+STRVEC_T *
+dupsv(
+	REG_1 STRVEC_T *p)
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> duplicates the strvec pointed to by p.
+</P><P>
+<B>%name</B> is used by the IPW image header duplication routines to
+duplicate strvec header values.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+pointer to the duplicate strvec, or NULL if any memory allocations
+fail.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

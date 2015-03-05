@@ -1,0 +1,95 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+char *
+mktemplate(const char * prefix)		|* prefix for file name *| 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> creates a template for the name of a temporary file.  The
+format of the template is "/tmp/{prefix}.XXXXXX".  The template returned
+by %name is then passed to the
+<A HREF="../man3/uwopen_temp.html">uwopen_temp()</A> function to create
+the actual name for a temporary file and to open it.
+</P>
+<P>
+The caller is responsible for deallocating the returned template.
+</P>
+
+
+<H2>RETURN VALUE</H2>
+
+<DL>
+
+<DT>non-NULL</DT>
+<DD>
+New template.
+</DD>
+
+<P>
+
+<DT>NULL</DT>
+<DD>
+Insufficient memory to create the template.
+</DD>
+
+</DL>
+
+
+<H2>EXAMPLES</H2>
+
+<P>Typical usage:
+</P>
+<PRE>
+    char * template;
+    template = mktemplate("foo");
+    if (template == NULL)
+        error("Unable to create template for temporary file");
+    int fdt;
+    fdt = uwopen_temp(template);
+    ...
+    uclose(fdt);
+    SAFE_FREE(template);
+</PRE>
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Uses "/tmp" as the directory.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+<DL>
+
+<DT>IPW:
+<DD>
+<A HREF="../man3/uwopen_temp.html">uwopen_temp()</A>
+</DD>
+
+</DL>
+

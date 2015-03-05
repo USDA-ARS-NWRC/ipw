@@ -1,0 +1,5 @@
+
+Climate Data in Text Files
+
+  hcnx    - extract daily climate data from Historical Climate Network
+  proport - compute monthly proportions from daily precipitation data

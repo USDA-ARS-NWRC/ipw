@@ -1,0 +1,137 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-z</B> <I>elev </I> ] [ <B>-p</B> <I>pressure </I> ] [ <B>-d</B> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+</P><P>
+<B>%name</B> computes wet or ice bulb temperature from input values of
+air temperature (C), and relative humidity(0 to 1.0) from a fixed site
+air pressure(Pa), using Richard Essery's equations for the
+psychrometric constant, its value at specific temperatures using the
+Clausius-Clapeyron equation, and solves for the Tw or Ti
+using the Newton-Raphson iterative approximation.
+It returns wet or ice bulb temperture (C);
+works at all temperatures (accounting for both fusion and vaporization).
+<\P><P>
+Routine <B>wetbulb</B> is called to compute wet or ice bulb temperature from
+values of air and dewpoint temperatures (K), and air pressure (Pa),
+using Richard Essery's equations for the psychrometric constant,
+its value at specific temperatures from the Clausius-Clapeyron equation,
+and solves for the Tw or Ti using the Newton-Raphson iterative approximation.
+It returns wet or ice bulb temperture (K);
+works at all temperatures (accounting for both fusion and vaporization).
+</P><P>
+<B>%name</B> reads air temperature and RH pairs from standard input;
+Optional elevation, z, is used to calcualte air pressure;
+Optional total air pressure (Pa); default is
+sea level standard of 101324.6 Pa;
+Optional output of dewpoint temp along with wet or ice bulb temp(C);
+Output is to standard output;
+</P><P>
+(see <I>General Meterology, Byers, 1974</I>)
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-z</B> <I>elev </I>
+<DD>
+Use <I>elev</I> to calculate air pressure (default: sea level).
+</DD>
+
+<P>
+<DT><B>-p</B> <I>pressure </I>
+<DD>
+<I>pressure</I> is the total air pressure (default: sea level
+standard of 101324.6 Pa).
+</DD>
+
+<P>
+<DT><B>-d</B> 
+<DD>
+Dew point temperatures are also outputed in degrees C.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate ice-bulb and dewpoint temperatures from air temperature and RH measured
+at a site near Park City, Utah:
+</P><PRE>
+	<B>%name</B> -z 3105 -d &lt; {-8.2 0.923}
+	output: Tw = -8.56; Td = -9.11
+</PRE>
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Feb 2012</DT>
+<DD>
+Written by D. Marks, NWRC, USDA-ARS;
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="dewpt.html">dewpt</A></B>,
+<B><A href="idewpt.html">idewpt</A></B>,
+<B><A href="irh2vp.html">irh2vp</A></B>,
+<B><A href="rh2vp.html">rh2vp</A></B>,
+<B><A href="isatvp.html">isatvp</A></B>,
+<B><A href="satvp.html">satvp</A></B>,
+<B><A href="sling.html">sling</A></B>,
+<B><A href="vptr.html">vptr</A></B>,
+<B><A href="wetbulb.html">wetbulb</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Byers 1974">Byers 1974</A>,
+</P>
+ 

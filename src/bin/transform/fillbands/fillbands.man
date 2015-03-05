@@ -1,0 +1,127 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-n</B> <I>bands</I> [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> inputs a two-band image, and outputs a multi-band image
+which is a linear interpolation between the two input bands.
+For example, if the two bands of the input image were constant
+surfaces with the values 1 and 10, respectively, then running
+<B>%name</B> with &quot;<B>-n</b> 8&quot; would create output bands with the constant
+values 2,3,4,5,6,7,8,9, respectively.
+</P><P>
+The output image bands get their nbits and geo headers (if any)
+from band 0 of the input image.  The lq headers of the output
+image bands are all the same.  The min and max lq values are
+the lowest and highest values found in the lq headers of
+the input image.
+</P><P>
+NOTE:   coarse linear quantization can cause the &quot;linear&quot; 
+</P>
+<PRE>
+	interpolation to be ragged.  To get a better linear
+	approximation, add more bits of precision to band 0
+	of the input image (with the IPW program requant).
+</PRE>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-n</B> <I>bands</I>
+<DD>
+number of bands in output image.  This is the number of
+&quot;filled&quot; bands to be interpolated between the two bands
+of the input image.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image	input image (default:stdin).  This image must have exactly
+		two bands.  Bands of the output image are linearly 
+		interpolated between these two input bands.
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+The images &quot;t.jan&quot; and &quot;t.feb&quot; contain mean January and February
+temperatures.  Assuming the mean temperature occurs on the 
+15th of the month, <B>%name</B> can be used to interpolate a
+series of daily temperature images between Jan 15 and Feb 15:
+</P><P>
+Linearly interpolate the 30 days between 1/15 and 2/15:
+</P><PRE>
+	mux t.jan t.feb | fillbands -n 30 &gt; t.between
+</PRE><P>
+Attach the endpoints, making a 32-band image of linearly- 
+interpolated daily temperature:
+</P><PRE>
+	mux t.jan t.between t.feb &gt; t.jan15-feb15		
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None.
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>input image must have exactly 2 bands
+</DT>
+
+<P>
+<DT>both input bands must have exactly 2 lq breakpoints
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The input image must have an lq header for each band.
+The lq headers of the input image must have exactly 2 breakpoints.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Nov 1994</DT>
+<DD>
+ 	Written by Rusty Dodson, MERSC, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None thus far.
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="mux.html">mux</A></B>,
+<B><A href="requant.html">requant</A></B>
+
+</DD>
+
+</DL>
+

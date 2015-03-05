@@ -1,0 +1,20 @@
+#  For now, this file should define the local configuration
+
+#  The full paths to the various shells and interpreters
+
+SH=@SH_PATH@
+AWK=@AWK_PATH@
+SED=@SED_PATH@
+PERL=@PERL_PATH@
+
+#  This needs to be a standard C compiler
+CC=@CC@
+
+#  The graph command is used by the grhist command
+GRAPH=@GRAPH_PATH@
+
+#  If GNU C Compiler, does it have the -iquote option?
+GCC_HAS_IQUOTE=@gcc_has_iquote@
+
+#  The site-specific include file
+include $(IPW)/conf/site.mk

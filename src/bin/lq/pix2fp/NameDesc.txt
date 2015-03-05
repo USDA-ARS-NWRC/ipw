@@ -1,0 +1,1 @@
+pix2fp - map pixel values to floating-point values using image's LQ header

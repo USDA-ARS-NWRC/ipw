@@ -1,0 +1,44 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include	"ipw.h"
+#include	"envphys.h"
+
+double
+bowen(
+     double  p,   /* air pressure (same units as ea and es)  */
+     double  ta,  /* potential air temperature (K)           */
+     double  ts,  /* potential surface temperature (K)       */
+     double  ea,  /* vapor pressure (same units as p and es) */
+     double  es)  /* vapor pressure at surface (same units
+                       as p and es)                          */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates the Bowen ratio (H/LE).
+</P>
+
+<H2>RETURN VALUE</H2>
+
+<P>
+Bowen ratio (H/LE)
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jun 1995</DT>
+<DD>
+Converted from QDIPS to IPW by J. Domingo, OSU.
+</DD>
+</DL>
+
+

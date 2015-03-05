@@ -1,0 +1,3 @@
+1998 Dec 1, J. Domingo
+	Increased command buffer size for imath from 100 to 1000
+	(constant CMD_BUF_LEN)

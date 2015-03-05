@@ -1,0 +1,79 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+int
+uwopen_temp(char * template)	|* template for file name *| 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> creates a temporary file by passing the given filename template
+to the Standard C library function mkstemp().  The template should be created
+by calling the <A HREF="../man3/mktemplate.html">mktemplate()</A> function.
+mkstemp() generates a filename in the template itself, opens the file for
+writing, and returns the new file descriptor.  %name then initializes the
+file descriptor for IPW I/O.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+&gt;= 0	A writable UNIX file descriptor for successful open.
+</P><P>
+ERROR	Error occurred.
+</P>
+
+
+<H2>EXAMPLES</H2>
+
+<P>Typical usage:
+</P>
+<PRE>
+    char * template;
+    template = mktemplate("foo");
+    if (template == NULL)
+        error("Unable to create template for temporary file");
+    int fdt;
+    fdt = uwopen_temp(template);
+    ...
+    uclose(fdt);
+    SAFE_FREE(template);
+</PRE>
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+<DL>
+
+<DT>IPW:
+<DD>
+<A HREF="../man3/mktemplate.html">mktemplate()</A>,
+<A HREF="../man3/uwopen.html">uwopen()</A>
+</DD>
+
+</DL>
+

@@ -1,0 +1,170 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-f</B> ] [ <I>name</I> ]
+
+<B>%name</B> [ <B>-f</B> ] <B>-c</B> <I>file</I>
+</PRE>
+
+
+<H2>DESCRIPTION </H2>
+
+<P>
+<B>%name</B> converts the IPW man page for an IPW command or
+library function to the
+new HTML version of an IPW man page.  The new man page is written to
+standard output.  The conversion is generally not 100% complete, so
+the new IPW man page will require some minor editing.  This editing
+can be done with a text editor if the user is familiar with HTML, or
+it can be done with a HTML editor such as Netscape Navigator Gold.
+</P>
+
+
+<H2>OPTIONS </H2>
+
+<DL>
+
+<DT><B>-f</B></DT>
+<DD>The man page is for an IPW library function (default: IPW command).
+There are some differences in the section headings for these two types
+of man pages.
+</DD>
+
+<P>
+
+<DT><B>-c</B> <I>file</I>
+<DD>The source code file <I>file</I> contains the man page to be converted
+in its comments.  Before converting, first extract the man page from the
+file.  Those lines starting with "**" are assumed to be part of the man
+page.
+</DD>
+
+</DL>
+
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>name</I></DT>
+
+<DD>The name of the IPW command whose man page should be converted.
+If no name is specified, %name reads a man page from standard input.
+</DD>
+</DL>
+
+
+<H2>EXAMPLES</H2>
+
+<P>To convert the man page of the IPW command &quot;foo&quot;, enter this
+command:
+</P>
+
+<PRE>
+     %name foo > foo.man
+</PRE>
+
+<P>The same conversion can be done this way too:
+</P>
+
+<PRE>
+     ipwman foo | %name > foo.man
+</PRE>
+
+<P>If the file xyz.c contains the source code for the library routine xyz
+as well as its man page in the file's comments, then to extract and convert
+the man page, enter:
+
+<PRE>
+   %name -f -c xyz.c > xyz.man
+</PRE>
+
+
+<H2>FILES</H2>
+
+<P>None.</P>
+
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT>No information for:<BR>   <I>name</I></DT>
+<DD><BR>
+<I>name</I> does not refer to an existing IPW command.
+</DD>
+
+<P>
+
+<DT>Warning: skipping unknown section: <I>section</I></DT>
+<DD>
+The man page for the specified command contained a section that this
+utility does not recognize, and therefore, skipped.  The user may wish
+to examine the original man page to determine what to do about the
+skipped section (e.g., include its information in another section).
+</DD>
+
+<P>
+
+<DT>Error: Cannot access file "<I>file</I>"</DT>
+<DD>
+The file specified by the <B>-c</B> option is not really a file, or
+is not readable.
+</DD>
+
+<P>
+
+<DT>Error:  Cannot access &quot;ipwman&quot; command</DT>
+<DD>
+<B>%name</B> could not invoke the <B>ipwman</B> command on the given
+name.  A possible cause is that the user's path does not include the
+directory where <B>ipwman</B> is located.
+</DD>
+
+</P>
+
+</DL>
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>None.</P>
+
+
+<H2>HISTORY </H2>
+
+<DL>
+
+<DT>Feb 1997</DT>
+<DD>
+Written by J. Domingo, OSU.  Based on the imtoum converter written by
+Dana Jacobsen, ERL-C.
+</DD>
+
+<P>
+
+<DT>Apr 1997</DT>
+<DD>Modified so this command would invoke &quot;ipwman&quot; instead of
+having to pipe the output of &quot;ipwman&quot; into this command.
+J. Domingo, OSU</DD>
+
+<P>
+
+<DT>Sep 1997</DT>
+<DD>Added <B>-f</B> and <B>-c</B> options.  J. Domingo, OSU</DD>
+
+</DL>
+
+
+<H2>BUGS</H2>
+
+<P>None. </P>
+
+
+<H2>SEE ALSO </H2>
+
+<P>None. </P>

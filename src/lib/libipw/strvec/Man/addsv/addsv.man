@@ -1,0 +1,66 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+STRVEC_T *
+addsv(
+	REG_1 STRVEC_T *p,
+	char           *s)
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> appends a copy of string s to strvec p.  If p is NULL, then a
+new strvec is created with s as its first string.
+</P><P>
+<B>%name</B> is used by the IPW image header ingestion routines to maintain
+multi-valued string parameters.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+p, or a pointer to a new strvec if p is NULL, or NULL if any memory
+allocations fail.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

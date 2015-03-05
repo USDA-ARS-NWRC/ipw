@@ -1,0 +1,133 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-a</B> ] [ <B>-o</B> ] [ <B>-x</B> ] [ <B>-m</B> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> writes a bitwise combination of the input image bands on the
+standard output.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-a</B> 
+<DD>
+output image is bitwise AND of input bands.  The output
+image will have a non-0 value only if the matching pixel
+from all input images have a non-0 value.
+</DD>
+
+<P>
+<DT><B>-o</B> 
+<DD>
+output image is bitwise inclusive-OR of input bands.  The
+output image will have a non-0 value if any of the matching
+pixels from the input images have a non-0 value.
+</DD>
+
+<P>
+<DT><B>-x</B> 
+<DD>
+output image is bitwise exclusive-OR of input bands.  The
+output image will have a 0 value if all inputs are 0 or if
+the input images match exactly.
+</DD>
+</DL>
+
+<P>Exactly one of <B>-a</b>, <B>-o</b>, <B>-x</b> must be specified.
+</P>
+
+<DL>
+<DT><B>-m</B> 
+<DD>
+the last (highest-numbered) input band is assumed to be a
+mask.  All non-0 pixels are set to ~0 before the bit
+operations are performed.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I></DT>
+<DD>
+input image with at least 2 bands (default: standard input).
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To mask a DEM &quot;elev&quot; such that pixels outside the drainage basin
+&quot;basin&quot; are set to 0:
+</P><PRE>
+	mux elev basin | bitcom -a -m
+</PRE>
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT>single-band input image</DT>
+<DD>The input image must have at least 2 bands
+</DD>
+
+<P>
+<DT>different # bits / pixel: bands 0, <I>band</I>
+</DT>
+<DD>All input bands must have the same number of bits per
+pixel (except the last band, if <B>-m</b> is specified).
+</DD>
+
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+All input bands must have the same number of bits per pixel
+(if <B>-m</b> is specified, then the last band is exempt from this
+restriction).
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="mux.html">mux</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A><BR>
+</P>
+

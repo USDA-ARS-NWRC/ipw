@@ -1,0 +1,219 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-n</B> ] <B>-z</B> <I>elev</I> <B>-t</B> <I>tau</I> <B>-w</B> <I>omega</I> <B>-g</B> <I>gfact</I> <B>-r</B> <I>R0</I>
+      [ <B>-s</B> <I>S0</I> ] [ <B>-x</B> <I>w1</I>,<I>w2</I> ] <B>-d</B> <I>y</I>,<I>m</I>,<I>d</I> <B>-b</B> <I>d</I>[,<I>m</I>,<I>s</I>] <B>-l</B> <I>d</I>[,<I>m</I>,<I>s</I>]
+      [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Topquad is a shell script that calculates daily integrated radiation
+over a topographic grid, using a two-stream atmospheric radiation model
+and 21-point Kronrod quadrature between sunrise and sunset, by making
+repeated calls to several ipw programs (solar, sunlight, shade), and
+elevrad and toporad.  The input image has the following bands:
+</P><PRE>
+	elevation
+	slope
+	aspect
+	sky view factor
+	terrain configuration factor
+	surface albedo
+</PRE>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-n</B> 
+<DD>
+Calculate net radiation (default: calculate incoming
+radiation).
+</DD>
+
+<P>
+<DT><B>-z</B> <I>elev</I>
+<DD>
+The elevation of optical depth measurement is <I>elev</I> meters.
+</DD>
+
+<P>
+<DT><B>-t</B> <I>tau</I>
+<DD>
+The optical depth at <I>elev</I> is <I>tau</I>.
+</DD>
+
+<P>
+<DT><B>-w</B> <I>omega</I>
+<DD>
+The single-scattering albedo is <I>omega</I>.
+</DD>
+
+<P>
+<DT><B>-g</B> <I>gfact</I>
+<DD>
+The scattering asymmetry factor is <I>gfact</I>.
+</DD>
+
+<P>
+<DT><B>-r</B> <I>R0</I>
+<DD>
+The mean surface albedo is <I>R0</I>.
+</DD>
+
+<P>
+<DT><B>-s</B> <I>S0</I>
+<DD>
+The exoatmospheric solar irradiance is <I>S0</I> (default: use
+&quot;solar&quot; to calculate this from the <B>-x</b> range).
+</DD>
+
+<P>
+<DT><B>-x</B> <I>w1</I>,<I>w2</I>
+<DD>
+The wavelength range, in micrometers, is <I>w1</I>-<I>w2</I> (default:
+no wavelength range; the solar irradiance is specified).
+</DD>
+</DL>
+
+<P>At least one of <B>-s</b> and/or <B>-x</b> must be specified.
+</P>
+
+<DL>
+<DT><B>-d</B> <I>y</I>,<I>m</I>,<I>d</I>
+<DD>
+The date is <I>year</I>, <I>month</I>, <I>day</I>.
+</DD>
+
+<P>
+<DT><B>-b</B> <I>d</I>[,<I>m</I>,<I>s</I>]
+<DD>
+The latitude is <I>d</I> degrees, <I>m</I> minutes, <I>s</I> seconds.
+</DD>
+
+<P>
+<DT><B>-l</B> <I>d</I>[,<I>m</I>,<I>s</I>]
+<DD>
+The longitude is <I>d</I> degrees, <I>m</I> minutes, <I>s</I> seconds.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image	six-band input image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+Running <B>%name</B> over a section of the Columbia Basin on June 22, 1990,
+with input files muxed together:
+</P><PRE>
+	mux elev slope-aspect skyview-terrain albedo |  \
+	topquad -z 200 -t .2 -w .85 -g .55 -r .1244 -x .58,.68  \
+		-d 1990,6,22 -b 48 -l -119,30  &gt; rad.incoming
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+<B>%name</B> is implemented as a shell script that calls many different
+IPW routines to accomplish it's task.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1989</DT>
+<DD>
+	Written by Jeff Dozier, UCSB.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="elevrad.html">elevrad</A></B>,
+<B><A href="gelevrad.html">gelevrad</A></B>,
+<B><A href="gsunlight.html">gsunlight</A></B>,
+<B><A href="gtoporad.html">gtoporad</A></B>,
+<B><A href="gtoporad.24.html">gtoporad.24</A></B>,
+<B><A href="gtopquad.html">gtopquad</A></B>,
+	<B><A href="horizon.html">horizon</A></B>,
+<B><A href="solar.html">solar</A></B>,
+<B><A href="sunang.html">sunang</A></B>,
+<B><A href="sunlight.html">sunlight</A></B>,
+<B><A href="sunweights.html">sunweights</A></B>,
+<B><A href="shade.html">shade</A></B>,
+<B><A href="toporad.html">toporad</A></B>,
+	<B><A href="toporad.24.html">toporad.24</A></B>
+</DD>
+</DL>
+<P>Dozier, J., 1980.  &quot;A clear-sky spectral solar radiation model for
+	snow-covered mountainous terrain&quot;.  Water Resources Research,
+	vol. 16, pp. 709-718.
+</P>
+<P>Dozier, J., and J. Frew, 1981.  &quot;Atmospheric corrections to satellite
+	radiometric data over rugged terrain&quot;.  Remote Sensing of
+	Environment, vol. 11, pp. 191-205.
+</P>
+<P>Dozier, J., J. Bruno, and P. Downey, 1991.  &quot;A faster solution to the
+	horizon problem&quot;, Computers and Geosciences, volume 7,
+	number 2, pp. 145-151.
+</P>
+<P>Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain parameters
+	for radiation modeling from digital elevation data&quot;. IEEE
+	Transactions on Geoscience and Remote Sensing, vol. 28, no. 5,
+	pp. 963-969.
+</P>
+<P>Dubayah, R., J. Dozier, and F. Davis, 1990.  &quot;Topographic distribution
+	of clear-sky radiation over the Konza Prairie, Kansas&quot;.  Water
+	Resources Research, vol. 26, no. 4, pp. 679-691.
+</P>
+<P>Marks, D., R. Dubayah, and K. Longley, 1991.  &quot;Modeling the topographic
+	and spectral variability of clear-sky solar radiation at regional
+	to continental scales.  Proceedings 1991 IGARSS Symposium,
+	Remote Sensing:  Global Monitoring for Earth Management, Espoo,
+	Finland, Vol. 3, pp. 1711.
+</P>
+<P>Dubayah, R., and V. Van Katwijk, 1992.  &quot;The topographic distribution
+	of annual incoming solar radiation in the Rio Grande basin&quot;.
+	Geophysical Research Letters, vol. 19, pp. 2231-2234.
+</P>
+<P>Dubayah, R., 1994.  &quot;Modeling a solar radiation topoclimatology for the
+	Rio Grande River Basin&quot;.  Journal of Vegetation Science, vol. 5,
+	pp. 627-640.
+</P>
+

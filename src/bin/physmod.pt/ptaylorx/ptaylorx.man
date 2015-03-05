@@ -1,0 +1,122 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [<I> &lt;infile </I>]<I> </I>[<I> &gt;outfile </I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates LE flux using a detailed form of the Priestly-Taylor
+approach. This method is designed to estimate the total 
+evaporative flux over a wet surface (i.e. potential 
+evapotranspiration). The program reads input from a file
+or from stdin as: 
+</P><PRE>
+	Rn, G, ta, ts, ea, PP
+</PRE><PRE>
+	Rn     = Net radiation (Wm^-2, '-' flux away from surface) 
+ 	G      = Soil heat flux (Wm^-2, '-' flux away from surface)	
+	ta     = Air temperature (C)
+	ts     = Surface temperature (C)
+	ea     = Vapor pressure of air (Pa)
+	PP     = Priestly Taylor Parameter (approx 1.26)
+</PRE>
+
+<P>
+If the Priestly-Taylor parameter, "PP", is set to 0 in the input file,
+then "PP" is calculated using "ta - ts" and vapor pressure gradient after
+<I>Pereira and Nova (1992)</I>.
+</P>
+<P>
+Output is to stdout.
+</P>
+<H2>OPTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+none
+</P>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jun 1993</DT>
+<DD>
+written by John Kimball OSU, EPA-ERL
+</DD>
+</DL>
+
+<DL>
+<DT>May 1995</DT>
+<DD>
+Converted to IPW by J. Domingo, OSU, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>    <B><A href="bowvap.html">bowvap</A></B>,
+<B><A href="penmanx.html">penmanx</A></B>,
+<B><A href="ipmx.html">ipmx</A></B>,
+<B><A href="pmx.html">pmx</A></B>,
+<B><A href="iptx.html">iptx</A></B>,
+<B><A href="ptx.html">ptx</A></B>,
+<B><A href="trb_Ri.html">trb_Ri</A></B>,
+<B><A href="itrbxfr.html">itrbxfr</A></B>,
+<B><A href="trbxfr.html">trbxfr</A></B>
+</DD>
+</DL>
+ 
+<P>
+<A HREF="../bib.html#Brutsaert 1982">Brutsaert 1982</A>,
+<A HREF="../bib.html#Mahrt, Ek 1984">Mahrt, Ek 1984</A>,
+<A HREF="../bib.html#Monteith, Unsworth 1990">Monteith, Unsworth 1990</A>,
+<A HREF="../bib.html#Pereira, Nova 1992">Pereira, Nova 1992</A>,
+<A HREF="../bib.html#Priestley, Taylor, 1972">Priestley, Taylor, 1972</A>,
+<A HREF="../bib.html#Running, Coughlan 1988">Running, Coughlan 1988</A>,
+<A HREF="../bib.html#Stewart 1984">Stewart 1984</A>
+</P>
+ 

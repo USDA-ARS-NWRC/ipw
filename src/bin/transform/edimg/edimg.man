@@ -1,0 +1,154 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-r</B> ] [ <B>-k</B> <I>const</I> ] [ <B>-c</B> <I>coords</I> ] [ <B>-i</B> <I>image</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> copies the input <I>image</I> to the standard output, replacing
+specified pixel values.  Replacement values are read from the
+text file <I>coords</I>.  Each value is represented by as a single
+line with the format:
+</P><PRE>
+	line sample constant
+</PRE><P>
+indicating that the value of the pixel at location <I>line</I>,<I>sample</I>
+is to be replaced with <I>constant</I>.  If <I>constant</I> is missing, the
+default value specified by <B>-k</b> is used.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-r</B> 
+<DD>
+Replacement values are &quot;raw&quot; (i.e., should not be converted
+from floating-point before storing in pixels).  Any input
+&quot;lq&quot; headers will be ignored.
+</DD>
+
+<P>
+<DT><B>-k</B> <I>const</I>
+<DD>
+The default replacement pixel value is <I>const</I> (default: 0).
+</DD>
+
+<P>
+<DT><B>-c</B> <I>coords</I>
+<DD>
+Coordinates are read from <I>coords</I> (default: standard input).
+</DD>
+
+<P>
+<DT><B>-i</B> <I>image</I>
+<DD>
+Image data is read from <I>image</I> (default: standard input).
+</DD>
+</DL>
+
+<P>At least one of <B>-c</b> and/or <B>-i</b> must be specified.
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>	image
+		if &quot;-i&quot; option is omitted
+</P><P>
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To set the pixel(s) at (100,200) in &quot;image&quot; to 255:
+</P><PRE>
+	edimg -r -i image
+	100 200 255
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>invalid coordinates: <I>text</I>
+</DT>
+<DD><BR>	The <I>text</I> line is not a valid replacement value
+	specification.
+</DD>
+
+<P>
+<DT>unsorted coordinates: <I>line</I>, <I>sample</I>
+</DT>
+<DD><BR>	The coordinates must be sorted in order of increasing
+	line numbers.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The coordinates must be sorted in order of increasing line numbers
+(the order of the samples is unimportant).
+</P><P>
+If the input image has more than one band, then ALL bands at a
+specified location are set to the corresponding replacement value.
+</P><P>
+The input <I>line</I> and <I>sample</I> values are always raw.  They are
+unaffected by any coordinate system headers such as &quot;geo&quot;, &quot;win&quot;,
+etc. in the input image.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB
+</DD>
+</DL>
+
+<DL>
+<DT>May 1993</DT>
+<DD>
+	Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="edhdr.html">edhdr</A></B>,
+<B><A href="poly.html">poly</A></B>,
+<B><A href="prhdr.html">prhdr</A></B>,
+<B><A href="primg.html">primg</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>UNIX</DT>
+<DD>	sort
+</DD>
+</DL>
+<P>Frew, J., 1990. The Image Processing Workbench. PhD Thesis, Department
+	if Geography, University of California, Santa Barbara, 382p.
+</P>
+

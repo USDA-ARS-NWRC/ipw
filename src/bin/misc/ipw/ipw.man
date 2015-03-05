@@ -1,0 +1,103 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>user</B> | <B>system</B> ]
+</PRE>
+
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> prints a list of the currently-available
+IPW user or system commands on standard output.
+</P>
+
+
+<H2>OPTIONS</H2>
+
+<P>None.</P>
+
+
+<H2>OPERANDS</H2>
+
+<DL>
+
+<DT><B>user</B></DT>
+<DD>
+Print the list of IPW user commands (default).
+</DD>
+
+<P>
+
+<DT><B>system</B></DT>
+<DD>
+Print the list of IPW system commands.
+</DD>
+
+</DL>
+
+
+<H2>EXAMPLES</H2>
+
+<P>
+The following two commands will both print the list of available IPW
+user commands:
+
+<PRE>
+     % ipw
+
+     % ipw user
+</PRE>
+
+
+<H2>FILES</H2>
+
+<PRE>
+     $IPW/src/bin/Commands.txt     text file with user commands
+     $IPW/src/sbin/Commands.txt    text file with system commands
+</PRE>
+
+
+<H2>DIAGNOSTICS</H2>
+
+<P>None.</P>
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>None.</P>
+
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+
+<P>
+
+<DT>Apr 1997</DT>
+<DD>
+Modified to work with IPW version 2's directory structure.  J. Domingo, OSU
+</DD>
+
+</DL>
+
+
+<H2>BUGS</H2>
+
+<P>None.</P>
+
+
+<H2>SEE ALSO</H2>
+
+<P>None.</P>
+

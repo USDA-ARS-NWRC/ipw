@@ -1,0 +1,125 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-K</B> ] [ <B>-m</B> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+</P><P>
+<B>%name</B> converts dew point temp to sat. vapor pressure
+Reads dew point temp from standard input;
+Dew point temp. input in C (default) or K;
+Calculates vapor pressure in Pascals (default) or mb;
+Output is to standard output;
+</P><P>
+(see <I>General Meterology, Byers, 1974</I>)
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-K</B> 
+<DD>
+The input Dew point temperatures are in degrees K
+(default: C).
+</DD>
+
+<P>
+<DT><B>-m</B> 
+<DD>
+The output values for vapor pressure are in millibars.
+(default: Pa).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To estimate saturation vapor pressure from air temperature:
+</P><PRE>
+	<B>%name</B> &lt; ta_vector
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jun 1983</DT>
+<DD>
+Written by D. Marks, CSL, UCSB;
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1984</DT>
+<DD>
+Modified to new QDIPS format by Marks;
+</DD>
+</DL>
+
+<DL>
+<DT>May 1995</DT>
+<DD>
+Converted to IPW by J. Domingo, OSU, US EPA
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="dewpt.html">dewpt</A></B>,
+<B><A href="idewpt.html">idewpt</A></B>,
+<B><A href="irh2vp.html">irh2vp</A></B>,
+<B><A href="rh2vp.html">rh2vp</A></B>,
+<B><A href="satvp.html">satvp</A></B>,
+<B><A href="sling.html">sling</A></B>,
+<B><A href="vptr.html">vptr</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Byers 1974">Byers 1974</A>,
+</P>
+ 

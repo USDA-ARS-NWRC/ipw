@@ -1,0 +1,171 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-p</B> <I>platform</I> ] [ <B>-s</B> <I>sensor</I> ] [ <B>-l</B> <I>location</I> ]
+      [ <B>-d</B> <I>date</I> ] [ <B>-t</B> <I>time</I> ] [ <B>-b</B> <I>band</I>[,<I>...</I>] ] [ <B>-f</B> ]
+      [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> constructs an IPW satellite header (SATH) and inserts in into
+the headers of <I>image</I> (default: standard input).  If the specified
+bands already have SAT headers, they are overridden, and a warning
+message is generated.
+</P><P>
+If the <B>-f</b> option is specified, then only the headers are written to
+the standard output, and any input image data is ignored.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-s</B> <I>sensor</I>
+<DD>
+The image data were acquired by <I>sensor</I> (e.g., &quot;TM&quot;, &quot;SPOT&quot;,
+&quot;AVIRIS&quot;, etc.).
+</DD>
+
+<P>
+<DT><B>-p</B> <I>platform</I>
+<DD>
+The <I>sensor</I> was mounted on <I>platform</I> (e.g., &quot;Landsat-5&quot;,
+&quot;ER-2&quot;, &quot;C-130&quot;, etc.).
+</DD>
+
+<P>
+<DT><B>-l</B> <I>location</I>
+<DD>
+The image data were acquired at or over <I>location</I>.  This
+should not be a geodetic specification (use mkgeoh for that),
+but a sensor-, platform-, or project-specific identifier
+(e.g., experimental site name, Landsat path/row, etc.).
+</DD>
+
+<P>
+<DT><B>-d</B> <I>date</I>
+<DD>
+The image data were acquired on <I>date</I>.  The standard
+format for this is <I>YYYYMMDD</I>.
+</DD>
+
+<P>
+<DT><B>-t</B> <I>time</I>
+<DD>
+The image data were acquired at <I>time</I>.  The standard
+format for this is <I>hhmmss.sss...</I>.
+</DD>
+</DL>
+
+<P>At least one of <B>-s</b>, <B>-p</b>, <B>-l</b>, <B>-d</b>, and/or <B>-t</b> must be specified.
+</P>
+
+<DL>
+<DT><B>-b</B> <I>band</I>[,<I>...</I>]
+<DD>
+The &quot;sat&quot; header will be applied only to the specified
+<I>band</I>s (default: all bands).
+</DD>
+
+<P>
+<DT><B>-f</B> 
+<DD>
+Force header output only.  Do not attempt to copy pixel
+data from <I>image</I> to the standard output.  Note that there
+must still be at least an input BIH, and any input headers
+(except superseded &quot;sat&quot; headers) will still be copied to
+the standard output.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I></DT>
+
+<DD>satellite image (default: standard input)
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To add a satellite header to a landsat TM image over the BOREAS site
+on February 15, 1997, at 9:42 in the morning:
+</P><PRE>
+	mksath -s TM -p &quot;Landsat-7&quot; -l BOREAS -d 19970215 -t 094200
+</PRE><P>
+(the quotes around "Landsat-7" are necessary to avoid confusion with the
+shell.)
+</P>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>bad band number: <I>band</I>
+</DT>
+<DD>A nonexistent input band was specified with <B>-b</b>.
+</DD>
+
+<P>
+<DT>band <I>band</I>: replacing previous SAT header
+</DT>
+<DD>Band <I>band</I> already had a &quot;sat&quot; headers, which was replaced
+by the newly-created one.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+There are not yet any standard identifiers for <I>sensor</I>, <I>platform</I>,
+or <I>location</I>.  The <I>date</I> and <I>time</I> arguments are
+recommended but not enforced
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="mkbih.html">mkbih</A></B>,
+<B><A href="prhdr.html">prhdr</A></B>,
+<B><A href="rmhdr.html">rmhdr</A></B>,
+<B><A href="tmpt.html">tmpt</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A><BR>
+</P>
+

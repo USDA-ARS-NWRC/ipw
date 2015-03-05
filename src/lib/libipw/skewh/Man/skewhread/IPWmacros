@@ -1,0 +1,3 @@
+%define(name,"skewhread")
+%define(description,"read an IPW SKEWH header")
+%define(category,"skewh")

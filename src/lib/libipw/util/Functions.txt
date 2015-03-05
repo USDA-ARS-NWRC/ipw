@@ -1,0 +1,9 @@
+
+util - utility functions
+
+  ecalloc - memory allocator (interface to UNIX calloc)
+  allocnd - allocate a dynamic, dope-vectored array
+  imgcopy - copy all image data
+  no_tty  - exit if file descriptor is a terminal
+  rmlead  - skip leading white space in string
+  rmtrail - remove trailing white space from string

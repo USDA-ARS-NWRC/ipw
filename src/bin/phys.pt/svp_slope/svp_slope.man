@@ -1,0 +1,115 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+</P><P>
+<B>%name</B> computes the slope of the saturation vapor pressure
+curve, used in the psychromentric equation, and in the Penman, Penman-Montieth,
+and Priestly-Taylor methods of estimating evaporation and evapo-transpiration.
+Uses both the gradient method (pg.215, eq 10.11, Brutsaert [1982]),
+and the Clausius-Clapeyron equation (pg. 41, eq 3.22, Brutsaert [1982])
+to compute the slope of the SVP curve as a function of temperature.
+Output is in Pa/K.
+</P><P>
+(see <I>General Meterology, Byers, 1974</I>, and
+<I>Evaporation into the Atmosphere, Brutsaert, 1982</I>)
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+Using the file <I>data</I>, containing air temperatures from
+-20 to +40C, compute SVP curve slope:
+</P><PRE>
+<B>%name</B> &lt;data
+</PRE>
+<P>
+resulting in:
+</P><PRE>
+     Ta      grad    C-C
+    -20.0     9.91   10.10
+    -10.0    23.06   23.28
+      0.0    47.64   50.25
+      5.0    60.86   60.72
+     10.0    82.27   81.98
+     15.0   109.83  109.27
+     20.0   144.85  143.91
+     25.0   188.89  187.37
+     30.0   243.67  241.33
+     35.0   311.15  307.67
+     40.0   393.50  388.43
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Mar 2005</DT>
+<DD>
+Written by D. Marks, NWRC, USDA-ARS;
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="dewpt.html">dewpt</A></B>,
+<B><A href="idewpt.html">idewpt</A></B>,
+<B><A href="irh2vp.html">irh2vp</A></B>,
+<B><A href="rh2vp.html">rh2vp</A></B>,
+<B><A href="isatvp.html">isatvp</A></B>,
+<B><A href="satvp.html">satvp</A></B>,
+<B><A href="vptr.html">vptr</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Byers 1974">Byers 1974</A>,
+<A HREF="../bib.html#Brutsaert 1982">Brutsaert 1982</A>,
+</P>
+ 

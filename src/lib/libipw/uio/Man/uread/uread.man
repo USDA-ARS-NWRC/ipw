@@ -1,0 +1,67 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+int
+uread(
+	int       fd,		|* input file descriptor	 *|
+	addr_t    buf,		|* -> input buffer		 *|
+	int       nbytes)	|* #bytes to read		 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is a reliable interface to the UNIX read function.  It is
+guaranteed to return the number of bytes requested unless end-of-file
+is reached, or an I/O error occurs.
+</P><P>
+Note that the semantics of UNIX pipes are such that a normal UNIX
+read may return with less than the number of bytes requested, even
+when the pipe is not empty; this was the principal motivation for
+<B>%name</B>.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+&gt;= 0	number of bytes read
+</P><P>
+ERROR	if failure
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_uiocb
+</P>
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

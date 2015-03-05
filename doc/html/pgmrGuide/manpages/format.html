@@ -1,0 +1,141 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Manual Pages: Documenting IPW Software</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../../images/usda.gif" alt="USDA">
+<IMG SRC="../../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Manual Pages: Documenting IPW Software</H1>
+
+
+<P>
+As with other Unix software, manual pages are used to document IPW's
+commands, library functions, and C header files.  Each "man page"
+has a single source file from which two versions of the man page are
+derived:
+
+<UL>
+  <LI>an HTML version which is viewed with a web browser, and 
+  <LI>a <CODE>troff</CODE> version which is viewed with the Unix
+      <CODE>"man"</CODE> command.
+</UL>
+
+The naming conventions for these files are:
+
+<P>
+<TABLE border align=center cellpadding="5">
+
+<TR> <TD><I>X</I>.man</TD>  <TD>source file for <I>X</I>'s man page</TD>
+</TR>
+<TR> <TD><I>X</I>.html</TD>  <TD>HTML version of <I>X</I>'s man page
+</TR>
+<TR> <TD valign=top><I>X.n</I></TD> <TD>troff version of <I>X</I>'s man page<BR>
+&nbsp;&nbsp;(where <I>n</I> is the manual section number:<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>n</I> = 1 if <I>X</I> is a command,<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>n</I> = 3 if <I>X</I> is a library function,<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>n</I> = 5 if <I>X</I> is a header file)<BR>
+</TD>
+</TR>
+
+</TABLE>
+
+<P>
+The source files for man pages are located in the source directories of the
+entities they document.  For example, the source file for the man page for
+an IPW command is located in the command's source directory.
+
+<P>
+<B>IPW macros in Source Files</B>
+
+<P>
+Two IPW macros are used in the source files for man pages:
+
+<P>
+<TABLE border align=center cellpadding="5">
+
+<TR> <TD><CODE>%name</CODE></TD>
+     <TD>the name of the command, library function, or header file</TD>
+</TR>
+<TR> <TD valign=top><CODE>%description</CODE></TD>
+     <TD>the brief one-line description of the command, library function,<BR>
+         or header file</TD>
+</TR>
+
+</TABLE>
+
+<P>
+Because these macros are defined in the corresponding Makefile, their use
+ensures consistency between the man page and other documentation such as
+the lists of commands for the command categories.  The macros also add
+flexibility in that a command, library function or header file can be
+renamed, and its man page is automatically updated without requiring
+any changes to the man page's source file.
+
+
+<P>
+<B>Format of Man Page's Source File</B>
+
+<P>
+The source file for an IPW man page is formated like the BODY section of
+an HTML document.  A man page's source file uses a limited set of basic HTML
+tags; therefore, a rudimentary knowledge of HTML is necessary to create or
+modify source files.  Such knowledge is readily available through various
+HTML primers available on the Web like the 
+<A HREF="http://www.ncsa.uiuc.edu/General/Internet/WWW/HTMLPrimer.html">
+NCSA Beginner's Guide to HTML</A>.
+
+<P>
+A source file for a man page is divided into <B>sections</B>.  Each section
+describes a specific aspect of the entity that the man page is documenting.
+For example, the man page for an IPW command has a section describing
+the command-line options that the command accepts.
+
+<P>
+Each section starts with the name of the section as a level-two heading:
+
+<PRE>
+    &lt;H2><I>section name</I>&lt;/H2>
+</PRE>
+
+The section's name is always in uppercase.  For example, the section that
+describes a command's options starts like this:
+
+<PRE>
+    &lt;H2>OPTIONS&lt;/H2>
+</PRE>
+
+<P>
+The sections that appear in a man page depend upon what the man page is
+documenting.  The man page for a command has a different list of sections than
+the man page for a library function.  The lists of sections for each type of
+man page are presented below, along with descriptions of the contents
+and format for each section.
+
+<P>
+<UL>
+  <LI><A HREF="cmdMan.html">sections in a command's manual page</A>
+  <LI><A HREF="funcMan.html">sections in a library function's manual page</A>
+  <LI><A HREF="hdrMan.html">sections in a header file's manual page</A>
+</UL>
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

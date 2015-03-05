@@ -1,0 +1,67 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+bool_t
+ubof(
+	int             fd)	|* file descriptor		 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> tests whether any I/O has been performed on file descriptor fd
+since it was last u[rw]opened, i.e., are we at the Beginning Of
+the File?
+</P><P>
+<B>%name</B> exists mainly to allow the hrname to reset itself after a file
+descriptor has been closed and reopened.  <B>%name</B> will probably not need
+to be called by IPW application programs.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+TRUE	no I/O has been performed (i.e., at beginning of file)
+</P><P>
+FALSE	I/O has been performed (not at beginning of file)
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_uiocb
+</P>
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

@@ -1,0 +1,171 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-l</B> <I>lfactor</I> ] [ <B>-s</B> <I>sfactor</I> ] [ <B>-f</B> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads <I>image</I> (default: standard input) and writes a copy to
+the standard output, with lines and/or samples either replicated
+or skipped.
+</P><P>
+Positive factors specify enlargement, negative factors specify
+reduction.
+</P><P>
+When skipping lines or samples, counting begins at (0,0); i.e., the
+first sample in the input image is always present in the output image.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-l</B> <I>lfactor</I>
+<DD>
+Replicate each line <I>lfactor</I> times.  If <I>lfactor</I> is
+negative, then select every <I>lfactor</I>'th line, beginning
+with line 0.
+</DD>
+
+<P>
+<DT><B>-s</B> <I>sfactor</I>
+<DD>
+Replicate each sample <I>sfactor</I> times.  If <I>sfactor</I> is
+negative, then select every <I>sfactor</I>'th sample,
+beginning with sample 0, from each selected line.
+</DD>
+
+<P>
+<DT><B>-f</B> 
+<DD>
+When replicating, force the edges of the output image
+to coincide exactly with those of the input image.
+This only makes sense on images with geodetic headers.
+If the <B>-f</b> option is not used, the output image will be
+offset in geodetic space.   
+</DD>
+
+<P>NOTE: when using the <B>-f</b> option, the <B>%name</B> procedure is not 
+reversible.  For example, 
+</P>
+
+<P><B>%name</B> <B>-f</b> <B>-l</b> 10 <B>-s</b> 10 foo | <B>%name</B> <B>-l</b> -10 <B>-s</b> -10
+</P>
+
+<P>will output pixel values identical to those of foo, but
+the geodetic extent of the output image will be 
+different from that of foo.
+</P>
+</DL>
+
+<P>At least one of <B>-l</b> and/or <B>-s</b> must be specified.
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To <B>%name</B> an image by a factor of 2 in both directions:
+</P><PRE>
+	zoom -s 2 -l 2
+</PRE><P>
+To histogram every 10th pixel of a large image:
+</P><PRE>
+	zoom -s -10 -l -10 | hist
+</PRE><P>
+Zooming by non-integer factors in accomplished by expressing the
+desired <B>%name</B> factor as a fraction, and then using the pipeline:
+</P><PRE>
+	zoom -{dir} {numerator} | zoom -{dir} -{denominator}
+</PRE><P>
+For example, to shrink an image by 3/4 horizontally (perhaps to
+accommodate a display with a 4:3 aspect ratio):
+</P><PRE>
+	zoom -s 3 | zoom -s 4
+</PRE><P>
+The fractional <B>%name</B> pipeline should be specified in the order
+shown (replication BEFORE subsampling).  Reversing the order
+(subsampling before replication) may be faster, but results in
+much greater loss of spatial resolution.
+</P>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>line zoom factor must be non-zero
+sample zoom factor must be non-zero
+</DT>
+<DD><BR>	Zoom factors must be non-zero integers.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1994</DT>
+<DD>
+	Added <B>-f</b> option; Rusty Dodson, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="window.html">window</A></B>,
+<B><A href="resamp.html">resamp</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Image</DT>
+<DD>	pbmscale, rlezoom, xli, xloadimage, xv
+</DD>
+</DL>
+<P>Frew, J., 1990.  The Image Processing Workbench.  Ph.D. Thesis,
+	Department of Geography, University of California, Santa
+	Barbara, CA, 382pp.
+</P>
+

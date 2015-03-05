@@ -1,0 +1,9 @@
+sunos3      sunos3
+sunos4      sunos4
+solaris2*   solaris2
+hpux	    hpux8.0
+hpux8*      hpux8.0
+hpux9*      hpux8.0
+aix         aix3.2
+aix3.2      aix3.2
+dgux*       dgux

@@ -1,0 +1,41 @@
+.TH "walksv" "3" "10 April 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBwalksv\fP - step through strings in strvec
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+char *
+walksv(
+	REG_1 STRVEC_T *p,
+	bool_t          reset)
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBwalksv\fP sequentially accesses the strings in strvec p.  If reset is
+true, then the first string is accessed.  If reset is false, then the
+next string is accessed.
+.PP
+Calling addsv or delsv may confuse \fBwalksv\fP's notion of what the "next"
+string is.  Calling \fBwalksv\fP with reset == TRUE avoids this problem.
+.SH RETURN VALUE
+.PP
+pointer to string in p.
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

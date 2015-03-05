@@ -1,0 +1,1 @@
+uwopen_temp - create a temporary UNIX file and open it for writing

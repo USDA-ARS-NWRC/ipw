@@ -1,0 +1,170 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-d</B> ] [ <B>-n</B> <I>npoints</I> ] [ <B>-h</B> <I>header</I> ] [ <B>-m</B> <I>mask</I> ]
+      [ <B>-p</B> <I>infile</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads in an ASCII file of data points and constructs an IPW
+image by spatial interpolation using either inverse-distance-squared
+or inverse-distance weighting.  
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-d</B> 
+<DD>
+use inverse-distance weighting for interpolation
+(inverse-distance-squared is the default).  This will
+produce a smoother interpolated output image because 
+distant points have proportionally more weight than
+in the inverse-distance-squared case.
+</DD>
+
+<P>
+<DT><B>-n</B> <I>npoints</I>
+<DD>
+The number of nearest neighbors used for interpolation will
+be <I>npoints</I> (default: 12).
+</DD>
+
+<P>
+<DT><B>-h</B> <I>header</I>
+<DD>
+The IPW header file <I>header</I> (default: standard input) will
+be used to determine the number of lines, samples, bits per
+pixel (from the &quot;bi&quot; header) and geodetic information (from
+the &quot;geo&quot; header).  If <I>header</I> contains an &quot;lq&quot; header, it
+will be used for the floating point mapping in the output
+image; otherwise the mapping will be derived from the data.
+</DD>
+
+<P>
+<DT><B>-p</B> <I>infile</I>
+<DD>
+Points will be read in from <I>infile</I> (default: standard input).
+The input file contains three values per line, formatted:
+</DD>
+
+<P>easting  northing  value
+</P>
+
+<P>where the easting and northing are specified in the same
+coordinate system as given in the &quot;geo&quot; header.
+</P>
+</DL>
+
+<P>At least one of <B>-h</b> and/or <B>-p</b> must be specified.
+</P>
+
+<DL>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+The file <I>mask</I> (default: none) will be used to define what
+parts of the output <B>%name</B> are filled in.  Points in <I>mask</I>
+that are 0 will be left 0 in the output image.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>	None
+</P><P>
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To interpolate a <B>%name</B>, using 8 nearest neighbors, and
+inverse-distance-squared weighting:
+</P><PRE>
+	surface -n 8 -h hdr.file -p pt.file -m mask &gt;out.image
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>error reading point <I>npoint</I> from input file
+</DT>
+
+<P>
+<DT>input header has no geodetic header
+</DT>
+<DD><BR>	The input header file must have a GEO header.
+</DD>
+
+<P>
+<DT>input geo units are degrees - must be Euclidean 
+</DT>
+<DD><BR>	The &quot;units&quot; field of the projection defined by the input GEO
+	header must be amenable to Euclidean distance calculations:
+		d = sqrt((x1-x2)**2  +  (y1-y2)**2)
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The mask and header file must be single band.
+</P><P>
+Map projection distortions can introduce significant error in distance
+computations as the spatial extent of the image increases, or if an
+improper map projection is used.  For example, interpolating a <B>%name</B>
+over an Arctic region using a standard US Albers projection would
+produce unusual (and incorrect) results.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1991</DT>
+<DD>
+	Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1995</DT>
+<DD>
+	 Cleaned up, and added simple inverse-distance weighting
+option, D. Marks, USGS, Environmental Research Lab.,
+Corvallis OR
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="msurfprep.html">msurfprep</A></B>,
+<B><A href="msurface.html">msurface</A></B>,
+<B><A href="mkproj.html">mkproj</A></B>,
+<B><A href="reproj.html">reproj</A></B>,
+<B><A href="mkgeoh.html">mkgeoh</A></B>,
+<B><A href="mkbih.html">mkbih</A></B>
+</DD>
+</DL>
+

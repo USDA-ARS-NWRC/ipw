@@ -1,0 +1,3 @@
+%define(name,"mnxfp")
+%define(description,"minima and maxima of fpixel vectors")
+%define(category,"fpio")

@@ -1,0 +1,143 @@
+.TH "window" "1" "6 April 2010" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBwindow\fP - extract a region (window) of an IPW image
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBwindow\fP [ \fB-b\fP \fIline\fP,\fIsamp\fP ] [ \fB-c\fP \fIline\fP,\fIsamp\fP ] [ \fB-e\fP \fIline\fP,\fIsamp\fP ]
+      [ \fB-n\fP \fInlines\fP,\fInsamps\fP ] [ \fB-w\fP \fIband\fP ] [ \fB-g\fP \fIband\fP ] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBwindow\fP reads an image from \fIimage\fP (default: standard input) and
+writes a specified \fBwindow\fP (subimage) to the standard output.
+.SH OPTIONS
+.TP
+\fB-b\fP \fIline\fP,\fIsamp\fP
+The beginning (upper-left corner) of the \fBwindow\fP is
+\fIline\fP,\fIsamp\fP (default: beginning of input image).
+.sp
+If only \fB-b is specified, then the \fBwindow\fP extends diagonally
+from \fIline\fP,\fIsamp\fP to the last sample on the last line of
+the input image.
+.sp
+.TP
+\fB-c\fP \fIline\fP,\fIsamp\fP
+The center of the \fBwindow\fP is \fIline\fP,\fIsamp\fP.  The center of
+an even number of lines or samples is the larger of the two
+possible values; e.g., the center line of lines 0..511 is
+256, not 255.
+.sp
+If only \fB-c is specified, then the \fBwindow\fP is the largest
+possible odd number of input lines and samples centered
+on \fIline\fP,\fIsamp\fP.
+.sp
+.TP
+\fB-e\fP \fIline\fP,\fIsamp\fP
+the end (lower-right corner) of the \fBwindow\fP is \fIline\fP,\fIsamp\fP
+(default: end of input image).
+.sp
+If only \fB-e is specified, then the \fBwindow\fP extends diagonally
+from the first sample on the first line of the input image
+to \fIline\fP,\fIsamp\fP.
+.sp
+.TP
+\fB-n\fP \fInlines\fP,\fInsamps\fP
+The \fBwindow\fP has \fInlines\fP lines and \fInsamps\fP samples per
+line (default: remainder of image).
+.sp
+If only \fB-n is specified, then the \fBwindow\fP begins at the
+first sample of the first line of the input image.
+.PP
+At least one, and no more than two, of \fB-b, \fB-c, \fB-e, and/or \fB-n
+.PP
+must be specified.
+.TP
+\fB-w\fP \fIband\fP
+The arguments to \fB-b, \fB-c, and/or \fB-e are specified in the
+coordinates of band \fIband\fP's \fBwindow\fP ("win") header.
+.sp
+.TP
+\fB-g\fP \fIband\fP
+The arguments to \fB-b, \fB-c, and/or \fB-e are specified in the
+coordinates of band \fIband\fP's geodetic ("geo") header.
+.PP
+At most one of \fB-w or \fB-g may be specified.
+.SH OPERANDS
+.TP
+[\fIimage\fP]
+	image
+.sp
+.SH EXAMPLES
+.PP
+To produce a 2x enlargement of the center of a 512x512 image:
+.sp
+.nf
+.ft CR
+	window -c 256,256 -n 256,256 | zoom -l 2 -s 2
+.ft R
+.fi
+
+.PP
+To extract a 1 km by 1 km \fBwindow\fP from a 5-meter DEM, beginning
+at UTM northing 4051800 and easting 349350:
+.sp
+.nf
+.ft CR
+	window -g 0 -b 4051800,349350 -e 4050805,350345
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     $TMPDIR/windo\fINNNNN\fP
+     	Temporary copy of all input headers.
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+specified window exceeds boundaries of input image
+.br
+	Windows are not clipped to fit the input image.  The
+	specification must be correct to start with.
+.sp
+.TP
+no geodetic header for band \fIband\fP
+no window header for band \fIband\fP
+.br
+	\fB-g or \fB-w was specified and there was no corresponding
+	header for the specified input band.
+.SH RESTRICTIONS
+.PP
+Input "win" and "geo" headers are transformed correctly; other
+input headers are copied verbatim to the output image.
+.SH HISTORY
+.TP
+Jul 1990
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+.TP
+Apr 1993
+	Ran through Purify.  Dana Jacobsen, ERL-C.
+.TP
+Apr 2010
+	Fixed a bug where memory chunk was being freed twice (ticket #21).
+	James Domingo, Green Code LLC
+.SH BUGS
+.PP
+None that we know of
+.SH SEE ALSO
+.TP
+IPW
+	\fBmkgeoh\fP,
+\fBmkwinh\fP,
+\fBzoom\fP
+.PP
+Frew, J., 1990.  The Image Processing Workbench.  Ph.D. Thesis,
+	Department of Geography, University of California, Santa
+	Barbara, CA, 382pp.

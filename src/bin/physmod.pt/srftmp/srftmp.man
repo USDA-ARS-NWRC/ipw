@@ -1,0 +1,145 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<P><B>%name</B></P>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates surface temperature using a sin-wave
+function where the amplitude of the wave is computed
+as the difference between the maximum and minimum
+daily air temperature and the mean is the average
+surface temperature. Program was designed to compute
+surface temperatures at 1,3, or 6 hour intervals
+based on daily temperature information readily
+available from surface climate station data.
+See <I>Jury et al.; Soil Physics, p. 185; 1991</I>.
+</P><P>
+Reads input file from stdin:
+</P><PRE>
+             Tmax, Tmin, Tavg, P, lag, t
+</PRE><P>
+where:
+<PRE>
+          Tmax    = maximum daily air temp. (C)
+          Tmin    = minimum daily air temp. (C)
+          Tavg    = average surface temp. (C)
+          P       = wave period (hrs; should be =24 for daily cycle)
+          lag     = time of maximum temperature
+          t       = time period of interest (hrs)
+</PRE>
+</P><P>
+Outputs to stdout.
+</P>
+
+<H2>OPTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To estimate temperature at 10PM (22.00 hrs), when:
+<PRE>
+           Tmax    = 12,
+           Tmin    = 3,
+           Tave    = 6,
+           P       = 24,
+           lag     = 16 (4PM),
+           t       = 22 (10PM):
+</PRE>
+</P><PRE>
+	srftmp &lt;{12 3 6 24 16 22}
+</PRE>
+<P>
+yields:
+</P>
+<PRE>
+		3.75
+</PRE>
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+Written by John Kimball OSU-EPA
+</DD>
+</DL>
+
+<DL>
+<DT>Jun 1995</DT>
+<DD>
+Converted to IPW by J. Domingo, OSU, EPA NHEERL/WED
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="albedo.html">albedo</A></B>,
+<B><A href="bowvap.html">bowvap</A></B>,
+<B><A href="dewpt.html">dewpt</A></B>,
+<B><A href="gsnow.html">gsnow</A></B>,
+<B><A href="mse.html">mse</A></B>,
+<B><A href="penmonx.html">penmonx</A></B>,
+<B><A href="pmx.html">pmx</A></B>,
+<B><A href="pott.html">pott</A></B>,
+<B><A href="ptaylorx.html">ptaylorx</A></B>,
+<B><A href="ptx.html">ptx</A></B>,
+<B><A href="rh2vp.html">rh2vp</A></B>,
+<B><A href="satvp.html">satvp</A></B>,
+<B><A href="sling.html">sling</A></B>,
+<B><A href="soilt.html">soilt</A></B>,
+<B><A href="soiltmp.html">soiltmp</A></B>,
+<B><A href="swe.html">swe</A></B>,
+<B><A href="swp.html">swp</A></B>,
+<B><A href="thermin.html">thermin</A></B>,
+<B><A href="trad.html">trad</A></B>,
+<B><A href="trb_Ri.html">trb_Ri</A></B>,
+<B><A href="trbxfr.html">trbxfr</A></B>,
+<B><A href="vptr.html">vptr</A></B>,
+<B><A href="zpr.html">zpr</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Jury, Gardner 1991">Jury, Gardner 1991</A>
+</P>
+ 

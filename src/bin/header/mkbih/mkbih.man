@@ -1,0 +1,224 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-l</B> <I>nlines</I> <B>-s</B> <I>nsamps</I> [ <B>-a</B> <I>annot</I>[,<I>...</I>] ] [ <B>-b</B> <I>nbands</I> ]
+      [ <B>-y</B> <I>nbytes</I>[,<I>...</I>] ] [ <B>-i</B> <I>nbits</I>[,<I>...</I>] ] [ <B>-f</B> ] [<I>data</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> creates an IPW basic image header (BIH) and writes it to
+the standard output.  The contents of <I>data</I> (default: standard
+input) are then copied to the standard output.  <B>%name</B> therefore
+allows an IPW header to be prepended to image data from a
+non-IPW source.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-l</B> <I>nlines</I>
+<DD>
+The BIH will indicate <I>nlines</I> lines per image.
+</DD>
+
+<P>
+<DT><B>-s</B> <I>nsamps</I>
+<DD>
+The BIH will indicate <I>nsamps</I> samples per image line.
+</DD>
+
+<P>
+<DT><B>-b</B> <I>nbands</I>
+<DD>
+The BIH will indicate <I>nbands</I> bands per image sample
+(default: 1).
+</DD>
+
+<P>
+<DT><B>-y</B> <I>nbytes</I>[,<I>...</I>]
+<DD>
+The BIH will indicate <I>nbytes</I> bytes per pixel (default:
+1, or the minimum necessary to accommodate the
+<I>nbits</I> specified by the <B>-i</B> option).
+</DD>
+
+<P>
+<DT><B>-i</B> <I>nbits</I>[,<I>...</I>]
+<DD>
+The BIH will indicate <I>nbits</I> bits per pixel (default:
+8, or all bits in the <I>nbytes</I> specified by the <B>-y</B> option).
+</DD>
+
+</DL>
+<P>
+<B>-y</B> and <B>-i</b> may have either 1 or <I>nbands</I> arguments.
+If there is 1 argument and <I>nbands</I> is greater than 1, then the argument
+applies to all bands.
+</P>
+
+<DL>
+
+<DT><B>-a</B> <I>annot</I>[,<I>...</I>]
+<DD>
+The BIH will indicate <I>annot</I> as the annotation (commentary)
+for each band (default: no annotation).  If <I>nbands</I> is
+greater than 1 and <B>-a</b> is specified, then it must have
+exactly <I>nbands</I> arguments.
+</DD>
+
+<P>
+<DT><B>-f</B> 
+<DD>
+Force header output only.  Do not attempt to copy <I>data</I>
+to the standard output.  This allows creation of a
+standalone header to which image data may later be
+appended, or which may be passed as control information to
+another IPW program such as <B>lqhx</B>.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>data</I>]</DT>
+<DD>
+non-IPW image data
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To make a stand-alone header for a single-band 512x512x8-bit image:
+<PRE>
+	mkbih -l 512 -s 512 -f &gt;header
+</PRE><P>
+To prepend an IPW basic image header (BIH) to a 512 line by 512
+sample single-band image with 8-bit pixels:
+<PRE>
+	mkbih -l 512 -s 512 image
+</PRE><P>
+To append a header to a raw image being read by dd:
+<PRE>
+	dd ... | mkbih -l 512 -s 512 &gt;image
+</PRE><P>
+To prepend an IPW basic image header (BIH) to a 6000 line by 7000 sample
+single-band 8-bit image being read directly from tape:
+<PRE>
+	mkbih -l 6000 -s 7000 -f  &gt;image
+	dd bs=7000  &lt;{tape-device}  &gt;&gt;image
+</PRE><P>
+Note the use of &quot;&gt;&gt;&quot; to append the image data to the file
+containing the standalone header.
+</P>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT><I>nbits</I> won't fit in <I>nbytes</I> bytes
+</DT>
+<DD>Only the following combinations of <I>nbytes</I> and <I>nbits</I>
+are allowed:
+<PRE>
+     nbytes        nbits
+     1, 2, 4        1 ..  8
+        2, 4        9 .. 16
+           4       17 .. 32
+</PRE>
+</DD>
+
+<P>
+<DT>input file not allowed with &quot;<B>-f</b>&quot; option
+</DT>
+<DD>Since the <B>-f</b> option produces an &quot;orphan&quot; BIH header, there
+is need for an input file.
+</DD>
+
+<P>
+<DT>may specify either 1 or <I>nbands</I> values for nbytes</DT>
+<DD></DD>
+<DT>may specify either 1 or <I>nbands</I> values for nbits</DT>
+
+<DD>The number of bytes and bits specified by the <B>-y</b> and <B>-i</b>
+options must be either 1 or the same as the number of bands.
+</DD>
+
+<P>
+<DT><I>nbands</I> bands requires <I>nbands</I> annotation strings
+</DT>
+<DD>The number of annotation strings specified by the <B>-a</b> option
+must be the same as the number of bands.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+
+<P>
+<DT>Apr 1991</DT>
+<DD>
+Don't repeat band 0 header if multiple annotation strings
+are given.  Kelly Longley, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+The annotation string may not contain any commas (they will be
+interpreted by <B>%name</B> as option-argument separators, even if quoted).
+</P><P>
+Using <B>-i</b> for the number of output bits is non-standard; most
+IPW programs use <B>-n</B>.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="lqhx.html">lqhx</A></B>,
+<B><A href="prhdr.html">prhdr</A></B>,
+<B><A href="rmhdr.html">rmhdr</A></B>,
+<B><A href="mkgeoh.html">mkgeoh</A></B>,
+<B><A href="mklqh.html">mklqh</A></B>,
+<B><A href="mksath.html">mksath</A></B>,
+<B><A href="mk*h.html">mk*h</A></B>
+</DD>
+
+<P>
+<DT>UNIX:</DT>
+<DD>dd
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A><BR>
+</P>
+

@@ -1,0 +1,343 @@
+!<header> basic_image_i -1 $Revision: 1.11 $
+byteorder = 3210 
+nlines = 100 
+nsamps = 100 
+nbands = 16 
+!<header> basic_image 0 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+!<header> basic_image 1 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+!<header> basic_image 2 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+!<header> basic_image 3 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+!<header> basic_image 4 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+!<header> basic_image 5 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+!<header> basic_image 6 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+!<header> basic_image 7 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+!<header> basic_image 8 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+!<header> basic_image 9 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+!<header> basic_image 10 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+!<header> basic_image 11 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+!<header> basic_image 12 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+!<header> basic_image 13 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+!<header> basic_image 14 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+!<header> basic_image 15 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+!<header> win 0 $Revision: 1.7 $
+bline = 650 
+bsamp = 550 
+dline = 1 
+dsamp = 1 
+!<header> win 1 $Revision: 1.7 $
+bline = 650 
+bsamp = 550 
+dline = 1 
+dsamp = 1 
+!<header> win 2 $Revision: 1.7 $
+bline = 650 
+bsamp = 550 
+dline = 1 
+dsamp = 1 
+!<header> win 3 $Revision: 1.7 $
+bline = 650 
+bsamp = 550 
+dline = 1 
+dsamp = 1 
+!<header> win 4 $Revision: 1.7 $
+bline = 650 
+bsamp = 550 
+dline = 1 
+dsamp = 1 
+!<header> win 5 $Revision: 1.7 $
+bline = 650 
+bsamp = 550 
+dline = 1 
+dsamp = 1 
+!<header> win 6 $Revision: 1.7 $
+bline = 650 
+bsamp = 550 
+dline = 1 
+dsamp = 1 
+!<header> win 7 $Revision: 1.7 $
+bline = 650 
+bsamp = 550 
+dline = 1 
+dsamp = 1 
+!<header> win 8 $Revision: 1.7 $
+bline = 650 
+bsamp = 550 
+dline = 1 
+dsamp = 1 
+!<header> win 9 $Revision: 1.7 $
+bline = 650 
+bsamp = 550 
+dline = 1 
+dsamp = 1 
+!<header> win 10 $Revision: 1.7 $
+bline = 650 
+bsamp = 550 
+dline = 1 
+dsamp = 1 
+!<header> win 11 $Revision: 1.7 $
+bline = 650 
+bsamp = 550 
+dline = 1 
+dsamp = 1 
+!<header> win 12 $Revision: 1.7 $
+bline = 650 
+bsamp = 550 
+dline = 1 
+dsamp = 1 
+!<header> win 13 $Revision: 1.7 $
+bline = 650 
+bsamp = 550 
+dline = 1 
+dsamp = 1 
+!<header> win 14 $Revision: 1.7 $
+bline = 650 
+bsamp = 550 
+dline = 1 
+dsamp = 1 
+!<header> win 15 $Revision: 1.7 $
+bline = 650 
+bsamp = 550 
+dline = 1 
+dsamp = 1 
+!<header> geo 0 $Revision: 1.7 $
+bline = 2900000 
+bsamp = -1680000 
+dline = -1000 
+dsamp = 1000 
+units = meters 
+coord_sys_ID = x,y 
+!<header> geo 1 $Revision: 1.7 $
+bline = 2900000 
+bsamp = -1680000 
+dline = -1000 
+dsamp = 1000 
+units = meters 
+coord_sys_ID = x,y 
+!<header> geo 2 $Revision: 1.7 $
+bline = 2900000 
+bsamp = -1680000 
+dline = -1000 
+dsamp = 1000 
+units = meters 
+coord_sys_ID = x,y 
+!<header> geo 3 $Revision: 1.7 $
+bline = 2900000 
+bsamp = -1680000 
+dline = -1000 
+dsamp = 1000 
+units = meters 
+coord_sys_ID = x,y 
+!<header> geo 4 $Revision: 1.7 $
+bline = 2900000 
+bsamp = -1680000 
+dline = -1000 
+dsamp = 1000 
+units = meters 
+coord_sys_ID = x,y 
+!<header> geo 5 $Revision: 1.7 $
+bline = 2900000 
+bsamp = -1680000 
+dline = -1000 
+dsamp = 1000 
+units = meters 
+coord_sys_ID = x,y 
+!<header> geo 6 $Revision: 1.7 $
+bline = 2900000 
+bsamp = -1680000 
+dline = -1000 
+dsamp = 1000 
+units = meters 
+coord_sys_ID = x,y 
+!<header> geo 7 $Revision: 1.7 $
+bline = 2900000 
+bsamp = -1680000 
+dline = -1000 
+dsamp = 1000 
+units = meters 
+coord_sys_ID = x,y 
+!<header> geo 8 $Revision: 1.7 $
+bline = 2900000 
+bsamp = -1680000 
+dline = -1000 
+dsamp = 1000 
+units = meters 
+coord_sys_ID = x,y 
+!<header> geo 9 $Revision: 1.7 $
+bline = 2900000 
+bsamp = -1680000 
+dline = -1000 
+dsamp = 1000 
+units = meters 
+coord_sys_ID = x,y 
+!<header> geo 10 $Revision: 1.7 $
+bline = 2900000 
+bsamp = -1680000 
+dline = -1000 
+dsamp = 1000 
+units = meters 
+coord_sys_ID = x,y 
+!<header> geo 11 $Revision: 1.7 $
+bline = 2900000 
+bsamp = -1680000 
+dline = -1000 
+dsamp = 1000 
+units = meters 
+coord_sys_ID = x,y 
+!<header> geo 12 $Revision: 1.7 $
+bline = 2900000 
+bsamp = -1680000 
+dline = -1000 
+dsamp = 1000 
+units = meters 
+coord_sys_ID = x,y 
+!<header> geo 13 $Revision: 1.7 $
+bline = 2900000 
+bsamp = -1680000 
+dline = -1000 
+dsamp = 1000 
+units = meters 
+coord_sys_ID = x,y 
+!<header> geo 14 $Revision: 1.7 $
+bline = 2900000 
+bsamp = -1680000 
+dline = -1000 
+dsamp = 1000 
+units = meters 
+coord_sys_ID = x,y 
+!<header> geo 15 $Revision: 1.7 $
+bline = 2900000 
+bsamp = -1680000 
+dline = -1000 
+dsamp = 1000 
+units = meters 
+coord_sys_ID = x,y 
+!<header> lq 0 $Revision: 1.6 $
+units = cos H 
+map = 0 1 
+map = 255 0 
+!<header> lq 1 $Revision: 1.6 $
+units = cos H 
+map = 0 1 
+map = 255 0 
+!<header> lq 2 $Revision: 1.6 $
+units = cos H 
+map = 0 1 
+map = 255 0 
+!<header> lq 3 $Revision: 1.6 $
+units = cos H 
+map = 0 1 
+map = 255 0 
+!<header> lq 4 $Revision: 1.6 $
+units = cos H 
+map = 0 1 
+map = 255 0 
+!<header> lq 5 $Revision: 1.6 $
+units = cos H 
+map = 0 1 
+map = 255 0 
+!<header> lq 6 $Revision: 1.6 $
+units = cos H 
+map = 0 1 
+map = 255 0 
+!<header> lq 7 $Revision: 1.6 $
+units = cos H 
+map = 0 1 
+map = 255 0 
+!<header> lq 8 $Revision: 1.6 $
+units = cos H 
+map = 0 1 
+map = 255 0 
+!<header> lq 9 $Revision: 1.6 $
+units = cos H 
+map = 0 1 
+map = 255 0 
+!<header> lq 10 $Revision: 1.6 $
+units = cos H 
+map = 0 1 
+map = 255 0 
+!<header> lq 11 $Revision: 1.6 $
+units = cos H 
+map = 0 1 
+map = 255 0 
+!<header> lq 12 $Revision: 1.6 $
+units = cos H 
+map = 0 1 
+map = 255 0 
+!<header> lq 13 $Revision: 1.6 $
+units = cos H 
+map = 0 1 
+map = 255 0 
+!<header> lq 14 $Revision: 1.6 $
+units = cos H 
+map = 0 1 
+map = 255 0 
+!<header> lq 15 $Revision: 1.6 $
+units = cos H 
+map = 0 1 
+map = 255 0 
+!<header> hor 0 $Revision: 1.3 $
+azimuth = 1.5707963267949 
+!<header> hor 1 $Revision: 1.3 $
+azimuth = 1.9634954084936 
+!<header> hor 2 $Revision: 1.3 $
+azimuth = 1.1780972450962 
+!<header> hor 3 $Revision: 1.3 $
+azimuth = -3.1415926535898 
+!<header> hor 4 $Revision: 1.3 $
+azimuth = 2.3561944901923 
+!<header> hor 5 $Revision: 1.3 $
+azimuth = 2.7488935718911 
+!<header> hor 6 $Revision: 1.3 $
+azimuth = -2.7488935718911 
+!<header> hor 7 $Revision: 1.3 $
+azimuth = -2.3561944901923 
+!<header> hor 8 $Revision: 1.3 $
+azimuth = 0 
+!<header> hor 9 $Revision: 1.3 $
+azimuth = 0.78539816339745 
+!<header> hor 10 $Revision: 1.3 $
+azimuth = 0.39269908169872 
+!<header> hor 11 $Revision: 1.3 $
+azimuth = -0.39269908169872 
+!<header> hor 12 $Revision: 1.3 $
+azimuth = -0.78539816339745 
+!<header> hor 13 $Revision: 1.3 $
+azimuth = -1.5707963267949 
+!<header> hor 14 $Revision: 1.3 $
+azimuth = -1.9634954084936 
+!<header> hor 15 $Revision: 1.3 $
+azimuth = -1.1780972450962 
+!<header> image -1 $Revision: 1.5 $
+‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿ‏ÿÿÿÿÿÿ‏‎ÿÿÿÿÿ‎ÿ‎ÿÿÿÿÿ‏‏ÿ‏ÿ‎ÿÿ‏ÿÿÿÿÿÿÿ‎‏ÿÿÿÿÿÿüüüÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‎ÿ‎ÿÿÿÿÿÿ‏‏‎ÿÿÿÿ‏ÿ‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿûÿûÿÿÿÿÿ‏‏ûÿ‏ÿÿÿ‏ÿÿÿÿÿÿÿ‎‎‏ÿÿ‏ÿÿ‏ÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‎ÿüÿÿÿÿÿ‏‎ü‏‏ÿÿ‏ü‏üÿÿÿÿÿ‎תû‏‏ûÿûûÿûÿÿÿÿÿûשר‎ÿüÿ‎ûÿתÿÿÿÿÿתûש‏‏‏ÿ‏ûÿûÿÿÿÿÿתüûûÿÿÿÿ‎ÿ‎ÿÿÿÿÿ‎‎‎‎‏ÿÿÿ‏‏‏ÿÿÿÿÿ‏ü‏‏‏ÿÿÿ‏ÿ‏ÿÿÿÿÿ‏‎üÿÿÿÿÿ‏ÿÿÿÿÿÿÿüÿü‏ÿÿÿÿ‏ÿÿÿÿÿÿÿü‏ÿü‏ÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿü‎ÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿ‏‏ÿ‏ÿÿÿÿÿÿÿÿ‏‏‎ÿ‎‏ÿ‎ÿÿÿÿÿÿ‏ÿ‏‎‎ÿ‎‏ÿ‏ÿÿÿÿÿÿüÿ‏‏‎ÿ‎‏ÿ‎ÿÿÿÿÿÿ‎üÿ‏‎‏‎‎ÿ‎ÿÿÿÿÿû‏ûÿ‏‏ÿ‏‎ÿûÿÿÿÿÿûü‏ûÿ‏ÿ‎ûûûÿÿÿÿÿÿüûûü‏ÿ‏‎ÿ‎ÿÿÿÿÿ‎‎‎ÿ‎‏ÿ‏‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿüÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‎‎ÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿ‏ÿÿÿÿÿÿ‏ÿÿÿ‎ÿÿ‏ÿ‎ÿÿÿÿÿÿ‏ÿÿÿ‎ÿ‏‎ÿ‎ÿÿÿÿÿ‎‎‎ÿÿ‎ÿ‏‏ÿ‏ÿÿÿÿÿ‏‎‎ÿÿ‏ÿÿ‎‎‎ÿÿÿÿÿ‏‎ÿÿÿ‏ÿÿ‎ÿ‎ÿÿÿÿÿ‏üÿÿÿ‏ÿÿ‏ÿ‏ÿÿÿÿÿ‏‏‎ÿÿÿÿÿ‎ÿ‎ÿÿÿÿÿÿ‏üÿÿÿÿÿ‏ÿ‎ÿÿÿÿÿ‎ÿ‏‏ÿÿÿÿ‏ÿ‏ÿÿÿÿÿ‎‏ÿ‏ÿÿÿÿ‏ÿ‏ÿÿÿÿÿ‎‎‎‏ÿÿÿÿ‏ÿ‏ÿÿÿÿÿÿ‎‏‎ÿÿÿÿ‏ÿ‎ÿÿÿÿÿÿ‎‏‏ÿÿÿÿ‏ÿ‎ÿÿÿÿÿÿ‏‏ÿ‏ÿÿÿ‏ÿ‏ÿÿÿÿÿ‏‎‏ÿ‏ÿÿÿ‏ÿÿÿÿÿÿÿ‎‎‏ÿ‏ÿÿÿ‏‏‏ÿÿÿÿÿ‎‏‏‎‏‏ÿ‏‏ÿ‏ÿÿÿÿÿ‏‎‏‎‏‏ÿ‏‏ÿ‏ÿÿÿÿÿÿ‏‏‏‏ÿÿÿ‏ÿ‏ÿÿÿÿÿÿ‎‏‏ÿÿÿ‏‏ÿ‏ÿÿÿÿÿÿ‎‏‎ÿÿÿÿ‏ÿ‎ÿÿÿÿÿ‏‎‎‏ÿÿÿÿ‏ÿ‎ÿÿÿÿÿ‏‎‎ÿÿÿÿ‏‏ÿ‎ÿÿÿÿÿ‎‎‎ÿ‏ÿÿÿ‎ÿ‎ÿÿÿÿÿ‎‎‎‏ÿÿÿ‏‎ÿ‎ÿÿÿÿÿ‎ü‎‏ÿÿÿÿüÿ‎ÿÿÿÿÿ‎‎‎‏‏ÿÿÿ‎ÿ‎ÿÿÿÿÿ‎‎‎‏‏ÿÿÿ‎ÿ‏ÿÿÿÿÿ‏ü‎‏ÿÿÿÿ‏ÿ‏ÿÿÿÿÿ‎‎ü‏ÿÿÿÿ‎ÿ‎ÿÿÿÿÿü‎ü‏ÿÿÿÿ‏ÿ‎ÿÿÿÿÿü‎‎üÿÿÿÿüÿ‎ÿÿÿÿÿ‎üüü‎ÿÿÿ‏ÿ‎ÿÿÿÿÿüüü‎‎ÿÿÿשÿûÿÿÿÿÿüüûü‎ÿÿ‏‎ÿûÿÿÿÿÿûüûü‎ÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿüÿüÿÿÿÿÿûתüü‎ÿÿ‏‎ÿÿÿÿÿÿÿüûש‎‎תÿ‎‏ÿÿÿÿÿÿÿû‏û‎‏ÿÿÿלÿסÿÿÿÿÿטפןךסמןן‏ÿûÿÿÿÿÿÿ‎üûüÿÿÿûÿûÿÿÿÿÿÿ‎ûÿüÿÿÿ‎ÿÿÿÿÿÿÿÿ‏üÿ‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿ‏ÿÿÿÿÿÿÿ‏ÿ‎ÿÿÿÿ‏‎ÿ‏ÿÿÿÿÿ‎‎üü‎רÿשüÿ‎ÿÿÿÿÿü‎û‎üשששüÿüÿÿÿÿÿû‏ü‎‎ûÿûûÿüÿÿÿÿÿü‎‎û‏üÿ‎שששÿÿÿÿÿû‎‎üüüÿ‏תÿûÿÿÿÿÿû‎‎‎ÿ‏ÿÿ‎ÿ‏ÿÿÿÿÿû‏‎‏ÿÿÿÿ‎ÿÿÿÿÿÿÿ‎‏‎ÿÿÿÿÿ‏ÿÿÿÿÿÿÿüÿÿ‏ÿÿÿÿüÿÿÿÿÿÿÿ‎ÿ‎‏ÿÿÿÿ‎ÿÿÿÿÿÿÿ‎ÿ‎‏ÿÿÿÿûÿûÿÿÿÿÿ‎ÿ‏üÿÿÿÿüÿüÿÿÿÿÿ‎ÿÿ‎ÿÿÿÿקÿצÿÿÿÿÿÿ‏‏‎‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿû‏üÿüÿÿÿÿÿÿÿÿüÿÿü‏צÿצ‎‎‏קתררÿû‎ûÿÿÿÿÿ‎û‎קüררתûüüûÿÿÿÿ‎û‎תתûûתü‏ûûüÿûÿüû‎קתררüû‎‎üüÿûÿü‎üשûששû‎‏‏ü‎ÿ‏‏ûûûקץררת‎‎‎‏üÿû‎רשרסתעעת‎ü‎‎‏‏‏‏ûû‎ÿüÿÿû‏‏‏ÿÿÿÿÿÿÿ‏ÿ‏ÿÿÿÿ‎ÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿתüשףתפפפûתש‎‏רשרתתתת‎ûûשתרש‎‏ששüû‎שÿ‏ÿÿÿûתש‏ÿ‏‏ÿû‎ûÿÿÿÿÿûüû‏ÿÿÿÿûüûÿ‎ÿÿÿûüûüÿÿÿÿ‏‏‎ÿÿÿÿÿ‏‎‏‏ÿÿÿÿ‎‏‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‏ÿüÿÿÿÿÿÿ‎‏ÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿü‏‎ÿüÿÿÿÿÿÿÿÿÿÿÿÿ‎‏ÿü‏ÿ‏‎ÿ‏‏ü‏‏ÿ‎‎‎‎‎‎‎‎üÿüüü‎‏ÿ‎üûûû‏ÿûÿ‏ÿÿ‎ÿüÿ‏‎‎‎‎‏ÿ‎ÿÿÿÿÿÿ‏‏ÿÿ‏‏‏‎‏‏ÿÿÿÿÿü‏ÿÿÿ‏ÿ‏‎ÿ‎ÿÿÿÿÿÿ‏‏‏ÿ‏ÿÿüüüÿ‏ÿÿÿÿÿ‏ÿ‎‏ÿüÿÿ‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‏ÿ‏ÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏üÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏‏ÿûÿÿÿÿ‏‏ÿÿÿÿÿ‏‏‏שüששÿÿÿ‏ÿÿÿÿÿÿÿ‏üÿüüüÿÿÿÿÿÿÿÿ‏ÿ‏‎ÿ‏‏üÿ‏ÿÿÿÿüÿüü‎ש‎ששתüü‎ÿÿûת‏‏‏‏ÿÿÿÿÿ‏‎ÿÿÿÿ‏ÿ‏ÿ‎ÿÿÿÿÿÿ‏‏ÿÿÿÿÿ‏‏‎ÿÿÿÿÿÿ‎‎ÿÿÿÿÿ‎‎‏ÿüÿÿÿ‏‎‎ÿÿÿÿÿ‏ü‎תüûûÿ‏‏‎‏ÿÿÿÿ‏‎‎‎‎‏‏‏‎‏‏ÿÿÿÿÿ‎‎‎תתûû‎‎‎‎ÿÿÿ‏ÿ‎‎‎שüששü‎‎ü‏ÿ‏‏ÿ‎‎‎üüüüü‎‎ü‎ÿÿ‏ÿ‏‏‎‎‏‎‎ÿ‏‏‏‏ÿÿÿÿ‏ÿ‏ÿÿÿÿÿÿ‎‏ÿÿÿÿÿ‏ÿ‏ÿÿÿÿÿÿ‏‏ÿ‏ÿÿÿ‏ÿ‎ÿÿÿÿÿ‏‏ÿÿ‏ÿÿÿ‏ÿ‎ÿÿÿÿÿ‎‎‏‏ÿÿÿÿ‏ÿ‏ÿÿÿÿÿ‏‏‏ÿ‏ÿÿÿ‏ÿÿÿÿÿÿÿ‏‏‏ÿÿÿÿ‏‏ÿ‏ÿÿÿÿÿÿ‎‏‏ÿÿÿÿ‏ÿ‏ÿÿÿÿÿÿ‎‏‏ÿÿÿÿ‏ÿ‎ÿÿÿÿÿ‏‎‏‎ÿÿÿ‏‏‏‎‎‏‎‎‏‏‎ü‏‏‏‏‏‏ÿ‎ÿÿÿÿÿ‏‎‎‏ÿÿÿ‏‏ÿ‎ÿÿÿÿÿ‎‎‎ÿ‏ÿÿÿ‎‏‎ÿÿÿÿÿü‎ü‏‏ÿÿÿ‎‏ûÿ‏ÿÿÿ‎üü‏‎ÿÿÿ‎‎‎ÿÿÿÿÿ‎‎‎‏ÿÿÿÿ‎‏üÿ‎ÿÿÿ‎ûü‎ÿÿÿÿ‏‏‎‎‏‏‏ÿ‎üû‏ÿÿÿÿ‏ÿüÿÿÿÿÿûüû‏ÿÿÿÿ‏ÿ‎ÿÿÿÿÿûüûû‏ÿÿÿ‎ÿüÿÿÿÿÿûüûûüÿÿÿ‎ÿüÿÿÿÿÿûüûûüÿÿü‏ÿ‎ÿÿÿÿÿ‎‎‎‎‎ÿÿ‏‎ûüÿÿÿÿÿ‎û‎‎‎ÿÿ‏‎ÿüÿרÿÿÿ‎üü‎‎ÿÿ‏‏ÿ‎תÿûûÿÿ‎‎‏‏ÿÿÿ‎‎תÿÿÿÿשüûû‎‏ÿÿ‎‎ÿ‏ÿ‏ÿÿÿûüû‎‏‏ü‏‎ÿ‏ÿÿÿÿÿû‏üü‏ÿÿÿûû‎ÿרÿÿרק‎ûקתûûûןףץטמייÿפתûספףפסקרûקרררש‏üûüת‎‏ר‏ÿÿÿÿÿÿÿÿüüÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿ‏üÿüüû‏‏û‏ÿüÿ‏‏ÿ‏ÿÿÿÿü‎‏ûÿÿûû‏‎ÿ‎ÿÿÿÿÿü‎ü‎‎ûûûüü‎ÿÿÿÿÿû‏üû‎û‏‎ûü‎ÿÿÿÿÿûüüûüüü‎תûûÿüÿÿÿü‏‎ü‎‎ÿüתû‎ÿתÿÿÿü‎‎‎‏‏ÿÿ‎‎‏‎ü‏‏ÿü‏ÿ‏‏‏ÿÿ‎ÿÿÿÿÿÿÿü‏üÿÿÿÿÿ‏‏‏‎‏‏‏‏û‏û‏ÿÿÿÿü‏‏‎‏‏‏‏û‏‏‎ÿ‏‏ÿ‎ÿÿÿÿÿÿÿ‎ÿ‏‎ÿÿÿÿתûÿÿÿÿÿÿ‎ÿü‎ÿÿÿÿüüÿÿÿÿÿÿüÿ‏‎ÿÿÿÿצר‏ÿûÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿרÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿץüÿÿüÿ‎‎ÿÿÿÿÿÿÿÿ‏ûÿÿû‏ץק‏‎‎üû‎ûÿÿûüûÿÿÿÿÿ‎‎ûûü‎ûÿûתûûÿÿÿÿü‎‎‎üûûüû‎רûüÿÿû‎‎‎ûüû‎üקüüûüÿÿûûüüûתûû‎üüûרüÿ‎üûû‎ûüשûüûü‎üתÿ‎ûקשûרûûûü‎üûû‎ÿ‏‏‎û‎ÿü‎üÿ‎‏‎ÿÿÿÿ‎ÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿü‏üüÿ‏‏ÿ‎‎‎‏ÿÿÿÿשûרש‎ûרûרקרת‏קש‏רששÿ‏ÿ‎üûתרü‏‏ûÿת‎תÿ‏ÿÿÿתûת‎‏‏ÿÿ‏ÿ‏ÿÿÿÿÿ‏‏‏‏ÿÿÿÿ‎‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿüüüÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿü‏‏ÿÿÿÿÿÿÿÿÿ‏ÿÿÿü‏üü‎‎û‏üתûû‏‎תûתתת‏ÿ‏ÿÿÿ‏‎ÿ‏ÿ‏‎ü‎‎û‏ûÿÿ‏‏‎ÿ‏ÿÿ‎‎‎‎û‎‏‏ÿÿÿ‏ÿ‏‏ÿÿ‎‎‎ÿÿÿÿÿÿÿÿÿ‏ÿÿÿ‏ÿÿ‏ÿ‎ÿÿÿÿÿÿ‏ÿÿÿ‏ÿÿûûûÿü‏ÿÿÿ‏‏ÿÿû‏û‏‏‎ÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿ‏ÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿ‏ÿ‏ÿÿÿÿÿÿÿÿÿÿ‏ÿÿ‏‏‏‏ü‏‏‏ÿÿÿÿÿ‏‏ÿ‏ÿÿÿ‎üÿÿÿÿÿÿÿÿÿÿÿÿÿü‏‎ÿÿÿÿÿÿÿÿÿÿ‏‏‏û‏‎û‏‏‎‏ÿÿ‎‏‏üü‎û‏üתû‏‎‏ÿÿüü‏üûüûü‎ûû‏‏‎‏ÿ‎û‎‏‏‏ÿÿÿÿ‏ÿ‏ÿÿÿÿ‏ÿ‏‏‏‏‏‏ÿ‏‏‏‎ÿÿÿ‏‏‏‏‏ÿ‎ÿÿÿ‏ü‎ÿÿÿÿÿ‏‎ûÿ‎‎ÿÿ‎‎ÿÿÿÿÿÿ‎‏‎‎‎‎ÿÿ‎ü‏‏ÿÿÿÿ‎‏ü‎üü‎ÿ‏תû‎ÿÿÿÿü‎ûü‎û‎‎ûüר‎ÿÿÿÿüüüü‎‎‎‏ר‎üüÿÿ‏ÿ‏‏‏ÿ‏‏‏ÿ‎‏‏û‏ÿÿÿ‏ÿ‎ÿÿÿÿÿÿ‏‎‎üÿÿÿ‏ÿ‎ÿÿÿÿÿÿ‎‏ÿ‏ÿÿÿ‏ÿ‎ÿÿÿÿÿÿ‎‏ÿ‏ÿÿÿ‎ÿ‏ÿÿÿÿÿ‏‎‏ÿ‏ÿÿÿ‏ÿ‏ÿÿÿÿÿ‎‏ÿÿÿÿÿ‏‏ÿ‎ÿÿÿÿÿ‏‎ÿÿÿÿÿ‏‏ÿ‎ÿÿÿÿÿ‏‎‏‏ÿ‏ÿÿ‏ÿ‎ÿÿÿÿÿÿ‏‏‏ÿ‎‏‏‏ÿÿÿÿÿÿÿÿ‎‏‎ÿÿÿ‏‏ÿ‎ÿÿÿÿÿÿ‎‎‏ÿ‏ÿ‏‎‏‎‏‏‏‏‏‎‎‎ÿ‏‏‏ÿ‎‏‎‏‏‏‏‏‎‎‎‏ÿ‏‏ÿ‎‏‎ÿÿÿÿÿ‎ü‎‏ÿÿÿÿ‎‎üÿ‏ÿÿÿ‎ü‎‎‏ÿÿÿ‎‏üÿ‏ÿÿÿ‎‎ü‏‎ÿÿÿ‎‏üÿ‏ÿÿÿ‎‎‎‏ÿÿÿÿ‎‏ûÿ‏‏ÿÿ‎ü‎‏ÿÿÿÿüüüÿÿÿÿÿ‎üü‏ÿÿÿÿüÿûÿÿÿÿÿüüû‏ÿÿÿÿ‏ÿ‏ÿÿÿÿÿ‏ü‏‏ÿÿÿÿ‏ÿ‏ÿÿÿÿÿ‏‎‏‏ÿÿÿ‏‏‎‎ÿÿÿÿÿ‎‏‎‎‏‏ÿ‎‎‏‏ÿÿÿÿÿ‏‎‏‏‏ÿÿ‏‎‏‎ÿ‎ÿÿÿ‏ü‎‏‏ÿÿ‏‎ÿ‏ÿÿ‎ÿÿ‏ü‏‏‏ÿÿÿ‎ÿü‎ÿÿÿÿ‏üû‏‏ÿÿÿûÿûÿÿÿ‎ÿû‎û‏‏ÿÿÿûûûÿÿÿÿ‎û‏üûÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿ‎ש‏‎‎‎ÿ‎‎‎ûüûש‎שûר‎ûתûûÿ‏üüüüק‎ש‏‎‏‎‎û‏‏‏‎ûÿ‏‎ÿ‎ÿÿ‏ûÿ‎‏ÿÿ‎ûÿÿ‎ÿ‏‏ÿ‏‎ÿÿû‏‎‎üÿÿ‏ûÿ‎‏‎ÿÿÿûûüüü‏ÿ‎ת‏‎‏‏ÿÿÿ‏ûûüשû‎ûûû‏‏‏ÿÿÿÿÿ‎‏ü‎ÿ‏‎‏üû‎ÿ‎ÿÿÿתüûשü‎‎ûüüüÿûüÿÿת‎ûûûûÿûûשü‎ûûÿÿת‎üü‎‏‏‏üû‎üüûÿÿת‎‎‎‎‏ÿÿ‎‏‏‎‎‎‏ÿ‎‏‎‏‏ÿÿÿ‎‏‏‎‏‏‏ÿü‏‎‎‏ÿÿÿ‏ü‏‏‏‏‏‏‎‏‏‎ÿÿ‏ÿÿ‏ÿÿÿÿÿÿ‎ÿ‎üÿÿÿÿÿûÿÿÿÿÿÿ‎ÿüü‏ÿÿÿÿüÿÿ‎ÿÿÿ‎ÿ‏‎‏ÿÿÿ‏צÿÿתüÿÿÿÿ‏‎‏ÿÿÿ‏‏ÿüÿרÿÿÿÿ‏‎‏ÿÿÿÿÿÿרÿÿ‎ÿ‏ÿÿû‏ÿÿÿÿÿÿÿÿÿש‎‎ÿÿü‏ÿ‎ÿÿÿÿÿÿÿÿתüÿÿ‏‏‏צÿ‏‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿûÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏‏ÿÿÿÿÿ‏‏ÿÿÿ‏ÿ‏‏‏‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‎ü‎‎‏‏‏‏‎‎‎‏‎‎ÿ‎‎ü‎‎‎ü‏ÿ‎ü‎‎‏‎ÿשüרûתתû‎‎ûüתûü‎‏‎ûûתûתשû‎תתûûü‎‏ûü‎תת‏ש‎‏‎ûתû‎‏‏‏שתרק‏ûשüרתרûû‏û‎תüק‎‏ÿûüתשûû‏ÿûÿתûûÿ‏ÿÿ‏‎‏ת‎‏ÿÿÿûûûÿ‏ÿÿÿûüÿÿÿÿÿÿ‏‏‏ÿÿÿÿÿÿ‏‏‏ÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿüüÿÿ‏‏ÿÿÿ‎ÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏ÿ‏ÿÿÿ‏üÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿüüÿ‏ÿ‏ÿÿÿ‏‏ÿ‏ÿÿÿ‎‏‏ÿ‏ÿÿ‏ÿÿ‎ÿ‏ÿÿÿü‎‎ûûÿÿ‏‎‏‎ÿ‏‏ÿÿ‎‎‎‏û‏‎‎‏ÿ‏ÿ‏‏ÿÿ‎‎‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ü‏‎‎ÿÿ‏ÿ‏ÿÿÿ‎‏ÿ‏‏ÿ‏üû‎‏ÿ‏‏ÿÿûûÿ‎û‎ûüû‏‎‏‏‏ÿÿ‏ûÿ‎ü‏ûüûû‏‏‏‏ÿÿ‎‎ÿûû‎ûüûûü‏‏‏ÿÿ‏ûÿÿ‏ÿ‎‎‏‏‏ÿÿÿÿÿ‏‏ÿÿÿ‏ÿ‏‎ÿÿÿÿÿÿÿÿÿÿÿ‏‎ü‏‎‏‏ÿ‏‏ÿÿÿ‏ÿü‏üû‏üû‎‏‎‏ÿÿüüüתרûקתתקתûüûûÿשר‎ÿ‏‏ÿÿÿÿ‏ÿÿÿÿÿÿÿÿ‎‎‎‎‎‎‏‎‏‎‎‏ÿÿ‏ÿûûûûüûû‎ûûû‏ÿû‎ÿ‏‏‎ÿ‏ÿÿÿÿü‎‏ÿÿ‏ÿ‎‏‏ÿ‏‏ÿÿ‎‎û‏ÿÿ‏ÿ‎‏û‎‎‏ÿÿ‎üû‏ÿÿ‏ÿü‎ר‎‏‎‏ÿûüûÿÿÿÿÿûüû‎‎‎‏ÿûüü‎ÿÿÿÿ‏‏‏‏ÿÿÿÿ‏‏‏‎ÿÿÿÿ‏ÿ‎ÿÿÿÿÿÿÿ‏‎ÿÿÿÿ‏ÿ‏ÿÿÿÿÿÿ‎ü‏‏ÿÿÿ‏ÿ‏ÿÿÿÿÿÿ‏‏ÿ‏ÿÿÿ‏‏‎ÿÿÿÿÿÿ‏‏ÿ‏ÿÿ‎‏‏‎ÿÿÿÿÿ‏‎ÿÿÿÿÿ‏‏ÿ‎ÿÿÿÿÿü‏‏ÿÿÿÿÿ‏ÿ‏ÿÿÿÿÿ‏‏‏ÿÿ‏ÿ‏‏ÿ‎ÿÿÿÿÿ‏‎‏‏ÿÿ‏‏‏ÿ‎ÿÿÿÿÿÿ‏‎‏ÿÿÿ‏‎‏‎‎‏‎‎‏‏‎‎ü‎‎‎‎‎‏‎‎‏‏‎‏‎üü‏‏‎‎‎ü‎‎‎‎‎‎‎üüü‏‏‏‎‏‎‏‎ÿÿÿÿÿ‎üûÿ‏ÿÿÿü‏‎ÿÿÿÿÿ‎üü‏‎ÿÿÿü‎ûÿ‏ÿÿÿûüû‎‏ÿÿÿü‏üÿ‏ÿÿÿ‎‎ü‏ÿÿÿÿ‎‎‎ÿÿÿÿÿ‎‎ü‎ÿÿÿÿûÿüÿÿÿÿÿ‎ü‎‏ÿÿÿÿûûûÿÿÿÿÿ‎‎û‎‏ÿÿÿ‏ÿ‏ÿÿÿÿÿ‏‏ÿÿÿÿÿÿ‏‏‏ÿÿÿÿÿ‏ü‏ÿÿÿÿÿ‏ÿ‏ÿÿÿÿÿ‏‏‏‏ÿÿÿÿ‏ÿ‏ÿÿÿÿÿ‏‏‏‏ÿÿÿÿ‏ÿ‎ÿ‏ÿÿÿ‏ü‏‏ÿÿÿÿ‎ÿ‎ÿÿÿÿÿ‏‎‎‏‏ÿÿÿ‎ÿûÿÿ‏ÿÿ‏‎‎‏‏ÿÿÿü‎û‎ÿÿÿÿÿûü‏‏ÿÿÿ‎‎‏ÿÿÿÿÿ‎ü‎ÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‎‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿ‏ÿÿÿÿ‏‏‏ü‏ÿ‏‏‎ü‏‎תûûקפרקפסרשüקתץקנסףüû‎קüר‎ÿ‎üû‏‎û‎üü‎ûקüûר‎ûתû‏‏û‏‎‏‏‏‎ÿ‏ûü‎üû‏ÿ‎ÿÿ‏‏ü‏ÿÿ‎üûüת‏‏‏‏‏‏‏‏ÿÿÿÿ‎‎üûüÿ‏ÿÿ‏‏‏ÿÿÿÿ‏û‎û‎‎‏‎ÿ‎û‎ÿü‏ÿ‏קתשרûû‎ûüüü‏ûüÿÿרüשרתûûשûתûüתת‏ÿרûûשת‎‏ûתששתתרü‏ûüûשת‎‎üשששרûשû‎ûתüüû‏‏ü‎‎‎‎‎‏‎ÿת‎üü‏ÿÿ‏‏üÿ‏‏‏ÿ‏û‏û‎ÿÿÿÿÿ‏ÿÿÿÿÿÿüÿ‏‎ÿÿÿÿÿÿÿÿ‏ÿÿÿ‎ÿ‏ü‎ÿÿÿÿÿÿÿûÿÿÿüÿû‏‏ÿÿÿÿ‏ÿÿרüÿÿÿÿ‏ÿ‏ÿÿÿÿ‏ÿü‏צÿÿ‎ÿÿ‎‏ÿÿÿÿÿ‏צÿ‏üÿ‎ÿÿü‏ÿÿÿÿÿÿ‏ÿÿצ‎üÿÿû‎ÿÿÿÿÿÿÿÿÿ‏רûÿÿûÿÿ‏ÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿû‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‏‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‏‏ÿ‏‎ÿÿ‏‏‏‏ÿ‏ÿ‏‎‏‎ÿ‏ÿÿÿÿüÿÿÿûÿÿû‏üüתü‏‏üתüü‎‎‎‎תüשûüר‎‏קתרר‎û‏ûרüרק‏ûû‏קתררü‎‏ûüü‎‏ÿÿ‎ÿ‎‏‎‎‎‏ÿÿת‎ûÿÿÿÿ‏‏‏‏‏‏ÿÿÿûûûÿ‎ÿÿÿÿÿÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿ‎‏ÿÿÿÿÿÿÿÿÿÿÿüÿ‏‎üÿÿÿÿÿÿÿÿÿÿ‏ÿÿüÿü‏ÿÿÿÿÿÿÿÿÿûû‏רüûשüÿÿÿÿüûûû‏ÿÿÿÿÿü‎ÿ‎ÿÿÿÿ‏ÿ‏ÿÿÿÿÿÿ‎ÿ‏ÿÿÿÿüÿ‏‏ÿÿÿÿ‏‏ÿÿÿÿÿ‎‎ÿ‏‏‏‎ÿÿ‎üÿ‏ÿÿÿûû‏‏û‏ÿüÿ‏‏ÿ‏‏ÿÿ‎‎ÿ‏‎‏ÿüû‏‏ÿ‏‏ÿÿ‎‎‏‏‏ÿû‏ûÿ‏ÿ‏‏ÿÿ‏‏ÿ‏ü‏תû‎ת‏‏‏‏ÿÿ‎‎‏‏‏‏‏üûûüÿ‏‏ÿÿ‏ûÿ‎‎‏תüû‏ü‏‏‏ÿÿ‏‎ÿ‎ü‏תüûû‏‏‏‏ÿÿ‏‎ÿ‎ü‎ü‎‎ü‎‏‏‏ÿÿ‏‏ÿ‏‏ÿ‎‎üü‎‏‏ÿÿÿ‏‏ÿ‎‏‎ü‏ü‎‎‏‏ÿÿÿ‏‏ÿüûûצûשקת‎üû‏üתשûüתüû‎üתûü‎ü‏ÿ‎‎‎üûüûû‎ûûüûüüÿ‎û‏ü‎û‎‎ûü‎‎ü‏‎ÿÿ‎ÿüüüü‎‎‎‎üûüüÿÿ‏ÿü‎‎‎‎‎‎‎‎‎‎‎‏ÿ‎ÿ‎‏‎ÿ‏‏ÿÿ‏‎üÿÿÿÿÿû‏üÿ‏‏ÿÿü‎ü‏ÿÿÿÿû‏û‏‏‏ÿÿûתÿüÿÿÿÿקüü‏‏‎ÿÿ‎ת‏üÿÿ‏ÿ‏ÿÿÿÿÿÿÿûüûûÿÿÿÿ‏ÿ‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿû‏ûûüÿÿÿ‏ÿ‏ÿÿÿÿÿ‏‏‏‏‎ûûû‏‏‎ÿÿÿÿÿÿÿüÿüÿÿ‎‏ÿ‏ÿ‏ÿÿÿÿ‏‏ÿ‏‎ÿÿ‏ÿ‏ÿ‏‏ÿÿ‏‎‎ÿÿÿÿ‎‏ÿ‎‏ÿ‏ÿÿü‎‏ÿÿ‏ÿ‏‏ÿ‎‎ÿÿ‏ÿ‎‎‏‎ÿÿ‏ÿ‏ÿ‎ÿÿÿ‏‏‏‎ÿ‏ÿ‏ÿÿ‏ÿ‎ÿÿÿÿ‏ÿ‎‏üÿÿÿÿ‎‏‎‏ÿ‏‏‏‏‎‎‏‎‏‏‏‎‎ü‎‏‏‎‎‎üü‎‏‎‎‎‎‎ü‎‎‏‎‎üûü‎‎‎‏‎‎‏ûÿ‏‏ÿ‏‎üü‎‏ÿ‏ÿ‎‎üÿ‏ÿÿÿûüûû‎ÿÿ‏ü‎üÿ‏ÿÿÿüüüü‏ÿÿÿ‎‏‎ÿ‏ÿÿÿüüü‎‏ÿÿÿ‎‎‎ÿÿÿÿÿ‎‎‎‎ÿÿÿÿüûûÿÿÿÿÿ‎‎‎‎‏ÿÿÿûûûÿ‎ÿÿÿü‎üü‏ÿÿÿ‏‏‏ÿÿÿÿÿ‎û‏‏ÿÿÿÿ‏ÿ‏ÿÿÿÿÿ‏‎‏‏ÿÿÿÿ‏ÿ‏ÿÿÿÿÿ‎‏‏ÿÿÿÿÿ‏ÿ‏ÿ‏ÿÿÿ‎û‎‎ÿÿÿÿ‎‏‏ÿÿÿÿÿ‏‎‎‏‏ÿÿÿ‎‏‎ÿÿ‏ÿÿ‎‏‎‏‎ÿÿ‏û‎üÿÿÿÿÿ‎‎‎‏‏ÿÿÿûüû‏ÿÿÿÿ‎ü‏‎‏ÿÿ‏ÿÿÿÿÿÿÿÿÿ‎‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿ‏‏ÿ‏ÿÿÿ‏ÿÿÿ‏ÿÿÿÿÿü‏ÿü‏ÿÿÿÿ‎üüüÿÿ‏ÿ‏‏ûü‏‎ü‏‎ûû‎תûקתשרשצüשתüשצפק‎üûüüû‎‏‏üû‏‏ûûüüüשû‎ûüÿûתתûÿüû‎‎‎ü‎ÿÿ‎‏üûת‎ÿ‎‏ÿü‏ûÿ‏ÿ‎‏תüûû‏‏‏‏‏‏ûÿÿÿ‏ÿûüûûÿ‏ÿÿÿÿ‏ÿÿÿÿ‏‎‏‎‏‏ÿÿ‏‏‏‎ÿ‏ÿÿ‏ü‎üü‎‏ÿ‏‎‎‏ÿ‎‎ÿ‏תüתתûû‎ת‎‎‎ÿ‎üÿÿתüתתû‎‏תתûüüûû‏ÿש‎ששתü‎üüüû‎‎‎ÿÿü‎‎üüÿÿü‎‏‏‏‏‏ÿÿü‏‎ü‏ÿÿÿÿ‏ÿÿ‏‏ÿÿ‎ÿ‎û‏ÿÿÿÿÿÿÿ‏ÿÿÿ‎‏ÿü‏ÿÿÿ‎‏‏‎ü‏‏‏ü‏‎‎‎‏‏‏ÿÿÿÿÿ‏ÿÿ‎ÿü‎‎ÿÿÿÿÿÿÿ‏ûÿÿÿ‏‏‎‏ÿÿÿ‏ÿÿ‎‏‏ÿÿÿÿ‏û‏ÿÿÿ‏ÿÿûÿ‏ÿÿ‏ÿ‏ü‏ÿÿÿ‎‏‏‏ÿÿ‏ÿüÿ‏‏‎ÿÿÿÿÿÿÿÿÿüÿüÿÿ‏ÿÿÿ‏üü‏ü‎üÿÿÿ‏‏ÿÿÿÿÿ‎ש‏ü‎‎üÿ‏ÿ‏ÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‏‏‎‏‏‏‏ÿÿÿÿÿÿ‏ÿ‎‏‎ÿ‏‏ÿÿÿÿÿÿÿÿÿÿ‎‎ûÿ‏ÿÿÿÿÿÿÿÿÿûÿü‏û‏ÿ‏ÿÿÿ‏ÿÿÿÿÿÿ‎‎‎ÿÿ‏ÿÿÿ‎ÿÿÿÿÿÿûüû‎ÿ‏‏ÿÿÿûÿÿÿÿÿ‎‎ÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‏ûû‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‎‎‎ÿ‎ÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿûûûüüûÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‏ÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿüÿÿÿÿÿÿÿÿÿÿתרÿפתרקתÿ‎ÿÿÿקררÿü‏ת‎ûרûÿ‎‏ÿÿתû‎ÿ‏ÿ‎ÿ‏‎ûÿÿÿÿÿ‏‏ÿ‏ü‏û‏üתûÿ‎‏ÿÿüתÿüüüתüûשתÿ‏‏ÿÿתרÿÿ‏ÿ‏ü‏‎‎ÿ‏‏ÿÿ‎üÿÿ‏‏‎‎û‏‎‏‏‏ÿÿ‏‎ÿ‏‏‏ש‎ü‎‎‏‏‏ÿÿ‎‎ÿ‎‎‏ü‎üש‎‏‏‏ÿÿ‎‎ÿ‎‎‎‎‎ü‎û‏‏‏ÿÿ‏‎ÿ‏‎‏‎‎‎‏‏‏‏‏ÿÿÿ‏ÿÿ‏‏‎‎‎ÿÿ‏‏‏ÿÿ‏ÿÿ‏‎‎‎üü‎‏‏‎‏ÿÿÿ‏ÿÿ‏‏‎‎û‎ÿ‏‏‏‏ÿ‏‏ÿ‏‏‎û‏‎‎‏‏‏‎ÿÿÿ‏ÿûüûשüûרû‎ûû‏ÿûûü‎‏ü‎ü‏‎ü‎‎‎‏ÿÿ‏ÿ‎‎û‎‏ûü‎‎üüÿÿÿ‏ÿû‎ûû‎‎‎‏üüû‎‏ÿ‏ÿüüü‎‎‏ü‏ü‎ü‎‏ÿ‏ÿ‏‏ûÿ‏ÿÿ‏‏‏‎‏ÿÿÿÿ‎‎ûÿ‏‏ÿ‏ÿüÿ‏ÿÿÿÿ‎‏üÿ‏‏ÿÿ‎תû‏ÿÿÿÿûûר‏‏‏ÿÿûתרÿÿÿÿÿ‎שש‏‎‏ÿÿרüשüÿÿÿÿÿÿûÿÿÿÿÿû‎‏ûÿÿÿÿÿÿ‏ÿ‏‏ÿÿ‎ü‎ûüÿÿÿÿÿÿÿÿÿÿÿ‏‎ÿ‏üÿÿû‏‏‎‏‏‏‏ÿÿ‎‏‎‎ÿÿÿÿÿ‏ÿ‏ÿÿÿÿÿûÿ‏ÿÿûÿÿ‏ÿÿ‏ÿÿÿ‎‎ÿÿÿ‎‏ÿÿü‏ÿÿÿÿ‏‏üÿÿÿÿÿ‏‏‏‏‏‏‎‏û‎‎ÿÿ‏‏‏ÿÿ‏ÿÿÿÿ‏‎‎‏üÿÿÿÿÿ‏‎ÿÿÿÿÿ‏‎‏‎‎ÿÿÿÿÿ‎ÿÿÿÿÿÿ‎‎û‏ÿÿÿ‎‏ü‏‏‏‎‎‎ûü‎‎‎‎üûüת‎ü‎‎üûתשü‎ûû‎‎‏üÿÿÿÿÿüüûÿüÿÿ‏ü‎ûÿ‏ÿÿÿûתûü‏ÿÿÿ‎‏ûÿ‏ÿÿÿüûשü‎ÿÿ‏‏‏üÿÿÿÿÿתüû‏‏ÿÿÿüüûÿ‏‏ÿÿתûתת‏ÿÿ‏‎‎üÿÿÿÿÿûüûüüÿÿÿûü‎ÿüÿÿÿûüûû‎ÿÿ‏‎‏üÿ‎üÿÿûüûü‎ÿÿ‏‏ÿ‏ÿÿÿÿÿ‏ü‏‏ÿÿÿ‏ûüתü‎üüÿתüüûüÿÿ‏‏‏ÿÿ‏ÿÿÿ‎‏‏‏‏ÿÿÿ‏‏‏ÿÿÿÿÿ‏ü‏‏‏ÿÿÿ‎‎‏ÿÿÿÿÿ‏‏‎‏‏ÿÿÿ‎‏‏ÿÿ‏ÿÿ‎‏‏‏‏‏ÿ‎üû‏ÿ‏ÿÿÿ‎ü‎‏‏ÿÿÿûûû‏‎‏ÿÿÿü‎‏‏ÿÿ‏ÿÿ‏ÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿû‎ÿÿÿÿÿÿÿÿ‎‏‏‏ÿÿû‎‏‏‎‎ÿÿÿÿü‏ÿû‎‏‎‏ÿ‎ûûû‏ÿ‎ÿ‏‎ûü‏‎‎‏ÿ‎û‎ףרפתתרץץתקפקרףףפצרצרשתüשצצצûûצקתü‏û‎ÿÿÿÿ‏üû‏ÿÿ‏ÿ‎‎‎‏ÿÿ‎ÿûüû‏ÿÿ‏ÿ‏ÿ‏ÿÿÿÿÿ‎üü‏ÿÿÿÿ‎ÿ‏ÿÿÿÿ‏‎ûת‏‏ÿÿÿÿÿÿÿÿÿÿÿ‏‏ûÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‎‏û‎ÿÿÿÿÿÿ‏ÿÿÿÿÿü‏‏‏‏‏ÿ‏ÿ‎‏ÿÿÿÿÿû‏‎‏‏‏ÿ‏‎‎‏‏‏‏ÿÿû‏ûûüüüüü‎‏‎‎‏ÿÿûû‎ת‎‎‏üûû‏‎üü‏ÿש‎üûü‎‏üÿÿÿÿ‏ÿÿÿת‏ûüüÿÿÿÿÿÿÿ‎ÿÿÿüÿûü‏ÿÿÿ‏‏‏‏û‏‏ÿ‎‏‎‏‏‏ÿ‏‎‎‎‎‎‎‎‎ü‏‎‎‎‎‎‏ÿÿÿÿÿûÿÿÿÿת‎‎ÿÿ‏ÿÿÿ‎ÿÿÿÿ‎ÿ‏û‎ÿÿ‏ÿ‏ÿתÿÿÿÿ‎‏ÿתÿÿÿ‏ÿÿÿÿÿÿ‏ÿûÿ‏û‎ÿÿ‏ÿÿÿ‏ÿÿת‏תÿÿü‏‏‏‏‎û‏תüûûÿ‏‏‏ÿÿÿÿÿüü‏תשûûÿ‏‏‏‏ÿÿÿÿûû‏û‎ûûü‏‏‏ÿÿÿ‏ÿûû‏קüררü‏‏‏ÿÿÿ‏ÿ‎‏‏ÿ‏‏ÿÿÿÿÿÿÿÿÿÿת‎‏‏‏‏‏üÿÿÿÿÿÿÿÿû‎‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‏û‏ÿüÿÿÿÿ‏ÿÿÿÿÿÿûûûûתûû‏ÿ‎‏ÿÿûüû‎û‏ûüûûÿÿÿÿÿÿÿÿÿûûÿûüûûÿÿÿÿÿÿÿÿÿתûÿתüûûüÿ‏ÿÿÿ‏ûÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‎ÿתûתתûÿÿÿÿÿתתת‎צüקקררקÿ‎‏ÿÿףפûתשûףקפפצ‎üû‏‏רפûתתתערףףרתûת‎‏רש‏‏ü‏שüששתÿ‎‏ÿÿüûÿ‏‏‏ûüûûתÿ‎‏ÿÿüתÿ‎‏‏ûüûûûÿ‏‏ÿÿ‎ûÿ‏‎‏ü‎üü‎ÿ‏‏ÿÿ‎‎ÿ‎‏‏û‎üü‎‏‎‏ÿÿ‏üÿ‎‎‎û‎‏ü‎‏‎‏ÿÿ‏‎ÿ‎‏‏‎‎üü‎‏‏‏ÿÿ‏‏ÿ‎‏‎ü‎ü‏‏‏‎‏ÿÿ‏‎ÿ‎‎‏ü‎üü‎‏‎‏ÿÿ‏‏ÿ‎‎‎ü‎üü‎‏‎‎ÿÿ‏‏ÿ‎‏‎‎‏‎‎ÿ‏‎ÿ‏ÿ‏‏ÿ‎‎üû‎ûûü‎תü‏ÿ‏‎ÿûûתûüüûüûתר‏ÿüûÿü‎ûü‎‎ü‎תûת‎ÿ‏‏ÿû‎û‎‏ÿ‎‏û‎ûûÿÿ‏ÿüüû‏‏‏‎‏ü‏‎ü‎ÿ‏ÿü‏‎ÿ‏ÿÿÿ‏‏ÿÿÿÿÿÿ‎‏üÿ‏ÿÿÿ‏ûÿÿÿÿÿÿû‎ûÿ‏‏ÿ‏‏תתÿÿÿÿÿûûרÿ‏‏ÿ‏ת‏ש‏ÿÿÿÿצûק‏ü‏‏‏ק‎ÿשÿ‏‏‏ת‏ûÿû‏ÿÿÿ‎ÿתüÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏ÿ‏‏ÿÿ‎ÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿ‏ÿÿÿÿ‎ÿ‏‏ÿÿ‎‎‎ûûüûüûûü‎üתÿÿקûû‏ÿüÿÿÿÿÿÿü‎ÿÿ‎ÿ‏‏ÿ‏ÿÿÿÿÿ‏‏ûÿÿ‎ÿÿ‏‏‎‏‏‏‏‏ת‏‎ÿÿ‏‏ÿ‏‏ü‏ÿÿÿÿ‎‎‏ûÿ‏ÿÿ‏‏‎ÿÿÿ‏ÿ‎‎ÿ‎ü‏ÿü‎‏ü‎ÿ‎‎‏ÿ‎‏û‏‎‎‎‎‏üÿÿÿÿÿÿü‎‎‏‏ÿ‎‎‏ûÿÿÿÿ‏‏üûÿ‎ÿÿ‏ûûûÿÿÿÿÿûüû‏ü‏ÿ‏‎‏שÿ‏ÿÿÿ‎‎ü‎‏ÿÿÿ‏‏üÿÿÿÿÿ‎ü‎ÿÿÿÿÿ‎‏ûÿÿÿÿÿ‎üûÿÿÿÿÿ‎‏üÿÿÿÿÿüüü‏ÿÿÿÿ‎‏üÿ‏ÿÿÿ‎‎ü‎ÿÿÿ‎‏‎‎ÿ‏ÿÿÿ‎ü‎‎‏ÿÿ‏‎‏‎ÿ‏ÿÿÿ‎‏û‎‏ÿÿ‏üüü‎‎‎‎ÿשûûûü‎ÿüü‎‎‏‏‏‏ÿ‎‎ûû‏ÿÿÿ‏‏‏ÿÿÿÿÿüû‏‏‎ÿÿ‏‏ÿ‏ÿÿÿÿÿÿüÿ‏ÿÿÿÿ‏‏ÿÿÿÿÿÿ‎üü‏‎ÿÿ‏‎‎‏ÿÿ‏ÿÿüûû‏‏‎‏‏‎ü‏ÿüÿÿÿû‎ûü‏ÿÿ‏ûûü‏üÿÿÿû‏‎û‎‏ÿ‏ÿÿ‏‎‏‎‎ÿÿ‎‎‎‎ÿÿÿÿÿ‏ÿÿÿÿÿÿüÿÿÿÿÿÿ‏ÿ‎‎ÿ‏‏‎ÿüÿÿÿÿ‏‏ÿÿ‎‎ÿ‏‎üÿüÿÿÿûûûü‏ûü‏üûת‎üû‎‏תתüףפפûתתûצקצררתףפצûûר‎‎‎‏ü‎תû‎‏üü‏ûüûÿÿÿÿ‏‏üתÿÿÿ‏ÿûûû‏ÿÿÿÿûüת‏ÿ‏ÿÿÿÿ‏ÿÿÿÿÿ‏‎ûÿÿÿÿÿÿ‏‏ÿÿÿÿÿ‏‎üÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ü‎ÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‎‎ü‎ÿÿÿÿÿÿ‏ÿÿÿÿÿת‏û‏ÿÿÿÿÿÿÿÿÿÿÿÿת‏ü‏ÿÿÿÿÿÿ‏ÿÿÿÿÿת‏‎ü‏‏‏‏‏‎‏‏‏‏ÿÿûüüûü‎‏‎‎û‎‎ü‎‎ÿû‎‎תûü‏û‎üûüüüüÿûüüתû‎‏ûü‎‏ûüûû‎‎üûûû‎‏‎ûûû‎ü‎‎‎û‏ûûü‏ûû‏‏‏‏‏‏‏‏‎‏û‎‏ÿ‏‏ÿÿ‏ÿÿ‎ÿÿÿ‏‎ü‏ÿÿ‎ÿÿÿ‏ÿÿÿÿÿÿ‏ת‎ÿÿ‎ÿÿ‏ü‏ÿÿÿ‎‏‎üÿÿÿÿÿÿÿÿÿÿ‏ÿüÿ‏‏üÿÿÿÿÿÿ‎ÿ‏ü‏ûÿÿ‏ü‏‏‏‏‎‏‎ü‏ÿÿ‏‏‏ÿÿÿÿÿ‎‎‏‎‎û‏ÿ‏‏‏ÿÿÿÿÿ‎û‏ûü‎‎‏‏‏‏‏ÿÿÿÿüü‏‎üûû‏‏‏‎‏ÿÿÿÿüûüûüû‎ü‎‏‏‏ÿÿÿÿûר‏ûûûû‎‎‏‏‏‏ÿÿÿ‏ûÿ‏‏‎‏‏ÿÿÿÿÿÿÿÿûû‏‎‎‏ÿÿÿÿÿÿÿÿÿÿ‎û‏‏üû‎‏ÿ‏ÿÿÿÿ‏ÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‎û‏ûתûüÿÿÿÿÿÿÿûÿ‎û‏ûüרû‎ÿ‏ÿÿÿûûÿûû‏קתûûüÿ‏ÿÿÿÿûÿüש‏üתשש‎ÿ‏ÿÿÿ‎‏ÿÿû‏ûüûÿüÿÿÿÿÿÿÿÿÿûÿûüûûÿÿÿÿÿÿÿÿÿÿÿÿתüûûüÿÿÿÿÿ‏‎ÿÿüÿקüררתÿ‏ÿÿÿûרÿ‎ü‎ףתשפצ‏‎‏‏‏קררû‎ûקררפצ‏ü‎‏‏תפ‏ûûûרûצשק‎üûÿÿüש‏‏‏‏ש‎üתü‏‎‏ÿÿ‎ûÿ‏‏‎üü‎תüÿ‎‏ÿÿ‏ûÿ‎‏‏ü‎üûûÿ‏‏ÿÿ‏‎ÿ‎‏‎ü‎ûüü‏‎‏ÿÿ‏‎ÿ‎‎‎ü‎‎üü‏‎‏ÿÿ‏‎ÿ‎‏‏û‎‎ü‎‏‎‏ÿÿ‏‎ÿ‎‎‏‎‎‎‎‎‏‎‏ÿÿ‏‎ÿ‎‏‏‎üüû‎‏‎‎ÿÿ‏‎ÿ‎‏‎‎‎ü‎‏‏‎‎ÿÿÿ‎ÿ‎‎‎ü‎ü‎‎‏‎‎‏ÿÿ‎ÿü‏ûüüûû‎‎û‎‏ÿ‏‎ÿü‎ûû‎ûüü‎üת‏ÿ‏‎ÿûûûûü‎û‎תתû‏ÿÿ‏ÿû‎שü‎‎‎‎üûשûÿÿ‏ÿü‎û‎‏‎‎‏û‏ü‏‏ÿÿÿü‎‏‏‏‏‏‏‎ÿ‎‎ÿÿÿÿü‏üÿ‏ÿ‏ÿ‏ÿ‏ÿ‏ÿÿ‏ü‏üÿ‏ÿ‏ÿ‏‏‏‏ÿÿÿÿû‎תÿ‏‏ÿÿ‏üÿ‏ÿÿÿÿתûû‏‏‏‏ÿÿ‏ת‏ÿ‏‏ÿףתûûüûûüצ‏‏üÿûû‏ûû‏ÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿ‏ÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿÿüÿÿÿÿÿÿ‎ÿÿÿüüÿûûûüüûû‎ÿת‏‏ÿתתת‎ü‎ü‎ü‎‎‏ûüÿ‏ûשÿû‏û‏ÿ‏‏ÿÿüשÿÿ‎‎ÿ‎‏‎‏‏ÿ‏‏ü‏ûÿÿ‎ÿÿÿÿÿÿÿÿÿÿû‎‏ÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿ‎‏‏ÿÿü‎‎‎‏‎‎‏ü‎‏שûת‏שûûûû‏‏ûü‏תûûüתתתû‎ûÿ‏ÿ‏‏‎üû‎û‎‏‎û‏ûÿÿÿÿÿûüü‏‏‏ÿÿ‎‏üÿÿÿÿÿÿ‎‎‏ÿÿÿÿû‏‎ÿÿÿÿÿ‎‏‎ÿÿÿÿÿü‏ûÿÿÿÿÿ‎‎‎ÿÿÿÿÿ‏ÿ‎ÿÿÿÿÿÿ‎ÿÿÿÿÿÿ‏ÿ‎ÿÿÿÿÿÿ‎‏ÿÿÿÿ‏‏‏‏ÿÿÿÿÿÿ‎ÿÿÿÿÿÿ‏ÿüÿÿÿÿÿ‏‎üÿÿÿÿ‏‏‏‎ÿÿÿÿÿ‎‎‏ÿÿÿÿÿÿ‏‎ÿÿÿÿÿ‎‎‎‎ÿÿÿÿÿ‏‎ÿÿÿÿÿ‎ÿ‏‏‏ÿÿÿ‏‏‎ÿÿ‏ÿÿüü‏ü‎‏ÿü‏‏‎ÿÿÿÿÿ‏‎ÿ‏‏ÿÿÿ‏‏‏ÿ‏‏‏ÿ‏üü‏‎ÿÿü‏‏‎ÿ‏ÿÿÿ‎ü‎‏ÿÿ‏‏‏‏‏ÿ‎ÿÿÿü‏‏‎‏ÿÿ‏üû‏‏üüÿÿÿ‏‎û‎‎ÿü‏‏ÿ‎‏üÿÿÿü‎ÿ‎ÿÿüÿÿ‏‏ÿÿÿÿÿüÿÿÿÿÿ‏‎‏‎‎ÿ‏ûü‏‎‎ÿÿ‎‎‎‎‏‎‎ÿ‎üû‎ת‎‏‏תûûû‎ü‎‏‎üüüת‎ü‎‎û‏רשר‎ת‎שתתתתשתתשüû‎û‏ÿÿÿ‏‏üû‏ÿÿ‏ÿûûû‏‎ÿÿ‏‎üû‏ÿÿÿÿÿ‏‎ÿÿÿÿÿÿ‎ûÿÿÿÿÿÿÿ‏ÿÿÿÿÿü‎ûÿÿÿÿÿÿ‏ûÿÿÿÿÿ‏‎üÿÿÿÿÿÿÿ‏ÿÿÿÿÿ‏üש‎ÿÿÿÿÿÿ‎ÿÿÿÿÿüתתÿÿÿÿÿÿÿÿÿÿÿÿÿû‎רÿÿÿÿÿÿÿÿÿÿÿÿÿק‎‎‏ÿÿÿÿÿÿÿÿÿÿÿÿû‎‎ר‎ÿÿÿÿÿÿÿ‏ÿÿÿû‏‎üתÿÿ‎‎‏‎‏üû‏ÿר‎üûûûüתû‎ûûüû‏‏שתûשüû‏תÿ‏‏‎‏‏‏ÿû‏û‏ü‏ÿ‎ÿÿÿÿÿ‏ÿÿü‏תÿ‎ÿÿ‎‎û‎‎üûüüûüûüü‎‏ûüûûûüû‎‎ûüûû‎ûûû‎‏‎‎‏‏‏‏‎ÿששüÿ‏‏‎ÿ‎üÿ‏‏‏‎‏‎ת‏ÿ‏‏‎‏‏ÿÿÿÿÿûÿ‏üüÿÿÿÿÿÿÿÿÿ‏ÿשÿÿÿ‎ÿÿ‏‏‎‏‎‏‎ÿÿÿ‏‏ÿÿÿÿÿ‏‎‏‎‏‎‎ÿ‏‏‏ÿÿÿÿÿ‏‎‏‎üû‎ÿ‏‎‎ÿÿÿÿÿ‏û‏û‎û‎ÿ‎‏‎‏ÿÿÿÿ‏ü‏ûüüû‏‎‏‎‏‏ÿÿÿ‎û‏üתûû‏‎‏‎‎‏ÿÿ‏‎û‏ûתרüü‎‎‏‎‎ÿÿÿûרüקתרûü‎‎‎‎‏ÿÿ‏üû‎קתררü‎‏‎‎‏ÿüÿ‎‎‏ûüûûüÿÿÿÿÿÿÿÿ‎ü‏תü‎ûüÿÿÿÿÿÿÿÿûûû‎üûûüÿ‏ÿÿÿ‏ûÿÿü‏ü‎ü‏‎ÿ‏ÿÿÿÿ‏ÿÿ‎‎‎ü‎‎ÿÿÿÿÿÿÿÿÿÿü‏ûתרûüÿ‏ÿÿÿ‎‎ÿÿ‎‏קתרûüÿ‏ÿÿÿü‏ÿ‎‎‎ףתפפת‏‏‏‏ÿתק‏‎‎‎ףûשפצ‏‏‏‏‏תק‏‎‎‎שûûפקÿ‏‏ÿÿ‎û‏üüûתüתשק‏‎‏ÿÿ‎ת‏üüüתüתûû‏‎‎ÿÿ‏üÿ‏‏‏û‎üûüÿ‏‏ÿÿ‏ûÿ‏‏‏ü‏‎ûüÿ‏‏ÿÿÿ‎ÿ‏‏‏‎‎‎ü‎ÿ‎‏ÿÿ‏‎ÿ‎‏‎‎‎‎‎ü‏‎‏ÿÿÿ‎ÿ‎‏‎‎‎‎‎ü‏‎‏ÿÿ‏‎ÿ‎‏‎ü‎‏‎‎‏‎‏ÿÿÿ‎ÿ‎‏‎ü‎‎‎‎‏‎‎ÿÿÿ‏ÿ‎‏‏‎‎‎‎‏‏‎‎ÿÿÿ‎ÿü‏‎ü‎‎‎‏‎‎‎ÿÿÿ‏ÿü‏‏ü‎‎‎‏‎‎‎‏ÿÿ‏ÿû‎תü‏ü‎‎‎ü‎‏ÿÿ‎ÿû‎ûü‎‎‎‎üüû‏ÿÿ‏ÿקררü‎‎ü‎ûüü‏‏ÿ‏ÿû‎ü‎‏‏‏ÿ‏‎‎‏ÿÿÿÿ‎‏ÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿÿ‎‏‏ÿ‏ÿÿÿÿÿ‏ÿÿÿÿÿü‎ÿÿ‏ÿ‏ÿÿÿ‏ÿÿÿÿÿûü‏‏‏‏‏ÿ‎‏‏ÿÿ‏ÿÿצ‎קûüûû‏ü‎‏‎‏ûü‏ץצצü‎üü‎‎‏‏‎‏‎üÿÿ‎‎ÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿ‎שû‎תקÿ‏ÿ‏‏‏‏שÿת‎שüץרצû‏‎‎‎‏‎צש‏‎‏‎שüשש‏ÿ‎‏‏‏‎שÿרתשףüצפצתûûûüשף‎ûüûתü‎רתÿת‏ÿ‏‎û‏‏‏û‏‏‎‎û‏‎‎ÿÿ‎üÿתûû‏ÿ‏ÿ‎ÿüשÿÿ‏‏ÿ‏‎‎‏‏‏‏ÿ‎ûûÿÿ‏‎ÿÿÿ‏ÿÿÿÿÿûÿ‏ÿÿÿÿÿ‎‏‎‏ÿ‏ÿ‏ת‏ûû‏‏ÿüûûתתüüûüצü‎צשצרקשתצûûתתû‎תתצרתûûקשתûüû‎üûתû‏תû‏ûüüüÿ‏ÿÿÿ‏‎üÿ‏ÿÿÿ‎‏‏ÿÿÿÿÿÿü‎ÿÿÿÿ‎‎ûüÿÿÿÿÿ‎üûÿÿÿÿÿûü‎ÿ‏ÿÿÿûüûÿÿÿÿ‎ûûûÿ‏‏ÿÿûüûûÿÿÿÿ‎ÿüÿÿÿÿÿÿ‏ÿÿÿÿÿ‏‏‏üÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‎‏‎ÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿ‏‎ÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿ‎ÿÿÿÿÿ‏‏‏ÿ‏ÿÿÿ‎‏‎ÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿ‏‏ÿÿÿÿÿ‎‏‎‏ÿÿÿÿ‏‎‏‏‏ÿÿ‏‎‎‎ÿ‏ÿ‏ÿÿûÿ‏‏‎ÿ‏‏ÿ‎ÿÿÿÿÿÿü‎ÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿû‎ÿÿÿÿÿ‏ÿ‏‎‏ûÿÿÿ‎‎ÿÿû‏û‏‏‏ûÿ‏‎ÿ‏‏‎ÿ‏ûÿ‏‎‏‎û‏‎שü‎ü‎‏‎üü‏ü‎üûÿ‏תתûתûû‎ûûûûûû‎‏‎ûûûûûûüüüüתûû‏ü‏‎üûûתûüüüûקרר‏üûÿ‎‎תשûü‎üûüüüÿ‎ÿÿÿ‎‎û‏ÿ‏ÿÿ‏ÿüÿÿÿÿÿü‏תÿÿÿÿÿ‏ÿüÿÿÿÿÿ‎‏תÿÿÿÿÿ‏ÿüÿÿÿÿÿ‏‎ûÿÿÿÿÿ‏ÿ‏ÿÿÿÿÿ‏‎û‎ÿÿÿÿ‎ÿרÿÿÿÿÿüתü‏ÿÿÿÿ‏‏‏ÿÿÿÿÿשתשÿÿÿÿÿÿÿ‏ÿÿÿÿÿת‎תÿ‏ÿÿÿÿÿ‏ÿÿÿÿÿש‏ûת‏ÿÿÿÿÿÿÿ‎ÿÿ‏שü‎קתü‏ק‎‎‎‏‏‏‏‎תüרצקתûשûûü‎‏‎‏‏קûûתרüûתü‏ü‎‎‏‏ÿü‎üשü‎‏תÿÿ‏ÿÿ‏ÿÿü‎ü‎ü‏ÿüÿÿ‏ÿÿ‎ÿÿ‎ÿüüü‏ÿ‏ûüûûüûü‏ûüתשüûûûûûüûüûû‎ûûûûתûÿû‎‏‏‎ÿÿÿÿ‎ü‎‎üÿÿ‏üüüÿÿÿÿÿüÿû‏‎ÿÿ‏ÿÿÿÿÿÿÿÿûÿÿ‏‏ÿÿ‏‏‎‎‏‏‎ÿÿ‏‏‎ÿÿÿÿÿ‏‎‎‏‏‏ÿÿ‎‎‏‏ÿÿÿÿ‏‎‎‎‏‎ÿÿ‎‎‎‎ÿÿÿÿ‏‎‏‏‎‏‏ÿ‎‎‎‏ÿÿÿÿ‏‎‏‎‎‏‏ÿ‎‏ü‏‏ÿÿÿ‏ü‏‎‎‎‏ÿü‏‏‎‏ÿÿ‏‏ü‎üüû‎‏‎‎‎û‎‏‏‏üû‎ûתüü‏‎‏‎‎ü‏ÿ‏‎ü‏‎ûשü‎‎ÿ‏‏‏ÿÿ‏‏‎‏ת‎‎‏‏ÿÿÿÿÿÿÿÿ‏ü‏üüûת‏ÿ‏ÿÿ‏ÿÿÿ‏‏‏üüü‎ûÿÿÿÿ‏‏‏ÿ‏‎‏תûתü‎ÿ‏ÿÿ‏‏‏‏‏‏‏üüû‎‏ÿ‏ÿÿÿÿÿÿ‏‏‏קתרתüÿ‏‏ÿÿ‎ת‏‎‏‎צüרקû‏‏‏ÿ‏ûר‏‏‏‏ר‎תרתÿ‎‏ÿÿ‏û‏‎‏‎שüûשתÿ‏‏ÿÿ‎û‏‎‎‎ש‎ûתתÿ‎‏ÿÿ‏‎‏ûüüת‎ûתû‏‎‏ÿÿ‏û‏‎‎‎ü‎‎תûÿ‏‎ÿÿÿ‎ÿ‏‏‏ü‏‏üüÿ‏‏ÿÿÿ‎ÿ‏‏‎‎‏‏üüÿ‏‏ÿÿÿ‏ÿ‏‏‎‎‏‎ü‎ÿ‎‏ÿÿÿ‎ÿ‏‏‎‎‏‏‎‎‏‎‏ÿÿÿ‎ÿ‎‏‎‎‎‎‎ü‏‎‏ÿÿÿ‎ÿ‏‏‎ü‎‎‎‎‎‎‎ÿÿÿ‎ÿ‎‏‎‎‎‎‏‎‏‎‎ÿÿÿ‏ÿ‎‏‎‏‏‎‏‏‏‎‎ÿÿÿ‏ÿü‏‎‎‏‎‎‏‎‎‎‏ÿÿ‏ÿ‎‏ü‎‏‎‏‏‎ü‎‏ÿÿ‏ÿתûû‎‎‎‏‏üüü‏ÿÿ‏ÿü‎‏‎‏‏‏‏‎‎‎‏ÿÿ‏ÿ‎‎‎ÿ‏ÿÿÿÿ‏‏‏ÿÿ‏ÿ‎üÿ‏‏‏ÿÿ‎‎‎ÿÿÿ‏ÿ‎‏ÿ‏ÿÿÿÿÿ‏ÿÿÿÿÿÿÿ‎‏ÿ‏ÿÿÿÿÿ‏ÿÿÿÿÿû‏‏‎‎‎‏ÿ‎‏ü‏ÿ‎‎ÿüת‏û‎ûü‏ûÿû‎‏üûÿצצ‎û‎üû‎û‏‎ûÿ‎ûÿ‏‎‏ÿü‏‏‏ÿ‏‏‎ÿÿÿÿ‏ÿÿÿ‎ÿÿÿÿ‏ÿÿÿÿÿÿüûûקקפ‎‎‎üü‎üüüüüûûףרפר‏üüû‎üצצ‎ü‎üפתקץתü‎ü‎‎‏צ‏ששרףûץעץשûתשûתת‎ü‎ûת‏‎תתÿ‎‏‏‏ÿ‎ÿûüר‎‎‎ûûÿ‏‏‏‏‎ÿÿת‎ü‏‏‏‏‎‏û‏ÿÿÿüÿתתת‏ü‏‏ÿ‏צתÿÿ‏‎ÿ‏‏üÿÿ‏ÿÿ‎‎צÿÿÿÿÿ‏ÿÿÿÿÿÿÿקÿÿÿÿÿÿÿ‎‏‎‎ÿÿüÿûÿûפü‎‏‏‎‎üÿÿÿ‎üת‎ÿûצתûûקûת‎üü‎û‎ü‎רתûûû‎üüÿ‎ÿÿÿÿ‎‏ÿ‎‎‏ת‎‎‎ÿÿÿÿÿÿ‎ÿÿÿÿÿÿ‎üü‎‎‎ÿÿ‏ûתÿÿ‏ÿü‎‎ûÿüÿÿÿüüûÿÿÿÿÿ‎ûûÿ‎ûÿÿûüûüÿÿÿ‎ûûûûüüÿÿûüûû‎ÿÿÿûûûüüûûÿûüûûüÿÿûü‏‏ÿ‏ÿÿÿÿ‎‏ÿÿÿÿÿ‎üüÿ‏‏ÿÿ‏‎ÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‏‏‎ÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿüÿÿÿÿÿÿÿ‎ÿÿÿÿÿ‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‏ÿÿÿÿÿÿ‎‏‏‏ÿ‎ÿ‏üüüÿ‏‏‏ÿ‏üÿ‎‎‎‎‎ÿ‏üÿÿÿÿÿÿ‎ÿÿÿÿÿÿ‏ÿüÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‏‏‎‏‎‎‏‏‏û‏ÿ‏üü‏‎‏‎‎‏û‎‎‏‏‎ÿ‏תת‎‏‏‎ûÿÿ‎‏‏‏‎ÿÿ‎û‏‎‏‎‎ÿ‏û‏‎û‎‏ÿ‎‏‏‏ÿ‎‏ÿ‏‎‎‎û‎‏ÿ‏‎ÿ‎‎‎ÿÿÿ‏‏‏‎ü‎ÿ‏ÿ‏üüû‏‎‎‎‎‎שü‎‎‎‏‎רששüתü‎‎ûתש‎‎ü‏üüüü‏‎üÿÿüûû‏‏ÿ‏ÿüÿ‎ÿÿÿÿÿÿ‏ûÿÿÿÿÿ‏ÿ‎ÿÿÿÿÿû‎ûÿÿÿÿÿûÿ‎ÿÿÿÿÿ‏‎ûûÿÿÿÿ‏‏ûÿÿÿÿÿ‎‎û‏ÿÿÿÿק‎שÿÿÿÿÿûüרÿÿÿÿÿ‎‏‏ÿÿÿÿÿתûש‏‎ÿÿÿÿÿÿÿÿÿÿÿüû‎‏ÿÿÿÿÿÿ‏ÿÿÿÿÿת‏‏ü‏ÿÿÿÿÿüÿ‎ÿÿÿת‎‎û‎ר‏שÿÿÿÿÿÿÿÿר‏‏û‏ÿÿת‏‏‏‏‏ÿÿ‏ר‎ü‎üת‏שüüü‎‏üÿÿû‎תüûת‏ü‏‏‏‏ÿ‎ÿÿûשתü‎üÿûÿÿ‏ÿÿÿÿÿü‏שûü‏ÿ‏ÿÿ‎ÿÿÿÿÿ‎‏‎ר‏‎ÿ‎‏‏‎‏ÿÿÿÿüÿ‎שü‏ÿ‏‏‏û‎‏ÿÿÿüüקûü‎ÿ‏תûû‎ÿ‎‏ÿתÿת‏‎‎ÿ‏ÿÿÿÿÿÿÿÿקÿÿ‎‎‏ÿ‏‏‎‎‏‏‏ÿÿÿ‎‏ÿÿÿÿÿ‎‎‎‏‏‎ÿÿ‎‎‎ÿÿÿÿÿ‎‎‎‏‏‏‏ÿ‎‎‎ÿÿÿÿÿ‏‎‎‎‎‏‏ÿ‎‎‎‏ÿÿÿÿ‏‏‏‏‎‏ÿÿ‎‏‏‏ÿÿÿÿ‏‎‏‏‎ü‎ÿ‎‎‎‎‏ÿÿ‏‏‎‏‏‎ü‏‏‎‏‎‎‎‏‏‏‏‎‏ü‎ü‏‏‎ÿ‏‎‎ÿÿ‎‏‎‏ü‎ü‏‏ÿÿÿ‏‏ÿÿÿ‏‏‏ü‎‎ü‏ÿ‏ÿ‏‏ÿÿ‏‏‎‏ûüüü‏ÿ‏ÿ‏‏‎ÿ‏‏‏‏üתתûüÿÿÿÿ‏‎ü‎‏‏‏שûרûü‏‏‏‏‏‎ü‏‏‏‏קûששü‏‏‏‏‏‎‎‏‏‏‏תüשרû‏‏‏‏‏‏‎‏‏‏‏שüתûתÿÿ‏ÿÿ‏ü‏‏‏‎ש‎ûûüÿ‎ÿÿÿ‏‎‏‎‏‎ש‎üתüÿ‎ÿÿÿ‏ü‏‎‎‎û‎ûתüÿ‏‏ÿÿÿ‎‏‎ü‎ü‎üתûÿ‎‏ÿÿÿ‏ÿ‎‎‎ü‎üüûÿ‏‏ÿÿÿ‏ÿ‏‏‏ü‎‏üüÿ‎ÿÿÿÿ‏ÿ‏‏‎‎‎‏ü‎ÿ‎‎ÿÿÿ‏ÿ‏‏‎‎‎‎ü‎ÿ‎‎ÿÿÿ‎ÿ‏‏‎‏‎‎‎‎‏‏‏ÿÿÿ‏ÿ‏‏‎‏‏‏‏‎‏‎‏ÿÿÿ‏ÿ‏‏‎‎‏‎‏‎‎‎‎ÿÿÿ‏ÿ‏‏‎‎‏‎‏‎‎‎‎ÿÿÿ‏ÿ‏‏‎‏‏‎‏‏‏ü‎ÿÿÿ‏ÿ‎‎‎‎‏‎‎‏‎ü‎‏ÿÿ‏ÿ‎‎ü‎‏‎‎‏‎üû‏ÿÿ‏ÿüûü‎‏‎‏‏‎üü‏ÿÿ‏ÿ‎üü‏‎‏‏‏ü‎ü‏ÿÿ‏ÿ‏‏‏‏ü‏‏ÿ‎ü‎‏ÿÿÿÿ‏û‏‎üûÿ‏‎ûü‎ÿÿ‏ÿ‎‎‎תüû‏‏‎üû‎ÿ‏‏‏üû‏רûשש‎רûשü‎‎ûÿ‎ת‎ש‎תשûשûתש‎‎שÿ‎ü‏ü‎‎ûüת‏ûûüÿüÿ‎ק‏‎ר‎üüû‏‎ûüÿ‎ÿ‎‏‎‎קצ‎‎û‏‎û‏ÿ‎‎‎‏‏רüק‏ÿ‎‏‏ü‎ÿ‏‏û‎ûפûתצ‏‎‎‎ûüÿ‏‏ûüûüüתץר‎‎ü‎ü‎ק‎‎‏‏ûÿûÿתÿ‏ÿ‏‏ÿÿÿü‎תû‏‎‏ÿÿ‏‏‏‏ÿü‏ü‎üû‎‏ûÿÿ‎‎ÿ‏ÿü‏ûûר‎‎‎ü‏‏‎‏ÿ‏ÿ‎‏ûתש‎‎‎ü‎‎ûÿÿ‏ÿ‏‏תתף‏û‏‏‎‏צûÿÿÿÿÿû‏üÿÿüÿ‏‎‎ץÿÿÿ‏ÿ‏ÿÿÿÿÿÿÿק‏ÿÿÿÿÿÿÿÿüÿÿÿÿÿÿÿÿשÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿתÿÿרûרת‏ü‎‎‎‎‎‎üתצקקû‎ûÿü‏ÿÿÿ‎‏ÿÿû‎תûûש‏üûÿÿ‏ת‏ÿÿ‎ÿ‎ûûûÿÿÿÿÿÿüûÿÿÿÿÿû‎ûÿ‏ÿÿÿû‎ûÿÿÿÿÿ‏‏‎ÿÿÿÿÿÿ‏‏ÿÿÿÿÿ‏‏‎ÿÿÿÿÿÿ‎‏ÿÿÿÿÿ‏‏‏ÿ‏ÿÿÿÿ‎‎ÿÿÿÿÿ‏üüÿ‏‏ÿÿÿ‏‏ÿÿÿÿÿ‎‎‏‏‎‏ÿÿ‏‏ÿÿÿÿÿÿ‎‎‎‏‏ü‏ÿÿ‎‏‏ÿÿÿÿüüüü‎‏‏‏‎‎üÿ‏ÿÿÿ‏ÿ‏ÿÿ‏‏ÿ‏ÿ‎ÿÿÿÿÿ‏ÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏üÿ‏ÿ‏ÿÿÿ‎‏‏ÿ‏ÿ‏ÿ‎‎üü‏‎ÿ‏‎ÿ‎üüü‏ÿÿüüû‏‏‎üÿÿÿ‎‏ü‏ÿ‎û‏ûü‏‏ת‎‏ÿ‎‏‏‎‏üש‎üשû‏û‎‎ü‎תü‎‏ü‏ÿ‏ûüÿ‏‎ÿÿ‏û‏‎‏ü‎ÿ‏‏ü‏ת‎‏ÿ‏‎‏‎‏‎‏ÿÿ‏ÿ‏ü‎‏ÿ‏‎‏‎‏ûÿÿ‏‎ÿ‎‎‎ÿÿ‏‏ÿ‎‎‎ÿÿÿ‏‏‏û‎‏ÿ‏ÿÿ‎‎ûÿ‏ÿÿ‏‏ש‎‎ÿÿ‏ÿקרר‏תû‎‎üתר‎‎ûûü‎‏‎ÿ‏‏ÿÿ‎ûשÿ‏ÿÿÿ‎‏‎ÿÿÿÿÿû‎ûÿÿÿÿÿüÿ‏ÿÿÿÿÿ‎‎שÿÿÿÿÿû‏üÿÿÿÿÿ‏‎רûÿÿÿÿû‏üÿ‏ÿÿÿ‏‎ת‎ÿÿÿÿררûÿ‎‏ÿÿüûûÿüÿÿÿקרר‏‏‎ÿÿרüש‏‎ÿÿÿÿÿüÿÿÿÿÿת‎‏ÿÿÿÿÿÿÿüÿÿÿÿÿשÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿÿ‎‎‏ת‏‎‎ÿ‏ÿ‎ÿÿÿÿ‏ת‏‎תüק‎ûÿÿÿÿÿÿÿÿ‎‏‎ü‏‎ÿ‏‏ÿ‏ÿÿ‏ÿÿ‎‎üüûû‎‎‏ÿÿÿÿ‏ÿÿüתûü‎ûÿ‎‎‏‏ÿÿÿÿÿ‎‎ûשתüÿ‏‎‏‏ÿÿÿÿÿüüüûû‎ÿ‎üÿ‎ÿÿÿÿÿü‏ש‎ü‎ÿ‏û‏û‎‏ÿÿÿü‏ûü‎‏ÿ‎üüüÿÿÿÿÿûÿÿÿ‎‏ÿ‎ÿÿÿÿÿÿÿÿתÿÿÿ‏‏ÿÿ‎‎‎‏‏‏ÿÿ‎‎‎‎ÿÿÿÿ‎‎‎‏‏‏ÿÿü‏üüÿÿÿÿ‎‏‎‏‏‏ÿÿ‏‏‏‏‏ÿÿÿ‎‏‏ÿ‏‏ÿÿÿ‏‏ÿ‏ÿÿÿ‏‏‎ÿ‏‏ÿÿÿ‏ÿÿÿÿÿÿ‏‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‏‎‎‏‎‏ÿÿ‎‏‏‏‏‏‏‏‏‏‏‏‎üÿÿ‎ÿ‏‏‏‎ÿ‏‏‏‏‏‎‎ÿÿ‎ÿ‏‏‏ÿÿ‏‏‏‏ü‎ü‏ÿÿÿÿÿ‎‏ÿ‎‏‏‏‎üü‎‏ÿÿÿÿ‎‎‏‏‏‏‏üüûû‎ÿÿÿÿ‏‎‎‎‏‏‏ûüû‎‎ÿ‏ÿÿÿ‏‏‎‏‏‏ü‎û‎üÿ‏ÿÿÿ‏‏‏‏‏‏û‎ûû‎‏‏‏‏‏‏‏‏‎‏‎û‎ûû‎ÿ‎‏ÿÿ‏‏‏‏‏‏û‏üû‎ÿ‎‏ÿÿ‏‏‏‎‎‎û‏üû‎ÿ‏‏ÿÿ‏‏‏‏‎‎û‎üûüÿ‎‏ÿÿÿ‏‏‎‎‎ü‎‎ü‎‏‎ÿÿÿÿ‎ÿ‎ü‎üüûûüÿ‎‎ÿÿÿ‏ÿ‎‏‎ü‎‎ü‎ÿ‎‎ÿÿÿ‏ÿ‎‎‎‎‎‎ü‎ÿ‎‎ÿÿÿ‏ÿ‎‏‎‎‎‏ü‎ÿ‎‎ÿÿÿ‏ÿ‏‏‎‏‏‏‎‎‏‎‏ÿÿÿ‏ÿ‎‏‎‏‏‏‎‏‎‎‎ÿÿÿ‏ÿ‏‏‎‎‏‏‏‎‎‎‎ÿÿÿ‏ÿ‎‎‎‏‏‏‏‎‏ü‎ÿÿÿ‏ÿ‏‎‎‏‏‏‏‏‎ü‎‏ÿÿ‏ÿ‎üü‎‏‎‏‏üü‎‎ÿÿ‏ÿ‎‎ü‎‏‎‎‏üüû‏ÿÿ‏ÿ‎ûü‎û‏‏‏ûüû‎ÿÿ‏ÿ‎üû‎üת‏‏ûûûûÿÿ‏ÿüüûתתû‏‏תûûû‏ÿ‏ÿ‎üשûûשû‏ûûüü‎ÿ‏ÿüûרקûשûûûתתûüÿ‏ÿ‎ûüרüתרüרקששü‏ü‏üשרתüûשתקקררüÿüÿüûûûתûתתףתפפתÿ‎רûשûûצשûûףתפפתÿûרûûüרתףûüרüששקÿûüת‎ûפûשת‎שûששרÿ‎שתûûûüשצüü‎‏ûüÿ‏‏û‎‏û‏üÿû‏‏‏‏‎ÿÿ‎ü‏‏û‏‎‎ÿÿ‏‏‏‏ÿÿ‏ת‎‏ü‏‏ûÿÿ‏‏‏‏ÿ‎‏ûüüü‎‏û‎‏‎‏‏‏‏‏‏קû‎‏‎‏üü‏ü‏ÿ‏ÿ‏‏רûש‏û‏‎‎‏ü‏ÿ‏ÿ‎‏סשע‏ûû‏‏‎‎‎‎ÿÿ‏ÿÿ‏ÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿüÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿ‏ÿÿקÿרקרûûקקשתרתששûףפפצףצצרףûתüשû‏תףףררûרûü‎‏‏‏ü‏ÿÿ‎‎‎קרר‎üûû‏‎ת‎ÿÿû‏ÿ‏‏ÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿ‏‏‎ÿÿÿÿÿÿÿ‏ÿÿ‏ÿÿ‏‏‎ÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏‎ÿÿÿÿÿÿ‎‏ÿÿ‏ÿÿ‏‏‎ÿ‎ÿÿÿÿ‏‏ÿÿÿÿÿ‎‏‎ÿ‎üÿÿ‎‎‏‏ÿ‏ÿÿ‎‏üü‎‎ÿÿÿ‎ÿÿÿÿÿÿüüü‎‎üüÿüüüü‏‏ÿ‏ü‎ûü‏ü‎‎‎‎‏‏ÿÿÿÿÿÿüÿÿÿÿÿ‏‏‎‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏ü‏üü‏‎‏‏‏‏üüüüÿÿû‎‏üÿ‏ÿ‏ÿ‏ÿ‎‏ÿ‏‏üתÿ‏û‏‏û‏ÿ‏‎‎‎ûüûû‎üרת‎ü‎ÿüתûת‏‏‎‏ÿÿ‏ü‏‎‏ÿÿ‏‏‏‏‏ü‎ÿ‏ÿ‏‏û‎‏ÿ‏‏ÿ‏‏û‏ÿ‏ÿÿ‎‏‎‏‏‏‎ÿ‎‏û‏‏ÿ‏ÿû‎ûû‏‏‏ÿ‎‎‎‏‎ÿ‏‏‎û‎‎‎‏‏‏שûשÿ‎‏‎‎‎תü‎û‎‎‏üüüÿ‎‏‏‏üüüü‏ÿÿÿ‏ÿ‎ÿÿÿÿÿÿש‎ÿÿÿÿÿ‏‎‎ÿÿÿÿÿÿתûÿÿÿÿÿ‎‏‎ÿÿÿÿÿקתררÿÿÿÿ‎ûüÿÿÿÿÿ‎‏ת‏ÿÿÿÿüû‎ÿ‏ÿÿÿ‎üתÿתÿÿÿüשתÿתÿÿÿתûש‎‏ÿÿÿ‏‏‎ÿÿûÿÿת‎רûÿÿÿ‎ÿ‎‎û‏ÿÿÿû‎שûÿÿÿÿÿÿüÿÿÿûÿתûûûÿÿÿ‏‏ûת‏ÿ‎‎תתת‏תתûשש‏ÿת‎ÿÿ‏‎צ‎ü‎תûרû‏ÿ‎ÿÿÿ‎‏קתü‎‎‎תü‏ÿ‎ÿÿ‎ÿ‎ת‎üûû‎‏‏‏ÿ‏ÿÿÿÿÿק‎רר‎‏ûü‎ÿüÿÿÿÿÿü‎שקû‏‏‏‎ÿ‎ÿÿÿÿÿ‎צררת‏‎‎ü‎‏‏ÿÿÿÿü‏üû‎‏ÿ‎ûû‏‎‏ÿÿÿüü‎‏ü‏ÿ‏קררÿÿ‏ÿÿשÿףü‎‏ÿüÿÿÿÿÿÿÿÿפÿÿ‏‏ÿÿ‏‎‏‎‏‏‎ÿÿ‏‏ûÿÿÿÿÿ‎‏‏‏‎‏ÿÿü‎ÿÿÿÿÿÿ‎‏‏ÿ‏ÿÿÿÿ‏‏‏ÿÿÿÿ‏‏‏‏‏ÿÿÿÿ‏‏ÿ‏ÿÿ‏ÿÿ‎ÿ‏‏ÿÿÿÿÿÿÿÿÿÿ‏‏‏ÿ‏‏ÿÿÿÿÿÿÿÿÿÿ‏‏‎ÿ‏‏‏ÿÿ‏ÿÿÿÿÿÿ‏‏ÿ‏‏‏ÿÿÿÿÿÿÿÿÿÿ‏‏‎‎‎‏ÿÿ‏ÿÿ‏‏‎ÿ‏‏‏‏‎üü‏‏ÿÿÿ‎‎ü‏ü‏‏‏üüü‎‎ÿ‏ÿÿ‎‎‎û‏‏‏‎üü‎‎ÿ‏ÿÿ‏‎‏‎‏‏‏ü‎û‎‏ÿ‏ÿÿÿ‏‏‏‏‏‏ü‎û‎‎ÿÿÿÿÿ‏‏‏‏‏‏ü‎û‎‎ÿ‏‏ÿÿ‏ÿ‏‎‏‎û‏üü‎ÿ‏‏ÿÿ‏‏‏‏‏‎û‎‎ü‎ÿ‏‏ÿÿ‏‏ÿ‎‏‎û‎üü‎ÿÿÿÿÿ‏‏‏‏‏‎ü‏üû‎ÿ‎ÿÿÿ‏‏ÿ‎‏‎ü‎‎û‎ÿ‎‏ÿÿ‏‏ÿ‎‎‎üüûû‎‏‏‎ÿÿ‏‏ÿ‎‎‎ü‎üüü‏‎‎ÿÿ‏‎ÿ‎û‎üüüüü‏‎‏ÿÿÿ‏ÿ‎‎üüüûüü‏üüÿÿÿ‏ÿ‎‏‎‎‏‏‎‎‏‎‎ÿÿÿ‏ÿ‎‎ü‎‏‎‎‎‏‎‏ÿÿÿÿÿ‎‏‎‎‏‏‏‏‎‎‎ÿÿÿ‏ÿ‎‎‎‎‏‏‏‏‎ü‎ÿÿÿ‏ÿ‎‎ü‏‏‏‏‎‎üü‏ÿÿ‏ÿ‎‎û‎‏‎‏‎üüû‎ÿÿ‏ÿü‎û‎‏‎‏‏üתû‎ÿÿ‏ÿü‎û‎ü‏‏‏ûתר‎ÿÿ‏ÿûüû‎üû‏‏קתרü‏ÿ‏ÿûüûûüû‏‏קתשר‎ÿ‏‏ק‎שü‎ûû‏רתשרתÿ‏üקûרû‎ûüüרקרשתÿ‏‏ÿÿûÿ‏ÿÿÿ‎ûûÿÿÿÿÿ‎ÿûÿ‎ÿÿÿûüת‏ÿÿÿÿü‎שüתüü‏ףקפץתר‏שü‏‏ÿ‎üÿÿת‏ûתüÿÿÿ‎‎‏‏üת‏‏קüûקר‎‏רû‎üû‎ü‏‏û‏üשתü‏שüü‏ת‎ü‏‏ü‏‏üת‏ÿüû‎‏‏‏üüÿ‏‏‏ü‎‏ÿüü‎‎ü‏‎ûÿÿ‎‏‎‎ÿÿ‎שûûûüûûü‎ü‎‏ü‎üûû‎‏ü‏‏ÿ‎ÿü‎ÿ‏ÿÿ‏קûû‎ü‏‎ÿ‏‏ûÿ‏ÿÿÿררû‏ü‎‎ÿû‎‏ÿ‏ÿÿ‏ןסû‎תû‎ÿ‎‎‏ûÿÿ‏‏‏‏‏ÿ‏‏ÿÿÿ‎ÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿ‎ÿÿÿÿÿÿ‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿüüüת‎ÿתüÿ‎‏ÿÿףף‏שûû‏üûרשüüûü‏קררףפפףפפרפקצקץקףסץףץûûתרû‏ûüת‏‎ûûüרששüתüÿÿ‎‎‏‏ÿû‏ÿÿ‏üÿÿÿÿÿÿ‎ÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿ‎ÿÿÿ‏ÿÿ‎‎‎‎‏‎‎ÿÿ‎‏ÿÿ‎‏ÿ‏‏‎ÿ‏ÿÿÿÿ‎‏ÿÿ‏ÿÿ‎‏‎ÿ‏ÿÿÿÿ‎‎ÿÿÿÿÿ‏‏üÿ‏‏ÿÿÿ‎ÿÿÿ‏ÿÿüüüÿ‎ÿÿÿÿ‏ÿÿÿÿÿÿ‎‏‎‏‏‏ÿÿ‏‏ÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿ‏ÿ‎ÿÿÿÿÿ‏‏‏ÿÿÿÿÿÿÿ‎ÿÿÿÿÿ‎‏û‎‏‏ü‎ÿ‏‏ÿÿüÿ‏‏‏û‏ÿ‎‎‎‏ÿ‎ÿÿüüûÿÿÿ‏ÿ‏ÿ‏ÿ‏‎ÿÿ‏‏ÿ‏‏û‎ÿ‏‏‏‏‏ÿÿÿ‎‏‎ûûתû‎ûûü‏ûüÿ‎תûû‎‎û‎‏‏ü‏‏ש‎‏ÿ‎‏‏‏‏ü‏ÿÿ‎‏‏û‎‏ÿ‏ÿÿ‎‏‎‏ÿ‏ÿ‏‎‎û‏ÿÿ‏ÿ‎‏û‏‏‏‏‎תש‎ü‏‏‏‏ûûרü‎üü‎ûûüשûüüûקרשûû‎ûüûûüûתüûרתתתÿûû‎‏üצûü‎‏‏‎‏‏רÿÿÿÿÿ‏ררÿÿÿÿÿ‎‎‎ÿÿÿÿÿקתרÿÿÿÿÿ‎‎üÿÿÿÿÿתתתרÿÿÿÿüüüÿ‏ÿÿÿ‏üרûתÿÿÿ‎üûÿ‏ÿÿÿ‏ûצÿüÿÿרתüשÿû‏ÿÿûüרÿÿÿÿ‏‎‎‎ÿûûÿÿצÿת‏ÿÿÿ‏ÿÿÿ‏ÿ‏ÿÿשÿ‏‎ÿÿÿÿÿÿÿüÿ‏‎ÿרü‎ר‏ÿÿÿÿÿüü‏ÿתüüü‎ש‎û‏û‏ÿûÿÿûתתשü‎תתתû‎‎ÿרûÿÿÿûüûûûüüüû‎ÿרÿÿ‏û‏û‎שûר‎û‎ÿÿ‎ÿÿÿÿ‏û‎üרת‏‎ÿü‏üÿÿÿÿÿüüûשû‎‏ü‎‎ûÿ‏ÿÿÿüרûüû‎‎‎ÿÿÿÿÿÿÿÿü‏ü‏‎ÿÿ‎ÿ‎‎‏‎‏ÿÿüûק‏‎‏‏ü‎‏‏‎ÿüÿÿתÿש‏‎‎ÿüÿÿÿ‎ÿÿ‏ÿצÿÿü‎‏ÿ‎‏‏‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿ‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‏‏‏ÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿ‎‏‏ÿ‏‏ÿÿÿ‏‏ÿÿ‎ÿ‏‏‏‏ÿ‎‏ÿÿ‏‏‏ÿÿÿÿÿ‏‏‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‏‏ÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿ‏‏‏ÿ‏‏ÿÿÿÿÿÿÿÿÿÿ‏‏‎‏‏‏ÿÿÿÿÿÿÿÿÿÿ‏‏ÿ‎‎‎‏‏ÿÿÿÿ‎‎‎‎‏‏‎‎‎‎‏‎ÿ‏ÿÿ‏û‎ü‏‏‏‎‎ü‎‏ÿ‏ÿÿÿ‎‏‎‏‏‎ü‏ü‎‏ÿ‏ÿÿÿ‎‏‏‏‏‏‎‎ü‎‏ÿÿÿÿÿ‏‏‏‏‏‏ü‏ü‎‏ÿ‏‏ÿÿ‏‏ÿ‏‏‎ü‏üü‎ÿ‏‏ÿÿ‏ÿ‏‏‏‎ü‎‎ü‏ÿ‎‏‏‏‏‏‏‏‏‎ü‎‎ü‏ÿ‎‏ÿ‏‏‏‏‎‏‎ü‎‎ü‎ÿ‎‏ÿÿ‏ÿÿ‎‎üüüüü‎‏‎‎‏‏‎‎‏‎ü‎ü‎üü‎‎ü‎ÿÿ‏‎‏‎‎‎‎‎‎ü‎‏‎üÿÿÿ‏ÿ‎‎‎‎ü‎‎‎‏üüÿÿ‏ÿÿ‎‎ü‎ü‎ü‎‏üûÿÿÿ‏ÿûûüûüûû‎‎üü‏ÿÿ‏ÿûûûûüûû‎üûü‏ÿÿ‏ÿ‎‎‎‎‏‏‏‏üü‎ÿÿÿÿÿ‎‏û‏‏‏‏‏‎üûÿÿÿÿÿ‎‎û‏‏‏‏‏‎üû‏ÿÿ‏ÿ‎‎û‏‎‎‏‎ûתû‎ÿÿ‏ÿü‎ר‏‎‏‏‏ûתר‎ÿÿÿÿü‎ש‏‎‏‏‏שûשüÿÿ‏ÿü‏û‏‏‏ÿ‏תüûû‏ÿÿÿ‎‏üÿ‏ÿÿÿü‎üü‎ÿÿÿûûû‏‏‎‏‏תשûûüÿÿûûûר‎ÿ‏ÿÿûתרûü‏‏‏ת‏שÿÿÿÿÿתüû‎‏ÿÿÿû‏ûÿ‎ÿÿÿûüûûÿÿÿÿ‏ÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‏ÿ‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‏ÿ‏ÿ‏üÿÿת‎ûûüתÿש‏‏‏‎‏‎ÿÿû‏‏ûüûÿû‎ü‎üüûûÿת‏‏רתûüû‏‎‏ü‏‎ÿÿ‏ÿ‏‎ü‎ÿ‎ûû‎û‎ûû‏‏ü‎üûü‏û‎ת‏‎‎‏ü‎ÿ‏‏‏‎‎ÿ‎‎ûû‎‎‏‎ÿÿ‏‎‏‏‏ÿ‏ûר‎‏ü‏‎ÿ‏ü‏ÿ‏‏ÿ‏תש‎‏ת‏‏‏‎üûÿ‏‏ÿ‏‎פ‏ÿק‏ÿ‏ÿÿ‏ÿÿÿÿÿ‏üÿü‎üü‏ÿ‏ÿÿÿÿÿÿ‎‎‏ףüפפÿ‏ÿ‏ÿÿÿÿÿ‎ü‎ת‎תתûÿ‎ÿ‎‏‎ûÿüüüת‏ûûצÿ‎‎ÿ‏‏ףÿ‎û‎ÿ‎‏ÿüÿ‎‎‏ÿ‏‎ÿפפףשקרüץתץרü‎ץץצüרü‎ת‏ÿÿ‎üüÿÿÿ‎ÿקרר‏ת‎‎ÿüüûÿÿÿ‎ÿתשûרתששÿûüûüÿÿ‏ÿ‏‏‏ÿÿÿÿÿÿÿ‏ÿÿÿÿÿüüûü‎üü‎ÿ‎‎ÿÿÿüÿתûüûüûûüüÿ‎ÿÿûûÿ‏‏ÿÿ‏ÿÿÿÿÿ‏ÿÿÿÿÿ‎‏‎ÿ‏‏ÿÿÿ‎ÿÿÿÿÿÿ‎‏‎‎‏‏ÿÿÿ‏ÿÿÿÿÿÿ‏ÿüÿÿÿÿÿÿ‏‎ÿÿÿÿÿ‏ÿ‎‏‏‏ÿÿ‏‎ÿÿÿÿÿÿ‏‏‎ÿÿÿÿÿÿ‎‎ÿÿÿÿÿ‎üüת‎ûû‎‎‎‏ÿÿüû‏‏ÿ‎ÿÿ‏‏‎‏‏‏‏ÿûüÿ‎ÿû‎ÿ‎‏‎ÿ‏‏‏ÿ‏ÿÿü‎ûû‎üüü‏ü‎ÿÿûûûûûû‎ü‎ûüüûü‏ÿûתüû‎ת‎‎‏‏‏‏תûÿ‏‎‎‏תûת‏‏‏‏‏üüû‏‏‏‏ÿ‎ÿûÿ‏ÿÿ‏‎‎‎‏ÿ‏ÿÿüÿתÿÿÿÿÿÿתÿ‏ÿÿÿÿרüü‎ü‎‎‎תüûשתתüתקרש‎ת‏‎üתüûתתקüר‎‎רÿÿÿÿÿÿתÿÿÿÿÿÿצ‎ת‏‏‏‏ÿÿשüÿÿÿÿÿ‎‏‎ÿÿÿÿÿÿüתÿÿÿÿÿÿÿüÿÿÿÿÿ‏ש‎ÿÿÿÿÿü‏‎ÿ‎ÿÿÿ‏ררÿÿÿÿÿû‎תÿ‎ÿÿÿתצפÿÿקÿûשתûÿ‎ÿÿÿפ‎ףûÿ‏ÿüÿÿ‏ÿÿ‎ÿÿצ‎צר‏‎ÿÿÿÿ‏ÿÿÿÿÿתÿרשüÿÿÿ‏ÿ‎‎ÿ‎ü‏ש‎תקק‎‎‎ûÿ‎ÿÿ‏‏üרü‎רüרשתüÿû‏ÿÿÿüפתû‎ש‎ûüק‎שÿÿÿ‏üץרתü‎û‎‎ÿÿûÿÿ‏ÿÿת‏üûת‏ÿüÿÿתÿÿÿÿÿ‎‏‎תÿÿÿÿüüצÿÿÿÿ‏ûüרץûü‎û‏‏פÿÿÿÿÿ‎‎צצûששש‏ÿüÿÿÿÿÿü‏üת‏ÿÿüû‏ר‎üÿÿÿתםû‎‎û‏üתûûÿÿÿÿÿרÿיüר‎‏ûÿÿÿÿÿÿÿÿיÿÿ‏ש‏ÿü‎‏‏‏‏‏ÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿûüû‎üü‏ÿÿüÿÿÿ‏‎ÿ‏‏‏‏‏‏ÿÿÿ‏‏ÿÿ‏‏ÿ‏ÿ‏ÿ‏‏ÿÿÿÿÿÿÿÿÿÿ‏‏ÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿ‏‏‎ÿ‏‏ÿÿÿÿÿÿÿÿÿÿ‏‏‏‏‏‏‏ÿÿÿÿÿÿÿÿÿ‏‏ÿ‏‎‎‏‏ÿ‏ÿ‏ÿ‏‏‏‏‏‏‎‎‎üüÿ‏ÿ‏üתûû‏‏‎‎‎‎‏‎ÿ‏ÿÿÿüû‏‏‏ÿ‎‎ü‎‏ÿ‏ÿÿÿ‎‎‎‏‏‎‎‏ü‎‏ÿ‏ÿÿÿ‎‏ÿ‏‏ÿ‎‏ü‎‏ÿ‏ÿÿÿ‏‏‏‏‏‎‎‏‎‎‏ÿ‏ÿÿÿ‏‏ÿ‏‏‎ü‏‎‎‏ÿÿ‏ÿÿ‏‏ÿ‎‏‎ü‏‎ü‎ÿ‎‏ÿ‏‎‎‎‎‏‎ü‎‎‎‎ÿ‎‏ÿÿ‎‎‎‎‎‎ü‎‎‎‎ÿ‏‎ÿÿ‏‏‏üüüü‎üü‎ü‎üÿÿ‎‎‏‎‏‎‎‎‎ü‎‏ü‏‏ÿ‏ÿÿ‎‎ü‎‏‎ü‏‏ü‎ÿÿÿÿÿ‎‎ü‎‎‎‎‎‏‏‎ÿÿÿÿÿ‎‎ü‎‎‎‎‎‏ü‎‏ÿÿ‏ÿüûü‎ü‎‎‎‎üû‏ÿÿÿÿûûû‎üû‎‎‎ûû‏ÿÿÿÿü‎ü‏‏‏‏‏üü‏ÿÿÿÿÿü‎û‏‏‏‏‏üü‎‏ÿÿÿÿû‏û‏‏‏‏‏‎ûû‎ÿÿÿÿû‎ר‏‎‏‏‏ûתש‎ÿÿÿÿש‏ש‏‏ÿÿ‏תûשüÿÿÿÿת‎û‏‏‏‏‏תüûüÿÿÿÿ‎ÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‏‎ÿÿÿÿÿÿ‎ÿÿÿÿÿÿüÿûÿ‏ÿÿÿ‏üü‏‏‏ÿ‏ת‏ûÿ‏‏ÿÿüüû‏‏‏‏‏תûûÿ‎ÿÿÿûüû‎ÿÿÿÿ‏ÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿ‏ÿÿÿ‎ÿÿÿ‏‏‎‏‎ÿÿû‏üûüתûû‏ÿ‏‎‏‎ÿÿü‏ÿûüûûû‎û‎‎‎ü‏‏‎‏‏שתûûרûûûüü‎ü‏‏‎‏‎תû‏ת‎תü‎‎‎ü‏ÿ‎‎‏‎‎‎üתû‏‎‎‏‏‏ÿû‏ÿ‎‎ÿ‎‏רû‏ü‏ÿ‏‏üûÿÿ‏ÿ‏‏‎‏ÿ‎‏‏‏ÿ‎ÿÿÿÿÿÿ‎ûû‏פש‎ÿû‏‏ûÿ‏ÿ‏‎‎‎תûע‏ÿ‏‎‏‎‎‎ÿ‏‎ü‎נ‎ששÿ‏‎‏‏‎‏üüüûüק‎üסתÿ‎‏‏‏‎ûû‎ü‎‎‎‏ûצÿ‎‏ÿÿÿ‏‏‎û‎ÿ‎‏üüÿü‎ÿÿÿ‏ÿתתש‎ûûûüûתר‎ÿüרÿûûש‎קûÿüרתשüÿ‎‎ÿ‎‎û‏ûשÿ‏‎‎‎‎ÿÿüÿûûûקûר‏ÿûüûûüÿ‏ÿתüתשûûשÿ‎‎‎‎‎ÿ‎ÿûûü‎üûûüÿ‎ÿÿÿÿÿÿ‏ü‏‎‎‎‏‏ÿ‎‏ÿÿÿ‎ÿ‏‏ûÿ‏‏ÿÿÿ‎‏ÿÿÿÿÿ‏û‏‎‎‏‏‏ÿ‎‎ÿÿÿÿÿ‏ÿÿÿ‎‏‏ÿÿ‎ÿÿÿÿÿÿÿû‎‎‎üÿ‏‏ü‏ÿÿÿ‏ÿ‏‎üש‎שû‎‎‎‏ÿ‏üüüüüüש‎üשü‏‎ü‏ÿüשÿüûüûûûשת‏‏ü‏‎‎ת‏‎ÿ‎‏ÿ‏‏‎‏‏‏ÿÿÿûÿ‎‏ü‎ÿ‏‏‏ÿ‏‎ÿÿÿ‎‏ü‎üû‎‎תü‏ü‎ÿÿûûûתûשüü‎ûû‎ûû‏‏üûÿשתר‎üû‎üûתש‎‏‎‎ÿüüû‏‏ÿ‏ÿ‎û‎ÿÿÿ‏ÿü‏תÿÿÿÿÿ‏ש‎ÿÿÿÿÿ‎ÿûÿÿÿÿÿÿû‎ÿÿÿÿÿשûתÿ‏ÿ‏‏ûüûû‎‎‏ûתתק‏û‎‏‏שרששûשששןרר‎תר‎‏קתתרתû‎תשצש‎‏‏ÿÿ‏‎ü‏‏‏ÿ‏ÿÿüÿÿÿÿÿÿ‎üÿÿÿÿÿÿÿתÿÿÿÿÿÿצרÿÿÿÿÿûüפÿ‎ÿÿÿ‏קתÿÿקררתüףÿ‎ÿÿÿ‏ץקÿ‏ûשÿ‎ü‎ÿ‎‏ÿÿתüףÿÿ‎ÿÿÿÿ‏ÿÿ‏ÿÿף‏קûÿÿÿÿÿÿ‏‏ÿÿÿÿצ‏תפÿ‏ÿש‎ÿ‎תÿ‎ש‎צ‏ûפפתתתü‏‎üÿ‎ûûû‏ûרתתשûûüתÿÿÿûüרûüתץü‎שתש‎‏‏‏‎‎ûû‎ûק‎‎ü‏ÿ‏ÿÿÿÿ‏‎‎üקû‏ÿû‏ÿûÿÿÿÿÿü‎‎תÿÿÿ‎‎‏רÿ‏ÿ‏ÿü‎ûüü‎‏ûûÿצÿ‏‎ÿ‏üתת‎üתתתüÿסÿÿÿÿÿûüתÿ‎ÿ‏תת‏ך‏ÿ‏‏ÿתףת‏‎‎üûקררÿÿÿÿÿתÿסûשÿÿüÿÿÿÿÿÿÿÿףÿÿÿתÿÿ‏‎‏ÿ‎‎ûÿÿÿÿÿÿÿÿÿÿ‏‏‏‎‏‏‏ÿÿÿÿÿÿÿÿÿûûû‎‎‎û‎ÿ‏‏ÿÿÿ‏ÿûûû‎üü‎ü‏ÿÿÿÿ‎ûÿÿÿ‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿ‏‏ÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿ‏‎ü‎‎ü‎ÿÿÿÿÿüü‏‎‎‎ü‎‎תûÿ‏ÿÿ‏תתת‎‎‎‎‏‎üûÿÿÿÿÿüû‎‏‏‏‎‏‎‏‏ÿ‏ÿÿÿ‎‎ÿ‏‏‎‎‏‎‎‏ÿ‏ÿÿÿ‏‎ÿ‏‏‏‎‏‎‏‏ÿ‏ÿÿÿ‏‏ÿ‏‏‎‎‏‎‏‏ÿ‏ÿÿÿ‏‏ÿ‏‏ÿ‎‏‎‏‏ÿÿ‏ÿÿ‏‏ÿ‎‏üü‏‎ü‎ÿ‏‏ÿÿ‎‎‎‎‏‎ü‏‎‎‎ÿ‏‏ÿÿ‎‎ÿ‎‏üü‏‎‎‏ÿ‎‎ÿÿ‏‏‏‎‎üü‎‎ü‏‎ü‎ÿÿ‏‏ÿ‎‏ü‎‏‏‎‏‏ü‏ÿÿ‏ÿÿ‎‏ü‎‏‎‎‏‏‎üÿÿÿÿÿ‎‎ü‎‎‏‎‎‎ûû‏‏‏ÿ‏ü‎û‎‏‎‎‏‏üû‏ÿÿÿÿüüû‎ü‎‎‎üûת‏ÿÿÿÿü‎ת‏‎‎‎‏üûü‏ÿÿÿÿü‏ü‏‏‏‏‏ûüûÿÿÿÿÿû‎û‏‏‏‏‏‎תû‏ÿÿÿÿûûû‏‏‏‏‏ûתרûÿÿÿÿקüר‏‎‏‏‏קתר‎ÿÿÿÿקרר‏‎‏‏‏קתררüÿÿÿ‏‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿ‎ÿÿÿÿÿÿüÿÿÿÿÿÿ‎‎‎ÿÿÿÿÿÿüûÿÿÿÿÿû‎ûÿÿÿÿÿûüûÿÿÿÿÿûûûÿ‏ÿÿÿûüûûÿÿÿÿ‏‏‏ÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏ÿÿÿ‏ÿÿÿÿÿÿÿÿ‏ÿÿ‎ÿÿÿ‏ÿÿÿ‏ÿÿÿÿ‏ÿ‏‏ÿ‏ÿ‏ÿÿ‏ÿÿ‎‎‎‎‎‎û‎ü‎‎‎‎ü‏‏תתרüשüüûüüüûÿ‏‏‎ûûתûשûûûüüû‎üÿü‎üüû‎ûûששüûüü‏‏תüÿ‎‎‏‎û‎û‏ת‏‎‏‏‎ûÿ‏‏ÿ‏û‎‏‏üû‏ÿû‏‎ÿÿ‏ÿ‏‏‏‏ÿ‏‎ÿÿÿÿ‏ÿÿÿÿÿ‎‎‏‎‏תÿÿÿ‏‏ÿÿÿÿÿ‎‎ÿש‏‎‎‏‏ÿÿÿÿÿÿÿü‎ûû‎ûרüÿüû‏ÿû‏‎ררצפûץצקקקצüûףקשקקספקתץרצפפר‏קררןענûצףפצףףנצששפüקûרûûûÿüקתרû‏ÿü‏‎‎üÿü‎ÿÿ‏‏‏‏ÿÿüÿ‎‎‎‎‎ûÿÿÿ‎‏ÿÿÿÿÿüüüû‏‎‏ÿÿ‎ÿÿÿÿ‎ÿ‎ûü‎ü‎ûÿÿü‏ÿÿÿÿÿ‎‎ûÿ‎‏ÿ‏ÿÿÿÿÿÿ‏ÿüûüûüת‎‏‏‎‎ÿÿÿÿÿ‎û‎תתûû‏ÿÿ‎ÿÿü‎ÿ‎ÿû‏‎û‎‏ÿÿÿÿÿÿ‏ÿ‎‎‎רתתûûüü‏ÿÿ‎üÿû‎תת‎רשüü‏‎ÿÿüüü‎û‎קüüתת‏‎‎‏ÿ‏û‏‎‏‎‎ÿ‏û‏ÿ‎‎‏ÿÿÿÿü‎ûû‏ûüת‏ü‏‎‏‏ü‏ü‎üû‏‏û‎‏û‏ÿÿûü‏ûüûü‏‎ûü‎‎ש‏‎‏‎‏שûש‏‎‏‎üשתü‏‎‎üÿקשש‎ûü‎‎üתשש‏‏‎ÿ‎‏תÿ‏ÿÿÿ‏‏‏ÿÿÿÿÿ‎ÿ‎ÿÿÿÿÿÿתü‏ÿÿÿÿüÿשÿÿÿÿÿÿü‎ÿÿÿÿÿü‏תÿ‎ÿ‎‏‎‎‎‎‎‎‏‏ûתשÿ‏‎ÿ‎‎ש‎‎‎‎‎‎תץשü‎‎ÿÿü‎üü‎‎ÿüשצץûצûûÿתüûûü‎‎ûש‎‎ÿ‎רÿÿÿשüÿÿÿÿÿר‎קק‏‏ÿÿ‏קשÿÿÿÿÿףûü‎‏ÿרÿ‏תüÿÿÿÿÿצ‏ץÿÿÿÿ‎ÿצצÿÿÿÿÿ‎ÿûÿÿÿÿÿÿששÿÿÿÿÿ‎ÿÿÿÿÿÿÿת‎üÿÿÿÿÿûÿ‎üÿÿÿÿש‏ףעüקÿÿת‏ü‎ÿÿש‎קüףץףףףףתû‎ÿÿÿ‎תצ‎רûתשתרשûü‏‎ÿ‏‏סû‎ûקרüרשתüÿת‎ÿ‏עûתק‎ûüûשÿ‎ÿÿ‎ÿÿשש‏ש‏üÿûקÿ‎תÿÿÿ‏üקûףת‎‏שץüûÿ‎‏ר‎תüתף‎תûרף‏תÿ‏‏ÿû‎ûצשü‎‏תןüפ‏ÿÿÿÿûûפ‏ץ‎ÿûךüס‏ÿÿÿÿû‎ûüק‏‏‎װ׳׳ÿÿÿÿÿצÿû‏ת‎‏‎ÿÿÿÿÿÿÿÿûÿÿÿ‎ÿÿÿ‎‎‏‏‏ûÿÿÿÿÿÿÿÿÿÿ‎‎‏û‎‏‏ÿÿ‏ÿÿÿÿÿÿûûÿ‏üüû‏ÿ‏ÿÿÿÿÿÿûû‎üüûÿüÿÿÿÿÿÿ‏ÿ‏‏ÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿ‏‏ÿÿÿÿÿÿÿÿÿÿ‏‏ÿ‎‏‏‏‏ÿÿÿÿÿ‎‏‏ÿÿÿ‏‏‏ÿÿÿÿÿÿÿÿÿÿ‏ÿ‎ü‏‎ûüÿÿÿÿÿ‎ûÿ‎‎‏‎‎‎תûÿ‏ÿÿ‏שש‎‏‏‎‎‏‎‏üÿ‏ÿÿÿ‎‎ÿ‏‏‎‏‏‎‏‎ÿ‏ÿÿÿ‎‎ÿ‏‏‏‎‏‎‏‏ÿ‏ÿÿÿ‏‏ÿ‏‎‎‎‏‎‎‏ÿ‏ÿÿÿ‎‎‏‏‏‎‎‏‎‏‏ÿ‏ÿÿÿ‏‏ÿ‎‏‎ü‏‎‎‏ÿ‏‏ÿÿ‏‎ÿ‎‏üü‏‎‎‎ÿ‏‏ÿÿ‎‎ÿü‎üü‏‎‎‎ÿ‎‎ÿÿ‎üÿüüüü‎‎‎‎ÿü‎ÿÿ‎‏‏‎‏‎ÿ‏‏‎‏‏‎‏ÿÿÿÿÿ‎‏û‎‏‎‎‏‏‏‏ÿÿÿÿÿ‎‎ü‎‏‎‎‏‏‎‎ÿÿÿÿÿü‎ü‎‏‏‎‏‎û‎‏ÿÿÿÿü‎û‏‏‎‎‏‎ûü‎ÿÿÿÿüüû‏‎‎‎‏üü‎‎ÿÿÿÿûüת‏‎‎‎‎üûת‏ÿÿÿÿûüû‏‏‏‏‏ûûû‏ÿÿÿÿû‏ר‏‏‏‏‏ûת‎ûÿÿÿÿששש‏‏‏‏‏תתûûÿÿÿÿששש‏‏ÿ‏‏שûשש‏ÿÿÿ‎‏‏ÿ‏ÿÿÿ‎‏‏‏‏ÿÿÿ‏‏‎ÿÿÿÿÿÿ‎ÿÿÿÿÿÿ‎‏ûÿÿÿÿÿÿ‎ÿÿÿÿÿÿ‎‎‎ÿ‏ÿÿÿÿ‎ÿÿÿÿÿÿûûûÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿ‎‎‎ÿ‏ÿÿÿ‏‎‏‏ÿÿÿÿ‏ÿ‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿ‏‏‏‎ÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‎‏‏ÿ‏‏ÿÿÿÿÿÿÿÿÿ‏‏‏ÿÿ‏‏‏ÿ‏ÿÿÿÿÿÿÿ‎ÿÿÿ‏ÿ‏ÿÿÿÿÿÿÿÿ‏‏‏‏ÿÿÿ‏‏‏‏‏‏‏‏‏‎‎‏‏‎‏ü‎ü‏üüתרששûûü‎‎‎‏ü‎‏‎‎תרתשûüü‎ü‏‎‏‏‎‎‏‎û‎üת‎ת‎û‏‎ÿÿü‎ÿ‏‎‎üûû‎‏תûÿÿ‏‏ÿÿÿ‏‏‏‏‏‏ÿ‏‏ÿÿÿÿÿÿÿÿÿÿ‏‏ÿÿ‏ת‏ÿÿÿÿÿÿÿÿÿ‎‎‎ü‏ü‏‎‏‎‏‏‏üÿüüüûקü‎‎‏‏‎‏‏‏תûüת‎ûתüûû‎‏û‎‏ÿüת‎צשפפתץפשצץצצ‎רפשקüרüû‎û‎ûüûûÿ‏‎‏שתש‏û‎‎תתûתתÿÿÿÿ‎‏‏ÿ‏‎ÿÿÿ‎ÿÿÿÿÿÿ‏‎ÿÿ‏‎ÿÿÿ‎ÿÿÿÿÿÿ‎‎‏‎‏‏ÿÿÿ‎ÿÿÿÿÿÿ‏üÿ‎‎‎ÿÿÿ‎ÿÿÿÿÿÿ‎‎‎‏ü‎‎ÿÿÿ‎ÿÿÿÿÿ‏‎ü‎‎û‎ÿÿ‎ÿÿÿÿ‏ÿ‎üüûüü‎‏ÿ‎‏ÿÿÿÿÿ‎‏ûüüûû‎ÿü‎ÿÿÿüÿ‎‏ü‎‏ü‏‎‏ü‎ÿÿÿÿÿ‎‏‎ü‏üü‎‎‎‏ÿÿÿ‏ÿ‎‎û‎‏‏‎‏‎‎‏‏ÿÿÿÿ‎‏‎ü‎‏‎‎‏ü‏‏ÿÿ‏ÿü‎ת‎‎ûü‏‏‎ü‏ÿ‎‏‏‎‎üû‏üü‎‎‎ü‏ÿ‎‎‏ü‎שü‏‏û‎‏‎‎‏‏‏ûÿûüû‎‏‏üü‎‎‎‏‏‏‏ÿתûת‎‎‏‎‏‎ü‎‎ÿÿ‏ÿüûûÿ‎‏ÿÿ‏ü‎ÿÿÿ‏ÿü‎üÿ‏ÿÿÿÿ‏‎ÿÿÿÿÿ‎‏üÿÿ‏ÿÿ‏‏‏‏ÿÿÿÿü‎ûÿÿÿÿÿÿû‎ÿÿÿÿÿ‎û‎ÿÿÿÿÿÿר‎ÿÿÿÿÿû‎רÿÿÿÿÿÿתüÿÿÿÿÿ‎‎שÿתÿÿÿÿ‎‎ÿÿÿÿÿש‎ק‏תצÿÿ‎צü‎‎‎‏‎üתרק‎ûÿÿ‏תüÿÿÿÿÿקûעת‎ÿרÿ‏üתÿ‏ÿÿÿûפפÿü‏ûת‏צצÿÿÿÿÿןףן‏ûûÿü‎כר‏ÿÿÿÿת‏û‏‎‎ÿÿץסץצÿÿÿÿ‏ÿüÿÿÿÿÿע‏ףףÿÿÿÿ‎ÿתÿÿÿÿÿן‎ססûÿûÿ‎ÿתÿÿÿÿÿץ‎צצןצצצûüü‎‏ÿüüש‎תרןרüשûתüÿü‏‎‏צ‎ששפקשקתüü‎ûû‎‎ש‎תפûûüפת‏ü‎‏û‏‏תתüקתת‏קש‎üת‏‏ü‏ûתüתû‎‎üקüû‎‎‏שüüûüûûûתתצüûÿÿ‏ÿüüתש‏û‏‏‎פסת‏‏ÿÿÿשûש‏קü‏üףןÿÿÿÿÿÿÿüתüשÿÿ‎טךךÿÿÿÿÿתÿûÿû‏ÿ‏ÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿ‏‎‏‏‏‏ÿÿÿÿÿÿÿÿÿÿ‏‎ÿ‎‏‏ÿÿÿ‏ÿÿÿÿÿÿ‏û‏‏ü‏‏ÿÿÿÿÿÿÿÿÿ‏ü‏‏‎ü‏‏ÿÿÿÿÿÿÿÿ‏ÿÿûüû‏‏ÿ‏ÿÿÿÿÿÿ‏û‎ûüûû‏ÿÿÿÿÿ‏‏ÿ‏ÿ‏û‏ûûüÿÿÿÿÿÿÿÿ‏ÿ‎û‏‎ûüÿÿÿÿÿÿûÿ‏‏‏ü‏‎תûÿÿÿÿÿ‎û‏‏‎‏‎‎‎üûÿÿÿÿÿ‎ש‏‏‎‎‎‎‎ü‎ÿ‏ÿÿÿ‏ü‏‏ÿ‏‎‏‎‏‎ÿ‏ÿÿÿ‏üÿ‎‎‎‎‏‎‎‎ÿÿÿÿÿ‏‎ÿ‎‎‎ûüûûüÿ‎ÿÿÿ‎‎‎‎‏‎û‏ûûüÿ‎ÿÿÿ‎û‏‎‏üü‏‎ü‎ÿ‎‏ÿÿ‏‎ÿ‎‎üü‎‎ûüÿ‎‎‏ÿ‏ûÿûûûü‎‎‎üÿü‎ÿÿ‏‎ÿûûûüü‎‎‏‎üûÿÿ‏‎ÿ‎‏ü‎‏‏‎‏‏‏‎ÿÿÿÿÿ‎‎û‎‏‎‎‏‏ü‎ÿÿÿÿÿü‎ü‎‏‏‎‏‎û‎ÿÿÿÿÿü‏ת‏‏‏‎‏‎ûû‏ÿÿÿÿû‎û‏‏‏‎‏‎ûת‎ÿÿÿÿûüת‏‎‎‎‏ûקת‎‏ÿÿÿתüת‏‎‎‎‏תתץ‏‏ÿÿÿûüת‏‏‏‏‏צתתüÿÿÿÿקûר‏‏‏‏‏תתשרÿÿÿÿשששÿ‏‏‏‏תûשüûÿÿÿ‏‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‏‏ÿÿÿÿÿÿ‎ÿÿÿÿÿÿû‎ÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿûûûÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿ‏ÿÿÿÿ‎ÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿ‎ÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿ‏‏‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏‏ÿÿÿ‎‏‎‏‏‎‏‎‎‎ÿ‏ÿÿ‏ÿ‏üü‏‏ûüûûûû‎‎‎ü‏‎ü‏‏‎שתתששûûû‎ת‎‎‏ÿ‎‎‏תûûûרשת‎üü‏ÿ‏‎‎ÿ‏ü‎ü‎û‏‏ü‎‏ÿ‏ÿ‏ÿÿ‏‏‏‎‏‏ÿ‏‏‏ÿÿÿÿÿÿÿÿÿ‏‎‏‎‏û‏ÿÿ‏‏ÿÿÿÿÿü‎üת‎ûû‏ÿ‎‏‏ÿתûüü‎üש‎üתû‎üü‎ÿûת‏צצצקûתפקûפץü‎רקûûüשüü‎תüüüר‏ÿ‏‎ÿששü‏‎‏‎‏שû‎‏‏ÿÿÿûûûÿüÿÿÿ‏üûûÿÿÿÿ‎‏‏ÿ‏‏ÿÿÿ‎ÿÿÿÿÿÿ‏‏ÿÿ‏‎ÿ‎ÿ‎ÿÿÿÿÿÿ‎‏‏‏‏‏ÿÿÿ‎‏ÿÿÿÿÿ‏‎ÿ‎‎‏ÿÿÿÿ‏ÿÿÿÿÿ‎‏‏‏‏ü‏ÿÿ‎ÿÿÿÿÿÿ‏‏ÿü‎ü‎ÿÿü‏ÿÿÿÿÿ‎‏‎‎‎‎üÿ‏üÿÿÿÿÿÿ‏‏ûüüü‏‎ÿÿûÿÿÿ‏ÿ‎‏üü‏ü‎‏ÿ‎ûÿÿÿÿÿ‎‏תû‏ûü‏ûÿÿÿÿÿ‏ÿ‎‏ü‎‎‎‏‏üÿÿÿÿÿÿÿ‎‏‎û‏üü‎ÿü‎üÿÿ‏ÿü‎ûû‏‎ü‏‏‎‎ûÿ‎‎ÿüü‎‎‏‏ûü‎‎üÿü‎‎ÿתüש‎‏‏‎‎‏ü‎‏‎ÿ‏ÿüüü‎‏ÿ‏‎‎ü‏‏ÿÿÿÿü‎‎ÿ‏ÿÿÿÿ‎ÿ‏ÿÿÿÿתûûÿüü‏‏‏ü‎‏ÿÿÿÿü‏üÿ‏‏ÿÿÿ‏‏‏ÿÿÿÿ‎‎ûÿÿÿÿÿÿÿÿ‏ÿÿÿÿû‏ûÿÿÿÿÿÿ‏ü‏ÿÿÿÿ‎‏ûÿÿÿÿÿÿת‎ÿÿÿÿÿûÿûÿüÿÿÿÿü‎ÿÿÿÿÿüûüÿ‏ÿÿÿÿ‎‎‏ÿÿÿÿש‎קÿ‏ûÿÿÿרüÿÿÿÿÿû‏רÿ‏‏ÿÿÿ‎ûÿÿÿÿÿצשפûüÿÿÿ‏‎üÿÿÿÿÿקüף‏קûÿÿ‏קרÿÿÿÿÿמסוûצץüÿÿןתÿÿÿÿÿÿÿסûÿתÿÿÿ‎סÿÿÿÿÿÿÿ‏ÿÿÿÿÿתצתÿÿÿÿÿÿÿüÿÿÿשüשפשנÿ‏ÿש‏‏ûÿÿÿÿרצרםûססעע‏ÿשÿ‏ÿ‏ÿע‏ןûüüûם‏ÿרÿ‏ÿ‏ÿכûצףüרתף‎‏üÿ‏ûÿ‎ל‎üצפü‏û‎‎ûת‏‎ÿ‏פתרכüשûרüקûû‎‏ת‏ûשûםת‎‎קûצתÿ‎‎üûקפרפנû‏תüפתÿ‎ÿü‏üעש‎ע‏‏תתפשÿ‏‎ÿÿרûעשרü‏üüסש‏נÿÿ‏שתן‏ת‏ÿ‎ÿÿÿÿÿןÿÿףÿûûü‎ÿקÿÿÿםÿÿÿÿןÿÿûÿÿÿ‏‏‎‏‏‎‎‏ÿÿÿÿÿÿÿÿÿ‏‎‏‎‏‏ÿÿÿ‏ÿÿÿÿÿÿ‏ÿ‏‏ü‏‎ÿÿÿÿÿÿÿÿÿ‏‎ÿ‎ü‎ÿÿÿ‏ÿÿÿÿÿÿ‏ÿ‏û‎ûûÿÿ‏ÿÿÿÿÿÿ‏ÿ‏ûüûû‏ÿÿÿÿÿÿ‏ÿ‏ÿ‏ü‏üüüÿÿÿÿÿ‏‏‏‏‏‎ת‏תתûÿÿÿÿÿ‎‎‎‏‏‏ü‎üüûÿÿÿÿÿ‎ü‏‏‏‎‎‎‎üתÿÿÿÿÿ‎ü‏‏‏‏‎‎‎‎‎ÿÿÿÿÿ‏üÿ‎‏‏‎‏‎‎‎ÿ‏‏ÿÿ‏üÿ‎‏‎ü‎üü‎ÿ‏ÿÿÿ‏‎ÿ‎‏‎‎‎‎‎‎ÿ‎ÿÿÿ‎‎‏‎‏‎û‏ûûüÿ‎‏ÿÿ‏‎ÿ‎‎‎ü‏‎‎‎ÿ‎‏ÿÿ‏‎ÿ‎‎üü‏‎‎üÿ‎‎ÿÿ‏‎ÿûûûüü‎‎‎ÿü‎ÿÿ‏‏ÿתûû‎ü‎‎‎‎üû‏ÿ‏‏‏‎‏‎ÿ‏‏‎ÿ‏‏‎ÿÿÿÿÿ‎‏û‎‏‏‎‏‏ü‎ÿÿÿÿÿü‏û‎‏‏‎‏‎üûÿÿÿÿÿü‎ת‏‏‏‎‏ûüû‏ÿÿÿÿûüû‏‏‏‎‏ûûûû‏ÿÿÿûüץ‏‎‏‎‏ûקûü‎ÿÿ‏תüש‏‏‏‏‏üרצ‏‏ÿÿÿתûש‏‏‏‏‏ק‏ר‎ÿÿÿÿתתת‏‏‏‏‏תû‏תÿÿÿÿüüüÿ‏‏ÿÿÿ‎üü‎ÿÿü‏‏ÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‎‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‏û‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿüüüÿ‎ÿÿÿÿ‎ÿÿÿÿÿÿ‎û‏ÿüÿÿÿÿ‎ÿÿÿÿÿÿ‏‏ÿÿ‏ÿÿÿÿ‎ÿÿÿÿÿÿûû‎ûüûûÿÿ‏‏ÿÿÿûÿÿ‎‎ÿÿ‏ÿÿÿ‎ÿÿÿÿÿÿÿ‏ÿ‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿ‏‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿ‏‏ÿÿÿ‏ÿÿÿÿÿÿÿ‏‏‏ÿÿÿ‏ÿ‏ÿÿÿÿÿÿÿ‏‎ÿ‏‏ÿü‏ÿÿ‎‏ûûûüû‏‎ü‏‏תû‏‎ûûקשרüüü‎ת‏‎‏‏‏‎ûüûûשץפששקששüü‎û‎תשתת‎ü‎‏ü‎‏ÿ‎ÿÿÿÿ‎‏‎‎‏ÿ‎‏‎‎ÿÿ‏ÿÿÿ‏‏ÿ‎‎‏û‏תûÿÿ‏ÿÿÿ‏‏ÿûûתת‎ûûתüü‎‎ÿשרüצרץקüששקüררûüקצ‏פץץתתתתתרקקü‎תשÿתü‎‎‎‏ûÿ‏‎‎‏ÿÿ‏ÿüûûÿü‏‏ÿÿ‎‏‏ÿÿÿÿ‎‏‏ÿ‏ÿÿÿÿ‎‏ÿÿÿÿÿüüüü‎üü‏‏‎‏ÿÿÿÿü‎‏‎ÿ‏‏ÿ‎ÿ‎ÿÿÿÿÿÿü‏‎‏‏‏ÿÿÿ‎ÿÿÿÿÿÿ‎‏‎‏‏‏ÿÿÿ‎ÿÿÿÿÿÿü‎‏‎‎‎‎‎‏ü‎‎ÿ‎‎‎‎‏ÿ‏‎‎‏ÿÿ‎ÿÿÿÿÿÿü‏‏‎‏‏‏ÿÿÿ‎ÿÿÿÿÿü‏ÿ‎‏‎‎ÿÿ‎üÿÿÿÿÿü‏‎‎‎‎‏‏‎ü‎ÿÿÿÿÿüûûûüûû‎ûü‎‏‏üüÿû‎‎û‎ûû‎‎üüüÿ‎‏‏ü‎תü‏‎‎‏‎‎‎üÿÿ‏ÿûûûü‎üüû‎ûü‎‎‎ûÿûüüü‏‎ü‎üüü‏‎‏‎ÿתשת‎‎‏‎‏‎‎ü‏ÿÿ‏ÿûüû‎ü‏‏‏‎‎‎‎‏ÿ‏ÿתשש‏û‏‏‏üü‎‎‏ÿ‏‎תתû‎ü‎‎‏‏üü‏‏ÿÿ‏ת‏‎ÿ‏ÿÿÿÿ‏‎ÿÿÿÿÿû‏üÿÿÿÿÿÿÿÿ‏ÿÿÿÿשÿ‎ÿÿÿÿÿÿÿü‏ÿÿÿÿתüתÿüÿÿÿÿ‎‎‏ÿÿÿÿר‏ûÿ‎ÿÿÿÿתüÿÿÿÿÿש‏תÿ‏ÿÿÿÿצ‎ÿÿÿÿÿץûתÿ‏ûÿÿ‏שüÿ‏ÿÿÿקûüû‏‎ÿÿ‏üüÿÿÿÿÿסרץ‎‎ÿûÿ‏פרÿÿÿÿÿערשÿ‎ÿ‎ÿ‏פףÿÿÿÿÿגןךÿפ‎ÿÿûתס‏ÿÿÿÿץÿקÿÿÿÿÿ‎ÿץÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿרÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿץ‏שÿÿעףף‏ÿüÿÿÿÿ‏רûשצÿמ‏û‎‏תÿÿÿ‏‎ףתקצקףשצ‎תקÿÿÿ‏‏צüשערץ‎ףüשץ‏ÿ‎‏ÿצ‏תףרצûשüתת‎‏ÿ‏‏שüûצקר‏תûשתÿ‏ÿ‎‏üצüתץרüתתקשÿûÿÿ‏üרף‏צתÿüשûשÿüÿÿ‏ףרצ‎שתÿףרüרüץüü‏üקצצ‏ûÿ‎קררÿÿÿÿÿקÿקÿתûÿתÿÿÿקÿררÿשÿÿ‏ÿ‎ÿש‏‏‏‏‎‏ÿÿÿÿÿÿÿÿÿÿ‏‏‏‏‏‏ÿÿÿÿÿÿÿÿÿÿ‎‎‏‎‎ü‎‏ÿÿÿÿÿ‏‏ÿ‏‏‏‎‎‎‏‏ÿ‏ÿÿÿ‏‏ÿ‏‏‏‎‏‎‏ÿÿÿÿÿÿÿÿÿ‏‏‏‎‏‎‏‏ÿÿÿÿÿÿÿÿ‏‏‎ü‏‎ü‎ÿ‏ÿÿÿ‎‎‎‏ÿ‏ü‏‎ü‎ÿÿÿÿÿ‎‎ÿ‎‏‏ü‏‎ûüÿÿÿÿÿ‎ü‏‎‏‎‎‎‎ûüÿÿ‏ÿÿ‎‎ÿ‎‏‏‎‎‎‎üÿÿÿÿ‏‏‎ÿ‎‏‎‎‏‎‎üÿ‏ÿÿ‏‏‎ÿ‎‏‏‎‏‎‎‎‏‏ÿÿÿ‏‎ÿ‎‏‎‎‏‎‎‎ÿ‎ÿÿÿ‏‎ÿü‏‎‎‏‎‎‎ÿ‏ÿÿÿ‏‎ÿ‎‎‎‎‏‎‎‏ÿüÿ‏ÿ‏‎ÿü‎ü‎‏‎‎‏ÿü‏ÿÿ‏‏ÿûûû‎ü‏‎‏ÿüûÿÿ‏‏ÿû‎ü‎‎‎‎‏‏‎üÿÿÿ‏ÿ‎‏û‎‏‏‏ÿ‎ü‎ÿÿÿ‏ÿû‎û‏‏‏‎ÿ‎üûÿÿÿÿÿü‎û‏‏‏‎‏ûüû‎ÿÿÿÿת‎ת‏‏‏‏ÿ‎ת‎‎ÿÿÿÿûüת‏‏‏‏‏üקרü‎ÿÿ‏ץüצ‏‏‏‏‏ררצ‎‎ÿÿ‎תûר‏‏‏‏ÿקûרûÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿüüüÿ‎‏ÿÿ‎‎ÿü‎ÿÿÿ‏‏‏ÿ‏‏ÿÿÿÿ‏ÿ‏‏ÿ‏‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‎‏ÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‏‎ÿÿüÿÿÿÿÿÿÿÿÿÿÿ‏‎‏ÿüûÿÿÿ‎ÿÿÿÿÿÿ‏‎‏ûüûÿÿÿ‎ÿÿÿÿÿÿ‏û‎ûüûûÿÿÿÿÿÿÿÿÿ‎û‏ûüûûüÿ‎ÿÿÿÿÿÿ‎ûÿûüûûüÿ‏ÿÿÿÿüÿ‎‎ÿ‎‏‎‎‏ÿÿÿÿÿÿ‏ÿûû‎ûüûûüÿÿÿÿÿÿû‏‎ÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿ‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿ‏ÿÿÿÿÿ‏‏ÿ‎ü‏‎‎‏‎ü‏‎‏ÿ‎ששûüûüûתûûתÿûûûüפרקרצüתקרûüûüתÿüשתרûרûקרפûüûüת‎ÿתûûü‎‎ת‏û‏ÿ‎‎‎ÿÿ‎‏ÿשûרףתקףרשüשû‎ûק‎קשקקüשץצתשûשüקץÿפצצשתüשרûצרתüüרÿעףףüתתûüתקץüü‎ûÿ‎û‏‏‎‏‏ÿ‎‎‎ÿÿÿÿÿ‎ÿ‏ÿ‏ÿ‎ÿÿ‏‏ÿÿÿÿÿûû‎ÿüû‏ÿ‏‎‏‏‏ÿÿÿ‎‏‏ÿ‏‏ÿÿÿ‎‎ÿÿÿÿÿÿÿ‏ÿ‏‏ÿÿÿ‎ÿÿÿÿÿÿ‎ÿ‏‏‏‏ÿÿÿüÿÿÿÿÿÿ‎‏‎‎‎‎‏‎ÿ‎‏ÿÿ‎‏‏üüüü‎üü‎‏‎‎ÿ‏üüÿÿ‏û‎‎‏‏ÿÿÿÿÿÿÿÿÿü‏‏‎‏ü‎‏‏‎‏ÿÿ‏‏ÿüûתקתררתûפש‎‎קרתûüüקרררתשפס‎‏שר‏ûשûקשצרתןתסש‏ûר‎ûûתצתקרתןûשסûüû‏קשרצתרצתרתשספüûתתתûתûûתûûûûûצ‏ü‏‎‎ש‏‏‏‎‏‎üü‏‏ÿ‏ûûüû‏û‏‎‏‎üü‎ÿÿ‏ûûûר‎üש‎‎û‎û‎‏ÿ‏‎תשתשתü‏‏תü‎‎‏ÿ‏‏üû‎ÿüü‎‏‏üÿ‎ÿÿÿÿû‎ש‎‎‎ÿ‏ÿ‎‏‏ÿÿÿÿü‎‎‏‏‏ÿÿÿ‏‎‏ÿÿÿÿת‏רÿ‎ÿÿÿÿÿÿÿÿÿÿÿü‏üÿ‏ÿÿÿÿÿüÿÿÿÿÿשü‎ÿ‏ÿÿÿÿ‏‎‏‏ÿÿÿü‎שÿ‏‎ÿÿÿר‎ÿÿÿÿÿקתתÿ‎ÿÿÿÿû‎ÿÿÿÿÿûשרÿûÿÿÿÿüüÿÿÿÿÿףקשüת‎ÿÿ‏צûÿÿÿÿÿשףס‏תתÿÿ‏üüÿÿÿÿÿטוע‎ערÿÿÿûצÿÿÿÿÿתןûü‏פÿÿÿצüÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎תÿÿÿÿÿצÿסÿÿÿצÿקûפÿÿÿתר‏ÿרÿÿÿüרץזצüÿןססÿ‎ÿÿÿÿÿÿקנחÿÿÿשÿ‎ûתÿÿÿÿüÙעאץ‎צפצ‎ûתÿÿÿ‏ÿÜ‎םÛרע‎צ‎ûש‏ÿÿÿÿלקüßדרûקü‎פ‎‏ÿÿ‏תûףלור‎צû‎עÿÿÿ‏ÿףצûûסתüלû‎ןÿקÿÿÿûצפפשû‏ûשתקÿü‏‏‏ףלףûקû‎צשתצÿ‏צÿÿץטטצ‏üÿץצצצÿÿÿÿÿטÿגקתüÿרÿÿÿרÿÿÿÿוÿÿמü‏ÿû‏‏ÿ‎‎‎ÿÿÿÿÿÿÿÿÿÿ‏‎ÿü‎ü‎ÿÿÿÿÿÿ‎‏‏‏ü‏ü‎üü‎‏ÿÿÿÿ‏‎ÿ‏û‏ûüûûüÿ‏ÿÿÿ‏ûÿ‏‏‏ü‏ü‎‎ÿÿÿÿÿÿ‏ÿ‏‏‏û‏üü‎ÿ‏ÿÿÿÿ‎ÿ‎‏‏ü‏ûûüÿ‏ÿ‏ÿ‎‏‏‎‏‏û‏‎ûü‏‏‏‏ÿ‎ûÿ‎‏‎‎‏‎ûüÿÿÿÿ‏‏‎ÿ‎‏‏‎‏‎‎üÿÿÿÿÿÿ‎ÿ‎‏‏‎‏‎‎‎ÿÿÿÿ‏‏‏ÿ‎‏‎‎‏‎‏üÿÿÿÿÿÿ‏ÿ‎‏‎‎‏‎‏‎‏‏‏ÿÿÿ‏ÿ‎‏‎‎‏‎‎‎ÿ‏ÿÿÿÿ‏ÿü‏‎‎‏‎‎‎ÿ‏ÿÿÿÿ‏ÿü‎‎‎‏‎‎‏ÿü‏ÿÿÿ‏ÿü‎ü‎‎‎‎‎‏ü‎‏‏‏‎‏ûûû‎ü‏‏‏ÿüûÿÿÿ‏ÿûüû‎‎ü‎‏‏‎üÿÿÿ‏ÿü‎ûÿ‏‏‏ÿ‎ü‎ÿÿÿ‏ÿû‎û‏‏‏‏ÿ‎üûÿÿÿ‏ÿü‎ת‏‏‏‏ÿ‎‎‎‏ÿÿÿÿû‎û‏ÿ‏‏ÿÿüÿÿÿÿÿÿû‎ü‏‏‏‏ÿÿüûÿÿÿÿÿקררÿ‏‏‏ÿû‏ûÿÿÿÿÿשüûÿ‏‏‏ÿü‏ÿ‎ÿÿÿÿÿ‏‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿשששüûש‏‏ÿ‏üÿÿשששÿ‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‎ת‏תûתתûÿ‎ÿÿ‎תתתÿ‏‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿתûûקקררת‏üשÿÿûר‎תשתרתצשתת‎üÿÿרש‏תûûרתûûüÿ‎‏‎ÿ‏‎ÿûû‏üûשת‎ÿ‎ÿÿ‏‏‎‎ÿ‏‎‎‎‎‏‏ÿ‎ÿÿÿÿÿÿÿ‎ÿ‎‎‎‎ÿÿÿÿÿÿÿÿÿ‎û‏תüûûüÿ‎‏ÿÿ‎‎‏‎‎‎ûüûûüÿÿÿÿÿ‎‎ÿ‏‏‎‎‏‎‎‎ÿÿÿÿÿÿ‏ÿÿ‏‏‎‏ÿ‎‏ÿÿÿÿÿÿÿÿ‏ÿÿÿüÿü‎ÿ‏ÿÿÿ‏üÿÿ‏ÿ‏‏‏ÿüÿ‎ÿÿÿ‎ûÿ‎ÿÿ‎û‎‎û‎ûת‎ÿרצ‎שנרצסנףצצץןת‎מסףששרנפןרקןץףשûצצצרתצןרףףûץקףףüרת‏קקצנתץןץסקףפץתשרקררûüüררשüûשüüשÿצצףששüûתûקüתû‎üüûûûÿü‏ÿ‏ÿüû‏‏ÿ‏ÿ‎ü‎‏û‎ÿ‏‎‎‎‎‏ÿÿÿÿû‏ÿ‏üüÿÿ‎‏ÿÿÿÿÿ‎û‏üü‎‏ÿ‏‏‏ÿÿÿÿ‏ÿû‏‎üûüÿ‏‎‏‏‏ÿû‏ûûûûüû‎‎‏‎‏‏ÿÿÿÿÿ‎‏û‎ûû‏ÿ‎‎ÿÿÿûÿÿ‏ÿ‏‏‏ÿ‏ÿ‎ÿÿÿÿÿÿÿ‎û‎üûûü‎üû‏‏ÿûÿÿÿû‎‎‎‏‎‎‎ü‏ÿ‎‏ÿü‎רקתררûûקתר‏ûûüü‎ףת‎תתûüקצ‎ûüתÿ‎ü‎ת‎üûüצüצ‎‎ÿü‏ü‎ü‎‏‎‎‎קü‎שÿÿ‏‏‎üüü‏ü‎üûüûצתÿ‏ÿקרררûûשüקקררצתûסתתשüûûûüתשצתû‎‎ףü‎ת‏‏‏‎‏ûüü‏‏ÿÿüüüû‏‎‏‎‏üתûû‏ÿÿ‏üûת‏‎‏‏‏תûשüüÿÿ‎תתת‏û‎‏‏ר‎‎û‎ÿÿ‏תתר‏ûû‏‏‎ü‎ת‎ÿ‏ÿü‎ת‏‎‎ÿÿÿ‏‎‏‏ÿÿÿü‏‎‎‎‏ÿÿÿ‏‎‏ÿÿÿÿüüש‏‏‏‏ÿÿ‏‏‏ÿÿÿÿû‎‎ÿ‏ÿÿÿÿÿüÿÿÿÿÿüûצÿ‏ÿÿÿÿÿ‎ÿ‏ÿÿÿתûûÿ‏‎ÿÿÿ‎üÿÿÿÿÿûת‎ÿ‏‏ÿÿ‏ר‎ÿÿÿÿÿקרקü‏ÿÿÿ‏ףüÿÿÿÿÿתעש‎תÿÿÿ‏קüÿÿÿÿÿןפץÿצ‏‎ÿ‏ûצ‏ÿÿÿÿשםרÿםצÿÿÿנסÿÿÿÿÿÿÿÿÿתףÿÿÿ‎שÿÿÿÿÿקרןךתסתÿרÿםÿÿÿÿÿקפקם‏צךתנûקÿÿץ‏ÿÿ‎וÿÿÿרצןצÿÿÿÿÿÿ‏‏חÿÿÿ‎רûÿסתÿ‏ÿÿ‏‏ץÿÿÿÿ‎נ‎ÿןÿüתÿ‏ÿÿÿÿÿÿÿ‎‎ÿסÿ‏ת‏‎ÿûÿÿÿÿÿ‎ÿ‏ÿע‎שבü‏תÿÿÿÿÿûÿ‎ÿץתÿגפüפÿ‏ÿÿÿü‏תÿררüםתüץÿתÿÿÿü‏ûÿ‏û‎נ‏ÿנÿÿÿÿÿÿשÿÿÿÿÿרצûגÿüÿÿÿ‎פסÿÿ‎‏שקררÿÿüÿÿפÿץÿÿ‎ÿתÿÿÿ‎ÿÿÿÿרÿÿשÿÿÿ‏‏‎ÿü‎ûÿÿÿÿÿÿÿÿÿÿ‏‎ÿû‎‎üÿÿÿÿÿÿÿÿÿ‏ü‏ûûûתü‏‏‏‏ÿ‎üÿ‏‏ÿûüûüüÿ‏ÿÿÿ‏‏ÿ‏‏‏ת‎ûû‎ÿ‏‏‏ÿÿ‎ÿ‎‏‏ת‎‎ûü‏‏‏‏ÿÿ‎ÿ‎‏‏ü‏‎ûü‏‏‏‏ÿÿ‏ÿ‎‏‏ü‏‎‎üÿÿÿÿÿÿ‏ÿ‎‏‏‎‏‎‎‏ÿ‏ÿÿ‏ÿ‏ÿ‎‏‏‎‏‎‎‏ÿÿÿÿ‏ÿ‎ÿ‎‏‎‏‏‎‎‎ÿÿ‏ÿ‏ÿ‏ÿ‎‏‎‏‏‎‎‎ÿÿÿÿÿÿ‏ÿ‎‏‎‎‏‎‎‎‏ÿÿÿÿÿ‏ÿü‏‎‎‏‎‏‎ÿ‏ÿÿÿÿ‏ÿü‎‎‎‏‎‏‏ÿ‎ÿ‏ÿÿ‏ÿü‎û‎‏‏‎‏ÿüÿÿÿÿ‏ÿü‎‎‎‏‏‏‏ÿ‎‏ÿÿÿ‏ÿûûû‎ü‎‏‏‎שü‏‏‏‏‏תûû‎üû‏‏‎תר‏‏ÿ‏ÿרûשü‎ü‎‏רתש‎ÿÿ‏ÿûüü‏‏‏‏ÿü‎üüÿÿÿÿû‎‎‏‏‏‏ÿÿ‏ÿÿÿÿÿÿתûû‏ÿ‏‏ÿÿ‏ÿÿÿÿÿÿקרר‏‏‏‏ÿÿÿ‏ÿÿÿÿÿüüÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‎‏ÿÿ‏‏‏ÿÿ‏ÿÿÿ‎ÿÿüû‎רתרûתÿÿ‎ÿÿקרÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿûש‎רתששûÿ‏ÿ‏ÿûüÿüü‎קתררתÿ‎ÿÿ‎קרûשüûשûששûÿ‎‏ÿÿ‎שÿתûûרתששת‎‎üÿÿûü‏‎‏‏‎‏‎ÿÿÿÿÿÿÿÿÿÿ‎û‏ü‎ü‎‎ÿ‎ÿÿÿ‏‏ÿ‎ü‎üüüü‏ÿ‎ÿÿÿ‎‏ÿÿ‎ÿ‎‏‎‎ÿÿÿÿÿÿÿÿÿûûûשתûûüÿ‎ÿÿÿ‎‎ÿ‎ü‎üûתû‎ÿ‏ÿÿÿ‎üÿ‎‏ÿûüû‎‎ÿÿÿÿÿÿ‏ÿÿ‏ÿû‎ûû‏ÿÿÿÿÿÿ‏ÿ‎‏ÿû‏üûüÿ‏ÿÿÿÿ‏ÿÿÿ‎ר‎‏רת‎ü‎ÿÿûתÿü‎û‎ü‏שת‎‎‎‏ÿûש‎ץצצצרצססצףנצ‎עןüשתףקץצרצנססרתףס‎ûüשû‎ש‎üררץש‎‎ûÿץשפףüשתûמצסףצתתûרתûתüüש‏ץתרפת‎üרûüü‎‎‏ü‎üüüתתÿÿ‏עצפתקûתüקתתרר‎ÿשתתת‎תüÿ‏ü‎‏‏‏ÿÿ‎ü‏‎ÿ‏‎ÿÿ‏‏‏ÿ‏ÿÿÿü‏‏‎‎‏ÿÿÿ‏‏‏ÿÿÿÿü‎‏ÿüûûÿ‏ü‏‏ÿ‎ÿÿü‏‏ûüû‏ü‏‎‏ÿÿ‎ÿÿûüûקûררüûü‎ü‎ûûüü‏‏û‎‎ûü‏‎‏‏‏‏‎ÿתתרשתûרת‎ûû‏‎‎‎‏û‏‎‎‎ûüü‎ü‎‏‏‏‎ÿר‎ûש‎ûüüüûüü‎‏שÿקüפשüûרüûתרû‎üû‏סûפü‎üûûשûשü‏‏ûשצצצ‎‏‎‏‏‎‎‎‎‏ÿÿÿüÿÿÿÿÿÿÿ‏ü‎ÿÿÿÿÿûÿÿÿÿÿÿÿ‏üÿÿÿÿÿÿû‎û‎‏ÿ‏‏ûüû‏‏צÿשת‎û‎ü‏‏‏תûתû‏צÿüû‎‎‏‎‏‎ÿûתûû‎ûÿÿת‎ת‏‎‎‏ÿüüת‎‎üÿÿתü‎‏‎‏‏‏תüüü‎‎ÿÿת‎‎‏‏‏ÿÿ‏‎‏‎ÿ‏ÿÿשששûתת‏‏üüü‎ת‎ÿûשüת‎üü‏ÿ‏üÿ‏ÿ‏ÿüת‎ק‏‏‏ÿÿÿûÿÿ‏ÿÿÿשüת‏‏‏ÿÿÿ‎‎ÿ‏ÿÿÿשüüÿ‏ÿÿÿÿ‏ÿ‏ÿÿÿÿרûרÿ‏‎ÿÿÿÿüÿÿÿÿÿשתüÿüÿÿÿÿÿüÿÿÿÿÿצצפÿüÿÿÿÿ‏‎ÿÿÿÿÿקרתÿü‏ÿÿÿצüÿÿÿÿÿפפü‎שûÿÿ‏שüÿÿÿÿÿץסרÿûûÿÿ‏תûÿ‏ÿÿÿסרצ‎ןקÿÿÿסûÿÿÿÿÿפשע‎‎מÿÿÿ‏פÿÿÿÿÿךשעיתשתÿצרש‏ÿÿüÿמקשüצüמ‏פכןשÿÿץÿÜûלÿÿצתפןסטüÿÿÿÿזÿÿüÿÿÿÿלÿעפÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿûÿÿÿÿÿÿÿÿÿÿÿתכÿûפ‎‏ÿûÿÿÿüÿÿÿקßתףצÿÿÿÿÿÿÿüÿÿÿ‏סüץן‎‏ÿÿÿÿÿ‎ÿ‏ÿÿןûקןÿרÿÿüÿÿ‏ÿÿ‏ÿצÿתיÿשÿÿÿÿÿÿÿÿüÿקÿ‏ןססÿÿÿÿÿÿÿÿÿÿüÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‏‏‏ü‎üÿÿ‎‏ÿÿÿÿÿÿ‎‏‏ü‎üûÿ‏‏‏ÿÿ‎‏‏‎‎‎ûüüûü‎‎‎‏ÿ‎üÿ‏‏‏‎‏ü‎‏ÿ‏ÿ‏ÿÿ‏ÿ‏‏‏ü‏‎‎‏ÿ‏‏ÿÿÿ‏ÿ‏‏‏ü‏ü‎‎‏‏‏‏ÿÿ‏ÿ‏‏ÿ‎‏‎‎‏ÿÿÿÿ‏ÿÿÿ‏‏‏ü‏‎‎‏ÿ‏ÿÿÿÿ‏ÿ‏‏‏‎‏‎‎‏‏‏ÿÿ‏ÿ‏ÿ‎‏‏‏‏‎‎‏ÿÿÿÿÿÿ‏ÿ‎‏‏‏‏‎‎‎ÿÿ‏ÿÿÿ‏ÿ‎‏‎‏‏‎‎‎ÿÿÿÿÿÿ‏ÿ‎‏‎‎‏‏‏‏‏ÿÿÿÿÿ‏ÿ‎‏‎‎‏‎‏‎ÿÿ‏ÿÿÿ‏ÿ‎‎‎‎‏‎‏‏ÿ‏ÿ‏ÿÿ‏ÿü‎û‎‏‏‏‏ÿ‎ÿÿÿÿ‏ÿü‎û‎‏‏‏‏ÿ‏‏ÿ‏ÿ‏‏תüצ‎ûü‎‏‏רü‏‏‎‏‏ûûר‎üû‏‏‏תרÿÿÿ‏ÿתתת‎‎‎‏ÿתûתÿÿÿ‏ÿתûû‏ü‎‏ÿתüûûÿÿ‏ÿ‎ûÿ‏‏‏‏ÿÿ‏ÿÿÿÿÿÿûû‎‏‏‏‏ÿÿ‏ÿÿÿÿÿÿתûû‏‏‏‏ÿÿ‏ÿÿÿÿÿÿÿû‎ÿüÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿ‎üÿÿÿÿÿÿÿÿÿÿ‎‎ÿקüר‏ÿÿ‏ÿ‏ÿûû‏תר‎קתûר‏ÿ‏ÿÿ‏תרÿ‎‎‎‎תררתÿÿÿÿÿ‎רÿÿ‏ÿü‏üÿ‎ÿÿ‏ÿÿÿ‏ÿüü‎רתüש‏ÿ‏ÿÿÿ‏üÿ‎ü‎ûûררתÿ‎ÿÿÿתר‎שרûקüûûתÿü‎ÿÿ‏‎ÿûûûûûתרü‎‎ûÿÿ‎ûÿ‏‎‏‏‎‎‏‏ÿÿÿÿÿÿ‏ÿ‏û‏üûû‎‏ÿÿÿÿÿÿ‏ÿ‎‎‏üûת‎‏ÿ‎‏ÿÿ‎ûÿ‏ü‎שüשû‎ÿü‏ÿÿ‏‎‏ûû‎תüûת‏ÿüÿÿÿ‏‎ÿ‏ûÿûûûשûÿ‎‏ÿÿÿûÿÿÿ‏‎‎‎‎‏ÿÿÿÿÿÿÿÿ‎‏üשûשûüÿ‎‏ÿÿÿüÿÿûûץתקצתûüûÿÿקררצתצםקןםעףצפüûףןששüענשקסףצץץצ‎רסüמןןפשקןעענןפצשףüתûף‎‎ת‎שצצףûüüת‏‏‎üÿÿÿÿÿû‎ûÿÿÿÿÿ‎üüü‎ÿÿÿרüשש‎‏‎‎‎‎‎‎‎ÿÿÿû‏üûü‏‏‏üü‎‎‎‏‎ÿת‎üûûÿ‏תרקüûûü‎‏ûüüûû‎‏תףפפקקצüûקתרררשûר‎‏‎‏‏‏ÿÿ‏‏ÿÿÿÿÿÿ‎‏‏ÿ‏‏ÿÿÿ‎ÿÿ‏ÿÿÿ‎‏ü‎‎‎‎ÿ‏‎‎‏‏‏‎‏‎‎ü‎‎ü‎‏‎ü‏‏‏‎üÿü‏‎üûü‎‏ü‎‎‏‏‏‎ÿûüûûüרûü‎תû‎‎‎û‏ק‎ûקûûûüûûרû‏‎‎‎ש‎ûûüתרüקתû‎‎‏û‏üÿ‏ÿ‏ÿÿ‏ÿü‎ÿÿÿÿÿףררû‎ûתüקתרûת‏ü‎קצ‎‏‏‎‏‏ü‎‎‎‏‎‏ÿ‎‏ÿÿÿÿÿÿÿü‏ÿÿÿÿÿÿ‏‏ÿÿÿÿÿ‏‎‎ÿÿÿÿÿü‏û‏ÿÿÿÿüü‎‎ÿûûûû‎ûÿ‏ÿ‏ÿ‎תû‏‏תרÿû‎ûÿ‏‏ÿÿûüש‏‏‎רÿ‎‏‏ÿ‏ÿÿÿüü‏‏ÿ‏ÿÿû‎‎‏‏ÿ‏ÿ‏üüû‏ÿÿ‏‎‏‏ÿ‏ÿÿÿ‏‎üÿ‎ÿÿÿü‎‏ÿÿÿÿÿ‏üÿÿÿÿÿÿûû‎‏üû‏ÿ‎û‎‎‎üÿתûûû‎üüÿÿ‏‎‎‏‏û‎ÿ‎üש‏‎‏ÿÿÿ‎‎‏‏ÿÿÿûüüÿ‏‏ÿÿÿ‎‎ÿ‏ÿÿÿ‎ûצÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿתררÿ‏‎ÿÿÿ‏üÿÿÿÿÿ‎תüÿ‏‏ÿÿÿÿ‎ÿÿÿÿÿשרצÿûÿÿÿ‎ÿüÿÿÿÿÿüûü‎תÿÿÿ‏üüÿ‏ÿÿÿרתס‏ץ‏ÿÿ‏ץü‎ÿÿÿÿûתתÿפשÿÿ‏םü‏ÿÿÿÿצûתûתס‎ÿÿףע‏‏ÿÿÿתשץןûפûÿüקטÿ‏ÿÿÿסכעספרסüסÞן‏‏ÿÿÿפעבףצסרפזנװת‏ÿûÿךÞלצûשץ‏״ÿסץÿÿÿÿ‎וÿ‎‏‎ש‏פÿÿÞÿÿ‎ÿÿÿÿÿÿÿÿÿ‏ÿÿüעÿÿÿû‏ÿüÿ‏üת‎‏ÿÿנ‎ûךשצÿת‏‎שתüû‏ÿץיÜךרש‏ûûÿששûûüÿ‎תßקצצÿÿרÿ‎ûüÿüÿ‏פןץצפÿ‏‎צÿ‎üÿש‏ÿ‎ןתםח‎צת‎ÿÿüÿת‏ÿרצרמבü‎רשקÿüÿÿ‏ÿ‏üקÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‏‏‎ü‎üÿÿü‎üüÿÿÿÿüüüûüüûÿû‎ûûÿ‎‏‏üüüü‎ûûüü‎üüü‏‎‏‏‏‏‎‏‎‎‏ÿ‏ÿ‏‏ÿÿÿ‏‏‏‎‏‎‏‏ÿ‏ÿ‏ÿÿÿÿ‏‏ÿ‎‏‏‏‏ÿÿÿÿÿÿÿÿ‏‏ÿ‎‏‎‎‏ÿÿÿÿ‏ÿÿÿ‏‏ÿ‎‏‎‎‏ÿ‏ÿÿ‏ÿÿÿ‏‏ÿ‎‏‎‎‏ÿ‏ÿÿ‏ÿÿÿ‎‏‏‏‏‎‎‏ÿÿÿÿÿÿ‏ÿ‎‏‏‏‏‎‎‏ÿ‏ÿÿÿÿ‏ÿ‎‏‏‏‏‏‎‏ÿÿ‎ÿÿÿ‏‏‎‏‏‎‏‏‏‏‎ÿÿÿÿÿÿÿü‎‎‏‏‏‏‏ÿÿÿ‎ÿÿ‏ÿü‎‎‎‏‏‏‏ÿÿÿÿÿÿ‏‏û‎û‎‏‏‏‏ÿ‏ÿÿÿÿ‏‏ûüû‎‏‏‏‏ÿüÿÿ‏ÿ‏ÿרüש‎‏‏‏‏ÿתÿÿÿÿ‏ÿקûר‎ü‎‏‏תüûûÿÿ‏ÿÿ‎‎ÿ‏‏ÿÿÿÿÿÿÿÿÿÿ‏‎ÿ‏ÿ‏‏ÿÿÿÿÿÿÿÿÿ‏‎‎‏‏‏ÿÿÿÿÿÿÿÿÿÿ‏ûÿ‏ü‏‏ÿÿÿÿÿÿÿÿÿ‏‎ÿ‏תû‏ÿÿ‏ÿÿÿÿÿÿ‏‎‎ûתש‏ÿÿ‏ÿÿÿÿÿÿ‏ûÿקûרûÿÿÿÿÿÿÿÿÿ‏‎‎קüשרüÿ‏ÿÿÿ‏ûÿ‎ûÿשתûרתÿ‏ÿÿÿÿû‏‏‎ÿûüרשתÿ‏ÿÿÿÿ‎ÿÿ‎ÿת‎ü‏üÿ‏ÿÿÿÿüÿ‎ûÿûüûרüÿÿÿÿÿÿ‏ÿüüüûüûûשÿ‏‏ÿÿüת‏ûשûûתûû‎ÿ‏‏ÿÿÿ‎ÿ‎‎‎ü‎תü‎ÿ‏ÿÿÿÿüÿÿ‏‎û‎‎‎‏ÿÿÿÿÿÿ‏ÿ‎‎‎üü‎û‏ÿ‎ÿÿÿÿ‏ÿÿ‎‏üüû‎üÿÿ‏ÿÿÿ‎ÿ‎û‎קûûשû‏‎ÿÿÿûûüÿû‎ûüûû‎ÿ‎ÿÿÿ‏‎ÿ‎üüשתרûת‏üÿÿÿ‎üÿÿÿüקתרשüÿ‎‎ÿÿüûÿü‎תץûצצשüרû‏ÿ‎ת‎פûףלץסמעףעפפüפץץררץפûץסץסץעעÿתצüרüרû‎ÿתתקררר‏ÿûÿקררÿ‎ûתûקקררתÿûüת‎ûÿ‏ÿÿ‎üüüü‏ÿ‏ÿ‎‏üÿ‏ÿÿ‏ûתûûÿÿÿÿÿ‏ÿÿ‏ÿÿÿÿ‏‏ÿÿÿÿÿ‎‏üÿ‏ÿÿÿת‎ûû‏ÿÿ‎ÿ‎‎‏üÿÿÿüüûü‎û‏ûüû‎üû‏‏ÿûüû‎ת‎‏üûûûûרצ‎‏קûררתû‎תüüüתüתÿÿû‎‎û‎‏‏ü‎‎‎תüûת‏‏ûûûü‏ÿ‏ü‎üû‎ûתûûתû‏ü‏û‏ü‏ûûüûûûש‎ששü‏û‏üûüûüûûüרûששü‏ü‏ü‎רû‎‎ûü‎תü‎û‏ü‎ûשûü‎üü‏üתü‎ûÿ‏‏ûתש‎‎üü‎רתשש‎‏‏üקררû‎‎üüקררר‎‏‏‎קפרüûü‎üקרררת‏‎רüת‏ÿת‏ÿÿ‎‎û‎ÿÿÿÿü‏‎‏תרÿÿ‎‎‎‎ÿÿÿÿü‎‏ק‏ר‏ÿü‎‎‏‎ÿÿÿû‏ûק‏ÿרÿü‎ü‏‏ÿÿÿü‏û‏‏ÿûüüüÿÿ‏ÿ‎ÿü‎ÿÿ‏ÿÿü‏û‎‎ÿÿÿÿûüüÿ‏‏ÿÿ‎üÿ‎ÿÿ‎ÿü‎‏ÿ‏ÿÿÿÿüü‏ÿÿ‏ÿûÿÿÿÿÿÿÿÿ‎ÿ‎ÿÿÿÿûü‎ü‎‎‏ÿ‎üü‎‏ü‏‎תû‎‎ûüû‏ûûü‎‎שûûûת‎‏üüÿ‏‎‎‎‎‎‏ûÿתû‎‎üü‏ÿÿ‎ÿ‏ÿ‎ÿÿûש‎‎‎ü‏ÿ‏ü‏‏ÿÿ‏ÿתûרÿ‎‏ÿÿÿû‎ÿÿÿÿÿתתüÿ‎ÿÿÿÿüÿÿÿÿÿÿרüף‏‎‏‏‏ÿ‏üÿÿ‏‏ÿשûצÿû‏ÿÿÿÿüÿÿÿÿÿקüûÿ‎üÿÿÿÿ‎ÿ‏ÿÿÿרüף‎קüÿÿ‏‎üÿÿÿÿÿפûשÿüתÿÿ‏סûÿÿÿÿÿצעך‏üפÿÿÿעû‏ÿÿÿÿןשץתשûÿÿ‎ץû‎ÿÿÿÿסעצףתûûÿםהםןÿÿÿ‏הננ‏שתÿÿמÿקקÿÿÿÿםן‎ÿחûשÿגÿוותÿÿÿÿÿÿÿûץÿÿÿÿÿÿÿÿÿÿÿÿÿןÿץÿÿ‎ÿÿÿקÿÿמ‏ûÿÜûםÛרת‎ÿÿףגשמ‎ת‏לקüßדü‏ÿÿתחיןüף‏רתסךהûû‎‏‎ןצןüסÿנץששןתû‎‏ÿסכפûמÿשץעעûü‎û‎ÿץûפûם‏ףלףûק‎ÿûתÿקצüתם‏ףזזפüûÿüüÿרפשצקקוÿאפקüÿ‏ûÿשת‏ÿÿÿגÿÿכתÿÿÿ‏ÿת‎ÿ‎‏‎‎‎‎ÿÿü‎üÿÿÿÿÿ‎‏‏‎‏‎‏ÿ‎‎‏‎ÿÿÿÿ‏‏ÿ‎‏‎‏ÿ‎‏‏‎‏ÿÿ‏‏‏‏‎‏‎‏ÿ‏‏‏ÿÿÿÿ‏‏‏‏‎‏‎‏‏‏‏‏‎‏ÿÿÿ‏‏‏‎‏‏‏ÿÿÿÿÿÿÿÿÿ‏‏‏‎‏‏‏‏ÿÿ‏ÿ‏ÿÿÿ‏‏ÿ‎‏‎‎‏ÿ‏ÿÿÿÿÿÿ‏‏‏‏‏‎‎‏‏ÿÿÿÿÿÿÿ‎‏ÿ‏‏‎‏‏ÿ‏ÿÿÿÿÿ‏‎‏ÿ‏‏‎‎‏ÿ‏ÿ‏ÿÿÿ‏‎‎‎‏‏‏‏‏ÿÿ‏ÿÿÿ‏‏‎‎‏‎‏‏‏‏‎ÿÿÿ‏ÿÿ‏ü‎‎‎‏‏‏‏ÿÿÿ‏ÿÿ‏‏ü‎‎‎‏‏‏‏ÿÿ‏ÿ‏ÿÿÿûüü‎‎‏‏‎‏ÿ‏‏ÿ‏‏‏ûûü‎‎‏‏‏‏‎ÿ‏‏‏‏‏צקק‎‎‎‏‏ÿûü‏‏ÿ‏‏קרû‎ü‎‏‏‎‏תÿÿÿ‏ÿ‏‏‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‏‎‏‏‏‏‏ÿÿÿÿÿÿÿÿÿ‏‎‎‏‏‏‏ÿÿÿÿÿÿÿÿÿ‏‏ÿ‏ü‏‏ÿÿ‏ÿÿÿÿÿÿ‏‏‎ÿüû‏ÿÿ‏ÿÿÿÿÿÿ‏‎ÿû‎û‏ÿÿ‏ÿÿÿÿÿÿ‏‎‎û‎üüÿÿ‏ÿÿÿÿÿÿ‏‎‎ûü‎ûüÿ‏ÿÿÿÿ‏ÿ‏‎ÿûüû‏üÿ‏ÿÿÿ‏ÿÿ‏‎‎‎üûûÿÿ‏ÿÿÿÿ‎ÿ‎‎ÿתü‎û‏ÿ‏ÿÿÿÿ‎ÿ‎ü‎û‎ûûüÿÿ‏ÿÿÿ‏ÿתûüüüüתת‎‎‎ÿÿ‎û‏שש‎תשûת‎‎‏‎‏ÿ‎‎‏‎‏‎‎‎û‎‎ÿ‏ÿÿÿÿ‏ÿÿ‏ü‎‎‎‎‏ÿ‏ÿÿÿÿ‏ÿ‎‏‎ü‎üü‏ÿ‎ÿÿÿÿ‏ÿÿü‎ü‎û‎üÿÿ‏ÿÿ‎‎ÿ‎‏‎תüûûüÿÿ‏ÿÿüûÿüüüרקששת‏ü‏ÿ‎תש‏ü‎‎ûüרû‎ÿü‏ÿÿ‎‎ÿüÿûקüתûüÿת‎ÿÿ‏üÿרûץרüשפת‎תפûÿûû‏פקנצûקפףןףףûשצקקû‎ûü‏ÿü‎‏üûûÿÿÿÿתûרü‏‎û‎תûת‎ûÿÿÿקררÿü‎‎‎ûüûûÿÿÿüûûûÿ‏ÿÿ‏ÿ‎‏ÿÿÿÿÿ‎‏üÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿüÿ‎ÿ‏ÿÿÿÿü‏ÿÿÿÿÿ‎‏‎ÿ‏ÿÿÿ‏‏ûÿÿ‏ÿ‏üÿ‎‏‏ÿÿÿש‎ü‎ÿ‎‎‏‎‎üüü‏‏ÿת‎ûקüûüרü‏üÿüû‏ÿûü‎ûת‎‏ü‎‏ûû‎û‏ÿüüüûü‎‏‎û‏שû‎üû‏üüûûü‏‏‏‎‎שüü‎ûüûתûüü‏‏‎û‎û‎‎‎üüûüרûü‏ÿ‎üûûü‎û‎‎קת‎ûü‏‎‎תüת‎‏‎‏‏‏ûûת‏ÿ‏ûüûתüû‎‏‏תûתüûÿ‏‏û‎‎ÿÿÿÿÿÿ‎‏ÿÿÿÿÿûûשû‏‎‎ÿûתûû‎ÿÿ‏û‏‏ÿü‏ÿÿ‏üûÿÿÿÿÿ‎‎‏‏ûûÿ‏ûüûÿÿÿÿÿת‎‏ûÿת‏ÿûü‎ûÿÿÿÿûü‎ת‏ÿûÿü‎üûüÿÿ‎תû‎‏‏ÿתüûüü‎üÿÿÿרû‏ÿü‏ÿû‎ü‎‏‏ÿÿ‎ת‎ÿÿ‏ÿÿÿÿ‎ÿ‎ÿÿÿÿ‎‎ÿÿÿÿÿÿÿ‎ÿ‎ÿÿÿÿשüÿÿ‎‏ÿÿÿü‎ÿÿÿÿÿü‎‏ÿ‎‎ÿÿ‎üüÿÿ‎‎‎רת‎ת‎‎ü‏üüü‎‏‎üÿûû‎‎ûüשüûü‎û‎תשÿקתü‎ûû‏ûüü‎ü‎‏‏ÿûתüüûû‏ÿ‎û‎ü‏‎‏ÿצתûûüû‎ÿ‏ü‎‎‎ÿÿÿûûüתüûû‎‎üû‏‎‏‏ÿץüüüüüü‎üתü‏‏ÿ‏ÿתüצ‎ü‏‏‏‎üת‏‏ÿ‏ÿף‎û‏ר‏‏‏ת‎ü‏‏ÿ‏ÿתüן‎ת‏ÿÿ‎ÿüûÿÿÿÿןץע‏ûûÿÿ‎ÿü‎üÿÿÿרûטÿ‎צÿÿ‏ûü‏‎ÿÿÿטצם‎תרÿÿÿכשÿ‏ÿÿ‎ץפףרûû‏ÿתÝזÿÿÿÿÿײÙÙק‎תÿÿטךײ‏ÿÿÿÿפכ‏û‏‏‎ÿ״ÿימÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿûÿÿÿÿÿÿÿÿÿש‎ÿ‏ÿÿףכÿÿÿÿüûט‏ûש‎üÿÿ‎ךײתאÿק‏תü‎יתü‏ÿÿüםוך‎ץüתתûצכûת‏ÿüטון‎ר‏ûüתשרתתû‏‏פתף‎פüתûרתûûקש‎ÿןעתüפ‏תשששתûקר‎‏קûצûתÿרןתûûרûץ‎ÿפע‎ûק‏תןךûüר‏צüÿתü‎ÿÿÿלÿמת‏צÿÿûÿקשÿÿÿÿלÿÿמ‏קÿÿת‏üקÿ‏‏ÿ‏ÿÿÿÿ‎ÿ‏ÿÿÿÿÿ‏‏‏‏‏‏ÿÿ‎ÿÿÿÿÿÿÿ‏‏‏‏‏‎‏ÿ‎ÿ‏‎ÿ‏ÿ‏‏‏‏‏‏‎‏ÿ‏‏ÿ‎‏‏ÿÿ‏‏‏‎‏‎‏ÿÿ‏ÿ‎‎ÿÿÿ‏‏ÿ‎‏‏‏ÿÿÿÿÿ‏ÿÿÿ‏‏ÿ‎‏‏‏‏ÿÿÿÿ‏ÿÿÿ‏‏‏‎‏‏‏‏ÿÿÿÿÿÿÿ‏‏‏‎‏‏‏‏‏ÿÿÿÿÿÿÿ‏‎‏ÿ‏‏‏‏‏ÿ‏ÿÿÿÿÿ‏‏‏‏‏‏‎‏‏ÿüÿÿÿÿÿ‏‎‎ÿ‏‏‏‏‏ÿÿûÿÿÿÿÿ‎‎ÿ‎‏‏‏‏û‏ÿÿÿÿÿ‏ü‎ÿ‏‏‏‏‏ÿÿÿûÿÿÿÿüü‎‎‏‏‏‏ÿ‏‏‏û‎‏üûû‎‎‏‏‏‏ÿÿÿÿÿÿ‏ÿצקקûüûûüÿü‎ü‏‎ûûצקש‎ש‏‏‏ÿü‏ÿÿ‏‏‏‏ü‏‏‎ÿ‏ÿÿÿÿÿÿÿÿÿ‏‏ÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿ‎ü‎üüüüÿÿÿÿÿÿÿÿÿ‏‏‏‏ü‏ÿÿÿÿÿÿÿÿÿÿ‏‏‎‏ü‏‏‏ÿÿÿÿÿÿ‏ÿ‏‏‎ÿ‎‎‏ÿÿÿÿÿÿÿÿÿÿ‏ÿ‎‎û‏ÿÿÿÿÿÿÿÿÿ‏‏‎ûüû‎ÿÿ‏ÿÿÿÿÿÿûû‏שüתתüÿ‏ÿÿÿûû‏‏‎‎ü‎‎ûÿÿÿÿÿÿÿ‏ÿ‎‏‎‎‎ûü‎ÿ‏ÿÿÿÿÿÿ‎‎ÿû‎üüüÿ‏‏ÿÿ‏‏ÿ‎‎‎üüüûüÿ‎ÿÿÿ‏‏‏‎û‏üüüüüÿ‏‏ÿÿ‏‎ÿ‎û‎üüüü‎ÿ‏‏ÿÿÿ‏ÿ‎ÿ‎‎‎ü‎‎ÿÿÿÿÿÿ‎ÿ‎‎ÿûüûû‎ÿ‏ÿÿÿÿÿÿüû‎קûררûû‏‏ÿÿתûû‎‏üתüתתûÿÿ‏‏ÿ‎תÿûûûשûûתת‏‎ÿ‏ü‎ש‎ûûתרûששת‏üÿÿÿ‎תûשüששüשתû‎רת‏‏‎תüרששרûששרשצצÿÿ‎ת‎םעסצûצצקנעןץ‏תץüרüשû‏‏ü‎שûשüÿÿ‏ÿü‎‎ÿ‏ÿ‏ÿ‏‏‏ÿÿÿÿÿ‎‎‎ÿ‏ÿ‏ÿÿ‏ÿÿÿÿÿÿûûûÿ‏‏‏ÿÿ‎‏ÿÿÿÿÿ‎‎‎ÿ‏ÿÿÿÿ‏‏ÿÿÿÿÿü‏‎ÿ‏ÿÿÿÿ‏‏ÿÿÿÿÿüÿû‏‏‏‏ÿÿ‎‏ÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿ‏ÿÿÿÿÿÿü‏‎‏‏ÿÿ‏‏üû‏ÿÿ‏ÿ‎‏ü‎‏‏‏ÿתûת‎‏ת‏‎ü‏ÿÿÿ‏ÿÿûÿûûÿÿÿûû‎ûü‎üÿÿקתüרתû‏ûש‎ûü‎‎üÿ‎תררתûûûרüר‎‎‎üÿקüר‎ת‎‏ûü‎ÿÿÿ‏ÿÿ‎‏‏‏‏ÿÿÿ‎‏‎ÿ‏ÿÿÿÿ‏ÿ‏‏ÿÿÿקררü‎‎‎‎üûשûתשÿûרûש‎‏‎‎‏שתתüüשששü‏‏ÿÿ‏ÿÿÿü‏ÿÿÿÿÿ‎‏ûÿü‏ÿÿ‏ü‏ÿÿÿÿÿû‎ûÿü‏ÿÿ‏‎ûÿÿÿÿÿ‎‏üÿÿ‏ÿÿ‎üûÿÿÿÿÿû‎‏‏‏üÿÿ‏ü‎üÿÿÿÿ‎‎‎û‎üÿÿüü‎‏ü‎ÿüûשüתû‎ת‎תûûü‎ûûû‎ש‎üüüûÿת‎ü‏‏‏ÿ‎תü‎üüüüÿ‎‎‎ü‏ÿÿ‏‎ü‏üûüü‎ûüüû‏‏ÿÿתûüû‎ûû‎üûü‎‎ÿüÿüûûר‎ששüûתûûü‏‏‏שû‎‎‎‎‏üûתרûü‏û‏üû‎‏ü‎‎תקüשûüÿû‏רüûüüüü‏רûûרüÿ‎ûûüûüתüü‏üûüשתÿüüרüû‎ü‎‎‏‎‎‎‎üÿ‏ÿûüûû‎ûûÿ‏ü‎‏‏ÿÿ‎צüרûûûû‏‎ûû‏‏ÿÿ‏ûüû‏‎‏‏‏‎תûÿ‏ÿÿ‏ץק‎ÿת‏ÿÿÿüüÿÿÿÿÿתרףÿ‎‎ÿÿ‏‎üÿÿÿÿÿעשת‏‎‎ÿÿ‏ÿü‏ÿÿÿûרצםÿûûÿÿ‎‏ûÿ‏ÿÿÿלךו‏üרÿÿÿüת‎ÿÿÿ‏ףס׃‎û‎ÿÿÿוûÿÿÿÿÿךלל‎צÿÿÿ‏ÿלÿÿÿÿÿÿרÿÿע‏ÿÿזÿûÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿש‎דüוו‏üÿ‎ףחצשױÿרüחûייûûÿÿ‎ץÜ״גÿתתלüפכטשü‏ÿûרכםÿררףתûםכû‎‏‏‏לתק‏ü‎ûשרפתתתû‏ÿתנû‏ûתקפûûןתתש‏‏עעü‏ûûûסררסתצש‎‏ûץü‏ûשקüקûקשקףש‎ץצ‏‎û‎קרסר‎ףûץשûüü‏‎‏‏נÿםרתץÿתפûקץ‏ÿÿÿלÿרס‎תÿÿצק‎‎‎ÿ‏ÿ‏‏‏ÿÿüüÿÿÿÿÿÿ‏‏‏‏‏‎ÿÿ‏‏ûûÿ‎‏‏‏‏‏‏‏‏ÿÿתÿÿ‏ü‏‏ÿÿ‏‏‏‏‏ÿÿÿÿÿûÿÿÿÿÿ‏‏‎‏‏‏ÿÿ‏ÿÿüÿÿ‏ÿ‏‏‎‏‏‏ÿÿ‏ÿÿÿÿÿ‏ÿ‏‏‏‏‏‏ÿÿ‏ÿÿÿÿÿ‏‎‏‏‎‏‎‏‏ÿ‏ü‏ÿ‎‏‎‎‎‏‎‎‎‎‎û‏ÿÿ‏‎‎‎‏‏‏‏‏‏‏‏ÿ‏ÿ‏ÿÿÿÿ‎‎û‏‏‏‏‏ÿÿÿÿ‏ÿÿ‏‎ü‏ûüûûü‎‏ûÿÿûûû‏‎ÿ‏‏‏‏ÿÿ‏ÿÿÿÿÿÿüü‏‎‏‎‎‎ÿÿÿ‎‏‏‏‏‏‎ÿ‏‏‏‏‏ÿÿÿÿÿ‎ÿûüûÿ‎‏‏‏‏ÿÿ‏ÿÿÿÿÿ‎‎‎‎‎‏‏‏ÿÿÿÿÿ‏ÿÿרצת‎ר‎‏‏ÿ‏‏ÿÿ‎‏‏‏ü‏‏ûת‏‏ÿÿÿÿÿÿÿÿ‏‎‏‎‎‎‏ÿÿÿÿÿÿÿÿÿתש‎קתרר‏ÿ‏ÿÿÿ‎ûÿ‏‎‏‎‎‎‎‎ÿ‏ÿÿÿÿ‎ÿ‏ü‎ü‎üü‎ÿÿÿÿÿÿÿÿ‎‏‏‎‎ü‏‏ÿÿÿÿÿÿ‏ÿ‏‎‎ûüûü‎ÿ‏ÿÿÿÿ‎ÿÿ‏‏‎‎‎‏ÿÿ‏ÿÿÿÿÿÿ‏ûÿûüûûüÿ‏ÿÿÿ‏ûÿ‎ü‎ûüûûüÿ‏ÿÿÿûûÿ‎‎‏ûüûûüÿ‏ÿÿÿÿ‎ÿüü‎ûüûûüÿ‏‏ÿÿ‎ûÿûû‎ûûüûüÿ‏‏ÿÿÿ‏ÿ‏‏ÿ‎‎üü‏ÿ‏‏ÿÿÿÿÿÿ‎‎üüü‎‎ÿÿÿÿÿÿÿÿ‏‏‏‎‎û‎‎ÿ‏ÿÿÿÿ‏ÿתü‎צûרש‎ת‎‏ÿÿתûÿ‎‎‎תüûשüÿ‏ÿ‎ÿ‎‎‎üÿÿ‎üüüüÿ‏ÿÿÿÿÿÿü‎‎ûüüûûÿ‎‏ÿÿ‎‎üשüתûüתûû‏ü‎ÿÿûû‎רשספתץרקצקץû‏קששקררû‎üü‏ÿü‏ÿÿÿ‏ÿצפפתתûûüתשצû‎‏üÿ‎‏‎‏‏ÿÿÿÿüÿÿÿÿÿÿûû‎‎‏‏ÿÿÿüû‏ÿÿÿÿü‎‎ÿ‏‏‏ÿÿ‏‏ÿÿÿÿÿ‎ü‎ÿüÿ‏‏ÿ‎‏ÿÿÿÿÿûüüÿüû‏‏ÿ‎‏ÿÿÿÿÿûשûû‎ûÿ‏ÿ‏üÿÿÿÿÿש‏ü‎‏‏‎ÿ‎ü‏ÿÿÿ‏ÿ‏‏ûÿÿÿÿÿÿü‏ÿÿÿÿÿ‎‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ü‎ÿÿÿÿü‏ü‏ÿÿ‎ÿü‎‎ÿ‏ÿÿÿû‏‎û‏ûÿÿû‎ר‎‎‎‏ÿûüûרתת‎רüüûÿ‏‏ÿÿ‏ü‏‎ü‎‏‏ûüüÿ‏‏ÿÿ‏üûÿÿÿÿûü‎‎ÿ‏‏ÿÿû‎ûÿ‏‏ÿ‎û‏‎ÿÿ‏ÿÿÿÿ‏ÿÿÿÿÿקרש‎ת‎‏‏ûûûרתûשרû‏‎‏ÿ‏ÿÿÿü‏ÿ‏‏‏‏ü‏‎ÿ‏‏ÿÿÿû‏ÿÿÿÿÿû‎ûÿ‎‏ÿÿ‏‎‎ÿÿÿÿÿû‎‏ÿÿ‎ÿÿ‎ü‎ÿÿÿÿÿת‏‎ÿÿ‏ÿÿÿ‎‎ÿÿÿÿÿüÿÿÿÿÿÿÿÿ‎ûÿÿÿÿÿתüü‎‏ÿÿ‏üüü‎ÿ‎‏üûûשüתüü‎שתתשתרשששûשûקרûüûתרתתתûûתûרקתץûüקתרשüû‎‎רüûצûתת‎תתתת‎‎‏‎תûûû‎ûשüûתשûü‏‏üרüרת‎‎ûתשתרûü‏ÿ‏ת‎ü‎‏‏‏ÿûüû‎üÿÿÿק‎‏ÿ‏‏ÿ‏ûüüû‎ÿÿÿש‎‎‏‎‎‎ÿתû‎תû‎‏‎צüü‎‎ü‏‏üüüתû‎‎שר‎‎‎ü‎ÿ‏‎û‎‎üÿÿ‏פüü‎ü‏ÿÿ‏û‎‏‎ÿ‏‏ררÿÿתÿÿÿÿ‎üÿÿÿÿÿעש‏ÿûÿÿÿÿüüÿÿÿÿÿקûÿÿ‎ÿÿÿÿÿüÿÿÿÿ‏ןרü‏‏üÿÿ‏ÿ‎ÿÿÿÿÿסס‎‏üשÿÿ‏‏üÿÿ‎ÿÿזץתÿüתÿÿ‎ÿüÿÿ‎‎‎גםק‏ûûÿÿÿÿû‏ÿ‎ÿÿ׃רבüüüÿÿ‏ûüÿÿÿÿ‏שששÿעÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿףÿÿÿÿ‏ÿ‎ÿÿÿÿÿÿü‎ן‎‎Ùû‎ÿ‎üû׃קא‏ת‏עü‎לßûÿ‎‏תÞÝנ‏‎תת‎‎תנûÿ‏ÿ‎זתת‎‎שûüüעüת‎ÿ‏ÿמךû‎‏שüûתûûשת‎‎‏מץ‏ü‎פüקüûץûץר‎ÿףü‏ü‎פ‎קûüûרץף‎ÿףשÿûÿקû‎ץ‎‎ףנףתÿקקÿÿÿ‎‏‏צÿ‎פףםצüצר‎ÿÿÿצÿÿÿ‏מÿסקתשתÿÿÿÿפÿÿû‏לÿÿלצק‎צ‏‏û‏‏‏ÿÿתüûÿÿÿÿÿÿ‏ÿ‏‏‏ÿÿûÿüûÿÿÿÿ‏‏ÿ‏‏‏ÿÿüÿÿûüÿÿüÿ‏ÿ‏‏‏‏ÿÿÿÿüüÿÿ‎‏‏‏‏‏‏‏ÿÿÿÿÿü‏ÿû‏‏‏‏‏‏‏ÿÿ‏ÿÿÿ‏‏‎‎‏û‎‎‎‎‏ÿ‏ÿ‏ÿ‎‏üüü‏ü‎üü‎ÿ‏ÿ‏‏‎ü‏‎‎‏‏‏‏‏‏ÿÿÿÿÿÿ‏‏‏‎‏‏‏‏‏‏ÿÿÿÿÿÿÿÿשû‎‎‎‎‎‎ÿ‎ÿÿÿ‎‏û‏‎‏‏‏‏‏‏ÿ‏ÿÿÿÿÿÿÿ‎ÿ‏ÿ‏‏ÿÿÿÿÿÿÿÿÿ‏‎‏‏‏ÿ‏‏ÿÿÿÿÿÿÿÿ‎û‎‎‎ûûüÿ‏ÿÿüקתû‎û‏‏ü‏‏‏ÿ‏ÿÿÿ‏ÿÿתתתüרûתü‏û‏‏‏תתüשר‎‎רש‏‎ÿ‎‎ÿÿ‎‎ÿ‏üÿתüר‏ÿÿÿÿÿÿ‏ÿÿÿ‎‎ûü‎‏ÿÿÿÿÿÿÿÿÿ‎û‏תתררüÿÿÿÿÿ‏‎ÿ‎ש‏קתשûתÿÿÿÿÿûתÿ‏ü‎תûשש‎ÿ‏ÿÿÿÿ‏ÿ‎‎‏תûתûûÿ‏ÿÿÿ‏üÿ‎ü‎ת‎תתüÿ‏‎ÿÿÿ‎ÿûûûקתûרתû‎‏ÿÿ‎ü‎üü‎תתששתÿ‎‏üÿ‎ûÿ‎‎‎û‎ûûüÿ‏ÿÿÿÿûÿ‎‎ÿûüüû‎ÿ‏ÿÿÿÿ‎ÿ‎ü‎û‎üûüÿ‏‏ÿÿÿ‎ÿ‎ûÿüüüüüÿ‏‏ÿÿÿ‏ÿ‎û‎üüüûüÿ‏‏ÿÿÿ‎ÿ‎‏ûûüתüü‏‎‏ÿ‏‏‏‏שששרüשתü‎‎‎ÿÿ‎ת‏üû‎ûüûû‎‏‏‏ÿÿÿûÿ‎‏ÿ‎‎‎‎‎‏ÿÿÿÿÿÿÿû‎‎תüüûû‏‎‎‏ÿ‎‎תû‎üû‎ûû‎‎‎‏‏ÿת‎ÿץצצרüתששüûש‎‎תצ‎נקץשüששתרקשü‎שר‏רששü‏üÿ‎‏‎ÿÿÿÿ‏ÿû‎ü‎‎ÿ‏‏ÿü‏ÿÿÿÿÿ‎‏ü‏‏ÿ‏ÿÿ‎ÿÿÿÿÿÿ‎‎‎ÿ‏ÿ‏ÿÿüÿÿÿÿÿÿ‎‎ü‎ü‏‏‏ÿ‎‏ÿÿ‏‏ÿûûûûתשû‎ÿûüÿÿûÿÿüûתתûש‎‎‎ûûÿÿ‏‎‎ûû‎ûתü‎ÿ‎‎ûÿÿÿÿÿûרתü‎שû‎ûü‏‏ÿÿÿÿû‏ûü‏ÿÿÿÿ‏‏ÿÿÿÿÿû‏ûÿÿÿüÿÿü‏ÿÿÿÿÿü‏‏‏‏ÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿüÿüÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿקûר‎û‎ÿüüüתûתקררü‏‎ÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿü‎ü‎‏‏‏ÿü‎‎ÿ‏üÿÿüûü‏ü‏û‎‎ü‎û‏ת‏ûü‏ü‏‎‏ÿÿÿ‎‎ÿ‏ÿÿÿ‎‎ü‎‎‏ÿÿ‎‎‎‏ÿ‏ÿÿתûüÿ‎‏ÿÿ‎ת‎ÿÿÿÿÿ‎üüÿ‏‏ÿÿ‏û‎ÿÿÿÿÿü‏‏ÿÿ‏ÿÿÿ‎üÿÿÿÿÿ‎ü‎‏‏‎‏ÿü‎ש‏ÿÿÿÿûÿ‎‎‏ÿ‏‏תûüü‏ûü‏רûרûüûûûקûתשתתûûתüשüüüü‎רûששüûûת‎ü‎ÿ‏‏‏ÿ‎‎‎û‏ÿÿÿת‎ü‏‏‏‏ÿתüü‎ü‏ÿÿ‎‎ûÿ‏‏ÿÿ‎üüתüÿÿÿת‎û‎ÿ‏ÿ‏üûûûÿÿÿÿü‎üÿ‏‏‏‏ûûûü‏ÿÿ‏ש‎ÿÿÿÿÿÿÿüüÿüÿÿÿüתÿÿ‎ÿÿÿ‏üÿ‏‏ÿÿ‏ר‎‎ÿ‎‏ÿ‏üü‎ûüûÿûûשü‏ü‎ÿÿ‎û‎üüüüüצשû‎‎‎‏ÿ‏ûû‏‎‎‏‎ûש‎‏ת‏‏ÿ‎‎‎‏‏‏ÿ‎ץש‏ÿ‏‏ÿÿÿ‎‎ÿÿÿÿÿûפÿÿ‏‎ÿÿÿûûÿÿÿÿ‏עת‏ÿü‎ÿÿ‏תüÿÿÿÿ‏שף‏‏‎üÿÿ‏ûüÿÿÿûÿםשÿÿüתÿÿ‏‏ûÿÿÿÿ‏צוû‏ע‎ÿÿ‏ÿת‏ÿÿ‏ÿÙׂץ‎פןÿÿ‏ÿתÿÿ‎‏‏עףףעחצÿÿ‎ÿûÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿךÿקÿÿÿÿüÿÿÿÿÿ‎‏‏ס‏ץאשüÿü‏ÿÞײשü‎‏סûרנהת‏ü‏‎םßקû‏ûעû‎עüק‎‏‏‏לש‎û‏üקרתעûת‎ü‏ÿצם‏שתר‎צ‎ףףתתü‏‏עüÿûÿפû‏ûשצשüת‎ÿתסÿרÿצ‏‏üÿ‎üת‏שÿק‏ÿתÿןüÿקüצ‎‎שûÿü‏ÿÿÿק‏ÿקÿש‎ÿÿ‎ÿת‎ÿÿÿÿרÿÿ‏ü‎ÿÿ‎ÿ‏ûüÿÿÿפÿÿüÿ‎ÿÿ‎תשתק‏‏ÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿ‏‏‏‏‏‏ÿÿÿÿÿÿÿשששÿ‏ÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿ‏‏ÿ‎‏‏‏‏‏‏ÿÿ‏ü‏ת‎‎‎ü‎üü‎ÿÿÿ‏‎רüש‏‏ÿ‎‏‏‏‏ÿÿÿÿÿ‎‏‏‎‎ÿ‏‏‏‏‏ÿ‏ÿÿÿ‎ÿ‎‏û‎‎ü‎ûü‏‏‏ÿ‏‎ü‎ÿÿÿÿ‏‏ÿÿÿÿÿÿÿ‏ÿÿ‎û‏û‏û‎‎ÿü‏ÿÿ‎‎ÿûרûûû‎û‏‏ü‏ÿÿתüÿ‏‎‏‏‏ü‏‏‎‏‏‏ÿ‏‏ÿÿÿÿ‎‏ÿÿ‏ÿÿÿÿÿ‏ÿÿ‏ü‏‎‎üû‏‎‏‏‏‎‎‏‏‎ü‎ûüû‎ûÿ‏ÿÿüûרû‎û‏ûûûû‏ÿ‏ÿÿ‎‏ûÿûûûûû‎ûüÿü‏ÿÿ‎‎‎ûרû‎רשûüÿ‏‏ÿÿ‏ü‏‏‎‏‎üת‏‏ÿÿÿÿÿÿÿÿ‏üÿתûû‎‏ÿÿÿÿÿÿÿÿ‏‎ÿûüתת‎ÿÿÿÿÿÿÿÿ‎‎‎תûûûûÿÿÿÿÿÿûÿ‏‎‎תüשת‏ÿ‏ÿÿÿÿ‏ÿ‎‎‏שתûûûÿ‏‏ÿÿÿüÿ‎‎‎תüרשüÿüÿÿÿÿ‏ÿûû‎קüûûû‏ü‏ÿÿÿ‎ÿ‎ûûûüûרüû‏ûûÿÿ‎ÿ‎‏‏ü‎‎‎üÿ‏ÿÿÿÿ‏ÿüüüûüüû‎ÿ‏‏ÿ‎ÿ‎ÿ‎‎‎ü‎‎‎‎ÿ‏ÿÿÿÿ‎ÿ‎‏‎üüüü‎ÿ‏‏ÿÿÿ‏ÿ‎ü‎שתשüü‏‎‏ÿ‏üüüצûüצûקרü‎‎‎ÿÿתûûü‎‎קûתרת‏‎‎ÿÿ‎ûÿÿ‏ÿ‎‎‎‎‏ÿÿÿÿÿÿÿÿü‎üתüשûû‎‎‎‏ÿ‏‏ÿשששףתקצתüרû‏‏ףרשץשרצüרפרûקת‎üתפ‏פץשרקתרקצקקק‏תתüüת‎ü‎‎‎‎‎‎‎‏ÿÿ‏ÿתûûüת‎ÿ‏‏ü‏‏ÿÿÿÿûר‎‎üר‎ÿ‏‎‏ÿÿÿÿÿü‎‎ü‎‏‏ÿ‏‎‏ÿÿÿÿÿû‎ü‏üûûÿ‏ü‏ÿÿÿÿÿ‎‏üÿ‏ÿÿÿÿüÿÿÿÿÿÿü‎‎ÿ‏‎‏ÿÿ‎‏ÿÿÿÿÿûûû‏‎‎‏‏ÿü‏ÿÿ‏ÿÿûû‎‎ü‏‏‏ÿü‏ÿÿÿÿÿ‎‏‎ÿü‏ÿÿ‏‎‏‏ÿÿÿÿששü‎‎ש‏ÿ‎‎‎‎ÿÿÿÿ‎‎‎‎‏ÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿ‏ÿÿÿÿÿ‏ÿÿÿÿÿ‎û‎ÿ‏‏ÿ‏û‏ûûÿûûÿûû‎ÿ‏‏ÿÿÿ‏‎ÿüûûûû‏ûÿü‏ÿÿ‎‏‏ÿü‎ûÿ‏ÿüÿÿ‏ÿÿÿÿÿÿÿÿÿÿ‏‏üÿÿÿÿÿÿ‎ÿÿÿÿÿÿü‎ûÿüüûÿ‎ü‏‎ÿûû‏üûתüüûÿüûüûû‏ûûûûûüü‎ü‎ÿüתüü‏‎ÿÿüשü‎û‎‏‏‎ûü‏‏‏‏‏ûüûÿüûÿÿûתûûÿÿÿÿ‎ÿü‎‏‎ÿÿ‏‎‎‏ÿÿÿÿÿ‎‏ÿÿÿÿÿÿüüÿÿÿÿÿ‎‎‏‏‏ÿ‏‏ûüש‏ÿÿ‎ÿûüüÿ‎‎‏üקüרר‏ûûûû‎üÿ‎ü‏‏ûûתרüü‎‎‎‎‎ÿ‏ÿÿÿûüû‎üÿÿÿ‎‎û‎‏‏ÿÿû‎üû‎ÿÿÿû‎ûÿ‏‏ÿÿ‎üûûûÿÿ‎‎‎ûÿ‏ÿÿÿüü‎‏‏ÿÿÿ‎ûÿÿÿÿÿÿ‏‎ÿ‎‏ÿÿ‏‎‎‏ÿÿÿÿÿÿ‎üÿ‏ÿÿ‏‎üÿÿ‎ÿÿÿ‏üü‏‏‏ÿ‎üת‎‏‎‎‏ÿüûüüüûûû‎ûü‏ת‏ÿÿ‎û‎‏‎‎‎‎üתü‏ûüÿÿ‏ü‎‏‎‎ÿ‎‎צ‏‏ü‏ÿÿÿû‎ÿ‏ÿÿ‏üûÿÿ‎ûÿÿÿתüÿÿÿÿ‎üצÿûü‎ÿÿÿ‎üÿÿÿÿÿûן‏‎‎תûÿ‏ûûÿÿÿÿÿüעÿ‎‎û‎ü‏‏üÿÿÿÿÿתטÿÿüüÿ‏‏‏ûÿÿÿÿÿûק‏‏כשÿ‏‏‏üÿÿÿ‎ÿףÛ‏שÜוÿÿ‎ÿûÿÿ‎‎‏צקקגזׁשÿ‏ÿûÿÿÿ‏ÿ‎ÿÿÙ‏ךןÿ‏ÿüÿÿÿÿÿüÿÿו‏‏Ùס‎ÿתÿÿÿÿÿûÿÿץ‏‏בÝüÿûÿÿצÝÿש‏‏צ‎‏ךזûÿü‏ÿצן‎תüûüü‎ץûת‏‎‏‏שטÿק‎üüתüûןת‏‏‎‏ûןÿקרר‎ת‎צקר‏ÿ‎ÿûûÿףûû‏‏ü‎‏û‏ÿ‎ÿ‎פÿרûתÿÿת‏‏ûÿÿüÿ‏‏ÿצÿÿÿÿüÿü‎ÿÿ‎ÿÿקÿשÿÿÿÿÿÿ‏‎ÿÿüÿÿÿÿÿÿÿÿÿÿÿÿüÿÿüÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿ‎ÿÿÿÿÿ‏ÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿ‏ÿÿ‎‎‏û‎üûü‏‎‎‎ÿקûü‎‎‏ü‏üûü‎ÿ‎‏‏ררü‏‎ÿ‏‏‏‏‏ÿÿÿÿ‏ü‏ÿ‏û‏‏‏‏‏‏ÿÿÿ‏‏üü‏‏‎‎‎üü‎‎ÿ‏‏ÿ‎ü‎ÿ‎û‏ü‏û‎‏‏‏ÿ‏ÿ‎üÿ‏‎ûûü‎ü‏‏ü‏ÿÿ‎‏‏ûûû‎תûû‎‏ÿûÿÿ‎ת‏‏‎‏ü‎ש‏‎üÿÿ‏ÿ‏‏ÿÿ‏‏û‏ÿ‏ÿÿ‏ÿÿÿ‏ÿÿ‏ü‏ûü‎רüÿ‏ÿÿü‏‏‏‎‎‎‎üûûשÿ‏‏ÿ‏תûû‎û‏ûû‎‎ü‏‎‏ÿ‏‏‏üששש‎ûתת‎‏‎û‎‏üת‎תת‎üרשüüû‎‏‏‏‏ü‎‏‎ÿ‎üû‏ÿÿÿÿÿÿÿ‏ÿ‏‏‏ûüû‏ÿÿ‏ÿÿÿÿÿÿ‏‎‏üüûû‏ÿÿÿÿÿ‏‏‏‎‎ÿûüûûüÿÿÿÿÿÿÿÿקרüצרצרתûüüûÿרר‏ûûûûüûûüÿÿÿÿÿÿ‎ÿ‎‎ûûüüü‎ÿ‏ÿÿÿÿ‏ÿÿ‏‎ü‎‎‎‏ÿ‏ÿÿÿÿÿÿû‎‎ûüûû‎ÿ‏‏ÿÿÿ‏ÿ‎‎‏ü‎‎ü‎ÿ‏ÿ‏ÿ‎‏ÿÿÿ‎‎‎‎ü‏ÿ‏ÿÿÿÿÿÿ‏‏‏ü‎‎ü‏ÿ‏‏ÿÿÿ‏ÿÿÿ‎‎‎‎‎‏ÿ‏‏ÿÿÿÿÿ‎‎‎תüתתû‏‎ü‏‏תתÿûצüתûûתûü‎‎‏ÿתת‏üüüתשûûüüü‎‏ÿ‎‎ÿ‎üÿü‎ת‎‎‏‎‎‏ÿ‏‏ÿûûüףתשרûüûתû‏üüüüתתû‎ûרüüüû‏ÿ‎רÿתשקû‎ûûשûüû‎ÿÿ‎‏תרקûתûûüûûû‎‏‏‎ÿûתûüתûÿ‎‎‎‎‎‏ÿ‎ÿשששûקרÿ‎‎üü‎ÿÿÿ‏üûüûתשÿ‏‏‎ÿÿÿÿ‏ÿüתüתüת‎‏‏‎‏ÿÿÿÿÿתרüקûששüÿü‎‏ÿÿÿÿûû‎‎‎üû‎ÿ‎‏ÿÿÿ‏ÿתתת‎ûû‎üÿü‏ÿÿÿÿÿתûû‎‏‎‏‏ÿ‎ÿÿÿÿ‏ÿ‏üü‏‎üÿÿÿ‏ÿÿÿÿÿÿ‎‎üÿÿÿÿÿÿ‏ÿÿÿÿÿÿüשüüתü‏ÿ‏û‏‏ÿ‏ÿÿûûûÿüûÿÿÿ‏‎ÿÿÿÿÿ‏‎ûûüû‏ÿ‎‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏ÿÿÿÿÿ‎‏ÿûü‏ûü‏‏‏ÿ‎ÿûÿûרû‎תררתתüûûüקרר‎‎‎‎ÿ‎ÿ‎‏‏‏ÿÿÿ‏‎‎‎‎û‏‏ûÿ‏ü‎ÿ‏‎‎‎ÿ‏ûÿ‏‏ÿÿÿ‏ÿÿÿÿÿÿû‎û‏‎ü‏üûüû‏ÿ‏û‏‎üת‎‎‏‏ÿ‎û‎‎‏‎‎‎‎üûÿ‏‏ÿÿÿ‎ûÿÿÿÿÿ‏‏תÿü‏ÿÿû‎üÿÿÿÿÿûûû‏‏ûÿÿüüüûÿÿÿÿ‎‎üû‏‎ÿÿ‏רü‎‎ÿÿÿ‏‎üÿÿÿ‏ÿ‏ששÿÿÿÿÿ‎ÿû‏‏ÿÿ‎צ‎צ‎ÿÿÿ‏‏‎ü‏‏ÿÿÿצü‎שÿÿÿÿûûû‏‎üÿ‏ץקרףק‎üûûüû‎‎‏‎ÿרתץüקü‏שתתת‏‎‎‏ÿץûשק‎ÿ‏ûûûûÿ‏‏ÿÿûüûרüÿÿû‏‎‎ÿ‏ÿÿÿ‏‎‎‎ûÿÿ‏ÿü‎ÿ‏ÿÿÿ‏‎üÿÿÿÿ‎‏ûûÿ‏ÿÿÿÿû‎‏ÿÿÿ‏ÿשÿÿ‎ÿÿÿÿûü‎‏ÿÿ‏‏û‏ÿ‏‏ÿ‏ÿü‏‏‏‏‏‏ûק‎‏û‏ÿ‎ûû‎‎üûûûüûü‏‎‏ÿ‏‏û‎ü‏‎‏ü‏רÿÿ‏‏ÿÿÿûÿÿÿÿÿÿ‏ףÿÿ‎‎ÿÿÿû‎ÿÿÿÿÿ‏צÿÿ‏‎ÿÿÿ‎‎ÿÿÿÿÿ‎ף‏‏‎üÿÿ‏‎ûÿÿÿÿÿ‏תÿ‏קû‏ÿ‏תüÿÿÿÿÿ‎םÿ‎ק‏ÿÿ‏רüÿÿÿÿÿ‏û‏‏סק‎ÿ‏ûתÿÿÿÿÿ‎פ‏‎השÿ‎‏‎תÿ‏‏‏‏‎‎‎צעÛ‏ÿüÿש‏ÿÿ‏ÿü‎‏Ùûןû‏‎ÿש‏ÿÿ‏ÿ‏ÿÿם‎קÝ‎üÿק‏ÿÿÿÿü‎‏פüתןהת‏ש‏‏ÿפÿ‎‏‏פת‎םעשÿû‏ÿ‎קÿûû‏ץרûץתץ‏ü‎‏ÿםÿüü‏ש‎‎צסש‏‏‎‏‏קÿתתû‏‎üצ‏שÿÿüÿÿנÿüץ‏ü‎üק‎שÿÿקÿÿץÿתשÿÿüתûשüÿÿûÿÿץÿ‎ן‏‎üקÿת‎ÿÿüÿÿקÿÿרÿ‏ÿÿ‏ÿ‎ÿÿ‏ÿÿÿÿÿÿÿשÿÿûשüÿÿ‎ÿÿרÿÿÿÿקÿÿüת‎ÿÿתתתשÿÿ‎ÿ‎‎‎‎ÿÿÿÿÿÿÿÿÿ‏ÿÿ‏‏‏‏ÿÿ‏ÿÿÿüüüÿ‏ÿת‏ûûüÿÿ‏ÿÿ‎ûÿ‏‎‎‎‎‎‎üûÿ‏ÿ‏üר‏‏‎ÿ‎‎‎‎ת‏‏‏û‏üשÿ‏‎‏‎‏‎‎‎ÿ‏ÿ‏ü‎üÿ‏‎‏üûüü‏ÿÿÿÿ‏‎üÿ‎‎‏‎‏‏‎‎‏ÿ‏ÿÿ‏‎‎‎‎‏ת‎תת‎‏‏ÿ‏ÿ‏‎‏û‎û‎‎‎‎‏ÿ‏‏ÿÿ‏‏‏ûû‏‎ü‏‎û‎ÿ‏ÿÿ‏‏ÿ‏‏‏‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‏ÿ‏ÿÿÿÿÿÿÿÿÿÿ‏ÿ‏‎‏‏‎‏‏‏ÿ‏ÿÿÿ‎‏‏‎‎‏‎ü‎‏üÿ‏ÿÿ‏תû‏‏üü‎û‎‎‏ÿ‏ÿÿÿü‏‎קררûתûûü‏ü‏‏‎ûû‎‎שü‎ûûü‎ÿ‎ü‏‏‎‎‎‏‏ÿ‏‎ü‏ÿÿÿÿÿÿÿÿÿ‎תüתûתת‎‎ûüÿÿ‏‎ûûû‎קתררתûתרÿÿקר‏ûר‎קתררתקתרüÿ‎ר‏שר‎קתררתקüרר‎ûש‏שתûקתררתקûתרת‏רûצתûתûשתûü‎üתû‎ü‏רת‎תתüûüû‎‏‏‎ÿ‏ÿ‏ÿ‏ÿ‎‎‎‏ÿ‏ÿÿÿÿÿÿ‏‏‎‎‎‎‎‏ÿ‏ÿÿÿÿÿÿ‎‎‎üüüü‎ÿ‎‏ÿÿû‏ÿ‎‎üרûששת‏üü‏‎רת‏‎ת‎שüשש‎‏‎‎ÿ‏ü‎‎üüüתüתüû‎‎‎ÿÿüש‏üתüתקתתתüüü‏‏‎ש‏ûüüתüûתü‎ûü‏‏‎ü‎תûתףüפפüüûû‎‏‎û‏ûû‎û‎ûü‎üüû‎ÿ‏‏‏צתששûûתקתקק‎‏‎ש‎פשüûרûתûקתצû‎ü‎‏üü‎ÿû‎ÿÿ‎‎‎‏ÿÿ‏ÿ‎‎‎‎‏‎‏ÿ‏‏‎ÿÿÿÿÿüü‎‎ü‏ÿÿÿ‎‎ÿÿÿÿÿüû‎‎üû‎‏‎‎‏ÿÿÿÿÿûûüתתûû‏üü‎‏ÿ‏‏‏üü‎‏ü‎‎ÿ‏‎‏ÿÿÿÿÿûüüû‎ûû‏‏‎ÿÿÿÿÿÿרששקתררü‏ü‏‎‏üÿÿקרתüתüüü‏ü‎‏ÿÿÿÿתû‎‎‎‏‏‏ÿ‎‏ÿÿÿÿÿ‎‎üÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿ‎‏üÿü‎ÿÿÿ‎‏ÿÿÿÿÿüüü‎‎‏‏ÿÿ‎‏ÿÿÿÿÿû‏üû‏ûûÿÿÿ‏ÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿüüüüתüüתüûשü‏רששתרûûתûûüקתשûüקûûûûרקüררüשתררüûûתüüüü‎üüÿü‏ü‏‎‎‏ÿûûûÿ‏‏‎üûü‎û‎‏‏ÿ‏‏ûÿ‏ÿÿÿÿ‎ÿÿÿÿÿÿû‎תÿ‏ÿÿÿ‏üü‏ÿÿÿÿ‎‎שÿ‏‏ÿÿü‎ûÿÿÿÿÿ‎‏ûÿÿÿÿÿÿ‎ÿÿÿÿÿÿû‎ץ‎‎‎‏ÿ‎קüû‎ÿÿûרששü‏üüÿ‎ץצ‏‎üÿ‎‏ÿûÿ‏ÿÿÿרüפÿÿÿÿÿÿÿ‎ÿÿÿÿÿקü‏üÿÿÿÿ‎‎צÿ‏‏ÿ‏תרצףש‎ÿקüûת‎‏‎‎‏צûצתצת‎צ‎û‎‏‎‏ÿÿקתûרüÿÿüûûûÿü‏ÿÿûüררת‎ÿתûûû‎ü‎‎ÿקüûûתÿÿ‎ÿתÿÿ‎ÿÿÿ‏üÿûÿÿÿ‎ÿûüÿ‎ÿÿÿÿüüÿüÿÿ‎ÿתüÿüÿÿÿÿüüÿ‏ÿÿ‏ÿüתÿü‏ÿ‏‏‎‏‏‏‏‏ü‎רü‏ü‏‏‎ûû‎ûüûûûûץû‏ü‎‏ÿ‎û‎ûüüü‎ûקûüüüü‏‏û‎‏ü‎‎û‏צÿÿ‎‎ÿÿÿüüÿÿÿÿÿ‏ûÿ‎‎‎ÿÿÿûüÿÿÿÿÿ‏ûÿ‏üû‎ÿ‏שûÿÿÿÿ‏‏üÿ‏פû‏ÿ‏üüÿÿÿÿÿ‏תÿ‎ם‎‏ÿ‏ûûÿÿÿÿ‏‏‏ÿ‏ףüÿ‏‏‏ûÿÿÿÿÿ‏‏‏üקעÿ‏‎‏ûÿÿÿ‏ÿ‏‏‏סשטü‏‎‏תÿÿÿÿ‏‏‏‏ז‎ןעÿüÿש‏ÿÿ‏ÿ‎‏‏מ‎קטÿüÿר‏‏ÿÿ‏‏ü‏ר‎‎ןקüÿת‏‏ÿ‏ÿ‎‎‏רû‏סץû‏û‏‏ÿ‎ÿ‎ת‏‎û‏רםש‏‎‎‏ÿת‏üש‏‎‎üûףש‏‏üÿÿûÿ‎ש‏‎ת‏שüק‏‏‎‏ÿף‏ûפ‎‎ץü‎פת‏ÿ‎‏ÿתÿתף‎קץררתת‏‏ש‏ÿצ‏ûûÿץסצצ‏ûÿÿü‏ÿרÿÿüÿץףצצ‎üÿÿת‏ÿקÿÿÿÿןÿססûתÿÿש‏ÿשÿÿÿÿמÿןןקÿÿÿûû‏צÿ‏‏ÿשûשÿÿ‎ÿ‎ÿÿÿÿÿ‏‏ûק‏שרÿû‎‏üÿüüü‎‏‏ר‏‏רת‎‏‎û‎‎ûÿ‎‏ÿ‎‎‏שת‎ÿÿ‏ü‏ü‏‏ÿÿ‏‏‏‏üÿÿÿÿÿÿüÿ‏‏‏‏‏‏‏‏ÿÿÿÿÿÿü‏‏‏ÿ‎‏‏‎‏ÿÿ‏ÿÿ‎‎‎‎‎‏‏‏‎‏‎ÿÿÿ‏ÿ‎‎‏‏‎‏‎ü‏‏‏‏ÿ‏ÿÿ‏‎ÿûû‏‎‏‎‏‏‎‏ÿÿÿ‏‏ÿ‏û‏‏üû‏‏‏‏‏‏ÿ‏‎ÿÿ‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‏‎‏û‎‏‏‏‏ÿÿÿÿ‏‏‏‎‎‎üüüש‎‎‏ÿ‎‎ששש‎ü‏‎ü‏ûûÿ‏ÿ‏‏‎ת‎‎‎‏‎üü‎‏‏‏ÿ‏ÿ‎‎‏‎‎‎‎ûû‎û‏‎‏‏‏‏ü‏ÿ‏‏ÿ‎ü‏‏ÿ‏ÿÿÿ‏ÿÿ‎‎ûקתר‎‎ÿתת‏‏‎‎‏תûרקתשר‎תתש‏ÿש‏‏‎ûררûררתרתרתÿ‏ר‏‎‎üûüüü‎ü‎ü‎‏‏‏ÿ‎üüûûששûשüששû‏ü‏‎û‎תרתüûתûûתû‎üתשפûקתפרüשתררת‎üרתפûףרררתקüרשת‎‎û‎‎‎üûûת‏‎‎‏üÿÿÿ‏‎‎‎תûשüû‏‎‎‎‎ÿ‏‏‎üüקתרשü‎û‎‎ü‎ר‏‎‎üקüררû‎û‎‎ü‎ר‎‎üüקüûרת‎ü‎‎‏‏û‏üüûûûûרתüûת‎‏‏ü‎üüûûûûûתתûת‎‏‏‎‏üûûû‎שûüשûûת‏‏û‎üüûû‎üü‎üüüû‏ÿüÿתûקש‎ûשüûקשü‎ÿ‎‏תקצûûüûûשקץüü‎‎‏üשüüûüüÿשûשü‎ÿ‏ÿüשתüûü‎‎תûתת‏ÿÿÿûרûûתתüüקתררת‎‏ûתûûüתת‏‏תתûûüÿ‎ûûשüûûשÿ‏û‎שûüÿû‎üû‎ûüüÿ‏ü‎ÿ‎ÿÿÿÿûûüûüû‎‏ÿ‎‏ü‏ÿÿÿששûשרשûü‎üü‏û‎‎‏תתûûרשû‏‎ü‎‏‏ÿüÿצפüרקצûüüü‏‏‏ÿû‏תרüתûרü‏‏ü‏ÿÿÿÿÿ‎ü‎‎‎‏ÿÿÿ‎ÿÿÿÿÿÿת‎‎‎‎ü‎ÿÿ‎ÿÿÿÿÿÿתקüתשû‏ü‏‎‎ÿÿ‎ûÿ‎‏ü‏‏‏ÿÿÿ‎ÿÿÿÿÿÿ‎‏üû‏‏‏ÿÿ‏‏ÿÿÿ‏ÿ‎‎û‎‏‎ûÿ‏‎‏ÿÿ‎ÿÿ‎ÿüÿ‏‏‏‎‏‎‏ÿÿÿÿÿü‎û‎ü‏‎‏ü‏ÿÿÿ‏ûÿû‎û‎‎û‏‏‏‏‏üÿ‎‎ÿûûûû‏‏‎‏‏‏‎‏‎‏ÿûü‎üÿ‏ÿÿÿ‏‎ÿÿÿÿÿÿû‎üÿ‎‏ÿÿÿ‎‎ÿÿÿÿÿûûûÿ‏‏ÿÿÿ‏‏ÿÿÿÿÿüÿ‎ÿÿ‏ÿÿÿ‏‎ÿÿÿÿÿת‎שÿ‏‏ÿÿ‏‎ÿÿÿÿÿÿץüצ‎‏üÿÿ‎ûû‏ÿüÿ‎צקקÿ‏ÿÿÿ‎ü‎ÿÿÿÿÿÿÿüÿÿÿÿÿÿש‏ÿÿÿÿÿÿü‎ÿÿÿÿÿÿ‏שÿÿÿÿÿקüרÿÿÿÿÿנüûû‎רÿשÿÿ‎ÿÿÿÿÿ‏‎üפÿתÿרÿü‏ÿÿÿÿÿ‏ü‎ÿתÿÿÿ‏תüÿ‏ÿÿÿ‏ü‎ü‏‎ÿûÿü‎ÿ‏ÿÿÿÿü‎ÿÿûûûÿûÿÿ‎ÿÿÿ‏ü‎ÿ‏‏ÿÿÿü‏ÿ‏ÿÿÿÿ‎ü‎‎‎ÿûÿתÿÿü‏ÿÿÿ‎‎ÿÿ‏ÿÿ‎קü‎‏‏ü‎‎ûüü‎üüüÿתÿÿ‏ÿÿÿÿתÿÿÿ‏ÿÿûקש‏üûÿ‎‎û‎û‎‎üû‎ûû‎‎‎ÿ‏‏û‎‏‎‎‏‎ÿü‏ÿ‎‎ÿÿÿûÿÿÿ‏ÿ‏ÿ‎‏ÿש‎ÿÿÿתüÿÿÿÿÿÿ‏ÿÿשûÿÿ‏תüÿÿ‏ÿÿÿ‏ÿ‏צ‏ÿÿ‏üתÿÿÿÿÿÿ‏ÿ‏סתÿÿ‏üûÿ‏‏ÿÿ‏ÿ‏‏שû‏ÿ‏שûÿÿÿÿ‏‏‏ÿ‏‎ם‏‏‎צת‏ÿÿÿÿ‏‏‏ש‎קÿÿüשש‎ÿÿÿÿ‏‎‏ל‎רÿ‏‎‎ש‏‎ÿÿÿ‏‏‏עûû‎ÿûÿר‏‏ÿÿÿ‏ü‏קת‏םÿשÿף‎‏ÿÿ‏‏û‏צ‏üק‎רÿק‎‏ÿÿÿ‏ת‏ק‎‏ףסע‎û‎‏ÿ‏‏‏ר‏ת‎üקשק‏üû‏ÿ‏ÿ‎ü‏ûשûרüרü‏ף‏‏û‏‎û‏üûרקצק‎üק‏ÿüÿ‎û‏קצרר‎ûüüת‎ÿü‏üרûששףר‎üÿûû‎ÿû‏ûûûעתקששû‎‎ûצÿרÿ‎‏‏שÿûצûûÿÿרתÿשÿÿÿÿרÿÿûרüÿÿûûÿרÿ‏‏‏ת‎üÿÿ‎ÿÿÿÿÿÿÿü‏‏‎‏üûÿÿÿÿ‏ÿÿÿÿ‏‎ÿû‏‏üü‏‏ÿÿ‏ÿ‏ü‏‏ÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿ‏‏‏‏‎‏‏‎ÿÿÿÿÿÿ‎‏‏‏‏‏‏‏‏‏ÿÿ‏ÿÿû‎‎‏‏‏‎‏‏‏üÿ‏ÿÿÿ‏‏‏‏‎‏‏‏‎‏‏‏‏ÿ‏ÿ‎‎‏‎‎‏ü‏‏‏‏‏‏‎ÿÿÿ‎‏‎û‏‏ü‏‎‏ÿÿ‏ÿÿ‏‏ÿ‏‏ÿ‏‎‎‏‏‏‏ÿÿÿÿ‏ÿ‏‏ÿ‎‎‎‏‏ÿ‏ÿ‏ÿ‏ÿÿ‎‏‏û‎‎û‎‏‏ÿ‎‏‎‏ÿ‎‎‏ûü‎תû‎‏ÿ‎‏üüü‎‎‎‎ü‎ûû‏‏ÿ‎‎‎‎‎‎ûü‎ü‎‎ü‏‏‏‏‎‎ü‎ü‎üüתûüü‏‎‏‏‏‎û‎ûüת‎üר‎‎ÿת‏‏‏‎û‎û‎שקüû‎‎ÿתש‏ÿ‏‎‏קûרûûûר‏רתרÿÿ‏ש‏ת‎תü‎üüûתûתûÿ‏‏‏‎‏‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‎‎‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‎‏‎ÿ‎‎ÿÿÿü‏ÿÿÿÿÿ‎‎ûüתüü‏ûüר‏üû‏û‎‏‎üûשü‎ש‏‎‎ÿ‎‎‎‎‎‎קüרü‏û‎‎רü‎‏‎‎‎ûקüûר‎‎ü‎ûת‎‏û‎‎üû‎ûרת‎ü‎‎ü‏‎û‎‎üû‎ûûת‎üû‎‎‏‏ûüüûûûûûü‎üû‏‎‏‏‎üüûû‎ûûüûûû‎‏‏û‎ûüûû‎üü‎תûת‎‎‏‎‏ûüתü‎תü‎ûûתü‏ÿ‏‏תûששüûûüתתתת‎‏‏‏צתפûûüת‎שקרûû‎‏‏שûש‎üü‎‏ûתש‎‎ÿ‏ÿ‎üü‎‎‎‎‏ü‎ü‏ÿÿÿÿ‎‎‎ÿ‎‏‏‏‏ü‏‏ÿÿÿÿ‎üüüüû‏‏üתûü‎ÿÿü‎ü‎‎ü‎‏ÿ‏üûÿÿÿÿÿüûüûתûûüקüרûü‏ÿûüûüûûת‎‎ש‎üש‎‎‎‎ûתûרûרûüתüûרתÿ‎ûûתûûûûü‏üü‎ûüÿÿüקררשקררתûüתתüÿûûתצתûקשûü‎ת‎‎üÿÿ‎ûתüüתר‏ÿ‏ûû‏‏ÿÿÿצשüצרצû‎תרש‏‏ÿ‏‏קצûקתקר‎תûרûÿÿÿÿü‏‎‎ü‎‏‏‏‎‏ÿÿÿÿÿ‎‏‎‎üû‏ÿÿ‎‏ÿÿÿÿÿü‎üת‎תü‎‏‎üÿ‏‏‏ÿû‏üû‏ÿûÿ‎ÿ‎ÿÿÿ‎ÿü‎üÿÿÿûü‎‏ÿÿÿÿÿÿ‎ÿüÿ‏ÿÿÿÿÿÿÿÿÿÿÿü‎ü‏ÿ‏ÿ‏‎‏‏‏ÿÿÿÿü‎üÿ‏ÿÿÿ‏‏ÿÿÿÿÿÿû‎üÿ‏ÿÿÿÿ‏‏ÿÿÿÿÿררûûüû‏‏û‎‎‎‏ûûûתüüÿü‏ÿÿ‏‎ÿÿÿÿÿÿûÿ‎ÿÿ‏ÿÿÿ‎‏ÿÿÿÿÿשû‎ÿÿÿÿÿÿ‎‏ÿÿÿÿÿפץש‏ü‎ûÿûûûüÿüûÿףףףÿü‏ÿ‏‏üü‏ÿ‏ÿÿÿüקÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿûûüÿÿÿÿÿû‏‎ÿÿüüÿÿûüÿÿÿÿÿ‏‎ÿÿÿû‏ÿÿ‎üÿÿÿÿÿÿ‎‎ÿÿÿÿרÿû‎ÿ‏ÿÿÿÿüü‎ÿûÿ‏ÿ‎ûÿ‏ÿÿÿÿü‎‏ÿÿÿûÿûüÿüÿÿÿ‏ü‎ÿ‎üÿÿÿר‎ÿ‎ÿÿÿÿüÿÿ‏û‎‏ÿ‎ÿÿ‎‏ÿÿÿûüÿ‏‎‏‏ÿש‎ÿÿÿÿÿÿüüÿÿ‎ÿÿÿüÿÿ‎ÿÿÿÿüÿÿÿ‎ÿ‏‎üû‏‎‏ÿ‎üü‎‏‏ü‏‎üû‎‎üûÿ‏‏û‎û‏ûûûûûרûüû‏ÿ‎תü‏ü‎‏‏‏‏û‎קû‏ÿ‏ûüÿÿ‏ÿÿÿ‏‏‏ףüÿÿ‏ûüÿÿ‏ÿÿÿÿ‏‏ק‎‏ÿ‏תתÿÿ‏ÿ‏ÿ‏‎‏û‎‏ÿ‏רüÿÿ‏ÿÿ‏‏‏‏üצ‏ÿ‏üתÿÿ‏ÿÿ‏‎ÿü‏ןÿÿüשûÿÿ‏ÿÿ‏‎ÿצ‏פÿ‏‎‎ת‎ÿ‏ÿÿ‏üÿמ‎û‎‏û‏ת‎‎ÿÿ‎‏üÿףü‏צÿü‎ק‏‎‏‏‏‏û‏תü‏ןÿûÿצ‏‏ÿÿ‏‏ת‏ש‏‏פÿתÿש‎ÿ‏ÿÿ‏‎‎‎ü‎פûקÿûü‏ÿÿ‏‏ü‏‎ת‏תרק‏üü‏‏ÿÿ‏‏‏‏ת‎üףצÿ‏ü‏ÿÿÿ‎ü‎‏קûתקש‏ÿר‎‏ÿ‏‎‎ûûרש‎‎ש‏ÿתü‏‏‏‎‏‏שûשüקתÿÿר‎ÿ‎ÿ‎‎‏ר‎ץשûûÿ‏קתÿ‎‏ÿÿÿץÿקתÿשÿÿת‎ÿüÿÿÿÿצÿÿצ‏ÿÿÿû‎ÿתÿÿÿ‏‎‏‎ÿÿÿÿÿÿÿÿÿÿÿ‏‏‎ÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏ü‏‏üÿÿÿÿÿ‏‎ÿÿ‏‏‏‏‏‏üÿÿÿÿÿÿ‎ÿÿÿ‏ÿ‎‏‎üüÿ‏ÿÿÿ‎‏‏‏‏‏‎‏‏‎üÿ‏ÿÿÿ‎û‏ÿ‏‏‏‎‏‎‎ÿÿ‏‏ÿ‏ÿ‏‏‎‏‏‏‏‏‎ÿ‎‏ÿÿ‏‏ÿ‏‏‏‏‏‏‏‏‎ÿ‏ÿÿ‏‏ÿ‏‏‏‏ü‎‏‏üÿüüÿ‏‎ÿ‏‏‏‏‎û‏‏‏ÿÿÿÿ‏‏ÿ‏‏‏û‎‏‏‏‏‏‏ÿ‎‏‏ÿ‏‏‏ü‎‏û‏‏‏ÿÿ‏‏‏‏‏‏‏‎‎‏‏ü‎‏ÿ‏‏‏‏‏‎‎‎‎üüü‎‏‏ÿ‏‎‎‎‎‎‎üüûüü‎‏‏ÿ‎‏‎‎üû‎û‎üשûü‏‎‏‏‏‎‎‎ת‎ששüû‎üÿת‏‏‏‎‎‏ר‎רû‎üשüÿת‎‏ÿ‏‏‎‎‎‎ü‎‎‏‏‎‏‏‏‏ÿÿÿ‏‏‏ÿ‎ü‏ÿÿ‏ÿÿÿÿÿÿ‏‏‎‎‎ÿÿÿÿ‏ÿÿÿÿÿÿÿ‏‏‎ÿÿ‏ÿÿ‏ÿÿÿÿÿÿ‏‎‏ÿ‎‎ÿÿÿü‏ÿÿÿÿÿ‎‎‎‎‎ü‎ÿ‎‏‏‏ÿ‎‏‏‏‎‏ü‎‎ÿÿû‏ûûÿÿÿÿ‏‎‎ü‎‎ÿ‏‏‏‏ÿÿÿ‏ÿ‎‎üü‎üü‎ü‎üüתü‏ש‎‎üû‎ûü‎ûüûûüû‏ûüüתûüüüüûûûûü‎‏ûüüûû‎üû‎ûרûûü‎‏‎ûüתü‎üû‎ûקüüü‏‏‎üüתü‎üü‎צûקק‎‏ÿ‏תüûü‎‎‎‎צתצצ‏ÿ‎‏ûüûü‎üü‎ûשûüתÿ‏ÿקûרüüü‎‏ûתûûתÿ‏ÿתûû‎ü‎ÿ‏תüûûÿÿÿ‏ÿ‎‎‏‎ÿ‏ÿ‎‏‏‏ÿÿÿÿ‎‎‎‏‎‏ÿÿÿ‎‎‎ÿÿÿÿÿ‎ûÿ‎‎‏ÿ‎ü‎‏ÿÿÿÿüüü‎‎‎‏‏‎ü‏‎ÿÿÿÿÿü‎‎ü‎ÿÿû‎ûû‏ÿÿÿÿü‎‏‏‎ÿÿ‏‎‏‏ÿÿÿÿûûûûתûû‏ûüûûתûÿרüשתûתתûüתüתתתר‎רüûû‎ûû‎‏‎üû‏ÿÿÿ‎üתקûרשü‏ûתü‎‎‎‏‎תשקûשק‎‏‎ת‎ü‏ÿÿ‏ûץפצתצû‎רתשש‏‏ÿ‎üשûûשüû‏‎ü‎‎ÿÿÿÿûשûûתצתûûתûû‎ÿÿûûûûשüû‏‏‏û‎ÿÿÿÿ‏‎ü‎ûûûש‏ûüûûÿÿüûררüûüתûûשתששÿÿûÿ‎û‎ü‎‎ü‏ü‎ü‎‏ÿÿ‏ü‏üÿ‏‏ÿÿ‏‏‏‏ÿÿÿÿ‎ûû‏ü‏‏‏‎üÿ‎‏ÿÿÿתüü‎üû‏‏‎ü‎‎üüû‏üüüü‎ü‏‏‎‎‎‏‏ÿ‏ÿששûûתûû‏û‎ûû‏‎‎‏ûששüûשü‎üûüü‏ÿü‏שתûû‏üÿÿÿü‏ÿÿÿÿÿתרûüü‎ûÿüüü‎ÿÿÿÿקר‎‏ת‏ÿ‏‏‎‏‏ÿÿÿÿ‎û‎ÿתתÿÿÿ‏‏‏ÿÿÿÿעüתתÿשÿÿÿ‏‏ÿÿÿÿÿ‏û‎תÿÿüÿ‏‎‏ÿÿÿÿÿÿ‏‏ÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿû‎ÿ‏üÿü‎‎‏‏ÿÿשÿÿתüû‏ÿÿÿת‎תתÿף‏ûÿûüÿ‎ÿûÿ‏‎‎ÿ‎‏ûÿÿשûÿ‏‏ÿüÿü‎ÿûש‏‎ÿ‎‎‏‎ÿÿÿ‏û‎‎‏ÿÿ‏ÿתûÿ‏‏‏ÿÿü‎ÿÿûûÿÿÿûÿ‏ÿÿ‏ÿüüÿÿÿÿ‏‏‎‎ÿ‎‏‏‏‎üü‏‏ü‎‎ÿÿûÿÿÿÿÿÿüüÿÿÿÿ‏‎‎‎‏ü‎û‏ûתûûüüû‎‎üü‎שûÿü‎ש‎‏‏ûû‏ûûûûתû‏‏ûתûûüü‏ûûûûûקûû‏ûתûû‏‎‎‏‏‏רÿצ‏ÿÿ‏תüÿ‎‎ÿÿÿ‏ת‏ûûÿÿ‏שüÿÿÿÿÿ‎‎צ‏‏üÿÿ‏שתÿÿ‏ÿÿ‏‎‎‏‎ףÿÿ‏üû‏ÿÿÿÿÿ‎‎‏‎שÿÿ‎üû‏ÿ‏ÿÿÿüÿûûשÿÿüרר‎ÿÿÿÿ‏üÿעתûÿÿüסק‏ü‎ÿüÿûÿץ‏‏ÿÿתצר‎‎‏‏‏‏‏ÿר‏‎‏‏רüקü‏‏ÿ‎ûû‎קüûעüצ‏כûûûûû‎‏‏שüüתÿלÿפת‏‏ÿ‏‎‎‏ûüüצ‏ף‏ûם‎ÿÿ‏‏‏‏‏ûûשצקÿüץ‏‏ÿÿ‎‏‏‎üשתûץÿ‏ש‎ÿÿ‏‏ÿÿ‎‎תש‎ûÿÿûע‏ÿÿÿ‏ÿ‎ÿüששû‏ÿûקÿÿ‏ÿÿÿתÿ‎üÿûÿÿצת‏ÿÿשששתÿûü‏תÿûששü‎‎ÿÿÿשÿÿתûûÿ‏שû‏‏ÿ‏‏ÿ‎‏‎ÿÿÿÿÿÿÿÿÿÿ‏‎‏‎ü‏ÿÿÿ‏ÿÿÿüüü‏‏‏ü‏û‎‏‏‏ÿÿÿ‎ûü‏‏‏û‏‏‏‏ÿÿÿÿÿ‏û‏‏‏‏‏‏‏û‎ÿ‏‏ÿÿ‏‏ÿ‏‏‏‏‏‏‏üÿÿÿÿÿ‏‎ÿ‏‏‎‏‏‎‏‎ÿÿ‏‏ÿ‏‏ÿ‏‏ü‏‏‏‏‏‏ÿÿÿÿÿ‎ÿ‏‏‏‎‏‏‏‎‎ü‏ÿÿÿÿÿ‏‏‏‏‎‎‏‏‏‏ûÿÿÿ‏ÿ‏‏‏‏‎‏‏ÿüÿÿ‏ÿÿ‏ÿ‏‏‏‎‎‏‏‏‏ÿÿûÿÿ‏ü‏‏‏‎‎‏‏‏‏‏ÿÿü‏‏ÿ‏‏‏‏‎‏‎‏ÿ‏ÿÿ‏ÿ‏‏ü‏‎‎ü‎ûü‎‏ÿ‏‏ûûûü‎‎‎‎üü‎‏‏ÿ‏ÿü‎‏ûüü‎‎û‏ü‏‎‏‏ÿ‎‎‎רתש‎üü‎‎ÿ‎‎‏ÿ‎‎‏קששû‎ü‎‎ÿü‎‏‏‏‏‏‎‏ÿ‎‏‎‏ÿÿ‏ÿÿÿÿÿÿ‏‏ÿ‎ÿÿÿÿÿ‏ÿÿÿÿÿÿ‎‏‎ÿ‎ÿÿÿÿÿÿÿÿÿÿÿ‏‏ÿÿ‎‎ÿÿÿÿÿÿÿÿÿÿרששü‎‎ü‎‎‏‏‏ÿüü‏‎‎‏‎‎‎ÿÿÿ‏‏ÿÿÿÿÿ‏‏‏‏‏ÿ‏ÿÿÿÿÿÿÿÿÿ‎‎‎‎‎ÿ‏‏ÿ‏ÿÿÿÿÿÿ‎‎üü‎‎‎‏‏‏‎‏‏ת‏ת‎‎û‎‎‎ü‏‏‎‎ÿÿ‎‏‏ü‎üü‎üü‏‎ûü‏‏ü‏‎‎‎ר‎‎‎‎‎‎תת‏‏‏‏‏û‎צ‎‎ü‎‎שûרü‏‎ÿ‎üüû‎‎ü‎‏רתûת‎‏ÿ‏üüü‎‏‎‎‏‏ûûû‎‏ÿÿûüרüü‎‎‏תתר‎ûÿÿששששÿ‎‎‎‏שûשû‏ÿÿÿûûû‎‎‎‎ÿûüûû‏ÿÿ‏‎‎‎‏‎‏‏‏ÿ‎‏ÿÿÿÿÿ‎‎‎ÿ‎‏‏ÿ‏‎ü‏ÿÿÿÿû‎ûÿ‎‎‏ÿüü‏‏ÿÿÿÿüüü‏‎‏ÿ‏ÿתü‎‏ÿÿÿ‎‏ÿÿ‏ÿÿÿÿ‎ûÿÿÿÿÿ‎‎‎‏‎ÿÿÿû‏‎ÿÿÿÿÿûûüüüü‎‏צûשצûש‎שûûüüû‎‏ÿûüûשתûüûרתתûתתû‏קתרררûÿûשûת‎ûת‎‏üüüü‎‏ÿüצתרûûת‎‏ûû‎ûü‏ÿ‏û‎‎‎ü‎ÿÿÿ‎‏ÿÿÿÿÿ‎‏ü‏‎‎ÿÿÿü‏ÿÿÿÿÿÿ‎ü‏‏‎ÿÿÿüÿÿÿÿÿÿ‎ûשûüûüÿ‏תûÿÿ‎ÿÿûûûûüûû‎ûתשÿÿûÿÿüשרûתû‎üרתרûÿ‏ÿÿ‎‎üÿ‎û‎ÿû‎ûüÿÿÿÿûûûקתשûüרüûרת‏‎שתûûשתררüשתûשתû‎ûûûûû‏û‎ü‎üü‎‎ÿüûüüû‎‎‏‎‏‎‎‎üÿÿÿ‏üüüÿ‎‏ÿÿ‏‏‏ÿÿÿÿÿתתû‎ûûÿ‏‎‏‎‏‎ÿÿÿקרררüרûÿûüûûüû‏û‎ûü‏‎ÿÿÿÿ‎‏ÿÿÿÿÿûüüÿתÿÿÿ‏ü‏ÿÿÿÿÿûûûÿקשÿÿÿü‎ÿÿÿÿÿשע‎ת‎צÿÿÿ‎ûÿÿÿÿÿÿüüקüÿüÿÿüüÿÿÿÿÿÿû‎ÿÿÿûÿ‏ÿ‏ÿÿÿÿÿÿüüû‏ûÿתת‏‎ÿÿÿÿÿÿû‎ûüÿûÿ‏‏ÿûÿûפÿÿ‎‎ÿüûûüÿü‎üüÿû‎ÿûüû‎ÿÿüÿüüÿ‎‎תÿÿÿûÿ‏ÿûÿ‏ü‎ÿ‎ÿ‎‎ÿ‎ûÿÿ‏ÿüÿû‎ÿÿ‏‏üÿÿ‎‏‎‏‏‏‏û‏ÿ‏‏‏‏‎‏ת‎‎‎‎‎‎üü‎‏‎ü‎‎‏üû‎‏ûüûûûûüüüüÿÿ‎ÿÿÿÿÿÿüÿÿÿÿ‏‏ü‎ת‏ר‎‏ü‎ûû‏ü‎û‎ûûû‎ץûÿ‏ûüû‏‏û‎û‏‏‎‏שüÿÿ‏ת‎‏ÿÿÿÿ‎‎ת‏ü‎ÿÿ‏תûÿÿÿÿÿ‏‎‎ÿ‎‎ÿÿ‏תûÿÿÿÿÿü‎ש‏‏ר‏ÿ‏תתÿÿÿÿÿ‎üש‏‏ף‏ÿ‏רתÿÿÿÿÿÿ‎פ‎‏רÿÿ‎קתÿÿÿÿÿÿÿ‏ר‎‎ÿÿ‎ûû‏ÿÿÿÿÿ‏‎ףü‏ÿÿûקש‏‏‎‏‎‏ÿüצ‏‏‏‏ûûש‎‏‎‎‎ÿ‏ÿû‎‏רÿû‎פü‎‎ÿ‏‎ü‏תûüף‎צשףתûüüûüת‎üûüצ‎ס‎קק‎üüüûüü‎שüצ‎ץ‎תתת‎‏‎‏‎‏‏תûûüףÿüפüÿÿÿÿ‏‏‏‎ûüתשÿ‏שüÿÿ‎ÿü‏‎‏ûûצרÿÿצצÿÿÿ‏‎ûתüר‎שש‎ÿפû‎‏ü‏üûתüש‎‎תü‎שü‏ü‏‎‏‏קÿûûררÿûת‎‏üקÿÿÿרÿÿûüüÿÿתתÿüצÿ‏‏‎‏‏‏ÿÿÿÿÿÿÿÿÿ‎‎‏שüששÿ‏‏‏ÿÿצצצ‎‎‎ü‏üüü‏‏‏ÿÿûüÿ‏‏‏‎‏‎‎ü‏‏‏ÿÿ‎‏ÿ‏‏‏‏‏‏‎‏ÿ‏ÿÿÿ‏‏ÿ‎‏‏‎‏‏‏‎ÿÿ‏ÿÿ‏‎ÿ‏‏‏‏‏‏‏‎ÿü‏‏ÿ‏‏‏û‏‏‏‎‏‏‎‏‏ûÿÿ‏‏ÿ‏‏û‏‏‏‏‎ü‏‏ÿÿ‏ÿÿÿ‏ÿ‏‏‏‏ÿÿÿÿÿÿÿÿÿ‏‏‏‏‎‎‏‏‏ÿÿÿ‎ÿÿÿ‏‏‏‎‎‏‏‏‏ÿ‎ÿÿü‏ÿ‏‏‏‎‎‏‎‏‏‏ÿÿÿÿ‏û‎‏‏ü‎üüüû‏‏‏‏ûûû‎‎‏‏‎‎‎‎‏‎ÿ‏ÿ‎‎‎ü‎‎‎‎üü‎‎‏ÿüÿ‎ü‏ûû‎‎‎ü‎‏‎‎‏‎ÿ‎‎‏רשûüûü‏‏ÿ‎‏‏ü‎‏‏ררûüתüü‎ÿüü‏‏‏‏‏ÿ‏ÿ‎‎‎‏ÿÿ‏ÿÿÿÿÿÿ‏‏‏ÿ‏‎‏‏ÿ‏‏ÿÿÿÿÿשתüקתררûקûרÿ‏רש‎רשüרûששûר‎תשÿשש‏תתת‎‎‎‏‏‏‏‎‏‏ÿ‏ÿ‎‏ÿ‎‎‎‏ÿ‏‏ÿÿÿÿÿÿ‏‏‏‎‏‏ÿÿÿÿÿÿÿÿÿÿ‎‎‎‎‎‎ÿÿ‎‎‏ÿÿÿÿÿü‎‎‎‎‎‏ÿ‏‏‏ÿÿûûÿü‎ü‎‎‎‏‏ÿ‏‎ÿÿÿÿÿû‎û‎‏‎‎‏ÿü‏‎ÿ‎ÿÿש‎ת‎‎‎‎ÿ‎üû‏ÿÿÿÿצüû‎‏‎‎‏תתü‎‏‎ÿÿ‏‏‏‏‏‏ÿÿÿ‏‏ÿÿÿÿÿÿÿ‏‏‏‏‏ÿÿ‏‎ÿÿÿÿÿתüת‎‎‎‎‏תûתû‏ûÿüûûû‎ü‎‏ÿûתûû‎ûûû‏‎‎‏‏‏ÿÿÿ‏ûÿÿÿÿÿ‎‎ü‏‎ÿ‏ÿûü‏‎ÿÿÿÿ‎‎û‏‎‏ÿÿ‏üûûÿÿÿÿûûûÿ‎‎‏ÿû‏û‎üÿÿÿüüü‏‎‎‏ÿü‎‏üÿÿÿÿ‎‎‎‏‏‏ÿÿÿ‎ÿÿÿÿÿÿ‎‎‎‏‎‏ÿÿÿÿÿÿÿÿÿÿüüû‎ü‎ÿÿ‎üü‎ÿûûûüü‎‏ü‎ÿ‏‏û‎‏ÿ‎‎שûûü‎üü‎‏ûûר‏‏‎ÿשצצûüûû‎‏ץüרש‎û‎שתשü‎ûü‏ÿüü‎ת‏‏ÿ‎‎ûü‎‎‎ÿÿÿü‏ÿ‏ÿÿÿü‎ü‏‏‎‏ÿ‏ü‎ÿÿÿÿÿû‎û‏‎ü‏ÿ‏ü‎ÿÿÿÿÿשüשü‎‎‏ÿ‎ü‎ÿÿÿ‏ÿ‏‏üÿ‏ÿ‏ÿÿü‏ÿÿÿÿÿ‎ÿ‏ÿ‏ÿÿÿÿ‏‏ÿÿÿÿÿÿÿüÿ‏ÿ‏ÿü‎üÿÿÿÿÿÿÿÿÿÿÿÿÿÿü‏ÿÿÿÿÿûתשûüûû‎קüûרתתûרûûû‏ü‎ÿ‎‎‏‎ûüûÿüûûû‎‎‎‏‏üû‎‎üÿÿ‎üüüÿ‏ÿÿÿ‏‏‏ÿÿÿÿÿüûûÿ‏‎ÿÿ‏‏ûÿÿÿÿÿששתüת‎‎ÿ‎üü‎‏‎‎‎üüüÿû‏‏ÿüüü‏ÿÿÿ‏üרüÿ‎ÿÿÿÿ‎ÿÿÿÿÿÿüüû‎üü‏ÿÿ‏ü‎ÿÿÿÿתרûüפû‎ÿÿü‎ÿÿÿÿÿüüתü‏‏‎ÿ‎‏‏ÿÿÿÿÿתû‎ף‏פפÿü‏‏ÿÿÿÿÿÿ‏üÿ‏‏ÿÿÿÿ‏ÿÿÿÿÿÿ‏‏ÿÿÿÿûÿ‏‏ÿÿÿÿÿÿÿüÿ‎ÿ‎‎‏‎‎ÿ‏‎ÿû‏‏‏ÿ‏ÿÿÿÿ‎‎ÿÿתתתÿÿ‎ÿ‏ÿÿÿ‏‎‎‎ÿ‏‎ÿ‏ÿüÿ‎‏ÿ‏ÿûüÿÿüûÿÿÿûÿÿÿÿÿÿûüÿÿ‏‏‎‏ÿûÿÿÿÿÿÿûüÿÿ‎‏‏‏‏ת‎ת‎‎‎‏ûü‏‎‎‎‎‏ÿתÿûÿÿÿÿü‎ÿÿ‏‏ÿûüû‏ש‎ÿüûüû‏‏‎‏û‏‎üÿרÿÿÿ‏ת‎ÿ‎‏‏ÿ‏‎תÿüüÿÿ‏ש‎ÿÿÿÿÿ‎‎‎ÿ‏‏ÿÿ‏תüÿÿ‏ÿÿ‎ü‎‏‎üÿÿ‎תüÿÿÿÿÿûüü‏‎üÿÿ‎רשÿÿ‏ÿÿü‎‎ÿüצÿÿ‏קת‏ÿÿÿÿÿ‏ש‏ûתÿÿ‏רתÿÿÿÿÿÿÿרüÿתÿÿüûק‏ÿÿÿÿÿÿמצ‏üÿ‏ûûץ‏‏‎‏‏ÿÿפרÿ‏ÿÿרצקüÿ‎‏‏‏‏ûת‎‎‏ÿץהץû‏‎‏‎‏‏תש‎ÿצÿפםÛûü‎‏ü‏‎‏שüüû‏׳קחקû‎‏‏üû‎ûü‎ק‏ה‎פÙר‎‏ר‎‏‏üüûת‏פ‏ûחד‏ÿû‎‏ÿ‎‎תû‏עÿ‏קמÿÿû‎‏‏üüûשרת‏ÿשר‏ÿ‏ûÿ‎üÿüתüתÿÿשק‏‏פû‏ûû‎ûû‎ת‏‏עש‏‏ףÿÿÿûÿÿ‏תתÿÿשûÿÿ‎ÿÿÿתÿÿüÿûÿÿשûÿÿת‎‏‏û‏‎ÿÿÿ‏‏ÿÿÿÿÿ‏‎‏‎‏üüÿ‏‏‏ÿÿÿÿÿ‏‏‏‎‏‏‏‎‏‏‏ÿÿÿüÿ‏‏‏ü‏‎‎‏‎‎ÿÿÿÿ‎ÿ‏ÿ‏‏‏‏‏ÿÿÿÿÿÿÿ‏ÿ‎‎‏‎‎‎ü‎ÿ‏ü‏‎‏‎‎ü‎ת‎‎‎‎‎‎û‎ÿÿ‎‎‎‏û‏‏‏‏‏‎‎‏ûÿÿÿ‏ÿû‏‏‏‏‏‏‏üÿÿÿÿÿ‏ÿ‏‏‏‏‏‏‏‏‏ÿ‏üÿÿ‏ÿ‏ÿÿ‏‏ÿ‏‏ÿÿÿÿÿÿÿÿ‏‏‏‎‎‎‎‏‏‏‏ÿ‎‎ûÿ‏‏‏‎‎‎‎‎‎‏‏‏‏ש‎ü‎‎‏û‎‏ûü‎‎ü‎‏‎ü‎‎‎‎‎‎‎ûüü‏ü‎ÿûû‏‎ü‎‎‎‎‎üü‏ÿüÿ‏‎‏‎ü‎‎‎‎‎‎‏‎ÿü‎ü‎‏‎שü‎ת‎‏‎ÿ‎‏‏‎‏‎‏üשûüתש‏‎ÿ‎ü‏‎‎‏‏‎ûררתר‏‏ÿתü‏‏‏‏‎תûרקתרש‏üתש‏‏‎‏‏üששקüררתרתר‏‏‏ש‏‎‎‎‎‎‎‎‎‎‏‎‏ÿÿ‏ÿ‎‎‎‎שûûüתü‎ûüÿ‎û‎û‎ûüר‎ü‎‎ûûü‎‎ûüû‎ק‎ûû‏û‎ü‏üÿ‏‎üûüû‎‎רüüüüû‏‏û‎ü‎ü‎‎‎‏û‎‏‏‏‏ÿתÿüüü‏‏‎‏‏‏ü‎ÿÿÿ‏ÿת‎û‎‏‎‎‏‏‎û‏ÿÿ‎ÿתתü‎‏‎‏ÿ‎‎‏ÿÿÿÿÿ‎û‎‏‏‎‏ÿÿ‏ÿÿÿÿÿÿ‎‎‎‏‏‏ÿÿÿ‎ÿÿÿÿÿÿתתת‏‏‎‎‏‎ûת‎ÿ‎ÿ‎ü‎‎‏‏‏‏ÿ‎ü‎ÿÿÿ‏ÿ‎‎ûÿ‏‏‏ÿÿ‏‎ÿÿÿÿÿü‎‏‏‏‏‏ÿ‎‏‏ÿÿÿÿÿü‎û‏‏‏‏ÿ‏‎‏‎ÿÿÿÿû‎üÿ‏‏‏ÿÿ‏‏ÿ‏ÿÿÿ‎‎‎ÿ‏‏‏ÿÿ‏ÿÿÿÿÿ‏קרר‏üû‏ÿÿ‎‏‎‏‏ÿ‏‎‏‎ÿ‏ÿÿÿÿ‏‏ÿÿÿÿÿ‏‏ÿ‏‏ÿÿÿÿÿ‏ÿÿÿÿÿ‎‏‎ÿ‎‏ÿÿÿ‏‏ÿÿÿÿÿ‎‎û‏‎‏‏ÿû‎‏ÿÿûÿÿü‎‎‏‎‎‏ÿ‎üüûÿ‎ÿÿüû‎‏ü‎ÿÿüüû‏ü‎ÿÿûûü‏ûû‏ÿתüûû‎‎‏‏קרתקקצ‎‏קûûרתû‏רתûûתüרûÿ‎û‎ûü‏ÿ‏ûûûû‏‎‏ÿÿü‎ÿÿÿÿÿרשû‎ü‎û‏‏üûÿÿÿÿÿûûû‏‏ÿÿÿÿü‏ÿÿÿÿÿ‏‏üÿ‏ÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿüÿÿÿÿÿÿ‏‎‏ÿ‏ÿÿÿ‏‎ûÿÿÿÿÿüûû‏‎‎ÿÿקüûûÿû‏ûûûû‎ü‏‎ÿû‎‎רüüûûüüüÿ‎‏ÿÿ‏‏‎‏üÿÿ‏‎‎‎ÿ‏‏ÿÿ‏‏ÿ‏ÿÿÿÿüüüÿ‎‎ÿÿ‎‏‏‏ÿÿÿ‎üשü‎ûüÿÿ‏‏‎‏‏ÿÿÿûûûüתûÿÿ‏‏‎‎ÿÿÿÿûתשûûתüÿ‎ü‎‏ÿÿÿÿûüüÿüתÿÿÿü‏ÿÿÿÿÿûûûüתûÿÿÿרûÿÿÿÿÿצשûשüר‏ÿûרצÿÿÿÿÿ‏תüû‏‎‏ÿתÿתÿÿÿÿÿÿÿüÿ‎ÿ‏ÿ‏ÿÿ‏ÿÿÿÿÿÿ‎‎‎‏ÿ‎ÿÿ‎ûüÿÿÿÿÿüÿ‏ÿ‎üÿ‏ÿÿûת‎ÿÿÿ‎‎ÿÿ‎ÿÿ‏‎ÿÿ‏‏‏ÿÿüÿ‏‏ÿ‏‏üüÿÿ‎ÿü‏‏‎‏‏ÿ‎‎ÿüü‏‏‏ü‎ÿÿüÿ‏ÿÿÿÿü‎ÿÿ‎‎ÿÿÿüÿÿÿÿ‏ÿûÿÿÿÿüÿÿÿüÿתÿÿÿÿûûÿÿ‏‏ÿûûתûק‎‎‏‎ûû‏‏ûû‎ûûש‏תüû‏üתû‏‏û‎‎‏‎שÿ‎‎ÿÿÿû‎ÿÿÿ‏ÿ‏‎ü‏‎‎ÿÿ‏û‎ÿÿÿÿÿ‏‎ü‏‏‎ÿÿ‏ü‎ÿÿÿ‏ÿ‏‏שÿ‏תÿÿ‏תûÿÿÿÿÿ‎ûûÿ‎צÿÿ‎שûÿÿÿ‏ÿ‎ü‎ÿ‎ש‏ÿ‏שש‏ÿÿÿÿÿÿü‎‎‏ÿÿ‎שש‏ÿÿÿÿüüüש‏‏üÿûצש‏‏ÿÿÿÿÿץץ‏ÿÿ‏שפתÿ‏ÿ‏ÿ‎ÿûר‎ÿÿÿתתרüÿÿÿÿü‏Ûûüÿ‏‏תםקרü‎‏‏ÿÿםüüÿûÿש‏םü‏ÿÿÿÿÿשÿüÿצÿי‏סûûÿÿ‏ÿÿÿÿ‏‎תÿפÿשם‎ÿÿ‏‏ÿÿ‏‏üרÿןÿתקםüÿÛ‎ÿÿ‎‏üüÿקÿüףתתÿט‎ÿÿ‎‏ת‎‎קÿ‎נû‎ÿםüû‏ûÿתûûשÿÿרüü‏üûû‏û‏‎‏רש‏ÿתש‏ÿקüüüתÿÿ‏תרÿÿשק‏ÿüÿÿÿûÿÿ‎‏üÿÿרץÿÿ‏‎ü‎ש‎ûÿÿ‏‎‏ÿÿÿÿÿ‎‏‎ü‎‎ûÿ‎‏‎ÿÿÿÿÿ‎‎‏‎‏‎üü‎‏‏ÿÿÿÿÿ‎ÿÿ‎‏‏‎ÿ‎‏ÿÿÿÿÿÿ‎‏‎‏‏‏‎‏ÿ‏‏ÿÿÿ‏ÿ‎ü‎‎‏‎‎‎‏‏‎‎‏‎‎‎ת‎û‏‏‏‏‏‏‎‏‏ÿ‏‏‏‎‎‎‏ü‎‏‏‏ÿ‎‏‏ÿ‏ÿ‏‏ÿ‏‏‏ÿ‏ÿÿÿÿÿÿÿÿ‎‏‏ת‎‎‎‎‏‏‎ü‏‏‎‎‏‏‏‎‎‎û‎‎‏‏ÿ‎ת‎û‎‏‏‎‎‎‎û‎û‏‏‏ÿ‎‎‎‎üû‎‏ûü‎‎ר‏‏ûר‎‎‎ü‎‎‎ûüק‎ü‎ÿ‎‎‎‎‎‎‎‎‎‏üü‏‎רÿ‎‎‏üü‎‏‎‎‎‏ü‏‏üת‏‎‎ü‎‎‏‎‎‎‏‎‎ÿ‎‎‎‎üûü‎‎ת‎‏‎ÿ‏‏‏‎‏‏ûû‎û‎תש‏‏ÿû‎‎‎‏‏‏קûשרüש‎‏ÿüת‎‏ÿ‏‏קתרר‎ûש‏תתûÿ‏‏‏‏‎ÿ‏ÿ‏ÿ‏ÿÿ‏ÿÿÿÿÿÿ‏ÿÿÿ‎‎ÿ‏ÿ‎‏ÿÿÿÿÿ‎‏‏‏û‎‏ÿ‎‏‏‏ÿ‎ÿ‏‎‎üûüר‎‏üüûûüû‏û‎‎‎ר‎üü‏ü‎ü‏‎‎‏‏üüü‎‎‎ש‎û‏‎‎ÿ‏‏‏ü‎‎‎‎‎‎û‎‎‏‎‎‏ÿ‎üüü‎‏‎‏‏ÿû‏ü‏ÿÿÿûûû‎‏‎‏ÿÿ‎û‏ÿÿ‎ÿüûü‎ü‎‏ÿü‎ÿÿ‏ÿÿÿü‎‎‏ü‎‏ÿÿ‏‏‏ÿÿÿÿשûשת‎ש‎ÿ‎ûûÿ‎ÿÿ‎ü‏‏‎‏‏ÿÿÿû‏ÿÿÿÿÿ‏‎‎‏‏‏ÿÿÿÿûÿÿÿÿÿû‏‎‏‏‏‏ÿûüÿÿÿÿÿÿ‎‎‎‏‏ÿ‏ÿÿ‏ûûÿÿÿÿ‎‏ÿ‏‏ÿÿÿÿ‏ÿÿÿÿÿÿüü‎‏‏‏‏ÿÿ‏‏üÿÿÿ‏‎‏ÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿ‏ÿ‎‏‏‏ÿÿÿ‏ÿÿÿÿÿÿ‎שûû‎û‏ÿû‎üÿÿûü‎ü‎ש‎‎‎‎ÿ‎‎‏‎ÿ‎‎‎üüû‏‎‎ü‎‎ûü‎‎‎üÿקûש‎ü‎ÿüûüשü‎‎רÿü‎ü‏‎‎ÿÿ‎‎‎ÿÿÿ‎ÿÿÿ‎ÿ‏‏ÿÿÿ‏ÿÿÿÿÿÿü‎ü‏‎‎‏ÿ‏‎‎ÿ‏ÿÿÿתרתרתר‎‏קûûûüקûשקררקתרש‎תקתרüתüרתשש‎û‎‎‏‎ûש‏‎‏ÿ‎ûשû‎ûû‏ÿûüû‏ÿÿÿÿקררûüש‏ÿûûûûÿÿÿÿשתשתûü‎ÿ‎ûû‎‎ÿÿÿÿ‎ûÿÿÿÿÿÿ‎ÿÿÿÿÿÿüÿüÿ‏ÿÿÿÿ‏‏ÿÿÿÿÿÿüÿÿ‏ÿÿÿÿ‎‎ÿÿÿÿÿüû‎‏ü‏ÿüתûûûüûüûûûת‏üûÿÿûüûûüûÿרûתûûüû‏‏û‎û‎ü‎‏‎‎üüÿü‏ÿÿ‎ת‏‎ÿÿÿÿüûü‏ü‎ÿÿ‏üר‎ÿÿÿÿûûû‎üûÿÿק‏û‎‏ÿÿÿüüü‎שü‏ÿ‎‏ûש‏ÿÿÿ‎ûû‏‎üÿÿÿûÿÿüÿÿÿûûצ‎üü‏ÿÿüשÿÿÿÿÿûקצüûר‏ÿשüûÿÿÿÿÿü‏üשû‎‏ÿüÿ‏‎ÿÿÿÿ‎ÿû‎‎תתÿÿÿ‏‏‎ÿÿÿûÿüת‏ÿ‎ÿÿ‏‏ÿ‏ÿÿת‎ÿüÿ‏ÿת‎‏‏‎ÿÿÿûתûÿûÿ‏ÿ‏ûÿ‏‎üÿÿÿü‎ÿûÿÿ‏ÿ‏‏‎‎ÿÿÿ‏ÿתüüü‎üü‎‎ü‎ü‎üüüü‏üÿûÿÿÿÿüüÿÿÿÿÿת‏‎‎û‏‏‏ÿûü‏‏‏‎‏ü‎û‏ת‎‎‎‏תü‏‏‎‎‎שûûûש‏‎ü‎תû‏ü‎û‏û‎ûÿüÿÿÿÿû‎ÿÿÿ‏ÿש‏שÿ‏‎ÿÿ‏ü‎ÿÿÿÿÿû‏שÿ‏‏ÿÿ‏ü‎ÿÿÿÿÿק‏רÿ‏üÿÿ‏שüÿÿÿ‏ÿת‏û‏ü‎ÿÿüרûÿÿÿÿÿץ‎צÿüרÿÿûשûüÿÿ‏ÿש‏קÿ‎תÿÿ‎רשû‎ÿÿÿע‎תû‏ûÿÿ‏ץש‎üÿÿ‏קûûü‏üûÿרףץ‎ÿÿÿ‏ל‏ûק‎‏‎‎קץעש‏ÿ‏‏פ‎ûש‏‏ÿÿצתסû‎ÿÿÿÜÿלû‎ÿÿÿעשץüüÿÿÿםÿÿתÿ‎ÿÿסףפשÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿקûÿÿÿÿÿÿÿÿÿüתÿפÿûררגÿס‏‎‏‎ÿüûÿךÿתצףזתש‏‎‏‎‏‎ûÿשÿ‏צצלצפ‏‎ÿ‎ü‎ת‏שÿÿלרףÿת‎û‏üüûûתש‎ÿקרעÿüüüüûÿûüüשÿ‎קנקÿקÿÿÿתÿÿ‎‏תÿÿצץצÿת‎‏‎‎‎‎ÿÿÿ‏‎ÿÿÿÿÿ‎‎‏‏‏‎ÿÿ‏‎‏ÿÿÿÿÿ‎‏‏‎‏‏‏ÿ‎‏‎ÿÿÿÿÿÿ‏‎‏ÿ‏ÿÿ‏ÿ‏ÿÿÿÿÿüü‎‎‏‏‎‏‏‏‏‎‏‏‏‏‎‏‎‏‏‏‎‏‏û‎‏‎‎‎‏ûû‏‏‏‏‎‏ÿ‏ûÿÿÿÿÿ‏‏‏‏‏‏‏ÿת‏‏ÿ‏ÿ‏ÿ‏ÿ‏ÿ‏ÿÿÿÿÿÿ‏ÿÿÿÿ‏‏‎‏‎û‏‏‏ÿÿÿüÿÿ‏‏‏‏ש‎‏‎‎‎‏‎ÿ‎תתü‎‏‏‎‎‏ש‎üüü‏ÿü‏üת‎ûü‎‏ûרûüשû‏ûûüü‎‎‎‎‎‎‎ת‏üüÿ‎‏‎‎‏‏‏‎‎‏‏‏ÿÿ‏ÿ‏‎‏‎‎‏‏‏‎‏‏ÿÿÿÿ‏ÿÿûü‎ü‏ü‎‎‏‏‏ÿ‏‎ü‏üûüü‏üü‏‏ÿ‏ÿ‏‏ü‎‎ûüת‎üû‏‏ÿû‏‏‏‎‏‏ררûû‎û‏‏ÿûת‏‏‎‏‏שששüüü‏‏ûûûÿÿ‏‏‏‎‏‏ÿ‎‎ÿÿÿ‏ÿÿÿÿÿÿ‎‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‎‏ÿ‏‎ÿÿÿ‏ÿÿÿÿÿÿ‎‎‎‎‎‏‏‏‎‎‎‏‏‎‎‎‎‎‏‎‎ÿÿÿÿ‎ÿÿÿÿÿÿ‎‎ü‏‏‎ÿÿ‏‏ü‏‏ÿÿÿ‎ü‎‎‏‎‎ÿü‏ÿ‏‏‏ÿ‏üüü‏‏‎‏ÿÿü‏‎ÿÿÿÿüû‎‎ü‎‏‏‏ÿûÿ‎ÿÿÿ‎‎‎‏‎‎‏ÿ‏‏ÿÿÿÿÿÿüûת‎‏û‏ÿÿ‎ÿ‎ÿÿ‏ÿûûû‎‏‏‏ÿÿ‏‏ÿÿÿÿ‏ûûû‏ü‏‏ÿ‏ü‏ÿÿÿÿÿ‎‎‏‏‏‏‏ÿÿ‏ÿÿÿÿÿÿ‎ûûÿ‏‏‏ÿÿ‏ÿÿÿÿÿÿ‎‎‏‏‏‏ÿÿÿ‏‏ÿÿÿÿÿ‎ü‎‏‎‏‏ÿÿ‏‏ÿÿÿÿü‎ü‎ÿ‎‎‏ÿÿ‏ÿÿÿ‎ÿÿ‎‎‎‏‏‏‏ÿÿ‏ÿÿÿÿ‎‎û‎‎‏תûü‏ÿ‏‏ÿÿ‏‏‏û‎üûûר‏‎‏‎‎ÿÿ‎ûÿקüûקüשûÿ‎‎‏‏ÿ‏ÿÿ‎‎‎‎‏‏ûÿÿ‏‏ÿÿÿÿÿ‎ÿÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿ‎‎üÿ‎‎‏‏ÿ‏‏ÿÿÿÿÿ‎‏‎ÿ‎‏ÿÿÿ‏‏ÿÿ‏ÿÿ‎ÿü‏‏‏ÿÿÿ‏‏ÿÿÿÿÿü‎‎ÿ‏‎ÿÿÿ‎‏ÿÿÿÿÿûתרüüû‏ÿתû‎ûÿû‏‏קתרûתû‎ÿ‏שûûüûÿûûüû‎תû‏ÿ‏תûÿ‏ÿÿÿûü‎‏üüÿÿ‏‎ûÿÿÿÿÿûûûü‎ûÿÿûü‎‏ÿÿÿÿקûûû‏üüÿ‎üûû‏ÿÿÿ‎üüÿÿÿÿÿÿ‎ÿÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿüûüÿ‏ÿÿÿ‎‎‏ÿÿÿÿÿüûûüüû‏ÿתתûשüקûûûûüüüü‎ÿûüשûûüüüûüצ‎û‎‎‏שü‎ü‎üÿ‏ûüû‏‎‎ÿÿ‏ü‏ûÿÿÿÿûûת‎üüÿÿ‎üû‏ü‏ÿÿרûü‎ûתÿÿû‏û‏‏ÿÿ‏קררûüû‏ÿûü‎û‏‏ÿרצûû‎üûÿÿÿ‏‏ÿÿÿÿÿתÿüüü‏ÿÿÿÿÿÿÿÿÿÿ‎ÿüÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿûÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‎ÿü‏ÿÿûÿÿÿÿÿÿתÿ‏‏ÿûÿ‏ÿ‏üÿ‏‎ÿÿתÿÿ‎ÿû‏‏‏‏‏ÿ‏ÿÿÿüÿÿ‏‏ûÿ‏ÿ‏‎‏‏‎ÿÿü‎ÿü‏û‎‎üü‎ü‎üü‎üüü‏‎û‎ת‎‎‎‎ûü‎‎ü‎‎û‎üûשûû‎‎û‎ûü‎‎‎üûתûת‎ûü‎ûü‏ü‎‎‎ûüü‎‎üü‎‎תû‏‏‎‎‏‏‏תÿ‏‎ÿ‏‏תûÿÿ‏ÿÿû‏ûÿ‏‏ÿÿÿûüÿÿ‏ÿÿ‎‏ת‏‏‎ÿÿ‏תüÿÿ‏‏ÿת‏ר‏‏ûÿÿ‏ת‎ÿÿ‏ÿÿ‎‏קÿ‎קÿÿ‎תûÿÿ‏ÿÿש‏צÿ‎תÿÿüûת‏ÿ‏ÿÿü‎שÿÿ‎ÿÿ‎רתû‎‏ÿüק‏פ‎‎‏‏ÿ‎ץק‎ü‏‏ûûüצת‎‏‏ÿקקע‏‏‏ÿ‏פÿתק‎ÿÿÿפקקûÿÿÿÿûüפשüÿÿÿצףשץüÿÿÿךßתü‎‎ÿÿרנפקקÿÿûÿןÿüÿÿÿÿקתצûüÿÿÿÿÿÿÿÿÿ‏ÿüÿשÿÿÿÿÿÿÿÿÿÿ‎רÿןÿלצש‏ÿüÿÿÿ‏ÿ‎תÿי‎צןûיÞשÿ‏ÿ‏ÿûשûף‏שיתרטרÿ‎ÿ‎ÿûüÿץÿûפץףםû‏‏‏ü‎‏‎ÿקÿ‎שעûüפ‏‏‎üü‎ü‎רÿ‏רמקûר‎‏‏תÿû‏üצÿÿצק‎ÿשÿÿÿûÿÿ‏שûÿÿצרשÿש‎‏‏ü‏‏ÿÿ‏‏üÿÿÿÿÿ‏‎‎‎‏‏ÿÿ‎ü‏ÿÿÿÿÿ‏‏‎‎‏‏‎ÿüÿûÿÿÿÿÿ‏‏‏‏‏‏‎ÿû‏‏ÿÿÿÿÿ‎ü‎‎‏‏‎‎‏‏‏ûÿ‏‏‏‏‏ת‏‎‏‎‏ÿ‎‏‏üÿ‎‎‎û‏‏ü‏‏‏ÿ‎‏ÿ‎ÿÿÿ‎‏ÿ‏‎û‏‏‎‎‏ÿ‏ÿÿ‏‏‏‏‎‏ÿ‏ÿ‏‏‏ÿÿÿÿÿü‏‏‎‎‏û‏‏‏üÿ‎‏‏ת‏‏‏‎‎‏‏ûû‏ü‏‏ûשüקרר‎‎‏ü‎ûü‎‎ÿ‎û‎üüü‎‎‎‎‎û‎ûûÿ‎ü‏‏‏ÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿ‏‏‏ÿ‎‏‏‏ÿÿ‎‎‎‏ÿ‏‎‎‏‏‎‎‏‏üÿ‏‏‎ת‏‎‎‎‎‏‎‎‏‏ü‎ÿ‏‎‎‎‎üûü‎‎û‎‏ÿ‎ÿû‎ûû‎רûש‎‎û‏‏ÿûüû‏‎‎‎ûששûת‎‏‏‏üûÿüü‏‏‎‎‎‏‎‎‏ÿÿ‏ÿÿ‏ÿÿÿûû‎ûüû‏‏ÿü‏ÿÿ‏ÿ‏‎‏üÿÿ‎‏ÿÿ‏ÿÿÿÿÿÿ‎‏‏ÿÿ‎ÿÿÿ‏‏ÿÿÿÿÿ‎‎‎‎‏‎‏‎ûתü‎ÿ‎‎‏‎‎‎‎ÿÿÿÿ‏‎ת‏ÿÿÿÿ‎‎‎ÿ‏ÿÿÿת‏‎‏‏ÿÿÿü‎‎ÿ‏‎‎ÿ‎‏ÿת‏ÿÿÿתתת‎‎‎ÿÿÿ‎‏üû‏ÿ‏ûü‎‎ü‎‏‏ÿ‎‏ÿ‎ÿÿ‎‎‎ÿ‏‏‏‏ÿÿÿÿÿÿÿÿÿקששששתû‎‎û‎‎‏‎‎üûû‎‏ü‎‏ÿÿ‏‏ÿÿ‏ÿÿששש‏‎‎‏ÿÿ‏‏ÿÿÿÿÿ‎‎‏‏‏‏ÿÿÿÿÿÿÿÿÿÿÿÿ‏‏‏ÿÿÿÿÿÿÿÿÿÿÿ‎‎‎‏‏û‏ÿÿÿÿÿÿÿÿÿÿ‏‏‏‏ÿÿÿÿÿÿÿÿÿÿÿ‎‎‎‏‎üüÿÿ‏ÿÿÿÿ‏ÿû‎‎û‎û‏üÿ‏‎ÿÿû‏ÿüûüû‎‎û‏ÿü‎ÿÿ‏‏ÿ‎‏‏ÿ‏‏ÿÿÿÿÿÿÿÿÿÿ‎û‎‏‎‏ÿ‏‏‏‏ÿÿÿÿÿü‎‎‏‎‎ÿÿÿ‏‏‏ÿ‏ÿÿ‎ü‎ÿü‏ÿÿÿ‎ÿÿÿÿÿÿ‎‎‎ÿ‏‏ÿÿÿ‎‏ÿÿÿÿÿûûûû‎‎ÿÿÿüûÿÿÿûÿûüû‎‎‎ûÿûתûÿÿ‎‎‎‎‎‎ÿ‏ÿÿÿÿ‏üÿÿÿÿÿרüû‎ü‎ÿ‏שûüü‎‏üÿקרק‎üû‏ÿûתששüûûû‎‎û‏‏‏ÿÿÿ‎‏ÿÿÿÿÿ‎û‎ÿüÿÿÿÿü‎ÿÿÿÿÿûûû‏üûÿÿ‎üûÿÿÿÿÿüשü‎‎‎ÿÿ‎ü‎‏ÿÿÿÿ‏ü‎ÿÿÿÿÿÿü‏ÿÿÿÿÿüÿ‎ÿÿÿÿÿÿü‎ÿÿÿÿÿ‎üüÿ‎ÿÿÿÿ‎üÿÿÿÿÿשüר‏ü‎ÿüקתרûüûרû‎üüÿ‏‏ÿÿûûûû‏‏‏‏קüüÿ‎‏ÿÿû‎‎ûüÿÿ‏תüû‏ת‎‏ÿ‎‎‎ûü‏ÿ‏‏ÿüÿÿ‏ÿÿÿ‏ÿÿÿÿÿÿ‎‎ÿÿ‏‎ÿÿÿ‏‏ÿÿÿÿÿץצצûûû‏ÿû‎ת‏‏קÿ‎צףûûתשû‏ûü‎û‏ûÿû‏üüÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‏ÿüûÿ‎ÿÿû‏ÿÿÿÿÿÿ‏ÿü‏‏ÿ‏ÿÿÿ‏ÿÿ‎ÿÿ‏ÿûü‏ÿûÿÿÿ‏ÿÿ‏תÿ‏‏תÿÿÿ‏ÿ‏ÿ‏ûÿ‏תÿ‏ÿûÿÿ‏üÿÿ‏‎ÿÿÿüÿ‏‎ûÿüÿ‏‏‎‏‎ÿÿ‏ÿÿ‏‎û‏ü‏‏ü‎‎‎‏‏‎‏‏‏ÿû‏ûÿÿ‏‏‎‎‏‏‏‎‏‎‏ת‎ת‏ü‏‎üüüü‎‏ü‎‏ת‏‎‏‏‎‎üü‏‎‎‎‏‎‏ü‏‏‏‏‏‎תü‏‏‏‏‏‎‏תÿ‏‎ÿÿÿשûÿÿÿÿÿ‎‏üÿ‏‏ÿÿ‏ת‎ÿÿÿ‏ÿü‏תÿ‎‎ÿÿ‏û‎ÿÿÿÿÿûûתÿü‎ÿÿ‏û‎ÿÿÿÿÿ‎‏שÿÿשÿÿ‏û‎‏ÿÿ‏ÿ‎ÿתÿÿûÿÿ‎רûÿÿÿÿÿר‎פÿ‏ûÿÿûצûûÿüÿ‎צûס‎‏‎ÿÿ‎קקûüû‏û‎תûÿÿÿÿÿûץתÿÿÿÿÿÿסףת‏‏ÿÿ‎נףÿÿÿÿÿשץפת‎ÿÿÿמךחשÿüüü‎ןשüי‏ÿÿיףחף‎‏ÿשÿÿסûץוÿÿחרסםקÿÿ‎ÿÿתגÿסÿÿןקנטסÿÿ‏ÿÿÿםÿüגÿףחףןלü‏קÿÿÿûÿ‏םחלûÞעסûםפÿÿÿ‎‏‏רן״‏צמעתתנ‏‏ÿ‎‏‏ûרפÿשÙסתפצ‎ÿÿ‎ÿ‎üÿרÿ‎ץגûפצ‎‏ÿü‏‎ûÿרÿÿצנüףקתûûüÿ‏û‏קÿÿפצü‎לÿÿÿûÿÿ‎ûשÿÿשü‎‎ש‎‎‏‎‎‏ÿÿÿüüÿÿÿÿÿü‏ת‏‎‏ÿÿ‎üüÿÿÿÿÿ‏‏‏‎‏‎ÿÿüÿ‎‎ÿÿÿÿ‎‏ÿ‏‏‏ÿÿ‎‏‏‎ÿÿÿÿ‏‏‎‏‏‏‎ÿÿ‏‏ÿ‏ÿÿÿת‏‎‏‏‏‏‏ÿ‏ÿÿ‎‎ÿû‏‏‎‏ü‏‏‏ÿ‏ÿÿ‎ÿÿÿÿ‏ÿ‏‏ÿ‏ÿÿÿÿÿÿÿÿÿÿ‏‏ü‏‎ÿÿÿÿ‏ÿÿÿÿÿ‎ü‎ü‎‏ש‎‎ûüÿÿר‎û‎‏‎û‎‏ûתûתü‎ÿûû‎תûû‎‎ÿ‎üשüששÿû‎‏‎‎‏ÿ‎‎ü‏ת‏תתÿ‏ü‏‏‏‏ÿ‏‏ÿÿÿÿÿÿ‏‏ÿÿ‏‏‏‏‏‏‏‎‏ÿÿÿüÿ‏ÿ‎‎‏‎‎‎‎‏‏‏‏‏‎üש‎üü‎‏‎‎ü‎‎ÿ‎‎‏üüüüü‎‏‎‎‏‎ÿ‏ÿ‎‏‎‎‎ףףץרשששת‏ר‎üררשששûû‎ת‎‏‏ÿü‎ÿ‏‎‏‎‎‎‏‏‎‎‏ÿÿ‏ÿÿÿÿÿÿ‎‏‏‏‏‏‏ÿÿ‏‏ÿÿÿÿÿ‏‏‎‏‏‏ÿÿÿ‏ÿÿÿÿÿÿ‎‏‎‎‎ÿ‏‏‎‏‏‏ÿÿÿÿ‎‎ת‏‏ÿÿÿÿÿÿÿÿÿÿÿ‎‎‎‏‏‎ÿÿÿ‏ÿÿÿÿÿÿ‎‎ÿ‏‏‎ÿÿÿ‏ÿÿÿÿÿ‏‎‏‏‏‏‏ÿÿÿÿÿÿÿÿÿÿץצצשרשתûש‎ששûששפ‎ü‎‏‏‎‏ÿÿ‏‏ÿÿ‎ÿ‏‎‎‏‏‏‏‏ÿÿ‏ÿÿÿÿÿ‏ףףץצקפץתûתûת‏צרתתרûûתû‏‎‏‏‏ÿÿûûÿüüü‏‎ü‏ÿÿ‏ÿÿÿÿÿÿ‎‎‎‎ü‎ÿÿÿ‏ÿÿÿÿÿÿ‎û‏ÿ‏‎‏ÿÿ‏ÿÿÿÿÿÿ‎‎‏‎‎‏‏ÿÿ‏ÿÿÿÿÿÿ‎‎‎‏‎‏‎ÿÿ‏‏ÿÿÿûÿ‎‎‎‏ü‎‏‎ÿ‏‏ÿÿÿÿÿ‎û‎‎‎‎‏‏ÿ‏ÿÿÿÿûÿ‎‎‎‏‎û‎‏ÿüÿÿÿÿ‏ÿ‎‎‎‎‎ü‏‏ÿ‏ÿÿÿÿÿÿüûüûתû‏ÿûüûûÿÿ‏ÿüשûûûר‎‏‎ü‏‏ÿ‏ûÿ‎‎‎תü‎‎ÿ‏ü‏‏‏ÿÿ‏ü‎ûüûûת‏‎û‎‎ÿÿ‏ÿתûûûüû‎üûüûû‏ÿ‏ÿתüשû‎ûü‏ûüûûÿÿÿÿ‎ü‎ÿ‏ÿÿÿÿ‏‏ÿÿÿÿÿûüü‏‎ÿÿÿÿ‏‏ÿÿÿÿÿצררüתû‏ü‎ת‎‏üûûûקûש‏üûÿÿ‏ת‎ÿÿ‏ÿü‎‏‎‏‏‏ÿÿÿü‏ÿÿÿÿÿ‏ü‏ÿÿÿÿÿÿ‎ÿÿÿÿÿÿûûû‎תûÿÿûüûûÿ‏‏‏‎ü‎ÿ‏ûÿÿÿüÿÿÿÿÿÿ‎‎ûûÿÿÿÿÿüÿÿÿÿÿÿ‏‎‎ÿ‎ÿ‎ÿÿüÿÿÿÿÿÿü‎üÿüÿÿ‎‎‏‎‎ÿÿÿÿ‎‎üÿ‏‏ÿÿû‎ûûÿ‎‎‎ÿû‎ÿÿÿÿÿÿ‎ÿÿÿÿÿÿûûü‏üüÿÿ‎û‎‎ü‏ÿû‎ûû‏‏üÿÿ‏‎‏‏ÿ‎ÿ‎ÿûüÿ‏ÿÿÿ‎‏‎‎ÿÿÿÿ‏‎üÿü‎ÿÿÿ‏‏ÿÿÿûÿûקûûצר‏ÿûüûûûûû‏‎ûûûרצÿÿ‏‏‏ÿÿÿ‎ÿûûüצüצûÿ‎‏‏‏ÿÿÿ‏‎ûûצüûצü‏‏‏‏ÿÿשÿ‎‏ü‏‏ÿתûÿ‏ÿÿÿÿ‏ÿ‎‎ü‎‏‏üתÿ‏‏ÿÿÿ‏ÿ‎‏ü‏ÿÿÿÿ‏ÿ‎ÿÿÿÿÿ‎ÿתÿûÿ‏‎‏‏ÿÿÿÿüÿ‎ÿתÿתÿ‏‏ÿ‏‎ÿÿÿ‎ÿ‎ÿתÿûÿÿ‏ÿ‏üÿÿÿÿÿü‏ת‏‎‏‏‏‎‎ü‏‎‎‏‎‎‏ש‏‏ü‏‏‎û‎‏‏‎‏‏ü‏תÿ‏‎ÿÿ‏û‎‏ÿÿÿÿü‏תÿ‏‏ÿÿ‏ûûÿÿÿ‏ÿû‎ûÿ‏‏ÿÿ‏תûÿÿÿÿÿüüש‏‎ûÿÿ‏שüÿÿÿÿÿתûû‏‎רÿÿ‏תüÿÿÿ‏ÿü‏שÿÿûÿÿ‏ש‎‏ÿÿÿÿתÿûÿÿÿÿÿ‏ת‎‏ÿÿÿÿשתצÿ‏‏ÿÿ‎שת‏ÿÿ‏ÿסףצ‏‎‏ÿÿüקתü‏üüüûûףü‎ÿÿÿ‎ררÿÿÿÿÿÿתסת‏ÿÿÿÿשüÿÿÿÿÿüÿכûÿÿÿÿüרשÿÿÿÿÿ‎ÿמ‏ץÿÿÿתפשû‏ûÿÿÿÿû‏ÿצÿÿשןרÿÿÿÿתשÿפןÿ‎ÿÿםהןןתüÿלÿÿאÿÿ‏ןÿבפדדûק‎חÿÿÿÿÿ‏תרßÿבבקÿÿצÿÿÿÿÿ‎û‏מÿןןית‏ףÿÿÿÿÿÿתÿפÿשרגצקצÿ‏ÿ‎ÿ‏ü‎ץ‏שצןשüÙÿ‎ÿ‎‏‎‎ÿצÿüפפרקץÿÿÿûÿ‏üÿפÿ‏פצûקפÿÿÿûÿÿ‏‏תÿÿצתתצנ‏‎û‎‎‏ÿÿ‎ת‎ÿÿÿÿÿשûת‎‎‎‏ÿûüרÿÿÿÿÿ‎‎‎‎‏‎‏‏ק‎û‎ÿÿÿÿÿ‏ÿÿ‏‏ÿÿÿÿÿ‏ÿÿÿÿÿ‏‎‏‎‏‏ÿÿÿ‏‎ûÿÿ‎ûש‏‎‎‎‎‏ÿ‏‏ÿüתüû‎ûûüüü‎‏ÿ‎‎ÿ‏‎‎‎ÿ‏‏‏‏ÿ‏ÿÿÿÿÿÿ‏ÿÿ‏‏üü‏‏‎‏‎ûüÿÿÿ‎‎ü‎ש‎‎‏û‎‎תר‎ÿתר‎‎‏ש‏‎‏üüקתר‎ÿ‎û‎‎‏‏‏ü‏‏‏ת‏ûûÿ‏ÿÿ‎‎ü‏‎ש‎‎תÿ‎שûÿ‏ÿ‎‏ÿû‏‏ÿ‏‏üÿüüÿÿÿ‎‏‏‏‏‎תÿ‏üת‎üÿ‏û‎‎‏‎‎‎‎תר‏ש‏‎üûüüü‏‏‎‎‎‎רÿ‏ר‏‎üüüüü‎ûüüüÿ‏ÿצרüתûףףצשצרשש‏קשתץקררûתü‎üû‏‏ÿ‎üÿ‏‏‏üüü‏‎ü‎‏ÿÿ‎‎ÿÿÿÿÿû‎û‎üû‏‏ÿ‎‏ÿÿÿÿÿתûûû‏û‏‏‎‎‎ÿÿÿ‏‏‎‏‏ÿÿ‏‏ÿÿÿÿÿÿÿÿÿû‏ÿ‏‏ÿÿÿÿ‏ÿÿÿÿÿÿ‎‏ÿ‏‏ÿ‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿ‏‏ÿÿÿÿ‏ÿÿÿÿÿ‎‎ÿÿ‏‏ÿÿÿ‏ÿÿÿÿÿÿüüü‎תüü‎ÿ‎ü‏‎צüüüûü‎üש‏‎‎‎üÿ‏תû‎‎û‏תü‎‏ÿÿ‎‎ÿÿüÿÿתשüüתשש‎üü‏ÿ‎‎ü‏שרûשרר‎תüüû‏ÿüש‏ûûû‎שû‏ÿÿü‏ÿÿÿÿÿ‎û‎ûüר‏ÿÿ‎ûÿÿÿÿÿ‎‎‎תü‎‏ÿ‏‏ÿÿÿÿÿÿקררקשפפתשתרר‎ûת‏‎‎‎û‎‎‏üÿÿÿÿÿÿÿÿ‎‎‎‏‎‎ûÿÿÿÿÿÿÿÿÿ‎‎‎‎ü‏‎üÿüÿÿÿÿ‎ÿûûû‎‎û‏‏ÿüûÿÿÿÿÿüü‎û‎ü‎‏û‏ûÿÿÿ‎ÿ‎‎‎‏‏‏ÿÿÿ‏ÿÿÿÿÿÿû‎ûüûûüüÿü‏ûüÿ‏ÿüüû‎‎û‏‏ÿ‎‎ÿ‏‎ÿ‎קררשüûû‎ûüûÿÿÿ‎‎ûûû‎ü‎‎ÿÿü‏ÿÿÿÿÿü‎‎ÿ‏ÿÿÿÿ‎‏ÿÿÿÿÿüü‎ÿ‏‏ÿÿÿ‏‎ÿÿÿÿÿ‎‎‎ÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿûûûÿüûÿÿ‎‎‏ÿÿÿÿÿüûû‏‎‏ÿÿÿ‎‏ÿÿÿÿÿûûûÿ‏‎ÿÿÿ‎‏ÿÿÿÿÿ‎üüÿ‏‏ÿÿÿ‎ÿÿÿÿÿÿ‎‏‎ÿÿÿÿÿÿü‏ÿÿÿÿÿ‎‎‎ÿ‎ÿÿÿÿüÿÿÿÿÿÿû‎üÿ‎‏ÿÿÿü‏ÿÿÿÿÿüüüÿ‏‏ÿÿÿüüÿÿÿÿÿü‎‎ÿ‏ÿÿÿÿüÿÿÿÿÿÿ‎ÿÿÿüÿÿÿÿÿÿÿÿÿÿÿü‎‎ÿüÿÿÿÿ‎‏ÿÿÿÿÿüûש‏üרÿÿûתüûüû‏ûü‎üש‎‎ÿÿ‎‎‎‎‎‎‎‏üüü‎ü‎שÿ‎‎‎‏‎‏ÿ‏ü‏ûÿûûÿü‏‏‎ÿÿÿÿÿü‎ûÿüשÿÿ‏‏שÿÿÿÿ‎üüûקûש‏ÿ‎‏‎‎‏‎‎‎üûüתüûשÿש‏‏ÿÿÿÿÿû‎ûûüûûû‏‏‏‎‏ÿ‏ÿûûûûüûûü‏‎‎שÿÿÿÿüÿûÿü‏üÿ‏‏‏ÿÿÿ‏ÿüÿüÿüÿ‏ÿÿÿ‏ÿÿÿÿÿûÿüÿüÿ‎ÿ‎‏‎ÿÿÿÿÿûÿûÿûÿ‏ÿ‏‏üÿûÿÿÿûÿשÿ‎ÿÿ‏ÿ‏‎ÿÿÿ‎ÿû‏ת‏‏‏‏‎‏‎ü‏‏‎‎‏ת‏שÿ‏ÿÿ‏‏üüÿÿ‏‏‏ת‏תÿ‏‎ÿÿ‏üûÿÿÿÿÿש‏שÿ‎‏ÿÿÿûüÿÿÿÿÿש‎שÿü‎ÿ‏‏תûÿÿÿÿÿר‎שÿ‎‎ÿÿ‏ר‎ÿÿÿ‏ÿררûÿüתÿÿ‏ש‎‏ÿÿÿ‎צתרüÿûÿÿ‎תû‏ÿÿÿÿצקתÿ‏üÿÿ‎û‎‏ÿÿÿ‏ץûרÿ‎‎ÿÿÿûשÿÿÿÿÿסףץ‏תתÿ‎‎צת‎‎‎‎ÿםממû‏תÿÿרפק‏‏‏ÿ‏לÿשûץÿÿÿ‎קשÿÿÿÿÿעÿ‎‎‏ÿÿÿÿשüÿÿÿÿÿÿÿשÿÿûÿÿÿ‏ÿÿÿÿÿÿûÿû‏ÿÿÿÿü‏ûÿÿÿÿÿÿÿךרÿ‏ÿÿÿעצÿÿתÿÿיÿûüÿÿÿÿץ‎ךÿ‏נÿÿÿÿÿÿÿÿצÿיÿüשÿתÿשÿÿÿÿÿÿÿÿתÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿץרÿשץיצצצÿÿ‏‎ÿ‏üצצüרףנײשךÿÿÿ‎‎‏üüצÿûסתפריÿÿÿüÿ‎ûÿץÿÿצפך‎ץÿÿÿûÿÿûÿקÿÿרץרשעû‏ר‎‎‏ÿÿÿתתÿÿÿÿÿתשû‏ü‏‏ÿת‎רÿÿÿÿÿ‏‏‏‏‏ÿÿÿûÿÿ‏ÿÿÿÿÿ‏ÿÿ‏‏ÿÿÿÿÿ‎ÿÿÿÿ‏ÿ‎‏‎‏‏‏ÿÿ‎ÿû‎ÿש‎û‎‎ת‎‎üÿ‎‏ÿ‏תשû‎‏üüüüü‎ÿ‎ÿÿÿ‎‏ûü‏üק‏רר‎‎‎üÿÿü‎‎û‏רû‏ûû‎‏תüÿÿ‏‏‎שüר‎‏‏üתûûשÿÿ‎û‏ר‏שü‏‏‎üרüת‎ÿ‏‏‏ÿ‏‏‏ÿÿÿÿÿÿÿ‏ÿÿ‏ÿÿ‏ÿÿÿ‏‏ÿÿ‏ÿÿÿÿÿ‏‏‏û‏‏‏‏ÿÿ‏ÿÿ‏‎‎‎‎‎ש‎‎‎‎‏‎‎‎ÿ‎ש‏ש‎‎ÿ‏‎‏‏‎‎ÿ‎‏‏‎‎üÿ‏‏‏ÿ‎‏‏‎ÿÿ‏ÿ‎‏‏üû‎‎ü‎‎üÿüÿשûûüצץפפûצûûת‏ûûûקץצצתתת‎ת‎‏‎ÿ‏ûÿ‏‎ü‎üü‎üüüüÿÿ‎‏ÿ‏ÿÿ‎ûû‎‎‎‎‎ÿ‏‏‏ÿÿÿÿÿתשûûüûû‎‎‏ÿÿÿÿ‏‏ÿ‎‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿת‏‏‏ÿÿÿÿÿÿÿÿÿÿÿÿ‎‏‏‎‏ÿÿÿ‏ÿÿÿÿÿÿÿ‎ÿ‏‏‏ÿÿÿÿÿÿÿÿ‏ÿÿüÿ‎‏‎‎ÿÿ‏‏ÿÿÿ‏ÿÿ‎ÿÿüÿÿÿÿ‎ÿÿÿÿתÿתשûצûצצקûשץ‏‎צץשקשûףתפפ‎ץüרüÿקררûשתüשûüüûüûשÿ‎üûüû‎‎û‎‏ü‎‎‏ÿ‎ÿÿÿûûûתתûûÿ‎‎‎‏ÿÿÿÿשûשתתתת‏‏‎‏‏ÿÿ‎‏רששרתששü‎û‎‏‏ÿÿÿ‎‎‎‎‎‏‏ÿÿ‏‏ÿÿÿÿÿü‏‎‏‎‏‏ÿÿ‏‏ÿÿÿÿÿ‎‎‎ÿ‎‏‏ÿÿ‏‏ÿÿÿÿÿü‎û‏‏‏‏ÿÿ‎ÿÿÿÿÿÿûûû‏ü‎‏‏ÿ‏ÿÿÿÿÿÿü‎‎‏‎‎‏ÿÿ‏ÿÿÿÿ‏ÿ‎‎‎‏‏ÿÿÿÿ‏ÿÿÿÿÿÿüü‎‎‎ü‏ÿÿ‏‏ÿÿÿ‏‎üü‎‎‏‏‏ÿÿ‏‏ÿÿÿÿÿûûû‏‎‏‎ÿÿü‏ÿÿÿÿÿ‎‎‎ÿ‏‏ÿÿÿ‎‏ÿÿÿÿÿüü‎ÿ‎ÿÿÿÿ‏‏ÿÿÿÿÿü‎‎ÿ‎ÿÿÿÿ‎‏ÿÿÿÿÿûû‎‏‎‏‏ÿÿ‎‎ÿÿÿÿÿששû‎ת‎ÿ‎‎‎ü‏‎‎‎‎ףצקûקûûüûûûû‎ûשûûûû‏ü‏‏ÿÿ‎‏ÿÿÿÿÿü‎‏ÿ‏ÿÿÿÿ‎ÿÿÿÿÿÿ‎‎‏ÿÿÿÿÿÿüÿÿÿÿÿÿü‎ûÿ‎‎ÿÿÿüÿÿÿÿÿÿüûû‎‎ÿÿÿÿ‎ÿÿÿÿÿÿûûû‎‏‎‎ÿÿü‏ÿÿÿÿÿü‎‎ÿ‏ÿÿÿÿüÿÿÿÿÿÿü‎‏ÿ‏ÿÿÿÿüÿÿÿÿÿÿü‎üû‏ûû‏û‏ûÿÿüûûשüû‏ü‎ÿÿûü‎ûÿûûûü‎‎ÿüüÿ‎‏‎‏‎‎‏‎‎üÿ‎ÿ‎ÿÿÿÿ‏‏ÿÿÿÿÿü‏üÿü‎ÿÿ‏‏‎ÿÿÿÿÿû‎ûÿ‏‎ÿÿ‎‏‎ÿÿ‎ÿÿü‎ü‎‏ûÿÿ‎‏‎ÿÿÿÿÿû‎ûתüû‎ÿ‎‏‏‎ÿ‏ÿÿüûûת‎‎ûÿ‎‏‏‎ÿÿÿÿûûûûüûûÿ‎ü‏‎‏‏ÿÿûûû‎û‎ü‏‏‎û‎‏ÿ‏ÿûÿû‏ûÿÿ‎‏‏‎ÿÿÿÿÿûÿûÿüÿ‏‎‏‏ÿÿÿÿ‏ÿתÿüÿ‏ÿ‏ÿÿÿ‎ÿÿÿÿÿû‏ûÿ‏ÿÿ‏ÿ‏üÿÿÿÿÿת‏ûÿ‏‏‏‏‏‏üÿ‏‏‏‏ת‏ûÿ‏‎ÿ‏ÿ‏‎ÿÿÿÿÿש‏שÿ‏‎ÿÿ‏‎‎ÿÿÿ‏ÿת‏רÿ‎‏ÿ‏‏תûÿÿÿ‏ÿרששÿ‎‏ÿÿ‏תûÿÿÿÿ‎שûרÿ‎üÿÿ‏תüÿÿÿÿÿקתר‏üשÿÿ‏רü‏ÿÿÿÿקûר‎‎û‎ÿ‏קü‏ÿÿ‏ÿצשק‎‏‎‎ÿ‎שû‏ÿÿÿÿצקקÿüÿÿÿÿקשÿÿÿÿÿפשש‏קÿÿÿ‎ששÿÿÿÿÿפסצתשûûÿüרצÿÿÿÿÿףן‏תû‎‎ÿÿûתÿÿÿÿÿסטפûûüüÿüץצÿÿÿÿÿןצר‏ÿÿÿÿûקשÿÿÿÿÿזשף‎ÿת‎ÿקסףÿÿÿרÿךÿנÿÿÿÿÿûüשÿÿÿüÿÿüÿÿÿÿÿÿ‎ÿüÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿקÿרררנÿüÿÿ‎‎ÿ‎ûקנרצץלװ׳׳ÿÿ‎‎ÿÿ‎üנûףץעיÛלÿÿÿ‎ÿ‏‎ûס‏שסרחץכÿÿÿüÿÿ‎‏עÿÿנקף‎פÿÿÿüÿÿ‏ÿרÿÿףץןתצקûר‎‏‏ÿÿûüרÿÿÿÿÿ‎ü‏‏üÿÿÿת‏‎‎ÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿ‏ÿ‏‎ÿ‏ÿÿÿÿÿÿ‎ÿÿ‏ü‏‎‎‎‏שÿÿü‏ÿüקûרü‏‎‏ü‎‎ûÿ‎‎ÿÿתתûû‏ü‎‏û‎‎ÿ‏üÿÿû‎ûû‏üת‏‏‎‏üüûÿÿ‎ü‏ק‏ש‎‏‏û‏ûתûüÿü‏‏קשת‎ü‏‏üתûשûÿ‎‏ÿÿ‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿ‏‎‏ÿ‏ÿÿÿÿÿÿÿ‏ÿÿû‏ÿ‎‏‏‏ÿ‏ÿÿÿ‏ûûûר‎û‎‎‎û‎‎ÿ‏ü‎רשûÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿÿüü‎‏‎‎‎ûÿ‎‏‏üץûתףצרüקקתת‏ûü‎תנססתûü‎üûÿ‏ÿ‎ÿÿ‏û‎‏‎‎‏‏‏‎‏ÿÿüÿÿÿ‎ÿÿ‎û‎‏ü‎‏ÿÿ‏ûÿÿ‏‏ÿûת‎‎ûû‏‏ת‎‏ÿÿ‏ÿÿ‎‎‏‎‎ü‏ÿÿ‏ÿ‏ÿÿÿÿ‏‎‏‎û‏‏ÿÿ‏‏ÿ‏ÿÿÿ‎‎‏‏‎ת‏ÿÿÿÿÿÿÿÿÿÿ‎‏ת‎‎‏‏ÿ‏ÿÿÿÿÿÿ‎‎üû‎‏ש‎ÿ‏‏‏‏‎‏‏ûûûתתשצצ‏שת‏תקררü‎ÿÿ‎‎ÿ‎ÿü‏ÿÿÿÿÿüû‎ûûû‏‏תתר‏ÿ‎‎‎צררתקשרûףתפקûקתüץררשקץשתףתûפשûûצששש‎ûתÿÿÿ‎‏‎‎ÿÿÿûû‎ü‎û‏‏‏‏‎ÿ‏ÿÿÿ‏‏‏‎‏‎ÿÿÿÿÿÿÿÿÿÿ‎‎‏‏‎‎‏ÿ‏‏‏ÿÿÿÿÿ‎‎‎‎‏‏‎ÿÿÿÿÿÿÿÿÿ‎‎‎‏‎‏‏ÿÿ‎ÿÿÿÿÿÿû‎‎‏‎‎‎‏ÿÿÿÿÿÿÿÿûûû‏ü‏‏ÿÿÿÿÿÿÿÿÿÿ‎ÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿü‎‏‏ÿÿÿÿ‏ÿÿÿÿÿÿûûû‎‎üû‏ÿ‎ÿÿÿû‏ÿתקüûûü‎û‎‎‎‏‏תתÿüü‎‏ü‏ÿÿÿ‎‏ÿÿÿÿÿûûû‏üûÿÿÿ‎ÿÿÿÿÿÿûûûûתû‏ÿ‏ü‎ÿÿÿÿÿ‎‎‎ÿ‎üÿÿÿü‏ÿÿÿÿÿüü‎ü‎‎ÿÿÿüûÿÿÿÿÿûתü‎ûûû‏ת‎ת‏ÿ‎‏‏תר‎üûûÿ‎ûü‎ûÿÿÿÿשששûתשüÿ‏ü‎ûüÿÿÿüü‎‎‎üÿÿÿ‎‏ÿÿÿÿÿüü‏‎‎‏ÿÿÿ‎ÿÿÿÿÿÿü‎‏‏‏‏‏ÿÿ‎‏ÿÿÿ‏ÿקשûûתûûü‎üüÿÿ‎û‏קררתתרûüüü‎‎ÿüûÿ‎ÿ‏ÿ‏ÿÿÿÿüÿÿÿÿÿÿü‏ûÿÿÿÿÿÿüÿÿÿÿÿÿ‎ÿ‎ÿ‏‎ÿÿ‏üÿÿÿÿÿÿü‎‏ÿ‎ÿÿÿÿ‏‏ÿÿÿÿÿ‎‏ü‎‎‏ÿ‏‏‎‎‏‏‏ÿ‏ü‏‏ÿ‎üÿÿ‏ר‎ÿÿÿÿÿ‎‏‎ÿ‏ü‎ÿ‎‎‏‏ÿÿÿÿü‏‎ÿ‏‎ÿÿ‏‏‎‎‏ÿ‎ÿ‎‎üü‏‎ÿ‏ü‏צÿ‎ÿÿÿû‎ûü‏‎ÿÿץ‏‏‎ÿÿÿÿü‎ü‎ü‎üÿ‏‏‏צÿÿÿÿû‎û‎üû‎ÿ‏‏‏‏ÿÿÿÿûûתûüû‎‎‎‏‎‏‎ÿÿ‏û‏û‎û‏‎‏ÿ‎‏ÿשÿÿÿü‏תÿ‎ÿ‏ÿ‎‏‏ÿÿÿÿÿû‏ûÿÿÿ‏ÿ‏ÿ‎ÿÿÿÿÿü‏ת‏‏‏‏‏‏‏üÿÿ‏‏‏ת‏ûÿ‏ÿ‏‏‏‏‎‏ÿ‏‏‏ü‏תÿ‎‎ÿÿÿ‏üÿÿÿÿÿתתûÿ‎‏ÿ‎‏‎ü‏ÿÿÿüûüתÿ‏‎ÿ‏ÿüûÿÿÿÿÿשûרÿ‏‏ÿÿ‏ûüÿÿÿ‏ÿûüקÿÿûÿÿ‏ûû‏ÿÿ‏ÿרûשÿüûÿÿ‏ר‎‏ÿÿÿÿתשצ‎üûÿÿ‎צ‎‎ÿÿÿÿקüרÿ‎‎ÿÿ‎ר‎ÿÿÿÿÿשצקÿ‏‏ÿÿÿש‎ÿÿÿÿÿץףצ‏ק‎ÿÿ‎תצÿÿÿÿÿקתפ‎ףשÿÿצתת‏ÿÿÿÿעפצרםןÿÿüפץצÿÿÿÿץרנןכיתÿüנק‎ÿÿÿÿמןûךףחף‎ûףרÿÿÿûÿנחכיתףמרצלףÿûÿÿÿזדףק‎‎ןצרתכ‏ÿÿÿÿÿÿÿÿץÿÿתףüפÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿüÿÿÿÿÿÿÿלÿÿתÿעÿûץףתנפ‎ÿצשÿÿÞפעüפסשÙÜÜ‎ÿת‏ÿÿצדע‎פלןככמÿÿÿ‏ÿÿ‎קץÿקץעםלפÿÿÿ‎ÿÿ‎תפÿ‎קקצמפÿÿÿûÿÿû‎ץÿÿפףסשעקרû‏ü‏ÿÿÿÿ‎ÿÿÿÿÿÿÿÿ‏‏ÿÿÿÿ‏‏ÿÿÿÿÿÿ‏ÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿ‏‏‏תü‏ûÿÿ‎ÿÿ‎ת‎ר‎‏‎‎‏‏תüÿ‏‎ÿÿקרû‎‏ü‏‏‏‏ûÿÿüÿÿüû‏û‏ü‎‏û‏‏‏ÿ‏ÿÿûû‎üüûû‏‎‏‏ûתÿÿÿ‎üÿררש‎‏‏û‏‎ûשÿÿü‏ÿתשû‏û‏‏‏שüתüÿ‏‎ÿÿ‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿ‏‏‏ÿ‏ÿÿÿ‏‏ÿÿÿÿÿ‏ü‏‏‎ÿÿ‏‏‏‎üûüüר‏û‏‏שû‎ÿ‎ÿüתתתûש‎‎‎‏ûתü‏ÿ‎‏ûשüÿ‏ÿ‏‏‏ÿ‏ÿ‏ÿÿÿ‏‎‏‏ÿÿ‏‏‏‏‏ÿÿÿ‏ÿÿ‏ÿתששתתüצרüû‎שתפסקשפשüרשתר‎תתüתףפפûשû‎תת‏‎‏רü‏‎ü‎üשתצûüת‏‏‎ûרÿ‏üû‏ûשûûתüü‏ש‏ûÿÿ‏‏‏‎‎‎‏‎ü‏ÿÿ‏‏‏ÿÿÿÿקררקתרüüÿ‎‏ûû‏û‏תûûתüûû‏ÿ‎ÿÿ‏‎ÿûÿ‎ÿ‏‏‏ÿÿÿÿÿÿÿÿÿÿ‏ÿ‎‏‏‏ÿÿÿÿÿÿÿÿÿÿüתûת‎תתû‏‎‏ÿÿתתתעףףפûתץקûקü‏‎פץץתüקüüûûü‏תûÿÿ‎üÿÿÿ‎‏‎‏ÿÿÿ‏ÿÿÿÿÿÿ‎ûÿ‏ü‏‎‏‎üüÿÿÿÿÿקצתקתרû‎פשפצתץûקûû‎‎üü‏ÿûü‎ü‎ÿ‏ûûש‎üûû‎‏‏üûû‎‏‏ûץץüתקצû‎רûשûתüüüררûשתרû‏üüûû‏‏‎‏‎‎‏‏‏‏‏ÿÿ‏ÿÿÿÿ‏ÿ‎üÿ‏‎‏‏ÿÿ‏‏ÿÿÿÿÿ‎û‎‏‎‎‏‏ÿ‏‏ÿÿÿ‏ÿüû‎תשûûüתüû‎ÿûûÿüü‎‏‎û‏ÿÿ‎ÿÿÿÿÿÿררûףקצרתûûררתûûüקפרצקפפתק‎תûתקפ‎ûûûתתû‎ü‎‎‎‏ÿÿûÿקררûתשû‏‎‎‏ÿÿÿ‏ÿרשüשתשü‎‎ü‎ÿÿÿ‏ÿ‎ü‎ÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿ‎‎ûÿ‎ÿÿÿÿ‎‏ÿÿÿÿÿ‎ûת‎ü‏‏‏‎ûüÿÿ‎ÿÿ‎ü‎‏ü‎ÿÿ‏üûÿÿÿÿÿ‎ûüÿתûÿÿû‎ûÿÿÿÿÿתûûûתרÿÿûüûûÿÿÿû‎û‎תûת‎ÿ‏‎‎‎‏ÿÿ‎‎ü‎ü‎üüÿ‎‎‏ÿÿÿÿÿüûüûüûûü‎‎‎ÿÿÿ‏ÿüש‎‎û‎‎‎‏ü‏‏ÿÿ‏ÿûûûûתשûü‎üû‏ÿÿüÿרששש‎שü‎üüü‏‏‏‏‏ûûûû‏‎üÿÿû‏ÿÿÿÿÿÿ‏‏ÿ‎‏ÿÿÿûÿÿÿÿÿÿ‎‏שÿ‎‎ÿÿÿü‏ÿÿÿÿÿûûש‎üשÿ‏ûüûû‏ûûû‎‏üü‏‎ÿÿ‏ü‏‏‏‏‏‏ü‏üÿ‏‏‎ÿ‏üûÿÿÿÿÿ‎‏‎ÿ‏üÿ‎ûüûÿÿÿÿ‏ü‏ü‎‏üÿÿûüûûÿÿÿÿü‏üü‏‏ÿÿת‎ûûüÿ‏ÿü‎üüû‎‏ÿû‏üûüÿÿ‏ûûû‎û‏üÿü‏‏ûüÿÿ‎üûû‏üûüÿ‎‏‏üüÿÿ‎ü‏û‏‏ÿ‏ÿ‏ÿÿÿÿÿÿÿü‏ת‎‏‏‏ÿ‏‏‎‏ÿÿÿ‏ü‏תÿ‏ÿ‏‏ÿ‏ÿÿÿÿÿÿûüת‏‏‏‏‏ÿ‏üÿÿÿ‏ÿüûתÿ‏‎ÿÿÿ‏ûÿÿÿÿûûüשÿ‏‎‏‏ÿ‏üÿÿÿÿÿûüûÿ‏‏ÿ‏‏‏‎ÿÿÿÿÿת‎שÿ‏‏ÿ‏‏‎üÿÿÿÿÿûüתÿ‏üÿÿ‏‎ûÿÿÿÿÿשתרÿ‏תÿÿ‏תû‏ÿÿÿÿתרק‏‏ûÿÿ‏שü‏ÿÿ‏ÿרקץ‏ü‎ÿÿ‏שü‏ÿÿ‏ÿתקצÿû‏ÿÿ‎קüÿÿÿÿÿקûפ‎û‏‏ÿ‎ץת‏ÿÿÿÿרשק‏ש‎ÿÿ‎רקÿÿÿÿÿץפפüûקÿÿתץרÿÿÿÿÿצץףצקת‎ÿûקףûÿÿÿÿסננûתצשÿתץקü‏ÿÿÿפםנקעת‎üרצף‎ÿÿÿÿיסז‎לסûÿפלפ‎‏ÿÿÿמה‏עחט‏‎קעחüÿÿÿÿÿÿÿתÿעÿÿתתשÿÿÿÿÿÿÿÿמÿÿרÿÿ‎צקÿÿÿÿÿÿ‏ןÿÿÛךלןסעיזמגצ‏û‏ÿÿמביקחעץזחחÿÿÿ‏ÿÿûפטÿףםץעססÿÿÿÿÿÿ‏üפÿûןתקע‎ÿÿÿ‎ÿÿ‏ÿןÿ‏נמצקעÿÿÿ‎ÿÿ‎‎ץÿÿןמףסק‏û‏‏üÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿ‏ÿ‏û‏‏ÿÿÿÿÿÿÿÿÿÿ‎‏üת‎‏ק‎‏‎ÿÿ‏צשüüü‏‎‏‎תשÿ‏ÿÿ‏תק‏‎‎‎‏‏‎üüÿû‎ÿÿû‏ÿûû‏‏‏‏‏ÿÿתüÿÿ‎ûÿתûש‎‎‏‏‎תüתתÿü‎ÿרשש‎ת‏‏‏ק‎ררÿ‏‎ÿ‏‏ÿ‏‎üÿÿÿÿÿÿ‏‏ÿÿÿÿÿ‏ÿ‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‎‏‏‎ÿÿÿÿÿÿÿÿ‏‏‎ÿû‏‏ûüÿ‏‏ÿÿûûü‏‎ÿ‎û‏תûûÿûû‏ûûû‎û‏‏תרûתûÿûûÿûû‏‏ÿÿר‎ש‏‎ÿ‏ÿ‏ü‎‎‎üÿ‎ק‎‏ק‏ÿ‏ÿÿüüû‏üûûüüüפצ‎ü‎‏ûשקתקשר‎קשתץ‎ת‎‏ûרששקשףתרצ‎üתרûû‎ûשüצשתתûת‏‏‎‏‏‏ÿ‎ü‎üü‏‎üü‎ÿ‎‏‎‎ÿÿ‏‏ÿÿ‏ÿ‎‏ÿÿÿÿÿÿÿÿÿÿקררשתשüüÿ‎‏ÿ‎‎‏שתת‎תûתû‏ÿ‎ÿÿÿת‎‎ÿÿ‎‏‏‏ÿÿÿÿÿÿÿÿÿÿ‏‏ÿüÿ‏‏ÿÿÿÿÿÿÿÿÿצשתצקתץק‎üüü‎פץüצקק‎ûרשת‎שü‏ÿקרÿשüû‎ü‎‎‏‏‎‏ÿÿ‏‏ÿü‎‎‏‎‎ÿ‎ÿ‏ÿÿÿÿÿÿÿ‎‏ÿ‎ÿÿÿÿ‏ÿÿÿÿÿÿÿ‎‎ÿ‏‎ÿÿÿ‏ÿÿÿÿÿÿקררצפצû‎צץצצתףרצתרץץץסצüףפפפתף‎ץ‎ש‎קתש‎‏רתשש‏‎ÿ‏צסרספססרןקססקשרקûסצןפסעפןקססץקûפüüששûששüüûü‎û‏ÿ‎תססןססספףפפפפûסרשרתןסםספןרססקצסרשרפןקספקףקפפת‎ץתשצûסשצערתרתתר‎ûüצקתצצשףצצרקקש‏קקרשûûרצתרת‎תת‎ÿ‎üûûûûûû‏‏‎ü‎‎ÿÿ‎ÿתשû‎ûü‎‏ÿ‎‏‏ÿÿ‏ÿûûû‎üûÿÿ‏üÿÿÿÿÿÿקûûûüû‏ÿ‏ת‎ÿÿÿÿÿû‎û‎‎‏ÿÿÿ‎‏ÿÿÿÿÿ‎‎‎ÿ‏ÿÿÿÿ‎ÿÿÿÿÿÿ‎‎‏ÿ‏‏ÿÿÿ‎ÿÿÿÿÿÿüûü‎ûûÿÿ‎ü‎‎‎ûÿÿûûûתתש‏‏üûüüÿûÿûשתûשûשûÿ‎תû‎‎‎ÿÿרûûרûûשüûתûû‎‎‎‏üüü‏ûü‏ÿ‎‎‎‏ÿÿÿÿ‎‎‎‏üûÿÿ‎ü‏‏ÿÿÿÿתת‎תûת‏‏‏û‎‎‏ÿÿÿûûûûüûûÿûüûûÿÿÿÿüÿ‎ÿ‏ÿÿÿ‏üÿÿÿÿÿÿ‎‏‏ÿ‏‏ÿÿÿüÿ‏ÿÿÿÿü‏‎‏‏‎ÿÿÿü‏ÿÿÿÿÿ‎‏צÿ‏‎ÿÿÿÿ‎ÿÿÿÿÿüÿ‎ÿÿ‏ÿÿÿ‎‏ÿÿÿÿÿ‎‏ûÿ‏‏‏ÿ‎ס‏ÿÿ‏ÿÿü‏û‎ü‏ÿÿת‎תתÿ‎‎‎‎‎üüü‏ÿÿל‎םםÿÿÿûû‎û‏ü‎ÿ‏‎‏‎‏û‏ÿû‎‏ü‎ü‏‎ÿ‎‎‏‏עÿÿûû‎ü‎ü‎‏ÿ‎‏‏‎‏‏ÿûüûü‎üû‏ÿü‏üü‏‏‏‎ûüûû‎û‎‏‎‎‎‏‏‏ÿ‏üûת‏‏‏‏ÿ‏‎‎ÿÿÿ‏תû‎שÿ‎ÿ‏ÿÿ‏‎ÿÿÿÿÿüüתÿ‎‎‏ÿ‏‏üÿÿÿÿÿת‎שÿ‏‏ÿÿÿ‏ü‏ÿÿÿÿü‎תÿ‏‎ÿÿ‏‎üÿÿÿÿÿשûרÿÿ‏ÿÿ‏‏üÿÿÿÿÿûתתÿ‏ûÿ‏‏üû‏ÿÿÿÿששרÿ‎üÿÿ‏ûü‏ÿÿÿÿתתשÿüüÿÿ‏תû‎ÿÿÿÿקûץ‏üûÿÿ‎תü‎ÿÿÿÿששרûרûÿÿüק‎‎ÿÿÿÿצקפÿש‏ÿÿÿעüÿÿÿÿÿררפ‏צüÿÿüצüüÿÿÿÿףרס‏פקÿÿלקממÿÿÿÿץעץûרףÿÿüשש‎‎ÿÿÿןצלרûףÿÿüרעÿץÿÿÿןןןפרק‏ÿשנץ‎ÿÿÿÿזםטץץüüÿףחר‎ÿÿÿÿÿשÿûע‎üÿשע‎ÿÿÿÿÿÿÿÿÿÿûÿÿצÿצצÿÿÿÿÿ‏‏בÿצעשבעדדרף‏ר‏ÿךמÿÿßעהסצכדאחג‎שר‎ÿÿעזטקךזזקûשÿÿÿ‏ÿÿנצלתםםץנקםÿÿÿ‏ÿÿ‏ûסÿעץנתץקÿÿÿ‎ÿÿ‎עמÿענךףפזÿÿÿüÿÿ‎שסÿתמקרףע‎ת‏‎רשÿÿÿ‏‏ÿÿÿÿÿ‏‏‏ü‏תÿÿÿÿÿÿÿÿÿÿ‎‎‏ק‏‏תÿÿ‏‏ÿÿÿûÿü‎ûü‏‏קûÿüÿÿ‏üק‏‎‎û‏‏‏‎שÿ‏‏ÿÿ‏û‏û‎ת‏‏‎üÿÿתüÿÿ‏üÿüüר‏‏‏‏‏‏‎שÿÿÿ‎ÿרûûü‎‏‏‎רÿüÿÿ‏‏ÿשש‎‎ת‏‏‏üÿÿשÿÿ‎ÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏‏ÿÿÿ‏ÿÿÿÿÿ‏‏ÿ‏‏‏‏‎ÿÿÿÿÿ‏‎ÿ‏‏‎ûû‏‏תתûûûÿ‏שש‎‎‏‏‎‎‏ûûûüשûÿתûû‏ÿÿ‏üüüüש‏ûûüüü‏‎‎ÿü‏û‎‎ûÿÿשü‎üת‎‎‏ת‎‏ûüÿ‏ÿûת‎üûתüü‎ü‎קת‏‎‏‏שתתûקשר‎ûתתקüûû‏ûרששצûת‎ûüÿ‎ÿ‎‏ÿÿ‎üüûרü‎ü‎‏‏ÿ‏ÿÿÿÿÿ‎‏‏‏ÿ‏‏‏ÿÿ‏ÿÿÿÿÿÿ‏‎‎‏‏‎‏ÿÿÿÿÿÿÿÿÿü‎‎ûתûû‏ÿ‎‏ÿÿש‏üüר‎ûתר‎üÿü‎ÿÿûר‏ü‎‎ק‎רû‏‏‎‎ÿÿü‏‏ûûûקüûר‎‎üûÿÿ‎‎ÿשרüתûüצרüûû‎‏üצ‎קררûרûûתûüû‎ÿ‏רÿץפרüתצûüûüû‎‏‎ûÿüû‎‎‎‏ÿÿÿÿÿÿÿÿÿÿ‎ÿ‎‏‏ÿÿÿÿ‏ÿÿÿÿÿÿÿ‎‎ÿ‎‏‏ÿÿ‏ÿÿÿÿÿÿÿ‎‎‏‎‏ÿÿÿ‏ÿÿÿÿÿÿ‎üש‎‎ü‏ÿ‏‎üÿÿ‎üÿÿ‎û‏‎‎‏ÿÿ‎‏ÿÿÿÿÿ‎‎‎‎üû‏ÿ‏ü‏‏ÿÿÿ‏צרפנץסרüץפספקףרסןתסנקססתןפסצקפûסשüשתûüתûשûשש‏‏ÿש‎‎ÿÿ‏‎ÿÿÿ‏‏ÿÿÿÿÿ‎ÿ‎‏‎‎ÿÿÿ‎‏ÿÿÿÿÿûתרשתתרüקרררתקררüüü‏ü‎ÿÿ‏üüÿÿÿÿÿשצתרשרתüצקפרתû‎ûצצצקפקשüףûפצתקûררשתתרצü‎שû‎שü‏‏‎ששתשüש‏ÿ‏û‎‎‎ÿÿÿûששüü‏üÿ‏‎‎‏ÿÿÿÿûû‎ÿü‏ÿÿÿü‏ÿÿÿÿÿûü‎‏ü‎ÿÿ‏üûÿÿÿÿÿÿÿ‎ÿ‏‎ÿÿÿ‏ÿÿÿÿÿÿÿ‎‎ÿ‎‎ÿÿÿü‎ÿÿÿÿÿüüûû‎ûÿÿûûשü‎üüÿûשרתûû‎ÿקתשûüûûûüüû‎ü‎‎ÿüüûû‏ÿÿÿûûû‎‏ü‎‏ûüûüüÿÿÿûûû‎üû‎‏תüûû‎ÿÿÿüûû‎ü‏ÿÿÿü‏‏ÿÿÿÿûû‎‎üûÿÿÿüûÿ‏ÿÿÿüü‎ü‎ü‏ÿü‎ÿÿÿÿÿÿ‎‏‎ÿ‏‏ÿÿÿûÿÿÿÿÿÿü‎‎ÿ‏‏ÿÿÿû‏ÿÿÿÿÿû‏‏‏‏‏ÿÿÿü‎ÿÿÿÿÿûûûÿ‏‎ÿÿ‏‏‏ÿÿÿÿÿ‎ÿסÿÿ‏ÿÿÿ‎‏ÿÿÿÿÿüÿÿ‏üÿÿÿÿ‎ÿÿÿÿÿÿ‎ÿÿ‏ûÿÿÿÿ‏ÿÿÿÿÿÿüÿ‎‏‎ÿÿÿÿ‏ÿÿÿÿÿ‏‎ü‎‏‏ÿÿÿ‏‏‏ÿÿ‎ÿנû‎û‏‎û‎ÿû‏‎û‏ûÿ‏‎û‎ûü‎‎ÿ‏‎‏ûüüüצûûû‎‎ûûÿ‎üüÿü‎ÿ‏üüüü‎‎‏‎‎‎ü‏ÿ‏ÿ‎תüû‎‎‎‎‏‎‎‎‏ÿ‏ÿ‏ü‎ת‏‏‎‏‏‏‏ü‏ÿÿÿÿתüתÿ‏‏ÿ‏ÿ‎ûÿÿÿÿÿüתשÿ‏‏‏ÿ‏‏üÿÿÿÿÿשתקÿ‏üÿ‏‏‎‎ÿÿÿÿÿüûשÿ‏תÿÿ‏‏ü‏ÿÿÿÿשüקÿ‎üÿ‏‏‎ת‏ÿÿÿÿûתשÿü‏ÿÿ‏üת‏ÿÿÿÿקרצ‏üüÿÿ‏רû‏ÿÿÿÿûתרÿûÿÿÿ‎קüÿÿÿÿÿצתמÿü‏ÿÿ‏קûÿÿÿÿÿתץק‏ûûÿÿûץצÿÿÿÿÿץקע‎‎‏ÿÿתעצÿÿÿÿÿקףנתקתÿÿצפפצüÿÿüןעמûפû‏ÿצסםשת‎‏‏צףף‎ער‏ÿצץץû‏ÿÿÿחיא‏עפÿÿנסנû‏ÿÿûÿÿךüרעÿÿצרס‏ÿÿÿÿÿÿÿÿÿÿÿÿûתÿ‎ÿÿÿÿÿÿ‏סÿÿעÿץךזס‏‏û‎לÿנשÿÿמנÜלÝמןהזÝÿÿ‎ÿÿÿסצאעלוק‎ü‎ÿÿÿÿÿÿÿ‎ק‎פןפû‏‎ÿÿÿÿÿÿüפכûמךח‎ÿסקררüÿÿצרבÿמגזהריÿÿÿ‏ÿÿ‏ûסÿÿחכקרלקרשףקפפÿשûשÿÿÿÿÿ‎‏‎ק‏ררÿÿÿÿÿÿÿÿÿü‎‏û‏ûûüÿÿÿÿÿÿÿÿü‎üü‏‏ûש‏‎ÿÿÿ‏ü‏û‎‎‏‏‏üüÿ‏ÿÿÿ‏‎ÿת‎ש‏‏‏‎‏ÿûüÿÿÿûÿקüü‏ü‏‏ü‏‎שÿÿÿ‏ÿ‏‏ÿÿ‏‏‏ÿ‏ÿÿÿÿÿÿÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿ‏ÿÿ‏‏‏ÿÿÿÿÿÿ‏‏ÿ‎‏‏‎ת‏ûûÿÿ‏ÿÿÿת‏‏ûûûû‎ûû‎ÿ‎‎‏‏üת‎ûÿשû‎üûתü‎ûÿÿûש‏‏‏ÿÿ‏‏‏ÿÿÿÿÿÿÿ‏ÿ‏‏‎ÿ‏‎ÿ‏ÿÿÿÿÿ‏‏ÿ‏‎‏û‏ü‏üÿÿÿüüת‎û‎üÿû‎‏ûüÿÿÿÿüתüרûü‏‏ü‎תü‏‏‎‏‏תûרקרת‎ûûüתüüü‏‏שששתר‎‎üü‏ü‏ÿÿÿÿ‎‎ÿ‎û‎‎ת‎ÿ‎ÿÿÿÿÿÿÿ‏‎‎‎‏‎‏‏‏ÿÿÿÿÿ‏ÿÿ‎ûüקüרר‏ÿ‏ÿÿÿÿÿ‏‎‎‎üתü‏‏ÿ‏‎ÿÿüשÿûûûשקששק‎תû‏‏ûרûüüüקüרר‏‏üûÿÿ‎üÿשתûףüפפûקûתû‏‎תÿתשתûתüûרüשûת‏‎‏‏צקק‎שûûת‎תש‏üÿ‏ÿקצûתקתתüרüר‎‏‏ûÿ‎‎‎‏‎‏ÿÿÿ‏ÿÿÿÿÿÿûû‎ûüûûÿÿ‏‏ÿÿÿÿÿûü‎û‎ûû‏‏‏‏ÿÿ‏ÿÿתתתÿ‎‎‏‎ÿ‎ÿÿÿÿ‏ÿû‎‎ÿ‎‎ÿÿÿ‏ÿÿÿÿÿÿ‏‎‏‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿü‏ÿ‏ÿÿÿÿ‎ÿÿÿÿÿÿûûû‎ü‎‎ÿûüûÿÿûÿÿûûû‎‎‎‎‏ûüûûÿûÿÿÿ‎‎ÿÿ‎ÿÿÿ‏‏ÿÿÿÿÿü‎‎‎‎‎ÿÿÿ‎ÿÿÿÿÿÿשûרתûüת‎שרששûשששü‎ûÿüÿ‎ÿÿüûÿÿÿÿÿûüûÿü‎ÿÿû‎ûÿÿÿÿÿüüü‎‎‎‏‏ü‎üüÿÿÿÿצףקצקצצûשתûפקק‎צנססףפפפתקפרשקצקקפררûקûû‏‎תר‏ÿÿÿûûûû‏ü‏‏ÿ‏ü‎ÿÿÿÿÿü‎‎‏‎‏‏ÿÿ‏‏ÿÿÿÿÿת‎שתüתת‏תûû‏‏‏‏‏ü‎ü‏‎‎ÿ‏ÿ‎‎‎ÿ‏ÿÿû‎û‏‎‏ÿ‏‎ü‎ÿ‏ÿ‏‏קûרüûü‎ÿתתרû‎‎‎‎ת‎û‎ü‏‏ÿûתû‏‏ÿÿ‏ü‎üÿ‏‏ÿÿÿÿüÿÿÿÿÿתûûÿ‎‎ÿÿü‎ÿÿÿÿÿÿתüתüûüÿÿ‎תûû‏‎ÿ‏ת‏‏ÿ‏ÿÿÿÿü‏ÿÿÿÿÿü‏ÿÿ‏ÿÿÿ‎üÿÿÿÿÿÿקüüüüüüÿÿû‏û‎üÿÿתûüûûûûüÿü‏ÿûû‏ûףרûתüûûü‎תüÿÿ‎û‏תתת‎ü‎‎ÿÿüûÿÿÿÿ‏לû‎ÿ‎‏‏‏û‏‏ÿÿÿÿÿûÿÿÿ‎ÿÿÿÿ‎‏ÿÿÿÿÿ‎‎ÿÿ‎ÿÿÿÿ‏ÿÿÿÿÿÿû‎‎‏‏‏ÿÿ‎‎‎ÿÿû‎ÿû‎‎‏‏‏‏ÿü‎‏üÿלû‏ת‎ü‏‏‏‏ÿ‎‏‏‎‎‎‎ÿû‎‏ÿ‏ÿÿÿÿ‏‎ÿ‏ק‏ÿתüû‎ü‎‎ÿüüû‏‏‎ÿûתüûüüüüÿûüû‏ÿש‏‎שûû‎‏‏‏‏‎‎‎‏ÿ‏ÿÿתûüÿ‏‎ÿÿ‏üü‏ÿûÿÿשתûÿÿ‏ÿÿÿ‏ü‏ÿÿÿÿתüשÿ‏‏ÿÿ‏‏üÿÿüÿÿרüתÿ‏‏ÿÿ‏‏û‏ÿÿÿÿשûרÿ‎ûÿÿ‏‎û‏ÿüÿÿקשצÿ‏üÿÿ‎‎û‏ÿÿÿÿררקÿתüÿ‏‏ûû‎ÿ‎ÿÿץûץÿû‏ÿÿ‎ûü‏ÿÿÿÿקקצ‏ש‏ÿÿûש‎‏ÿ‎ÿÿלרץÿר‏ÿÿÿשûÿÿÿÿÿצקקÿû‏ÿÿÿצ‎ÿÿ‏ÿÿצתûÿÿÿÿÿ‏צ‏ÿÿÿÿÿףקףüûרÿÿüףק‎ÿ‏ÿ‏כסץûקקÿÿûץלÿÿנססמץלרףתÿÿץקנ‎ÿ‏ÿüÞיישמ‏‎ÿמקץûÿûÿ‏ךÿעüÿ‎‎ÿץךû‏ÿÿÿÿÿÿ‎ÿÿÿÿÿÿץüÿÿÿÿÿÿÿÿÿÿÿÿÿצÿםÿÿÿÿÿץףלקÿÿפנ׃צשאפבלןÿÿûÿÿÿÿÿüûÿגסףפפÿÿשÿÿÿûÿ‎רצüחץתמÿÿקÿÿÿÿץחעטןקםûÞÿÿÿ‏ÿÿ‏‎יÿסכץףסךÿÿÿ‎ÿÿ‎üטÿÿדךףרוüû‎‎üשÿÿ‏‎‎ÿÿÿÿÿ‎‏‎ü‏‏ÿÿ‏ÿÿÿÿÿÿÿ‎‎‏û‏‏üÿÿ‏‏ÿÿÿÿÿû‎û‎‏‏ü‎ÿ‏‏ÿÿ‏‏ÿ‎û‏‏‏‎û‏‏‎‏ÿÿÿ‏ÿרתש‏‏‏‏‎ÿת‏ÿÿÿ‏ÿüר‎‏‎‏‎ü‎‎שÿÿÿÿÿÿÿÿ‏‏‏ÿÿÿÿÿÿÿÿÿÿ‎ÿ‏‏‎û‏ÿÿ‏ÿûÿÿÿÿ‎ü‎רüש‏‏ÿÿÿüתרתשûÿüש‏ûשÿÿÿ‏ÿ‎üר‎ûûûת‏‏שתÿ‎ÿÿÿûûü‎‏ÿÿÿ‏‏‎ÿ‏ÿÿÿÿ‏ÿÿ‏‏ÿ‏ÿ‏‏ÿÿÿÿÿ‏ÿ‏‎ÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿ‏‏‏ÿÿÿÿÿ‏‏ÿ‎üüû‎‎ûü‏‎‎‏תפקרתש‎üûüשתûüü‏üףרת‎ûü‏üüûü‎‎‎‏ÿתûû‎שÿ‎רü‎‎‏‎‏‏ÿû‎ÿ‎ü‎‎ûקÿ‎‏‎‏‏ÿü‎‎תûüפûקû‎‎‎‎‏‏üü‏‎‎‎ûü‎ש‏ÿ‎‏ÿÿ‎ÿÿ‎üüü‎ûûûÿ‎‏ÿÿ‏üÿüûרûüתûתûתת‎‏ûûÿüûûû‎ü‎‏‎üû‏ÿ‏‎‏üתûתû‎ü‎תרתü‏‏üÿûתשüüüû‏ûתרû‏‏‎ÿüûûüתתû‏קתשûü‏‎ûüû‎ÿûû‏‏üüüûÿÿÿÿûתתתשר‎‎תûתûûÿ‏‏קצרץקץר‎קתרשתû‎שûש‎ת‎שû‎ü‎‎‎‏ÿü‎ûûûûü‎ü‎ÿ‎‏ÿÿÿÿÿüש‎‏‎‎‎‏ÿ‎‏‏ÿÿÿÿüû‎‏‎‏‏ÿÿ‎ÿÿÿÿÿÿû‎û‏ÿ‏‏ÿÿ‎üÿÿÿÿÿתüת‎‎‎‏‏תüûÿÿ‎ûÿ‎‎‎ÿ‏ÿÿÿÿÿÿÿÿÿÿÿü‎‎ÿ‏‏ÿÿÿ‏ÿÿÿÿÿÿü‎‎ÿ‎‏ÿÿÿ‏‏ÿÿÿÿÿü‎ü‏‎‏ÿÿÿ‎‏ÿÿÿÿÿü‎û‏‎‏ÿÿÿü‎ÿÿÿÿÿûüû‏üÿÿÿ‎ûûÿÿÿÿÿüü‎ÿ‎ÿÿÿ‎üû‏ÿÿÿÿü‎‎ÿ‎‎ÿÿ‎‎‎ÿÿÿÿÿü‎‎‏‎‎ÿÿ‎‎‏‏ÿÿÿÿנססצפףת‎ררתעצףפפרצשûתש‏‏üתü‏ûüÿ‏ת‎û‏ü‏ÿÿÿ‏‏ÿÿÿÿÿû‎‎‏üûÿÿ‏‏‎ÿÿÿÿÿü‏‎ÿ‏‏ÿÿÿ‏ÿÿÿÿÿÿûûûÿ‎‏ÿÿÿüÿÿÿÿÿÿü‎ü‏‎ÿÿÿ‏‎üÿÿÿÿÿü‏‏ÿ‏‏ÿÿÿÿÿÿÿÿÿÿü‎ûÿ‏‏ÿÿ‏‏‏‏ÿÿÿÿü‏‏‏‎‏ÿÿÿ‏ÿÿÿÿÿÿü‏‏ÿ‎‏ÿÿÿ‏ÿÿÿÿÿÿûûת‏‎‎ÿÿÿ‎ÿÿÿÿÿÿü‎‏‏ü‎ÿÿÿü‏ÿÿ‏‏‏üÿ‏ÿ‏‏ÿÿÿüÿÿÿÿÿÿüûüûüû‏ÿÿüÿÿÿÿûüüû‎ûüûû‏ÿû‎ÿÿûûתüüש‎û‎‎‎ÿûûÿÿÿÿÿü‎‎‏üû‏‏üû‎ÿÿÿÿÿüמ‎üüüÿÿ‏ü‏‏ÿÿÿÿû‎üü‎ûüÿ‏‏‏‏‏ÿÿÿû‎üû‎üü‎ÿüÿ‏‏ÿÿüû‎‎û‏üûüÿ‎‎ÿ‏‏תÿû‏ÿÿÿÿÿ‏ÿ‏‏ÿÿÿסÿû‎‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿû‎û‎‏‎‎‎‏‎ûÿÿûצûתûû‏‏‏‎ÿû‏‏‎ÿû‎‏תû‏ÿ‏‎‏ÿ‎‏‎‏ÿÿÿÿת‎ûÿÿ‏ÿÿÿ‏‎ÿÿÿÿÿתü‎ÿ‏‏ÿÿÿ‏‎ÿÿÿÿÿת‎תÿ‏‏ÿÿ‏‏üÿÿÿÿÿתüûÿ‏‎ÿ‏‏‏ûÿÿÿÿÿשתתÿ‎ûÿ‏‏‎û‏ÿÿÿÿששרÿüüÿÿ‏‏ü‏ÿÿÿÿרûרÿ‎‏ÿ‏‏‎ü‏ÿÿÿÿררצÿû‏ÿÿ‏‎ת‏ÿÿÿÿקשפ‏üüÿ‏‎üת‏ÿÿÿÿקרץ‏ü‏ÿÿ‎üûÿÿÿÿÿצמףÿüüÿÿ‎קüÿÿÿÿÿקתץ‏û‏ÿÿ‎ץüÿÿÿÿÿקקץ‏ש‏ÿÿ‎קüÿÿÿÿÿצûץüק‎ÿÿ‎ףפÿÿÿÿÿץפסüשüÿÿüכצÿÿÿÿÿץ‎צÿûשÿÿצץטÿÿÿÿÿטÝסüלפ‏ÿßזכץÿûתÿמזÞתüךÿÿםןגותûÿûףÿזûÿÿÿÿףüû‏רÿÿÿלםםשÿÿצÿצ‏צןüÿÿÿÿÿûÿÿÿÿÿ‎ÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿüÿ‏פÿÿÿקÿךÿÿÿÿÿÿÿÿ‏ÿמÿÿעüרÿÿÿÿÿÿ‏‏כÿÿ‏ÿש‏‎ÿÿÿÿÿÿÿש‏ÿÿב‏סÿס‎‎‏ü‏ûÿÿÿÿ‏ÿÿÿÿÿü‏‏ת‏üüÿÿ‏‏ÿÿÿÿÿ‎ü‏ü‏‏ûÿÿ‏‏ÿÿÿÿÿûüü‎‏‏‎‏‏‏‏ÿÿÿ‏ÿ‎‎‎‏‎‏ü‎‏‏‏‏ÿÿÿÿררר‏û‏‎ü‏û‏‏‏ÿÿÿ‎‎‎‏תû‏‏ÿÿûÿÿÿÿÿ‎ÿÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿ‎ÿÿת‏‎ü‏ÿÿÿüÿÿÿÿ‎‎‏ת‎üרûÿÿÿÿûשששüû‏û‎üûתÿÿÿ‏ÿ‎üüתûûüû‎ûûÿ‏‏‏‏ûüü‎üÿ‏‏‎‏ÿÿÿÿÿÿÿ‎ÿ‎‏‏‎‏‏‏ÿÿÿ‏ÿÿ‏ÿÿ‎‏ÿ‏‏‏‎‏ÿÿÿÿÿÿ‏ÿ‎ü‏ü‎‏שתÿ‏‏ÿ‎ששûüü‎שüûרקüûü‏üפעץüתûûûüשתûתת‏ÿשפûüûû‎תתûûתûש‎‏תשתüûûשקר‎üקûשת‎ûû‏ûרûקתץש‎שûשרûûû‏ûרûפתררûשûתשתüûûשûרקתרץתתתששûüתûקררקתתרקשתרתû‎üûשüשüüת‎‎ü‎ü‏‏‏‎ÿûüûûüû‎‏‎ü‎ÿÿ‏ÿÿü‎û‎‎‎‎‏ÿ‏‏ÿÿÿÿÿתüת‎û‎ü‏‎û‎‏ÿÿ‏ÿקרר‎שü‎‏ûתרû‏û‏ûü‎‎ÿ‎‏‏ÿ‏‏‏ÿÿÿÿÿü‎‎‏‏‎ÿÿÿ‎‎ÿÿÿÿÿüüüûüüû‏ü‎üü‎‎ÿ‎üû‎‎ü‎‎‏‎‎‏ÿÿÿÿÿü‎ü‎תû‎ÿÿ‏‏ÿÿÿÿÿûû‎ûתש‏‏ÿ‏‏‎ÿÿÿÿû‎שרתרû‏‏‎‎ÿÿÿÿÿקרשקüרשü‏‎üÿ‏ÿ‏ÿקרשקüûרתü‎‎‏ÿÿûÿü‎‎ÿÿÿÿÿÿ‏ÿÿÿÿÿÿü‎‎ÿ‏‏‏ÿÿ‎‏ÿÿÿÿÿü‎‎ÿ‏‏ÿÿÿÿ‏ÿÿÿÿÿü‎‎‏‎‏ÿÿÿ‎‏ÿÿÿÿÿûüû‏‎ÿÿÿÿ‎ÿÿÿÿÿÿûûתÿ‎‏‏ÿÿü‎ÿÿÿÿÿü‎‎ÿÿ‏ÿÿÿ‎‏ÿÿÿÿÿü‎ÿÿ‎ÿÿÿ‏ü‏ÿÿÿÿÿתשü‎תü‎‏תüצת‏תüתנעצתץשûתנתשצקפץץקררüקש‎‏üüûר‎‎ûשûû‏‏‎üÿÿÿ‏‎ÿÿÿÿÿûûûü‎‎ÿÿÿ‏‎ÿÿÿÿÿü‏‎ÿ‎‏ÿÿÿ‏ÿÿÿÿÿÿûüüÿ‎‏‏‏‏‎‏ÿÿÿÿÿü‎üÿ‎‏ÿÿ‏‎‎ÿÿÿÿÿûüü‏‎‏ÿÿ‏üüÿÿÿÿÿü‏‏ÿ‏‏ÿÿÿ‎ÿÿÿÿÿÿû‎‏ÿ‏‏ÿÿÿÿÿÿÿÿÿÿü‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿתû‏‏üûÿÿÿÿÿÿÿÿÿÿü‏ÿ‏‏‏ÿÿÿ‎ÿÿÿÿÿÿû‏ÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿûü‎‎‏‎ûüÿüÿÿÿüÿÿûüש‎ü‎‎üÿüüÿÿתûÿקפת‎üû‎‏üû‎ÿÿ‎‎ÿתûûûרû‎‏‎ûûüÿü‎ÿû‎‏ÿפ‏ÿÿÿû‎ÿÿÿÿÿת‏‏ת‏ם‏ÿ‏ü‏ÿÿ‏ÿÿûû‎ל‏‏תÿÿ‏‏‏ÿû‏‏ת‎ÿÿ‏ÿס‏ÿ‎‏ÿÿÿÿÿûüÿ‏‏ÿÿפ‏‎‏ÿÿÿÿÿתüü‏‎‎‏‏‎‎‏ÿÿü‎ÿתü‎ü‎‏‏‏‎üû‎ÿûûûש‎‎‏‏‏‏ÿü‏‎‏‏‏‎ÿתü‏ÿ‏ÿ‏ÿ‎‏‏ÿÿÿתÿשûüÿÿ‏ÿÿ‏‏‎‏ÿÿÿÿשü‎ÿ‏ÿÿÿ‏‏ü‏ÿÿÿÿרûüÿ‏‏ÿÿÿ‎üÿÿÿÿÿשתüÿ‏‏ÿÿ‏ûü‏ÿÿÿÿקüשÿ‏üÿÿ‏‏ü‎ÿÿÿÿרשתÿתüÿÿ‏‏û‏ÿÿÿÿצתשÿûüÿÿ‎üת‎‏ÿÿÿצתצÿת‎ÿÿ‏üû‎‏ÿÿÿץץק‎ש‎ÿÿû‎ת‎ÿÿÿÿץרפ‎תû‎‏תתüû‏ÿÿÿףצסÿעüÿÿÿת‎ÿÿÿÿÿפשע‎üןÿÿÿרת‏ÿÿÿÿסעמןשתÿÿ‎צüüÿÿÿÿספנüקשסÿûסצÿÿÿÿÿממב‎ץüÿקתוצÿÿÿÿÿןפעü‎ÿÿÿûנהÿÿÿÿÿכפיüם‏ÿÿוץמÿÿÿÿÿßסםüןוÿÿיקמה‎ÿÿüÜלףיÿנ‏ÿפתûסןÿÿןÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿףץÿשÿüתעûÿÿצקוחחקûיÿÿÿ‏üÿ‏ÿÿüßנקÿÿÿÿÿÿ‏ÿÿÿÿÿÿרפ‏ÿÿÿÿÿÿÿÿÿÿÿ‏ÿף‏ÿÿÿÿ‏ÿÿÿüÿÿÿÿÿרûû‎ü‏‏‎üÿÿÿ‏‏ÿÿÿÿÿü‎‏‎‏‏ÿÿ‏‏‏ÿÿÿÿÿ‎‏‏ü‏‏‏ÿÿ‏‏ÿÿÿÿÿûû‏‎‏‎‏‏‏‏‏ÿÿÿÿÿ‎‏‏‏‎‏‎ÿÿÿ‏ÿÿÿÿÿרשת‏ת‏‎‏ÿÿÿÿÿÿÿÿ‎‏ÿ‏‎ת‏ÿÿÿÿÿÿÿÿÿ‏ÿ‏‏ÿÿÿÿÿ‏ÿÿÿÿÿÿ‎‏‏‏ÿ‏û‏ÿÿÿÿÿÿÿÿ‏‎ÿû‏‎üתÿ‏ÿÿÿרשת‎üÿüü‏‏‎ÿ‏ÿÿÿü‎ÿ‎‎‎‎üûü‏ÿÿ‏ÿÿûüÿüü‏ûûûüÿÿÿÿÿÿ‎‏ÿ‏‏ÿ‎‏û‎‎ÿÿÿÿÿ‎‏ÿ‎‏ÿü‏‏‏‏ÿ‏ÿÿÿÿ‏ÿ‎‎‎ק‎‎צתÿ‎‏‏ÿשרûü‎üûü‎פץüתש‏‏פץûת‎ר‎תüûקרûשü‏תת‎תûשüûûüüרתשש‎תת‎‎‎‎‏üû‎‎‎‎‎‎‎‎ü‏üÿ‎‎üü‏‎‎‎ü‏‎‎ü‏üü‎תüû‏‎ûüûü‎‎‎ûשûששüשüüשûששûü‎ûתûûü‎üû‏üûüü‎‏ÿ‏ûûü‎‎‎‎‏‎‎‎ÿ‏ÿÿÿü‎ü‎‎‏‏‎‏‎‏‏ÿ‏ÿÿû‎‎‏‎‏‏ÿÿ‏‏ÿÿÿÿÿüüû‏‎‎‏ÿ‏ü‏ÿÿÿÿÿ‎‎üÿ‎ÿÿÿÿ‏ÿÿÿÿÿÿ‎üüÿ‎‏ÿÿ‏‏‏ÿÿÿÿÿüüü‏‎‎ÿÿ‏ü‏‏ÿ‏‏‏‎‏‎‏‎‎ÿÿÿ‏ûÿÿÿÿÿü‎‎‎‎‏ÿÿû‏ÿÿÿÿÿÿû‎‎‎ü‎‏ÿÿ‎‏ûÿÿÿÿüû‎‎üû‏ÿ‎‎‏ÿüÿÿÿרûüû‎û‎‏‏‎‎‏ÿÿÿÿשר‎ûת‎û‏‎‎‎‏‏ÿÿ‎‎‎‎ÿ‏‏ÿÿÿ‎ÿÿÿÿÿÿü‎‎‎‎‏ÿÿÿ‎ÿÿÿÿÿÿ‎‎‎‏‎‏‏ÿÿ‎ÿÿÿÿÿÿü‎‎ÿ‎‏ÿÿÿÿÿÿÿÿÿÿü‎‎‏‎‏ÿÿÿ‎‏ÿÿÿÿÿûûü‏‎ÿÿÿÿ‎‎ÿÿÿÿÿü‎ü‏‎ÿÿÿÿ‏‏ÿÿÿÿÿü‎‎ÿ‎‏ÿÿÿ‏‏ÿÿÿÿÿÿ‎‎ÿ‎‏ÿÿ‏‏‏ÿÿÿÿÿü‎‏ÿ‎ÿÿÿÿ‎‏ÿÿÿÿÿץסûתץקפקערספûעףףןסץצפסüקנררףקסשץתצתתרת‏ÿü‎ûû‎‎‏תû‎ü‏üûÿÿ‎‏‎ÿÿÿÿÿûûüûüûÿÿ‎‏‎‎ÿÿÿÿקררûתûûÿ‎ü‏‎ÿÿÿÿûûû‏‎ûÿÿ‏‏ÿÿÿÿÿÿü‏‏ÿ‎‏ÿÿÿ‎ÿÿÿÿÿÿ‎üÿÿ‎‏ÿÿÿÿÿÿÿÿÿÿü‎ÿ‏‎‏ÿÿÿÿÿÿÿÿÿÿü‎‏‏‏‏ÿÿÿÿÿÿÿÿÿÿüש‏‏ü‎‏‏ÿ‏ÿÿ‏‏‏ÿü‎‏‏‏ûÿ‏ÿ‎ÿÿÿÿÿÿü‎‎û‏‎ÿÿÿ‎‏ÿÿÿÿÿתקשûûûרü‎üû‎ÿûש‎ש‎‎‎ü‎‏üÿûÿÿÿÿתÿשקû‎ûû‎‏‏üû‏ÿÿ‏‏û‎ÿÿ‎‏ÿÿÿ‎ÿÿÿÿÿÿü‏‏‏‏‏ÿÿÿû‎ÿÿÿÿÿû‎‏‏‏‏ÿÿ‏ûÿÿÿ‏‏‏üû‏‎ü‏‎‏ÿü‏ÿÿ‎ûÿûü‎‎üû‎‏ÿüÿÿÿ‎ÿ‏û‎üû‏û‎‏ÿüûÿÿ‏ÿÿת‎ûû‏‏û‏ûü‏ÿÿ‏ûÿûûû‏‎‏ûü‏‎ûûÿ‏ÿÿתû‏ÿÿ‎‏ÿ‎‏ÿÿÿÿÿÿûûûüüû‏‏‎‎‎ûÿÿ‎‎שûûûüûüÿ‎ü‎‎üû‎ûûת‎ÿ‏‏ÿÿÿ‏üÿÿÿûÿשü‎ÿ‏‎ÿÿ‏‏‎ÿÿÿÿÿתת‎ÿ‎ûÿÿ‏‏ü‏ÿÿÿÿרûûÿ‎üÿÿ‏‎û‎ÿÿÿÿשûûÿü‏ÿ‏‎‎û‎ÿÿÿÿצררÿ‎‏ÿ‏‎üü‎‏ÿÿÿרûשÿü‏ÿÿ‎‏û‎‏ÿÿÿפררÿü‎ÿÿûüת‎‏ÿÿÿקשק‎תûÿÿü‎תû‎ÿÿÿעץץÿרûÿÿüüû‏ÿÿÿÿץרנûקצÿÿüûüü‏ÿÿÿלצכררש‏ÿ‎ףüÿÿÿÿÿנפםתקרתÿüכפ‏ÿÿÿÿßפÝûץר‏‏קמטÿÿÿÿÿפקמÿÿשÿÿסמףÿÿÿÿÿü‏ÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿתןÿÿÿ‏ÿÿעÿÿü‎ÿÿÿüסÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿ‎ררÿÿüÿÿÿתÿÿ‎קÿÿקÿצÿÿüÿÿÿÿקÿÿÿשÿםüרסÿ‎ÿÿÿÿקררÜםףכפןדכüÿûûקכ׳סÿרÿףÿץסם‎ÿÿ‏ÿקערÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿûÿÿנע‏ÿÿüûרםרüüüü‎üÿÿÿ‎‏ÿÿÿÿÿ‎ü‏ü‏‏ÿÿÿ‏‏ÿÿÿÿÿ‎‏‏‎‎‏‎ÿÿ‏‏ÿÿÿÿÿüü‏‏‎‏‎ÿ‏ÿ‏ÿÿÿÿÿ‏‏ÿ‏ü‏‏ÿÿÿÿÿÿÿÿÿתש‏‏ûü‎ÿÿÿÿÿÿÿÿÿ‏üÿ‏‎ש‏‏ÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿ‏ÿÿÿÿÿÿÿÿ‏‎ÿû‏‎ש‏‏ÿÿÿÿÿ‏ÿÿ‏‏‎‎‎üûÿÿÿ‏ÿתשÿ‏‏‏‎‎‏û‎ÿÿÿ‏ÿÿüÿ‏‏‏‎üûü‎ÿÿÿ‏ÿüüÿ‏üÿü‎û‎üÿÿÿÿÿÿ‏ÿÿ‏ÿû‏üü‎ÿÿÿÿÿ‎‎ÿ‏‎‎ר‎‏רת‏‏‏ÿÿûû‏û‎שת‎‎ץקüתת‏‏קצüתתתûû‎תקתûרü‏ûץ‏ת‎û‏ü‎‎ûתüüü‏üû‏‎ÿ‎‏‎‎‎‎‏‎‏‎‏ÿüÿ‎‎‏ÿ‎‏‎ÿÿ‎‏‏ÿÿ‏ÿ‎ÿ‎‏‎ü‏ÿ‎‎‎‏ÿÿ‏‏‎‎‎‎‎‎ÿ‏‏‎‎‏‏‎‎‏üüüü‎ü‏‏‎ûü‏‎‏‎‏üüü‎‎ü‎ÿ‎ûûÿÿ‏‏‏üûü‎ü‎‎ÿüüûÿÿÿ‏ÿûûûüüûÿ‏ûüûüÿÿ‏ÿûשüüü‎‏ÿü‎üü‎ÿÿÿûüû‏‎‏‏ÿ‎‏‏ÿÿÿÿÿûûû‏üü‏‏‎ü‏ÿÿÿÿÿ‎‏‎ÿ‏‏ÿÿÿ‏ÿÿÿÿÿÿ‏‎û‏‏‎‏ÿÿü‏ÿÿÿÿÿ‎‎ü‏‎‎ÿÿÿ‏ûÿÿÿÿÿ‎‎ü‏ü‎ÿÿû‎ÿÿÿÿÿÿ‎ü‎‏üü‏ÿÿ‎‎ûÿÿÿÿ‎ûü‎‎û‏ÿÿ‎‎ÿüÿÿûüש‎û‏û‏ÿ‎ü‏ÿÿÿÿÿ‎ש‎ûת‎‎‏‎üû‏ÿÿÿ‎‎û‎‎üû‎ÿ‏‎‏ÿÿÿÿÿתרüקתרû‏ûüüûÿÿÿÿüûüתüûû‏‏‎‏‏‏ÿûÿ‎ü‎ü‎üü‎‏‎‏ÿÿÿ‏ÿüûü‎‎‏‏‏ÿ‎‏ÿÿÿ‏ÿתצûתרתתûüûü‎ÿ‎‎‎קצûûתרûü‎üû‏ÿ‎ûÿüשûûüû‏ÿ‏‎‎ÿÿÿÿÿûûûÿ‎‏ÿÿ‏‎‏ÿÿÿÿÿÿüû‏üÿ‏‏‏‎‎ÿÿÿ‏ÿÿ‎ÿÿ‏ÿÿÿÿ‎‏ÿÿÿÿÿפסתקפסüûעפערתפעפןסשןססרüסרסףתןשףתשûתתקûÿתüûü‎ÿÿûûû‎ûü‎ÿÿ‏‏‎ÿÿÿÿÿתûû‎üûüÿ‎‏‏ÿÿÿÿÿתû‏‎ü‎ÿ‏‎‏ÿÿÿÿÿÿü‎‎ÿ‎‎ÿÿÿ‏‎ÿÿÿÿÿÿ‏‏ÿ‎‏ÿÿÿÿÿÿÿÿÿÿûû‏ûüשû‏ÿüÿ‏ÿ‎ûÿÿûÿü‎‎ÿÿÿ‎ÿÿÿÿÿÿûü‏üששש‎‏ÿüÿÿÿüüקרתפתףרקקü‎‎‎קררû‎‎קü‎ת‎‏‏ÿ‎‏ÿ‏ÿüû‏‏‎‎ת‎ÿ‎ÿÿÿÿÿÿûשû‏ü‎‎ûÿüÿÿÿÿÿÿü‎‏‏ר‏ÿÿÿüÿÿÿÿÿÿûü‎‏‏ת‏‏ÿü‏ÿÿÿ‏ÿüü‏û‏צÿÿÿûüÿÿÿÿÿûü‏‎‎‏üÿÿû‎ÿÿÿÿÿû‎‏ץüû‏üÿû‏ÿÿÿ‏ÿת‎תת‎תü‏‏û‎ÿ‏‎ü‎ûûûת‎‎ץ‏‏‎‎ÿÿ‎üÿתü‎ÿ‏ÿ‏‏‎‎‏ÿÿÿÿÿûü‏ÿ‏‏‏ש‏‎‏ÿÿÿÿÿתÿÿÿÿÿÿÿü‎‏ÿÿÿÿÿתûüÿ‏‏ÿÿ‎‎‎‏ÿÿÿÿשû‎‎‏‏‏ÿ‎‏‎‏ÿ‎‏‎תû‏ÿ‏‏ÿÿ‏‏‎ÿÿÿÿÿרû‎ÿ‏‏ÿÿÿ‏ü‏ÿÿÿÿשû‎ÿûüÿÿ‎‎û‎ÿÿüÿקתüÿüüÿÿ‏üü‏‏ÿÿÿרü‎ÿû‎ÿÿ‎שûü‏ÿÿÿץשתÿת‏ÿÿת‎û‎ÿÿÿÿקûתÿû‏ÿÿ‎‎קû‎ÿÿ‏פקקÿרÿÿÿ‎ÿûÿ‏ÿÿÿץשר‏üüÿÿקûת‎‏ÿÿÿןקץûשץ‏ÿûתûû‎ûÿûעץפûרת‎‏‎ץתר‏ÿÿÿךםסקקתÿÿ‎רצÿ‏ÿÿÿןףח‎רüÿÿתףûÿ‎ÿÿÿßום‎פüüÿ‎ץצÿÿÿÿÿלסט‎ר‏ÿÿתםצÿÿÿÿÿÿשÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿר‏ÿÿתÿÿÿÿÿÿÿÿ‏ÿתםעÿÿ‎ÿÿצÿףשÿÿÿÿכÿגÿÿüÿÿÿפץ‎סÿ‎ÿדÿÿןÿ‎ÿÿÿÿרףÿתשתרסף׳חûûÿüÿעףעןÛÿנןכצÞÿÿ‏‎ûלךעÿÿÿסתסשרÿÿü‎ÿשררÿÿÿרÿÿש‎ÿÿÿÿÿûסÿÿÿÿקÿÿסץüÿÿ‏ÿûצÿüü‎‎‎üÿÿÿ‎ÿÿÿÿÿÿüü‏‎‎‏ÿÿ‏‏‏ÿÿÿÿÿ‎‏‏‎‎‏ÿÿÿ‏‏ÿÿÿÿÿ‎üÿ‏‎‏ÿÿÿÿÿÿÿÿÿÿ‏‏ÿ‏‏‏‏ÿÿÿ‏ÿÿÿÿÿ‎ת‏‏תü‏ÿÿÿ‏ÿÿÿÿÿ‏‏ÿ‎‎ש‎ÿÿÿÿÿÿÿÿÿ‎‏‏ר‏ü‏‏ÿÿÿ‏ÿÿÿÿ‏‏ÿü‏‏ש‏‏ÿÿÿÿÿÿÿ‎‏ÿü‎‏ûת‏‏ÿÿ‏‏ש‏‏üÿüüüüûÿ‏ÿ‏‏üüü‎‏‏‎üü‎üÿ‏ÿÿ‏‎û‏‏‏‎ûûתü‎‏‏‏‏ÿ‎ü‏û‎ûץüץרתû‎ûûÿתתתûüתפ‎ûצת‎û‎‎üתר‎ר‎רשü‎ץרüתüüüüר‎תûû‎‎‎תשü‎üüÿ‏‎‏‎‏‎ÿ‎ÿ‎‎‏‏‏‏ÿÿ‏ÿ‎ÿ‎ÿ‎‎‏‎ÿ‏‏‏‏ÿ‏ÿ‎‎‎‏‎‎‏‎ÿ‎‏‏‏‏‎‏‎‎‎‏‎‎‏‏ÿ‎‏‏‏ÿ‏ÿ‎‎‎‎‎ÿ‏‏‏‎‏ÿÿÿ‏ÿ‎‎üÿ‎‎ÿ‏‏ü‏ÿ‏ÿ‏ÿüü‎ÿ‎‏ÿ‏‏ü‏ÿÿÿ‏ÿüûû‎ü‏‎ÿûüûûÿÿ‏ÿüüü‏‎‎‏ÿ‎‎‎‎ÿÿ‏ÿüüü‎û‎‏‏‎ü‎‎‎ÿ‏‎ûû‎‏‎ûÿ‏‎ü‏‏ÿÿÿÿûûûû‎ü‏ÿ‎ü‏‏ÿÿÿÿü‎üÿ‏‏ÿÿÿÿÿÿÿÿÿÿû‎û‏‎‏ÿÿÿ‎ÿÿÿÿÿÿü‎‎‏‏‏ÿÿÿ‎ÿÿÿÿÿÿ‏‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿü‎ü‏‎‎ÿÿÿ‎ÿÿÿÿÿÿ‎‎üÿ‎‏ÿÿÿ‎ÿÿÿ‎ÿ‎üüû‎ת‎‏ÿ‎ü‎‏ÿÿÿÿ‎ûû‎ûש‏ÿû‎ûûÿ‎ÿÿüûüרתש‎‏ûüûû‏ÿÿ‏üûüשתשש‏‎ü‎‏ü‏ÿÿüשûרתרשתûûûûüÿüûüûüתûתûü‎üü‎‏ÿÿ‎ûשûקרררתûûûûüÿü‎ûתûתששûü‎üü‎‏ÿÿÿתרûשררûüüûû‎ÿÿ‎ÿקשתקרצשüûüûûÿÿ‏ÿרששרüרתüüüüü‏ÿ‏ÿü‎û‎‎ÿ‏ÿ‏‎‎ÿÿÿÿÿü‎ü‏‎‏‏ÿ‏‎‏‏ÿÿÿÿÿü‎ÿ‎‎ÿÿÿü‏ÿÿÿÿÿשפתשקפ‏üףפפפüצפûסנרןפסצûלסםםץנשףצפûצצקק‎ףשףףשü‎שתתתüרת‏‏ת‎תתûÿÿ‏ûרûûתר‎ÿû‎‏‎üÿÿÿûü‎ûüûÿÿÿ‏ÿ‎ÿÿÿÿüû‎ûüûûÿÿ‏ÿÿÿÿÿÿÿÿÿ‏‏‏ÿÿÿ‎ÿÿÿÿÿÿüü‎ûüüûüÿ‏‎ÿ‏ÿûÿשתüרתררתתתתתüקû‎תרûקûרשתתüûû‏ûûûüûÿüü‎‏‏‎‏‏‏ÿ‏‏ÿûת‏‎ü‎‎‎‏‎‏‏ÿÿ‏‎ûü‎‏û‎‎ÿÿ‎ÿÿÿÿÿÿûû‎‏ûש‏ÿÿüÿÿÿÿÿÿ‏‎ÿ‎‏‏ÿÿÿûÿÿÿÿÿÿû‎‏‎‏‏‎ÿÿüÿÿÿÿÿÿ‎‎ÿ‎‏‏‏‎‏ü‎ÿÿÿÿÿûü‎‎‎üûü‎ת‎‎ÿ‎‎ÿקשüûüûûû‏ת‎‏ÿûûûתû‎‎‏‏‏ÿÿûÿÿÿÿ‏ÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿתûü‏‏û‎‏‎ü‏ÿÿÿÿÿÿü‏ÿÿÿÿÿ‎‎ÿÿÿÿÿÿתû‎ÿ‏‏‏‏‎‎‏‏ÿÿÿÿתתתüûת‎ûתתתת‏שתÿשüûü‎ü‏‏üûüü‎‎ü‎תû‎ÿ‏ûÿÿ‎‏ü‏ÿÿÿÿרü‎ÿü‎ÿÿ‎üü‎ÿÿÿÿשתûÿ‎‏ÿÿ‏üü‎‏ÿÿÿקûüÿ‎‏ÿÿû‎תû‎ÿ‎‏ררûÿ‎‏ÿÿûûûû‏ÿÿ‏צש‎ÿüÿÿÿ‏üü‏‏ÿÿÿקשתÿתÿÿÿ‎ûü‎ÿÿÿ‏ףקü‏שüÿÿת‎שû‏‏‏‏ףסףûששÿÿצרצצûûûüמצף‎שû‏ÿüüû‏‎ÿÿÿןךסתקתÿÿתתתתûÿÿ‏געמüץשÿÿüתü‏ÿÿÿÿןהפÿםתÿÿûס‎ÿÿÿÿÿץûצÿÿרÿÿ‏ÿÿÿÿÿÿÿÿ‎ÿצקÿÿÿüÿüüÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿûÿמרצûץ‎ÿÿÿרשם‏קררטפךגעתÿÿ‎‎אחגÿפÿצ‎ûצףûÿÿÿÿüרûÿÿÿעÿשספüÿÿÿÿףקפתלרסאףלכüÿÿü‎לךצÿÿÿשÿגףת‎ÿÿüÿקûÿÿÿÿÙÿ‎פפ‎ÿ‏üÿרפÿÿÿÿüÿÿÛף‎ÿÿ‏‏קרÿתרûתתרÿÿ‏ü‎ÿÿÿÿÿüת‎ûûû‏ÿÿ‎‏ÿÿÿÿÿüûû‎üû‎ÿÿü‎ÿÿÿÿÿ‎û‎‎ü‎‏‏‏‎‎ÿÿÿÿÿ‏‏‏‏‏‎‎ÿ‏‏‏ÿÿÿÿÿ‏‏ÿ‏ûü‏ÿÿÿÿÿÿÿÿÿÿ‏ÿ‏‏ת‏ÿÿÿÿÿÿÿÿÿ‏‏‏ת‏‎‏ÿ‏ÿÿ‏ÿÿÿÿÿ‏ÿü‏‏ת‏‏ÿÿ‏ÿÿÿÿ‏‎‎תüûתרÿ‏ÿ‏üתûûÿûûקתשרת‏ü‎‎‎קרûü‎‎צרצצרü‎ת‏‏תקûשששסרעףץץתשר‎רץûû‎üק‎ûרת‎ü‎û‏üû‎תüתתü‎רתüüû‎üüûûתûû‎‎‎ûü‎‎‏‏‏‏ü‏‎‎‎‎‏‏ü‎‏‏‏‏‏‏‏ÿ‏‎‎‏‏‏‏‏ÿ‎ÿÿÿÿÿÿ‎‎‎‏‎‎‏‎‏‎‏‏ÿÿ‏ÿ‎‎‎‏‏‎‎‏ÿ‏‏ÿ‏‏‏‏‎‎‎‏‎‏‏‏ÿ‏‏ÿÿÿÿÿûüü‎‎ü‏‎‎ûü‏‏‎‎‏תüת‎‎‎ÿÿ‎ûûÿ‏‎‏ÿûûû‏‎‎ÿ‏ü‎ûÿÿÿ‏ÿ‎‎‎‏‎‏ÿ‏‏ÿ‏ÿÿÿÿÿ‏‎‏‏‎‏‏ÿÿü‏‏ÿÿÿÿü‎‎ÿ‏‏ÿÿÿüûÿÿÿÿÿ‎ûû‏ü‏‏ÿû‏ûÿÿÿÿÿûûû‏üû‏ÿû‏‏ûÿÿÿÿüüüü‎ü‏ÿ‏‎‏ü‎ÿÿ‏ûûü‏‎‏ÿÿÿÿÿÿÿÿÿÿ‏‎ü‏‎‎‏ÿÿ‎‏ÿÿÿÿÿÿ‎ÿÿ‏‏ÿÿÿ‎ÿÿÿÿÿÿ‎‎‎‏‏‎ÿÿÿüÿÿÿÿÿÿ‎‎û‏ü‎‏ÿÿüûÿÿûûÿ‎‎ü‎‎‏‏ÿ‎‎‎ÿÿÿÿÿûüüüüû‏ÿû‎‏ûÿ‎‏ÿÿ‎ü‏‎‎ÿÿÿ‎ÿÿÿÿÿÿÿ‎ü‎‎‎‏ÿÿ‎ÿÿÿÿÿÿûûûûûû‎‎‎ûשÿÿûÿûûûûתûשû‏שתת‏ÿûÿ‎üûü‎ü‎‎‏‎üû‎ÿÿÿÿûüû‎üû‎‏ûûû‏‎ÿÿÿüûû‎תû‎‎ûûûû‏ÿ‏ÿüûü‎üûÿÿ‏üüÿÿÿÿÿתüתרקשü‏ûתתü‎ÿ‏ÿתששüüרûÿûüû‏ÿÿÿÿשûרקûûüüתûû‎ÿÿÿÿ‎‎שÿ‎‏‎ÿ‏‎‏‏ÿÿÿÿüüת‏‎üÿ‏‎ü‏‏ÿÿÿÿ‎‎ûÿ‎‏ÿÿ‏ü‎ÿÿÿÿÿרצצצצצû‏ףץףצתקûצתרתצצץר‎ףקףצתק‎פףפתפפףקתףûפפרü‏פקףצפרףקûצרüצרü‏ûü‎‏ûüü‏ÿÿ‏‎‎‏ÿÿÿü‎üüûתת‎‎‎‎ü‏ÿ‎‏קררקüתûת‎תûûüûû‎üûתüüתת‏‎ûתÿ‎ÿת‎ü‎ÿ‎‎‎‏ÿÿ‎‎ÿÿÿÿÿתרûרתרûüקüûרü‎‎תûררקקרתûתתûרתק‎ûתר‎ûûשû‏‎üû‎üÿ‎ûתר‎רתשûüûüû‎‏‎‏‎üü‎‏‎ר‏‏ÿüÿÿÿÿÿÿû‎üû‎û‏‎ÿü‎ÿÿÿÿÿüüÿ‎‎‎ÿÿÿûüÿÿÿÿÿתû‎ק‎ûûü‎ûüüÿ‏ûÿüתÿüü‏‎‎‏û‎ÿ‏‎‎ÿתûûûûשüü‎תû‎ÿÿ‎ûûשûתûûר‏üûü‏ÿ‏‏‏קשקרשקש‎ûשüû‎‏‏‎קûרקûרשûûרר‎‎‎רÿתü‎‏‏ÿ‏û‎üü‏ÿÿÿÿûû‏ÿ‏‏ÿÿ‎‎‎ÿÿÿ‏ÿש‎‎ÿü‏ÿÿ‎ü‎‎ÿÿÿÿתת‎‎üü‏ÿ‎üתüü‎‏‏שüתÿü‎ÿÿ‎‎ü‏ÿÿÿÿשרת‎û‎‏‏ûüתת‏‏‏üרת‎ÿü‏ÿÿ‎‏ü‎‏ÿÿÿתת‏ÿûÿÿÿ‏‎ûÿÿÿÿÿצשüÿ‎ûÿÿûףרüü‎‎ûרץש‏û‏ÿÿת‎ף‏ÿ‎ÿ‏פרûÿשש‏ÿע‏ûû‏ÿ‏ÿצסרÿשûÿÿ‎‏תףüÿÿ‎ספû‏תתÿÿÿתü‎צÿÿ‎ףענתץüÿÿü‎ûÿ‏ÿÿ‎ןלÿ‎ש‎ÿÿüÿ‎ÿÿÿÿÿמכט‎זרÿÿ‎צ‎‏ÿÿÿÿכלÿ‏ץךÿÿ‏ÿÿÿÿÿÿÿÿ‎ÿםפצÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿ‎‎ÿÿÿÿÿÿÿÿÿÿץÿסקםןםüÿÿÿ‎קפס‎ûûםקמכםûÿÿ‏ÿאג‎‏תüךשûצףüÿÿ‎ÿתע‎üששתתץןץתÿÿ‎ÿנס‏ץרûפןסזלתרûü‏עכשק‏ÿפשנתעÿץ‎ÿÿפקÿןססןÿקקמ‎ÿס‎ÿûץÿÿÿÿûÿÿקתרÿÿ‎ÿשüÿקפרפץץץÿקתרÿÿÿÿÿûתûתתûûÿ‎‎ûÿÿÿÿÿקשרשתשש‎üתûÿÿÿÿÿתûûתûûû‏‎ûûÿÿÿÿÿ‏‏ÿ‏‏‏‏ÿÿÿ‏ÿÿÿÿÿÿ‏ÿ‏‏‎‏ÿ‏ÿ‏ÿÿÿÿÿ‏‏ÿ‏‏ü‏ÿÿÿÿ‏ÿÿÿÿÿÿÿû‏‏‏ÿÿÿ‏‏‏ÿÿÿ‎‏ÿתüûתü‎‏ÿûüתûû‎‎‎רûששת‎‎‎‎תקררץüצפקץץץשתצ‎שצערץצצףûפפצצתרש‎רצש‎‏ÿü‏üü‎‏‏‏‏ÿÿ‎ÿ‎‏‎ü‎ü‎üÿ‏‎‏ÿ‏ÿ‏תûüת‎‎ûü‎‎ü‎‏ü‎üתû‎üü‎û‎‎‎‎‏ÿ‏‎ÿ‎‎‎‏‏‏ü‏ÿ‏‏‏‏ÿÿÿ‎‎‏ÿ‏ÿ‏‏ÿÿ‏ÿ‏ÿ‏ÿüû‎ü‎üü‎‎‎‎‏‏‎‏‏‎‎‎‏‎‏‏‏‏‎‏‏‏‎‏ÿûüûüüüü‎‎ü‎‎‏‏‏ÿüüû‎‎‎‎‏‎‎ü‏‏‏‏ÿûüûÿ‎‏ÿ‏‏‎‎ÿÿÿÿÿûûûÿ‎‏ÿ‏‎‎‎ÿÿÿ‏ÿ‎‎‏‏‎‏‏ÿÿ‎‏ÿÿÿÿÿ‎‎û‏‏ÿÿÿÿ‎ÿÿÿÿÿÿ‎‎ûÿ‏ÿÿÿÿ‎‏ÿÿÿÿÿ‎‎‏‏‎‏ÿÿÿ‎‏ÿÿÿÿÿ‎ü‎‏‎‏ÿÿ‏‎‏ÿÿÿÿÿ‎‎‏ÿ‏‏ÿÿÿ‏ÿÿÿÿÿÿ‎û‎‏ü‏ÿÿÿÿÿÿÿÿÿÿ‎‎‎‏‏‏ÿÿÿÿÿÿÿÿÿÿ‎‎üû‎ûûÿÿ‎ÿÿÿÿÿÿ‎‎ü‏‎‏ÿÿÿ‎ÿÿÿÿÿÿû‎û‎‎‏‏üÿü‏ÿÿÿûÿ‎‎ü‏‎‏‏ÿÿ‎‎ÿÿÿÿÿ‎‎üÿ‎‏ÿÿÿ‏ÿÿÿÿÿÿ‎‎ü‎‎‏ÿÿÿ‎‎ÿÿÿÿÿüüû‎‎üüÿ‏‎üÿ‎‎ÿ‎üüü‎‎‎‏ÿ‎ü‎ÿÿÿÿÿü‎ü‎ü‎‏ÿ‎üûÿÿÿÿÿüüû‎ü‎‎‏ûûû‎ÿÿÿÿûûû‎ûü‎‏ûתתûÿÿÿÿûüûüüû‎‏תûרûüÿÿ‏ûüü‎üü‏ÿûüû‏ÿÿÿÿûüûüûü‎ÿûתûû‏ÿÿÿרתûûתûûÿûüר‏üÿÿÿקששתüתת‏קתûûÿÿÿÿת‎‎ÿ‎‏ÿÿÿ‏‏‏ÿÿÿÿûÿûÿ‎ÿÿÿÿ‏‏ÿÿÿÿÿÿ‏ÿÿ‎ÿÿÿÿ‏‏ÿÿÿÿÿ‏ÿ‏ÿ‎ÿÿÿÿüÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿ‏‏ûÿÿÿÿÿ‎û‎‎üû‏ÿק‎üûÿûÿ‎ףצפףפפפûפתüסקףפפשררףקפפתüתתץפק‏ף‎‎‏û‏ûûÿÿü‎‏ÿÿÿÿשששתüתתûüרצ‏‎‎תû‎ü‎‏ü‎‏‎‎ü‎ÿ‏ÿÿÿ‎‎‏‎ü‎‏‏ü‎‎üÿÿÿ‏ÿ‎‏‏‎‏ÿÿÿ‏ÿÿÿÿÿÿשתשûûûû‎שûתתûüששûשתתרתתüתûתתüת‏ת‎‎‎‏üüÿÿÿ‎‏ÿÿÿÿÿûü‎תûתת‏‎‎ü‏‏‏ÿÿקûûקûררüתûüûüû‏ûûû‎û‏ûûü‏ûü‏‏ÿÿÿ‎ü‏ÿ‏‏‏ÿÿûÿÿÿÿÿÿûû‎‎ת‎‎‎‎ü‎ÿÿÿü‎קררףקפפרשרפצתףררקרקןףססתףשצתרצצüקשרûûûûüûû‎û‏‎ÿÿקרצצüקקתûתש‎üÿ‏ü‎‎‎ÿÿ‏ÿÿüü‏ÿÿÿÿÿתת‏ÿ‏ÿÿ‏‏ü‏ÿÿÿÿÿ‎üûÿ‎ÿÿÿÿü‎‏ÿÿÿÿתת‏ÿ‏üÿÿÿ‏ü‏ÿÿÿÿ‎ת‏ÿ‎‎ÿÿ‎‎ü‎ÿÿÿÿשתüÿ‎‏ÿÿ‏‏ûû‏‎ÿ‏‎תשÿüÿÿÿÿ‏תÿÿÿÿÿררûÿûÿÿÿ‏‏ûÿÿÿÿÿüרüÿתÿÿÿ‏‏üÿ‏‏ÿ‏קץÿÿûÿÿÿ‏ÿüÿÿÿÿÿüק‏ÿü‏ÿÿ‎ÿשÿÿÿÿÿץקÿÿת‏ÿÿ‏ÿשÿÿÿÿÿתנש‏רüÿÿüÿûÿ‏‎‏ףנץק‏ףüÿÿüÿüÿ‏ÿÿÿקםûüךת‏ÿüÿû‏ÿÿÿÿהםסקמררÿתÿü‏ÿÿÿÿüגÿייככÿûÿ‏‏ÿÿ‏ÿÿûÿüÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿגתווע‎ÿÿÿÿÿקÿ‎ק‏מףןןןû‏ÿ‏ÿומעü‎üסצעמושÿÿ‎ÿקÝ‎ÿ‏‎ןססספשÿÿ‎ÿףץÿקשתןפססצתüÿ‎‏תם‎ûצעץתקףנûרüü‏ץףÿÿשעקÿםץקü‎üû‏‏ץÿקרריÿתצץצÿקûÿרצüÿÿÿüÿ‏לרתÿÿûÿ‎שÿתûתüûûÿÿ‏û‎ÿÿÿÿÿûûûüûûÿÿÿûüÿÿÿÿÿקררûתת‎ÿüתתÿÿÿÿÿûûû‎üü‏ÿ‎üûÿÿÿÿÿÿ‏ÿ‏‏‎‏ÿÿÿ‏ÿÿÿÿÿÿÿÿ‏‏ü‏ÿÿÿ‏ÿÿÿÿÿÿ‏ÿ‏‏‏‏ÿÿÿÿ‏ÿÿÿÿÿ‏ÿü‏‏‏ÿ‏ÿÿ‏ÿÿÿ‏‏ÿ‏ש‎üשû‎‏‏‎üשששצתץפתרספתרתüרןססצצשרüשקצûתשû‎רקר‎‎‎ü‏üüû‎‎‎‏ÿüüÿÿ‎‎‎‎ÿü‏ÿ‏‏ÿÿÿ‎‏ûûüû‎‎üüü‎û‎‏ü‎‏üû‎üü‎ü‎ûüüü‏üü‏‎ûü‎ü‏‎‎‎‏‎‎ÿ‏ÿÿ‎‎‎‎‎û‎‎‎‎‏‎ÿÿ‏ÿ‎üüתü‎‎‎‎üû‎‏‏‎ÿü‎‎‎üüû‎üüû‏‏ÿ‏ÿü‎‎‎‎ü‏‎üû‏‎‏‏üÿûûûû‎‎ü‎‎üûû‎ÿ‏‏ûü‎‏‎‎‏‏‎‎ü‏‏ÿ‏ÿûû‎‎‎‏ÿ‏‎‏ûÿ‏ÿÿÿü‎‎‏‎‏ÿÿü‎‏‏ÿÿÿÿ‎‎‎‏‏‏ÿÿÿ‏ÿ‎ÿÿÿÿת‎‎‏‎‏ÿÿÿ‏‏‏ÿÿÿÿתü‏‏‎‏‏ÿÿÿ‏ÿÿ‏‏ÿÿ‎‎ÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿüü‎‎‎ü‏ÿ‏ÿ‏ÿÿü‏ÿששששרשü‎‎û‏‏‏ששש‎‎‎‏‏ûÿÿÿ‏ÿÿÿÿÿÿ‎‎‎û‎‎‏ÿÿÿ‏ÿÿÿÿÿûûûÿ‎‎ûÿÿ‎ÿÿÿÿÿÿûûû‏‎‏ÿüÿ‎ÿÿÿÿÿÿ‎‎ÿ‏‏‏ÿÿÿ‏ÿÿÿÿÿÿ‎‎ÿ‏‎‏ÿÿÿ‎ÿÿÿÿÿÿüûûû‎û‏‏ÿü‎ÿÿû‏ÿשûûûü‎ûÿ‎üûÿÿûûûתûרüüüûüûתû‎ÿ‎ûÿ‎‎üÿ‎‏ÿÿ‏‎‏ÿÿÿÿÿ‎‎û‏‎‎‏ÿ‎û‎‏ÿÿÿÿ‎‎ûÿ‎‏ÿÿÿ‎‏ÿÿÿÿÿü‎ûÿü‎ÿÿ‏ü‏ÿÿÿÿÿüüû‏‎‏ÿÿ‏תûÿÿÿÿÿתûû‎üûÿÿûתש‏ÿÿÿ‏ûשû‏ü‎ÿÿשתשüÿÿÿüüü‎‎‎‏ÿÿü‎ü‎ÿÿÿÿûרû‎ü‎ÿÿûüûû‎ÿÿÿûתû‏‎‏‏ÿü‎‎‏‏ÿÿ‏ûûûÿ‎‏ÿÿ‏‎‏‎ÿÿÿÿ‎‎תÿ‎‏ÿÿÿû‏ÿÿÿÿÿ‏‎ÿÿÿ‏ÿÿÿüûÿÿÿÿÿ‏‏ÿÿ‏‏ÿÿüÿüÿÿÿÿÿ‏‎ÿ‏‎‎ÿÿû‏ÿûÿÿÿÿקשרףתצתüûקקספףרס‎‎û‏‎‎‏ÿ‏‏‎ÿüÿÿÿקררûתûûüûתû‏‏‎ÿûûûü‏‎ûÿ‏‎üûÿÿÿÿ‎ÿ‎‎‏ûÿÿÿÿ‎ÿÿÿÿÿÿ‏ü‎‎‏ÿ‏ÿÿü‎ÿÿÿÿÿüüü‎‎ü‏‎üüüü‎üÿüüüû‎üü‎ÿü‎‏ü‎üü‎‎ü‎‎‎ת‎‏ÿ‎‏ÿÿÿÿÿüüü‎ü‎ÿÿÿÿ‎‏ÿÿÿÿüû‎ü‎û‏ÿÿüÿÿÿÿÿÿÿü‏‎‏‏ÿ‏ÿü‎ÿÿÿÿÿüÿ‏ש‎‎û‏ûûתÿÿÿÿ‏צûצצתששרץתצצ‎צשûשתתûûתשüרקûרתûרüûû‎‎‏‎‏‏üûûÿ‏ÿÿÿקרשüתûת‎קתת‎‎ÿ‎ÿצששûתשü‏תûûשÿ‎‏üü‎‎ÿü‏ÿÿüÿÿÿÿÿÿÿüüÿÿ‎‏ÿÿÿ‎ÿÿÿÿÿÿûû‎ÿü‎ÿ‎‎ü‎‎ÿÿÿÿûû‏ÿü‎ÿÿ‏‎û‎ÿ‎‎‎ûתÿÿ‎‎ÿÿ‏‎‎üÿÿÿÿûש‏ÿû‏ÿÿ‏‏ü‎ÿÿÿÿששÿÿ‎‏ÿÿ‏‏ûÿ‏ÿÿÿתק‎‎ûÿÿÿ‏‏üÿ‏ÿÿÿףףףÿת‏‏ÿ‏ÿûÿÿÿÿÿתשÿÿûüÿÿ‎ÿûÿ‏ÿÿÿÿשÿÿ‏‎ÿÿ‏ÿûÿÿÿÿÿרקÿÿקûÿÿÿÿתÿ‎‎ÿÿרע‏‏קüÿÿÿÿשÿ‏ף‎‏פןûûןץÿÿüÿüÿÿ‎ûÿüמÿתפתÿÿûÿ‎‏ÿüÿÿמה‏תנםשÿüÿ‎‏ÿÿÿÿûשÿנזם‎üüÿüÿÿ‎ÿÿ‏ÿÿפüלÿÿ‎ÿÿÿÿÿÿÿû‏ÿÝשנמץûÿÿ‏ÿ‏‎ÿשש‎ןץעÛמתÿÿ‎ÿלגûרת‎סשףנהתÿ‏ûÿתצÿצתûםקצסנת‎‏ü‏צפÿפקûצשץעףשûûûÿüש‏פÿתש‏קףצü‎ÿÿÿûרÿישץץץרמקתûרüÿ‎ףÿזטטרÿתûש‎ÿÿ‎ÿ‎רÿÿÿÿ‏ÿÿÿת‏ÿÿ‎ÿÿûÿûûû‎ü‎ÿÿ‎û‎ÿÿÿÿÿûûת‎üü‏ÿ‎תתÿÿÿÿÿקררüתû‎ÿתתרÿÿÿÿÿשתתüûת‎ÿת‎תüÿÿÿÿÿÿÿ‏‏‎ÿÿÿÿ‏ÿÿÿÿÿÿ‏‏‏‏‎ÿÿÿÿ‏ÿÿÿÿÿÿÿÿ‏‏‏‏ÿÿÿ‏‏ÿÿÿÿÿÿÿ‎ÿÿ‏ÿÿÿÿ‏ÿ‏ÿÿÿ‏‎ü‎‎תû‎‎‏‎ÿתתüצררר‎תצץקררüûסער‎û‎üüüüü‎üü‏ÿûû‎ÿ‎‎‎‎ü‎‎‎‎‎‎‏‎‎ÿ‏‎‎ü‏ü‎‎ü‎ü‎ÿ‎‎‏‎ûûû‎‎ûüûתûü‎üüüüûûûûüûüתûרû‏‎û‏‎‎ü‎ûü‎‎תûû‎‏‏‏ÿ‎‎‎‎‎û‎‏üüûû‏‏‏ÿ‎‎ûû‎‎‎‏ûüû‎ü‏ÿÿ‎‎‎‏‎‏‎‏‎‎‏‎‏ÿÿÿ‎‎ü‏‎‏‏‎‏‎ü‎‎ÿ‏‏ûûû‎ü‎‎‎ûüû‎ü‎‏üüתü‎‎ü‏‏ûתûü‏‏‏ü‎û‎ÿü‏ÿ‏‏üûÿÿÿÿÿ‎û‎ÿüûÿ‏ûüû‎ÿÿÿÿ‎ü‎ûüûÿÿûüûû‏ÿÿÿ‎ש‎üüüü‏ü‎‎ü‎ÿÿÿüר‎ûûתûü‎‎ûûüÿûÿûû‎תתתûüû‎‎‏ü‏üÿüüüûûשû‎ü‎‎‎‏ÿ‎‏רר‎קתרתû‎ü‎‎üÿר‎ששששûששü‎‎‎ü‏ÿ‏‏‎‎‎‏‎‎‏‏ÿ‎‏ÿÿÿÿÿ‎‎‎‎‏‏ÿÿÿÿÿÿÿÿÿÿ‎‎‎‏‎‏‎ÿÿÿÿÿÿÿÿÿûû‎‏ü‏ÿÿÿ‎ÿÿÿÿÿÿü‎û‎üû‏ÿÿ‎‏ÿÿÿÿÿÿÿüÿ‏‏ÿÿÿ‎ÿÿÿÿÿÿû‎ûûü‎û‏ÿתûÿÿÿûÿûשû‎üûûüûתרÿÿûûÿרûשüüü‎‎רתשüÿÿÿÿûûû‏‎‏‏ÿûüûûÿÿÿÿü‎ûÿ‎‏ÿÿÿ‎ÿÿÿÿÿÿû‎ûÿ‎‏ÿÿÿ‎ÿÿÿÿÿÿü‎üÿ‎‏ÿÿÿû‏ÿÿÿÿÿ‎‎üÿ‏‏ÿÿÿüûÿÿÿÿÿקרר‎‎‎‏ÿקתר‏ÿ‎ÿÿüûû‏ü‏ÿÿתüûûÿ‏ÿÿü‎‏ÿ‏‏ÿÿÿ‎‎ÿÿÿÿÿקרקרקרüÿקתררתü‏שûü‎‏üûÿÿ‏‎‎‏‏‏ÿ‏ûûûûüûÿÿ‎‏‎ÿÿÿÿÿקûרû‎ûûÿ‎ü‏ÿÿÿÿÿ‏‎‏ÿ‏‏ÿÿ‏‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‎‎‎‏‏ÿ‏û‏ÿ‏ÿ‏‏‏ררץתûץתתûקûעקנפסןפפףצשת‎ûפפûץפפסקררüüתûÿûתר‏‏ûÿ‎‏üÿÿ‎‏ÿÿ‏ÿÿÿÿÿÿÿ‏ÿ‎ÿÿ‏ÿÿÿÿÿÿÿÿÿÿ‏‎‏‏‎ÿÿÿÿü‎‏‏‏ÿÿ‏ü‎ÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‎ü‎‏‎‎ÿ‏ÿ‎‏ÿÿÿ‏‏‎ü‏‏‏‎ÿÿÿÿÿÿÿÿÿÿ‏ü‎‎‏‏ÿÿÿ‎ÿÿÿÿÿÿ‎ÿ‎‏‎‏‏ÿÿ‎ÿÿÿÿÿÿûüשüûשü‏‎ûת‏‏üüü‎üûת‎‎‎ÿûûûÿÿ‎‏‏‎ü‎‏‎‏‎‏‎ת‎‏ÿÿ‏ÿץצצשתרקקףפפפקררפ‎û‎‎‏ÿÿÿ‏üûÿÿÿÿÿûת‎‏ûüüÿתתü‎‏ÿÿ‏שצüûתש‎ÿתשüש‎ü‎‏üû‏‎‎‏‏ÿûû‎ÿ‏ÿÿ‏‎ת‏‏‎‏‏ÿ‏û‎‎ÿÿÿÿûתûÿ‎üÿÿÿü‏‏ÿÿÿÿ‎ש‏‎‏‎ÿÿÿü‎ü‏ÿÿÿ‏תÿÿ‎ÿÿÿÿ‏ü‎ÿÿÿÿ‎ר‏ÿûü‏‏‏‏üÿÿÿ‏ÿ‏שÿÿûÿÿÿÿ‎ûÿ‏ÿÿÿתרûûûüûÿ‏‎שÿÿ‏‎ÿתצûüûתûü‎‎תÿÿûûÿÿשÿÿת‏ÿÿ‎‏üÿÿÿÿÿ‎ץÿ‎ûû‏ÿüÿûÿÿÿÿÿûףûצץûשû‎üר‏‎תרû‎ע‏‏ףתת‎üÿשÿÿ‏ף‏ûץ‏תפתÿûûÿת‏ÿ‏‎ÿ‎ר‎üנרתÿûÿû‎ÿÿ‏‏רך‎קזנüûשÿûüÿ‏‏ÿüש‏נצאש‏תÿü‏ÿÿתÿ‎‏ÿדרמף‏‎ÿ‏‏ÿÿÿÿüüÿלתץגתüÿ‏‎ÿÿûÿûûûעפץםיûÿÿüÿûםÿתüûףרףףףרת‎ü‏תצÿרקשףûצעפררתü‏üןÿשûשפרשפסתÿקü‎‏üÿפערק‎סץצרÿÿתÿ‏ר‏רמ‎ש‎‎קתûüÿûÿÿüÿÿÿÿףÿÿררüÿÿ‏ÿÿûÿÿÿÿ‏ÿÿתת‏ÿÿ‏ÿÿשÿשתק‎ûüÿÿüûüüÿÿÿÿתûרüüüÿÿÿü‎ÿÿÿÿÿתûû‎ü‎ÿÿÿ‎ÿÿÿÿÿÿ‎üÿ‏‎‎ÿÿ‎‏‏ÿÿÿÿÿÿÿÿ‏‏‎ÿÿÿÿ‏ÿÿÿÿÿÿÿÿ‏‏‏‏ÿÿÿ‏‏ÿÿÿÿÿÿÿ‎‏‎‎‎‏ÿ‏‎ÿ‎‎‎ÿÿ‎ש‏‎שû‎‎ÿ‎ÿששûüשרק‎ûעץûרûüûףערפףףשקתץףףצפפ‎פןקüûתûתûתûשûשש‎ûתü‎‎ü‎‏‎ü‎‎ü‎‎‏ÿüÿ‎‎ûû‎‏‎üüתûü‎‎‎‏ü‎רüü‎ûüשתששü‎‎‏û‎תü‎ü‎‎רתשש‎‏‎‏‎‎û‎‏‎‎‎תüûû‎ÿÿ‏‎‎‎‏‏‏‏‏ü‏üü‎‏ÿÿ‎‎‎‏‎‎‏‏‎‏‏‏‎ÿÿ‎‎‎‎ÿ‏‏‏‏ÿ‏ÿÿ‏ÿÿÿ‎‎ûÿ‎‎ÿ‏ÿ‏ÿÿ‏ÿÿÿ‎üü‏‎‏‏‏‎û‏‏‏‏ÿ‏‎‎û‏‎‏ÿÿÿת‏ÿÿÿ‏ÿ‎‎û‏ü‎ÿ‏ûüûûÿÿÿÿ‎‎‎‎‎ûÿ‏קüרר‏ÿÿÿ‎û‎û‎ü‎‏תüûûüÿÿ‏‎‎ûüתüû‎ûûûûתÿÿÿü‎‎üתרüüûüûûüÿÿû‎û‎קüרü‎תüתתüÿ‏ûûû‎קûûר‎ü‎ûüüÿ‎‎üש‎תתûרתûüû‎ûÿ‏ûקר‎ûתרûתûüûû‎ÿ‏‏תרüקתר‎üûüûû‎ÿûü‎‎ÿ‎‏‏ÿÿÿ‏ÿÿÿÿÿÿü‎üüתüü‎‎‎‎‏‏ÿ‎ÿüרûûתרûü‎ü‎‎‏ûûÿרששפתץשתûת‎ü‎ûûûüüûת‎‎û‎‏ü‏‏ÿÿ‏ÿûüר‎‎‎ûü‏ת‏‏ÿÿÿÿüüש‎ü‏ÿ‎‎û‎‎ÿÿ‎ÿüûû‏‎‎ÿÿü‎üüÿÿÿÿûûû‎ü‎ÿÿü‎üüÿÿÿÿü‎û‏‎‏ÿÿÿ‎ÿÿÿÿÿ‏ûûüÿ‎‏ÿÿÿ‎‏ÿÿÿÿÿûûרÿ‎‏ÿÿ‏ת‎ÿÿÿÿÿשüש‏‎‎ÿÿ‎‎‏‏ÿÿÿÿתûûÿ‎‏ÿÿתüûûÿÿÿÿ‎‏üÿ‏‏ÿÿÿ‏‏ÿÿÿÿÿü‎üÿ‏‏ÿÿÿüÿÿÿÿÿÿü‎üÿ‏ÿÿÿÿ‎‏ÿÿÿÿÿû‎‎ÿ‎‏ÿÿû‎ûûÿÿÿÿûüüÿ‎‏ÿÿ‏‏‏‏ÿÿÿÿקרû‎üûÿÿüüüüüÿÿÿקררûüû‎ÿ‏‎‏‏‏‏ÿÿÿÿÿÿÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿ‎ÿÿÿÿ‏ÿÿÿÿÿÿףרפשתפפצששûתקןספûששü‎ü‏‎‎ת‏‏‎ר‎שûûû‎û‎ÿÿ‏‏‎ÿÿ‎ÿÿûü‎‏üû‏ÿû‎ûûÿ‎ÿÿÿü‎‏‏ÿÿÿÿÿ‎ÿÿÿÿÿ‏‎ÿ‏‏‏ÿÿÿÿÿÿÿÿÿÿÿüüÿ‏‎‏ÿÿ‎‎ÿÿÿÿÿ‏ü‎ÿ‎ûÿÿ‏ûÿÿÿÿÿÿתשûתüû‎‎‎û‎üÿתû‎ûüüüûüüÿ‎‎‎‏ÿü‎ÿû‎ü‎‏üÿ‏ÿü‎ÿÿÿÿÿףצפפûררתקתררûתûû‎ÿ‎û‏‏ÿÿÿ‎‎ÿÿÿÿÿ‏û‎ÿ‏ÿÿÿÿüתÿÿÿÿÿתûû‏‏‏ÿÿ‎ûûÿÿ‏ÿÿüתûüü‎‏‏תתûûÿû‏û‏ûÿÿüÿÿÿ‏ת‏‏ÿÿÿÿûשרüררû‎קתררü‎ûûשרûקרצ‎‏קתררüק‎רקררץתצר‏קתררת‏‏ûףפרצקרצתתתûשתûש‎‏ש‎ÿüû‏‎‏üüûÿÿÿÿ‏תÿÿ‏‏ÿ‎‏ü‎‎‏ÿÿÿ‎ת‏‎ûûûÿ‏üü‏‎ÿÿÿ‏ר‏ûûü‎ü‏‎ûÿ‏ûûÿûש‎üתûû‎û‏תû‎ÿ‏‏‎צ‏ûףרüü‎‎ûÿ‎‎û‎ÿקÿûשףÿÿü‏תÿüÿÿÿ‎פüןשתרüüüת‏‎‏‎‏ûקûתףûנתû‎שû‏ûת‎ûת‎ûץרתףû‎שû‏‏û‎‎üÿûץשÿ‏ûÿשüÿÿ‎ÿ‎û‏רנס‏ÿתÿû‏ÿÿשÿ‎שÿתןעש‏ûÿü‏ÿÿ‏ÿ‎û‎פשךתתûÿü‎ÿÿ‏ÿ‎üÿכשעת‎ûÿü‎ÿÿÿÿüüûיתץירת‏‎ü‏‎û‏תש‎ףרצסםש‏‏תüתצüקצרעתצךצרק‎û‎‎רüקץפנרקףץש‎‎û‏‎פ‏תץüתתרצסשÿüüÿÿÿÿתרüתûûשצüÿÿü‏ÿצ‏‏שûשףתצרü‎ÿüÿÿÿÿÿÿÿשÿעפת‎ÿÿü‏ÿûÿÿÿÿןÿÿûûüÿ‏ûÿÿ‎ÿתû‎‏ü‎ÿÿ‎‎‎ÿÿÿÿÿקתû‎ü‎ÿÿü‎‎ÿÿÿÿÿ‎‎ÿ‏‎‏ÿÿ‎‏‎ÿÿÿÿÿÿÿ‏ÿ‏‏ÿÿ‏‏‏ÿÿÿÿÿÿÿÿ‏‏‎ÿÿÿÿ‏ÿÿÿÿÿÿÿÿü‎‎‎ÿ‏ÿ‏‏ÿ‎ÿÿÿÿ‏ש‎ששûÿ‏‎‎ÿששש‎‎üצ‏üקרÿ‎‎ü‏שק‎צûץץתûספשקרûüצףר‎‎‎‎‏‎üûüü‎ÿ‏‎üÿ‎‎ü‎‏‎ü‎‎ûû‎ÿÿüÿ‎‏‎‎‏‎‎‎‎üû‎‏‏‎ÿû‎ש‎‎‏‎‎שתשû‎‏‎‎û‏ûÿ‏ÿ‏‏û‎ûü‏‏‏ÿ‎‎ü‎‏‏ÿ‏ü‎‏ü‎ÿ‏ÿ‎‎‏‏ÿÿÿ‏ÿ‏ÿ‏ÿÿÿÿ‎‎‏ÿ‏‏‏ÿ‏‏‏‏‏ÿÿ‏‎‎‎ÿ‏‏‏‏ÿ‏ÿ‏‏ÿÿÿ‎‎‏ÿÿ‏‏ÿÿ‎ÿ‏‏ÿÿÿü‎‎‏‏ÿ‏‏‎û‎‏‏‎ÿ‏‎‎ûÿ‏ÿÿÿÿ‏ûÿÿÿÿÿû‎ר‏‏‏ÿÿû‏‏ÿ‏ÿÿÿü‎ûÿ‏‏‏‏‏‎‏üÿÿÿÿ‎‎‎ÿ‏ÿÿÿÿÿ‏ÿÿÿÿÿ‎‎‎ÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿ‎‎‎ÿ‏‏ÿÿ‏‎‏ÿÿÿÿÿ‎‎‎‎ü‎‏ÿüתü‏‎üÿû‎‎‎‏‏‎ÿÿ‏‎ûÿÿÿÿ‎üû‎üüû‎‏קüûûü‎ÿûüûûûתûü‏ûüûרüûÿתüש‎üûת‎‏ü‎üüû‏ÿ‏ûü‎תûשü‏üûü‎‎‏‏‏ûתüקתרש‎ûüרûü‎‏üתûûקתררתקתûûü‎‎ûרשרקקררתûüררü‏ר‎קרקקתפרתקתûûת‏‎‎תüûת‎‎‏‏ÿ‎‏‏ÿÿÿÿקûש‎‎‎ûÿÿ‎‎ÿÿÿÿÿû‎ü‏‎ÿÿÿÿ‎ÿÿÿÿÿÿü‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿü‎üÿ‎‏ÿÿÿÿÿÿÿÿÿÿû‎‎ÿ‎‏ÿÿÿ‎ÿÿÿÿÿÿûüüÿü‏ÿÿÿ‎ÿÿÿÿÿÿקûר‎‎ûÿÿÿüÿÿÿÿÿÿשתû‎‎‏ÿÿÿ‎‎ÿÿÿÿÿ‏‏‎ÿ‏‏ÿÿÿ‏‏ÿÿÿÿÿ‎‎ûÿ‎‏ÿÿÿ‎‏ÿÿÿÿÿ‏‏ûÿ‏ÿÿÿÿ‎‏ÿÿÿÿÿ‎‎üÿ‏‎ÿÿÿ‎üÿÿÿÿÿ‎ûüÿ‏‎ÿÿ‏ü‎ÿÿÿÿÿûûü‎ü‎ÿÿü‎ûÿÿÿÿÿ‎ת‎‏û‎ÿÿ‎‏‏ÿÿÿÿ‎רששû‎ר‎ÿ‏‎üû‏ÿ‏‏ÿ‏ÿûÿ‏ÿÿ‏ÿÿÿÿÿÿÿ‏‎ÿÿÿÿ‏ÿÿ‏ÿÿÿÿÿÿףפקûתûץפקשררקףספףרפûקû‎תûתûûüפפשûûû‏üûÿÿ‏‎‏ÿÿÿ‎ÿ‏‎ÿÿ‏‏ÿÿ‏ÿÿÿÿÿÿÿ‏üÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‎ûüü‎ûûü‎ü‎‏ÿûÿû‎‎‎ü‎‎‎‎‏‎üÿÿüüÿשצץףץףףצעצףשüצףûרצתץקץצרץרצצüרצ‏שתûצûצרתקûררתüר‏פפצצתתקתקתûרתüûûףפרתרשצשüקררת‎û‏‎ü‏ÿÿ‏‏ÿ‏‎‏ÿÿÿÿÿ‏üû‏‏‏ÿÿÿ‎ûÿÿÿÿÿûûûÿ‏ÿÿÿÿת‎ÿÿÿÿÿ‎ûû‏‏‏ÿÿ‏תüÿÿÿÿÿÿÿ‏ÿ‎ÿÿÿ‎ûת‏ÿÿÿÿüתü‏‎‏‏ÿרûü‎ÿÿÿÿüתüתûת‏‏קששצûשש‎‏ûÿÿ‏üÿÿ‏ש‎‎üÿÿÿתצתתרתûüתתתרûüÿת‏ת‏‏üûÿÿÿû‏üÿÿÿÿ‏ש‏ûû‎ÿÿÿû‎ÿûÿÿÿ‎תû‏üûûÿ‏üûÿÿÿÿ‏‎ר‏ûü‏‏ü‏‎ûÿÿÿû‎‎ר‎‎תüû‏‎‎ûÿ‏ÿÿÿ‎ü‎‎ûת‎üü‎ש‏‏ÿ‎‎‎שûתקû‎ÿüüשÿ‎ÿ‏ûüûûתצ‎ת‏ת‎û‏ÿÿ‏‎ûûüתקûûûû‏ûüÿÿû‏‎üÿ‏ץû‏‏û‏ר‎ÿÿÿÿ‎üÿüףתü‏ת‏ר‎ÿÿ‏ÿ‎ü‏üתפ‏‏ת‏שûÿ‏‏‏üüÿתשןü‎שÿת‏ÿÿ‏ÿ‎‎‏פתע‏ÿשÿת‏ÿÿûÿûüÿמצקת‎üÿûüÿÿ‏ÿûשûנתקץ‎ûÿ‎û‏‏‏‏תר‏פüקןתתÿ‏û‎ÿ‎‏ץצצץתרסתקתûûüüüüףר‎צüשקעקüûû‏‏û‎üûÿק‏ץקשתÿÿתÿÿÿÿ‏‏ÿתü‏שתûÿÿûÿÿûÿפרצשצףקץת‏‏ü‎ת‎תמןןףÿץרשûÿÿüüררÿÿÿÿ‎ÿÿשü‏ÿÿû‏ÿÿÿüת‏‎ü‎ÿÿÿÿ‎ÿÿÿÿÿתר‏‎û‎ÿÿÿ‎‎ÿÿÿÿÿüתÿ‎û‎‏ÿÿ‎ÿÿÿÿÿÿ‏‏ÿ‏‎‎‏ÿ‎‏‎‏ÿÿÿÿ‏ÿÿ‎‏‎‎ÿ‏‏‏ÿÿÿÿÿ‎‎‏ש‏ששü‎‏‎‎ÿüשÿ‎ÿ‎ת‏תתת‎‏üü‎תתתץצרצüצצפתרקתüצףררתרûüüתרתתשû‎תת‎‎‏ü‎‏‎ÿ‎‎ü‎‏‏ÿ‎ÿ‎‏û‎‏ÿ‎‎‎‏ü‏‏‏‏ÿ‎‎‎‏ÿÿ‎‏‎ü‎‎‎ÿ‏ÿת‎û‎‏‏‎‏‎‏ûü‎‏‏‏‎‎‎‏‏‏ÿÿ‎‏‏‏‏ÿ‏ÿ‏‏‏‏‏ÿ‏ÿ‏‏ÿÿÿÿÿÿ‎‏ÿ‏‏ÿ‏‏‏ÿÿ‏‏ÿÿÿ‏ÿÿ‏‏‏‏ÿÿ‏‏‏‏ÿÿÿü‎‎‏‏‏‏‏ÿ‏‏‏‏‏‏ÿûûûü‎üü‏ûü‎‏‏ûûûשûרûüûû‏‎üûû‏üû‏û‎‏‏‏‏ÿ‏‏‏‏ÿÿÿÿÿקû‎‏‏‏ÿ‏ÿ‏‏ÿ‏ÿÿÿ‎‎‎‏ÿÿÿÿÿÿÿÿÿÿÿÿ‎‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‎‎ÿ‏ÿÿÿÿ‏‏ÿÿÿÿÿ‎‎‎ÿ‏ÿÿÿÿ‏‏ÿÿûûû‎‎ûÿ‎‎ÿÿÿ‏‏ÿÿ‏ÿÿ‎‎‎‏‏‏ÿÿÿ‎‏ÿÿ‏ÿÿ‎‎‎‎‎‏‎ÿ‏üû‏‏‏ÿ‏ü‎ü‏‎‎üÿתûת‎‏ü‎‎‎ü‎‎üü‏ÿת‎ûû‏‏ÿÿü‎û‎ü‎‏‏ûü‎ûü‏ÿÿûüûקûררüתתררתü‏ûûü‎‎‎‎‎ÿûüû‎ü‏ÿ‎קשûûתתûתקûררü‎‏ûצררשתתûüקûתרתûûûûûû‎‎‏‎ÿÿ‎‎ÿÿÿÿÿשש‎‏‎‏‏ÿÿ‎‏ÿÿÿÿÿüû‎‏‎‏ÿÿÿüÿÿÿÿÿÿü‎ÿÿ‎ÿÿÿÿÿ‏ÿÿÿÿÿ‎‎‎ÿ‎‏ÿÿ‏‎‏ÿÿÿÿÿשûûûüûû‏‏üûû‏ûûÿûûü‎‎‏‏ÿ‎‎‎ÿ‏‏‏‏קרûÿ‎‏ÿÿ‏‎‎ÿÿÿÿÿüתüÿü‏ÿÿÿ‎‏ÿÿÿÿÿ‎‎üÿ‏‏ÿÿÿÿÿÿÿÿÿÿûûûüüüüÿÿ‎‏ÿÿÿÿÿû‎ûÿ‎‏ÿÿÿ‎ÿÿÿÿÿÿ‎‎ûÿ‏ÿÿÿÿ‎‏ÿÿÿÿÿÿ‎ÿÿ‏ÿÿÿÿ‎ÿÿÿÿÿÿ‎üüÿ‎‏ÿÿÿ‎‏ÿÿÿÿÿ‏‏üÿü‏ÿÿÿ‏‏ÿÿ‏ÿÿüüü‎ת‎‏‏‏ü‏üÿ‎ÿ‏ÿÿÿû‎ûûÿ‏‎‏ÿÿÿÿÿ‎‏ûת‎ûûÿ‏‎‎ÿÿÿÿÿûשûüתüüקר‎ûש‎רששפץשûתûûקת‎üשתשצüûûûüתüü‏‎‎‎‎‎‎ü‏ÿÿ‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿ‏üü‎üüÿÿ‎‎ÿÿÿ‏ÿרשסןפססקףףסרתןספףרסןקסספןפןפתףסûשûקצûקקשץשקקüûû‏üüü‎‎‎‏‎üüüû‎ÿ‏ÿüü‎‏‎‎‏‎‎ש‎‎ü‏‏‎ץץרקקרר‎קתתרתתûרüûü‎üÿÿÿü‎תÿÿÿÿÿ‎üûû‏‎‎ÿÿüüÿÿÿÿÿûûûû‎ûûÿ‏üרÿÿÿÿÿüûü‎û‏‏‎üüתÿÿ‏‏ÿûתרÿ‎‏ÿÿתü‎‎ÿÿÿÿûתûûüûûÿüקû‎ÿÿÿÿ‏û‏ÿÿÿ‎ÿתûרÿÿÿÿÿÿû‏ÿ‎‏ÿÿקתת‏ÿÿÿÿ‏ûÿ‏ü‎ÿÿתת‎ר‏ÿÿûüשü‎ת‎‎ÿתשüקקü‏ü‎ûÿÿü‎‏ÿ‏תüתûÿÿ‎‏שÿûûûûÿ‏üüû‏ÿÿûûש‏‏û‎‎‏‏üû‏üÿÿÿ‏ü‏‎ש‏‏ü‏ûûÿüÿÿüÿûÿÿתÿÿÿ‏üתÿüÿÿ‏‎‎‏‎תû‏‏üüתÿüÿ‎‏ûüûûצקû‏ת‎שÿ‏ûÿ‏‎ü‏ררüü‏ü‎שÿÿÿ‏‏‏‎ÿ‏קÿשÿ‎‏שÿÿÿÿÿ‎‎ÿÿץû‏ÿü‏ש‎ÿÿÿ‏‎‎‏üקû‏‎û‏רûÿ‏ÿ‏‎‎‎תתפ‎תש‎û‎ÿ‎‏ÿ‎‎ÿüתצü‏ûÿû‏ÿÿÿÿ‎ת‏קûעûÿת‏ü‎‏ÿÿÿ‎תÿפתפûÿתÿû‎üÿÿ‏ûû‎נûרפüתÿ‎û‏‏ü‏ûשûצתשץûרüüש‏ûûûפץץץתרסûרûûû‏üü‏תףûףשרצצרÿûת‎‏‎‏‎‏ÿüרתשûרÿÿüÿÿÿÿשר‏תרתששûÿÿûüÿ‎ÿרקÿשûתקצüÿÿû‏ü‎ÿסעעקÿץץרüÿÿû‎ÿשÿÿÿÿרÿÿüתüÿÿûüÿÿÿ‏ûÿ‏û‎ÿÿüüüÿÿÿÿÿ‏û‏‎תתÿÿü‎üÿÿÿÿÿ‏û‏תתשÿÿü‎‎‎ÿÿÿÿÿ‎‏רüשûÿüüü‎ÿÿÿÿ‎‏ÿר‏ûשü‎‎üüÿÿ‎ÿÿ‎‎ת‏ûרתü‎üüÿ‏ûÿשûקצüשףפקקתתתצקקקצצקרüצצתקפרûקצüףץפתרצררףקפתתûרûתûש‎‎‎ûüûüûû‎ÿüÿü‎‏‏‏‏‏‏‎‏‎‎‎ÿ‏ÿ‎‎‎‏‏‏‎‏‎‏ÿ‎‏ÿ‏ÿ‏‏‏‏‏ÿ‏ÿ‏‏‏‏‏ÿÿÿ‏‏ÿÿÿ‏ÿÿ‏ÿÿÿÿÿÿÿ‏ÿÿ‏‏ÿÿÿÿÿÿ‏‏ÿÿÿ‎‎‎ü‎‏ÿ‏‏‎‎‎‎ü‏ü‎‏‏ÿ‏‏‏ÿ‏‎‏‏‎‎‏ÿû‎‎û‎û‎üû‎‎‎‏‎û‏ûûûûü‎û‎‎ü‎û‏‎‎‎û‎‎‏‏ÿ‏‏ÿ‏ÿÿ‏ÿÿÿ‎û‎ÿ‏‏‏ÿÿ‎‎ÿÿÿÿÿÿû‎ÿ‏ÿÿÿ‏‏ÿÿÿÿÿÿûû‎‏üûÿÿ‎‎‎ÿ‏ÿÿÿ‎ü‎ûüû‏ÿ‎‎‏‏‏ûÿÿ‎‎‎ÿ‏‏ÿÿÿ‎‏ÿÿÿÿÿ‎ü‎‎‏‏‎‏‏‏‎ÿÿ‏ÿÿû‏‎ÿ‏‏ÿÿÿ‎‏ÿÿÿ‏ÿ‎‎û‏‎‏ÿÿ‏‎üÿÿÿ‎ÿ‎‎‎ÿÿÿÿÿÿ‎ÿÿÿÿÿÿ‎‎û‏‎‎ÿÿ‏üûüÿÿ‏ÿ‎‎‎‏‎‎ÿÿûüû‏‎ûûûü‎ü‏‎‏ÿÿü‎üüÿÿÿü‎‎û‎ü‎‏ÿûüûûü‎ÿû‎‎‎ÿÿÿÿÿÿ‎‏ÿÿÿÿÿüûü‎‎û‎ÿûüûûü‏ÿ‎üû‎ÿ‎‏ÿÿÿ‎ÿÿÿÿÿÿûרûûתû‎‏ûü‎ûü‏ÿûüשû‏תûÿÿÿü‎ÿÿÿÿÿûשרûתר‎ÿ‏üûÿÿÿÿÿûûüקתרûÿûüûÿÿÿ‏ÿקררקתררüתüûûÿÿûÿקרשקתררתתüûûüÿשûüû‎ÿ‎‎ÿÿÿÿÿÿÿÿÿÿûרü‏ת‏ÿÿÿ‎ÿÿÿÿÿÿתûû‎תרÿÿÿ‎ÿÿÿÿÿÿûûûûüûÿÿÿ‎‏ÿÿÿÿÿüüûü‎üüÿÿ‎‏ÿÿÿÿÿ‎û‎ÿ‏‏ÿÿÿ‎‏ÿÿÿÿÿ‎‎ûÿ‏‏ÿÿÿû‏ÿÿÿÿÿûüûÿü‏ÿÿ‏üתÿÿÿÿÿ‎‏û‏‏‏ÿÿû‎üÿÿÿÿÿ‏ÿÿÿÿ‎ÿÿ‏‎ÿ‏ÿÿÿÿ‎‎ü‎תû‎ÿ‏ü‎ûû‎‏ÿ‏üü‎ÿûÿÿ‏‎‏ÿ‏‏ÿÿ‎ûûרü‎ûÿûüû‏ÿ‏‏ÿ‎‎ÿ‎ü‎שüûüûû‏üû‎ûרû‎תû‏תûüûûü‏üû‎‎üüתש‏‎û‎ÿü‎‏‏ü‎ü‎û‏ûÿÿ‎‎‏‎ÿÿ‏ÿצתסןצפסקשץסרקצקקןשןףשףספנפסשתףסתשüשüüüüûתûשת‎ÿü‏‎üÿÿÿ‏ÿÿÿ‏‎‏ÿÿÿÿ‎üüÿÿ‏ÿÿÿ‏‏ÿÿÿÿÿüÿü‏‎‏ÿÿÿû‏ÿÿÿÿ‏‎‎‎‏‎ÿÿÿ‎‎ÿÿÿÿÿÿצששüרצü‎ûûששûשששûûתüüû‏ÿ‎ת‏ÿÿÿÿÿûת‎‏‏‏‏ÿÿ‎‎ÿÿÿÿÿüûתÿü‏ÿÿÿüתÿÿÿÿÿקûû‏‏ûÿÿ‎üû‏ÿÿÿÿ‏ûק‏‏ÿÿÿûק‎ÿÿÿÿÿÿü‎ÿ‏ÿÿÿüתשÿÿÿÿÿ‏ת‏ÿ‎üÿÿץתÿüÿÿÿÿ‏û‏ÿüÿÿÿ‏û‏צÿûÿ‏‏ת‏ÿû‎ÿÿ‏ש‎ûרÿÿר‏ת‏‏ü‏ÿÿ‏ש‎ÿ‏‎ÿÿ‏‎‏‎ü‎ÿÿÿת‏ÿÿÿÿת‎ûÿÿû‏ÿÿ‏ûüÿ‏‏ÿü‎‎ÿ‎ü‎‎ÿ‎ûתÿ‏ÿÿ‏‏‎ÿ‏ש‎ÿÿ‎ûתÿ‎‏ÿÿüüü‏שü‎‏ü‎תÿÿÿÿ‎ûûÿüר‎‏ÿû‎ר‏ÿ‎ûÿ‏‎ÿ‏ק‎ÿÿת‎שÿÿÿÿ‏ÿ‏ÿ‎קû‏ÿ‎‎û‎ÿÿÿÿ‎‎ûüûת‎‏תüתûÿü‏ÿüûüüתק‎‎ש‎קתÿüü‎üû‏üûףü‎ת‏ק‎‏‏ü‏ÿûÿûרץÿÿר‏ש‏ÿÿÿ‏‏üÿקüר‎‏שÿתü‎ÿÿ‏ÿüÿף‎ר‏‏üÿתת‎ÿÿ‎ûתüףûרûüת‏תתûûû‎ûרûצüתקüשü‎ת‏ûû‏תתתרתתפ‏צ‏‎ת‏‏üÿüתÿרקצץ‎צÿ‏ר‏ÿÿÿÿûÿרûשתÿשÿÿת‎ÿ‏ÿÿתÿק‏תרקתÿÿüüÿÿÿ‎צ‏תקשצתתÿÿü‎‎ת‏ÿÿÿצÿצשתûÿÿתüÿ‏‏ÿÿÿצÿÿשר‎ÿÿתüÿ‏ÿûקüקררÿÿקתשÿÿÿÿÿüקשקצצרÿרתררÿÿÿÿקקרץצףרתקתררתÿרשûרûףרףצתקתשרתÿרû‏‏‎ת‏ûû‎û‎ûü‎ÿ‏ÿתתתצ‎רףצתûשרתÿקשצתפקüûצצשתררתקררשûרûû‎ûûתתûûûÿû‎üüü‎‎‎‎‎û‎ü‎‎ÿÿÿûü‎‏‏‏‎‎ü‎‎‎‎ÿÿ‏‏ü‏‏‏ÿÿ‏‎‎‎‎‎ÿÿÿ‎‏‏‏‏‏‏ÿ‎‏ÿ‎‎ÿÿÿ‏ü‏‏‎‏‏‏‎‏‎‎‏ÿ‏ÿ‎ÿÿ‏‏ÿ‏ÿ‏ÿÿÿ‏ÿÿÿ‎‏‎ü‎ü‏‏‎‏‏‎‎ÿ‎‏‎‎ûû‎ûû‎ü‎‎‎‎ûû‏ûûûû‏üûü‎‏‎‎‎‏û‏‎‎‎‎‏‏‎‎‏‎‎‏‏‏ÿ‏‏‎‎ÿ‏ÿ‏ÿÿ‏‏‏ÿÿÿÿ‎ת‎‏‏‏‏‏‎‎‏‏‏‏‏‏‎‎‎‏ü‏ÿ‏‏‏‎ÿ‏ÿÿÿ‎‎‎‏תûÿ‏ÿ‏‎‏‏ÿÿÿ‎û‎ûüרÿ‏‎‎‏ÿ‏ÿÿ‏ü‎‎קüûûÿ‎‎‏‏‏ÿû‏תûûתüûקü‎üû‎‏‏‏‏ü‎ü‎ü‎üû‎ü‎‏ÿÿ‏ÿ‎ûüÿ‏‏ÿ‏ÿ‏‏ÿÿÿÿÿû‎‎‎‏‏ÿÿ‎ü‎ÿÿÿÿÿûûû‏‏‏‏ÿ‎üû‏ÿÿÿÿ‎‎‎ÿ‏‏ÿÿÿ‎‏ÿÿÿÿÿÿ‎‎ÿ‏‏ÿÿÿ‎ÿÿÿÿÿÿ‎‎‎ÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿü‎ü‎‎‏ÿÿü‎üü‎ü‏ü‎‎‎ÿÿ‏ÿÿÿ‎ÿÿÿÿÿÿü‎‎ÿ‎‏ÿÿÿ‎‎ÿÿÿÿÿ‎ü‎‏‎‏ÿÿÿ‎‎ÿÿÿÿÿתûü‎ûü‏‏‎û‏‎‎‎ÿ‎צתצשצצת‏תרצתûתתתצûתתתר‏‏תüûÿ‏ÿÿ‏‎û‎ü‎üÿÿÿ‎ÿÿÿÿÿÿ‎‎ÿÿ‎ÿÿÿÿ‎ÿÿÿÿÿÿררûûתששתתüרûüûÿû‎‎ÿÿ‎‏ÿÿ‏‎ÿÿÿÿÿÿüûü‏שüÿÿ‏‎‎‏ÿÿÿÿüû‎‎üרÿÿÿü‎ÿÿÿÿÿûûûקתû‎ÿÿû‎ÿÿÿÿÿüששüûשש‏ÿ‎ûÿÿÿÿÿקררקקרûתתתûÿÿÿÿÿüûקüüשüÿ‎ûü‏ÿÿÿÿüûûûü‏ÿÿÿ‎‎ÿÿÿÿÿ‎‎û‎üüûÿ‎‎üÿÿÿÿÿ‎‎ûÿ‎‏ÿ‏ÿ‎‏ÿÿÿÿÿûûû‏‎ûü‏‏ü‎ü‎ÿ‏תû‏ûûüû‏‎üû‎ÿ‎üûû‎‎û‎ÿÿ‎ÿÿ‎‎ÿÿÿÿ‏‎‎ü‏‏ÿ‎ÿ‎üü‏ÿÿÿÿüûû‏ת‎‏‎רüûת‏ûÿûקררצצסûתףûתסצףרפףûסןתףקתקûתףץקרפקüשת‎ûר‏ÿת‎ûü‎ÿ‎תûû‎‎‎‎ü‏üü‎ÿÿ‏‏üüüÿÿÿÿÿ‏‏üÿÿÿÿÿ‎ÿÿÿ‏‏ÿÿÿ‏ü‏ÿÿÿÿü‎û‏‏‏ÿÿ‏ü‏‏ÿÿÿÿüûÿ‏‏ÿÿÿ‏ת‏ÿÿ‎ÿÿûûüÿ‎ÿ‏ÿüü‎ÿÿÿÿÿשקתתûרü‎ûקשתûתתתתûûüü‎ÿÿ‏תרÿÿÿÿÿûûû‎‎‏‏ÿ‎üû‏ÿÿÿÿקתק‎üû‎‎ûשצüÿÿÿÿתרûÿü‎ÿÿשüש‎ÿÿÿÿףתע‎üûÿÿתüûÿÿÿÿÿתû‏ÿ‎‏ÿÿרû‏‏ÿÿÿÿÿû‏ÿÿ‎‏ÿüûÿ‎ÿÿÿÿÿ‎‏ÿü‎ÿÿ‏û‎ÿÿÿÿÿ‏‎‏‏ü‎ÿÿקש‎ר‏קÿצ‏ü‏ÿü‎‏ÿ‏ת‏רûתתת‏‎‏‎û‏ÿÿ‏שü‎תûÿ‎‏‎‏‏ת‏‎ÿ‏תüÿתüÿÿ‏‎‏‏ûû‏ÿ‏ûשÿûüÿû‏‎ÿûרü‏‏‏üתÿ‏‎ÿÿ‏‏ÿ‏שתû‎ûûשÿÿ‎ÿÿ‏ûÿüרü‏üשûתÿÿ‏‏ÿ‎‎ÿתקû‎‏ûüר‏ÿ‎ÿÿ‎ûÿûשû‎‏û‎שüÿ‏‎‎ûûûûûûת‏ü‎רש‏‏ü‏üüüüûצü‎ש‎רüÿ‏üü‏‎ÿüüרÿÿר‏ק‎‎‏ÿ‎ÿüÿüûץÿ‏û‏תüüÿÿ‎‏üÿשüצüüת‎ûü‎‎‏‏‎תüץüשûüש‏ûת‏ûû‎üû‎ףûתûüר‏תר‎‎ûÿûûûרûשקüקüüתü‎ûÿüûüקשתש‎ק‏‏ש‎ÿÿÿ‏û‏ץûשץ‏רÿ‏ûüÿÿÿÿûÿת‎üש‎קÿ‎ת‏ÿÿÿüתÿתûשצשתÿÿתü‎‎‎תתÿשצצתרûüÿשתתש‎ששששÿפרתûÿ‎ש‎ÿû‏ÿÿÿצÿÿצרûÿÿש‎ÿ‎ÿ‏‏‎‏üüÿÿûûûÿÿÿÿÿתüששתששÿרשששÿפץץקרשצשקרתקקצרתרÿר‎‏‎ת‏ü‎‏תüûû‏‏ÿ‏‎‏‏û‏‎ü‏ûüתû‎ÿÿÿשûתקüüקשקררץרשûרû‎‎ü‏‎û‎תüתûüÿÿÿשûשü‎‎ûûתûתתûÿ‏‎ÿ‏‏ÿ‏‏ÿ‏û‎ûü‎ÿÿÿ‏‎‎‏‏‏‏‏û‏‎‎‎ÿÿ‏ÿ‎‎‏‎‏‏ÿ‎‏‎û‎ÿÿÿ‏‏‏‏‎‎‏‏ü‏‎‎‏ÿÿ‏‎ûûרתרתüûתûתüûû‎ü‎‎ת‎תû‎üüתüü‎‎‎‎‎‎תü‎תüתûûüü‏‎‏û‎‎‎‏‎ûüüüûû‎ÿû‏‎‎‎‎‏‎‏üûüûüüÿ‏‏ÿ‎‎ÿ‏ÿÿÿ‎‎‏ÿ‏ÿÿ‏‎ûû‎üû‏‎ûüûûüÿ‏‏ûûûûתû‎‏ûüûûüû‏‎‎üü‎‎ת‏ÿ‎û‏‏‏ÿ‏‏‎‎‎û‏‎‏‏‏‎ûÿ‏ÿÿ‏‎‎‎ÿü‎ûÿûüü‏ÿÿÿ‏üüü‎‎ûÿüü‎ûûÿÿÿ‏ûûüûü‎‏ÿûü‎üüÿÿ‏‎‎‎ÿ‏‏‏ÿ‏‎‏‏ÿÿÿÿü‎‎ÿü‏ÿÿÿ‎‏ÿÿÿÿÿ‎ûû‏‏ûÿÿ‏‏‎ÿÿÿÿÿ‎‎‎‏‏‏ÿÿÿÿÿÿÿÿÿÿüüü‏‏‏üÿ‎‎‏‏ÿÿÿ‏‎‎‎ÿ‏ÿÿÿÿ‎‏ÿÿÿÿÿ‎‎‎ÿÿÿÿÿÿ‎ÿÿÿÿÿÿ‎‎‎‏‎ÿÿÿÿ‎ÿÿÿÿÿÿ‎ÿ‎ÿ‎‏ÿÿÿ‎ÿÿÿÿÿÿü‎‎ÿ‎‏ÿÿÿ‎‏ÿÿÿÿÿüÿ‎ÿüÿÿÿÿ‎‏ÿÿÿÿÿüüû‏ü‎ÿÿÿ‎ÿÿÿÿÿÿקררûûת‏üûתûüüûûûתרû‎üûÿÿ‏üûÿÿÿÿÿüû‎‎‎‎ÿÿ‏‎ÿÿÿÿÿÿüüü‎‎‏ÿÿÿ‎‏ÿÿÿÿÿüüü‎ûü‏ÿ‏üüÿÿÿÿÿתרתקתרû‏קתרתüתûûתשתשרשש‎שûששüüÿüקצרקצפרתקתררת‎רררששרקרü‎üûüü‎ÿ‎ÿקûûתתרûÿÿüüÿÿÿÿÿûûûûüû‎ÿÿü‎ÿÿÿÿÿת‎‎ÿ‏‏ÿÿÿ‎‏ÿÿÿÿÿתüüÿü‏ÿÿ‏‎‏ÿÿÿÿÿÿÿüÿ‏‏ÿÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿûûû‏‎üû‏‎ü‎‏ÿתÿ‎üüû‎‎‏‏‎‎‎‎‏ÿû‎‎‏ÿû‎‏‏ÿÿÿü‎ÿÿ‏ÿÿ‎ÿ‏‏‏ÿÿÿ‏üûÿÿÿÿÿ‎üû‏‏‎‏ÿû‎ûÿÿ‏ÿÿüüûÿ‏‎ÿÿû‎‎ûÿÿÿ‏נפשףûתקתקתרספףרסצצקתüüת‎üüûûרתתת‏‎תÿ‏‏ÿÿ‏ÿ‎‏ÿÿÿÿü‎ûÿ‏‏ÿÿ‏‎‎‏ÿÿÿÿÿû‎ÿ‏‏ÿÿÿ‏ÿÿÿÿÿÿûûüÿ‏‏ÿÿÿ‏üÿÿÿÿÿÿüÿ‏‏ÿÿÿÿ‏‎ÿÿÿ‏ÿûüû‏‏‏ÿÿ‎‏‏‏ÿÿÿÿקקר‎קררתקרררתקררשûû‎üüÿÿ‎ü‎ÿÿÿÿÿûתûüüû‏ÿ‎û‏ÿ‏ÿÿÿקשש‎ûü‏ÿ‏צü‎ÿÿÿÿûûû‏תüÿÿ‎ûצ‏ÿÿÿÿץר‎ÿ‎ûÿÿש‎‎ÿÿÿÿÿÿת‏ûüüÿÿתüüשÿÿÿÿÿ‏ÿÿüÿÿÿÿüÿÿÿÿÿÿÿ‏‏ÿü‏ÿü‏שÿת‏ÿ‏‏‏‏‏ÿ‎‏ÿÿ‏ת‏ÿÿץרüÿ‏‏ÿü‏ÿÿ‏û‎ÿ‎ÿÿÿ‏‎‏‏ü‏ÿÿ‏ר‎ÿ‎תÿרÿ‎‏ÿת‏ÿÿ‏ר‎ÿûÿüÿ‏‏‏‏ת‎ÿÿ‎תûÿÿüÿÿ‏‎‏‎ת‎‏ÿ‎תתÿÿÿÿÿ‏ü‏‏ר‎‏ÿûתר‎ÿüÿ‏‏üÿ‎רü‏‏תתש‎ÿÿÿ‎‎ü‏üûû‏‏קüקûÿ‎ÿ‏‏‎ÿûûûüÿûüרתÿÿ‏üûû‏‎üרû‎שüשר‏‎ÿ‎‏üÿ‎שצ‏üקüת‎‏ÿ‏‎ÿ‎ÿüüקÿÿש‎צ‎‎‏ÿÿ‎üÿûüש‎‏צ‎צתûÿ‏‎‏ü‏רüשû‏ק‎ררתûû‏üü‏ץ‎תûüû‎שת‎ÿûÿ‎ü‎צûתûüת‏שש‏‎‎‏‏ü‏רûûü‏רÿתת‎ÿÿÿ‎‎‎שûקש‏ץ‏üקû‏‏‎ÿ‏ÿש‎תקÿץÿ‎רתÿÿ‎ÿ‏ÿשûתק‏רÿ‏ûü‏ÿ‏ÿ‏‏ת‎תת‎שÿÿûûÿÿ‎‎שתתתקרתרü‏רûûשûüüüצÿשררשÿûש‎û‎ûÿÿÿרÿÿשתüÿÿצü‏ü‏‏ÿûÿ‎‎ÿÿרüתÿÿÿÿÿ‏‏ü‎‏üÿÿתשתרÿ‎‏‏‏‏ü‎‏üÿÿתתרûתÿÿÿ‎ÿû‎‏‎ÿÿקûרûüÿÿÿ‏‎üüÿ‎‏ÿצûתקû‏ÿûשתרתûüרüקקצספקשצקפרûשûשתצץפקפרששףפרûרקתûףתסצשû‎ר‎ûü‎ü‎‎‎רתûûüÿÿ‏‎‏‎‏‎ÿ‏ÿûüûûüÿÿ‏‏‏ü‎‎û‏‏שüשתûÿ‎‎‎‎üשתûû‎קûתרûûû‎‎‎רתüרשüתתûרת‎ûüûûשקüûûûûתשתת‎‎‎‎‎תü‏‎ת‎תûתûüÿ‏‎‎ûû‎‏‏‏üûüûü‎ÿÿ‎‎‎‎‎ü‏‎‏ûüûû‎ÿ‏û‎‎‏ÿ‏‏‏ÿ‎‎‏ü‎ÿ‏‏‎‎ü‎‎‏‏‏‎‎û‎‎ÿÿ‏‎‎‎ÿü‏‏ÿ‎ÿ‏ÿ‏ÿÿ‏‎‏û‏‎‎‏ÿ‏ü‏‏‏ÿÿ‏‎‎ü‏‏ûÿ‏ÿüûÿ‏ÿÿ‏‎‎û‎‎‎ÿ‏û‎û‏ÿÿÿ‏‎‎‎û‎‏ÿÿü‎‎üÿÿÿ‏‎üü‎‎‎‏‏‎‎‏ü‎ÿÿü‎‎‎ÿ‏‏‎ÿ‏‎‏ÿ‏ÿÿÿ‎û‎‏‏‏‏ÿ‏ü‎‏ÿÿÿ‏‎‎‎ÿ‎‏ÿ‏ÿ‎‏ÿÿÿÿÿûûû‏üûÿÿüüû‏ÿÿÿÿ‎‎‎ÿ‏‏ÿÿÿ‏ÿÿÿÿÿÿ‏‎ÿÿ‏ÿÿÿÿÿ‏ÿÿÿÿÿ‎ÿ‎ÿÿ‏ÿÿÿ‎ÿÿÿÿÿÿ‎‎‎‏‎‏ÿÿÿ‎ÿÿÿÿÿÿ‎‎‎ÿ‎‏ÿÿÿ‏ÿÿÿÿÿÿ‎‎‎ÿ‎‏ÿÿÿ‎ÿÿÿÿÿÿ‎ü‎‏‎‏ÿÿÿ‎‎ÿÿÿÿÿûûüÿ‎‎ÿÿÿ‎‎ÿÿÿÿÿתûû‏üûÿ‏‎‎‏ÿÿ‏‏‏‎‎‎ÿü‏ÿÿÿÿÿÿÿÿÿÿ‎ü‎‎‎ûÿÿÿ‎ÿÿÿÿÿÿûûûûü‏ÿÿÿüÿ‏ÿÿÿÿüüü‏ûüüÿÿüüÿÿÿÿÿÿ‎‎ÿ‎‏ÿÿ‏‎‏ÿÿÿÿÿתûûüûתû‏ûüûûÿ‏‏‏רשררשששתרûששתר‎שעףףקרצרתקתûרתû‏רתרû‎üû‏ÿÿתüÿÿÿÿÿü‎ü‏‎ü‏ÿ‏‎‎ÿÿÿÿÿתקü‎üüÿÿü‎üÿÿÿÿÿüûü‎‎‏ÿÿÿ‎‏ÿÿÿÿÿ‎‏‏ÿ‎‏ÿÿ‏‎‏ÿÿÿÿÿ‎‎‏ÿ‎‏ÿÿÿ‎‏ÿÿÿÿÿûüû‏ü‎üÿ‏üתÿÿ‎תÿתûûüüû‏‎תüü‏ÿüûÿתüש‎‎‎ÿÿ‎ü‎ûÿÿ‎ÿ‎üûÿÿÿ‏ÿÿ‎‎ÿÿÿÿÿÿÿûÿ‏ÿÿÿÿ‏‏ÿÿÿÿÿ‎‏ÿÿ‎ÿÿÿüüüÿÿ‏ÿÿקסתקקרüתןתרסקנפסנסרקפפûûקקרספףףףףףרצץףשüשתקשצש‎û‎üû‏‏‎ÿÿ‏ÿ‎‏ÿÿÿÿÿüת‎‏‏ÿÿÿ‏ü‏ÿÿÿÿüüû‏‏‏‎‏‏‏ûÿÿÿÿÿÿüü‏ÿÿÿ‏‏‎‏ÿÿÿÿÿüûüÿü‏ÿÿûû‏ÿÿÿÿÿתתת‎ûûûüתץתûüתûûûתשü‎‏ÿÿ‏תש‏ÿÿÿÿûûû‏ü‎ÿÿüץפüÿÿÿÿצקק‏üû‏ÿשקרûÿÿÿÿשתש‎ûü‏ÿפûע‏ÿÿÿÿûצüÿת‏ÿÿüüר‎ÿÿÿÿÿ‏üÿüשÿÿפ‎üרÿÿÿÿק‏üקüת‏ÿקü‎ü‎‏ÿשÿ‎‎תü‎ר‏üû‏ץת‏ÿ‏ÿ‏ÿÿ‎ÿÿÿÿתÿûÿÿ‎ÿÿ‎‎ÿû‏ÿû‏ת‎üקÿÿ‏ÿ‏‎‏û‏‏ÿ‏ש‏‏תקûÿÿ‏‎‏ש‎ÿÿ‏רûÿ‎ÿÿÿ‏ü‏‏תü‏ÿ‏רתÿ‏ûÿ‎ÿü‎‎שû‏ÿ‏שצ‏ÿÿ‎ü‏‎‏‏רü‏ÿתûת‏ÿüÿûÿ‎‎‎ת‎‎ÿצûר‎ÿÿÿû‏‎‏ûûü‏‏תתרת‎‎ÿüÿ‎ÿ‎ûü‏‏תûצצ‏ÿÿ‎‏û‏‎üק‎‏ûûרתû‎ÿ‏‎ü‎üûרû‎צüצûר‎‎‎‏ü‏ûüצ‎‏ץüקתû‏ÿ‏‏ü‏û‎קû‏שüצû‎ÿÿÿ‏üÿתüתûüר‎שר‎‏û‏‎üÿקüûüüר‎שצûÿ‏‏‎‎‏צתתüüרüתתü‏‎‎üü‎שüתü‏צÿתרתÿ‏üüüüרûתש‏צ‎üת‎‏‏û‏‏ÿק‏üתÿקÿ‏שüÿÿ‎‏‏ÿûûüק‏צÿ‏תשÿÿü‏ÿ‏ûÿשש‏שÿüש‎ÿÿ‏ת‏ûתûרשûתÿ‏רüûû‎פץץתÿשתתתÿÿקûûû‎ÿÿÿשÿÿשüתÿÿרתÿÿ‏‎‏û‏‏‎ÿÿשתששÿÿÿÿ‎ÿרÿ‏‎ÿÿקשררÿÿÿÿü‏ר‎‏‎ÿÿקתררûÿÿשÿÿü‎ÿ‏ÿÿשûששûÿÿü‏‏‎‎‏ÿÿÿתûûתüÿÿ‏שתצûüששüסצעעץצשעüüצüû‎ü‎ץקצצרתתתüûû‎üû‎ÿרקררת‏ÿûü‏רûüû‎‏צתצצת‎ÿûת‎רûüûû‎ףתפפת‏ÿûû‎תûüûûüקתררר‏ÿש‎‎‎‏‏‏‏ÿü‎ü‎ûÿÿ‎ת‎û‎‏‎‏‏תüûûûÿÿûü‎û‎‏‏‏‏ûüûûü‎‏‎‏‏‏ÿ‏ÿÿÿ‎‏‏‎‏ÿÿ‎‎‏‎‏‏‏ÿÿ‏ü‏‎‎ÿÿ‏‎‏‏ÿÿÿÿÿÿ‎ÿÿ‏ÿÿ‎‎‎‏ÿ‏ÿÿÿü‏üü‎ÿÿ‏‎‏‎ÿ‏ÿÿÿ‏‎‏ÿ‏ÿÿ‏‎‎‏ÿ‏‎‏ÿÿ‎‏ÿ‎ÿÿ‏û‎ûÿ‏‏ÿÿÿüÿÿÿÿÿ‏ü‎û‎‏‏ÿÿ‎‎‏‏ÿÿÿ‏‎ÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿ‎‏‎ÿ‏ÿÿÿ‏‎‏ÿÿÿÿÿ‎‎‎ÿ‏‏ÿÿÿ‎‏ÿÿÿÿÿüûû‎‎ü‏‏üûüüÿ‎‎‎‎‎û‏ü‎ÿÿ‏ü‎‏ÿ‏ÿÿ‎ûû‏‏üÿÿ‎ü‎‎ÿÿÿÿ‎‎‎üü‏ÿÿû‎ûûÿÿÿÿ‎ûü‏üûüÿû‏ûû‎ÿ‏‏üü‎ü‎ü‏‎‎‏‏‏‎ÿÿÿ‎‎‎‎‎‏‏ÿÿ‎‏ÿ‏ÿ‏‏‎‎ÿ‏‏‏ÿÿÿ‎ÿÿÿÿÿÿ‎‎‎ÿ‎‏ÿÿÿ‎ÿÿÿÿÿÿ‎‎‎ÿ‎ÿÿÿÿ‎ÿÿÿÿÿÿ‎üüÿ‎‏ÿÿÿ‎‏ÿÿÿÿÿüûü‏‎ü‏‏‏‎‏‏ÿ‏‏ÿûû‎ÿü‎ÿÿ‏‎ÿÿÿÿÿÿûûû‏üûÿÿ‏‎üÿÿÿÿÿ‎‎‎‏ü‏ÿÿ‏‎ÿÿÿÿÿÿûûû‏ü‎ÿÿÿ‎ÿ‏ÿÿÿÿüü‎‏‎‏ÿÿ‏‎ÿÿÿÿÿÿ‎ÿ‎ÿ‎‎ÿÿ‏‎‏ÿÿÿÿÿüü‎ÿü‎ÿÿÿü‏‏ÿÿÿÿüûüÿü‎ÿÿÿü‎ÿÿÿÿÿûûûüüûÿÿ‏‎‎ÿÿÿÿÿûשרüתûÿÿÿûüÿÿÿÿÿקררûתר‎ÿÿתûÿÿÿÿÿקצרקצרûÿשתששÿÿÿÿ‎üüÿüתÿÿ‏‎‎ÿÿÿÿÿüü‎ת‎ûÿÿ‏‎‏ÿÿÿÿÿü‎תת‏‎תÿ‎ü‎‏ÿÿÿÿûü‎‏ü‏ûûüüüüÿÿ‎ÿüüü‏‏‎‏‎‎‎‎‎ÿÿ‏ÿקשûûüû‏‏‎ûü‏‎ÿ‏ÿû‏û‏‏‏ÿÿ‎ü‎ÿÿÿÿ‏ÿÿûÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‎ÿûÿ‏ÿÿÿ‏ÿ‎ÿÿÿÿÿüûתüת‎ûüקתררüקשûûשתüתש‏üûתûתתקררתצתצרצü‎ץרצצרתüצûששרתרש‏קûררüû‎ûקררקתרשתקתררתüÿûקררקתררת‎תûûתüשû‎üר‏‏‏ÿÿÿ‏û‏ÿÿÿÿתûת‏‎ÿÿÿü‎‎‏ÿÿÿÿüûצ‏‏‏ÿÿûü‏ÿ‏ÿÿÿרתû‏‎‎ÿÿü‎‏ÿÿÿÿÿתûש‎û‎ÿÿûקûû‏ÿÿ‏סעע‎תû‏ÿ‎ת‎‎ÿÿÿÿתûû‏üûÿÿתשûûÿÿÿÿÿ‏ûÿü‎ÿÿÿ‏ûÿÿÿÿÿÿ‏û‏‎קÿÿר‏üü‏ÿÿÿÿרûץ‎‏ÿÿש‎שרÿש‏‏ÿ‏ûÿü‏צÿ‎üÿ‏ü‎‏ÿÿ‏üÿ‎‏ÿר‏תÿÿûüÿÿÿ‏שÿû‏ÿ‏‏ר‏ÿת‏ÿÿÿ‎‎‏û‏ÿÿ‏ש‎ÿ‏‎רüÿü‎ÿת‏ÿÿ‏תüÿÿ‏ÿûÿ‎‎‏ת‎ÿÿüק‎‏ÿ‎‎תÿ‎‎‏ת‎ÿÿüקשüÿÿÿת‏‏‎‏ü‎‏ÿרשרûÿ‏ÿ‏ÿ‎‎‏üü‏ÿקשץשÿÿ‏ü‏‎‎‎üû‏ÿפתררü‏ÿ‏ÿ‎‎‎תש‏‏ûתץץüÿÿ‏‏‎‏‏üר‏‏קûקûת‏ÿ‏‎‎‎‎‎קü‎פûצûש‎‎ü‏‎‏û‎ת‏‏קûשרק‏ÿ‎‏‎‎ü‏שû‏ץתפץüÿÿ‏‏‏‏ש‎ת‎üצûפר‎‏ÿü‎‎‏קüû‎‏רüקקüÿÿû‏‎ÿקüû‎‏שüררת‏‎תüûÿרüר‎‏צüרץרÿ‏ü‎‎‎שûתü‏פ‏שקת‏‏‎‏‏ÿת‏ûת‏פÿüûשÿÿ‎‏ÿÿש‎ûרÿצ‏üתתÿÿ‏üü‏תÿתרüק‏‎קüüû‎תתÿû‏üתüקÿ‏רü‎û‎צצצקÿ‏שüרÿ‎פû‎ûûÿÿÿûÿÿת‏üÿÿץתÿÿ‎ÿ‏‎ÿ‏ÿÿÿü‏üÿÿÿÿÿûÿû‏‏‏ÿÿשûתûÿשששüÿü‏ÿ‏ÿÿתüûû‎‎ÿ‏ÿÿ‎ÿÿÿÿÿû‏‏ûÿÿÿÿÿ‏‏ÿÿÿÿÿ‏‎‏ü‎ÿÿÿû‎ש‎‏ÿ‏ÿקקצקרק‎קת‏ר‏‏ÿÿÿקרצשתששש‎‏רÿ‏ÿ‏ÿקתרתû‎ÿû‏‏‏‏ÿÿÿÿת‎ûû‎ÿÿ‏קתרûüü‏‏ףתרפקûÿשÿ‏‏ÿÿÿÿÿ‎‏üûüÿÿ‏ÿÿÿÿÿÿÿÿü‏‏‎üÿÿû‎‎‎ÿ‏ÿÿÿû‎üüü‎ÿüûüû‎‏‏‏‏תתûתüûûû‏‏‏‏‏ÿÿÿ‎‎ûü‎ÿÿ‎‎‏üÿ‏ÿÿÿû‏‎‏‎ÿÿ‏‏‎‏ÿ‏ÿÿÿÿ‏‏û‎ÿÿ‏‎‎‎ÿ‎‏ÿÿ‏‏ÿÿüÿÿ‏‎‎‏ÿ‏‏‏ÿ‏ÿÿÿ‏ÿÿ‏‎‎‏ÿ‏‏ÿÿ‏‏‏ÿÿÿÿ‎ûûûÿ‏‎‏ÿ‏‏‎ÿÿÿÿ‏ûü‎‏‏‏‏ÿ‏ÿ‎‏ÿ‎ÿ‏ÿ‎ÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿ‎ÿ‎‏‏‏ÿÿÿ‏ÿÿÿÿÿ‏ûüû‎‎ü‏ÿûüû‏ÿûûûתûשüûü‏‏תûûûÿûûûü‎ûÿ‏‏‏ÿÿü‏‏ÿÿÿÿ‎‏‎ÿ‎‏ÿÿÿ‏‎ÿÿÿÿÿ‏‎‏‏‏‏ÿÿ‏ÿÿÿÿÿÿÿ‎‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿ‏‏ÿÿÿ‏ÿÿÿÿÿÿ‎‎‎‏‏‏‏‏ÿ‏‏ÿÿ‏ÿ‏ÿ‎‎‏‎‏‏‏‏‏‏ÿÿ‏ÿÿ‎üü‎‎‎‎‎‎‎‎‎ÿ‎‏‏üûûûüûûüûüûûüüû‏üüü‎‎‎‎‎‎û‎‎‎‏‏‏üüü‏ü‎‏‏‏‎û‏‏ÿ‏ÿüûü‏üûÿÿû‎‎ÿÿÿÿÿûûüûüûÿÿ‎ü‎ûÿÿÿÿûתüûûûûÿ‎üû‏üÿÿÿקררûתûûüûü‎‎ÿÿÿÿûûû‏üûÿÿÿ‎‏ÿÿÿÿÿü‎üÿ‎‎ÿÿ‏‎ÿ‏ÿÿÿÿüü‎ÿüÿÿÿ‏ü‏ÿÿÿÿÿûûüÿ‎‎ÿÿ‏ü‏ÿÿÿÿÿûûûüû‎ÿÿ‎üüÿÿÿÿÿןקעקצףûüקררצתקררקררתתû‏ÿû‎û‏‏ÿÿÿ‎ü‎ÿ‎‏ÿÿÿ‎‎ÿÿÿÿÿü‏‎‏‎‎ÿÿÿ‎‎ÿÿÿÿÿ‎‎ü‎‏üÿÿ‎‎‎ÿÿÿÿÿתüûü‏‎‎ÿ‏ü‎ÿÿÿÿÿ‎ü‎‏‎‏‎‏‎üü‏ÿÿÿÿ‏‏‏‏ÿÿÿÿ‏‎‏ÿÿÿÿÿ‎ûü‏ü‎ÿÿ‏ü‎‏ÿÿÿÿקררתüש‏‏ûתש‎üת‎ûûûûüÿ‏‏ÿ‎üû‏ÿÿÿÿÿüÿÿÿÿÿÿ‏ÿ‎ÿÿÿÿÿÿÿûÿ‏ÿÿÿ‎‏ÿÿÿÿÿÿûüרÿתûÿüשתררתקררûûר‎תש‏ÿקתרתתקüר‎ûתü‎û‏‏û‎ûû‏‎‎‎תתתתûûû‏ת‎üתûü‏תקרררתררתûתררתû‏ר‎‎ר‏‎‏‏ÿ‏‏תÿ‏ÿÿ‏üûשÿ‎ÿÿÿת‏‎ÿÿÿÿÿüüפÿ‎‏ÿ‏תû‏‏ÿÿÿ‏ûשרü‎‏ÿÿ‏צתתÿÿÿÿתûס‏ü‎ÿÿתןףתÿÿÿ‏רשש‏ת‎ÿÿפצכûÿÿÿÿüûרÿüûÿÿלםצר‏ÿÿÿÿüתÿüüÿÿשץלסüÿÿÿÿ‏ü‏üü‏ÿיûסשפÿÿ‏‏‏תûת‎‏‏ןûשכת‏שÿ‏‎תüûק‏‏רü‎נן‏‎ק‏‎תצü‏û‏‎û‏שף‏‏ש‏‎ש‏ת‏ק‏‏ת‎‎תÿ‏ת‏‎ת‏ת‏ÿת‏רüÿ‏ÿÿר‏‎צÿת‎ÿ‎‏ש‎‏ÿÿÿר‎‏û‏תüÿÿ‏קת‏ÿÿû‏‎‎û‏ûü‏ÿ‎עץ‏ÿÿÿûÿ‏‎ÿüÿÿÿצצנÿÿÿ‏ÿÿ‎‎‏ü‎ÿÿמקקצ‏ÿÿÿÿ‎‎üüü‏ÿץתצמק‎‎‎ÿ‎‎‏üש‏ÿקתפצע‎‏û‏‎‎‎‎ש‏‏רשףתק‎‏ûÿ‏üü‎ר‏‏ףתקרü‏ÿצÿ‏‎üüרü‏עתץשû‏ÿתÿ‏ש‎‎ת‏ÿרûצפת‏ÿשÿ‏‏ûûû‎‏קûץףת‏ÿרÿ‎‎רüû‎‏קûקרקÿÿûÿ‏‏ק‎û‎‏צüרצûÿÿ‎‏ü‏תüû‎‏ץüששתÿÿש‏‎‏שüû‎‎ץûשרצÿ‏ü‏‎ÿקüûת‏ץÿתרüÿ‏üÿ‎ÿü‎תת‏פ‎‎קüÿ‏‎‎ü‏ûÿתרüרÿ‎קתÿüûÿûÿתûüתüשÿתץר‏‎üÿÿÿתÿûת‎שÿÿצתÿ‏תÿÿÿשÿÿû‎רÿÿץשÿ‎ü‎ÿü‏‏‏ÿÿû‎ûÿÿÿÿÿ‏ÿ‏ÿÿÿÿÿûû‏ÿÿÿÿÿ‏‏‎ÿ‏ÿÿÿû‏תüÿÿÿÿ‏ÿ‎ÿÿÿÿÿת‏ÿü‏ÿÿÿ‏‏‎ÿÿÿÿÿ‏ת‎ת‎ÿÿÿ‎‏ûÿÿÿÿÿÿüש‏û‏ÿ‏‎‏ûÿÿÿÿÿרתûÿüÿÿÿתÿû‏ÿÿÿÿתüרר‏‏ÿü‏‏‏ÿÿÿÿÿת‏‎‎ûÿÿ‏‏ÿÿÿ‏ÿÿÿÿ‏‎üÿÿÿ‏‏ÿ‎ÿÿÿÿÿ‎üûûת‎ÿû‏‏‎‏‏ÿ‏ÿûüû‏üûÿû‏‏‏ÿ‏ÿÿÿûüûû‏‏ÿü‎‏ûÿ‏‏‏ÿû‏ûûü‎ÿ‎‎‏‏ÿÿÿÿÿû‏‏ûü‏ÿ‎ü‏‏ÿ‏‏ÿÿÿ‏ÿûü‏ÿ‏‎‏‏ÿ‏ÿÿÿÿ‏ÿÿüÿÿ‎‏‏‏ÿ‏ÿÿÿ‏ÿ‏ÿÿÿÿ‏‎‎‏ÿ‏ÿÿÿ‏‎‏ÿÿÿÿ‏‎‏‎ÿ‏‏‏ÿÿ‎‎ÿÿüÿ‏ûû‎ÿü‏ÿÿÿ‎ÿÿÿÿÿ‏‎û‎‏‎‏ÿÿ‎‎‎‎ÿ‎‏‏‎ÿ‏ÿ‏ÿÿÿÿ‎‏ÿÿÿÿÿûûûü‏üüÿ‎ûûÿÿ‏ÿÿûüüü‎üü‎ü‎û‏ÿüüÿ‎‏‏ÿ‏ÿÿÿ‎ü‏‏‏ÿÿÿûüûÿ‏‏ÿÿ‏‎û‏ÿÿÿÿ‎‎‎‏‏‏ÿÿ‎ÿ‏ÿÿÿÿÿ‎‎‎ÿÿ‏ÿÿÿÿÿÿÿÿÿÿ‎‎‎ÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‎‎‎‏‏‏ÿÿ‏‎‏ÿÿ‎‏‏‎‎û‎ü‎‎ÿ‎‎‎‏‏ûû‎‎‎ûûüûû‏‎ü‎‎‏‎û‎‎‎ü‎‎‎‎‏‏‎‎‏ÿ‏‏ÿûüûû‎ûûüûüû‎‏‏üû‎‎ûÿ‎‏ÿÿÿ‎‏ÿÿÿÿÿ‎‎ü‏‎‎ÿÿÿ‎‎ÿÿÿÿÿüüüÿü‎ÿÿ‎û‏ÿÿÿÿÿüûû‏ü‎ÿÿ‎üשÿÿÿÿÿûûûûûûûÿשüû‏ÿÿÿûתתתûתûûÿûü‏ש‏ÿÿÿקרûתתתתü‏üûûûÿÿ‎üûü‎‎‎‎ÿ‏‎‎ÿÿÿÿÿüüüÿ‎‎ÿÿÿ‎‏‏ÿÿÿÿüüûÿü‎ÿÿÿü‎ÿÿÿÿÿûûü‎ü‎ÿÿ‏û‎ÿÿÿÿÿססתקרררתקקקרתקררקרûüתû‏ÿÿתתÿÿÿÿÿ‎‎‎‏‎‏ÿÿ‏‎üÿÿÿÿÿ‎‎üÿ‏üÿÿ‎‎‎ÿÿÿÿÿü‎üü‏‎ÿÿ‎‎‎ÿÿÿÿÿ‎ûü‎‏‏‎ÿÿ‎‎‏ÿÿÿÿ‎üüÿ‏‏‏ÿ‏‎‏ÿÿÿÿÿ‎‎ü‏‏ÿÿÿ‏‎‏ÿÿÿÿÿûûש‎ת‎‏‎ûתש‎‏üüüקרשûתûû‎רתרû‎ûתûûûûû‏ûûÿûתûüÿÿÿÿÿÿÿÿÿÿÿÿ‎‎ûÿÿÿÿÿ‎ÿÿÿÿ‏ÿÿûÿ‏‏ÿÿÿÿקûר‎üü‏תרתרפתקרר‎ÿûÿÿÿÿÿ‏‎‏‏üÿÿÿÿÿüÿÿÿÿÿ‏‎‎‏‏ÿÿÿ‎‎תÿ‏ÿÿÿ‏ûü‏ÿÿÿ‎ששתüûüü‏‎תששûש‎שü‎ש‏‏‏‏ÿ‏‎ש‏‏‏ÿ‏ûûש‏‎ÿÿÿû‎û‏ÿÿÿÿûüש‏ü‏ÿÿש‎‎ÿ‏ÿÿ‏תûף‏ü‏ÿÿû‎‏ÿÿÿÿ‏ת‎םÿ‎‏ÿÿÿ‏‏ûÿÿÿÿרשץ‏צ‎ÿÿ‎üüüÿÿÿÿû‏לÿ‎‏ÿÿ‏ץÿÿ‏ÿÿÿש‏סש‎ששÿÿ‎סÿÿÿÿÿÿ‎‎ÿ‎‎ÿÿפ‎‎ÿÿÿÿץÿ‎ü‎‏ÿÿÿÿ‏‏צÿÿÿ‏‏‏ûÿû‏ת‏‎‏ÿ‏פתÿכüüשüûüü‎‎üü‏üצûמ‎‎û‏û‏‏‏‏û‎ÿÿü‏ץ‎‏ר‏ת‏ÿû‏ש‎ÿÿüÿ‏‎‎רÿת‏ÿ‏‏צש‏ÿ‎ÿתû‎ץ‏ü‏ÿÿשצû‏ÿ‎ÿÿû‎מ‏ü‎ÿÿתפףשÿ‏ÿÿÿ‏‎ÿ‎‎ÿÿצעפÿ‎‏‏ÿ‏‏‎ÿûüÿÿףץמצÿÿÿÿÿ‏‎ÿ‎üÿÿלרצפרÿ‏ÿ‎‏‎‏‏תÿÿשצסלץ‎ÿןÿ‏ü‏‎שÿÿפשץשנ‎‏קû‏‎‎‏ש‏ÿןרעתת‎‏ר‏‏üü‎ת‏‏פתרץü‎ÿץר‏üüüת‎ÿסתףסש‏‏תÿÿ‎תüû‏‏פתףץק‏ÿüÿÿÿתÿüÿÿûüקצצÿÿÿÿ‏‎רüû‏‏רתקקק‏ÿû‏‏ûש‎ש‏‏ץûקפץרÿûÿ‏‏ת‎üü‏עתרץש‏ÿת‏‎‏תÿüת‏עתררûûÿתÿ‎‎ת‏üש‏ץ‏רשû‏ÿû‎‏ÿûÿûש‎צÿüצת‎ÿשÿÿÿûü‎û‎צü‏צש‏‏ûÿÿÿרÿÿת‏קÿ‎ףצ‏‏üÿÿÿתÿûû‏תÿÿףקÿ‏ש‏‏‏ÿÿ‏ÿÿתûרÿÿÿÿÿ‎‏ת‏ÿ‏ÿÿקתשûÿÿÿÿ‏‏ü‏ÿÿÿÿש‏ררüÿÿÿ‏‏‏ÿÿÿÿÿשÿÿûûÿÿ‏‎‏üÿÿÿÿÿÿ‏ÿשûÿÿ‎ûÿûÿ‏ÿÿÿÿü‏‏ת‎‏ת‎‏תÿÿÿÿÿÿü‎ÿÿÿÿ‏ÿÿ‏ÿÿÿÿÿÿ‏‏ÿÿÿÿ‎ÿÿ‏ÿÿÿÿÿ‎ÿÿÿÿÿÿüÿ‏ÿÿÿÿÿÿÿ‎‏‏ÿÿÿÿ‏‏ûÿ‏ÿ‏ÿûûשûûû‏ש‎‏‏ÿ‏ÿÿÿש‎תûüûûû‏‏ûÿ‏ÿÿÿתüüשü‎ÿüü‏‏ÿ‏ÿÿÿ‎‏üûû‎‏‏‏‏‏ÿ‏ÿ‏ÿûÿÿüû‏ÿû‏‏ÿÿ‏ÿÿÿÿÿÿÿ‏ÿÿÿ‏‎‏ÿ‏‏ÿÿÿ‎‎ÿü‏ÿû‎‏‏ÿ‏‏ÿÿ‏‎‏ÿ‏ûÿ‎‎‎‏ÿ‏‏ÿÿ‏‏ÿÿÿ‏ÿ‎‎‎‎‎‏‎‏ÿ‏‏ÿÿÿ‎ü‎‎û‎ÿü‏‏ÿ‎ÿ‎‏ÿ‏ÿ‏‎‎ü‏üû‏‏‏ü‎‏ÿ‏ÿÿû‎ûû‏û‏ÿ‎üû‏ÿ‏ÿÿתûûû‎‏ûÿûÿû‏ÿ‏‏ÿ‎‎‏ÿ‏ÿÿÿÿÿÿ‏ÿÿÿÿ‎‎üÿ‏‏ÿÿÿ‏ÿ‏ÿÿÿÿûû‎ÿ‎‏ÿÿÿ‎ÿÿÿÿÿÿ‎‎ÿÿ‎‏‏ÿÿ‏ÿ‏ÿÿÿÿÿ‎ÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿ‎‎‎û‎ûü‏‎‏‎ÿ‏‎‎ûû‎‎û‎üû‎‎ü‎‎ÿûûûû‎‎ü‎üûü‎üû‎ÿ‏ûÿüÿ‎‏ÿÿÿÿÿ‏‏ÿÿÿÿÿ‎‎‎ÿ‎ÿÿÿÿ‏ÿÿÿÿÿÿü‎‎ÿ‎ÿÿÿÿ‏‎ÿÿÿÿÿû‎‎ÿ‎‎ÿÿÿ‎ÿÿÿÿÿÿü‎‎ÿ‎‎ÿÿ‏ü‎ÿÿÿÿÿ‎ÿ‎ÿ‎ÿÿÿÿÿ‎ÿÿÿÿÿûüû‎ü‎ÿÿû‎‎‏ÿÿÿÿ‎üü‏‎‎ÿÿ‏‎‏‎ÿ‎ÿÿüüüÿü‎ÿÿÿ‎ÿÿÿÿÿÿתרתûתר‎ÿûûû‏‏‎ÿשûûûûüûÿÿ‏‎‏ÿÿÿÿÿתûûûüûûÿ‎ü‎ÿÿÿÿÿüûûÿ‎‎ÿÿ‏ü‎ÿÿÿÿÿüüü‎‎‎ÿÿ‏û‏ÿÿÿÿÿüשתÿת‎ÿÿ‏üש‎ÿÿÿÿûרשüתרÿÿרתû‏ÿ‎‏‏רפרףקפû‏קפפץüû‎ûצצתקתררÿקüפûת‏ÿÿצץרקשררתףתתרüÿשûüüü‏ü‏ÿÿÿ‎‎üÿÿÿÿû‎üÿ‎ûÿÿ‎‎‎ÿ‎ÿÿÿ‎üü‎‎‏ÿÿ‏ü‏ÿÿÿÿÿûüת‏‏‎üÿ‎ûת‎ÿÿÿÿüûû‏üÿÿ‏ûüû‏ÿÿÿÿû‏תÿ‏‏ÿÿ‎û‏‏ÿÿÿÿÿÿ‏‏ÿ‏ÿÿ‏üû‏‏ÿÿÿûÿüÿÿÿÿÿûüû‏ÿÿÿÿûûûÿ‏‎ûüקüûרüüüüת‎ÿÿÿÿÿÿ‏‏‏ûüÿÿûÿÿ‎ÿÿÿÿÿ‏ת‎ÿüÿÿÿש‎ûÿ‎ÿÿÿ‏ת‎‏‏ÿÿ‎ררûûתרüüקûüרתקררץתשתûתü‏‎ûצתûתתתרüת‏‎‏‏ÿק‎ק‏‏ÿÿ‏ףûשÿ‎‏ÿÿק‏‎רÿÿÿÿףûש‎û‏ÿÿ‏‎‎רÿÿÿÿםüשÿ‎‏ÿÿÿ‏ÿÿÿÿÿÿת‎ûÿ‎ÿÿÿÿÿÿÿ‏ÿÿÿש‏ûÿ‏ÿÿÿÿÿÿÿÿÿÿÿצ‏ûÿ‏ÿÿÿÿÿ‏ÿÿÿÿÿÿÿ‎ÿ‎‏ÿÿÿÿ‏ÿÿÿÿÿÿÿüÿ‎ÿÿÿÿÿÿÿÿÿÿÿü‏üÿûÿÿÿ‏‏ÿÿÿןÿצü‏ûüûÿÿÿ‎û‎ÿÿסû‏ש‏ûÿת‏‎ÿ‏û‏ÿÿפשרת‏ר‏ת‎ûÿ‏û‎‏ÿק‎ÿצ‏תÿüüÿÿ‏שû‏ÿרÿÿפûף‏ü‎ÿü‎קû‏ÿתÿÿן‏ףÿüÿÿ‏‎רתÿÿתÿÿÿÿÿÿ‎‏ÿÿÿר‎ÿÿ‏ÿÿÿÿ‎ÿ‏‏ÿÿ‎ש‏ÿÿ‏ÿÿÿÿÿ‏‏ûÿÿûץש‏ÿ‏‏‏ÿÿûÿ‏ûÿÿפעץû‎סÿץÿÿ‎ÿ‎תÿÿקתןצüת‏ן‎üü‎‎ש‏ÿטשםףפצ‏רÿÿü‎üû‏‏םקצלקû‏üüשת‎‎üü‏צרפםןש‏ûÿ‏üü‎ûÿÿץשפקתüÿתÿÿüש‏ûÿÿצתפץרûÿû‏‏üר‎û‏ÿץשפקע‎ÿרÿ‏ûת‏ü‎‏ףתץצתûשרüüüש‏ü‎‏ףתקץת‎ÿרÿ‏ררÿת‎‏ףשקצקüÿקÿÿ‎ü‏üû‎ףûשץק‏ÿתÿ‏‎ü‏‎û‏צÿûפשüÿתÿÿûûÿüש‏רת‎פרüÿרÿÿÿûÿÿת‏רÿרפש‎ÿרÿÿÿתÿÿû‏קÿÿקק‎‏û‎‏ש‏‏ÿÿÿרתרÿÿÿÿÿü‏תÿÿÿÿÿת‏תûÿÿÿÿü‏‏ÿÿÿÿÿרÿ‎שûÿÿûÿÿÿÿÿÿÿÿÿÿÿ‎‎ÿÿ‎שששÿÿÿÿÿÿ‎ÿ‎תÿÿתûûûÿÿÿÿ‏ÿüûÿ‎ת‏רÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‎‏‏ÿÿÿÿÿ‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‎ÿ‏ÿÿÿÿüÿÿÿ‏ÿÿ‎‏ûÿ‏ÿ‎ÿ‎‎ש‎‎ת‎ûÿ‏ÿÿ‏ÿÿÿû‏‏ÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿûÿ‎ÿÿ‏‏ÿÿ‏ÿÿÿÿÿÿÿüÿÿÿ‎‏ÿÿ‏‏ÿÿÿÿ‏ÿÿ‏ÿ‏‏‏‏ÿ‎ÿÿÿÿ‎‏ÿüû‏ü‎‏‏ÿ‏üÿÿÿ‏ÿÿÿûÿû‎‏‏û‏‏‏‏ü‎ÿÿ‏‎ûü‎‎‏ÿ‏‏üÿ‏‏‎ÿÿ‎ÿ‎‎‏‎ÿ‏‏ÿ‎ÿÿ‎ÿÿ‏ÿÿ‎‎‎ÿü‏‏ÿÿ‎‎‎ÿ‏ÿÿü‎û‏‏ûÿÿüüÿ‏ÿ‏‏ÿûûûû‎‏ÿÿ‎‎ûÿÿ‏ÿÿתתת‎ü‎ûÿû‎û‏‎‏ÿÿ‎‎‏ÿ‏ÿÿÿÿ‎‏‏ÿÿÿÿ‎‎‎ÿ‏‏ÿÿ‏‎ÿÿÿÿÿÿ‎û‏ÿü‎ÿÿ‏‎‎ÿÿÿÿÿÿ‎ÿ‏‏‏ÿÿÿÿÿÿÿÿÿÿ‎‎‎û‎û‎ÿ‎ü‎‏ÿÿÿÿûûûקüשרûתתרשüקתûüתתû‎‎תûתûûüü‎‎‎üûû‏‎‎‎üüüûû‏‎‏ÿûûû‎‎‎‏‎ûüûüüÿ‎‏üü‎‏‎‏‏ÿ‎‏‏‏‏‏‏ÿ‎‎‎ÿ‎‏ÿÿÿÿÿÿÿÿÿÿüû‎ÿ‎‏ÿÿÿ‎‎ÿÿÿÿÿüüû‏‎‏ÿÿÿüüÿÿÿÿÿשüüÿ‎‏ÿÿü‎ûÿÿÿÿÿüüü‏‎‏ÿÿüüÿ‎ÿÿÿÿ‎‎‎ÿ‎ÿÿÿÿ‎‏ÿÿÿÿÿüüüÿ‎‏ÿÿÿ‎‎‏ÿÿÿÿûüû‎תû‏ÿ‎ת‏ÿÿת‏‏üüû‎üüÿÿ‎‎ü‏ÿÿÿÿûתתûüû‎ÿûüûÿÿ‏ÿÿüüû‏ü‎‏ÿ‏ü‎‏ÿÿÿÿûüû‎üÿÿÿ‎üüÿÿÿÿÿûûתÿû‎ÿÿ‎שûÿÿÿÿÿנקסקפעûתקסנרתקררüüר‎üûÿÿתתרÿÿÿÿÿü‎ü‏‎‎ÿÿת‎û‏ÿÿÿÿûתûûתתû‎ק‎תרüÿÿÿץפפצקץרתצûתפקרÿרûûûüüû‎ÿ‎ü‎‏üÿÿûתüת‎‎‏‏ÿ‏ü‎ÿÿÿÿ‏û‎ûÿ‏ÿÿÿ‏û‎ÿÿÿÿÿ‏ÿ‎ÿ‏ÿÿÿ‏ü‎ÿÿÿÿÿûÿûÿÿÿÿÿ‎‏üÿÿÿÿÿÿÿüÿÿ‏ÿÿü‎‏‏ÿÿÿÿü‎üÿÿÿÿÿÿ‏‏ÿÿÿÿÿ‏‏תÿ‏‏‏‏‏‎‏‎ü‏‏‏û‏ûÿ‏ÿÿÿ‏ÿ‏‎ÿûÿûÿÿ‎ÿÿÿÿÿ‏û‎‏‏ÿÿûתÿÿÿ‏ÿÿÿ‏‎‎‏‏‎ÿÿûשרüתשרתתשצרתקררשüת‏‎ÿÿÿÿק‎‏‏‏ÿ‏ûûûûüûüÿרקסû‏‎‎ûקתת‏ü‏ÿÿף‎ר‏‏‏ÿ‏ûףש‏תûÿÿק‎‎פ‏ÿÿ‏פךשüת‏ÿÿ‎‎‎שק‏ÿÿûצרÿüת‏ÿ‏‎‏ÿüÿÿÿלחרתשתÿÿ‏‎ÿÿÿÿ‏ûתמרתררûÿÿ‎ÿÿÿÿÿÿÿÿûÿ‎ÿÿÿÿÿÿÿÿÿÿÿû‏תתüÿüÿÿ‎‎ÿÿÿת‏תûתûû‎צש‎ü‎ûÿלח‏רûת‎ûüûר‎üü‏üתם‏ת‏תÿû‏ÿ‏‏‎‎ÿÿקץÿק‎û‏ü‏ÿÿ‏ü‎‏ÿ‏üÿק‎תÿü‏ÿÿ‎רû‏ÿתüÿקûקÿ‎‏ÿ‏ÿרüÿÿÿÿÿןמר‏ûûÿ‏צפרûÿûÿÿצצצÿ‏‎ÿÿ‏ר‎ÿÿÿÿÿÿÿרÿÿ‎ÿÿÿûשÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿקÿÿÿÿÿÿ‏ÿסÿÿûÿÿûןס‏ÿקץ‏üÿתÿ‏תÿÿםעחש‎םתûÿÿ‎‏‏ûÿÿיעעע‎ûÿשÿÿ‎‎‏ûÿÿנשםךץרÿתÿÿû‎ÿüÿÿכקרסמü‏û‏ÿüû‎üÿÿףתסךעשÿק‏ÿתתÿü‏ÿשרסצנüÿק‎ÿתת‏תüÿקשפערתÿצ‎ÿûתÿ‎‏‎ףתצפû‎ÿץתתתûÿü‏ÿןצצףתûÿפתÿשûÿü‎ÿןרףרצ‎‎קÿÿÿûÿ‎üÿפ‏ûץש‎ÿרÿÿÿüÿÿûÿצÿ‎צץÿÿûûÿרûÿ‏ת‏פ‎ûנפקüרקררשÿ‎ü‏צÿüנצקÿקÿÿÿ‎ÿÿûÿתÿÿפש‎ÿת‎‏üÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‎ü‏ÿ‏ÿ‏ÿÿ‏ÿÿÿתÿשûûûÿü‏‏‏ÿÿÿÿÿקתüûת‎ÿ‎‎ÿÿÿÿÿÿÿ‎ÿü‏‏‏ÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿ‏ÿÿ‏ÿÿÿÿÿÿÿÿÿ‏ÿ‎‏ûÿ‏ÿÿÿÿ‏ÿÿÿ‏ÿÿ‎ÿÿÿ‏ÿÿÿÿÿ‏ÿÿ‎üÿÿ‏ÿÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿ‏ÿÿÿÿÿÿÿ‎üüü‏ÿÿÿ‏ÿÿÿÿÿÿÿÿ‎ÿÿÿ‏ÿû‏‏‏‏ÿ‏ÿÿ‎üûû‏ÿ‏ÿ‏‏ûÿÿÿÿÿÿûûÿקרûקתררקûûתü‎קרר‎‎‎‎‎‎‎‎üüü‏ÿüü‎‎‎ÿ‏‏‏ÿÿ‎üÿ‎ÿÿ‎ÿ‎‎‎‏‏‎‏‏‎‏‏‎ÿ‎‏ÿûüûÿ‏‎‏ÿ‎‏ü‏ÿÿÿÿûû‎‎ü‏‏ÿû‏û‎‏‏ÿÿÿ‎‏ÿ‏ÿÿÿ‎ÿÿ‏ÿÿÿÿ‏‎‏ÿ‏‏ÿÿÿÿÿ‎ÿÿÿÿûרûתûûûÿÿÿÿ‏ÿûûû‏‏‎ÿü‏‏ÿÿÿÿ‏‏ÿÿÿ‎ÿ‎‎‏ûÿ‏ÿüÿÿ‏ÿ‏ÿתûûקüûתü‎ת‎‎‏ûû‏üüûü‎‎ת‎תûתתÿ‎ת‏ü‎ü‎‎‏‏‎ü‎üüÿÿÿÿû‎û‎üû‎‏ûüûûüÿ‏‏‏‎‎ÿ‏ÿÿÿÿÿ‎ÿÿÿÿÿ‎‎‎ÿ‏ÿÿÿÿÿ‏ÿÿÿÿÿ‎‎ÿÿ‎‏ÿÿÿ‏ÿÿÿÿÿÿ‎‎üÿü‏ÿÿÿ‏‎ÿÿÿÿÿû‎ûÿ‎ûÿÿ‏‏‏‏ÿÿÿÿüשüû‎‏ÿÿÿ‎‎‏ÿÿÿÿÿü‎ÿ‎‏ÿÿ‏‎‎ÿÿÿÿÿüüü‏ü‎ÿ‎‏ÿ‎ÿÿÿÿ‎ûûûûüû‎ÿ‏‎‎‏ÿû‏ûûüûÿ‎‎ÿÿÿüÿÿÿÿ‎ÿûüû‎ü‎ÿÿ‏üÿÿÿÿÿÿתüû‏ü‎ÿÿ‎ûÿÿÿÿÿÿûüת‎üü‏ÿ‎ü‏‏ÿÿÿÿפץץתûûûÿקתררÿ‎ÿûתüרÿ‎ü‏ÿ‎ש‎‏ÿÿÿÿ‎‎ûÿ‏‏ÿÿ‏ü‏ÿÿÿÿÿק‎ר‎‎‎ÿÿתûתתÿÿÿÿü‎‎ÿ‎ÿÿÿû‎ûûÿÿÿÿÿÿÿÿ‏ÿÿÿÿ‎‏ÿÿÿÿÿץקשרררüÿשüששרשתצףפפצרפקüףקףףתףûפûü‎‏‏‏ÿÿ‎ü‎‏ÿÿÿÿûûת‏‎ÿÿÿ‎ü‏‏‏ÿÿÿ‎ÿüÿÿÿÿÿÿ‏‎ÿÿÿÿÿûû‏ÿÿÿÿÿ‎ü‏ÿÿÿÿÿûûûÿ‏ÿÿÿ‏‎‏‎ÿÿÿÿÿ‏‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‏ÿ‎ÿÿÿÿÿ‏‎‏ÿÿÿÿÿÿÿתÿ‏ÿÿÿ‏ü‏ÿüûûÿ‎ÿרÿÿÿÿÿ‏‎‏‏‎ûÿ‏ÿ‎תÿÿÿÿÿ‏‎ü‏ÿ‎ÿ‎‎‎‎ÿ‎ÿÿÿ‏ץ‎‏ÿ‎ÿ‏קץרûתש‎תûןûûתקררüרצ‎ü‎‏ÿמ‎ןן‎‎‏‏üפüÿû‏ÿÿן‎ססÿÿÿÿüרû‎צתÿÿ‎‎‎‏ץÿÿ‏üסתתןףÿÿ‎ü‎‎פÿÿפתתשףץךתÿüüüü‏ÿÿרûכריכףץü‎‎‎‎ÿÿÿש‎ûשצעיןת‏‎‎ÿÿÿÿüû‏רזרמצעÿ‎‎‏ÿÿÿÿû‎קכûץחק‎üû‏‏‎‎‎û‏שצתûןמ‎‎‎‏ÿÿןÿü‏שüû‏שף‎û‎‏ÿÿû‏ת‏ש‏ü‎‎ת‎‎‎‏ÿÿקÿüשת‏ü‎‎‏‏ש‎‏ÿÿרÿשצצÿü‎‎ÿ‎ת‎‏ÿÿרÿתףר‏ק‎ÿÿ‎שת‎‏ÿ‎ÿרפשÿץשÿÿ‏ק‏ÿÿÿ‏ÿצצףפרמ‎‎צפקק‏ÿשûקÿרפ‏ûüÿüקû‏ÿÿÿ‏ûÿס‏‏üצ‏תצת‎ÿÿÿÿקÿסÿÿûÿ‎‎קש‏ÿÿÿÿÿÿצÿ‎תÿÿûםץûÿÿצÿÿÿÿÿÿ‏ÿÿûרתÿÿÿÿÿÿÿü‏ÿ‎ÿÿגשווüüÿף‎ÿû‏ÿüÿÿצשץצףןננÿÿ‎‎‏ü‏ÿץצףפך‎ÿףüÿרתÿ‎ÿÿץקףקתקÿם‎ÿûתÿ‎ÿÿפרעץû‎ÿסÿÿ‎üÿ‏ÿÿע‎פקשûÿûÿÿ‎ûÿüÿÿעתץצצ‏ÿ‎‏ÿûתÿ‏‏ÿסתצעשûÿרÿÿû‎ÿÿ‏ÿסÿקעק‎‏‎ÿÿÿ‎ÿÿ‎ÿקÿשףתüÿüקûüûÿÿû‎קפרסףקרסןססûÿÿת‏קÿûץפצרףÿÿÿüÿÿüÿקÿרעקÿÿû‏ÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏ÿ‎ÿÿÿÿÿÿÿÿÿתûÿûûû‏תÿת‏ÿÿÿÿÿקשÿûûÿÿüש‏ûÿÿÿÿÿûרÿÿ‏ÿü‎ÿÿÿÿÿÿÿÿ‎‏ÿ‎‏‏ÿ‏üüÿÿÿÿÿÿ‏‏ÿÿÿÿü‏ÿÿ‎ÿÿ‏ÿÿ‏ÿÿתü‎‏‏ÿû‏ÿÿÿÿÿ‏‏ÿÿ‏ÿÿÿÿÿ‎ÿÿÿÿÿ‏‏ÿ‏ÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿ‏ÿÿ‏‏ÿ‏ÿÿÿÿ‏ÿÿÿ‏ÿÿÿûûûÿÿÿû‏ÿûüÿ‏ÿÿÿûת‏‎ÿÿÿ‏‏ûüÿ‏üÿÿûüü‎‎üתûûתרü‎û‏‏תצתûרתרתררתרתתü‏קר‎‎‎üü‎ü‎‎ûüü‏‏‎ü‏רשקרתששûרתרש‎ûü‏‎‎‎‏‏‎‏‏‏üü‎ÿ‏‏ÿûûÿ‏‏‏ÿ‏û‏ûÿ‎‎‏ÿ‎ûü‎ü‏ÿÿûü‏‏‏‏ÿÿ‎ÿ‏ÿ‏ÿÿÿ‎üÿ‎ÿ‏ÿÿüûûûüת‎ÿûûרüü‏ÿ‏‎ûûתתûûÿק‎שûüûûûש‎ûûüרתüשת‏רü‏û‎ת‎רק‎ûûû‎תרשת‎‎‏‎‎‏‏‎ÿ‏ÿ‎ÿ‏ÿÿÿÿÿ‎‎ü‎‏‏‏‎ü‎‎üÿÿÿ‏‎‎ÿÿ‏ÿÿÿÿ‎ÿÿÿÿÿÿ‎‎‎ÿ‏‏ÿÿÿ‏‎ÿ‏ÿÿ‏‎‎ÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‎‎‎ÿ‎‏ÿÿÿ‎‎ÿÿÿÿÿ‎‎‎ÿ‎‏ÿÿÿ‎ÿÿÿÿÿÿüüüÿ‎‏ÿÿÿÿÿÿÿÿÿÿûûÿ‏‎‏ÿÿÿÿ‎ÿÿÿÿÿü‎‎ÿ‎‏ÿÿÿ‎ÿÿÿÿÿÿüÿ‎ÿ‎‎ÿÿÿ‎ÿÿÿÿÿÿûûüשüû‏ÿÿüÿ‏ÿüÿÿûüüüü‎תÿ‏ü‎ÿÿüüÿרûת‎üûüû‎ü‎‏ÿ‏‏ÿשûתüûü‏‎‎û‎ÿÿ‏‏ÿûüûÿ‎‏ÿÿ‎üÿÿÿÿÿÿûüûÿ‎ÿÿÿÿüûÿÿÿÿÿשûת‏ü‎ÿÿûûûÿÿÿÿÿצûצÿüüÿÿûתתûÿÿÿÿףרפÿתûÿÿתתרûüÿÿÿüüüÿ‏‏ÿÿÿ‎‎ÿÿÿÿÿ‎ÿ‏ÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿ‏ÿ‏ÿÿÿ‏‎‎ÿÿÿÿÿüü‎ÿ‏‏ÿÿ‎‎‎ÿÿ‎ÿ‎צקקתשש‎‏צûשûüצקûצףףרקקû‎ûרשקüש‎ûתûûÿüüÿÿ‎ü‎‏ÿÿÿÿרûûüüûÿÿ‎תûÿÿÿÿÿ‎‎‎ÿ‎ÿÿÿ‏‎‎ÿÿÿÿÿ‏ÿ‏ÿÿ‏ÿÿ‏‏‏ÿÿÿÿÿüÿ‏û‏ÿÿÿû‏‏ûÿ‎ÿÿ‎ÿ‏ÿÿÿûÿ‏‎‏ûüüüüû‎‏ÿ‏ÿÿü‏‎‏‎ü‏ûûü‏תÿÿÿÿÿ‎‎‏‏ÿ‎û‎שתרÿ‎ÿÿÿ‎ÿ‎‏‏‏‎‎תתן‏‎üü‎üץ‎û‎üüüףפפ‏‎ÿÿÿÿüץ‏‏ÿÿÿרת‎ÿü‏ÿÿץ‎üÿÿÿÿÿüשÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿüÿÿÿÿÿÿÿ‏ÿ‎ÿÿשûפû‎ûûÿÿûü‎‏üףÿסû‎ûüתû‏ÿüü‎û‏קÿתתüשûנת‏ÿ‎‎ü‏‎תÿ‏קüתתרךû‎ûûûü‏ûÿüשתקטûצûüûתûû‏û‏ûû‏רüûÿסÿÿ‏‎ÿÿÿÿÿשתק‏û‏ûע‎‎ü‏ÿ‎ÿÿתתצ‏üûתûûüûû‏ûÿÿששק‏‎‏ü‎‎û‎‏‏‏ÿÿשרר‏û‏ÿ‎‏üü‏ÿÿ‎ÿצררÿûשÿÿüüü‎ÿ‏תÿש‎ש‎שÿÿÿÿü‎ÿÿÿüÿרÿתÿûûÿÿÿû‎ÿÿÿüÿרüûתץרÿÿ‏ץÿÿÿÿÿÿףררקÿסתÿüעשÿÿ‎ÿÿנתשנ‏ûרû‎פע‏ÿÿÿÿלפפÿ‏ûץüתקû‏ÿÿÿÿÿÿנÿÿ‎ÿÿשץשÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿצץÿÿÿÿÿÿÿû‏ÿ‏ÿÿררץשÿÿÿÿÿÿ‏ÿÿ‏ÿÿףתûÿÿûûû‏ÿüüÿ‎ÿÿסרקצקצÿחר‎שûÿûÿÿשפןןûלררû‏ûûÿ‏ÿÿצצמסשר‏תÿÿ‏üÿÿÿÿףÿפתüשÿ‎רששüÿ‏ÿÿםצפקקתÿש‎ÿûüÿ‏ÿÿמתץףףתÿûÿÿÿüÿÿÿÿףÿרץצ‎ÿÿÿÿ‎‎ÿÿ‎ÿץÿüןûûÿüÿ‏צüÿÿû‏ף‎שמפצ‏צשששתÿûתתףÿצססףקסÿÿÿ‎ÿÿüÿשÿÿףץש‎צÿתÿ‎ü‎‎ÿÿÿÿÿÿÿÿÿÿ‎‏שûששÿÿÿÿÿÿ‎‏‏ÿ‎ÿש‏ששü‏ÿÿÿÿ‎שÿÿ‎ÿק‏ררת‏ÿÿÿÿ‎רÿûשüצרצצץ‏‎‎ÿÿצנקתקûתשûûצÿ‏ÿÿÿתר‎תצ‏רקששûÿ‏‎‏ÿüש‎üü‏ûüûû‏ÿÿÿÿÿÿûÿûû‏תüתת‏ÿÿÿÿÿÿûÿûש‏‎ü‎‎‎ÿÿÿÿÿÿ‎ÿÿÿÿÿ‏ÿÿ‏ÿÿ‏ÿÿÿÿÿ‎ÿÿ‏ÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿÿתüתתüÿÿÿÿÿûû‏‎ÿÿ‏‏‏‏üÿ‏ÿÿÿüüüÿ‏ÿû‏ûûûÿÿÿÿÿ‎ûÿ‎‎ûת‎תתש‎üû‎‎קצÿשששקûררקרקש‎‏קר‏ûüשüûüüûתרצת‏ûש‏‎‎û‏‏‏‏‏ת‏ת‏‏‏‎ÿûüת‎‎‎‎‎ש‎‏ש‏‎‎ÿ‎‎ûÿ‏‏ÿÿüתÿûü‏‏ÿ‎‎üÿ‎‏ÿÿÿûתÿ‎‏ÿÿ‎‎û‏ü‏‏ÿר‎רüÿ‏‏‎ü‎‏û‎ûûÿק‏üשÿ‎‏‎‎‎תü‎üüÿ‎ÿÿשûÿÿüû‎‏‎ü‎‎üÿü‏üת‏‏‎ûשרû‎ûûü‏üû‏‎‏ÿûקûרû‎ûûÿûÿû‏ÿ‏‎רתתתü‎‎‏‏‎ÿ‎‎ÿÿ‏û‎‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‎ÿÿ‏‏ÿÿÿ‎ÿÿÿÿÿÿ‎‎‎ÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‎‎ÿÿ‏ÿÿÿÿÿ‎ÿÿÿÿÿü‎‎ÿ‎ÿÿÿÿÿ‏ÿÿÿÿÿ‎üÿÿ‎‏ÿÿÿÿÿÿÿÿÿÿüüüÿ‎‏ÿÿÿÿ‎ÿÿÿÿÿüü‎ÿ‎‏ÿÿ‏‎ÿÿÿÿÿÿü‎ü‎‎‏ÿÿÿ‎‎‏ÿÿÿÿûתûצüקקü‎‎üÿÿתûûûüü‎ü‎‎‏‏üüÿÿ‏û‏תûûüûü‎û‎üü‎ÿ‏תÿשרûûûûû‏ÿÿÿÿÿÿÿÿרררûûûûÿüüÿÿÿÿ‎ÿקûר‎ü‎‏ÿ‎ü‏ÿÿÿÿÿת‎ûÿ‎‎ÿÿ‎üÿÿÿÿÿÿûû‎ÿ‎ÿÿÿ‏ü‏ÿÿÿÿÿרשתÿ‎‎ÿÿ‎‎‎ÿÿÿÿÿקרûüüüüÿ‏ü‎ÿÿÿÿÿ‎‎üÿ‎‏ÿÿ‏‎‎ÿÿÿÿÿü‏‏ÿÿÿÿÿÿ‎‏ÿÿÿÿÿתüûû‏ûûÿÿתü‏ÿ‎‏ÿûû‎‏ü‎ÿÿüתש‏ÿûûÿü‎‏ÿ‏ÿÿÿ‎‎‎ÿÿÿÿÿןפףףפפפ‏נתססתקצרתשû‏ü‏‏ÿתש‎ûü‎‎‎üüûÿ‏ÿÿÿÿ‏ûÿÿÿÿÿûÿûÿüÿÿÿû‏‏ÿÿÿÿÿû‎‎ÿüÿÿÿ‏‏‏ûÿÿÿÿü‏‏ÿ‏ÿÿÿ‏‏ÿÿÿÿÿÿû‏‏‎ÿ‎‎ÿ‏‎‏ÿÿÿÿÿתû‏ÿÿÿÿü‎‎‎‏ÿûÿûרü‏ÿ‎ÿÿü‎‎‏‏ÿ‎‏‎קת‎ÿÿÿÿÿ‎üü‎ÿ‎‎ÿנûץÿ‎ÿÿÿ‏‎‎‏‏‏‎ÿטךךüתü‎תקרצרתקרצüÿÿÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿ‎‏ÿüÿÿÿÿÿ‏ÿÿÿÿÿת‏ü‎תüÿÿûüü‎‏נ‏ץû‎üüץשÿÿ‎üûû‎ןפûת‎üתרצ‏ÿ‎‎‎‏‏שûÿü‏ûץûתûÿ‎‏‎‏ÿשÿÿתûüתûףצÿ‎ü‎‏‏û‎ÿûתרנûפר‎ûתרשüת‏‏שüתץûתףüûûû‎‎üÿÿתûצתü‎צרûתשû‏üÿÿרתק‎‎‏üüü‎û‏‏‎‏ÿתתץÿ‎‎‏קüü‎‎ÿ‎ÿÿקûצ‏û‎‏ת‎תûü‎‏ÿÿשצצÿר‎‎‎ûüû‏‎‏ÿÿץרקÿû‏ÿ‏ûצרû‏‏‎‏רשק‏üû‏ÿ‎ש‎‏‏‏üÿץשש‏‏תÿÿûתקÿÿÿ‎ÿקקשששû‎ÿüץש‎ÿÿüÿןסר‎ûüתÿצסקûÿ‎‎‏ןךסקפררÿרץע‏ÿÿÿÿחרתÿÿûÿÿתץנתÿÿÿÿÿÿûÿÿ‏ÿÿשצשÿÿÿÿÿÿÿÿÿÿÿÿÿûרüÿÿÿÿÿÿÿר‏ÿ‎ÿשץפפץ‎צקק‎ÿץ‏ÿ‎ÿÿסקננûזצ‎קרפû‎‎ÿÿספןףץקםרÿÿûüÿ‏ÿÿףסספפףÿשÿÿÿüÿ‏ÿÿןפםצרü‎‏רששûÿ‎ÿÿזעכעפץÿש‎ÿûûÿÿÿÿמÿףלר‎‏üÿÿÿ‏ÿÿÿÿנÿרסעשÿÿÿÿÿ‏ÿÿ‏ÿקÿÿספ‎ÿûקÿ‏üÿÿ‎ÿצÿÿמסצרעאגגüÿÿתשץÿרענןףמÿÿÿ‎ÿÿ‎ÿקÿÿסץûÿשתתÿףצףÿÿÿ‏ÿÿÿÿÿÿ‎û‎ףתפפÿÿ‎ÿÿÿÿÿÿÿ‏ÿק‎üרתÿ‎ÿÿÿÿ‎ÿ‎û‎רüûפקÿ‏‏ÿÿÿת‎ןססןססמןשûתû‏ןס‏תת‎תרצתשÿ‎‎ÿÿ‎שÿ‏‎ÿûüûÿÿÿÿÿÿÿÿÿÿÿû‎û‎ûû‎ÿÿÿÿÿÿ‎ÿתרÿקתשרת‎‏‎‏ÿûûÿÿש‏ûשûûüÿÿ‏‏ÿ‏üÿ‏ÿÿ‎‎שü‎ÿÿÿÿÿÿ‏ÿ‎‎תןקפפקüü‎‎‎רצÿ‏ü‎ר‎שץתÿÿÿ‏‏תשÿ‎‎שצûתצצ‎‎‎‎‎‎üÿüüשר‎שץק‎תû‎‎ûשÿû‎שקüüרקתץר‎‎‎צ‎תתתûüûרתקקסת‎üרÿשûצü‎üüûעûצשü‏ת‏ü‎û‏‏‏‏‎ש‎ÿצ‎‏‎ÿü‎üÿ‏‏ÿÿÿתÿûתÿÿÿû‏שÿ‏‏ÿÿÿûרÿüÿ‏ûû‎ר‏ü‏ÿÿקתת‏ÿÿ‏û‏‏ÿÿÿÿÿÿ‎ÿüûÿÿÿÿרששü‎‎ÿ‏שÿÿûתÿ‏‏‎‎ÿÿÿÿÿÿÿ‎ÿü‏ÿÿüÿÿÿÿ‏ÿÿÿ‏ÿÿ‏ÿÿÿÿ‎‎ÿÿ‏ÿÿÿÿ‎ÿ‏ÿÿÿÿששÿü‎û‎ÿÿüÿÿÿשÿüÿ‏ÿÿ‏ÿÿÿÿ‎ÿÿÿÿÿÿÿ‎ÿÿ‏ÿÿÿÿ‎ÿÿÿÿÿÿ‎‎ÿ‎‏‏ÿÿÿÿ‎ÿÿ‎‏‏‏‎ÿÿ‎‏‏ÿÿÿÿÿÿ‏‏ÿÿ‎ÿÿ‎‏ÿÿÿ‎‎ÿÿÿÿÿÿÿ‎ÿ‎‏ÿÿÿÿÿÿÿÿÿÿןנרןפסספקüüüÿןסÿûûüûתûûü‏‎ÿ‏ÿûûûÿ‎ÿÿüüÿÿÿ‎ÿÿÿÿÿÿÿ‎üü‎ûÿÿ‏ÿüÿÿÿÿÿצרûערצףרקרצ‎ÿצצ‏קרתקשקפקקתרש‏קרÿûüü‎ü‎ÿü‏üÿ‏ÿÿÿÿשûû‏ת‎üÿ‎üü‏ÿÿ‏ÿקשû‎תר‎‏ûûüÿÿÿÿÿצקûתüûÿ‏üü‏‎ÿÿÿÿûûüÿ‎‏ÿÿÿüÿÿÿÿÿÿüûü‏‏‏ÿÿÿü‏ÿÿÿÿÿûתüÿüÿÿÿ‎‎ÿÿÿÿÿÿüשüÿûüÿÿ‏‎‎ÿÿÿÿÿ‎‎ü‏üûÿÿÿ‎‎ÿÿÿÿÿü‎‎û‏û‏ÿÿü‎ÿÿÿÿÿתתרת‎‎û‏‏û‎ÿÿ‏‎ÿûüש‎‎‏ûüüüת‏ÿÿûÿü‎ûÿ‏ÿÿÿ‎ü‎ÿÿÿÿÿץףתûרצ‎תצצףץûתתתןסםףףפû‎ןצספצףפפרüü‏ûûÿÿü‎üüÿÿÿ‎ûû‏‎‏üÿÿ‎ü‏ÿÿÿÿÿ‎‏‏ÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿü‏ÿ‏ÿÿÿ‏‏‏ÿÿÿÿÿû‎‏ÿÿÿÿ‎‏‏‎ûÿûûû‎ת‏ÿ‏ÿ‎ÿ‎‎‏‏üûûÿתû‏ÿ‎ÿÿÿ‎‎‎‎ÿ‎‎ÿ‏ש‏ÿ‎ÿÿ‏‏‎‏‏ÿ‏ÿ‏פס‎ÿüÿÿÿ‎‎‎‏‏‏‏ÿףפפקסקûתקתררתצרר‏ÿÿÿÿ‏ÿÿÿ‎‎ÿÿÿÿÿÿ‏‏ק‎ûÿÿ‏‎‎‏ÿÿÿÿ‎‎‎שü‎צÿ‏ü‎‏ÿצףÿÿ‏‎ÿר‎ûת‏‏‎‏ÿÿפÿûûû‎üûÿתתüûû‎תÿûûûûüüפÿÿûתûתüûת‏‎üûüû‎ÿÿ‎üü‎‏‎ÿÿûûûץüûÿÿüüû‎ÿÿÿÿüתתü‎‏ÿÿüûü‎ÿ‎‏‏ûüשÿ‎ÿרÿ‎üü‏ÿÿÿÿü‎שÿ‎‏‏ÿü‎û‏ÿ‏ÿÿתûרÿü‏‎תûü‎üÿÿÿÿüûקÿתü‎‏‎û‎û‎‏ÿ‎תûפÿû‎ÿÿ‏û‎ÿ‏ÿÿÿûשץüררÿ‏‎תû‏ÿÿÿ‏קרפצתרûÿתתתü‏üÿûתרצקתץצüתתרת‎‎‏ûףסץקקרררקנרתû‎ü‏תצפצףשû‎תךסתÿÿÿÿמןרתםנû‏נכוû‏ÿ‎ÿרדצסץךש‎וןףף‏ÿ‏ÿÿÿ‎קü‏ÿÿÿתצפÿÿÿÿÿÿשרÿפסתסנךתסÿÿÿûüרמÿüףנומכנקעףףתתרüÿûןציעץחץתופצרסüת‏תסץסףךפקרצתÿםüÿÿÿÿצצכשץÿüû‏ÿעüÿÿÿÿמנכקן‎תü‎‎‎‎ÿÿÿÿכ‏מסףÿÿקû‏ÿüÿ‏ÿ‏חÿףנת‎‎קÿÿÿ‎ÿÿÿÿעÿץםûÿÿשÿÿÿ‎ÿÿÿÿףÿצלסÿÿף‏שÿ‎ÿÿûתנÿתןעערמÿÿÿûÿÿüÿפÿÿעףשüףÿÿÿ‏ÿÿüÿשÿÿסמשüק‏‏ÿ‎ÿûÿÿÿÿÿÿÿÿÿÿ‎ת‎פרצפÿ‎ÿ‎ÿÿלממ‎רשןשסןעüûüÿüןצü‎שûףתשפצüûûÿÿקשתüשüצקפנףûשתüÿקנ‎üפ‎רקששק‎ûת‎ÿתרÿץםרםןךמץעפסץûקפשתפשעץףררשתשü‎ûרÿשסüעףסףתרתתû‎üף‎צû‎סענפצשצשתüüפÿüû‏פתףקתü‎שü‏‏üÿ‎ÿ‎צûûשüü‏‎‏‏‏üÿû‎‎קתצףקûÿüרü‏צÿרשףמרסססרûררץףפפץûץפüתףקתת‏תüüר‏רüסûüûררûקûûü‎ü‏תûûÿ‏‏‏‎ÿÿûÿÿÿ‏ÿת‏ÿÿ‏‏‏‏û‎ÿÿ‏ÿ‎ÿ‎ÿÿÿÿÿÿÿÿ‎‎ÿÿÿÿÿ‎‏ûÿÿÿÿÿÿÿ‎ÿÿÿÿüצתש‎‎ü‏‏ק‏‏‎ÿת‏תקûש‎‏‏ÿ‏ÿ‏ÿש‏ûÿ‏ÿ‎‎ÿ‏ÿÿÿÿ‎ÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿüÿÿ‏‏ÿÿ‎ÿÿ‏ÿû‏‎צש‎תûתשûÿü‎‎‎עףףüשÿ‎‎‎‏ÿÿÿÿÿÿüüÿÿû‏ÿü‏ÿÿÿÿÿÿÿ‎û‏ÿ‎ÿ‏üûÿÿÿ‎ÿÿÿ‏‎ÿתנûמףןפרüÿתûÿעץüףזשהלזזנשקתשüטךךןךתטןךךןקפרÿתץךüûקרןפסספתûרÿ‏שעÿüûÿקתררתÿÿüÿÿ‎שÿןךרטמךךןקרשסתקךÿעגלאיגגישןססןטךךûûשצüררת‎üû‎ÿÿûÿלסךטןמיןןפסרתקםשûררשûשרשüתû‏‎ÿרÿûûûûûüûü‎ûû‎‏ÿûÿקצשצקץצûפקץü‎üתצרץשקקרשתקתררÿüûרפעששצצשûרתששûÿ‎‎קףûתצר‎‏û‏‏‎‏ÿ‏ÿûשü‎ûשÿÿ‎üÿ‏ÿÿÿÿûûûתüüÿÿ‎ü‏ÿÿÿÿÿתרû‎רûûÿ‎ü‎ÿÿÿÿÿûתת‎רשÿ‏‎û‎ÿÿÿÿÿתüûû‎ש‏ÿ‏‎‎ÿÿÿÿÿû‎ûת‎üüÿÿתû‏ÿÿÿÿצתשüû‎ת‎‏שש‏ÿÿ‏ÿרûû‏üû‎üתתש‏ÿÿÿÿ‎‏‏ÿÿÿÿÿÿ‎‏ÿÿÿÿÿ‎‏‏ÿ‏ÿÿÿ‏‎‎ÿÿÿÿÿû‎‏ÿ‏ÿÿÿÿ‎ÿÿÿÿÿÿקפתקתרüÿקûררתרÿû‎ü‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‎ü‏ÿ‎ûÿÿ‎‎‎‏ÿÿÿÿ‎û‏ûÿ‎ÿÿ‏üüÿÿûÿÿüü‏‎‏ÿûÿü‎û‏ÿÿÿÿ‎ת‎ÿÿÿ‎üû‎‎üÿ‎ûûüר‏ÿ‎ÿÿ‎‎‎‎û‎ÿ‎ÿ‎‎‎ÿÿÿÿ‏‎‎‎‎ü‏‎‏üץ‎ÿץÿÿ‏‎üü‎‏ÿ‏‏ü‎‎ÿפסÿÿ‎û‎‏‏‏‏‎ü‏‎עüעÿÿ‎‎ü‏ÿÿÿÿü‎üעש‏ףÿ‎‎ü‏ÿÿÿ‏üÿ‏‏תüפקÿ‎‎‏‏ÿשÿüüü‎ûרÿץüתת‎‏‎ü‏üü‎üüüÿÿ‎üû‏‏ÿתÿüüüשûקÿÿûüû‎‏ÿתÿüû‎üüת‎ÿ‎‏‎‏ÿÿüÿûûûצ‎üשÿûüûûüÿ‎ÿü‎üת‎ÿ‎ÿ‏‏ü‏ÿÿÿÿüüû‎‎‏רÿ‎‎û‏ÿÿÿÿû‎û‏‎‏û‏‎‎‎ÿÿÿÿÿüüûÿû‎‏ü‏‎‏ÿÿÿÿÿûתרÿ‎‎ÿ‏‎‎ü‏ÿ‏ÿ‏üתקÿ‏ÿ‏û‏ü‎ÿÿÿÿÿûûצÿü‎‏ü‎קûÿÿÿÿÿûצס‎תרÿ‏רתסü‎ü‎‏קףןצתשüÿןםררüû‏üצפלרקשק‎קנטסת‎ÿתתסז‏תû‏‏מףף‎תÿÿÿתסףûץשüÿףלסנÿÿ‏ÿשûסûכף‎ÿעזטצץÿÿÿתûקץ‏ח‏ÿינאץתÿ‏רשÿץטÿ‎רÿאםמלשÿÿםûÿצ‏ÿ‎לûןןךועÿÿ‏ץÿץ‏ÿ‏ÿןזןממיÿÿקק‏קüÿ‏ÿüמןךטע‎ûרחצסתÿûÿ‎ךםטנךתעמקÿס‎ÿ‏ÿÿלרםףתÿÿתÿÿÿ‏ÿÿÿÿעÿûקüÿÿüÿÿÿüÿÿÿÿןÿüסרÿÿץÿÿÿÿÿÿÿÿמÿûנצקררÿÿÿ‎ÿÿ‎ÿפÿץיממ‎טÿ‏ÿ‎תÿשתףÿüסםלףפשששüÿץüקףÿüיכעעסÿÿÿקÿÿûÿעÿÿףנץûצ‎ûüץצצÿÿ‎ü‏‏ÿÿÿÿ‎‎ÿר‎ש‏ÿÿ‏ÿÿÿÿÿÿסששטץםמערקרשקפךפüרשףררסקקשררÿצץ‎‎ü‎תרשקרüû‎‏ÿÿ‎ÿתץסםןךףסףנףףפצפûüקרןקסצקפתץץ‎שששקץסטןםךעיןככצשפץûקרףףסספקתרקקüתתשףסנרןפפןתססץ‎תשתרתמצצסקקצררת‎ררשüüץתצעקשתששצ‏שתקûûףשצצףףקףףש‎קרערשץתקףרפפץץתüתûץצשת‎üשתש‎ששתÿתüצ‏ת‏‏‏üû‎ÿ‎‎‏ÿÿ‏ûûûÿ‏ÿÿ‏ÿÿÿÿÿÿÿÿÿ‏ÿÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿ‏ÿ‎ÿÿÿÿÿ‏ÿÿÿÿÿÿÿןררקתרתüÿקÿ‏üנשץשר‏‏ü‏‏‏‏‎‏‏ÿתûÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿ‏ÿÿÿ‎ÿ‏ÿÿ‏ÿÿÿקüףץסקקÿÿÿ‎ÿעסרûךüהנחךסûרשüüוחחמותאטחבכצפקת‎מוףקסתזיגהירץרק‎נמקüÿÿןץסצץÿüûÿ‏ÿקÿתפûטןכךףקתץû‏קםûןךךÚהÜÛהלרמסצטךךשןןזםחיםףתרפüשצÿןפרטקךךנקתתץüûצÿסעעאלסגךקצרצקשסרüüûûתûרתüûÿ‎‎ÿüÿצשצעףןקףûרûûתüת‎יננחץילצןףננûןפקפששפûתץתûקתû‎‏ü‏üüüüü‎‏‏‏‎üÿÿÿÿÿÿûüÿü‎‏ÿ‏‏ü‎ÿÿÿÿûûü‏ü‎‎ÿ‎תû‏ÿÿÿÿרצרקקררûצץקקתקû‏קףקקפץרתנץססתקררûרתûצק‏‏קתרר‏ÿÿ‏קררקקפüÿשתששתÿÿÿקררףצפר‎רשששתÿ‏ÿûתûûתתûÿüü‏ÿÿÿÿÿûשתתתרûü‎תÿ‏ÿÿÿÿשתשרûשû‎ÿתûÿÿÿÿÿתûצûüüû‏‎ûüÿÿÿÿÿשרר‎ü‏‏‏‏üû‏ÿÿÿÿûששÿ‎ü‏ÿûת‎ÿÿÿÿÿ‎ü‎ÿ‏ÿÿÿ‏‎‎‏ÿÿÿÿûûûÿ‎ÿÿÿûüûûÿÿÿ‏‎û‎ÿ‏‏ÿÿ‏‎‏ÿÿÿÿÿü‎‏ÿü‏ÿÿ‏‎‎‏ÿÿÿÿשûü‎ûשÿÿת‎תת‎‎‎‎üû‎ש‎ש‎ÿü‎‎‎‎‎ÿ‎‎ü‏ÿ‏ÿÿÿ‏‏ÿÿÿÿÿÿüת‏ÿ‎ÿûü‎‏‎‎ÿÿÿÿü‏‏ÿ‎ÿÿüû‎ûûÿûÿ‏ûת‎ÿ‎‏‏‏ü‎‎‎‏ÿÿüü‏‎‎ûÿÿÿ‎‎‎‏ü‎‎ûû‏‎ÿק‏‏ÿ‎‎‎‎‏ÿ‏ÿüü‎ÿüץÿ‏‎ü‎‏‏‏‏‎ûû‎פ‎ûÿÿ‎ü‎‏‏ÿ‏‏ûüûשת‎ץÿ‎üü‎‏‏‏‏ûüûüü‎‎ש‎üü‏‏ÿÿÿüüûÿü‎ûÿ‎ü‎‏ÿÿÿÿת‎‏ÿüת‏ÿ‏‎‎‏ÿÿ‎ÿû‎û‏ü‎ÿüûüûûÿÿÿÿשûû‎‎‎ÿ‏ûüûû‏‎‎‏ûü‎ת‎ÿÿÿ‎ü‏‏‏ÿü‏ש‎‎‎‏ÿÿÿ‎‎‎‏ÿÿ‎ÿûûûÿü‏ÿÿ‎‎‎‏ÿÿ‏ÿשû‎ÿ‎‏ûÿ‏‏‎ÿÿÿÿÿûû‎ÿü‏ÿÿÿ‏üÿÿÿÿÿצûתÿתü‏ÿûüûû‏ü‎‏ררש‎‎û‏ü‎û‎‎‏‎‏‏פקף‏‎ûÿÿ‏ת‎‏‏ÿÿ‏קתצ‎‎תÿÿ‎ר‎‎ÿÿÿÿןûףüרüÿÿרקששÿÿÿÿערמüקü‏ÿק‎ררÿÿÿÿהûןתתרÿÿרתשש‎ÿÿÿûÿסÿ‎תÿÿÿûÿÿÿÿÿÿÿÿפÿÿÿÿÿÿשÿÿÿÿÿÿû‎ץתÿüÿÿ‏ג‏‏ÿÿÿÿ‎ÿנÿÿÿÿÿלךםםÿפÿÿתÿע‎ÿ‎ûÿÙקÛÛÿÿÿÿÿÿצÿÿÿÿÿדלווףûÿלףרס‎‏ÿתתףזעפÞק‎מןחזשקר‎תזוטטßמשגכףע‎ÿ‏ÿüßכבבר‎‏כÿÿÿ‏ÿÿÿÿהץזלש‎ûעÿÿÿ‏ÿÿÿÿךüפלצÿÿÿÿÿÿצÿת‏תחûלאחףפע‏ÿÿפü‏עתטüךזהאךט‏ÿÿ‎‏ûץץטÿםךזצםעüüüתÿ‎üקכÿקךוןשםÿÿÿ‏ÿÿû‎קÿÿםלששף‎ÿüףüתÿÿ‎ü‎ÿÿÿÿÿûשץץתצמÿûקרÿÿסעעפכףןץםכיכןךסÿלמםלצללססננטעךלץעטףעףףקקפפצנפפסצשפüûÿץûתששתûקשûüÿתû‎‎ûûתתüûתרקü‏ÿüÿûüקûתתüûרשק‎ÿÿÿÿ‎ÿûûüתüüקûרש‎ÿÿüק‎‎תûשûûקתשרûÿÿשüÿûשüûû‎שתררתÿ‎ÿ‏ÿÿüÿ‏‏ÿÿ‏ÿÿÿÿ‏ÿשרפקüרףשןץססץקתרתתרת‎‎שüקתשרתקררצףתרצתששףûףףצüüצףנתüשקתתצü‏קרת‎ûתü‎üתü‎‎ÿü‎û‎ÿ‎‎ÿÿÿÿ‏‏ÿÿÿ‏ÿÿÿÿÿÿסררףûפשתקÿÿ‎ÿûûûÿשüü‏‏ü‏‏‎‎ÿÿ‎שÿÿ‏‎ÿ‏ÿÿÿÿ‎ÿÿÿÿÿÿÿשÿ‏תשÿüÿÿÿÿÿ‎ÿÿÿ‎ÿר‎רÿÿÿÿÿÿÿש‎ÿ‏üüנ‎צעתÿ‎‎‎תרסץÿקüןצשלסüüü‎‎ףןüשצצםליחיצןףÿüןננפדתÙבÙבגהטÜםûודעעךפױך״ÛחÙןאוסןךףץקשאףןגכיסעזףצסüסערלעןגיסצלךכרפקמץקןףנסכמרנשסשצ‎ßפץכטטלןכפצטץרמנûרתקשררûקûûû‏‎ÿÿÿÿüûüûûüÿÿüûÿÿÿÿתתרקתקרתûתתרü‎ûÿלסםעצמףעקעעקצלממקערקתשרתתקרüת‎רûûררûüüûüûתû‎‏ÿ‎ÿקררûüüûüûתר‎‎‏‎ÿקשקûûûûüקקרûÿÿ‎‏ûûüÿ‎ÿ‏ÿ‎תû‎ÿÿÿÿûûשÿû‎ÿÿüתר‎ÿÿÿÿתתשÿûüÿÿקüרüÿÿÿÿתûש‎תתÿÿקûûר‎ÿÿ‏רששûשש‏‏üûÿשתÿÿשרשרשרשû‏ûÿÿüתÿÿשתûû‏ûûÿÿüüÿÿÿÿÿÿרûר‎ûת‎ÿ‎û‎‏ÿÿÿÿרששתûת‏ÿ‎תü‎ÿÿÿÿצתתûü‎‏ÿÿקû‎ÿÿÿÿקשû‎תü‏ÿ‏üר‏ÿÿÿÿü‎‎ÿ‏‏ÿÿ‎‎‏ÿÿÿÿÿüü‎ÿ‏ÿÿÿÿ‏‏ÿÿÿÿÿü‎‏ÿÿÿÿÿ‎‎‏ÿÿÿÿÿüüüÿüÿÿÿÿü‎ÿÿÿÿÿüüÿÿ‏ûÿÿ‏‎ÿÿÿÿÿÿüû‎ûÿ‎ÿÿ‏üÿ‏ÿÿÿÿצצצשûשצÿûרששûשששת‏û‎‏‏‏ü‎üû‏‏‏ÿûû‎‏ÿ‏ÿÿÿ‏‎‏‏ÿÿÿÿüÿ‏ÿÿÿÿÿ‏ÿÿÿÿÿÿÿû‏‎ÿתÿ‏ÿü‎‎ûüüÿÿû‎‎ÿתÿÿ‏ü‎‎‎üûÿûת‎‎ÿüרÿ‏‎‎‎‎‏‎ÿ‎û‎‎ÿתרÿ‏üüû‎‏‎‏‎תü‎רû‎ÿ‏üü‎‎‎‏‏‏ûûûקüû‏ÿüûû‎‏‏‏‏תûüüüתש‏üüת‎‎‏ÿÿû‎ûÿûüתÿ‎ü‎‏‏ÿÿÿת‎‏‎üתÿü‏‎‎ÿÿÿÿÿû‎‏û‎ûÿü‏‏‏ÿÿÿÿÿש‎‏‎‎‏ÿÿ‏‏‏‏ÿÿÿÿתü‏ת‎ÿ‏ÿü‏‎‏ÿÿÿÿרü‎û‎ÿûÿ‎‏‎‏ÿÿ‏ÿשתü‎ü‎‎ÿü‏ü‏ÿÿ‎ÿקüü‎‎‎תÿ‎‎û‏ÿÿ‏ÿרת‎ÿ‏‎üÿ‏‏‎‏ÿÿ‏ÿצש‎ÿ‎ÿ‏ÿ‏üÿÿÿÿÿÿקתû‏ü‎ÿ‎‏üû‏ÿÿ‏ÿףüשÿ‎ü‏‏ûüûÿÿÿÿÿצתרÿûÿÿ‎‏üÿ‎ÿÿÿÿץצצÿÿÿÿÿ‏ÿÿÿÿÿÿÿסףץÿתüÿÿû‏ÿ‎ÿÿÿÿפצûÿתÿÿÿÿÿÿÿÿÿÿÿנ‏לÿÿ‏ÿÿÿÿÿÿÿÿÿÿיÿםÿÿרÿÿÿÿÿÿÿ‏ÿÿÿÿץÿÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿץÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿסÿÿÿÿÿתפצÿÿ‎‏‏ÿÿצÿÿÿÿÿûףצÿÿשÿüשתג‎‎ÿÿ‏גבגיעסüÙןתחÿץüÿרßדÙהמכשאצסך‎תפÿÿÙהÞולתÿרÿÿÿ‏ÿÿÿÿט‎חחפüÿûÿÿÿ‎ÿÿ‎ÿגüרזך‏ÿמÿÿ‏ס‏‏ןנßסםׂÞטךךÿÿÿÿÿÿפפמצןכÞמךגÿ‏ÿ‎ÿûשסזתלßטסקךÿÿÿ‎ÿÿûûךÿרטםףפזÿÿÿûÿÿÿüלÿÿלזץצן‎‎ûשûשÿÿ‎‎‎ÿÿÿÿÿטרךזפטטÿיןכסÿ״ÛÛקתפץקקקתפףפץüצקÿüÿûûüüת‏üüûÿÿÿÿÿלממסרעעשלןןסץשתףצ‎צûûתû‎תצץש‎ü‎ü‏ÿûü‎üÿüתûשÿ‏ÿÿÿ‎‏‏‎‏ÿ‏ÿü‏‎‏ÿÿÿÿ‎ÿשû‎ûûûצתרצתü‎ÿÿÿ‎ÿÿ‎ÿÿÿÿ‏‏‏ÿÿÿתüרת‏ûûüקתררש‎ÿרûתûתÿûûüקתררתקÿר‏‎‎ÿ‏ÿ‎ÿü‎üü‎ÿ‏‎תתûÿ‎ÿû‎תÿûûü‎ÿ‎‏ü‎‎ü‏‎‎ûü‎ûü‏‏û‏ü‎ÿתÿ‏‏‏ÿ‎ÿ‏ÿÿÿתשתקקררüק‎ר‏תû‎שûת‎פ‎ץץüûÿÿûÿû‏û‎קÿש‎שש‎‎ÿÿ‎‎ÿ‏‏ףררûפûüץÿ‎ÿüתûץ‎ÿ‎ÿÿû‏ÿüÿÿÿ‏ÿÿÿÿÿ‏ÿû‎ûûÿÿÿÿÿÿÿ‏ÿÿשûךקללץÿûûüÿןכרÿûרישככןûת‎ÿ‎לסספסואןגגאןיךתûטÛולפÛטןךכßטךגעתחיישרךמססןסךסםפ‎צנûתשפץצעףרפספפüקק‎ץסתאןגגנאßÛדיפסוץציטןךךןÙאײגךלסÛפחתכעללם״כÛאםרצץעÞםיסככנײףג״וצץמןיןכיםםסהקףÝהתקיףףףןפץספץצץמכתקפטסמטקךךץףןףסעüססףץץרתצשששצץתת‎üüתûûûûû‎üüתû‎üÿ‏ÿרûשûתüü‎ûתשü‏ÿÿ‏קררשתשש‎קûר‎‏ÿÿ‎ûüûÿ‎‎‏ÿ‏‎û‎ÿÿÿÿרשש‏ü‎‏ÿ‎üû‏‏ÿÿÿשüשÿû‎ÿÿ‎ÿÿÿÿÿÿÿû‎ÿÿ‎ÿÿÿ‎‎‎ÿÿÿÿÿüüüÿü‏ÿÿüü‎ÿÿÿÿÿûüü‏üüÿÿüüÿÿÿ‏ÿ‏ûûת‎ü‎ÿÿüû‏ÿÿÿÿ‏ûתת‎‎ü‎ÿüû‎ÿÿÿÿÿעסעףפפפüûספü‎פץץÜאßדחוולהזÞפתהזפרפףüתüü‏רץשÿÿÿÿÿûשû‏û‏ÿÿ‏üר‏ÿÿÿÿקרר‏ü‎‏ÿקת‎ÿ‏ÿÿÿקררתתתתÿüתררÿÿÿÿÿ‎‎ÿ‏ÿÿÿ‏‎‎ÿÿÿÿÿû‎‏ÿ‏ÿÿÿ‎‎‎ÿÿÿÿÿÿ‎‎ÿÿ‏ÿÿ‎‎ü‏ÿÿÿÿû‏‏ÿ‏ÿÿÿ‏‎‏ÿÿÿÿÿקררשתתתתקקררתקררתûûû‎ûûÿ‎üû‎‏üÿÿû‏‎ÿ‎ÿ‎ÿû‎ûü‏ÿÿÿת‎‏ÿ‎ÿÿÿ‏‎ÿÿÿÿÿÿû‏‎ÿû‏‏‏û‎ûûüÿüûת‎‎‏‎ÿÿ‏û‎‎‎üûûûתü‎ÿ‎‏‏‏ü‎üû‏ÿÿ‎ש‎üÿûתÿÿ‎‎ü‎ü‎ÿ‎תüûתü‎ÿÿüüü‎üÿÿ‏שûשûü‎ת‏ûתû‎‏‏ÿ‏ששûüû‎‎ÿûתרü‏ÿ‏‏רûûÿü‎‎ÿûüû‏‏ÿÿÿשûû‎‎û‏‎ûüûû‏ÿÿÿרü‏ÿ‎ÿÿÿ‏‎‎‏ÿÿÿÿשü‏‏‏ÿÿÿ‎‎‏‏ÿÿÿÿקû‏ûüÿÿ‏‎‏‏‏ÿÿÿÿרü‎‏‎ÿÿÿ‎‏‎‎ÿÿÿÿצûüÿü‏ÿÿüüü‏ÿÿÿÿקשü‎û‎üÿ‎üü‏‏ÿÿÿץû‏‏‏‏‏ÿÿ‏üÿÿÿÿÿק‎ûÿ‏ÿÿÿÿ‏üÿÿÿÿÿףתûÿ‎‎‏ÿ‏‏‎ÿÿÿ‏ÿץפû‏ûüÿÿÿ‎‎ÿÿÿÿÿסשû‏תüÿ‏‏‏ÿ‏ÿÿÿÿפשû‏ü‎ÿÿ‎ÿ‎‏ÿÿÿÿןתתÿû‎ÿÿ‎ÿ‏‏ÿÿÿÿסצû‎ס‎ÿÿ‏ÿÿÿÿÿÿÿוחעפקץץÿ‏‏‏‏ÿתÿ‏ÞÝףזץטטÿ‏צ‏‏ÿתסÿ׳ÚÚü‏‎ÿÿ‏ר‏ÿÿÿÿÿפÿצÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿףÿÿÿÿÿÿÿÿÿÿÿÿÿטתא‏ÿÿÿÿÿעסק‎Ýשץף‎חÿÿÿÿÿצßףÿ‎כשצÿÿץÿÿÿÿÿÿךוÿÿתÿÿÿÿÿÿÿÿÿÿÞפאÿÿûÿתÿÿÿÿÿÿÿÿÝתסאÿתÿסÿÿ‏ÿÿÿÿÿאןךׂÝןססüÿםתÿÿשך׃ו׳ֽֿÚךֿÿÿü‎ÿÿüüײקאÙÜלפטÿÿÿÿÿÿÿ‏ÝÿץÙגמףאÿÿÿ‏ÿ‏üתןÿÿÛßעתזכץכלשףÿÿקןסÿÿÿÿÿצקקשûûûÿûשקÿÿÿÿÿûüשûüÿתÿüתüÿÿÿÿÿü‏ûÿ‎ÿÿÿü‎û‎ÿÿÿÿû‏û‎üüûüתשü‎‏ÿÿÿפץעüûûû‏רצפצüתûûקÿק‎‎üû‎קתר‎üÿÿÿ‎‏‎‏‏‎‏‏‎‏‎‎ÿÿÿÿÿ‏ÿ‏ÿ‎ÿÿÿÿÿ‏ÿÿÿÿÿ‎ÿ‏ÿÿÿ‏ÿ‏‎ÿÿÿÿ‏‎‏‎‎ÿ‏‏‏‎‏‏‏‏‎ÿ‎ÿ‏‎‎ÿÿ‏‏ÿÿÿÿÿÿÿÿÿ‎ÿÿÿÿ‏ÿ‏‏ÿÿÿÿÿÿÿ‏‎‏ÿÿÿÿ‏‏‎ÿ‏ÿÿÿÿ‎‏‏‎ÿ‎ÿ‏ÿÿÿ‏‏ÿ‏ÿ‎‎‏‎ÿÿÿ‎ÿÿÿÿÿÿÿקררû‎ץüüÿÿÿÿÿרûרüûüצûû‎üÿ‎ü‏‏תת‎ÿ‏‎‎û‏ü‏ÿ‎ÿÿÿÿÿÿקפüצתעüק‎‎ÿÿÿûûרÿüÿסתרק‎ÿÿüÿÿקתûÿ‏ÿ‏ÿûש‏ÿ‎ÿÿÿÿ‏ÿÿ‏ÿץûשצףÿüÿ‎ÿתצ‏כללßנחÛהןחותמÙ״חהצגונםגההלבסתדךץלûצרשץףקערשר‎צץüתüקשûרששüûתת‏üתÿüÿû‎‎ÿÿüÿ‎‎‎ÿÿÿ‏ÿÿ‎תÿûüüüתת‎‏‏üÿתקךצשקץûםםןת‎םשצÿÿüתûÿתüקפסר‏‎ü‎שתתקץרתרירךסץרתסחסףבךÜסנׂעסױהבק׳צקצמשצצûצקקטםשתךצעערתרעûררקץנüüצפפפשקתשקשקקתûüüקצשפûüûûüתתשûûÿÿשקררüü‎‎ÿתûתüÿÿ‏‎שתû‎ü‎‏‏ûûû‎ÿÿÿ‏ûüûÿüÿÿÿü‏û‎ÿÿÿÿקררÿ‎‎ÿÿü‎û‎ÿÿÿÿתûûÿ‎‎ÿÿ‎‎û‏ÿÿÿÿü‎üÿ‎‏ÿÿ‎ÿ‎ÿÿÿÿÿûüüÿüÿÿÿüÿÿÿÿÿÿÿûûÿ‏üüÿÿüÿ‎‏‏ûüÿצקצתקפûüתשÿüüףץ‎ףץסןףסקשרקÿûûףעÿוÞ״Ýהßאלקלנץריךךטךךןןםספûןפת‎שס‏יסךףנסקתüצסת‏ÿü‏ûûû‏תתÿÿÿתü‏ÿÿÿÿü‎‎ÿ‏ÿÿÿÿ‎‎ÿÿÿÿÿתûûûüû‎ÿûüûÿÿÿÿÿü‎‎ÿ‏ÿÿÿ‎‏‏ÿÿÿÿÿûü‎ÿÿ‎ÿÿÿ‎‎ÿÿÿÿÿûÿ‎ÿÿ‏ÿÿ‎‎‎‎ÿÿÿÿû‎‎‎ÿÿÿÿ‎üÿÿÿÿÿÿףפפûקשרתשתרצתקררûûû‏üü‎ÿ‎ü‎‎‎ÿüÿûÿÿÿüÿÿÿ‎‎‎ÿ‏ÿÿÿû‎‎ÿüÿÿÿ‏‎‎ÿÿÿÿÿûü‎ÿ‎ÿû‎ûüûû‏ûÿûת‎‎ÿûת‏üûüûûüûûûû‎üÿüתÿÿü‎üü‎‎‏‏ת‎ûÿü‏ÿ‏û‎ûûü‎‎ûתüûתü‎ÿ‏ûüûûü‏ÿ‎תüתûüûÿÿüû‎ü‎‏‏‏תüûÿü‎ÿÿ‎üû‎‏ÿÿÿתü‏ÿ‎ûüÿ‎ûü‏‏ÿÿÿתûû‎üûûÿûüûû‏ÿÿ‏שû‎ü‎‏ÿÿ‏‎‎‏ÿÿÿÿתü‏‏‎ÿÿ‎‎‎‏‏ÿÿÿÿשü‏ûüÿÿ‎üü‎‏ÿÿÿÿשת‎ü‏‏‏ÿ‎‏û‎ÿÿÿÿרû‎‏‎‎üÿû‎ü‎‏ÿÿÿרû‎‏üü‏ÿü‎üû‎ÿÿÿקûûüüûûÿ‎‏ת‏üÿÿÿררÿÿ‎‏‎ÿ‏ÿ‎ÿÿÿÿÿקת‎ÿüüÿÿ‏‏ÿÿÿÿÿÿרת‏ÿתÿÿÿ‎ÿ‎‎ÿÿÿÿצר‎ÿûרÿ‏‏ÿÿ‏ÿÿÿÿצף‎קףüÿÿüÿÿ‎ÿÿÿÿץפ‎ÿרףû‏û‏ÿÿÿÿÿÿףםüמףףÿת‏‏ÿ‏ÿÿÿÿמוףןךמם‎‏‎‏‏ÿשצÿלÞסמדועע‎ûÿ‏ÿ‏רÿאגגדלÛנצ‏רת‏ÿ‎‎ÿיבסזעפע‎ÿÿÿ‏ÿÿ‏ÿףÿפÿÿ‏רÿÿÿÿÿÿÿÿÿקÿעÿÿÿÿ‎ÿÿÿÿÿÿÿÿף‏‎ÿÿÿÿÿÿצÿÿÿÿףÿקÿוÿÿÿÿÿÿנצÿÿÿ‎ÿÿÿמÿÿÿÿÿÿÿץÿÿÿÿÿÿÿÿÿÿÿÿÿעעÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿסץÿÿÿÿÿÿנÿÿÿÿÿ׳üץןזיךךÿÿעÿÿÿÿÿןתצײנגע׃ÿÿÿÿÿÿÿ‏צץרסßסשהÿÿÿ‏ÿÿÿ‏ףÿןףסמ‎חÿÿÿÿÿÿÿûאÿÿטלמשÜשûרשûתÿÿקתשÿÿÿÿÿû‏ûû‎‎ÿÿ‏‎‏‏ÿÿÿÿת‏שû‎ü‏ÿ‏‎‎‏‏ÿÿÿתüûüüÿüÿüת‏ÿÿÿÿÿûûûÿ‏‎üÿÿ‎ûÿÿÿÿÿקûש‎ü‎ÿÿשû‎ÿÿÿÿÿü‏ÿ‏ÿÿ‏ÿÿÿ‏ÿÿÿÿÿÿ‏‎‏ÿ‏ÿÿÿ‎ÿ‏ÿÿÿÿü‏ÿ‏ÿ‎ÿ‏ÿ‎ÿÿÿÿÿÿÿ‏‎ÿÿ‏‏ÿÿÿ‎ÿÿ‎ÿÿü‎ÿ‏‏‏ÿ‏ÿÿ‏ÿÿ‏ÿÿÿ‏ÿ‎ÿÿ‏ÿÿÿ‏ÿÿ‏ÿÿü‏‎ÿÿÿ‏ÿ‏‎ÿÿÿÿÿÿÿ‎ÿÿ‎ÿ‏ÿÿ‎‎ÿ‏‏ÿÿüÿÿ‏‏ÿ‎ÿ‏ÿÿÿÿÿÿÿץûüץûתשûüÿü‏ÿץצרü‎ÿÿ‏ü‏‏ÿÿ‎ÿÿÿÿÿÿ‎‎ûü‎ÿ‏‎ÿüÿÿÿÿÿü‎ÿûû‏ת‎‎ÿÿ‏ÿתûûתןûצנןסצÿÿÿü‎מפצûתûןתםרצÿÿÿüÿפס‎ÿÿûןüקפרÿüÿ‎‎שûÿןשוטפי״הףיזרûטגךטךךחפסךבהכגרשוÛילסעץקץנצםצסעüרסÿקסתקתתתקתקûרüûר‎ר‎תûüתüûûתü‎‏‏ÿÿצüקüûתתתûûק‎‏‎ûüסעעÿÿÿûÿקתשü‎‏‎ÿתüרü‎‎ÿÿ‎ü‎ÿ‏ÿÿÿûÿ‏ÿÿ‏ÿÿÿ‎‎ÿÿÿÿÿÿÿÿ‏‎‏‏‏‎ü‎ÿÿÿÿÿûüüû‎üüÿףתקצ‎פ‎ûוחחנלמסציםכײגױךײזלשףםעץקםץנסטכתבףץץתקץשûצרפצתקÿצקתÿüü‎‎‏ûûûת‎ÿ‏ûששü‎û‎‏‏תתûü‎‏‏‏ûûüÿ‎‏ÿÿÿûû‎‏ÿÿÿûüÿÿü‏ÿÿ‎‎û‎ÿÿÿÿûûû‎ש‎‏ÿüüתÿ‏‎ÿÿûתûÿüûÿÿ‎üתÿ‏ÿÿÿûûûרûש‏ÿüüÿ‏ÿÿÿÿקרשנץעסשרÿרשüץץרסףפהכווכףץשקקךושמץץחץטךמףצûשקץטתÝלנÝנךאטףןןףקעדתחפפקףקסץתפררüüר‎קררüת‎ÿÿÿשתÿÿÿÿÿרשü‏‎ÿÿÿÿûü‎ÿÿÿÿûûש‏ü‏ÿÿ‎ûתÿÿÿÿÿû‏‎ÿ‏ÿÿÿÿ‎‎ÿÿÿÿÿקררüתר‏ÿתתû‏ÿÿÿÿûÿüÿÿÿÿÿ‎ü‎ÿÿÿÿÿû‏‎ÿ‎‏ÿÿ‎üû‏ÿÿÿÿת‎‎ÿÿüÿÿûûû‎ÿÿÿÿת‎‎ü‎‏ÿÿû‎שû‏ÿÿÿתûû‏‎‎üÿש‎‏ûüÿÿÿתûû‎üÿÿ‎üü‎שüÿÿ‎ת‎‎ÿ‎ÿÿÿ‏ü‏ÿ‎ÿÿÿת‏‏ÿ‎ÿÿÿ‎‎û‏ÿÿÿÿת‏ûÿ‎ÿûÿקüûû‏ûû‏ת‎‎ÿüÿÿÿ‏‎‏û‏ÿÿÿש‎‎ÿ‎üÿ‏üüü‎û‏ÿ‎שüûÿü‎ÿ‏תתשûüû‎ûשûûûü‏ÿ‏שüשûü‎‏ûרתשüü‎ÿÿשûüתü‎‏‏ש‎û‏‎‎‎ÿ‎üüü‎ÿÿ‏שü‏ÿ‎üÿÿ‏‎‎ÿÿÿÿÿרû‏ÿ‏ÿ‏ÿÿü‎‏ÿÿÿÿרü‏ÿüÿÿÿ‏üû‏ÿÿÿÿרû‎‏‎ÿÿ‏ûü‎‏ÿÿÿÿרüûü‎ÿÿÿ‎‎‎ûÿÿÿÿק‎‎‏ü‏ÿÿ‎üü‎üÿÿÿקû‎ÿ‎‏ÿ‏ü‎û‎‎ÿÿÿצש‎‎üüÿÿûüüü‎ÿÿ‎צת‎üüûüÿüûûû‎ÿÿÿץש‎üûü‎ÿüüû‎‎ÿÿ‏ץת‎ÿת‎ÿÿ‏‏üÿÿÿÿÿפץÿÿתû‏ÿÿ‏ü‏ÿÿÿÿפצÿ‎רתÿÿ‏‏‎‏ÿÿÿÿעף‎קפףû‏ü‎ÿ‎ÿ‏ûÿעםüףשץשüû‎û‎ÿ‎ûÿנםüפרקפתü‏û‏ÿÿ‎ÿנןשצעסץקü‏‎‏ÿ‏רÿלטצןדמקקüüü‏ÿÿûÿטךךסÙÞע‎û‎‏‎‏ÿûÿלכתךיÛÿÿÿÿÿ‏ÿÿÿÿממ‏אÿךפÿÿÿÿÿÿÿÿÿיס‎םÿÿחתÿÿÿÿÿÿÿÿהÞÞ‎םרוזÿûשÿÿתףÿÚןדÿüקÿקÿÿÿÿÿÿ‏ÿÝסרתÿÿÿÿÿÿÿÿÿÿרÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿםןןÿÿÿÿÿÿÿÿÿÿÿÿÿורÿÿÿÿÿÿÿÿÿÿÿÿÿÿעüיÿÿÿÿÿÿÿÿÿÿÿÿÿמÿ‏ÿÿÿÿÿÿÿÿצÿÿ‏תבצמןעסקצשÿÿקתצÿÿÿÿÿקרקתתûÿÿת‎ûÿÿÿÿÿתû‏ü‎ÿÿÿü‎‎‎ÿÿÿÿûüרÿ‎‎‎ÿûÿ‎‎ÿÿÿÿüüü‏‏‎ÿÿÿÿÿ‏ÿÿÿÿתשת‏ü‎‎ÿÿüÿ‎ÿÿÿÿ‏‏ÿÿÿ‏‏ÿÿ‎ÿ‎ÿÿÿÿÿ‏ÿ‏ÿ‏‏ÿÿ‎ÿ‏ÿÿÿÿ‏‎ÿ‏ÿÿÿÿÿÿ‎ÿÿÿÿÿÿ‏‎‏ÿÿÿÿÿÿÿÿÿÿ‏ÿ‏‏ÿ‏ÿÿÿÿ‏ÿ‎ÿ‏ÿ‏ÿÿÿ‎‏ÿÿ‏‏ÿ‎ÿÿ‎ÿÿÿ‏ÿÿÿ‏ÿ‏‏‏ÿÿÿ‏ÿÿÿÿÿ‎‎‎‏‎‎‏ÿÿÿÿ‎‎‎üמüםקממעüüûüקלמץקסÿןרצספüüÿÿüעסüשששסננכנÿüÿüüפכשÿûüתûר‎תÿÿÿÿÿüûÿüüÿןתץצתÿÿûÿÿתר‎ץףשמםןטסתûüû‎מטûûüÿפûסרפÿüÿÿÿûץ‎תÿתנûשרשÿüûü‎ûת‎דעגגץףÛיןנישקטךשםממץתרףןצתשûüצץüתûתÿüתתשûüüü‏ÿüÿû‏ûÿûüÿ‎üû‎‎‏ÿÿ‏שקפûûפשûûצûü‎‏ûûןסקןûצשûקףנü‎ץתûןססץתתסתןפנר‎ûקÿקתû‎ÿÿ‏‎üü‎‎ÿÿ‏ÿקüר‎ÿ‎‏‏‎ת‎ü‏ÿÿÿÿÿ‎ÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‎ÿÿÿÿÿיךךךליפןÙלדױדׂ׳״מאעלכךנצזךלאגײוÙןןצשפץרüףפףפפףץצטגרללךףרכסםספןûסûרÿ‎תû‎ÿקתרתÿüÿ‏ûשÿûתר‎‏קשררüüÿÿעסשעףףצûץרץץתתש‎שששןןמסקףצצפרקסשûûÿüתרÿÿü‏ûûüÿÿÿקרריעךמץקûץצקûרûקרציקמךעצûצרקנןשכלכֿוÙֿÚכץחסלבײךסךעזסלבוןעשפףסלצגװזאייßבככללפףךקגײמםכללםפםןסצץץרזחףצםפקûשםקץÿÿשüףךףשןסûÿûץסû‎ÿ‎‏רûû‏üשÿÿÿüüÿÿÿÿÿןסרנפץרÿרעקרüÿקÿû‎‎ÿ‏‏ÿÿÿ‎ûÿÿÿÿÿû‏ûÿÿ‏ÿÿüüÿÿÿÿÿÿû‎ûÿÿ‏ÿÿÿ‎‎üÿÿÿÿû‎שÿ‏ÿÿÿ‎üüÿ‎ÿÿÿû‏‎‏‏ÿÿÿ‎‏ü‏ÿÿÿÿתûש‎שûûüצקûשûתûקûûû‏üûÿÿüüשû‏‎ÿûת‏רû‎û‏ÿרתû‏üÿÿ‎û‏‎ÿüÿÿÿ‏üûü‏ÿÿÿת‏‎ÿ‎üÿÿûüû‏‎ÿÿ‏û‎‏ÿüüÿÿûü‎ûÿÿÿÿתÿ‎ÿüÿÿÿ‎üûûüÿÿûתüüÿü‏ÿÿûüû‎üÿÿÿת‎‎üüüÿÿû‎ûû‎ÿÿ‎קרשûûûÿ‏קüתרתûûûקרשûüש‎ÿüתûרתû‏שת‎ÿÿ‎‎ÿÿÿ‎ü‏ÿÿÿÿש‎‏ÿ‏‏‎ÿ‏üü‏ÿÿÿÿשü‎ü‎ÿ‎ÿ‏תû‏ÿÿÿÿר‎‎‏‏ÿÿÿûü‎‏ÿÿÿÿשüüû‏‏ÿÿû‎‎û‏ÿÿÿרת‎‎‏‎ÿ‏‎‎‎ÿ‏ÿÿ‏שüÿÿ‎ÿÿ‏ü‏ÿ‏ÿÿÿÿקûû‏ü‎‎ÿû‏û‏‏‎ÿ‎קת‎‎üû‏ÿû‎ûû‏ûûûצצ‎ûתûüÿ‎‎שûü‏ÿûצק‎‎ûש‎ÿ‎‎üü‎‏ÿ‏ץץ‎קצרûüû‏û‎‏‏‏ûץס‎שרשש‎‎‏üü‏‏‎‏ףעüקצפרתûü‎û‏‏û‏ףףüפףצשתש‎üü‎‏ûÿסן‎פנץקü‎‏‎‎ÿÿÿÿנסûצפנûת‎ü‏‏ÿÿ‎ÿמלûץעכץûüü‏‎‏ÿ‏ÿםמץסיסשÿ‏‎ÿü‎ÿ‎ÿכך‎מיחתûÿÿÿûÿÿÿÿיכüךיחק‏ÿÿÿÿ‏ÿÿÿגזןגואךûÿÿÿÿ‏ÿשÿÙךצוהולפÿ‏ÿÿÿÿרÿÜ״ûנןטפתÿÿÿÿÿÿÿÿÿמÿÿÿÿÿÿÿÿÿÿÿÿÿÿתûûÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿקÿÿתתÿÿÿÿÿק‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿץÿÿÿÿÿרבÿתÿÿÿÿÿÿÿÿÿÿÿÿÜלÿףףףÿÿÿÿÿÿÿÿÿÿקעÿÿÿÿÿÿÿÿÿÿÿÿÿÿןשÿ‎‎ÿü‎‏ÿÿÿÿÿÿÿÿÿÿû‎ÿü‎‎ÿÿÿÿüÿÿ‎‏‏üתÿüü‏ÿÿÿ‏ÿÿÿ‏ÿÿרûÿ‎‎üÿÿûÿÿÿÿÿÿÿüüÿ‎û‎‎ÿÿ‎‏ÿÿÿÿÿÿÿ‎ÿ‏ÿ‏ÿÿ‎ÿ‏ÿÿÿÿקרÿקשצ‏ü‎ü‎ûÿ‎‏‏ÿ‏ÿ‎ÿ‏‏ÿÿÿ‎ÿÿÿÿÿ‏‏ÿ‏‏‏‏ÿÿÿÿÿÿÿÿÿûףתעצףעץ‎üÿÿüעףפ‎ÿÿ‏ÿÿ‏‏ÿ‎‎ÿÿÿÿÿ‏ü‎צרצצרÿÿ‎‎üתצ‎‎ûÿקתררתüÿü‎ÿקר‏üפüטצךךןת‎תüתסעעüüÿךנץלנûüûüûעלףץךûךיגגיקûץתתפופתשûגםהםךצתששתפסûûûÿךצנלקûÿתûüûץüרףשחצעוכתתשרשרצüצעתףףניכÿתשרûקלûףרצמרלסכצףצשûרןûונךוקסךננףךסרצםתßוךנץפזמחףןנףרישûûתÿüûרûûüüü‎ÿüÿûûûüüüÿüÿüü‎‏ÿÿÿשתרתüûתתûüüü‎ÿ‎ÿןרנצתשûüתפרüüקûÿתתת‎üÿ‎üÿרû‎‏ÿÿÿûûûÿû‎‎‏ÿûûÿÿÿÿÿףסצקצעüüףקףרÿü‎ÿןססס‎ףרÿעץפףתקררÿÿü‏ÿ‏‏ÿ‎ü‎‏ÿÿÿÿ‎ÿüÿÿÿÿÿ‎ü‏ÿÿÿÿÿûפץקצרמכאךßהלדגטרךßעהזץח־ÞײױאׂױױיÜיהדÜףר׃ÜװׂßךךםץÜךÙßÛזצׁזׁײÜטנדÿףסמןךסûדםעיןרשררלפÜחÞהכזוÝÚוףûטל״םױßÙ״ו׃Ý׳בÞלßלכלל׳ג׳Ùגױכ׃׳יץאכרקסזפךכןגפניםÿצעקצציץעיסץנמוןûשרפםךÞמיÙאזÝÙיÞםÙכעייטעיגד״רװנמםטץסךךדולחוֻעעײםפדחןדהחÝבךמךÝפ׃דצלענגזטÞÛםעעכÛםהüץפםװװÙÞװךעÙÜומןûףסלßגװÜ״ßסזÜױßף‏רצי׳ÜÚוײÜך׳Þײםך‎פץמגאאיךךמאזאחרÿרתגווךכוונאכבומ‏ללאזזהלזםלאיזהלÿפקû‎‎ÿ‎‏ÿÿüüûû‎ÿÿÿ‎ÿ‎ÿ‎ÿÿÿ‏‏‎ÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‏‎‏ÿÿÿÿ‏ÿ‎ÿ‏ÿÿÿ‏‏‏ÿÿÿÿÿûûû‏üû‏ÿûü‎ûüû‎‏קûרû‏ûÿÿ‎üûûüששש‎‎ûÿ‎ÿÿÿ‎ü‎‎‏ÿÿÿÿÿ‎ÿ‎ÿÿÿÿ‎ÿÿÿÿÿÿüüûÿ‎‎ÿÿ‎‎û‏‏ÿÿ‏‎‎ûÿü‏ÿÿûüü‎‏ûÿûü‎‎ÿ‎‏ÿÿ‎‎üü‏ÿÿüÿü‏‏‎‎ÿÿ‎‏‏‏‏‏ÿÿü‎‏‏‎‏ÿÿ‏‏‎‏ÿÿÿÿשרשûתר‏ÿשתûרתשûרüüü‎ü‏‏ÿ‎‎ü‏‏‏ÿ‏תתת‎‎‏‏ÿ‎üü‏‏ÿÿ‏üü‏ÿ‎ÿ‏ÿ‏‎‎‏ÿÿÿÿüûÿÿ‎ÿÿÿÿ‎‎ÿÿÿÿÿüü‏‎‏ÿÿÿ‎û‎‏‏ÿÿÿûü‏‏‏‏ÿÿ‎ü‏‏ÿ‎ÿ‏üת‏ÿ‏ÿÿÿü‎‏‏ÿÿÿÿûר‎ÿüÿÿÿ‎‎‎ÿÿÿÿÿûש‏ÿû‎ÿÿ‎‏ü‏ÿÿÿÿתר‏ÿü‎‎ÿÿ‏üÿÿÿÿÿûפ‎‎תüÿÿ‎ûת‎‏‏‏‏שץ‎ûקתû‏‎ûûü‏ûÿ‎תצ‎תתרûüü‎ûü‏‎‏ÿרץüתתשû‎û‎û‎‏‎ÿ‏שפüררשüüשü‎‎‏‏‏üרףüתסץüÿûüת‎ÿÿÿÿרעüשךקת‏ü‎ת‎‏ÿ‏ÿץנüץםםת‎ü‎üü‏ÿÿÿץעשצלהתûשüûת‏ÿ‏ÿףןûםכךק‎ûü‎ü‏ÿÿÿפמתונחףÿ‏‎ÿ‎‏ÿÿÿמב‏ךלץסתÿÿÿüÿÿÿÿףÙüתםכלרÿÿÿ‏ÿÿÿÿצÚÿץÞעץûÿÿÿÿÿÿÿÿüכÿסÝװצץÿÿÿÿÿÿÿÿÿÿÿÙנÛתתÿÿÿÿÿÿÿÿûףÿׂסזײקÿÿÿÿÿÿזÿÿרÿדסלװßÿÿÿÿÿרששÿתÿןתסךגÿÿÿÿÿÿסÿ‎נÿטÿנייÿÿÿÿÿתװÿסעעיÿÿוךÿÿÿÿÿסו‏ÿÿÿÿÿÿסנÿÿÿÿÿüנÿןךûקןסÿÿןצס‎ÿÿÿÿûשÿûûשÿÿרüרשÿÿÿÿüצÿקצרÿÿק‎שרÿÿרÿןךüןעלסתפüצפÿצסÿרץשלןןסץצûרקקרעÿשרÿ‎תרûÿÿÿÿתüÿ‏ÿקסÿןפסצצתÿÿששÿüÿÿ‏‎‎‏‏‏ÿÿÿÿÿÿÿ‏ÿÿרÿקתררתÿüÿÿüÿ‏ÿןערטןךךןתûûרקיךתרשÿנץססץüÿü‏ûרסüÿÿÿקûררתÿÿüÿ‎üûÿ‎ÿÿקÿתרת‎ÿÿÿ‎ÿר‎ÿץûהץסהךרûרתריככשצמכסךÝהףפסרראגסרמשחיןלוןףץפצןנפרתקםמגינןמננשןםששקתזףןנףצשצצûקסררשפכסעוףכקללצצפתפץענןככךרקרצץרנתמעיחקטםמצףפצמקץצזוןזףקיףףצקקקשנקקסתקקתרקשûשûûüתüתתששרûרûÿûÿü‎‎ת‎צתששûפתüתתûû‎‎û‏ןמסםתפףקשקתûûצקקןססûüתצתתתûû‎‏רÿצרףûתüû‎ÿצüüÿÿ‏ÿûüüÿÿÿ‏ÿü‎ÿ‎ÿÿÿÿ‏ûû‏ת‏ÿÿת‎ûû‏ÿÿÿקרש‎תר‏‏ûüûû‏‏‏‏ÿÿששÿש‏‏‎ü‎‎üÿÿüÿÿûÿÿÿÿÿÿü‎‎ÿÿÿÿÿüשÿÿÿרת‎תüüü‎ûûתûנÿûüüפןעססûןסעÿקזתץרÿÿיךךךצנססÿÿצÿûü‎‏סעעעקתתסףכײÜךÞפסֽÛ׀׀אךע״ןקÛאןחגשׁÞװװבדקÛצקÜליןימ״וÛÛדקקÝÿרפףץךצפאסגגישÿףקצףטרספרדסוויûרטנן׳געו׳כיטחחÛכלללסײיףנךוידזמגסע׳נססןץפמץישכמףתשספץףרצקףקיתככצÿצפאוׂמיןךםאלקוכעעÙנעםצסץשצץםתםנÿתרונהשלףûתרלÿצץÿüÿךםÛןןגרûטוךךפÿûפüûצ‏ת‎ÿÿÿת‏‎‎ÿÿÿיצךצעןץÿןםננûÿÿ‏ûתתשתשÿÿרתשש‏ÿÿ‎‏‏‎ÿ‏ÿÿÿü‏üüÿÿÿÿיייכןללסכםללסעףףûשûÿ‎‎ÿÿüת‎‎ûüÿû‎‏‎‏‎ÿÿÿû‎ûûÿÿÿÿüüüÿ‏ÿÿÿû‏ûûÿÿÿ‏ûûû‏ü‎ÿ‎ûü‎‎û‎ûû‏‏‎ÿ‎ÿÿÿÿ‏‏ÿ‏ÿÿÿû‎üÿ‎‎ÿÿ‏û‏‏ÿÿÿ‏ÿ‎‎ÿ‎‏ÿÿ‏‎‏ÿÿÿÿÿÿ‎‎ÿüÿÿÿÿü‏ÿÿÿÿÿ‎ü‎ÿ‎‏ÿÿ‎ü‏‏‏‎‏ÿÿ‎‏ÿÿ‎ÿÿ‏‎‏‏ÿÿÿÿÿÿ‎‏ÿÿÿÿ‏‎‎‏ÿÿÿÿÿ‎‏‎‎ÿÿÿ‎‏ÿÿÿÿÿÿתתש‏ûשÿ‎üûתתûשûשüüüü‎üÿÿ‎‎ü‎‏ü‎üתûû‏‏‏‏ÿ‎üû‏ÿÿÿÿ‏üü‎‏ÿ‏ÿ‎‎ü‏‏ÿÿÿÿü‎ÿ‏‏‏ÿ‏ü‎ÿÿÿÿÿ‎ת‏üü‎ÿÿûת‎‏‏ÿÿÿûשû‎‎ûÿÿ‎û‎‏‏ûûÿ‎ק‎‎ü‏‏ÿû‎‎‏ÿÿ‏‏üשÿÿüÿÿÿüüÿÿÿÿÿÿÿצ‏ÿüÿ‎‏‎‎ü‏ÿÿÿÿüק‎‎שû‏ÿü‎תû‏ûûûûר‎‎תתüÿ‎‎ר‎‎ûüÿûק‏üתü‎ÿת‎üû‏‏‎‏üק‎‎קשÿÿ‎ÿüüÿÿÿÿתצüתפשü‏ת‏ûת‏‏ÿ‏ûפ‎תקרü‏ר‎‎‎‏‎ÿÿתפüרצץ‎‏ü‏‎‏‏ÿÿÿתפüשףעû‏‎‏‎üüÿÿÿשעûרסצ‎‏û‏‎ûüÿÿÿרםûפןןשü‎û‎ש‎ÿ‏ÿרטûסןםת‎‎û‏‎‎ÿÿÿצוûןככש‏‎ת‏‏‏ÿÿÿץבשםככצûÿüüü‏ÿÿÿףכצלÜחעû‎ü‎‎‏ÿÿÿעחüיײװס‎ÿÿÿÿ‎ÿ‏ÿ‏פÿÙךׂףתÿÿÿÿ‎ÿÿÿÿשÿ׃Üחארÿÿÿÿÿÿûÿ‏עÿגןֿ׃וÿÿÿÿÿÿרÿÿפÿÊעטגÜÿÿÿÿÿתûûÿûÿיץנ׀כÿÿÿÿÿÿמÿÿץÿךםםז׳ÿÿÿÿÿüףÿÿÿÿחÿדחיÿÿÿÿÿצךÿÿÿÿßÿÿחלÿÿÿÿÿשג‏שטפßיגÿÿדךזÿÿÿÿÿתןצוכחזÿיףיךÿÿÿÿקןתאחבגיגמםחלÿקץףדפאהגהךכןךזםüישןננÞיÛביחפילכÿיעתיüזםןםעעקצערÿקשûסüןןךךףקûקפצÿתüüתüךרלףנקûתץקÿףשצצרזםפטףצûתצצ‎צשקסüףץךךןשÿÿקק‎כûÿרÿןתרקפÿÿÿû‎ÿרûÿÿÿקüרסשÿûûüûÿרû‎ÿÿןקפעןשûתüשקפשנצץכסמגךףענצקחייףüצןץננםצרפקרצטשûüûקרפפצצתששתתקתÿ‎ÿץûרצררûתû‎ÿשûקקקכץףססישננענצצןצקמרעםסןפץכףלםםןעקפרעםעצעסננרפנקרתקÿרצקתתרתû‎תררקתצקששקתתרתûÿתתתûûתתûÿûûûתûûÿÿÿצרתץקערûרתשûûÿûüףפתןתףפתקרשרûקû‎סעתפףשעררקתשüÿüüןנצûפץתתשרתûüÿüÿףקףüתר‎üÿûûÿÿÿÿÿתתתÿ‎ü‏ÿÿüüÿÿÿÿÿ‎ÿüÿÿ‏‏‏ÿ‎‎ÿÿÿÿÿü‎üÿ‎‏ÿÿÿü‏ÿÿÿÿÿû‎û‏ÿûÿ‏‎ü‎ÿÿ‏ÿ‏תÿü‎ÿ‏ÿÿ‎ü‎ÿÿÿÿÿ‎‎ûÿÿÿÿÿÿü‏‎ÿÿÿÿÿÿ‎ÿÿÿÿÿ‏‎‎‎ÿÿÿÿתüקÿ‎ÿÿÿ‎ûü‏ÿ‏‏‏ÿüשÿÿÿÿÿÿתü‎ÿüÿÿ‏ÿûÿÿÿÿÿÿûüÿÿÿÿÿפûןתûû‎ÿםעספרפüףתüûÿÿ‎ÿÿüששש‏üÿשÿüÿÿ‎ÿÿÿרתתûתÿÿש‏üüÿÿÿÿÿ‎שש‏ÿÿÿ‏ßפמןקףספכÞÚÜדßבבÜצגףצפסץÛז׳םחÝשבשתת‎ûÿÿÿןüפק‏ÿÿûÿûÿÿüÿÿÿקüûר‏ÿÿÿ׳כיעמלףףדקסÚÝßשםאמÙעכטףצךםףוגײÙÙפררÿûûÿÿûת‏רüÿÿûזקךצצףÿ‎תןןשצת‏üרüûÿ‎ÿÿÿ‏ü‎‏‎ÿÿÿûüשÿÿÿÿÿÿü‎ÿÿÿÿÿ‏‏‎ÿ‎ÿÿÿ‏ü‎ÿÿÿÿÿ‏‏‎ÿ‎ÿÿÿÿ‏‎ÿÿÿÿÿû‏תÿüûÿÿשת‎ûÿ‎‎‎‏‏ûÿ‎ÿÿÿ‏üû‎ÿÿÿ‎ÿÿ‏ÿÿ‎ÿÿûüûÿ‎ÿÿÿ‏‎‎‎‏ÿÿÿû‏ûûÿÿÿÿ‎‎üÿ‎‏û‏ת‎‎תû‎ÿüûשש‎תü‏û‎תûשתüüü‎ûûÿ‎ûÿÿ‎üû‎üÿÿ‎ûüûû‎‏ÿÿûüû‏‏ÿü‎üûûÿ‎‏ûÿûüûû‏ÿÿ‎‏ÿ‎ÿ‏ÿÿÿ‏‎‏ÿÿÿÿÿ‏‏‎ÿ‏‎ÿÿ‎‎‏‎‏ÿ‏ÿ‏ü‎‏ÿ‏ÿÿ‏‎‎‏ÿÿÿÿÿÿ‎‏‎ÿÿÿ‏‎‏‏ÿÿÿÿ‎üüÿ‏‏‏ÿü‏‎‎‏‎‏‏üüü‎‎‏ÿ‎ü‎ûü‎üü‏‎ת‏ÿüÿ‏ÿ‏üû‎‏ÿÿÿ‎û‎ÿ‎ûÿÿ‎üû‏‏ÿÿÿûת‎û‎‎‏ÿûüû‎‏ÿÿÿ‎רü‎‏‏‏ÿü‎‎‏ÿÿÿÿ‏תü‏‎ÿÿÿ‎ü‎ÿÿÿÿÿ‎ת‏‎ûü‏‏ûתüü‎‎ÿÿ‎רÿÿ‎‎ÿÿ‎û‎‏ÿÿÿÿüש‏üûûû‎ûûüûü‏‏‏‎ר‎ûשüüüüûûûüûû‎üק‎‎ûüû‎ü‎תüü‏ûüüקü‎ûת‎üû‏רû‎‎‎‎ûץ‎üתת‎‎üששû‎‏‏‎üצ‏üץת‏ÿתתû‎‎‏‏‏ûץûתנקü‏רüתü‎ÿû‏üץ‏ûףש‏ÿת‎‎‎‏ÿÿÿûסüûץף‎‏ûüרû‎ÿÿÿûםûקףםûÿûûשש‎ÿÿÿשףûשפןü‏קüûת‎ÿÿÿתךûףעסü‏ש‏ûü‏ÿÿÿרסתםסצש‎‎‏üש‏ÿÿÿקנתןזןר‎ûת‏ת‎ÿÿÿפעתפזךץÿ‎ûת‏üÿÿÿ‎פÿמםבס‎ÿÿÿÿ‎ÿÿÿÿקÿעףהפûÿÿÿÿ‏ÿÿÿÿûÿאעכסץÿÿÿÿ‏ÿÿÿÿפÿÞםלוסÿÿÿ‏‎קץ‎ÿקÿטץךבםÿÿÿÿÿ‎‎‎ÿüÿזקןאנÿÿÿÿÿûפ‏ÿÿÿלףצךטÿÿÿÿÿ‏רÿ‎‏‏לÿךךזÿÿÿÿ‏תן‎ÿÿÿיÿÿכלÿÿÿÿÿשפ‏‎רןשצשÿÿגךוÿÿÿÿÿüססטפךךÿÚםÜÝÿמןןûקןםףןן‎ÝכלאחתÿלüןכנךןסןזךבÜוש‎יששתןססעסבםזךזü‎יתמטßהגגףßמהßלûףםףסקזטטטעבןטבזתתסצןפÙסÛÛטזףךדטüסטטטקßםבבםטףנטךüןעקסרןןססךפפקספ‏פנÿÿüצרקקרûûת‎שÿ‎ûÿÿüןûססקקתשרקÿץרקשץאצגגמצןסךפיךץצעמםפףםיןיךפןןססקץרץתקעןןץךרתרץרשûפץררצץיתפעתüרשקררתüררקרûשסת‎רûתûתקûררררûשרפÿתûÿüüÿüûûÿûüתû‎ÿûüצסןץתףפצסמףכפןרלצסרצרקץרקץנצץןשרצצקץףתרקןפרקרûררררששûûתüרתצרûûûüףפץןתננשןפסרףüרצףנפספעערןףססשצסûםךסעןץצףןןןספ‎תûסכששןשקüקץעקûÿüשזטשףנפפתףסףשûÿüüףפפצתקק‎תûרû‎ÿ‏ÿü‎üÿÿ‏ÿÿüÿ‏‎‏ÿÿÿü‎û‏ü‎ÿÿÿÿÿüÿÿÿÿûûû‎ÿ‎ÿÿ‎ÿÿÿÿ‎‏ÿץעצץ‎צצ‎ÿתüüÿשרÿץצצ‎ü‎תü‎תûת‎שש‏ûüûÿÿÿÿÿÿüüÿÿÿÿÿקûתÿÿÿÿÿÿüÿüÿÿÿÿת‎ûÿ‎ÿÿÿ‏üüÿÿÿ‏ÿÿ‎ûÿÿÿÿÿÿû‎ÿÿÿÿÿÿ‎ûÿÿÿÿÿÿûÿÿ‏ÿÿÿÿ‎תÿÿÿÿÿ‎ת‎‏ÿÿÿÿÿÿûÿÿÿÿÿÿûתÿÿÿÿÿÿüתÿ‎‏ÿÿüרק‏‏üÿÿץךÛץרקפתטדגגךאגגÝÛÛעצצפשÙÞװגהÜÝÝץקרשרתשÿגחולצץשץרÿÿÿת‎‏ÿףÿןףü‎ÿתגׂןףיףסץֲצפֻײגÙֻ־Ûאחלייןיצלֶ׳׃ײײאאגשיץûתפÿÿנוש‏נעסףÿתתÿÿÿûüתתÿÿÿקצש‏ü‎ÿÿÿת‏‎‎ÿÿüצשש‏û‏ÿÿ‏û‎ÿ‏ÿÿÿü‎ûÿ‏ÿÿÿÿüûÿÿÿÿÿ‏ÿ‏ÿ‏ÿÿÿÿ‏‏ÿÿÿÿÿתûרÿ‎ÿÿÿûüüûÿÿÿÿש‎שÿ‎ÿÿ‏ü‎ü‎‎ת‎‎‏‎‎ÿ‎ÿÿÿ‏‎‏ÿÿÿÿ‏ÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿ‎üüÿ‎‏ÿÿת‎‎‎‏ü‎תרûררתששüûûûרüקרר‎‎û‏ü‎‏ÿ‎üü‏ü‏ÿû‏‏‎‏‎‏‏ÿ‏‎‏ÿÿÿÿÿü‎ûü‎üüÿüû‎‏‏ÿÿ‏‏üüÿÿ‏ÿÿ‏‎‏ÿÿÿÿÿÿ‎üÿ‎‎ÿÿ‏û‎‏ÿÿÿÿ‏‎ü‏‏‏‏ÿ‎üû‏ÿ‏‏‏üüûû‎ûûüקüûûüûûûûתûÿ‎‎ÿüûüשרüüûû‏û‎ÿ‏‏ÿ‏‏‎ü‎üÿ‏‏‏ûüÿüÿÿÿ‎‎ת‎‏ÿÿÿ‏שû‎‎ÿ‏ÿ‎‎û‏‏ÿÿ‎‏תûû‏ûûÿ‎üü‏‏ÿÿÿ‎ûûü‎‎ÿÿתüû‏‏ÿÿÿ‏שû‎ü‎ÿüûתû‎ÿÿÿû‏תû‏‎ÿÿÿתש‎‏ÿÿÿ‏‎שûûתûûÿתתûûüÿûû‎שû‏ü‏‏ÿ‎üü‎‏ÿÿÿ‎רû‏û‎‏üûûרתüÿûû‎ק‏‏שûüüûüצûüüÿû‎ק‏‎קü‎ÿר‏ûû‏ÿ‏‏üקüûששûÿûüתûü‎‎ü‎ףüûרת‎ÿשüתש‏‏‏‎üףûûצש‎üץ‎üüû‏‏‎üנתשץקû‏ת‎û‎ת‎‏‎ûץûתפץüÿûûûûüÿ‏‏üן‎תףר‏‏תüûתüÿÿÿתקûקספת‏ûüûק‎ÿÿÿתפתפעףû‏ûüûûüÿÿÿתצûץלעû‏ÿתÿ‏‎ÿÿÿתצרףטסש‏ÿתרûüÿÿ‏‎ק‎ףננקÿ‎‎‎ÿתÿÿÿÿû‏עטטץ‎‎ÿ‎‎‏ÿÿÿÿתÿטףופ‏ÿÿÿÿÿÿÿÿ‏üÿßףךזûÿÿÿשתתששÿתÿטעßבףÿÿÿÿתקףרתץüÛנכטןü‎ÿü‎ûתתÿ‏ÿכשןßלÿÿÿÿÿûקûÿÿÿןüסםיÿÿÿÿÿ‏ת‎ÿÿÿןÿםןןÿÿÿÿÿüקüÿÿÿלÿשנזÿÿÿÿÿ‎ר‎‎‎ףüü‎ÿÿשצשÿÿÿÿÿÿûשüתüÿÿרץעשÿ‎‏‏‎‎שüü‎‏ÿףקפתüÿÿץפûמץצףקÿדלחזסעÿח‎ÿÿתתתüüןתסןףתÿנ‏ÿ‎קûרû‎ןרקסף‏ÿûüקסףפנףקךמחגיןננÿÿüרüתרüצûשרץ‏ÿקüנצמענףץזצעוןצÿךשסךנןךםעמףץדטטרךתüץיץךםפפןענךקרלצתנחצניסןףיפעףץןשרםסרקםסלסספףתןעםצגעץףסןמיךךףקרץקרעץקץפפןעיףפüררüüüתüתשתסûץתû‎ÿתûüתקûתרתףתקנת‎תרÿÿüשüתתûשÿשקק‏üצûûרשÿתתתרתשקק‎ûûצשנשררץרקשפףרערפתשקששתרשקףרשצ‏קשûתששûשתüשץעשת‎üûפקץפûצששלעמשת‎ûûתקרתשתשתנץססû‎ûרתרשûתûûüקתררתÿ‎‏תפץûקשתüפררץקÿüüקסנקןסרûץסץספקûרקזכסלכשûצנמקץüüשןססטכוסתללךץתûüצעךרטןימקלצךסûÿ‎ץקצשעץפףתףûûרüÿ‏ÿרששצצפץרûשüצûÿץתנסשעעסץצûתûתקÿץÿקררקתפשü‎ûüüÿÿûÿûüûû‏ÿÿÿ‎ü‎ÿÿÿÿÿ‎רתÿü‏ûÿ‎ûüüÿÿÿÿקרû‏‎ûÿüÿûû‎ÿÿÿÿüששüÿÿÿÿ‏תüÿ‏ÿÿÿüÿüÿ‏ÿÿÿ‏ûÿÿ‏ÿÿÿ‎‎שÿ‏ÿÿÿÿרüÿÿÿüÿûÿתÿ‏ÿÿÿÿת‎ÿÿÿÿÿ‎üקÿ‎‏ÿÿûצת‏ÿÿ‏ÿÙצÛקןרהמאדÙאלאגגÿÿשÿ‎ÿÿÿץץרü‏ÿÿÿÿÿתÿÿÿÿÿûתרû‏ÿÿÿÿÿûÿûÿÿÿן‏סקק‏ÿ‏ממפרלפחעײרוÙזÝשßÜׁלףדׁפÜּףזִֽׁׁׁ־ׂלײÚגצקטצם׳׳זןֽדוןקיחסÿררüץףקתפרררüררÿÿ‎ûÿÿüÿÿûרצשüתתÿÿÿת‏‏ÿÿÿÿנסספשףקü‎צף‎ÿ‏‏‎‎ÿ‎ÿ‏ÿÿÿ‏‏‏ÿÿÿÿÿ‎‎‎ÿÿÿÿÿÿ‏‏ÿÿÿÿÿתת‎‎‏‎ÿ‏üû‎‎‏‎û‎ÿÿÿÿ‎ÿÿÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‎ÿÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿקשש‏üûüüûüûרתקררü‏üÿ‎‏ÿÿü‎‏‏‎üÿü‏ü‎ÿ‏ÿÿÿÿ‏‏ÿÿÿÿÿ‏‎‎ÿ‏ÿÿÿ‏‎‏ÿÿÿÿÿ‏‎‎ÿÿ‎ÿÿ‏‎‎‎ÿÿÿÿ‏üûÿ‎‏ÿÿ‎ü‎‏ÿÿÿÿ‏ûü‏‏ÿÿÿ‎ü‎‎ÿÿÿÿ‏üû‏ÿÿÿÿ‎üû‎ÿÿÿÿ‎ûüÿ‎ÿÿÿûü‎‎‏ÿÿÿ‎שûÿ‏ÿÿÿ‎‎üû‏ÿÿûûתûÿ‏‎ÿÿ‏‏û‏üÿÿÿûûüÿ‎‏ÿÿ‎‎û‎‏ÿÿÿ‏ת‎ÿ‎‏ÿÿ‎‏ü‏ÿÿÿÿ‏ת‏‏üÿÿÿü‎üÿÿÿÿÿ‏תû‏‎ÿÿÿ‎ü‎‏ÿÿÿÿ‏ש‏ÿ‎‎ÿÿû‎‎‏‏ÿÿÿ‏ש‎ÿûÿÿÿüû‏üÿÿÿÿ‏ר‎ÿ‎‎ÿÿ‎ש‎‎ÿÿÿÿ‎רûÿü‎ÿ‏‎תüüÿ‏ÿ‏‎רתÿüüÿÿ‎ûתû‏‏ÿ‏‎ץ‏ÿרüÿÿ‏ûתü‏ÿÿÿüפ‏‎פû‏‏ûüצüüüÿûüפüüץר‎‎ק‎קת‎תû‎üקûûרת‏‏ץצשûü‎‏ûûעûûצץ‎‏קקששü‎‏‏ûררûצסü‏רûûצü‏‏‏ûצתשצף‎ÿתüץש‎ÿÿÿûשתûץץüÿפשצת‎ÿÿÿשרûץםרüÿץקקץûÿÿüשצפנםףü‏צרפצשÿÿÿקתרףעףת‏קÿתûûÿÿÿרשששפיû‏תÿÿששÿÿÿÿÿÿצצכשÿÿÿÿÿüÿÿÿÿÿÿץקספÿÿÿÿÿÿÿÿÿÿÿÿישףצ‎‎ÿÿÿÿ‎ÿ‏ÿÿÿטתעץרÿÿÿûÿתûûûשüלץעמץûÿ‎‏קץצצüû‎מüפטץ‎ÿ‎ûüרקûÿÿÿנ‏פיףÿÿÿÿÿü‎ü‎‏‏עÿ‎מץÿÿ‏ÿÿüתûÿÿÿףÿÿסמÿÿÿÿÿ‎û‎‏‎‏ÿÿÿÿÿÿ‎üÿÿÿÿÿÿÿ‏ÿÿÿÿÿ‎שüÿÿÿÿÿÿÿÿÿÿÿÿÿü‎רÿÿÿÿÿתÿפ‎û‎ÿÿךצססצףÿשÿÿÿ‏ÿÿÿÿקüûףתתÿתÿÿ‎ÿ‎ÿÿÿקתרץףûÿצÿÿ‎ÿÿû‎ÿץ‎צצצתתתÿÿ‎רüתÿÿןתתספקÿס‏üüשüתרÿתûקןףר‏קצÿתקûרקשןצקץמצצמû‎רקûררתקרצסקרÿסû‎ûתüûתתתûרüתÿ‏רןתסףûרפץצפסןפקûץןüנרûתרתףפרתרקרר‏‎üû‎üתûרתרת‎ÿÿûÿÿÿ‎‎‎‎ÿûûûû‏ÿÿÿ‎üüüüûûûקתשצ‎‎‎‎ûûûתüרתתעתצעפן‎נ‎üû‎üûûûשûששת‏‎‎ץתתתתûצתצתקפץצשקתשמרûûתקצררץצצûקûתשûÿ‎üüשûÿתû‎ÿüקרסתüûûûקסררשüûתתשתûûÿüüשתפתü‎‎ÿûששÿשûû‎ףתרתûÿ‎רקץרüשÿÿ‎קשתפû‎‎ÿרשצÿתüü‎ששששרÿ‎שקתרÿצû‏ÿתתתûüÿ‏‏ÿÿûûקףÿÿתקשûÿÿÿ‏ÿüûתüûÿÿûתûûÿÿÿÿקנפהנזופהסגךףןננפךפהנלזכאפלזןטûךצךעעןףםסףפרךסûרםצץקץסלצףתףפצסשקשרסצנעסתüרעץתüÿתתקףקףסספ‎קקסûü‏ü‏צנצףףנקשףצקûüÿק‏שקקףקפשüûתררÿÿû‏שרתקתרר‎ûתת‎üÿÿÿקשץקüררתüקרû‎ÿ‏ÿתûת‎‎ÿ‏‏‎רû‏ÿÿ‏ÿû‏ץÿ‎ÿÿÿüץר‏‏ÿÿÿןסנ‎ü‎ûתןףךץתשששקÿסÿü‎ÿÿנפקר‎ÿÿ‎ת‎שÿÿÿÿÿû‏ששÿÿÿÿüÿ‎ÿÿÿÿÿקÿûûתÿÿü‎ÿÿÿÿÿÿÿ‏ÿÿ‎ÿÿÿÿיבעפÝטץאßדךֻ׃ָּּÞֹיגױ׀ףקאכ׳אװְחֲÜֵגֹּׂוצ׃ףואחבח־ְּ׳ַָׂׂםזםכÙטאעהױ״״ÛßÛגןשזקףסץרףûûûÿ‎שÿÿÿüÿÿÿÿÿÿ‏‎‎‎ÿÿÿÿ‏üÿÿÿÿÿÿ‎ûüÿ‎ÿ‎ÿÿ‏ûÿÿÿÿÿ‏ûûÿü‎ÿ‎תü‎‏ÿ‏‏‏ûûû‎‎ûÿÿ‎‎ûûÿÿ‎‏‏ü‎û‎ÿ‏ÿû‎‎ÿüÿ‏ÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‎û‎‎‎‏ÿü‎ü‎‎üÿ‏ÿקררüüשü‎תתרûûקרר‏‎‎‏‏‏ÿÿ‎‎‎ÿ‏ÿ‏‏‎ü‎ÿ‏ÿÿÿ‏‏‎ÿÿÿÿÿ‏û‎‏‏‎ÿÿ‎‎‎‏‏ÿ‏ÿûתûÿ‏ÿÿÿ‎ת‏‏ÿÿÿÿ‏ûû‏ÿÿÿÿ‎üû‏ÿÿÿÿ‏ת‎ÿÿ‏ÿÿ‏û‏ÿÿÿÿÿ‏תüÿ‏‏ÿÿûûüû‏ÿÿÿ‏ûתÿ‏ÿÿÿ‏üשûüûÿÿ‎ûüÿ‏ÿÿÿüüü‏üÿÿû‎תû‎‎‎ÿÿü‎ש‏‏‎ÿ‎ûתû‎‎‏‏ÿü‎ת‏‏ÿÿ‎ûשü‎‎‏‎ÿרüû‎‏‏ÿ‏‏תü‏ûÿÿÿüüü‏ÿÿÿÿ‏ת‎ÿ‎ÿÿÿתü‎‏ÿÿÿÿ‏שתÿüÿÿÿתת‎‎‏ÿÿÿ‎ש‎ÿת‏ÿÿüקüת‏ÿÿÿ‎צ‎ÿש‎‏ÿüקûüÿÿÿÿ‎צ‎ÿû‎ÿÿ‎ûפת‏ÿÿÿüץת‎שת‎‏ןתףת‎ûüû‎ררÿשü‏ÿûüתפûÿÿÿüש‎üקת‎‎צüקûף‎û‏ûש‎üצר‎ÿעתרûûûÿ‏ûקüתצצ‎‏קתûרû‏‎ÿתשûûץש‏ÿת‎תר‎ÿÿ‏תשתûץק‎ÿרüתפûÿÿûûüüשעקÿÿüÿÿüüÿÿÿûûרקנץüÿüÿÿ‎ûÿÿÿקûתקפץ‎‏ÿÿÿתרÿÿÿקרÿצןעüÿÿÿÿü‎ÿÿ‏ÿÿÿצקסûÿÿÿÿÿÿÿÿÿÿÿÿצשםשÿÿÿÿÿ‎ÿÿÿÿÿÿןשףרÿÿÿÿÿÿÿÿ‏ÿÿÿיצךץûÿÿÿÿ‏קרתÿÿÿןüףמתÿÿÿÿÿקרûÿÿÿט‎פכ‎ÿÿÿÿÿûûû‎‎‎ס‎פנרüÿÿ‏‏תשתÿ‏‏ף‏ףירÿÿÿ‏ÿüüûסעעעÿרננ‎ÿÿ‎תתשתÿÿÿעÿÿפןÿÿÿÿÿ‎‎‎רשצ‎‏‏ÿÿתשתתÿÿÿÿקÿס‎‏ÿÿÿשץששÿÿÿÿÿÿ‎‏ÿÿÿÿ‎‎‏‏ÿÿÿÿÿÿÿÿÿÿÿÿשÿששÿÿÿÿÿ‎ÿÿÿÿÿÿÿ‏ÿÿ‎‏‏üÿÿÿÿÿÿÿÿ‏‎‏‏ת‎ÿקü‎‎üÿü‏‏ףשפפ‎פץץÿÿÿ‎ÿ‎ÿÿü‎‎‏ûתÿשÿÿÿüÿÿ‎ÿת‏תתשû‏רתרצÿûתתשלצממסםרךןûקץתרץשןןססכטעמצקקשÿûרשעסףףסצûס‎‎רûÿûÿ‎קתרר‎ûÿשןססשüתרתלצממצשüרü‎שû‎üÿÿתפרתתü‏‎ÿ‎ÿ‏‏‏ÿÿûûûû‎‏ÿ‏‎‎üüÿüüüףûפפü‎ÿ‎תûרשüûתûמרןןצןססתüûûüÿûüררררעתתתץערûתתתקעקףףןפתמטרפרûצרתטשךךפעעמךףץרששרתעפץץצרתףüüûÿ‎ÿ‎‏ÿûתûüÿ‏‎ûü‎ÿÿ‎‎‏תüשû‎‏ÿ‎ûûûÿü‏ÿ‏תüתû‎ÿ‏ÿûûû‎ûÿ‏‏תûûûü‏ÿ‏לנןûץפתתלפםםפןרםףפפüשק‏‎שצתשûת‏ûקרר‎ûûÿ‏תתüû‎ÿÿÿûÿר‎ü‎ÿ‏ûûûû‎ÿÿ‏ÿ‎ü‏ü‏ÿÿüûüüÿÿÿÿתתשתתשתÿשתששûשששפפספןסץתקררצסלûםןססןןךצרקלשרפצÿךרצנףצפתûתצתתûûÿûרשרקררר‏ףקפפüÿÿûןסםןןןספןצננûûûרצרץצצסרתףצפפקÿ‏ûשתררתû‏‏üתû‏ÿÿÿüץרפתûרר‏תקûûüÿÿ‎שששûÿ‎‏üûקתûÿÿÿÿצÿףÿ‏ÿÿÿüצüÿ‏ÿÿÿצקקÿת‏ÿÿקפרר‏ÿÿÿתÿûÿ‏ÿÿÿתüûûÿÿÿÿרû‏ÿÿÿÿÿרתששÿÿÿÿ‏‏‏ÿÿÿÿÿÿÿ‏ÿÿÿÿÿ‏ÿ‎ÿÿÿÿÿÿÿ‏ÿÿÿÿÿששûÿתÿÿÿרÿששץסעעיזךטÙגקסֽןׁׁװֳֹּßגןג׳׀קןײסÙÙÝׂחהײֶאֹÙֹגרןםקלÛאץגֽׁ״װÜÜÛפץעעפכןץךוחחףלטמצûםששררÿש‎‎ûÿÿ‎ÿÿ‏üÿÿÿÿÿÿ‎‏‎‎‎ÿÿÿÿü‏ÿÿÿÿÿû‎ûÿüû‎ÿû‏ûûÿÿÿÿûûüûüûÿ‎‎ü‎ÿÿ‏ÿÿ‏ÿÿÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿüÿ‎ÿÿÿÿ‏‎ÿÿÿÿÿ‎‎ûÿü‏ûü‎ü‎‎‏ûûûקררתתר‎תקתררתקרשתûûתüû‎ÿתüûû‎‎‏‎‏û‎ÿ‎‎ÿÿ‏ü‎‎ÿÿÿÿ‎ü‎ÿ‏‏ÿÿ‎ü‎‏ÿÿÿÿ‏ü‎ÿÿÿÿÿûüûûÿÿÿÿûûûÿ‎ÿÿÿûüûû‏ÿÿÿ‏ü‎ÿ‏ÿÿÿûûûûüÿÿÿÿüüÿÿÿÿÿÿ‎‏‏ÿÿÿÿ‎û‎ÿ‏‏ÿÿûû‎‎üÿûû‎ûûÿü‏ÿÿ‏ûüü‎ûÿûüתשÿüûÿÿüüת‎‏ÿÿ‎ûתתûüûÿÿü‎ת‏‏‎ÿ‎‏תת‏‎‏‏ÿû‎û‏‏ÿÿÿÿתû‏û‏ÿÿü‎û‎ÿÿÿÿûרûûüûûüשûûת‏üÿ‏‎קû‎ü‎‎‎תתüü‏‎‎ÿ‏קûÿü‎ÿÿüü‏û‏ÿÿÿ‎קפÿש‎ÿÿüש‎ת‏ÿÿÿ‎שûüצûüüûץתûûûû‎üתüûקûü‎שצרש‎ûû‏üשû‎תתû‎צרץקû‎û‏ûתק‎רû‏ûפקסצתü‎ןûתףüרק‏‏סûפץש‏û‏תתפüקפ‏‏ףûצעת‏‏רשרûûקץ‏‏ץלצפש‏ÿûרשתשסק‏ÿצנתצר‏‏‏צקקûסש‏ÿיûךךצÿÿ‎רüÿרצק‏ÿנÿססתÿÿÿ‏üÿץרקÿÿÿÿÿÿץÿÿÿÿÿÿקרנ‏ÿÿÿÿÿתÿÿÿÿ‎ÿüשןüÿ‏ÿÿÿÿÿÿ‏קÿÿצתעüÿÿÿÿûÿקÿרÿ‏ÿץûפק‏ÿÿÿÿ‏שקשÿÿÿןûצצÿÿÿÿÿÿÿÿ‎‎‏ûל‎ץצקÿ‏ÿ‏ûתפתÿÿÿס‏תקûÿÿÿÿÿקרר‎‏ÿף‏קפתÿÿÿÿÿüת‎תûÿעûûםרתÿתת‏רתüןססףÿרלצ‎ÿ‎‏üתתרÿÿÿקÿÿעקÿÿÿÿÿü‎‏ףצץצרקÿÿüפףÿÿÿÿÿצ‏רÿÿ‏ÿÿתÿשÿÿÿÿÿÿ‎ÿÿÿÿÿÿû‏ÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‎ÿÿüÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿ‏ÿצ‏רÿÿ‎ÿÿÿÿÿÿ‎ÿÿÿüüü‏ÿÿÿÿÿÿÿÿÿ‏ÿÿûÿ‏ÿÿüü‎üÿ‎תüת‏צעשע‏ÿ‎‎‎‎‎ÿü‎û‎‎צüûÿ‎רû‎üûÿרתרûתקרףüüûû‎üü‏רץתת‎רÿצקרצשתûרûצנךרתקüרצצשûשüûüןשעקתת‎תשüסü‎רûÿעשרסüûÿר‎‏ü‎‏‎‎‏תûûתתüÿüü‎ü‏‎ÿ‎‎תתשתת‎ÿ‏üÿ‏‎‎‎‎‎קתתûüüüתüüתÿ‏‎‎‎רתשץûûûûûÿûü‏‎üüקתקצצתûצרצתû‎‎‎üצתצקקû‎קקסצצתûüûןשקסרקÿץיןןתרצץûפעץןעצûןפץץûתü‎üקץץצקü‎ûüÿüÿ‎ÿ‏ÿתüתû‎ÿÿÿתûû‏תÿ‎‏שûששûÿ‏‏ץפצ‎ררÿ‎ספקפתףררקררÿתש‏‏ששרשüÿÿ‎ץצצ‎‎שÿ‏שששתü‏ÿ‎קüûüÿ‎ÿÿתûüû‎ÿÿÿüüüÿ‏ÿÿÿüûüü‎ÿÿÿÿÿüÿÿÿÿÿÿüÿü‎ÿÿÿרשתûתתüÿתûüתûרששףפפüקרתתששתשûןûרףתקûתת‎‏ûûûûü‎ÿ‏רüר‎ûת‏ÿüûûÿÿ‎ÿÿûüûÿ‏‎ÿÿ‏üü‎ÿÿÿÿקûרû‎ûÿÿ‎תÿü‎ÿÿûשûש‎‎‎ÿÿ‎ûûÿÿÿÿÿץרץüûûüÿüרש‎‎ÿÿ‎קררÿ‎ÿÿÿÿתû‏ÿÿÿÿףרףÿ‎‏ÿÿ‎צûÿ‏ÿÿÿ‎üרÿ‏ÿÿÿ‏תרÿÿÿÿÿ‏‏‏ÿÿÿÿÿ‏‏‏ÿÿÿÿÿ‎ששÿüÿÿÿרתששÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿüÿÿûÿÿÿÿש‏ששûÿÿשטןותןס׳הׁûÙװÞׁװװנלפûסנûהÜץרÚדÝÚÚץערûץץÿ‏רקÿןןףפפךככןהםÿ‎עצפםחןמזּֿכז׳ֿמתץףחםלגסßױ״״Ùב״סÿףפפץספÿנףרפקתרûÿ‎û‏‎ÿÿÿ‏‏‎‎ÿ‎‏ÿÿÿ‎ÿÿÿÿÿÿÿÿ‎ÿ‎ÿÿÿÿ‏ÿÿÿÿÿÿ‎ûû‏üÿÿÿüüûÿÿÿ‏ÿÿüÿÿ‎ÿÿÿÿÿ‏ÿÿÿÿÿ‏‎û‎ÿ‏ÿÿ‎‎‏‏‏ÿÿÿתüû‏‎‎û‏üüûûüתûû‎ûûÿ‎‏ÿ‎‎‎ü‏‎‏‎‎‎üüÿ‏ÿÿÿ‏‏‎ÿÿÿÿÿ‎üûÿ‏‏ÿÿ‎ü‎‏ÿÿÿÿ‎ûûÿÿÿÿÿ‎üû‏ÿÿÿÿ‎ü‎ÿ‎ÿÿÿ‎‏‎‏ÿÿÿÿ‎ü‎‏‏‎ÿÿ‎‎‏‎‏ÿÿÿÿû‎ÿ‏ÿÿÿ‏תÿÿÿÿÿÿ‎û‎ÿ‏ÿÿÿÿü‎‏ÿÿÿÿ‏ת‎ÿ‎ÿÿü‎שû‏‎ûÿûüתûÿ‎‏ÿÿûתק‎‏ûûü‏תü‎‎‏ÿÿûûת‎‏‎‎‏ûתû‏ü‏ÿÿûûקû‏‎‎‏‏רר‎üû‏ÿצüרû‏‏ÿ‏תרשûüû‏ÿתüת‎ü‏ÿ‏‎תרûûûûÿקûתûü‏ü‎שרתÿת‏ÿÿשûüרÿÿÿÿ‏תק‎û‎‏‏ûתûû‎ÿÿ‏נתרüתüü‎תצתרüü‏‏‏תרüתûü‎ûעררש‎ü‎ÿüÿÿû‏ÿÿÿ‏תÿÿÿÿÿ‎תקûרû‎üקפםתש‏‎‎‎üûüרתû‏ןפסרתן‎ש‎üש‎צר‏‎לצססת‏‏רüûשûקת‏ÿסûפעץר‏‎תשחûפר‏ÿעצשםפ‏‎קûתלûףק‏ÿץקצצצûÿת‏ûÿתצק‎ÿצüצûףÿÿתÿקÿרףק‏ÿרÿ‏קû‎ÿû‏צÿרקפûüתÿ‏צר‏‏û‎üÿקקעü‎‎ÿ‏ûר‎ûמ‏üÿףקןûü‏ÿÿ‏üÿקץûפ‎ףקףפü‎ÿÿ‎‎‎פת‎‏ÿנüמפקÿÿÿ‏‏ÿצשÿÿÿן‎צרתÿÿÿÿÿ‏ÿûû‎‏ע‏צקקÿÿÿÿ‏ÿת‎ÿ‏‎ם‏קעüÿÿÿÿ‏‎‎üÿÿÿץÿצנüÿÿÿÿÿÿû‎ÿשÿץûûףû‎‏‎‎‎ûש‎ÿÿÿץÿשםשûÿ‎ûüקתûÿÿÿףÿÿפר‎ÿÿûüüûרüûר‏‏‏ÿÿ‏ÿ‏ÿÿÿÿÿקק‎‏‏ÿÿÿ‏ÿÿÿÿÿÿÿÿ‏ÿ‏ÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿצקקקÿררש‏üÿ‏ÿץץסÿÿÿÿÿÿÿ‏ÿÿ‏‏ÿררÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏üÿÿÿ‏‏‏ÿüûü‎ÿÿשûûÿ‏‎‏ÿÿ‏ÿÿÿüÿÿüü‎ÿÿ‎ÿÿ‏ÿÿ‎‎תû‏ûûÿקÿתûÿüûתקüרû‎עתרששש‎‏‏üÿרûשתתשü‎ûÿת‎‏‎ÿÿשתתûÿüÿ‏ÿ‏ÿ‏‏‏‏‏ûûûü‎ÿÿ‏סûשü‏‎ÿ‏צרערתשÿ‎ûÿרü‎üü‎ץתששûתÿצÿÿÿÿ‏‏ÿÿûûû‎ÿÿÿÿüÿü‎ÿ‎‏ÿûתתüû‏ÿÿקûרü‏ÿüüףרקצקןססûûר‎‎üÿ‎קצצפתצתףÿÿûÿ‎ÿ‏‏תûשתûûÿ‏תתשÿר‎üÿנשצפששüתלךמלעממûםקפךסלצמתûתתûתת‎קתרשר‎ÿתûûשÿü‏ÿ‏שתשתûÿÿ‎ûûת‎ü‏‏‏שûקתû‏ÿ‎ûûû‏‎‎‎‏ר‎תתüÿÿ‎צצצ‎רûÿ‏רצשצû‏‏תףפפûקûûÿרץץשתûÿשûרÿ‎‎‎ÿ‏תüשתüÿÿÿûüü‏‏‏ÿÿûüüûüÿÿÿשüû‏ü‎‏‏ûûûשüÿÿ‏ץץששררתץפשץעענסףהזזקפפשרןרקסעןךצלךןצצצשüרצקץקררקת‏ûÿ‏ÿÿÿÿüÿÿ‎ÿÿÿשûתÿ‎ÿÿÿÿûûÿÿÿÿÿשüתÿ‏‎ÿÿÿûû‎ÿÿÿÿףפצששתת‎שץש‎ÿתקüצשצÿû‏‏ÿüקûÿ‎ÿÿÿקררÿüÿÿÿ‎תרÿ‎ÿÿÿןסס‎ק‎‎ÿקפר‏‏ÿÿÿקûרÿ‏ÿÿÿ‎תרÿÿÿÿÿ‏‏ÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿ‎ÿÿÿÿÿÿÿ‏ÿ‏ÿÿÿÿÿ‎‏‎ÿÿÿÿÿÿÿ‏ÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿתתûÿûÿÿקףÿפפקףפפתתÿÿüÿÿקףÿüפקףתפצץÿÿקתÿüרÿûןעצקןÜÞטבÞבמץטÜלא׀ָאַÜÊחגׁזזפםז׳כי׃ÛגײÙÙןבלן‎לפמעעעפמÙÛםÜזßßÿרנסףקקתץ‎‎ü‏‎‏‏ÿÿ‎‏ÿÿÿÿÿ‏ü‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿû‎û‎ü‎ÿ‏üûûÿÿÿÿÿ‎ü‎‎‏‎‎ÿ‎‏‎‏ÿ‎‎ÿ‎û‎ÿÿÿÿÿÿÿûÿÿÿÿÿקררûüûûתûקררתתתת‎üûÿ‎ÿÿÿû‏ûÿÿÿÿÿ‎û‎ÿ‏ÿÿÿûü‏ÿÿÿÿÿûüûÿÿ‎ÿÿ‏üûûÿÿÿÿûüûÿ‎‏ÿÿû‏û‏üÿÿÿ‎û‎ÿÿÿÿÿ‏‏ÿÿ‏ÿÿÿ‎ü‎ÿÿÿÿÿÿ‏ÿ‏ÿÿÿÿ‎ûüÿ‏ÿÿÿÿ‎‏ÿÿÿÿÿ‎û‎‏‎‏‏ÿ‏üû‏ÿ‏ÿ‏üû‎ÿ‎‏ÿÿרשûûüûû‎üשüÿ‎‏ÿü‎ûתשüüû‏üשüÿ‎‎ÿÿûשקüת‎ÿ‎üרû‎û‎ÿÿתתר‎‏‎‎‏ûתûü‎üüÿקתקû‎‏‏üüרתû‎ûûÿתüרת‏‏‏‏ûûצ‎ü‎‎‎קüשקü‏ÿ‏ûûק‎ת‎‎üקüתûû‏ÿ‏תûפ‏ר‎‏ÿתû‎שתÿÿÿתעצ‎ש‎‎‏תקûר‎ÿ‎‏רûע‏û‎‏‎תרשתת‎‏‎û‎צÿûüÿÿ‎ץקüüÿÿÿש‎שÿתüÿÿûסף‎üÿÿÿת‏‏‏ת‎ÿÿעףלü‎ÿר‏צ‎û‏תתÿÿכקסף‎ÿÿ‏רÿÿ‏ץקÿÿןקפלצÿüÿך‎ר‎פקÿÿנûסמןüÿצםתקûקשÿÿנ‎שסעüÿצÿÿÿÿû‏ÿÿÿÿÿÿÿÿÿ‏ÿÿÿüûûÿÿÿÿÿÿÿÿÿÿÿ‏ÿץרקקÿתקüûתיךך‎שÿעתסףûתÿףשûךûפ‎‏‏פûסץרעÿüûûף‏ק‎ûÿקקפûק‎ÿÿפüץ‎שÿ‏ÿצ‏צשר‎ÿÿÿקקûü‏‏ÿנ‎צצ‎ÿÿÿ‏‏שתü‏ûÿנ‏קק‎ÿÿÿ‎‏שûתû‎ÿף‏תרקÿÿÿÿ‏תû‎ÿÿÿץÿשקûÿÿÿÿ‏ûü‏ÿÿÿצÿÿע‎ÿÿÿÿÿüÿ‏ÿÿÿצÿûנתûÿû‎‏תרûÿÿÿקÿרפשûÿÿû‎קתûנצüûקרÿÿû‏‎ÿÿÿÿÿÿüÿÿüÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿ‏ÿÿÿÿÿÿÿÿÿÿ‎‎‎ץ‏ûû‏ÿÿÿÿÿש‏‏קררפתרנקÿüüüüנצÿÿÿÿÿÿÿüשÿÿÿ‏ÿ‎רÿÿ‏ÿÿ‏ÿÿ‎ÿüÿÿÿû‏ÿתץרןתüספתצרüûןנר‎ÿÿ‎‏‏רת‎ûתü‏קקÿקתשר‎‎‎פעפצרüקפüררשüÿ‎ש‎ץתסףתקףüןססüü‎üתןûץרצתץûף‎צü‎‎üÿצשרעûתüüÿÿ‎ÿ‏ÿÿÿüûü‎ÿÿÿÿÿ‎‎‏‏‏ÿÿûûûü‎‎ÿÿףרששüûü‎ףקעצרסצש‎‏ü‏ÿ‎‏ÿקשתשûתÿüÿÿ‎‏ÿ‏‏ÿûûתûü‏ÿ‎ÿÿüÿ‏‏‏‏שתשתû‎ÿ‏קüף‎ÿ‎‎ûףפקסצעצרÿ‎ÿ‎ÿ‏‏‏שתקתת‎ûûûÿÿÿ‎ÿ‏‏קûררûüÿüקרתüק‎‎‎ףשצסרקרצפץץüתץÿ‎ץרקפץר‎פשûרûüÿ‏ÿרûרקûÿÿüûüûÿ‎ÿ‏ÿשûשתüÿÿ‎ûüûÿ‏‎‏ÿשüתתüÿÿÿקרצÿתüÿ‏רקששûüÿ‎û‎ûÿü‏ÿÿשתתתûÿÿÿû‎û‎תüÿÿשüשתüÿÿ‏ûÿû‎‎תÿÿתûûתüÿÿÿשצרןתתפתקקססצצרץרצרתשתנצןרףקףפףסצצק‎קרûפףשתסתûרץייצןלםרצףנסםןצצסקץתüתץ‎‏תûתûûÿÿ‏שתתתûüÿÿ‎ûתûÿÿÿ‏פףפצקףףüתשרשû‎ף‎ףסןףפצרקרפרûûשק‎ספןתצצש‎תעצüüÿשÿסעעשץצ‎‎שצעü‎ÿ‏ÿףפפÿקûÿÿûûü‏‏ÿÿÿקררÿ‎שÿÿ‎û‏‏ÿÿÿÿ‏‏ÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿ‎‏ÿÿ‏ÿÿÿ‎ÿ‏ÿÿÿÿÿüüÿÿ‎‏‏ÿתÿüת‏תתתעלכךמסûעגשץ׳א׃ב׳זÞׂגזא׳טÞÛסֿ׀ֲֳּיבגםÙדמחס׳ÙלבגÛואהדהײׁףפÙל־זלחמזוׂגÙÜױפüײנםחץסץעÜבÞÞטÝטÿסעעוץקרצטלךטןםםקרןרûץû‏ÿ‏û‏ÿÿ‏‏ÿÿ‎‏ÿÿÿÿÿÿÿ‎ÿÿ‏ÿÿÿ‏‎ÿÿÿÿÿ‏‎‎ÿÿÿÿÿÿÿ‎ÿÿÿÿÿתûק‏ü‎üüתüûûüתûû‎ü‎ÿ‏ÿÿÿ‎ü‏ÿÿÿÿÿ‎üûÿÿ‏ÿÿ‎üû‎ÿÿÿÿûûתÿ‏ÿÿÿûüû‎ÿÿÿÿûûüÿ‏‏ÿÿû‏ûû‏ÿÿû‏ûûÿ‏ÿÿÿ‏ÿ‏ÿÿÿÿÿ‏ûüÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿ‎ûת‎‏‏ÿÿ‎‎‏‏‏‎‏‏‎שûû‎ÿû‏ûתû‎‏ûû‎‎שתÿ‎‏ûüûצרû‏‎ûûüשüÿü‏ÿüקתרûü‎üûüûû‏‎‏ÿ‏קצףרü‏‎שüשü‏‎‎ÿÿשקררת‏‏‎üûû‎û‎ÿÿעתפûת‏ÿ‎ûûת‎ת‎‏ÿרתץרü‏‏‏ûûת‎üû‏ÿףûרףת‏‏ûתררüû‎‏ÿפתרשû‏‏‎ûüתÿûÿÿÿשûûץקÿÿ‏קשף‎פü‎üקקשץת‏ÿûשûןÿתפÿÿûקתתרÿÿ‏ףûןףשûÿÿתנפתרÿÿ‎ק‏לÿשûרÿקין‎üÿÿ‎ÿÿ‎ÿתû‏ÿץ‎ךÿÿÿÿÿÿÿûÿר‎ÿÿטÿ‎צÿÿÿ‎ÿÿû‏קûÿÿ‎תÿךרÿÿÿÿףÿ‏שתÿÿÿÿצûם‎ÿסרנ‏‎ץרÿÿן‎ûשקצüןÿÿ‏üתשÿÿÿÿÿצÿ‏ÿףÿÿÿתûרÿÿÿÿÿÿר‏ÿשÿÿשתתץÿÿÿÿÿ‏‎תûצ‏üÿרשעüüתûûûתףלץûû‏קüץûüשÿררûצףק‎ü‏קûסü‎תÿ‏ûûש‎ûÿ‎ÿף‏קת‏ÿÿÿû‎üÿפÿ‎ÿס‏רש‏ÿÿÿÿüü‏‎‎ü‏פûררת‎‏‎‏‏üüüÿûÿנ‏קרûÿÿÿÿ‏ü‏‎ÿÿÿצÿüפûÿÿÿÿ‏‎ü‏ÿÿÿקÿ‏ע‎ÿÿÿÿ‏‎ü‏ÿÿÿרÿÿצüÿÿÿÿÿ‎ü‏ÿÿÿצÿÿס‎‏ÿÿ‏‏‎ת‏ÿפÿתתתÿÿûÿ‏ÿÿÿÿÿÿ‏ÿ‏שüÿÿ‏ÿ‏ÿÿÿÿÿררתםתךסץü‎ûקÿץרÿ‏קתןרûץשÿü‎‏‏קףÿ‎ÿüûרצנק‎ûûüû‎סÿ‎‏ûצüקûפûקÿ‎‏ûשÿüשרןצץסתשתמץüשץשûûסעצסןעכףצקצצןתûûרעÿץפףצפסמתûסûררספü‎ףקןעסקעûקתת‎שüתûץצןצןסש‎קרû‏û‎ü‎‎üפתקקש‎üשפףצק‏ץûüעתעןפ‎שרק‏שü‏‏ÿÿקתררר‏‎ü‎ÿû‏üÿ‏ÿתשתר‎ÿ‏‎ÿÿ‎ÿÿ‏ÿÿûûûûüÿÿÿ‎ÿ‎ûÿ‏ÿÿקתתûתÿ‏‎‎‎û‎‏ÿר‏רשצפתק‏שüÿü‏‏‏‏üשששתתÿ‏‎קüץ‏‏ü‎üפקצףרתקרüÿüÿÿ‏ÿ‏רשרשש‎ÿשÿÿüÿ‏ÿ‏ÿשתשתû‏ÿüûüÿÿ‎‎‏‏צתצקש‎üתןססץץסרûןקמךןכסךןעשקקשû‎פרץץפרûףתתת‎üûÿ‏קתקקת‎ÿûû‏û‏‎‏ÿÿרûתתüÿÿÿצשץ‏ûü‎‏רתשרת‏‎üפץץÿתûÿ‏קüששתû‎üûüüÿ‎‏ÿÿשüüתüÿÿ‏ü‎üÿ‏ÿÿÿûüûת‎ÿÿÿתüûÿÿ‎‏ÿûûûתüÿÿ‏תûû‎û‎‏üשתרשûר‎רשתû‎ק‎‏‏קשתשûüÿ‎קעעתףםüûץקקסצקתספץץכסןü‏צצצץףצקקףפץןקםם‏קןףררתûשןףסלסץנסףנךקשûקשךעםרסנסצלףןקתüצצלסםצקפ‎תץרצפüÿû‏רששÿûÿÿÿ‎ûûÿ‏ÿÿÿקרüÿתÿÿÿ‎ü‎ÿÿÿÿÿקרתÿתרÿÿüü‎ÿÿÿÿÿ‏‏ÿÿÿÿÿÿ‏‏‏ÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿ‏ÿÿÿ‎ÿÿÿÿ‏‎ÿÿÿÿÿÿ‏ÿÿ‏ÿÿÿ‏ÿ‎‏ÿÿÿÿ‎ÿÿÿ‏ÿÿÿ‎ÿ‎‏ÿÿÿÿÿ‏ÿÿÿÿÿÿ‎ÿ‎‏ÿÿÿÿפספלסץטםכÿעÞוÛÞÞׂך׃לחמױÛßןנא׃ֱÊֶכזױנםןרכלכקטםטןגףפקÿנץüÿשעÿצרצûקמנןנחדר‎קלחצפצשÿÞאןבךאסÿוףחרץצקקםןןםפעעÿץעקצüü‎צ‎‎ûÿ‏ÿ‏ÿÿ‎‏ÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿ‏‎ÿÿÿÿÿ‎üÿÿ‎ÿÿÿÿת‎ÿÿÿÿÿףרש‎תררûצתסרתקררüûûÿÿÿÿÿק‏‎‏ÿÿÿÿÿÿ‏ÿ‏‏ÿÿÿÿÿûÿÿÿÿûûûÿü‏ÿÿ‎ü‏‎תÿÿÿÿü‎ÿÿÿÿÿ‏‏ÿÿÿÿÿÿüתתÿ‏ÿÿÿ‏‏ÿ‏ÿÿÿ‎üתüü‎üüÿü‎üü‏üÿüüתרÿ‎ÿÿÿ‏‎ÿ‏ÿÿÿ‏üתûÿ‏ÿÿÿÿ‎‎‏‏ÿÿÿüüתÿÿÿÿÿÿ‎‏ÿÿÿÿÿüüûÿü‏ÿ‏‎ששû‎‎‏‎תüרÿ‎‏ÿÿשץק‎üת‏‎ûüר‏‎‏ÿ‏ץשנרü‎‏‎תÿüÿÿÿÿÿףצצשü‎ÿûûûü‏ûÿÿÿשצףףתÿÿ‎ש‎ûÿש‎ÿÿףרפתצ‏ÿûש‎שÿת‎ÿÿף‎צף‎ÿÿüצüשÿü‎ÿÿץûשףצ‏‏‎צüץ‏û‎‏‏רûתץצ‎ÿüףûפÿתüÿÿשקתתר‏ÿûערןÿûüÿÿ‏פרûûÿÿûםûוÿû‎ÿÿתתף‎‎ÿÿûüüüÿרüÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿשûÿÿÿÿÿÿÿÿÿÿÿÿÿÿûûÿÿÿÿÿÿÿÿÿÿÿÿÿÿûüÿÿÿÿÿÿÿצÿמÿÿÿ‎ûשÿÿÿÿÿÿÿûÿü‎ÿÿנûפÿÿÿÿÿÿ‏צ‎üÿÿÿןüשמÿûÿ‎û‎ף‎סרÿÿק‎פסע‎ÿÿü‎רüüÿÿ‏רûפüף‏ÿÿüüרשüÿÿÿÿÿרÿÿÿÿÿÿÿüÿÿ‎û‎רûקשüרÿרûתרפר‏‎üקüקûûק‏ÿשüןקשûûûעüרשת‎‏‏רתת‎ר‎û‏עüתקת‎‏‎‏תקûüÿÿÿץüתר‏ÿÿÿÿÿü‏‎ûûûצÿררü‎ÿ‏‏‏תüû‎ÿ‏צÿ‎רת‏ÿÿÿ‏ü‏‏ÿÿÿרÿ‎ףüÿÿÿÿ‏ü‎ÿÿÿÿשÿÿףüÿÿÿÿÿü‎‏ûררןךוÿÿטûפÿÿÿÿÿשנרגןגןÿףûץטÿüüüתסרבפכופפתשפןÿמררעמכנעולתקשצרÿלעקûקןןךכךתנףשקÿרפפשחטתךננעעלתק‎סצפüפלקüמקןץףקשÿüשעתסק‎רספץפץףûÿרפ‎‏ר‏ÿ‏ûתüקרüûÿת‎‎ÿûÿÿÿ‏‏‎תש‏‏ÿüתüüת‏‏‏ÿüףקףר‎ÿûüÿÿüÿ‏ÿÿÿתûûûÿÿ‎ÿתûת‎תצ‏ÿעתסעצ‎üצססרן‎ף‎‎יתפםסןססקûפתÿÿרÿקשקעקÿ‎ת‎‏ûÿÿ‏ÿ‏שתתûת‏ÿ‎ÿÿÿÿ‏‏ÿÿûת‎תüÿÿ‎‎ÿü‏ÿ‏‏ÿתקששû‎üûÿÿÿÿÿ‏ÿÿתשרûüÿÿ‏קûר‏‎‏‏ûןקקץשת‏שת‎ר‎‎ÿ‏‏צרקסקקûצ‎ÿ‎ÿÿÿÿÿרתקûתÿÿ‎ÿ‎ü‏‎ÿ‏ÿץשקשû‎ÿüû‎û‎‎ÿ‏‏ץתקפתשüשנךקןנםקתכנסךןכסךתüû‎‎û‏‏צûצקתü‏ûצרתרשüû‏ץשצצצüÿתרתûÿû‎‏ÿקתשרש‏ÿ‎קררÿ‎‎ÿÿקüתרתÿÿÿü‎üÿ‎‏ÿÿשÿתתûÿÿ‏ÿ‎üÿÿÿÿÿûüÿתüÿÿÿתûרûü‎‎‏שתשרתתü‎ÿÿûÿ‏ÿÿÿûûûÿüÿÿ‎תתûÿ‎ÿ‎ÿûתûûûÿÿ‎ףרשüקק‎üעצרףקעתץקרש‎ûשÿüשרשקשתûûששצüüüÿÿüתת‎û‏ÿÿףץעûרתש‏קתצשת‎ÿûןןףשקרתûץרצרûש‏ûןסש‎קתÿÿששששüÿÿ‎ררשÿתûÿÿתûת‎‎ÿÿÿüרûÿתüÿÿ‎üü‏ÿÿÿÿרצû‎רצÿÿ‎ûüüÿÿÿÿûשûרתשÿÿÿתÿ‏ÿÿÿÿ‏‎‎‎‎‎‎ÿ‎‎‎ÿÿÿÿÿקררקתררתקקרÿ‏‏רÿקררק‎ררתקתפר‎תרÿÿ‎‎ÿ‏ÿÿÿûÿ‎‏ÿÿÿÿÿ‎ÿÿ‎ÿÿÿ‎ÿ‎ûÿÿÿÿררÿÿûתצץצÿססענסס׃ÙהעיכסÙֵתו׳ױֵֹֹ¿Ú׃ןוגכןÜהכֳÛּאÞקץרתרצÿüÿפ‎ÿפקתרûûûÿüûÿÿ‎‎‏ÿ‎ÿÿÿלÜםמהןתÿאיוקףןססÙÛÛלהÜע‏גיגגקבשףאגגביגעÿטיךלןשüך‎‎‏ÿÿÿÿÿÿüÿÿÿÿÿÿüüרÿ‏ÿÿÿÿüûÿÿÿÿÿ‎û‏ÿÿÿÿÿû‎ûÿÿÿÿÿףררקתרüתףתץפתקררתû‎‏‏‏‏ÿû‎‎תü‏ÿ‏ûû‎ÿ‏ÿÿÿ‏ÿ‏ÿ‏ÿÿû‎ת‏ÿ‏ÿÿÿ‏ÿ‏ÿÿÿÿÿûü‎ÿ‏ÿÿÿ‏‎ÿÿÿÿÿÿûתûû‏‎ûÿûüשü‏ûû‏תשש‎‎ÿûüשüûû‎ûûûûüüÿ‎‏ÿÿÿ‏ÿ‎ÿÿÿÿתüץÿ‎‏ÿÿÿüÿ‏‎ÿÿÿü‎תÿ‏ÿÿÿÿü‏ÿÿÿÿÿתÿק‏‎ÿÿÿÿעûÿÿÿÿÿûüקÿûÿÿÿררכü‏üüüש‎ק‏‎ÿÿÿלףשûÿÿÿÿת‎צÿüÿÿÿצףםלû‏ÿûצ‏ûÿû‏ÿÿךקמץןûÿףר‏ûÿûÿÿÿםקץלר‏ÿüף‎תÿת‎ÿÿףשפמנ‎ÿשפתקÿתתÿÿףרקפע‏ÿפמשפÿשüÿÿצקצפק‏ÿצךנמתקûÿÿצףץרק‏ÿקטף‎ÿתûÿÿÿÿשÿÿÿÿüÿÿÿÿש‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿת‎ÿ‏רüÿÿÿÿÿÿüקררÿÿÿ‏ûת‎‎ÿÿÿÿÿזסûÿÿÿÿ‎ûÿÿÿÿÿÿÿ‏‏ÿÿ‎ÿüüרÿ‏ÿÿÿÿÿסק‏ÿÿÿתûקûÿÿÿÿÿ‏סץûÿצÿת‏ץרת‎ÿ‏‏‎פשתÿÿÿתÿר‏ûÿÿÿ‏‏ק‏ûÿÿ‏שÿפ‎‎ÿÿÿ‏‎ק‎ûÿÿÿשÿשÿÿÿÿÿÿÿתü‏ü‎‎ץüשü‎ûÿû‎üקסûûûûףüשת‎û‏ÿû‎קרשÿÿÿצ‏רת‏ÿ‏ÿ‏‏שתûÿÿÿףÿ‎ת‏ÿÿÿÿ‏ûת‏ûû‏קüûרûûüû‏ÿש‎‎ÿÿÿשÿÿצüÿÿÿÿ‏ü‏‏ÿÿÿשÿÿפüÿÿÿÿÿû‎‏ÿÿÿרÿÿק‎ÿÿÿ‏‏ü‏‏üüûץüסÿÿםûצÿÿÿÿÿûÿüרüר‎ÿû‎‎צÿÿÿÿûÿשצששסרûüתצעÿÿסלüףןפספןצתרפעןÿסרששרתקקתûüûתûÿתקר‏ü‎ÿÿת‏‎ÿ‏ÿ‏ÿ‏ÿû‏תתÿüüûüשÿÿ‎ÿ‏üÿÿüÿÿÿÿ‎ÿ‎ÿÿ‏ÿÿÿר‎ץ‎ÿ‏û‎רתרüÿÿÿû‎ÿûÿÿÿÿÿÿת‎ÿÿüÿÿ‏ÿûÿÿ‏ÿÿûקרÿÿÿ‎ÿÿ‏üÿ‏ÿÿÿתûקÿÿÿ‏ÿüÿûÿ‏ÿÿÿעשצצ‎‎‏ש‏‏ûÿ‏ÿÿÿצתרףרûûûףרשüüרÿÿףüףסעת‎פרûרק‏ûüÿעקרףפשûעÿ‏üÿÿÿÿÿשת‏‎‏ÿÿü‏ÿק‏ÿ‏ÿ‏תשרשûÿÿûÿ‎ûÿÿÿÿÿתשתש‎‎‎üÿÿüÿ‏‏ÿÿקשרשתÿÿüרûש‏‎û‏‎נצססץצשצÿ‎ÿÿÿ‏ÿÿקשקרתÿÿרÿÿüÿÿÿÿÿץשררת‏ÿüÿüûÿ‎ÿ‏üספפףפקררÿûûÿü‏ÿ‏צשפפרת‏שקףץקרס‎ÿטפסננקררץסשנקקש‏נץסךףץüפתףת‎קûר‏ףשקצפü‎תתשת‏קר‏üץררצשÿÿררששצרף‎‏ץרצפר‎ûשקצקצüתת‏רûתקשÿÿûףרפרתûץתקתקצר‏קûûüתÿ‎‏ÿ‏שûתשתÿ‎üüûûÿ‏‎ÿÿÿûüûûÿÿÿרתת‎‎ü‏‏רררשתüתûררתשûת‏‏ץצקרשקררןקקûתü‏‏קקץצשüÿרצצשûתûüÿררצשû‎ÿ‎ûתûÿüÿÿÿüתת‎‎ÿÿÿתצûÿרüÿÿתûש‎‎ÿÿÿקררûרצÿÿתתשû‎‎ÿ‎ןנקןןסצ‏קפקקûשÿ‎תרת‎רצ‎ÿתûü‏ÿÿÿ‏ûûרקתרÿÿüûû‏ÿÿÿÿצûקצשקק‏ûשûüÿÿÿÿתתתתüûûü‎שûüÿÿÿÿÿ‎‎ÿÿÿÿÿ‏‎û‏ÿÿÿÿÿ‎ÿÿ‏ÿÿÿü‎‎‏ÿÿÿÿÿÿÿÿ‎ÿÿÿü‏ûû‏ÿÿÿץקררקשגיÜןגאזßגßלכמרנץףוÙÿהÙדÚÝÝ״ֻדסטÚלןֽקלÊװג׳״׀׃׃בםחשעןךפÚÝחי׃לףנקצףü‏קת‏רקששץתûû‎ת‎ÿÿ‎‎ÿ‏‎ÿÿÿקרתûתש‏ÿÿתÿ‎‎ÿÿÿחייטמיצÿÿםישתןüנ‎ü‏ÿÿÿÿÿÿü‏ÿÿÿÿÿקÿûÿÿÿÿÿ‏üûÿÿÿÿÿ‎ü‎ÿ‎ÿÿÿü‎ûÿÿÿÿÿÿûÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿ‎ת‎ûü‏ÿÿûÿ‎ûü‏ÿûûûüÿüûûÿ‎‏‎ûüקÿûüûüü‏üÿ‎‎‎‏ü‎ÿÿ‎üü‎ÿ‎ÿÿÿ‏ÿÿÿÿ‎ÿÿ‎‎‎ÿ‏ÿÿÿ‏‏ÿ‏‏ÿÿÿûüüÿ‎ÿÿÿ‏‏ÿ‏ÿ‏ÿÿüûûÿ‎üÿÿÿ‏ÿ‏ÿÿÿÿת‏û‏‏ÿÿÿÿÿÿÿÿÿÿÿשששÿ‎ÿüÿÿû‎‏‏ÿÿ‏צ‎מÿÿÿÿÿÿû‏ÿÿÿÿÿü‏ûÿüÿÿÿÿûûÿÿÿÿÿÿÿקÿûÿÿÿÿתÿÿÿÿÿÿצÿסÿû‎ÿÿצקנש‎üÿûÿÿÿÿ‏‏ÿÿרÿ‏ÿÿÿÿצüÿÿÿ‎‏ÿÿ‎ÿÿרÿÿÿÿ‎ÿÿÿü‏ÿÿ‎‎‎ûרüüשצקצÿû‎ÿÿפûץץצפÿןקץרÿûüÿÿקû‎רתתÿקןמס‏ץûÿÿüתשקשûÿק‎ךÿÿצתÿÿÿÿÿÿÿÿÿ‎ÿÿÿÿûתÿÿÿÿÿÿÿÿÿÿÿÿÿפûשüÿÿÿÿÿÿÿÿÿÿץÿףתרנשÿÿÿ‏‏פץץÿ‏ÿצûקףףÿÿÿ‏‎שז‎‏ÿÿצ‎שצצÿÿÿÿ‏שרתÿÿÿר‎תקשÿÿÿÿÿüק‏ÿÿÿש‎צÿשÿÿÿÿÿûפÿÿÿÿרûצק‏ÿÿÿÿÿüש‏ÿÿÿשÿררÿÿÿÿÿÿûש‏ûÿÿףÿרüקÿÿÿ‎üשתûÿÿÿתÿשקשÿÿÿÿÿü‏‏ÿÿÿשÿתüתÿÿÿÿÿ‎‏ÿתתתףשתûüצ‎ûשüףףשÿ‏‎פÿתתü‏‎ÿ‎‏שש‎‏üüצ‏üרü‏‎ü‏‎üü‎‎ûûקü‎שüû‎ûÿ‎ûת‎‎üÿקüûשüû‎üû‏üû‎תûûרÿûש‎üÿ‎ûüü‏ûÿÿÿתÿÿץüÿÿÿ‏‏‎‏‏ÿÿ‎ÿÿüÿÿ‎ÿÿÿÿÿÿÿü‏ûצûתÿÿףûפפÿזטטץשרסקרשÿלתםםנישיףמרץüץףÿצתקקננענךללצתפסתקפץקנףרץתףתת‏‏ûתתûü‏ûûÿתüÿü‏ÿÿüü‏ü‏‏ÿ‏ÿÿתתת‎‎‏ü‏‎ת‎ü‎‎‏‎צûש‏‏‎‎‎‎ת‎‎ÿ‎ÿ‏ת‎רÿ‏ÿÿÿÿûüÿÿÿüÿÿÿשÿÿÿÿÿ‏ü‎ÿÿÿÿÿ‎‏üÿÿÿÿÿ‎û‎ÿÿÿÿÿÿÿüÿÿÿÿÿûüûûÿÿ‏ÿ‏ÿüÿÿÿÿÿ‎üü‎ÿÿÿÿתצש‎ûû‏ÿסקעעץץûןקשרשüרûÿםתןןפסשסקררתü‏üÿץצצצצû‏צקÿרÿ‏‏ÿÿשרüתרüÿתÿÿשÿÿ‏ÿÿתשûת‎ÿÿ‏ÿ‏üÿÿÿÿÿ‏ûתüüÿÿ‏üüק‏‏üÿ‎פסץץקשתצû‎צû‏‏‏‏סעעעקףûפü‎ת‏ÿÿÿÿמקןןת‎ÿרÿ‎ÿ‏ÿÿÿÿסקעערûÿרüüüÿ‎‎‏ÿףצפפסüüקשרץתשüÿüלעממםפץץüüûÿ‎‏ÿÿףרפפק‏ÿצûûש‎רû‏‏סשףףצü‏פץצרסנמפûםפעממף‎ערתקףתסשüףץצעץü‏רסףרןפרףתץפץףץü‏שןסקקקססצןקסספüüרûûש‎ÿÿÿ‏שûתתתÿÿ‎ûûûÿ‎‏ÿÿüûתתתÿÿüûûשÿ‎ÿÿÿתתüתתÿÿ‎שרת‏ûûÿ‏רצûûשתתתתפשüת‎ÿÿצףקקתû‎ûקערüרתש‎ןץססתûûצששש‏תüÿÿףרפפûÿÿüקקק‎פר‏ÿצתץרתÿÿ‎צצצקץסÿÿפקץצצ‏רüפףףעץפתÿצץקצüÿûüרתרתקששÿתששת‎ÿÿ‏ןץצצתףשתצרקקûÿÿ‎ןססעתרקûקץררת‎ת‎ûûûÿ‏ÿÿÿÿ‎‏ÿÿÿÿÿÿÿüÿ‎ÿÿÿ‎ü‎‏ÿÿÿÿ‎‎ÿÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿ‎ÿ‎‏ÿÿûüûûÿÿÿÿתרר‏תתספל‎םםעלנםÿÿÿÿ‏ÿÿÿûÿûûüÿÿüסףצשךסÿףןûססזמסß¿ִִֽוִעךױק״״־¿בֳזופהעץפÿףÿצץפפצלûûû‏üüÿÿÿÿÿ‎‎ÿÿ‏רצצüרתÿ‏ÿüÿÿÿ‎‏ÿקרקûתרÿÿÿתÿÿÿÿÿ‏ףפפקתר‏ÿÿתÿÿ‏‏ÿ‏תרûÿÿÿÿÿÿ‎ÿÿÿÿÿÿ‎û‏ÿ‏ÿÿÿÿ‏ÿÿÿÿÿÿûÿÿÿ‏ÿÿÿÿÿ‏ÿÿÿÿÿüû‏ÿ‏‏ÿÿ‏ÿ‏‏ÿ‏ÿ‏תû‎ûüûÿÿüÿ‎‎‎תרûûûûû‏ûûÿüü‎‏üüÿûשüü‏‏ÿ‏‏‎‏‏‏ÿ‏ÿÿû‎‏ÿ‎ÿÿÿ‏ÿÿ‏ÿÿÿÿר‏‏ÿ‏‏ÿÿÿ‏ÿÿÿÿÿÿתüüÿü‏ÿÿÿ‏ÿ‏ÿÿÿ‏פûüÿüûÿÿÿ‏ÿ‏‏‎ÿÿקררûüûÿÿÿ‎ÿÿ‏ÿÿÿלקש‏‎ÿÿÿÿ‏‏ÿÿÿÿÿתÿûÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿק‏üÿüÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿ‎ÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿüÿÿÿÿÿÿÿÿÿÿÿÿûÿÿûÿÿÿÿÿÿÿÿצצצüתÿÿÿ‎ÿÿÿÿÿÿÿרÿ‎üף‏ÿת‎ÿÿÿÿÿÿÿש‎תקצÿ‏קüÿÿÿÿÿÿÿûÿ‏ÿ‎ÿÿןצÿÿÿÿÿÿÿüÿÿÿÿÿûשןÿÿÿÿÿÿÿÿÿÿÿ‏ÿזûûפ‎ÿÿÿÿÿü‎‏ÿÿÿשקûזץÿÿÿÿÿץצצÿ‏ÿ‎üףשכÿÿÿÿ‏üשüÿûÿןûשתרÿÿÿÿüררûÿÿÿü‏רסüÿÿÿÿ‏üס‏ÿÿÿûÿצûפÿÿÿÿ‏תת‎ÿÿÿûÿש‎‎ÿÿÿÿÿ‎צ‏ÿÿÿתÿצü‏ÿÿÿÿÿûר‏ÿüÿש‏שüüÿÿÿ‏‏ûשü‎ÿ‏ש‏תûûÿÿÿ‎‎תתüÿÿÿקÿתû‎ÿÿÿÿ‏‎û‏ÿÿÿץÿש‎üÿÿÿÿ‏üü‏צתצצûצתûתûתתûצףרת‎ûפü‎ת‎ÿüÿ‎‎תûûÿÿÿשÿÿת‏ÿÿÿÿÿÿû‏ÿÿÿתÿÿת‏ÿÿÿÿÿÿ‎ÿÿÿÿתÿÿק‎ÿÿÿÿÿÿü‏ÿÿÿרÿÿץüÿÿÿÿüûûû‏ÿÿÿÿ‎ÿÿ‎‏ÿÿÿÿÿÿü‏‎‎ÿÿÿÿת‎ÿ‏ÿנססתתûתüûתÿûתתףרנףפתקתררתשûÿûרשץפצעקתרûתפתûקûרתתצÿףקצרףעשתתקüשרשרûרןץפרשמפüקתששתשÿשןססלפקשקררררüתתתתûûÿÿÿü‏ÿתÿÿÿ‏ÿÿקûûÿ‎‏ÿ‎ÿûרÿÿ‏ÿÿפûרÿ‏‎ÿÿקתûÿ‏ÿÿÿ‎ÿüÿÿÿÿÿÿü‏ÿÿÿÿÿ‏ÿüÿÿÿÿÿÿ‎‎ÿÿÿÿÿ‎ÿûÿ‏ÿÿÿ‏ûûÿÿÿÿÿ‎ÿüÿÿÿÿÿתקקüÿשÿü‎ÿûÿÿÿÿÿקÿצ‎‎‎‏‎נססףרש‏ÿטתץלפףüסקרר‏‏‎ûÿרץüסצתÿצ‎ÿשÿÿÿÿÿתששûשÿÿÿ‎‏תÿÿÿÿÿששתüüÿÿü‎‏צÿÿÿÿÿ‎קששüÿÿ‏‎‏שÿÿÿÿÿררפ‎ûÿÿ‎‎‎תÿÿÿÿÿסקפצü‎ÿü‎‎‎ÿÿÿÿÿףרקףש‎ÿûü‎צÿÿÿÿÿפפעןסתÿן‎‎üÿÿÿÿÿקתרררÿÿ‎üüûÿ‎ÿÿÿןרסףרüÿצûûûÿ‏‏ÿÿןרפסצקÿרüûûÿ‎üÿÿףקצספ‎ÿצûûר‎ü‎‏ÿףשצפפûÿשûתשüüÿÿÿצקץפץ‏ÿûûשש‏ûû‏ÿצרשץק‎ÿשןסץערסרûןףסנפצ‏רץצצקüüת‏קרץצצ‎ÿרûûר‏‎‏ÿÿקûûרשÿÿüûתש‏üÿÿÿשתü‎ûÿÿÿתתףÿת‏ÿÿûץצרתÿÿûששש‎שקÿÿפףסרתüÿüקתשקתש‏ÿסץנצתÿÿûקרששקררÿןצסער‏ÿרתתת‏תתÿÿררצקûÿÿûצשצתרקÿÿצשצקרÿÿ‎ףצץצרץ‎‏פרץשרüüûשרתûüûÿÿתתûûÿÿÿÿששתüûüÿÿתתשת‏ÿÿÿץצצüתשüÿשרתû‎ÿÿÿüÿûÿ‎‏ÿÿ‏üû‎‏ÿÿÿ‏ÿÿÿÿÿÿÿ‏‏‎ÿÿÿÿÿÿÿ‏ÿ‎ÿÿÿ‎‏‎‏ÿÿÿÿ‎‏ÿÿ‏ÿÿÿ‎ÿÿ‏ÿÿÿÿÿÿ‎ÿ‎ÿÿÿüÿüü‎‎ÿüתתû‏üûÿüשÿשקקףûפכללץהםשעםÿםםהÙÜÙה׳מדÞװתקטûסטלÙסגעןצםצן‎üצÿÿצרצקץ׃ÞכÛאכÞעפנÿמססקףÞבבןטבטםÿפÿפצצטקûûûÿ‏ÿÿÿÿ‎ÿÿÿÿÿÿûû‎ÿתÿÿÿÿ‎ÿÿÿÿÿÿÿûÿÿÿûÿÿÿ‎ÿÿÿÿÿÿüÿ‏üÿÿÿÿÿÿ‎ÿÿÿÿÿÿÿ‏ÿ‏ÿûÿü‏‏ÿÿÿÿÿûü‏ÿ‎‏ÿתüÿüש‎ûû‎ûûû‎üû‎ÿüÿ‎‏תûüûתûûûüû‏ÿü‏‎üÿ‎û‎ü‎‏ÿ‎ÿÿÿ‏ÿÿ‏ÿÿÿ‏ת‎‏ÿ‎‏ÿÿ‏ÿÿ‏ÿÿ‏ÿûû‎ÿ‏‎ÿÿÿ‎ÿ‏‏ÿÿÿרש‎‎üÿÿÿÿ‏ÿ‏‏ÿ‎ÿשתתÿûû‎ÿÿ‏ÿÿ‏ÿÿÿצלû‎קû‏‏ÿ‏‎ÿÿÿÿÿשת‏‏ûשÿÿÿÿÿÿÿÿÿÿצץ‏‎‎‏ÿÿÿ‏ÿÿÿÿÿÿ‎שÿÿ‎‏‏ÿÿÿÿÿÿÿÿÿÿûÿÿ‎‏ÿÿÿÿÿÿÿÿüÿÿ‎ÿÿ‎‏ÿÿÿÿÿÿÿÿÿÿÿרÿÿü‏ÿ‏ÿÿÿÿÿקררÿûÿÿש‎ÿÿÿÿÿÿÿ‎שÿÿ‏ÿÿשÿÿÿÿÿÿÿÿûûÿûפ‏ÿצתÿÿÿ‏‏ÿ‏תת‏ÿÿÿ‎ûצÿÿÿÿÿÿÿü‏ÿÿÿÿצûת‏ÿÿÿÿÿÿ‏ÿÿÿÿÿרüüצ‏ÿÿÿÿÿ‎‏ÿÿÿÿש‎תשקÿÿÿ‏ÿ‎‎‎ÿÿÿש‎תצרÿÿÿÿ‎תûüÿÿÿשüûקתÿÿÿÿ‎ûשûÿÿÿשüקשרÿÿÿÿ‏üת‎ÿ‏ÿת‏צשש‏ÿ‏‏‏‎ת‏ÿÿÿשÿשûûÿÿÿÿÿ‎ü‏‏‏‏שûשקרüÿÿשûתשש‎ûÿקתשרר‏‏ÿûתקצûûûÿר‎רûתÿ‎‏ûüûרû‏ÿÿשÿüששÿÿ‏ÿ‎üתüÿÿÿץÿûûתÿÿÿÿ‏‎û‏ûûÿץ‏‎ÿת‎ÿÿü‎üû‎ףפפצתרצüששררקףפפÿÿÿשÿÿש‎ÿÿÿÿÿ‎‎‏ÿÿÿשÿÿת‎ÿÿÿÿÿÿÿÿÿÿÿתÿÿת‎ÿÿÿÿÿ‎ü‏ÿÿÿûÿÿת‏ÿÿÿÿ‏‎‎‏ÿÿÿ‏‏‎‏ÿûÿ‏ÿÿÿÿÿÿ‏ÿ‎ÿÿÿÿ‎‎ÿÿÿÿÿÿÿÿ‏üÿ‏ÿ‎ÿ‏ÿû‎‎ûÿûûûת‎ûת‏שצקקצעצףןססרנרצ‏ןצךנףךפפרששתשûûÿע‎רששרתשתרשת‎תתÿתתûשÿü‎‎קרר‎ת‎üüûתרשתüÿ‎שûפ‏ת‏‏üûרû‎ÿ‏ÿÿûרתÿüÿÿÿÿתתÿ‎ÿÿÿקץתûüûû‏תררÿ‏ÿÿ‏קררתûûûÿקתצתÿÿÿÿ‎ÿüÿÿÿÿÿ‎ûûÿÿÿÿÿ‎ÿתÿÿÿÿÿÿתû‎ÿÿÿÿ‎ÿרÿÿÿÿÿûûרÿ‎ÿüÿÿÿûÿÿÿÿÿתÿüÿÿÿÿÿû‎ûÿÿÿÿÿשÿשצ‎‎ÿ‎ןסכקפררÿףץקמןםףלת‏תÿÿ‏ÿÿתרÿתüÿÿ‏ü‏שÿÿÿÿÿ‏קצûü‏ÿûצ‏פÿÿÿÿÿץקפתûÿÿûû‏רÿÿÿÿÿצרצר‎ÿÿûÿÿ‎ÿÿÿÿÿüûת‎‏ÿÿÿ‎‎‏ÿÿÿÿÿרתשתûÿÿ‏‎‎רÿ‏ÿÿÿעץףףקצÿפ‎‎רÿÿÿÿÿףץעףצששש‎‎üÿÿÿÿÿףקףצקûÿûüüüÿÿÿÿÿןשססצû‏תûûûÿü‎ÿÿיצףךנץÿסתûש‏‎üÿÿערץםסתÿףקûרûûÿ‎ÿףףףסנתÿרüûûÿ‏ÿÿÿקתצץרÿÿרûûûÿ‎ÿÿÿצûררק‎ÿûשûרûüûûÿשרצףצûÿשףשץרûששûפקףפףרÿשפתף‏ת‎ÿ‎צרתתר‎ÿûקüצÿüÿÿÿüקתתתÿÿüûüקÿûÿÿÿÿקרûÿÿÿ‎ÿüüÿüÿÿÿüרשÿ‏ÿÿ‎שûש‏ûüÿÿסףןץûüÿתץצצûררÿ‏יסלמפףÿעןסצקתרûÿךפםךעתÿנששק‎‎ûüÿצצקץצ‏ÿ‎תתשÿת‎ÿÿתûשüüÿÿ‏רררüת‎ÿÿקקüûüÿÿÿצקקשרששÿüרצש‏ÿÿ‎תûû‏‎‏‏ÿûתû‎‏ÿÿÿ‎‎‎‎‎‎‎ÿ‎‏û‏‏ÿÿÿ‏ÿÿÿ‏ÿÿÿü‏‎ÿÿÿÿÿ‏‏ÿÿÿÿÿÿ‎‏‏üÿÿÿÿ‎ÿÿÿ‏ÿÿÿ‎‏‎‎‎ÿÿÿשרÿ‎תÿÿתפüפפסלםםץÿרתןץÿןןפעןפהייחביÙ׃ÜÜזÚÞÊÊױֽÊßÛÚוְִִׂסַפױÞ׳ײÙÙÛֲאַױֻֻי׳ץÿ׀טיסזֲֶÛֹ׃ֽֽ״‎ÞץÞÞכÝנאגגטזךךנÿךסרפרûקüûûÿüÿÿÿÿüÿÿÿÿÿÿûûשû‎ûûÿÿüüÿÿÿÿÿ‎‏ÿ‎‏‎‎ÿÿ‎‎ÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿ‏‎ÿÿÿÿÿ‎‏‏‏‏‏ÿ‎ü‏ü‏‏‏‎‏ûû‏‎ü‎‎‎ûÿüüüûûשûûûüûüüÿûÿüû‎‎‎‏‎‎‏ÿ‏ÿÿÿ‏ÿÿ‎ÿÿÿÿüû‏‎‎‎‎ÿ‏ÿÿ‎‏ÿÿÿ‎ü‏ÿü‏ÿÿÿÿÿ‏‏ÿÿÿûץ‏ÿü‎ÿ‎ÿ‎ÿ‏‏ÿ‏ÿüשü‎ת‎ÿÿÿ‏ÿÿ‏ÿÿÿשץüûןûûÿÿ‏üÿ‏ÿ‏ÿüק‎תתûûÿÿ‏ÿÿÿÿÿÿקסשלףממÿ‏‎ÿÿÿÿÿÿ‎רÿתצûû‏ÿÿÿÿÿÿÿÿÿÿÿצûצצקÿÿÿÿÿÿÿÿÿû‏פüץץ‎ÿÿÿÿÿÿûÿÿûÿûûûûצÿÿÿÿÿûûûÿתÿûתûûקÿÿÿÿÿÿשÿ‎û‏üץüüûÿÿ‏ÿÿüשüüתüתצתתת‎‎‏ÿÿüשü‏ü‏תüרû‏ÿ‏‏ÿÿ‎ûÿÿÿÿץûעצ‎ÿÿÿÿÿÿ‎ÿÿÿÿסüüשüÿÿÿÿÿ‏‎ÿÿÿÿüüûערÿÿÿÿÿÿ‏ÿÿÿÿü‏רתûÿÿÿ‏üûשûÿÿÿקÿשüשÿÿÿÿ‏ûû‎ÿÿÿü‏שרפÿÿÿÿÿ‎ü‎ÿÿÿûÿק‎ûÿÿÿÿÿ‎û‏ÿÿÿת‏שûüûÿûûüûûû‎‎‎ק‎צרקקÿÿרתקשר‏‎‏שüשûש‏‎ÿרתûרר‏‎‏ש‎ת‎ûÿ‎‏üûüûü‏‎ÿקÿתûü‎‎û‏üüרû‎‎ÿצ‏תûüûÿü‎üüתû‎ûÿרü‎ÿüüÿÿû‎‎û‎סעץפץצצץץרצףץץצצûüÿשüûתÿÿÿÿÿ‎‎ü‎ÿÿÿתÿÿת‏ÿÿÿÿÿÿÿÿÿÿÿתÿÿר‏ÿÿÿÿÿ‏‏ÿÿÿÿשÿÿקüÿÿÿÿÿûû‏ÿ‏‏שÿÿÿÿרÿûÿÿÿÿÿ‎ÿÿÿÿÿ‎ÿ‎ÿÿûÿÿÿÿרתשû‎ûצףץצÿסץפעסתתסשרתûר‏פףץפןססתüû‎ÿÿ‎ÿתתקÿת‎תûתתûûûרü‏ףתפצ‎שתתףפסûפûû‎ןקץסצקררקץץרקץû‎ק‏רץקûüצןצףקתרÿ‏תÿÿתשÿ‎üפשעשץשש‏ÿüÿûû‎ÿüüÿüÿ‎ÿÿÿÿÿÿÿÿÿÿÿûüתü‎שÿÿÿתÿÿÿÿÿÿרששצ‎ששÿÿצרÿÿשÿûת‎רÿÿÿüÿ‎תשÿÿÿÿÿקÿüÿÿÿÿ‎שתר‏ÿÿÿ‎‏ÿÿÿÿÿÿÿ‎üü‏ÿÿÿÿÿÿüÿÿÿÿÿ‎ÿ‏ÿÿÿÿÿףתקÿûûÿ‎ףÿץףצפרףץרןרתר‎ÿף‏שעפןסס‎‏תÿÿÿÿÿÿûÿü‎ÿÿ‏צשצÿÿÿÿÿÿקצÿüüÿ‏ü‏תÿÿÿÿÿתשתÿ‎ÿÿÿÿ‏ûÿÿÿÿÿ‎üתÿÿÿÿÿÿ‏‎ÿÿÿÿÿשûשü‏ÿÿ‎ש‎ףÿÿÿÿÿעסעףרץרצü‎צÿÿÿÿÿפצנצרתתת‎‎שÿÿÿÿÿעשררש‎ÿת‎‎‎ÿÿÿÿÿקתץףש‏ÿûüüתÿÿÿÿÿנרסססר‏ףüüûÿÿÿÿÿןקץספקÿסûüצÿÿÿÿÿץפפספû‏שûüüÿ‏ÿÿÿפרסצפûÿרתÿתÿ‎ÿÿÿןפשפץüÿשתûתÿü‏ÿÿשץססקüÿררûתÿü‏ÿÿנüףתץ‎ÿקץרר‎û‏ÿÿסררסק‎ÿתסףסÿûû‎ÿרררעפ‎ÿרשüקÿüÿÿÿÿûüÿüÿÿüüÿקÿ‎ÿÿÿ‏ü‏ÿ‏ÿÿ‏üÿûÿÿ‎ÿÿÿת‎ÿÿÿÿÿüüûÿÿüÿÿûצק‏ÿÿÿ‏קצקüשת‏ÿןעלפשצÿפשרס‎ששÿÿלעןסרשששןצץקרצÿÿםפםםפûÿףעסמצפצרÿלעסןסû‎פûûûÿüÿÿÿÿû‎û‎ÿÿÿששצ‎ûש‏ÿתרר‎ûÿÿü‎‏‏ÿ‏ÿÿÿ‎üûÿÿÿÿÿ‏ÿÿÿ‏ÿÿÿû‏û‏ÿÿÿÿ‎üÿÿ‏ÿÿÿû‎‎û‏ÿÿÿ‎ÿÿÿÿ‏ü‎תüüשתüüשףףקאספÛבױהגÚÞױ״״ףעצשףןזזדזßÛוÜÛכלוהנכגץגֿכׂÙÚוא״לזנהלןûפ׃ÿטײוטטןÝÝאב׀Þ״ץ״עשָױךחבְׁ־Ú־ְגאקיÿÙװךל־ׁװװׁÜװםרÿארÿךפרםהחחחכזךתÿנלÿûûÿררûûûüû‏ÿÿûÿÿÿÿÿÿ‎‏ÿ‎ÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎üÿ‏‎‎ûüתüתüÿûüü‎û‏‏ü‎‏üתüתת‎רûûüש‎‎üû‏üתÿûתü‎‎üûû‎ûüûÿÿûÿûתûû‎‏ûקüü‎üüÿû‏ÿüü‏‏‏‎û‏ÿüÿÿÿÿÿÿ‏‎‏ÿÿûש‎‏û‎ÿÿÿÿÿÿ‏ÿÿÿûתü‎תû‏‏‏ûÿÿ‎‎‏‎תצ‎‎רש‏ÿÿüÿÿÿÿ‏‏תשüתקצ‏ÿÿ‎üÿÿÿÿ‏קקüרףק‎ÿ‎‏‏ÿÿÿÿÿ‏üÿששעûÿÿÿÿÿÿÿÿÿÿÿÿצüü‏ÿÿÿÿÿÿÿÿÿ‎ûÿקתתףûÿÿÿÿÿÿÿÿ‏üÿקשרצפÿÿÿÿÿרששÿ‏‏ûûûûûÿÿÿÿÿÿ‎ÿ‎ü‏קûûרת‏‎ÿÿÿûû‏ûûû‎ûררתÿû‎ÿÿûתÿ‎‏‏ûüûÿû‏ÿüÿÿ‎ûÿÿÿÿש‎ü‎ÿ‎ÿÿÿÿÿüÿÿÿÿשÿü‎‎ÿÿÿ‎ÿ‏üÿÿÿÿת‎ûרûÿÿÿ‏üüüüÿÿÿû‎ûתûÿÿÿ‏‎ûûûÿÿÿûÿרשתÿÿÿÿ‏‎û‎ÿÿÿתÿרתûÿÿÿÿÿ‎ü‏ÿÿÿûÿשûüÿÿÿÿÿ‏‎‎ÿÿÿתÿתûתÿÿÿÿÿ‏‎‏‏‏‏ת‏תשתרÿ‏שתרשש‏‏‎ת‎תשת‎ÿÿרתקûרü‏ûתüüתתÿÿÿ‏תûûרÿ‏‎ת‏û‎üÿ‎ÿÿüûüüÿÿÿצÿ‏û‎ÿ‏‏ÿÿ‎ü‎ÿ‏ÿצüÿûתûÿûÿÿüש‎ןםסצסםססלפסםפלממÿûÿש‎ûûûÿÿÿûü‎ûüÿÿÿש‏‎ש‏ÿÿÿÿ‎‏ÿ‎ÿÿÿתÿ‎תüÿÿÿÿÿ‎ü‎ÿÿÿûÿÿûüÿÿÿ‏‏‎û‎‎ÿÿÿÿÿÿÿרÿüÿÿÿÿÿÿÿ‎‏ÿÿÿÿüÿÿשÿÿÿÿü‎ûû‏‏שûÿÿÿצצש‎ששüשü‏‎ûתÿקÿÿררששûû‏‎‏ÿüûÿרףÿÿûüרüüÿÿ‏ÿ‎ÿת‏‎ÿÿÿÿüץשתûת‎‎ÿףרץס‎üüתןצרקפפר‏ןתסןסנתסתרÿÿ‏ÿ‏ÿÿÿÿ‏‏ÿÿÿקûתÿ‎‎ÿ‏ÿÿÿÿ‏ÿÿ‎ת‏תÿ‎ÿÿÿÿÿÿÿÿÿÿÿûüûÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿûÿÿÿÿÿÿûÿÿÿÿÿÿקתרÿ‎ÿÿÿÿתרÿÿÿÿÿüררÿÿ‎ÿÿקררÿÿ‎ÿÿ‏ÿÿÿÿÿÿÿÿ‏‎ÿÿÿÿÿüÿûÿÿÿÿÿרתשûüÿÿüץע‏ÿתרתרמרמןפןףסיעףףקפ‎ריüףלננססףרף‏‎‏‏ÿ‎ÿÿפרû‏ש‎‎ûÿÿÿÿÿÿüÿÿ‏ÿÿÿ‏‏‎ÿÿÿÿÿÿתüÿÿÿÿÿ‎‏ûÿ‏ÿÿÿüתרÿÿÿÿÿ‏‏üÿÿÿÿÿרûש‎ÿÿÿÿ‏‏רÿÿÿÿÿשûתש‏ÿÿÿ‎‏ûÿÿÿÿÿשתששתÿÿÿÿ‏‏ÿÿÿÿÿתרתûûÿÿ‏‏‏‏ÿÿÿÿÿתûקûüÿÿ‏ÿÿ‏ÿÿÿÿÿצ‏שתûÿÿשü‎שÿ‏ÿÿÿןקץמץץüץצÿסÿ‏ÿÿÿנףסלןעףףü‎ûÿ‏ÿÿÿפ‎ףץףתÿץüÿשÿ‏ÿÿÿצûÿשû‎ÿüתûûÿüÿÿÿתצףסצûÿצרתשÿ‎‏ÿÿערעשףקÿעשûûÿüÿÿÿצ‏ûק‏‎ÿתןערתצרÿÿפפרסץת‏סספץüüרÿÿüקץשק‎ÿצר‎תÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‎ÿûÿ‏ÿÿÿÿÿÿÿÿÿÿÿ‎‏‎ÿÿÿÿÿÿ‏ÿÿÿÿÿÿ‎ÿûÿ‏‏ÿÿÿû‎ÿÿÿÿÿû‎רÿ‎‏ÿÿûתרÿÿüüüשרר‏û‎ÿÿףתפר‎תÿרû‎ûÿ‎ÿÿÿûÿÿûÿÿÿûצקק‎תûÿÿתרÿקש‏ÿשû‏ûÿ‏ÿÿÿÿü‎ÿ‏ÿÿ‏ÿüûÿÿÿÿÿ‏üûÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏‏ÿÿÿÿÿÿÿ‎ÿ‏ÿÿÿû‏ûû‏ÿÿ‏לקמבצץדךÝחגאחÞדאÿûש‏üüצרףץעעץץצעÿתÿ‏ûÿÿקןצסףפרקצינלסנלמל־חװׂÞÜךױÿרÿûתûÿüעÿÿספתûתעעפצפצצÿףÿÿטלקרםֶׁßÞּ״גפנטûÊֶֽךִ¾ֲֲÚ׀ֲדףÿךזצÚײןÛלםףןעסûüÿקÿÿÿÿ‎שתרû‎üû‏ÿÿüÿÿÿÿÿÿ‏‎‎‏‏‏ÿÿÿü‏ÿÿÿÿÿ‏ÿ‏ÿÿÿÿÿÿüûÿÿÿÿÿ‏ûÿÿ‏ÿ‏ÿתüû‏ÿÿ‏ÿ‎ü‏‏ü‏‎üקûררüûשü‎תÿ‎üû‏‎קûשרתü‏û‎û‎ûüû‏‏שÿשרת‎‎‎üשÿûüûûÿשÿÿשת‎‏‎‎û‎‎ü‎‎‏ÿ‏ÿûü‏ÿüüרûüצüü‎ÿÿüÿû‏‏‎ûûûûתûûüû‎ÿÿÿ‎ûüüתû‎רûÿ‏ÿûÿÿÿÿÿ‏ûתûûרץ‎ÿÿüשÿÿÿÿ‏תצüפקתüÿת‎üÿÿÿÿÿ‏üÿûüקצÿÿÿÿ‎ÿÿÿÿÿ‏ÿרûש‎ÿÿÿÿÿÿÿÿÿ‏ûÿרתûק‎ÿÿÿÿÿÿ‏ÿ‏‎‎ûרûררÿ‏ÿÿÿ‎‎‎‎‎‎ûת‎ûüÿÿ‏ÿÿÿ‎ÿ‎‎ÿ‎üüûש‏üÿÿÿ‏ü‏‎‏ü‎üת‏ûÿ‏‏ÿÿÿ‎ÿûû‏ûüץüüûÿûÿ‏‏‎ÿÿÿÿתüü‎‏ÿÿÿÿÿÿ‎ÿÿÿÿצÿûתÿÿÿÿÿÿÿüÿÿÿÿüÿûת‎ÿÿÿÿ‎‎‎‎ÿÿÿ‎ÿתץüÿÿÿÿÿûû‎ÿÿÿתÿשüתÿÿÿÿÿ‎üüÿÿÿüÿר‎‎ÿÿÿÿÿ‎‎ÿÿÿÿûÿתתûÿÿÿÿÿ‏‎‏ÿÿÿüÿר‏רÿÿÿÿÿ‏‏ÿÿÿÿÿÿû‏‎ÿÿÿÿÿ‏‏ÿ‎‏ÿתÿûûü‎ÿÿרתקרררשüש‎ûûשÿ‏ÿתקפתץ‏ÿ‏ר‏ת‎‎ÿÿÿÿÿü‎üÿÿÿקÿ‏‏‏ÿÿÿÿÿ‎ü‎ÿÿÿשÿÿ‎‎ÿÿÿÿÿ‎‎ÿÿ‏ÿצü‎ÿ‎ÿÿÿÿÿûûû‏‏‏תüûÿ‎ÿÿÿ‏ÿûתûÿÿÿתÿûû‎ÿÿÿÿÿ‎üûÿÿÿûÿÿתÿÿÿÿÿÿ‎üÿÿÿÿןÿÿםסףÿÿÿתןנס‎‏ÿ‏ÿÿÿÿסתעעÿÿÿÿÿ‏ÿÿ‏ÿÿÿשÿששץÿÿÿüüü‏ÿÿû‏ÿÿÿÿפתûפנעםתüשûץ‎ץ‏‏ץנסמüü‎ÿ‏‎ÿ‎ÿץÿÿÿ‏ÿÿüÿ‏ÿÿÿÿÿצ‎צצÿÿÿÿûûÿÿÿÿÿÿü‏üüרÿÿÿשרÿûתû‎ÿמפןןעקשףשצÿ‎צ‎‎ÿצÿקקקת‏שסךפצסךרüןפססיקûנףם‏מקעû‏ü‎üü‎תצצפץץשרûצÿÿÿÿÿÿ‏‏ÿמץמרקץרקÿנÿÿÿÿקÿשששÿüÿÿÿÿצÿÿÿÿÿÿ‎ÿûÿ‏ÿÿÿü‎üüÿÿÿÿ‎ÿ‏ÿÿÿÿÿÿüÿÿÿÿÿÿü‏ÿÿÿÿÿÿת‎ûûÿÿÿÿü‏ÿÿÿÿ‏ÿששששת‎‏‏צסÿ‎תפÿצßץבבךעףףלם‏סץצ‏‎לÿממוסשןלםךץססעÿÿ‎ÿÿעקתמ‎‏רÿÿÿÿÿÿûÿÿÿÿÿÿת‏רÿÿÿÿÿשפששÿÿÿÿ‎‏üÿÿÿÿÿפקץץ‏ÿÿÿש‏ûÿÿÿÿÿצתצצרÿÿÿ‏‏ûÿÿÿÿÿשששששÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿ‏‏תÿÿÿÿÿקפררשÿÿüÿÿ‏ÿÿÿÿÿןקססשתÿû‎‏ÿÿ‏ÿÿÿפÿץץפÿÿûק‏צÿ‏ÿÿÿןפססלקרר‎ÿ‎ÿ‏ÿÿÿקצררתûÿצ‎ÿÿÿÿÿÿÿתÿûûÿÿÿûקררÿ‎ÿÿÿüףüüןתÿצüÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿ‎ü‏ÿÿ‎ÿÿÿüÿüü‏ÿÿ‏צססÿץצÿ‏יפככין‏סקץר‎ששÿÿÿפÿÿûשÿרפסרשתק‎ÿןפססÿûÿüקתü‏ÿ‎ÿÿÿÿÿÿÿÿÿÿצקקÿÿ‏ÿÿÿÿÿÿÿÿÿÿ‎ÿûÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‎‏ÿ‏ÿÿÿü‎üüÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿתתתÿü‎ÿÿÿÿÿÿש‎ÿûתûתÿ‏‎ÿÿÿüÿÿÿ‎ÿ‎‎ÿ‎ÿ‏ÿÿÿÿüÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎שÿÿ‏‎‎ףשףףצשתש‏‏ûÿ‏ÿÿÿüתüüתûÿûקררÿûÿûשאיגגלצתסüüÿÿü‎ÿ‏ןקסספû‎תüÿÿÿûÿÿÿפÿץץפü‏ûעעÿרףע‏תוÿחחÚךקובװלנהגמץשÿשש¿Êװֹ»ְְÚּׁכקקׂררך׃װÊÛÙßכבÛץתÿÿÿÿÿןקÿשששüרש‏ÿÿÿÿÿÿÿÿÿשתצש‎צ‎ÿÿצÿÿÿÿÿÿ‏‎ûû‎ÿ‏ÿ‎ר‏‏ÿÿÿÿ‏üûÿÿÿüÿקשררÿÿÿÿ‏üû‏‏‏‎ûףצףףצ‎‎‎‏ûÿÿ‏‏ÿ‏צתצצר‏ÿû‎üÿ‎ü‎‏‏פקץץץ‏üשüתÿ‎ûûÿ‎ףÿףףצüüûüüûûüû‎ÿÿÿÿÿצ‏‏שûתÿûתüû‏ÿתÿÿÿ‎‏שûûû‎תתûüקÿררÿ‏‎ÿקרצûקש‎üÿûÿÿת‏‏ÿשששûשש‎‏üףüüÿÿÿÿÿ‎ÿüתרÿÿתÿûûÿÿÿÿ‏‎ÿûתש‏ÿÿÿÿÿüÿÿÿÿ‏ÿקתûüÿÿÿÿÿÿÿÿ‎‎‏ÿתûûש‏ÿÿÿÿÿÿÿÿ‏‏‏ûüûרתÿÿÿÿÿÿÿ‏ü‎ÿûüüתüÿ‏ÿÿÿÿ‏ÿ‏‎ûûüתûת‎ÿ‏‏ÿÿ‏ÿתûû‏üûûûÿתÿÿ‏ÿ‏ÿ‎ûÿüüûûüקתררÿÿ‎‏ÿÿÿü‏‎ÿ‏ÿÿÿÿÿÿ‏ÿÿÿÿת‏û‎‎ÿÿÿÿüÿ‏‎ÿÿÿûÿûü‎ÿÿÿÿÿתûûÿÿÿüÿרתüÿÿÿÿÿ‎ûÿÿÿÿüÿרü‎ÿÿÿÿÿü‎‎ÿÿÿûÿתת‎ÿÿÿÿÿ‏üÿÿÿÿüÿûûûÿÿÿÿÿ‎‎ÿÿÿÿתÿûü‎ÿÿÿÿÿ‏‎ÿÿÿÿûÿûü‎ÿÿÿÿÿ‏‏ÿ‎‎ÿû‏üûתתÿûûפקרר‎ûÿû‎üתûÿÿÿÿüקררץצתרûצשתÿרÿÿ‏רשקûûûק‏ÿ‎ûÿÿÿÿÿûüÿÿÿÿקÿÿü‏ÿÿÿÿÿ‏‎ÿÿÿÿשÿÿ‎‏ÿÿÿÿÿ‏‎ÿÿÿÿתÿ‏ÿûÿÿÿÿÿûüÿÿÿÿתÿ‏ûüÿÿÿÿÿûüÿÿÿÿתÿÿתüÿÿÿÿÿ‎ûÿÿÿÿûÿÿתû‎ÿ‎‎ÿתûÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿקררתתÿü‏‏רתÿÿÿÿÿנרÿלעÿרצשרץÿÿÿÿÿמעÿצצצ‎üשü‎ÿÿÿÿÿרûÿüÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿû‎ÿÿ‏ÿ‏ÿÿÿÿÿÿ‎ÿÿûüÿÿ‏ÿÿÿÿÿÿÿÿûÿÿתתÿÿû‏ÿÿÿÿÿÿÿ‎ÿÿקקÿקפףרÿÿÿÿÿÿצüÿףרÿעעסרתÿÿÿÿÿקüÿןססןפןףתÿÿÿÿÿû‎ÿטכÿםפססצÿÿÿÿÿûûÿקרÿÿת‏‎ÿÿÿÿÿÿÿÿÿ‎‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿü‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿü‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿü‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿצצÿÿרקÿÿÿÿÿÿÿקûÿיםÿםסםש‎ÿÿÿÿÿלרÿולÿםעמנûÿÿÿÿÿקûÿת‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿ‏‏‏ûÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿקררÿÿÿÿ‏ÿÿÿÿÿÿÿÿתÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿÿüÿÿקררÿ‎ÿ‏ÿÿÿÿÿÿקûÿ‎‏ÿÿÿÿÿÿÿÿÿÿÿü‏ÿÿ‏ÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿתתÿÿü‏ÿÿÿÿÿÿÿûûÿקרÿÿקרÿÿÿÿÿÿÿקשÿûתÿÿתüÿÿÿÿÿÿÿÿÿÿשרÿüûשÿÿÿÿÿÿÿÿÿÿקרררüתüÿÿÿÿÿÿÿÿÿצשÿ‎‎‏ûÿÿÿÿÿÿÿÿÿûûÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿתûûÿüüÿÿÿÿÿÿÿû‎ÿןסÿפץפüתÿÿÿÿÿףפÿüüÿÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎‏ÿÿÿÿÿÿÿÿÿÿÿ‎‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿ‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿÿÿÿÿÿÿ‎‎‎ששÿüתÿÿÿÿÿÿÿÿןרÿהגÿמאהגאÿÿÿÿÿָ׀ÿÚÞגךֿ־םבÿÿÿÿÿÊÙÿÚÛÿזאÚץûÿÿÿÿÿלףÿױÙÿÙבÙך‏ÿÿÿÿÿעשÿףרÿרתרüÿÿÿÿÿÿ‏ÿÿû‎ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿüÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿ‎ÿÿÿÿÿÿÿÿÿÿÿ‏‏ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ‎ÿÿ‎ÿÿÿÿÿÿÿÿ‎ÿÿ‏‎ÿÿתÿÿÿÿÿÿÿÿ‎‏‏ûüÿ‎ü‎‎‏ÿÿÿÿÿש‎ÿתתÿ‎ש‎‎ÿÿÿÿÿÿש‏ÿ‎‎ÿÿû‎ÿÿÿÿÿÿÿ‏ÿÿץרÿûתק‎‏ÿÿÿÿÿü‏ÿתûÿüüû‏ÿÿÿÿÿÿ‏‏‏ÿÿÿתûתÿÿÿÿÿÿÿÿÿÿ‏‏ÿ‎תת‏ÿÿÿÿÿÿÿÿÿ‎‏‏ששüשÿÿÿÿÿÿü‏ÿ‏‏ÿתת‎‎ÿÿÿÿÿÿÿÿÿ‎‏ÿüü‎ת‎ÿÿÿÿÿ‏ÿÿ‎‎ÿüüüת‏ÿÿÿÿÿÿÿÿü‏ÿ‏‎û‎ûÿÿÿÿÿ‏ÿÿûתÿ‎üר‎‎ÿÿÿÿÿÿÿÿÿÿÿ‏ÿüÿüÿÿÿÿÿÿÿÿÿÿÿûÿü‏üÿÿÿÿÿÿÿÿÿÿÿקÿûû‎ÿÿÿÿÿû‎ÿÿÿÿüÿתûüÿÿÿÿÿûûûÿÿÿ‏ÿתûüÿÿÿÿÿ‎‏ÿÿÿÿûÿשר‏ÿÿÿÿÿ‎üÿÿÿÿ‎ÿû‎‎ÿÿÿÿÿ‏‎ÿÿÿÿüÿש‏üÿÿÿÿÿ‏‎ÿÿÿÿüÿûû‏ÿÿÿÿÿ‏‎ÿÿÿÿÿÿü‏üÿÿÿÿÿ‏‎ÿÿÿÿûÿûתשÿÿÿÿÿתתÿûתÿתררתצÿÿÿÿÿעףÿרפÿץקפûתÿÿÿÿÿץרÿ‎‏‏ר‎ûûûÿÿÿÿÿתûÿÿ‏ÿש‎‏û‎ÿÿÿÿÿüüÿÿÿÿקÿ‎üüÿÿÿÿÿü‎ÿןזÿולזזךÿÿÿÿÿודÿûüÿקÿרשתÿÿÿÿÿקפÿ״ÛÛטÿרךןÿÿÿÿÿפךÿÿÿÿתÿÿûüÿÿÿÿÿ‎ûÿ

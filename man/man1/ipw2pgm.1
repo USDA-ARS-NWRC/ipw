@@ -1,0 +1,88 @@
+.TH "ipw2pgm" "1" "10 April 1998" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBipw2pgm\fP - convert IPW image to Portable Gray Map (PGM) image
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+ \fIipw2ppm \fP[\fI-v\fP]\fI \fP[\fI-m mask\fP]\fI \fP[\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBipw2pgm\fP reads an IPW image and outputs a PGM image suitable for
+processing by other image processing or image manipulation
+packages.  The IPW data values are scaled to between 0 and 255
+and then written as a PGM image.  For 1-byte IPW images, no
+scaling is necessary and the program operates much faster.
+.PP
+The program ipw2ppm is a more general form of this program, but
+can run significantly slower.
+.SH OPTIONS
+.TP
+\fB-v\fP
+\fBipw2pgm\fP will print the dimensions of the image to the
+standard error.
+.sp
+.TP
+\fB-m\fP
+Use \fImask\fP as a mask image.  Any points in \fImask\fP that are
+0 will have the corresponding points in the output image
+set to 0 (black).
+.SH OPERANDS
+.TP
+\fIipw2ppm \fP[\fI-v\fP]\fI \fP[\fI-m mask\fP]\fI \fP[\fIimage\fP]
+	image
+.sp
+.SH EXAMPLES
+.PP
+To convert "900315.ipw" to a PGM image using "col.mask" as a mask.
+.sp
+.nf
+.ft CR
+	ipw2pgm  -m col.mask  900315.ipw
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     None
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+image must have 1 band.
+.br
+	Only single band images are supported.
+.SH RESTRICTIONS
+.PP
+Only binary PGM images are output.  No support for ASCII PGM
+images is planned.
+.SH HISTORY
+.TP
+Mar 1993
+	Written by Dana Jacobsen, ERL-C.  Based on \fIipw2ppm\fP.
+.SH BUGS
+.PP
+None that we know of
+.SH SEE ALSO
+.TP
+IPW
+	\fBipw2hds\fP,
+\fBipw2ppm\fP,
+\fBipw2pbm\fP,
+\fBipw2ps\fP,
+\fBipw2sun\fP,
+\fBipw2xim\fP,
+\fBipw2xyz\fP,
+	\fBpbm2ipw\fP
+.TP
+Image
+	PPM, PGM, PNM, xv, xli, xloadimage, pnmtops
+.PP
+"PBMPLUS -- Extended Portable Bitmap Toolkit", Jef Poskanzer,
+10 December, 1991.  Anonymous ftp from export.lcs.mit.edu:
+/contrib/pbmplus.tar.Z.

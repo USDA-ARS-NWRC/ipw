@@ -1,0 +1,65 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+long
+urskip(
+	int      fd,		|* input file descriptor	 *|
+	long     nbytes)	|* #bytes to skip		 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> causes nbytes bytes of input on fd to be skipped.
+nbytes must be &gt; 0 (i.e., only forward skips are allowed).
+</P><P>
+Use <B>%name</B> instead of the UNIX system call lseek to skip input data.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+&gt;= 0	number of bytes skipped
+</P><P>
+ERROR	for failure
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_uiocb
+</P>
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

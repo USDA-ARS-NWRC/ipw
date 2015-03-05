@@ -1,0 +1,64 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "solar.h"
+
+datetime_t *
+sunrise(
+     double  lat,     /* latitude (radians)  */
+     double  lon,     /* longitude (radians) */
+     int     year,    /* year (e.g., 1997)   */
+     int     month,   /* month (1 - 12)      */
+     int     day)     /* day (1 - 31)        */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> determines the time of sunrise at a given location
+(specified by its latitude and longitude) and date.  South
+latitudes and west longitudes are negative.
+<P>
+The returned date-time structure contains the GMT time of local
+sunrise.  Note: it does not account for local horizons.
+</P>
+
+<H2>RETURN VALUE</H2>
+
+<DL>
+
+<DT>non-NULL</DT>
+<DD>
+GMT time of sunrise.
+</DD>
+
+<P>
+
+<DT>NULL</DT>
+<DD>
+Error occurred, and an explantory message stored via
+the "usrerr" routine.
+</DD>
+
+</DL>
+
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Oct 1997</DT>
+<DD>
+Extracted function from the program <B>sunlight</B>.  J. Domingo, OSU
+</DD>
+
+</DL>
+
+

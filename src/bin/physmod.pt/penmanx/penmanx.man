@@ -1,0 +1,144 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [<I> &lt;infile </I>]<I> </I>[<I> &gt;outfile </I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates LE flux (W/m2, +/-) using a detailed form of
+the Penman-Monteith combination approach.
+(see: <I>Penman, 1948; Monteith and Unsworth, 1990</I>).
+</P><P>
+Negative(-) LE fluxes are
+designated away from the surface while positive fluxes(+) are designated
+toward the surface. Inputs are as follows:
+</P>
+<PRE>
+	ts, ta, ea, u, Rn, G, z0, z, rc
+</PRE><PRE>
+	ts     = surface temperature (C)
+	ta     = air temperature  (C)
+	ea     =  actual vapor pressure at ta (Pa)
+	u      = wind speed (m/s)
+	Rn     = net radiation (W/m2, +/-) 
+	G      = surface heat flux (W/m2, +/-) 
+	z0     = surface roughness (m) 
+	z      = measurement height above the surface (m) 
+	rc     = canopy resistance (s/m) (0 for free water surface)
+</PRE><P>
+Outputs are latent heat flux (LE) (W/m^2), ratio of the portion of LE due to
+radiation term over the portion of LE due to aerodynamic term (RATIO) (W/m^2),
+portion of LE due to radiation term (RAD) (W/m^2), portion of LE due to
+aerodynamic term (VPD) (W/m^2), aerodynamic resistance (Ra) (s/m), bulk
+Richardson number (Rib), and stability function (F) (unitless).
+Output to stdout.
+</P>
+
+<H2>OPTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>
+None
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+For a grass site in the Willamette Valley under irrigated
+conditions (e.g. minimal surface resistance)):
+</P><PRE>
+          penmanx
+          Input ts,   ta,   ea,     u,   Rn,   G,      z0,   z,  rc;
+                17.84 13.55 1023.33 1.53 216.7 32.1967 0.001 1.4 40.0
+yields:
+
+LE=-121.96; RATIO=0.17; RAD=-104.02; VPD=-17.94; Ra=203.85; Rib=-0.09; F=1.00;
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+<DT>terminates with error message
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jun 1993</DT>
+<DD>
+written by J. Kimball, OSU, EPA, ERL-C;
+</DD>
+</DL>
+
+<DL>
+<DT>Oct 1993</DT>
+<DD>
+modified <B>%name</B> by adding a stability function for
+the calculation of aerodynamic resistance based on a 
+bulk Richardson number (Mahrt and Ek, 1984).
+</DD>
+</DL>
+
+<DL>
+<DT>May 1995</DT>
+<DD>
+Converted to IPW by J. Domingo, OSU, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="bowvap.html">bowvap</A></B>,
+<B><A href="ipmx.html">ipmx</A></B>,
+<B><A href="pmx.html">pmx</A></B>,
+<B><A href="ptaylorx.html">ptaylorx</A></B>,
+<B><A href="iptx.html">iptx</A></B>,
+<B><A href="ptx.html">ptx</A></B>,
+<B><A href="trb_Ri.html">trb_Ri</A></B>,
+<B><A href="itrbxfr.html">itrbxfr</A></B>,
+<B><A href="trbxfr.html">trbxfr</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Brutsaert 1982">Brutsaert 1982</A>,
+<A HREF="../bib.html#Mahrt, Ek 1984">Mahrt, Ek 1984</A>,
+<A HREF="../bib.html#Monteith, Unsworth 1990">Monteith, Unsworth 1990</A>,
+<A HREF="../bib.html#Running, Coughlan 1988">Running, Coughlan 1988</A>,
+<A HREF="../bib.html#Stewart 1984">Stewart 1984</A>
+</P>
+

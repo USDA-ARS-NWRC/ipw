@@ -1,0 +1,126 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-l</B> <I>lfactor</I> ] [ <B>-s</B> <I>sfactor</I> ] [ <B>-f</B> <I>type</I> ] [ <B>-m</B> <I>mask</I> ]
+      [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> resamples (shrinks) an image by averaging pixel data, or
+taking the minimum or maximum data value of the pixels to be combined.
+The zoom factor must be and integer and may be independently specified
+for the line and sample directions.
+</P><P>
+When combining lines or sample, counting begins at (0,0); i.e., the
+first sample in the output image is an average (default), min, or max
+of the first &lt;sample_factor&gt; samples of the first &lt;line_factor&gt; lines of
+the input image.  The last sample of each line and last line of the
+output image may not be sampled over the same number of pixels.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-l</B> <I>lfactor</I>
+<DD>
+Resample each line <I>lfactor</I> times.
+</DD>
+
+<P>
+<DT><B>-s</B> <I>sfactor</I>
+<DD>
+Resample each sample <I>sfactor</I> times.
+</DD>
+
+<P>
+<DT><B>-f</B> <I>type</I>
+<DD>
+The function used to resample the image is <I>type</I> which
+can be 'min', 'max', or 'mean' (default).
+</DD>
+
+<P>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+Use <I>mask</I> as a mask image.  Any points in <I>mask</I> that are
+0 will have the corresponding points in <I>image</I> ignored.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To resample an NDVI image from 1k to 10k, using the maximum value:
+</P><PRE>
+	resamp -l 10 -s 10 -f max
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The zoom factors must be integers.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Apr 1991</DT>
+<DD>
+	Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+	Ran through Purify.  Dana Jacobsen, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="reproj.html">reproj</A></B>,
+<B><A href="zoom.html">zoom</A></B>
+</DD>
+</DL>
+

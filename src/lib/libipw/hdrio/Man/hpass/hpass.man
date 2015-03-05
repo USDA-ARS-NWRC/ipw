@@ -1,0 +1,64 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "hdrio.h"
+
+int
+hpass(
+	int     fdi,		|* input file descriptor	 *|
+	int     fdo)		|* output file descriptor	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> copies header records from file descriptor fdi to file
+descriptor fdo, stopping after a preamble record has been read from
+fdi.
+</P><P>
+Call <B>%name</B> if you need to copy header records AFTER explicitly writing
+header records.  If you just want to copy the entire header unaltered,
+or add records at the END, then call hcopy instead.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+OK for success, ERROR for failure
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

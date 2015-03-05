@@ -1,0 +1,184 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-m</B> <I>in</I>,<I>out</I>[,<I>in</I>,<I>out</I>,<I>...</I>] [ <B>-u</B> <I>units</I> ] [ <B>-i</B> <I>interp</I> ]
+      [ <B>-b</B> <I>band</I>[,<I>...</I>] ] [ <B>-f</B> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> constructs an IPW linear quantization header (LQH) and inserts
+it into the headers of <I>image</I> (default: standard input).  If the
+specified bands already have LQ headers, they are overridden, and 
+a warning message is generated.
+<P>
+If the <B>-f</b> option is specified, then only the headers are written to
+the standard output, and any input image data is ignored.
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-m</B> <I>in</I>,<I>out</I>[,<I>in</I>,<I>out</I>,<I>...</I>]
+<DD>
+Construct a linear mapping between the breakpoints
+<I>in,out</I>,...  At least 1 <I>in,out</I> pair must be supplied.
+The breakpoint pairs 0,0 and 2^nbits-1,0 are assumed
+unless explicitly overridden.
+</DD>
+
+<P>
+
+<DT><B>-u</B> <I>units</I>
+<DD>
+The floating-point pixel values are expressed in units of
+<I>units</I> (e.g., &quot;W m^-2&quot;, &quot;nm&quot;) (default: none).
+This field is for annotation only.
+</DD>
+
+<P>
+<DT><B>-i</B> <I>interp</I>
+<DD>
+Use <I>interp</I> to interpolate floating-point values between
+breakpoints (default: &quot;linear&quot;).  Currently only &quot;linear&quot;
+is supported.
+</DD>
+
+<P>
+<DT><B>-b</B> <I>band</I>[,<I>...</I>]
+<DD>
+The &quot;lq&quot; header will be applied only to the specified
+<I>band</I>s (default: all bands).
+</DD>
+
+<P>
+<DT><B>-f</B> 
+<DD>
+Force header output only.  Do not attempt to copy pixel
+data from <I>image</I> to the standard output.  Note that there
+must still be at least an input BIH, and any input headers
+(except superseded &quot;lq&quot; headers) will still be copied to
+the standard output.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I></DT>
+
+<DD>input image (default: standard input)
+</DD>
+
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To construct an &quot;lq&quot; header that will map 8-bit pixels (0 .. 255)
+into the floating point range 0 .. 1:
+</P><PRE>
+        mklqh -m 0,0,255,1
+</PRE><P>
+To construct an &quot;lq&quot; header that will map 12-bit pixels (0 .. 4095)
+into the range 2762 .. 3417:
+</P><PRE>
+        mklqh -m 0,2762,4095,3417
+</PRE>
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT>bands <I>band1</I> and <I>band2</I> have different # bits / pixel
+</DT>
+<DD>All bands to which the &quot;lq&quot; header is applied must have
+the same number of bits per pixel.
+</DD>
+
+<P>
+<DT>must specify pixel,fpixel pairs for <B>-m</b>
+</DT>
+<DD><B>-m</b> must have an even number of arguments.
+</DD>
+
+<P>
+<DT>no band <I>band</I>
+</DT>
+<DD>A nonexistent input band was specified with <B>-b</b>.
+</DD>
+
+<P>
+<DT>band <I>band</I>: replacing previous LQ header
+</DT>
+<DD>Band <I>band</I> already had a &quot;lq&quot; header, which was replaced
+by the newly-created one.
+</DD>
+
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+There are not yet any standard identifiers for <I>units</I>.
+</P><P>
+The default breakpoints can lead to unexpected quantization mappings
+or errors from <B>%name</B>.  For example, the mapping
+</P><PRE>
+	mklqh -m 0,0,127,1
+</PRE><P>
+succeeds for 7-bit pixels, but for 8-bit pixels there would be an
+additional implicit breakpoint at 255,0, which would make the mapping
+non-monotonic.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="gradient.html">gradient</A></B>,
+<B><A href="hor1d.html">hor1d</A></B>,
+<B><A href="lincom.html">lincom</A></B>,
+<B><A href="lqhx.html">lqhx</A></B>,
+<B><A href="mkbih.html">mkbih</A></B>,
+<B><A href="mstats.html">mstats</A></B>,
+<B><A href="mult.html">mult</A></B>,
+<B><A href="prhdr.html">prhdr</A></B>,
+<B><A href="rmhdr.html">rmhdr</A></B>,
+<B><A href="shade.html">shade</A></B>,
+<B><A href="viewcalc.html">viewcalc</A></B>,
+<B><A href="wedge.html">wedge</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A><BR>
+</P>
+

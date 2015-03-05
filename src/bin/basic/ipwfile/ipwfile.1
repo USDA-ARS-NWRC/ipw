@@ -1,0 +1,162 @@
+.TH "ipwfile" "1" "10 April 1998" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBipwfile\fP - print basic info about an IPW image
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBipwfile\fP [ \fB-l\fP ] [ \fB-s\fP ] [ \fB-b\fP ] [ \fB-y\fP ] [ \fB-f\fP ] [ \fB-m\fP ] [ \fIimage\fP ...]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBipwfile\fP prints a short description of bands, dimensions, and
+bytes / pixel of an IPW image.
+.SH OPTIONS
+.TP
+\fB-l\fP
+print the number of lines in each image.
+.sp
+.TP
+\fB-s\fP
+print the number of samples in each image.
+.sp
+.TP
+\fB-b\fP
+print the number of bands in each image.
+.sp
+.TP
+\fB-y\fP
+print a list of bytes / pixel in each image.
+.sp
+.TP
+\fB-f\fP
+print the filename of each image.
+.sp
+.TP
+\fB-m\fP
+strip labels for easier machine readable output.
+This is useful in a shell script; see below.
+Note:  \fB-m alone implies -mlsbyf
+.PP
+If no options are specified, then the default is:  \fB-lsbyf\fP
+.SH OPERANDS
+.TP
+\fIimage\fP ...
+input image(s)
+.SH EXAMPLES
+.PP
+To print all information in "image1" and "image2":
+.sp
+.nf
+.ft CR
+     ipwfile image1 image2
+.ft R
+.fi
+
+.PP
+would return something like:
+.sp
+.nf
+.ft CR
+     File: "image1"  Bands: 3  Lines: 480  Samples: 500 Bytes/Pixel: 1 1 1
+     File: "image2"  Bands: 1  Lines: 380  Samples: 200 Bytes/Pixel: 1
+.ft R
+.fi
+
+.PP
+To print the number of bands in "image":
+.sp
+.nf
+.ft CR
+     ipwfile -b image
+.ft R
+.fi
+
+.PP
+To print machine readable output with \fB-m:
+.sp
+.nf
+.ft CR
+     ipwfile -m image1 image2
+.ft R
+.fi
+
+.PP
+would return something like:
+.sp
+.nf
+.ft CR
+     "image1" 3 480 500 1 1 1
+     "image2" 1 380 200 1
+.ft R
+.fi
+
+.PP
+Use \fB-m to set image parameters in Bourne shell variables (see
+RESTRICTIONS below):
+.sp
+.nf
+.ft CR
+     set - `ipwfile -m image1`
+     file=$1
+     bands=$2
+     lines=$3
+     samps=$4
+     ...
+.ft R
+.fi
+
+.PP
+or to set just one:
+.sp
+.nf
+.ft CR
+     bands=`ipwfile -mb image1`
+.ft R
+.fi
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.PP
+None.
+.SH RESTRICTIONS
+.PP
+No matter what order the options are specified, the results are
+returned in this order:  file, bands, lines, samples, bytes...
+.PP
+"set - `\fBipwfile\fP \fB-m image`"  won't work predictably if your
+filenames have spaces in them (admitably odd but possible).
+Use instead:
+.sp
+.nf
+.ft CR
+    file="`ipwfile -fm image`"
+    lines="`ipwfile -lm image`"
+    bands="`ipwfile -bm image`"
+    ...
+.ft R
+.fi
+.SH HISTORY
+.TP
+Feb 1993
+Written by Jim Davidson, UCSB.
+From IPW, Version 1.0
+.sp
+.TP
+Apr 1997
+Added uclose to close open files. J. Domingo, OSU
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO
+.TP
+IPW:
+\fBcmpimg\fP,
+\fBprhdr\fP
+.sp
+.TP
+Image:
+pnmfile, tiffinfo, rlehdr, xli, xloadimage, xv

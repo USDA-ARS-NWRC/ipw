@@ -1,0 +1,152 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-c</B> <I>classes</I> <I>image</I>
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> computes the band-wise mean vector and variance-covariance
+matrix for the input <I>image</I>.  The
+statistics are written in text to the standard output, in the
+following format:
+</P><PRE>
+     item                          description
+     -------------------------     --------------------------
+     #&lt;stats&gt;                      mstats output identifier
+
+     number_of_bands               # bands in the input image
+
+     mean_0 mean_1 ...             mean pixel value vector
+
+     variance_0                    variance-covariance matrix
+     covariance_1,0 variance_1
+     ...
+
+     * class                       class number
+
+     number_of_pixels              number of samples in {class}
+</PRE>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-c</B> <I>classes</I>
+<DD>
+Read classes from <I>classes</I> image
+This must be a single-band image with the same dimensions
+as the input image.  A separate set of statistics is
+accumulated and output for each unique pixel value in the
+class image.  The pixel at (line,sample) in the input image
+is assigned to the class of the pixel in the <I>classes</I> image.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I></DT>
+
+<DD>input image
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+If &quot;image&quot; is a multiband satellite image, and &quot;basin&quot; is a
+registered mask of a drainage basin, then
+</P><PRE>
+        mstats -c basin image
+</PRE><P>
+will compute the separate multivariate statistics for areas inside
+and outside the basin.
+</P>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT>input and class image must have same # lines
+<DD></DD>
+<DT>input and class image must have same # samples
+<DD>The input and class images must have the same dimensions.
+</DD>
+
+<P>
+<DT>class image must have only 1 band
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+<B>%name</B> will always use any linear quantization (&quot;LQ&quot;) headers in
+the input image to transform the input values.  If statistics for
+the raw pixel values are desired, then any &quot;LQ&quot; headers must be
+removed from the input image before is is passed to <B>%name</B>:
+</P><PRE>
+        rmhdr -d lq | mstats
+</PRE><P>
+Computing variances involves accumulating a sum of squares of all
+input values.  the larger the input image, the more likely that
+the output variances and covariances will contain rounding errors.
+</P><P>
+Means and (co-)variances will be printed with the maximum precision
+supported by the hose architecture.  The low-order digits should
+probably be ignored.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+
+<P>
+
+<DT>Oct 1997</DT>
+<DD>
+Made the <B>-c</B> option required instead of optional.  The program
+crashed if this option was not specified.  J. Domingo, OSU
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+Previously, the program would crash if the <B>-c</B> option was not
+specified.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD><B><A href="demux.html">demux</A></B>,
+<B><A href="edimg.html">edimg</A></B>,
+<B><A href="hist.html">hist</A></B>,
+<B><A href="imgstat.html">imgstat</A></B>,
+<B><A href="mux.html">mux</A></B>,
+<B><A href="rmhdr.html">rmhdr</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A>
+</P>
+

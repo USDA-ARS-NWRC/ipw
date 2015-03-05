@@ -1,0 +1,33 @@
+!<header> basic_image_i -1 $Revision: 1.11 $
+byteorder = 3210 
+nlines = 20 
+nsamps = 57 
+nbands = 1 
+!<header> basic_image 0 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+annot = Channel 2 Reflectance .72 - 1.1 Period 03/02 thru 03/15/1990 
+history = mkgeoh -c Lambert -u meters -o 752000,-2050000 -d -1000,1000 -f 
+history = mklqh -m 0,0,254,.635,255,1.0 -f 
+history = las2ipw -i p01ch2.img -r -h /files/data/crystal/data1/danny/columbia/avhrr/header.p01ch2 -g 
+history = reproj -i /files/data/crystal/data1/danny/columbia/avhrr/lambert.defs -o /files/data/crystal/data1/danny/columbia/avhrr/albers.defs -b 3550000,-2230000 -d -1000,1000 -l 1400 -s 1200 
+history = window -b 355,550 -e 450,830 ch2 
+history = resamp -s 5 -l 5 -f max Data/ch2.ipw 
+!<header> lq 0 $Revision: 1.6 $
+map = 0 0 
+map = 254 0.6349999905 
+map = 255 1 
+!<header> geo 0 $Revision: 1.7 $
+bline = 3193000 
+bsamp = -1678000 
+dline = -5000 
+dsamp = 5000 
+units = meters 
+coord_sys_ID = Albers Conical Equal Area 
+!<header> win 0 $Revision: 1.7 $
+bline = 355 
+bsamp = 550 
+dline = 5 
+dsamp = 5 
+!<header> image -1 $Revision: 1.5 $
+Í}Îä†¹êìÇ¹±›‚‹Êÿyxµª„ÍéûÿĞÿÿÿÿÿï™‰êÿÿÿÿÿÿ½«ÿÍ¶w‚”Œş³‘fÈ¿k‚›‡¤È›ÑªŒœtd ƒ{õõÂ²¢·ôªÿÌª¹ÿÿÑ×`ÓÓÿÿÿÿÿÿşÿÿÿìkÄlröÚ\ƒ³g¨™¢©ÿÿÅ¦jE]Ø±hv‰o£Ì~ÀÉâàÏ¦´ŒûÿÎy‚rúÿÿÿÿÿÿÿÿÿôÇ|Î›‹öülÙÎÿæµ©ììÿ®£¸ÿÿ·dqk~–ŒäğÿğË†°ÏÿÿÿxŸõÿÿÿûÿÿÿÿÿáá„pzƒœÚh›wààœ–d²~`ot‰®`ı§®fr^W|[œîÿÿå¾Ç®êîÿïÇ²çÜ£²ÖÃÿåÿÿÿ¨™°‘ŒdØpËvå²p¾¢b\Lq¨ÕÕ®ˆ›]°Àd’ûÿÿÿğğÖóøäß–„iŞÌÿÿÿÿ÷Ô¬Ğl‹Ùã—€†gØ®‡ÅıØ×«S[f±ç©RQlj]ÉŸ„ÿÚÿÿßÍµüà×Ä¸›TÁÿÿÿõÿş»Ëãèi¤ÔÀ“W€“ûr»Ãö¥ĞĞ±i[½®~ÁŸa[ZŠââıÿÿÀ¹…´zÁñÈœhX—ÿÿÿÿÿÿäÿıİ|˜ÌÌ‰JÊí¥¥œé‹‹½»|„[˜¨ª¡—‚MX´ğÁäõÿÅ\\ø”ĞÜ¨ÿÊ|T–ÿÿÿÿÿÿÜÿÿÿÙÓœyh˜ˆrÿÿ‹{‚`…V‘vŠqš”¡µcKpÊÄâ»ÿçÿ¥‡·ªğ¹ÿÿØ\Êÿÿÿÿÿÿÿÿóî’†ws^Ÿ}®áÿ—x_eRh˜¤|¤d˜„‚Vg”Û¹›Ò¦Ÿ‡¢±ÿÿÿèmd|ÄÿÿÿÿÿÿøÄĞŸzkwwg…®ÌÓ´«aYaYz•ôzŒrŒj|h`{zqœ†‚t‡•Zj¥ÿÿÿÿk‰VÒÿÿıçûÿ³Ğ³šâ¡WxvYz£üçëyQO\a‚©©tegi››P[©Û¹kgfr‹èè°™òÅÅƒj”÷ïÒÖÿìÿÇí±âÛ[WakeÅÀ‡óòº[]ŠŠ‰˜ZmŒqpk¶T^ÀîÁl_Š‰‚¸¦\_‹…pñp »È­tÿàæòøÙzm^VI×»İ…â•iKT†lm]fšnxXTO‡³Ó¿¹Æ„ˆz¦›XVavlŠg˜Â–£’áíåÃ»†aczLVvÿëğäŒ`j\`Vm„£wÀÀORQu™Â‘Ñ³¬usl}HkeWm|dcâÿ°¾Öâ§_Í›÷‘ŒJz¬½ïÜ³·{dBTmvtqa˜ïLgujYÅ˜˜¤¯v]|[by‘t™Ğì}ßÈªÿçù«¦À ÿÿğtOlÈİøß³¤…{}^{qiy|»…R’´oWÅ¹¾“óËp§Æ‚ÁÏãô¥ÆÓ©ÚÓÓw´øÿÿhQR‹·‘ÛŸoyo¤pfŸŠ„}Ïpj­ƒha`g}‰Úíÿˆ‚îÍî‰—ÿlÆòíÿÿÁ„z†˜ÉèîcLƒ«ÌÂ ~JDQk}UybT…{{coom…]|œíëh‡É”È‚¹ÉO\ñ¿”`…ymV†QQLZHBFcÂÅª«S

@@ -1,0 +1,9 @@
+<HTML>
+
+<HEAD>
+ <TITLE>%title</TITLE>
+</HEAD>
+
+%include(%IPW/doc/src/Header)
+
+<H1>%h1</H1>

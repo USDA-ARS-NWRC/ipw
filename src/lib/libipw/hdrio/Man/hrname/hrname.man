@@ -1,0 +1,65 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "hdrio.h"
+
+char *
+hrname(
+	int     fd)		|* input file descriptor	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> returns the name of the image header currently being read from
+file descriptor fd.
+</P><P>
+Call <B>%name</B> to determine what kind of header is waiting to be read;
+then, call either hrskip, hpass, or a header-specific ingest function.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+A pointer to the EOS-terminated header name is returned.  NULL is
+returned on EOF or error.  The string symbolically defined as BOIMAGE
+is returned if there are no more headers to be read.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_hdriocb
+</P>
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The return value points to static data which may be overwritten by
+subsequent calls.
+</P>
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

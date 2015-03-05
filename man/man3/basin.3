@@ -1,0 +1,74 @@
+.TH "basin" "3" "9 June 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBbasin\fP - delineate a basin
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "topo.h"
+
+fpixel_t
+basin(
+    int        seedX,      /* sample number of seed point          */
+    int        seedY,      /* line number of seed point            */
+    fpixel_t * slope,      /* array of sin(slope) data for pixels  */
+    fpixel_t * exposure,   /* array of exposure data for pixels    */
+    fpixel_t * elev,       /* array of elevation data for pixels   */
+    pixel_t  * bmask,      /* output basin mask                    */
+    int        x_count,    /* number of samples in image           */
+    int        y_count,    /* number of lines in image             */
+    fpixel_t   flat,       /* threshold for "flat" slopes          */
+    int        clipFlag,   /* clip basin to a specific altitude?   */
+    fpixel_t   clipElev)   /* elevation at which to clip the basin */
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Given a seed point and slope and exposure data, the \fBbasin\fP function
+recursively climbs "upstream", marking cells as it goes, in order to
+delineate a basin.
+.PP
+Upstream neighbors are determinded by the exposure direction of the
+current cell.
+.PP
+Flat regions are always considered uphill, no matter what their
+orientation.  The "flat" argument allows the programmer to specify a
+nonzero sin(slope) tolerance for flatness.
+.PP
+If an array of elevations is fed to the procedure through the
+"elev" argument, then the lowest point on the boundary is computed
+and returned to the calling procedure.  If "elev" is NULL, the
+function returns 0.0.
+.PP
+\fBbasin\fP also implements clipping of the basin to a specified maximum
+altitude.  If "clipFlag" is TRUE, and "elev" is non-NULL, then the
+recursion stops before climbing abouve the elevation specified by
+"clipElev".
+.PP
+The intended use of the clipping and return-the-lowest-point features
+is for pit masking.  Two calls to \fBbasin\fP are to be made in the pit
+masking process.  The first call delineates the entire basin starting
+with the pit seed point.  The lowest point on the boundary from this
+first call is then passed to a second call to \fBbasin\fP as a clipping
+threshold, thus delineating only the extent of the pit.
+.SH RETURN VALUE
+.PP
+If an array of elevations is fed to the procedure through the
+"elev" argument, then the lowest point on the boundary is computed
+and returned to the calling procedure.  If "elev" is NULL, the
+function returns 0.0.
+.SH HISTORY
+.TP
+May 1995
+Started by Kevin L. Novins, ERL-C.  Based on Qdips program
+by Marks and Dozier.
+.sp
+.TP
+Jul 1995
+Modified to include features necessary for pit masking.
+.sp
+.TP
+Jun 1998
+Extracted from \fBbmask\fP and \fBpmask\fP programs, and
+placed in a separate library.  J. Domingo, OSU.

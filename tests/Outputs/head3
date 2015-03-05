@@ -1,0 +1,14 @@
+!<header> basic_image_i -1 $Revision: 1.11 $
+byteorder = 3210 
+nlines = 1 
+nsamps = 1 
+nbands = 1 
+!<header> basic_image 0 $Revision: 1.11 $
+bytes = 2 
+bits = 10 
+history = mklqh -m 0,462,1023,895 -u W m^-2 -f 
+!<header> lq 0 $Revision: 1.6 $
+units = W m^-2 
+map = 0 462 
+map = 1023 895 
+!<header> image -1 $Revision: 1.5 $

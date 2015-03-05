@@ -1,0 +1,139 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-p</B> <I>density-profile</I> [ <B>-s</B> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> computes snow-water-equivalent (swe) for a specified layer
+from detailed density profile data;
+Input density profile, prof,  must be a pair of vectors:
+</P>
+<PRE>
+	z(1)	rho(1)
+	z(2)	rho(2)
+	etc...
+</PRE>
+<P>
+where z = height of the upper bound of the density sample
+above the ground, and rho = snow denisty (kg/m*3);
+the units of z will determine the units of output swe;
+the first input should be the total snow depth;
+rho is assumed to be the average snow density of the layer
+between z(i) and z(i+1);
+Optional paramater '<B>-s</b>' will cause a summary of the density
+profile to output;
+</P><P>
+Input, to stdin, is upper and lower bound of layer for which
+swe is to be calculated;
+(must be in same units as z in prof);
+Output to stdout;
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-p</B> <I>density-profile</I>
+<DD>
+<I>density-profile</I> is the file with a pair of vectors:
+z(1)	rho(1)
+z(2)	rho(2)
+...
+z(n)	rho(n)
+where z = height of the upper bound of the density sample
+above the ground, and rho = snow density (kg/m^3).
+</DD>
+
+<P>
+<DT><B>-s</B> 
+<DD>
+A summary of the density profile will be also be outputed.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate the SWE from 0.25-0.35m above ground level, using the
+following density profile:
+</P><PRE>
+		1.00    100
+		0.75    250
+		0.50    350
+		0.25    400
+</PRE><P>
+and input file &lt;0.35 0.25&gt;:
+</P><P>
+the command &quot;<B>%name</B> <B>-p</b> profile <B>-s</b> &lt; infile&quot;
+</P><P>
+results in:
+</P><PRE>
+	depth   density SWE
+	1.000   100.0   0.025
+	0.750   250.0   0.063
+	0.500   350.0   0.088
+	0.250   400.0   0.100
+</PRE><PRE>
+	1.000   322.7   0.275
+</PRE><PRE>
+	Layer Calculations
+	 top    bottom   SWE  
+	0.350   0.250   0.035
+	Density Profile Summary
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Dec 1987</DT>
+<DD>
+Written by D. Marks, CSL UCSB;
+</DD>
+</DL>
+
+<DL>
+<DT>June 1995</DT>
+<DD>
+Converted to IPW by J. Domingo, OSU, EPA NHEERL/WED
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+Will work with input form keyboard, but format is kind of ugly
+</P>
+
+<H2>SEE ALSO</H2>
+

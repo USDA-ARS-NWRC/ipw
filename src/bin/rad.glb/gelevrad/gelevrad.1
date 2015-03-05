@@ -1,0 +1,171 @@
+.TH "gelevrad" "1" "10 April 1998" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBgelevrad\fP - beam and diffuse irradiance from elevation
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBgelevrad\fP \fB-z\fP \fIelev\fP \fB-w\fP \fIomega\fP \fB-g\fP \fIgfact\fP \fB-s\fP \fIS0\fP [ \fB-m\fP \fImask\fP ]
+      [ \fB-n\fP \fIbits\fP[,\fIbits\fP] ] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Gelevrad is part of a family of large area, or "global", scale radiation
+transfer simulation, and solar geometry calculation tools, developed
+after the small-scale radiation transfer tools, developed at UCSB by
+Jeff Dozier and Ralph Dubayah.
+.PP
+All of the global-scale radiation transfer tools are designated by
+the "g" prefix in front of the small-scale tool's name.  These tools
+assume that solar geometry, atmospheric properties, and sun rise and sun
+set vary over the grid, and they also correct for earth curvature.
+The global-scale radiation transfer tools can be applied to areas of
+size, up to the entire earth.  The global-scale radiation transfer tools
+were originally developed by Kelly Longley, Oregon State University,
+at the Corvallis, Oregon, EPA lab, in the early 1990's.
+.PP
+Gelevrad is the "global" version of elevrad.  That is, it is designed
+to be run over areas large enough so that solar geometry cannot be
+assumed constant at a given time (areas larger than 0.25 to 0.5 deg
+(lat,long) square).  It assumes that cos(solar zenith) is calculated
+over the grid in geodetic coordinates using the program gshade.
+It also allows a spatially distributed optical depth estimate (tau),
+and mean surface albedo (which can be estimate from satellite imagery),
+but constant value images could be used (see ftransform).  Over snow,
+albedo can be estimated using the programs "albedo" for a constant
+value, or "salbedo" for albedo over a grid.
+.PP
+Gelevrad calculates values for beam radiation (normal to sun)
+and diffuse radiation (on a horizontal surface) as a function
+of elevation, zenith angle, single-scattering albedo, scattering
+asymmetry parameter and mean surface albedo.  It is mainly used
+as a preprocessor for gtoporad.
+.PP
+The output image is a two-band image of beam and diffuse irradiance.
+The output projection is the same as the input image.  Gelevrad doesn't
+check the projection, but it should be geodetic.
+.SH OPTIONS
+.TP
+\fB-z\fP \fIelev\fP
+elevation of optical depth instrument (m)
+.sp
+.TP
+\fB-w\fP \fIomega\fP
+single-scattering albedo
+.sp
+.TP
+\fB-g\fP \fIgfact\fP
+scattering asymmetry parameter
+.sp
+.TP
+\fB-s\fP \fIS0\fP
+exoatmospheric solar irradiance
+.sp
+.TP
+\fB-m\fP \fImask\fP
+mask image
+.sp
+.TP
+\fB-n\fP \fIbits\fP[,\fIbits\fP]
+# output bits (default: same as band 0 of input); band 0 could
+be different than band 1.
+.SH OPERANDS
+.TP
+[\fIimage\fP]
+	image	4-band input image: (defaults to stdin)
+.sp
+		band	contents
+		----------------
+		0	elevation (m)
+		1	cosine solar zenith angle
+		2	mean surface albedo
+		3	optical depth at z (m)
+.sp
+.SH EXAMPLES
+.PP
+To estimate solar beam and diffuse irradiance over a dem grid
+representing the Columbia River basin for June 22, 1990, in the spectral
+window of 0.58-0.68um, using values for the elevation of the optical
+depth estimate, the single-scattering albedo, and scattering asymmetry
+parameter, recommended for a relatively clean atmospherer
+by Dozier (1980):
+.PP
+\fBgelevrad\fP \fB-z 100 \fB-w 0.85 \fB-g 0.55 \fB-s 150.214 image
+.SH FILES
+.sp
+.nf
+.ft CR
+     None
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+None
+.SH RESTRICTIONS
+.PP
+None
+.SH HISTORY
+.TP
+Jul 1990
+	Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+(modified version of IPW elevrad program written by
+Jeff Dozier, UCSB)
+.TP
+Oct 1990
+	Made tau (optical depth) an input image band instead of
+an argument, K. Longley OSU, EPA ERL-C
+.SH BUGS
+.PP
+None that we know of
+.SH SEE ALSO
+.TP
+IPW
+	\fBelevrad\fP,
+\fBggradient\fP,
+\fBghorizon\fP,
+\fBgradient\fP,
+\fBgshade\fP,
+\fBgsunlight\fP,
+.PP
+gtoporad, gtopquad.24, gtopquad, gviewf, gviewf-mp, hor1d, horizon,
+salbedo, selevrad, solar, stoporad, sunang, sunlight, sunweights,
+toporad, toporad.24, topquad, twostream, viewf
+.PP
+Dozier, J., 1980.  "A clear-sky spectral solar radiation model for
+	snow-covered mountainous terrain".  Water Resources Research,
+	vol. 16, pp. 709-718.
+.PP
+Dozier, J., and J. Frew, 1981.  "Atmospheric corrections to satellite
+	radiometric data over rugged terrain".  Remote Sensing of
+	Environment, vol. 11, pp. 191-205.
+.PP
+Dozier, J., J. Bruno, and P. Downey, "A faster solution to the
+	horizon problem", Computers and Geosciences, volume 7,
+	number 2, pp. 145-151, 1981.
+.PP
+Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain parameters
+	for radiation modeling from digital elevation data". IEEE
+	Transactions on Geoscience and Remote Sensing, vol. 28, no. 5,
+	pp. 963-969.
+.PP
+Dubayah, R., J. Dozier, and F. Davis, 1990.  "Topographic distribution
+	of clear-sky radiation over the Konza Prairie, Kansas".  Water
+	Resources Research, vol. 26, no. 4, pp. 679-691.
+.PP
+Marks, D., R. Dubayah, and K. Longley, 1991.  "Modeling the topographic
+	and spectral variability of clear-sky solar radiation at regional
+	to continental scales.  Proceedings 1991 IGARSS Symposium,
+	Remote Sensing:  Global Monitoring for Earth Management, Espoo,
+	Finland, Vol. 3, pp. 1711.
+.PP
+Dubayah, R., and V. Van Katwijk, 1992.  "The topographic distribution
+	of annual incoming solar radiation in the Rio Grande basin".
+	Geophysical Research Letters, vol. 19, pp. 2231-2234.
+.PP
+Dubayah, R., 1994.  "Modeling a solar radiation topoclimatology for the
+	Rio Grande River Basin".  Journal of Vegetation Science, vol. 5,
+	pp. 627-640.

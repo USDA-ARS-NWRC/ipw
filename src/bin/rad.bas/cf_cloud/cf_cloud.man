@@ -1,0 +1,141 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [<i>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> corrects beam and diffuse irradiance for cloud attenuation
+at a single time, using input clear-sky global and diffuse radiation
+calculations supplied by
+<B><A href="toporad.html">locally modified toporad</A></B> or
+<B><A href="stoporad.html">locally modified stoporad</A></B>.
+<P>
+The input image has the following bands:
+<PRE>
+    band 0 : global irradiance
+     "   1 : diffuse irradiance
+     "   2 : cloud attenuation factor
+</PRE><P>
+The first two bands are output from
+<B><A href="toporad.html">locally modified toporad</A></B> or
+<B><A href="stoporad.html">locally modified stoporad</A></B>,
+while the third is generated from measured solar irradiance and
+one or more points and then compaired to theoretical clear-sky values.
+<P>
+The ratio of
+<I>actual irradiance / clear-sky irradiance</I>
+is then either converted to a constant value or distributed image
+as a function of elevation using
+<B><A href="standard/iinterp.html">iinterp</A></B>, or
+if enough data points are available, using
+<B><A href="standard/surface.html">surface</A></B>.
+<P>
+The output image has the following bands:
+<PRE>
+    band 0 : cloud corrected global irradiance
+     "   1 : cloud corrected diffuse irradiance
+</PRE><P>
+Output is to the stdout.
+</P>
+<H2>OPTIONS</H2>
+<P>
+None
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+
+<DT><I>image</I>
+<DD>three-band input image (default: standard input).
+</DD>
+
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+Running <B>%name</B> over a section of the Columbia Basin on
+June 22, 1990, with input files muxed together:
+</P><PRE>
+	mux global-diffuse cloud-factors | cloud
+</PRE>
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>input image has no LQH
+<DD>
+</DD>
+
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+
+<DT> Feb 2000
+<DD>
+Written by D. Marks, ARS-NWRC.
+</DD>
+
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="standard/elevrad.html">elevrad</A></B>,
+<B><A href="standard/iinterp.html">iinterp</A></B>,
+<B><A href="standard/selevrad.html">selevrad</A></B>,
+<B><A href="stoporad.html">locally modified stoporad</A></B>,
+<B><A href="standard/surface.html">surface</A></B>,
+<B><A href="toporad.html">locally modified toporad</A></B>,
+<B><A href="twostream.html">locally modified twostream</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Dozier 1980">Dozier 1980</A>,
+<A HREF="../bib.html#Dozier 1981">Dozier &amp; Frew 1981</A>,
+<A HREF="../bib.html#Dozier 1991">Dozier, Bruno, &amp; Downey 1991</A>,
+<A HREF="../bib.html#Dozier 1990">Dozier &amp; Frew 1990</A>,
+<A HREF="../bib.html#Dubayah 1990">Dubayah, Dozier, &amp; Davis 1990</A>,
+<A HREF="../bib.html#Dubayah 1992">Dubayah &amp; Van Katwijk 1992</A>,
+<A HREF="../bib.html#Dubayah 1994">Dubayah 1994</A>,
+<A HREF="../bib.html#Marks 1991">Marks, Dubayah, &amp; Longley 1991</A>,
+<A HREF="../bib.html#Link 1999a">Link &amp; Marks 1999a</A>,
+<A HREF="../bib.html#Link 1999b">Link &amp; Marks 1999b</A>,
+<A HREF="../bib.html#Marks 1999b">Marks, Domingo, Susong, Link &amp; Garen 1999b</A>,
+<A HREF="../bib.html#Susong 1999">Susong, Marks, &amp; Garen 1999</A>
+</P>
+

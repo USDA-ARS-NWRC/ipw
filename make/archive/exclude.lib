@@ -1,0 +1,17 @@
+/Functions.html$
+/Functions.txt$
+.*/IPWmacros.*
+.*/NameDesc\..*
+\.o$
+\.[35]$
+/.*/.*\.html$
+\.tar$
+\.gz$
+\.Z$
+\.noExport$
+/Debug$
+/Debug/.*
+/Old$
+/Old/.*
+/Work$
+/Work/.*

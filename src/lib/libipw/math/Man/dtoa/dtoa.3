@@ -1,0 +1,40 @@
+.TH "dtoa" "3" "10 April 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBdtoa\fP - convert double-precision number to string
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+char *
+dtoa(
+	char      *s,		|* -> output string		 *|
+	double     d)		|* input double-precision number *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Ftoa stores the ASCII representation of "d", followed by an EOS, into
+the character array pointed to by "s".
+.PP
+The array pointed to by "s" must be large enough to hold the ASCII
+representation of "d", plus a trailing EOS.
+.SH RETURN VALUE
+.PP
+Ftoa returns the value of the pointer "s".
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

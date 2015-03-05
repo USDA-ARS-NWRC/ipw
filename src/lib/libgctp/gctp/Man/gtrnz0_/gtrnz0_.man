@@ -1,0 +1,286 @@
+<H2>NAME</H2>
+ 
+<P><B>%name</B> - %description</P>
+ 
+ 
+<H2>SYNOPSIS</H2>
+ 
+<PRE>
+#include "gctp.h"
+
+int
+gtrnz0_(
+     double *crdin,    /* coordinates in input system         */
+     int    *indef,    /* info about input coordinate system  */
+     double *tparin,   /* input projection parameters         */
+
+  /* output variable */
+
+     double *crdio,    /* coordinates in output system        */
+
+  /* input variables */
+
+     int    *iodef,    /* info about output coordinate system */
+     double *tpario,   /* output projection parameters        */
+     FILE   *ipfile,   /* file to print projection infor to
+                            (may be NULL)                     */
+
+  /* output variable */
+
+     int    *iflg)     /* return code: = 0 if transformation
+                            succeeded; <> 0 if error occurred */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+
+<B>%name</B> is the top-level routine in the General Cartographic
+Transformation Package (GCTP) library.  It converts a pair of coordinates
+in one reference system to another.  The input and output coordinates
+(<I>crdin</I> and <I>crdio</I>, respectively) are stored in 2-element arrays:
+
+<PRE>
+     Coordinates (2-element array):
+
+         element 0 = east-west dimension (e.g., X, longitude, easting)
+                     (west longitudes are negative)
+         element 1 = norst-south dimension (e.g., Y, latitude, northing)
+                     (south latitudes are negative)
+</PRE>
+
+<P>
+Information about the input and output reference systems (<I>indef</I>
+and <I>iodef</I>, respectively) are specified by 3-element arrays:
+
+<PRE>
+     Info about reference coordinate system: (3-element array):
+
+         element 0 = code for coordinate system
+                         0 = GEOGRAPHIC
+                         1 = U T M
+                         2 = STATE PLANE
+                         3 = ALBERS CONICAL EQUAL-AREA
+                         4 = LAMBERT CONFORMAL CONIC
+                         5 = MERCATOR
+                         6 = POLAR STEREOGRAPHIC
+                         7 = POLYCONIC
+                         8 = EQUIDISTANT CONIC
+                         9 = TRANSVERSE MERCATOR
+                        10 = STEREOGRAPHIC
+                        11 = LAMBERT AZIMUTHAL EQUAL-AREA
+                        12 = AZIMUTHAL EQUIDISTANT
+                        13 = GNOMONIC
+                        14 = ORTHOGRAPHIC
+                        15 = GENERAL VERTICAL NEAR-SIDE PERSPECTIVE
+                        16 = SINUSOIDAL
+                        17 = EQUIRECTANGULAR
+                        18 = MILLER CYLINDRICAL
+                        19 = VAN DER GRINTEN I
+                        20 = OBLIQUE MERCATOR (HOTINE)
+         element 1 = code for zone of coordinate system
+                       (for UTM and STATE PLANE systems only; see
+                        Appendix A and B of reference below)
+         element 2 = code for units of measure
+                         0 = RADIANS
+                         1 = FEET
+                         2 = METERS
+                         3 = SECONDS OF ARC
+                         4 = DEGREES OF ARC
+                         5 = PACKED DMS
+</PRE>
+
+<P>
+Projection parameters for the input and output reference systems
+(<I>tparin</I> and <I>tpario</I>, respectively) are specified by
+15-element arrays.  See Appendix C of the reference below for
+a description of these arrays.
+
+<H2>RETURN VALUE</H2>
+
+<P>
+Always returns 0.  If <I>iflg</I> is non-zero, then a diagnostic message
+was stored via the "usrerr" routine.
+</P>
+
+<H2>EXAMPLES</H2>
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT>
+... : Angle greater than 360 degrees = <I>angle</I>
+<DD>
+</DD>
+
+<p>
+
+<DT>
+... : Didn't find state zone <I>zone</I>
+<DD>
+</DD>
+
+<p>
+
+<DT>
+... : Equal latitudes for st. parallels on opposite sides of equator
+<DD>
+</DD>
+
+<p>
+
+<DT>
+... : Illegal packed dms field = <I>DMS field</I>
+<DD>
+</DD>
+
+<p>
+
+<DT>
+... : Illegal source or target unit code = <I>source code</I> <I>target code</I>
+<DD>
+</DD>
+
+<p>
+
+<DT>
+... : Illegal source reference system code = <I>code</I>
+<DD>
+</DD>
+
+<p>
+
+<DT>
+... : Illegal source unit code = <I>code</I>
+<DD>
+</DD>
+
+<p>
+
+<DT>
+... : Illegal source zone number = <I>code</I>
+<DD>
+</DD>
+
+<p>
+
+<DT>
+... : Illegal target reference system code = <I>code</I>
+<DD>
+</DD>
+
+<p>
+
+<DT>
+... : Illegal target unit code = <I>code</I>
+<DD>
+</DD>
+
+<p>
+
+<DT>
+... : Illegal target zone number = <I>zone</I>
+<DD>
+</DD>
+
+<p>
+
+<DT>
+... : Illegal zone no. = <I>zone</I>
+<DD>
+</DD>
+
+<p>
+
+<DT>
+... : Improper parameter
+<DD>
+</DD>
+
+<p>
+
+<DT>
+... : Inconsistant unit codes = <I>source code</I> <I>target code</I>
+<DD>
+</DD>
+
+<p>
+
+<DT>
+... : Latitude failed to converge
+<DD>
+</DD>
+
+<p>
+
+<DT>
+... : Point cannot be projected
+<DD>
+</DD>
+
+<p>
+
+<DT>
+... : Point projects into a circle
+<DD>
+</DD>
+
+<p>
+
+<DT>
+... : Point projects into infinity
+<DD>
+</DD>
+
+<p>
+
+<DT>
+... : Transformation cannot be computed at the poles
+<DD>
+</DD>
+
+<p>
+
+<DT>
+... : Uninitialized transformation
+<DD>
+</DD>
+
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Sep 1991
+<DD>
+Ported MIT's modified version of GCTP that was distributed with GRASS.
+</DD>
+
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<A HREF="../bib.html#USGS 1994">USGS 1994</A>
+

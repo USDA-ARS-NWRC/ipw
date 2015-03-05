@@ -1,0 +1,66 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "geoh.h"
+
+GEOH_T *
+geohmake(
+	double     bline,	|* begin line #			 *|
+	double     bsamp,	|* begin sample #		 *|
+	double     dline,	|* line increment		 *|
+	double     dsamp,	|* sample increment		 *|
+	char      *units,	|* units of measurement		 *|
+	char      *csys)	|* coord system ID		 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> allocates a GEO header.  The header is initialized with the
+remaining arguments.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+pointer to new GEO header; NULL if error
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

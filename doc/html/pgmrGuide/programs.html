@@ -1,0 +1,208 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Implementing IPW Commands as C Programs</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../images/usda.gif" alt="USDA">
+<IMG SRC="../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Implementing IPW Commands as C Programs</H1>
+
+
+<P>
+Implementing an IPW command as a program is the most common approach to
+implementation -- over 85% of IPW's commands are programs.  Currently,
+every IPW program is written in the C programming language
+(ANSI/ISO Standard C).
+
+<P>
+<B>Makefile</B>
+
+<P>
+The format of a program's Makefile is very similar to the Makefile for
+a script.  A sample Makefile is provided in the file
+<CODE>"$IPW/src/samples/command/Makefile.program"</CODE>.  The basic
+Makefile for most IPW programs looks like this:
+
+<PRE>
+     PGM := <I>foo</I>
+     DESCRIPTION := blah blah blah
+
+     SRCS := main.c globals.c headers.c foo.c
+
+     include $(IPW)/make/command
+</PRE>
+
+<P>
+The <CODE>PGM</CODE> macro specifies the name of the program, and the
+<CODE>SRCS</CODE> macro lists all the C source-code files that make up the
+program.
+
+<P>
+<B>Organization of source files</B>
+
+<P>
+The source code for an IPW program is divided among several files according
+to a convention to ensure uniformity across all programs.  The function and
+general format of each file is discussed below.  Samples of these files are
+located in the directory refered to previously:
+<CODE>"$IPW/src/samples/command"</CODE>.  Note
+that some programs do not require all of these files.
+
+<DL>
+
+<DT><CODE>IPWmacros.h</CODE>
+<DD>
+This C header file is automatically generated for each program.  It
+defines C preprocessor macros that correspond to the IPW macros defined in
+the automatically-generated file <CODE>"IPWmacros"</CODE>.  For example,
+
+<P>
+<DL>
+  <DT><CODE>IPW_NAME</CODE>
+  <DD>
+	the program's name -- used for making names of temporary files.
+  </DD>
+
+  <P>
+
+  <DT><CODE>IPW_DESCRIPTION</CODE>
+  <DD>
+	used as an argument to the function <CODE>"ipwenter()"</CODE> --
+	see the file <CODE>"main.c"</CODE> below.
+  </DD>
+</DL>
+
+<P>
+
+<DT><CODE>pgm.h</CODE>
+<DD>
+Every program must have this C header file.  Every source-code
+file should include this header file.  The general format for
+this header file is 
+
+<P>
+<UL>
+  <LI>include necessary header files (the file <CODE>"IPWmacros.h"</CODE> is
+	always included)
+  <LI><CODE>"typedef"</CODE> definitions
+  <LI>constant definitions (i.e., C preprocessor macros without arguments)
+  <LI>macro definitions
+  <LI><CODE>"extern"</CODE> declarations for global variables
+  <LI><CODE>"extern"</CODE> prototypes for functions defined locally within
+	the program
+</UL>
+
+</DD>
+
+<P>
+
+<DT><CODE>main.c</CODE>
+<DD>
+This source-code file contains the program's <CODE>"main()"</CODE> function.
+The purpose of this function is to perform the setup prior to
+the actual processing of the input data.  This setup includes
+
+<P>
+<UL>
+  <LI>defining the options and operands accepted by the program;
+  <LI>calling the function
+	<CODE>"<A HREF="../man3/ipwenter.html">ipwenter()</A>"</CODE> to
+	process the command-line arguments; and
+  <LI>performing initialization based on the command-line arguments.
+</UL>
+
+<P>
+For small programs, e.g., those that perform simple operations on text
+data files, the actual processing of the input data is done in the
+<CODE>"main()"</CODE> function.  For larger programs, i.e., those
+that work with image files, the <CODE>"main()"</CODE> function opens
+input, output and mask files, and then calls the two other functions
+to process image headers and pixel data in order (see the source-code files
+<CODE>"headers.c"</CODE> and <CODE>"<I>foo</I>.c"</CODE> below).
+
+<P>
+After the data is processed, the <CODE>"main()"</CODE> function performs
+any necessary cleanup, which always concludes with a call to
+the function <CODE>"<A HREF="../man3/ipwexit.html">ipwexit()</A>"</CODE>.
+
+</DD>
+
+<P>
+
+<DT><CODE>globals.c</CODE>
+<DD>
+This file contains the definitions for all the global variables shared
+by the various functions that constitute the program.
+
+</DD>
+
+<P>
+
+<DT><CODE>headers.c</CODE>
+<DD>
+A program that works with image files typically has this file which contains
+a function called <CODE>"headers()"</CODE>.  This function processes
+all the image headers, reading the headers of the input images, and
+using them to construct the headers for the output images.
+</DD>
+
+<P>
+
+<DT><CODE><I>foo</I>.c</CODE>
+<DD>
+Typically, large programs do not process input data, e.g., pixel data,
+in the <CODE>"main()"</CODE> function, but rather use a separate function
+which is defined in this source-code file, and named after the program.
+</DD>
+
+</DL>
+
+<P>
+<B>Linking with Libraries</B>
+
+<P>
+By default, an IPW program is linked with the standard C library
+(<CODE>"libc"</CODE>), the math library (<CODE>"libm"</CODE>), and the
+standard IPW library (<CODE>"<A HREF="libipw.html">libipw</A>"</CODE>).
+Additional libraries may be specified using the optional macro
+<CODE>EXTRA_LIBS</CODE> in the program's Makefile:
+
+<PRE>
+     PGM := <I>foo</I>
+     DESCRIPTION := ...
+
+     SRCS := ...
+
+     EXTRA_LIBS := snobal model
+
+     include $(IPW)/make/command
+</PRE>
+
+<P>
+The order that the libraries are listed is important.  If the functions
+in one library (e.g., <CODE>"libA"</CODE>) call the functions in another
+library (e.g., <CODE>"libB"</CODE>), then the former (<CODE>"libA"</CODE>)
+must be first in the list to ensure the linking phase of compilation is
+successful.
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

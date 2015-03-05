@@ -1,0 +1,197 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-s</B> <I>start</I> <B>-g</B> <I>gsize</I> <B>-m</B> <I>maxgsz</I> <B>-d</B> <I>dirt</I> 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> estimates solar albedo over snow for 2 band widths --
+visible (280-700nm) and IR (700-2800nm) -- from the time since
+the last snow storm, and the solar zenith angle.
+</P><P>
+Based on work by <I>Warren &amp; Wiscombe (1980)</I>, <I>Wiscombe and Warren
+(1980)</I>, and <I>Marshall and Warren (1987)</I> characterizing the
+spectral and broad band solar albedo of snow;
+<B>%name</B> models albedo as a function of grain growth and sun angle;
+Estimates decay of albedo with grain growth by approximating a
+set theoretical values presented in <I>Marshall and Warren (1987)</I>;
+Reasonable grain growth rates and contamination values are
+based on two years of albedo data from the Mammoth Mt. experimental
+snow study site.
+</P><P>
+Grain growth rate approximated by a second order Chebyshev
+polynomial (see routine growth()), as this function fit the
+Mammoth data; Albedo increases with low solar incidence angles
+are approximated with as a function of cos(z) which also fit
+the Mammoth data; Both functions give results that approximate
+measured values, and agree with results in <I>Choudhury (1981)</I>,
+and <I>McGuffie and Henderson-Sellers (1985)</I>, both of which
+present an analysis of the broad band albedo of snow;
+</P><P>
+Marshall and Warren show that albedo, when the solar zenith
+is 0, is related to the square root of the grain radius by:
+</P>
+<PRE>
+	alb(vis0) = 1.0 - sqrt(gsize)/500;
+	alb(ir0)  = 0.85447 * exp(-0.02123 * sqrt(gsize));
+</PRE>
+<P>
+This allows a linear alb(vis) decay from about .98 to .90,
+and a non-linear alb(ir) decay from .70 to .40, when given
+reasonable inputs;
+The effect of zenith angle is also related to the sqrt(gsize):
+</P>
+<PRE>
+	dzv       = (sqrt(gsize) * 1.375e-3) * (1 - cos(z))
+	alb(visz) = alb(vis0) + dzv
+	dzir      = (sqrt(gsize) * 2.0e-3 + 0.1) * (1 - cos(z))
+	alb(irz)  = alb(ir0) + dzir
+</PRE>
+<P>
+This allows alb(vis) increases from .014 to .068 with zenith
+angle, and alb(ir) increases from .12 to .20 with zenith angle;
+</P><P>
+The Mammoth data show new snow &quot;gsize&quot; values tend to be around
+100-200 in spring, with larger or smaller values later or
+earlier in the season; &quot;maxgsz&quot; tends to be 500-700 mu m in mid
+season, with values seldom reaching 1000;
+&quot;dirt&quot; is a factor relating the &quot;effective grain size&quot; in the
+visible to that in the IR, as the visible is strongly effected
+by contamination while the IR is not;
+Contamination is site specific but the Mammoth data show
+that the &quot;effective grain size&quot; in the visible is usually
+between 1.5 and 3.0 times what it is in the IR;
+Lower values may be used in early season, and higher in late
+season conditions;
+</P><P>
+Input, to stdin, is:
+</P>
+<PRE>
+	time	cosz
+</PRE>
+<P>
+where time is in decimal days; When cosz is 0.0 (sun below
+horizon) the albedo is set to 0.0;
+</P><P>
+Output to stdout.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-s</B> <I>start</I>
+<DD>
+<I>start</I> is the time of last snow storm (decimal days)
+</DD>
+
+<P>
+<DT><B>-g</B> <I>gsize</I>
+<DD>
+<I>gsize</I> is effective grain radius of snow after last
+storm (mu m)
+</DD>
+
+<P>
+<DT><B>-m</B> <I>maxgsz</I>
+<DD>
+<I>maxgsz</I> is maximum grain radius expected from grain
+growth (mu m)
+</DD>
+
+<P>
+<DT><B>-d</B> <I>dirt</I>
+<DD>
+<I>dirt</I> is effective contamination for adjustment to
+visible albedo (usually between 1.5-3.0)
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate albedo over new snow from a data set containing &lt;time cosz)
+(time in digital days from program cvtime, cosz from program sunang):
+</P><PRE>
+	paste time cosz | albedo -s 135.0 -g 150 -m 500 -d 1.0
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jul 1987</DT>
+<DD>
+Written by D. Marks, CSL, UCSB;
+</DD>
+</DL>
+
+<DL>
+<DT>May 1995</DT>
+<DD>
+Converted to IPW by J. Domingo, OSU, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW:</DT>
+<DD>	<B><A href="cvtime.html">cvtime</A></B>,
+<B><A href="glob.alb.html">glob.alb</A></B>,
+<B><A href="salbedo.html">salbedo</A></B>,
+<B><A href="sunang.html">sunang</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Unix</DT>
+<DD>	paste
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Choudhury 1981">Choudhury 1981</A>,
+<A HREF="../bib.html#Marks 1988">Marks 1988</A>,
+<A HREF="../bib.html#Marshall, Warren 1987">Marshall, Warren 1987</A>,
+<A HREF="../bib.html#McGuffie, Henderson-Sellers 1985">McGuffie, Henderson-Sellers 1985</A>,
+<A HREF="../bib.html#Warren 1980">Warren 1980</A>,
+<A HREF="../bib.html#Wiscombe 1980">Wiscombe 1980</A>
+</P>
+ 

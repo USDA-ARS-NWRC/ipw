@@ -1,0 +1,103 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <I>date-time1</I> <I>op</I> <I>date-time2</I>
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> compares two date-times using the specified relational operator
+<I>op</I>.  If the comparison indicated by the operator is true, then
+<B>%name</B> exits with a status of 0.  Otherwise, it exits with a status
+of 1 (i.e., the comparison is false).
+</P>
+
+<H2>OPTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+
+<DT><I>date-time1</I> <I>date-time2</I>
+<DD>
+The two date-times to compare.  Their format is the same as the default
+format for <B><A href="cvtime.html">cvtime</A></B>: "%Y_%m_%d+%H:%M:%S",
+e.g., "1963_12_04+12:34:56".
+</DD>
+
+<P>
+
+<DT><I>op</I>
+<DD>
+The relational operator for the comparison.  <I>op</I> must be one of these
+two-letter names:
+<PRE>
+    eq = <I>date-time1</I> is equal to <I>date-time2</I>
+    ne = <I>date-time1</I> is not equal to <I>date-time2</I>
+
+    lt = <I>date-time1</I> is less than (before) <I>date-time2</I>
+    le = <I>date-time1</I> is less than or equal to <I>date-time2</I>
+
+    gt = <I>date-time1</I> is greater than (after) <I>date-time2</I>
+    ge = <I>date-time1</I> is greater than or equal to <I>date-time2</I>
+</PRE><P>
+</DD>
+
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+The following example is a fragment of a sh shell script that produces a
+series of date-times starting at midnight on October 1, 1997 and ending
+at noon on March 31, 1998 with an interval of 3 hours:
+<PRE>
+    interval="-h 3"
+    dt="1997_10_01+00:00:00"
+    end_dt="1998_03_31+12:00:00"
+    while cmptime $dt le $end_dt ; do
+        printf "$dt\n"
+        dt=`addtime $interval $dt`
+    done
+</PRE><P>
+
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Nov 1998
+<DD>
+Written by J. Domingo, OSU.
+</DD>
+
+</DL>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD><B><A href="cvtime.html">locally modified cvtime</A></B>,
+<B><A href="addtime.html">locally modified addtime</A></B>
+</DD>
+</DL>

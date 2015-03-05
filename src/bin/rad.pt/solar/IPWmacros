@@ -1,0 +1,3 @@
+%define(name,"solar")
+%define(description,"exoatmospheric direct solar irradiance")
+%define(category,"Radiation Modeling: Point")

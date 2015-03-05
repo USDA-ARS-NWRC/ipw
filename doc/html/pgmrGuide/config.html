@@ -1,0 +1,102 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Customizing IPW's Configuration</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../images/usda.gif" alt="USDA">
+<IMG SRC="../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Customizing IPW's Configuration</H1>
+
+
+<P>
+Although efforts have been made to maximize the portability of IPW, there
+are a few situations where modifications to IPW's configuration are necessary
+in order for the software to be installed.  For example, a particular host
+may not conform completely with the Single Unix Specification, or, a
+IPW is being ported to a new operating system.
+
+<P>
+The customizations to IPW's configuration are categorized as one of two
+types:
+
+<UL>
+
+<LI><B>site-specific</B> -
+those modifications that are specific to the local site where IPW
+is installed, or
+
+<P>
+
+<LI><B>host-specific</B> -
+those modifications that are specific to the type of the operating system
+of the local host.
+
+</UL>
+
+<P>
+IPW provides different mechanisms for supporting both types of customizations
+to its configuration.
+
+<P>
+<B>Site-specific Modifications</B>
+
+<P>
+Site-specific modifications to IPW are placed in one of these two files:
+
+<UL>
+
+<LI><CODE>$IPW/conf/site.h</CODE> -
+the site-specific header file for the C preprocessor
+
+<P>
+
+<LI><CODE>$IPW/conf/site.mk</CODE> -
+the site-specific include file for the <CODE>"make"</CODE> utility
+
+</UL>
+
+<P>
+<B>Host-specific Modifications</B>
+
+<P>
+Generally, most modifications to IPW at installations known to the authors
+are specific to the type of operating system (OS) of the host that IPW is
+installed on.  These types of modifications are placed in C header files
+in the subdirectory <CODE>"$IPW/conf/hosts"</CODE>.
+
+<P>
+Each OS type has its own C header file.  The list of OS's and their
+associated header files is in the file <CODE>"$IPW/conf/hosts/List"</CODE>.
+When IPW is configured on a host, if the host's OS is in this list,
+then the symbolic link <CODE>"$IPW/conf/host.h"</CODE> points to the
+OS's associated header file.  If the host's OS is not in the list,
+then this link points to the default host header file
+<CODE>"$IPW/conf/hosts/default"</CODE>.
+
+<P>
+When porting IPW to a new operating system, a programmer may need to create
+a host-specific header file if the default header file is not adequate.
+If so, the programmer should add the new operating system and its header
+file to the list file mentioned above,
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,244 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-a</B> <I>phi</I> ] [ <B>-b</B> ] [ <B>-s</B> <I>solar_image</I> ] [ <B>-z</B> ]
+      [ <B>-m</B> <I>mask</I> ] [ <B>-e</B> <I>elev_max</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Ghorizon is part of a family of large area, or &quot;global&quot;, scale radiation
+transfer simulation, and solar/terrain geometry calculation tools,
+developed after the small-scale radiation transfer and terrain processing
+tools, developed at UCSB by Jeff Dozier, Jim Frew, and Ralph Dubayah.
+</P><P>
+All of the global-scale tools are designated by the &quot;g&quot; prefix in
+front of the small-scale tool's name.  These tools assume that solar
+geometry, atmospheric properties, and sun rise and sun set vary over
+the grid; they also correct for earth curvature.
+</P><P>
+The global-scale radiation transfer tools can be applied to areas of
+size, up to the entire earth.  The global-scale radiation transfer tools
+were originally developed by Kelly Longley, Oregon State University,
+at the Corvallis, Oregon, EPA lab, in the early 1990's.
+</P><P>
+Ghorizon is the global-scale version of the pgm horizon.  It is,
+however, implemented as a C-program, rather than as a shell script.
+Ghorizon finds cosines of horizon angles for a global-scale elevation
+image along the given azimuth(s).  The azimuth may be specified as a
+single value for every pixel (<B>-a</b> option) or alternatively by a single-
+band image of azimuth angles (specified by <B>-s</b> option).  The output
+image is cosine of the horizon angle measured from vertical.  All
+azimuths are in degrees from South (+E,-W).
+</P><P>
+If the <B>-b</b> option is specified, the output image is a mask image for
+sun below the horizon (output pixel 1 for sun above horizon, 0 for
+sun below horizon).  In this case the <B>-s</b> option is required and
+the solar_image is a two-band image where band 0 is cosine solar zenith
+angle (or zenith angle (deg) if <B>-z</b> is set) and band 1 is solar azimuth
+as degrees_ccw from south (+E,-W) (output from program gsunlight).
+</P><P>
+There is an option to specify the maximum elevation in the elevation
+file.  If specified, the horizon calculations may run much faster
+since the maximum elevation is used to calculate the maximum distance
+to search for the horizon.  If not specified, the maximum value in
+the floating point quantization will be used.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-a</B> <I>phi</I>
+<DD>
+azimuth specified as degrees from South (+E,-W)
+(note <B>-a</b> and <B>-s</b> options mutually exclusive)
+</DD>
+
+<P>
+<DT><B>-b</B> 
+<DD>
+&quot;sun below horizon&quot; mask output option
+</DD>
+
+<P>
+<DT><B>-s</B> <I>solar_image</I>
+<DD>
+solar azimuth image (degrees from South, +E,-W)
+or solar zenith (degrees) and azimuth if <B>-b</b> specified
+From program gsunlight (must be in geodetic projection).
+</DD>
+
+<P>
+<DT><B>-z</B> 
+<DD>
+flag for solar zenith angle included in solar_image
+(default: cosine solar zenith angle)
+</DD>
+
+<P>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+mask image
+</DD>
+
+<P>
+<DT><B>-e</B> <I>elev_max</I>
+<DD>
+maximum elevation in file
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image	input elevation file (must be in geodetic projection)
+		(defaults to stdin)
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To compute northwest horizons over a dem of the US:
+</P><PRE>
+	ghorizon -a -135 US_dem
+</PRE><P>
+To produce a mask of all points in the US_dem that cannot see the
+sun at 6AM, GMT, on Feb 15, 1990:
+</P><PRE>
+	mkgeoh ... | gsunlight -t 1990,02,15,06 &gt;solar_image
+	ghorizon -b -s solar_image US_dem
+</PRE><P>
+(i.e., any pixels that would be shadowed by adjacent terrain at
+the solar zenith and azimuths on this date and time,
+would be masked as 0.)
+</P>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>All images must be in geodetic projection (headers.c):
+</DT>
+<DD><BR>	Illegal latitudes in GEO header
+	Illegal longitudes in GEO header
+	Input image has no geodetic header - must be lat/lon projection
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+input elevation and solar azimuth images must be in lat/lon
+geographic projection: latitudes in decimal degrees (90 N to -90 S),
+longitudes in continuous decimal degrees (-180 to 180 deg +E/-W)
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jan 1991</DT>
+<DD>
+	Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<DL>
+<DT>May 1991</DT>
+<DD>
+	Added inverse distance squared interpolation for
+elevation, by K. Longley, OSU, EPA ERL-C
+</DD>
+</DL>
+
+<DL>
+<DT>Jun 1991</DT>
+<DD>
+	Changed elevation interpolation to bilinear
+interpolation, by K. Longley, OSU, EPA ERL-C
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1992</DT>
+<DD>
+	Use ANSI-C prototypes for all functions.  Changed way
+hypot is called to fix bug in AIX.  Dana Jacobsen, ERL-C
+</DD>
+</DL>
+
+<DL>
+<DT>May 1995</DT>
+<DD>
+	Inlined call to iobuf() to fix bug with Solaris 2.4/gcc.
+Dana Jacobsen, ERL-C
+</DD>
+</DL>
+
+<DL>
+<DT>Jul 1995</DT>
+<DD>
+	Changed calls to atan2 to PI definition.
+Dana Jacobsen, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="gsunlight.html">gsunlight</A></B>,
+<B><A href="gtoporad.html">gtoporad</A></B>,
+<B><A href="gtoporad.24.html">gtoporad.24</A></B>,
+<B><A href="gtopquad.html">gtopquad</A></B>,
+<B><A href="horizon.html">horizon</A></B>,
+<B><A href="mkgeoh.html">mkgeoh</A></B>,
+	<B><A href="stoporad.html">stoporad</A></B>,
+<B><A href="sunlight.html">sunlight</A></B>,
+<B><A href="toporad.html">toporad</A></B>,
+<B><A href="toporad.24.html">toporad.24</A></B>,
+<B><A href="topquad.html">topquad</A></B>
+</DD>
+</DL>
+<P>Dozier, J., 1980.  &quot;A clear-sky spectral solar radiation model for
+	snow-covered mountainous terrain&quot;.  Water Resources Research,
+	vol. 16, pp. 709-718.
+</P>
+<P>Dozier, J., J. Bruno, and P. Downey, &quot;A faster solution to the
+	horizon problem&quot;, Computers and Geosciences, volume 7,
+	number 2, pp. 145-151, 1981.
+</P>
+<P>Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain parameters
+	for radiation modeling from digital elevation data&quot;. IEEE
+	Transactions on Geoscience and Remote Sensing, vol. 28, no. 5,
+	pp. 963-969.
+</P>
+<P>Marks, D., R. Dubayah, and K. Longley, 1991.  &quot;Modeling the topographic
+	and spectral variability of clear-sky solar radiation at regional
+	to continental scales.  Proceedings 1991 IGARSS Symposium,
+	Remote Sensing:  Global Monitoring for Earth Management, Espoo,
+	Finland, Vol. 3, pp. 1711.
+</P>
+

@@ -1,0 +1,122 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-K</B> ] [ <B>-i</B> ]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> converts absolute humidity to vapor pressure,
+or the inverse;
+Reads input absolute humidity (gm/m^3) (or vapor pressure (Pa))
+and air temperature (C or K) from stdin;
+</P><P>
+(see <I>General Meterology, Byers, 1974</I>)
+</P>
+
+<P>
+If <B>-i</b> is set, input vapor pressure is converted to absolute humidity.
+Calculates absolute humidity in <I>gm/m^3</I>, or vapor pressure in <I>Pa</I>.
+</P><P>
+Output is to standard output;
+</P>
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-K</B> 
+<DD>
+The input air temperatures are in K
+(default: C).
+</DD>
+</DL>
+
+<DL>
+<DT><B>-i</B> 
+<DD>
+perform inverse operation converting vapor pressure to absolute humidity
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To convert absolute humidity and air temperature (C) to vapor pressure (Pa):
+</P><PRE>
+	paste ah ta | <B>%name</B>
+</PRE><P>
+To convert vapor pressure and air temperature (K) to absolute humidity:
+</P><PRE>
+	paste vp ta_k | <B>%name</B> -K -i
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+checks for vp or abs_hum &lt; 0.0, and dies on error.
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>May 2003</DT>
+<DD>
+Written by D. Marks, NWRC, Boise, Idaho.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD> <B><A href="standard/satvp.html">satvp</A></B>,
+<B><A href="standard/isatvp.html">isatvp</A></B>,
+<B><A href="standard/rh2vp.html">rh2vp</A></B>,
+<B><A href="standard/irh2vp.html">irh2vp</A></B>,
+<B><A href="standard/dewpt.html">dewpt</A></B>,
+<B><A href="standard/idewpt.html">idewpt</A></B>,
+<B><A href="standard/sling.html">sling</A></B>,
+<B><A href="standard/vptr.html">vptr</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Unix</DT>
+<DD>
+paste
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Byers 1974">Byers 1974</A>
+</P>
+ 

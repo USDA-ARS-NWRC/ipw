@@ -1,0 +1,143 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-c</B> <I>coef</I>,<I>...</I> ] [ <B>-n</B> <I>nbits</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads a multi-band image (default: standard input) and
+writes a linear combination of its bands to the standard output.
+For each input sample, the corresponding output sample is:
+</P><PRE>
+	p[0] * k[0] + ... + p[nbands-1] * k[nbands-1]
+</PRE><P>
+where p is the input pixel value, k is a user-specified
+coefficient, and nbands is the number of input bands.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-c</B> <I>coef</I>,<I>...</I>
+<DD>
+per-band coefficients (default: 1/nbands).  If only one
+coefficient is specified, the same coefficient is used for
+all bands.  Otherwise, the number of coefficients must be a
+multiple of nbands.  If the number of coefficients is larger
+than nbands, each successive group of coefficients will be
+used to create a new output band.
+</DD>
+
+<P>
+<DT><B>-n</B> <I>nbits</I>
+<DD>
+Use <I>nbits</I> bits per output pixel (default: maximum number
+of bits per input pixel).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I></DT>
+<DD>input image (default: standard input)
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To create an average of all the input bands:
+</P><PRE>
+	lincom
+</PRE><P>
+To subtract band 1 from band 0 of a 2-band image:
+</P><PRE>
+	lincom -c 1,-1
+</PRE><P>
+To create a 2-band output image from a 2-band input image, in
+which the first output band is a sum and the second output band
+is a difference:
+</P><PRE>
+	lincom -c .5,.5,1,-1
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT># coefficients specified = <I>ncoef</I>; must be 0, 1, or modulo nbands
+</DT>
+<DD>The number of coefficients specified must be 0, 1, or a
+multiple of the number of bands in the input image.
+</DD>
+</DL>
+
+<H2>NOTES</H2>
+
+<P>
+This command has been DEPRECIATED because its functionality
+is provided by the command <A HREF="imath.html"><B>imath</B></A>.
+This command may be removed in future versions of IPW.
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+
+<P>
+
+<DT>Aug 1992</DT>
+<DD>
+Use obands instead of nbands in gethdrs.  Kelly Longley, ERL-C.
+</DD>
+
+<P>
+
+<DT>Apr 1993</DT>
+<DD>
+Resolve minval == maxval problem.  Dana Jacobsen, ERL-C.
+</DD>
+
+<P>
+
+<DT>May 1993</DT>
+<DD>
+Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="imath.html">bitcom</A></B>,
+<B><A href="bitcom.html">bitcom</A></B>,
+<B><A href="iadd.html">iadd</A></B>,
+<B><A href="mult.html">mult</A></B>,
+<B><A href="scale.html">scale</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A><BR>
+</P>
+

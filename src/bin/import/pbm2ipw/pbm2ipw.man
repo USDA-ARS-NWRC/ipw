@@ -1,0 +1,114 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [<I> image </I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads <I>image</I> (default: standard input) and writes its
+equivalent to the standard output in IPW form.  The IPW image
+will have 3 bands if <I>image</I> is a PPM image, 1 band if it's a PBM
+image.
+</P>
+<H2>OPTIONS</H2>
+
+
+<P>None
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I> image </I>]</DT>
+
+<DD>	image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To convert a tiff image to IPW format using the PBMPLUS package:
+</P><PRE>
+	tifftopnm &lt; image.tiff | pbm2ipw &gt; image.ipw
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+<B>%name</B> reads only rawbits ppm and pgm images.  It does not read
+pbm images!
+</P><P>
+There should be programs ipw2pnm and pnm2ipw to do conversion from
+any of the PBMplus formats to IPW and back.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Feb 1993</DT>
+<DD>
+	Written by Jim Davidson, UCSB.
+From IPW, Version 1.0
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+The program is misnamed.  It reads rawbits ppm and pgm images, but
+not pbm images.
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW:</DT>
+<B><A href="ipw2pbm.html">ipw2pbm</A></B>,
+<B><A href="ipw2pgm.html">ipw2pgm</A></B>,
+<B><A href="ipw2ppm.html">ipw2ppm</A></B>,
+<B><A href="ipw2xim.html">ipw2xim</A></B>,
+<B><A href="dither.html">dither</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>UNIX</DT>
+<DD>	pbm, pgm, ppm
+</DD>
+</DL>
+
+<DL>
+<DT>Image</DT>
+<DD>	xv, xli, xloadimage
+</DD>
+</DL>
+<P>&quot;PBMPLUS -- Extended Portable Bitmap Toolkit&quot;, Jef Poskanzer,
+	10 December, 1991.  Anonymous ftp from export.lcs.mit.edu:
+	/contrib/pbmplus.tar.Z.
+</P>
+<P>xv and xloadimage are also available on export.lcs.mit.edu.
+</P>
+

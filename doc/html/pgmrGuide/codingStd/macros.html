@@ -1,0 +1,122 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Macros</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../../images/usda.gif" alt="USDA">
+<IMG SRC="../../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Macros</H1>
+
+
+<P>
+As a general rule, source code should contain no embedded literal constants.
+The two principal exceptions to this are strings controlling formatted output
+(e.g., in <CODE>printf</CODE> calls), and small integers used in loop
+indices or relative
+subscripts. All other constants should be replaced by <CODE>#define</CODE>
+macros. Not
+only does this make the code vastly easier to modify, but if the macro names
+are carefully chosen, they can contribute significantly toward making the
+code self-documenting.
+
+<P>
+Constants whose values depend on the values of other constants should be so
+defined.
+
+<P>
+Example:
+
+<PRE>
+#define N_PIXEL_BITS    32                              /* wrong */
+#define N_PIXEL_BITS    ( sizeof(pixel_t) * CHAR_BIT )  /* right */
+</PRE>
+
+<P>
+Constants whose values cannot be changed (i.e. they exist as macros only
+for readability) should be appropriately commented.
+
+<P>
+Example:
+
+<PRE>
+#define FALSE           0       /* boolean F: MUST BE 0 */
+</PRE>
+
+<P>
+Use of macros to extend or redefine the syntax of C, or to redefine C
+keywords, should be avoided. Someone who knows C should not have to learn
+some strange new dialect in order to understand your code.
+
+<P>
+Any macro replacement text containing operators should be fully parenthesized,
+including an outermost set of parentheses around the entire replacement text.
+Arguments in function macro replacement should also be parenthesized, in
+case they expand into expressions containing operators.
+
+<P>
+Function macros should in general not contain C keywords or blocks of
+statements; this hinders readability by concealing the logic of the program.
+
+<P>
+Although conditional compilation is primarily a portability tool, two
+applications are important in code maintenance. To temporarily disable a
+section of code, use the construct
+
+<PRE>
+#if 0
+	/* code to be disabled */
+#endif
+</PRE>
+
+<P>
+instead of <CODE>"/* ... */"</CODE>; this avoids the problem of nested
+comments.
+
+<P>
+Some library functions contain, in the same source file, a
+main routine that can be conditionally compiled with the function to perform
+stand-alone tests. IPW uses the symbol <CODE>TEST_MAIN</CODE> to
+control such compilation.
+
+<P>
+Example:
+
+<PRE>
+int
+func(void)
+{
+        <I>/* code for func() */</I>
+}
+
+#ifdef TEST_MAIN
+main()
+{
+        <I>/* code which tests func() */</I>
+}
+#endif
+</PRE>
+
+<P>
+This code should appear at the end of the source file.
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

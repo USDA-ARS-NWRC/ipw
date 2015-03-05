@@ -1,0 +1,72 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Header files</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../../images/usda.gif" alt="USDA">
+<IMG SRC="../../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Header files</H1>
+
+
+<P>
+Header files should contain any <CODE>"#define"</CODE>s,
+<CODE>"typedef"</CODE>s, or <CODE>"extern"</CODE> declarations
+that would otherwise be duplicated across multiple source files in a program
+or library.
+
+<P>
+Header files should be functionally organized; e.g., the header
+file <CODE>"geoh.h"</CODE> contains the
+declarations, <CODE>"typedef"</CODE>s, etc. needed to manipulate geodetic
+image headers.
+Header files should not include other header files; this tends to obscure
+dependencies between different components of IPW, of which the reader of
+the code ought to be aware. Of course, the comments in a header
+file should mention any other header files that the header file depends
+on (except <CODE>"ipw.h"</CODE>, which all header files are assumed to require).
+
+<P>
+The first and last lines in a header file should comprise a conditional
+"wrapper", which prevents the file from being included more than once
+in the same compilation:
+
+<PRE>
+#ifndef H_<I>xxx</I>
+#define H_<I>xxx</I>
+
+ ...
+
+/* H_<I>xxx */</I>
+#endif
+</PRE>
+
+where <I>xxx</I> is the capitalized name of the header file, without
+the <CODE>".h"</CODE> extension.
+
+<P>
+<CODE>#include</CODE> directives should always be near the top of a source
+file, immediately following any general top-level comments.
+<CODE>"ipw.h"</CODE> is always the first header file following
+the <CODE>#include</CODE> directives for system header files.
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

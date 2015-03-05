@@ -1,0 +1,179 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-a</B> <I>air-temp</I> <B>-d</B> <I>dewpoint-temp</I> <B>-z</B> <I>elev</I>
+      [ <B>-s</B> <I>elev-step </I> ] [ <B>-m</B> <I>elev-min </I> ] [ <B>-x</B> <I>elev-max </I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Thermin is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+</P><P>
+Thermin calculates incoming longwave radiation from the atmosphere
+on a horizontal surface for a set of specified elevation
+levels from a reference measurement of air temperature
+and dew point temperature made at elevation z.
+(After Marks and Dozier, 1979).
+</P><P>
+Output is file of pairs of elev and incoming lw.
+Output to stdout.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-a</B> <I>air-temp</I>
+<DD>
+<I>air-temp</I> is the reference air temperature in degrees K.
+</DD>
+
+<P>
+<DT><B>-d</B> <I>dewpoint-temp</I>
+<DD>
+<I>dewpoint-temp</I> is the reference dew point temperature in
+degrees K.
+</DD>
+
+<P>
+<DT><B>-z</B> <I>elev</I>
+<DD>
+<I>elev</I> is the reference elevation in meters.
+</DD>
+
+<P>
+<DT><B>-s</B> <I>elev-step </I>
+<DD>
+<I>elev-step</I> is the optional elevation step (default: 500 m)
+</DD>
+
+<P>
+<DT><B>-m</B> <I>elev-min </I>
+<DD>
+<I>elev-min</I> is the optional minimum elevation (default: 0 m)
+</DD>
+
+<P>
+<DT><B>-x</B> <I>elev-max </I>
+<DD>
+<I>elev-max</I> is the optional maximum elevation (default: 5000 m)
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>	None
+</P><P>
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To estimate thermal radiation at 250m intervals over an elevation band
+from 1500m to 3000m from data taken at a sight at 2000m:
+</P><PRE>
+	thermin -a 280 -d 275 -z 2000 -s 250 -m 1500 -x 3000
+</PRE>
+<P>
+yields:
+</P><PRE>
+		1500   250.75
+		1750   237.75
+		2000   225.35
+		2250   213.53
+		2500   202.26
+		2750   191.53
+		3000   181.32
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Dec 1982</DT>
+<DD>
+	Written by D. Marks, UCSB;
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1984</DT>
+<DD>
+	Modified by D. Marks, UCSB;
+</DD>
+</DL>
+
+<DL>
+<DT>Jun 1995</DT>
+<DD>
+	Converted to IPW by J. Domingo, OSU, EPA NHEERL/WED
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="albedo.html">albedo</A></B>,
+<B><A href="bowvap.html">bowvap</A></B>,
+<B><A href="dewpt.html">dewpt</A></B>,
+<B><A href="gsnow.html">gsnow</A></B>,
+<B><A href="mse.html">mse</A></B>,
+<B><A href="penmonx.html">penmonx</A></B>,
+<B><A href="pmx.html">pmx</A></B>,
+<B><A href="pott.html">pott</A></B>,
+<B><A href="ptaylorx.html">ptaylorx</A></B>,
+	<B><A href="ptx.html">ptx</A></B>,
+<B><A href="rh2vp.html">rh2vp</A></B>,
+<B><A href="satvp.html">satvp</A></B>,
+<B><A href="sling.html">sling</A></B>,
+<B><A href="soilt.html">soilt</A></B>,
+<B><A href="soiltmp.html">soiltmp</A></B>,
+<B><A href="srftmp.html">srftmp</A></B>,
+<B><A href="swe.html">swe</A></B>,
+<B><A href="swp.html">swp</A></B>,
+	<B><A href="trad.html">trad</A></B>,
+<B><A href="trb_Ri.html">trb_Ri</A></B>,
+<B><A href="trbxfr.html">trbxfr</A></B>,
+<B><A href="vptr.html">vptr</A></B>,
+<B><A href="zpr.html">zpr</A></B>
+</DD>
+</DL>
+<P>Marks, D., and J. Dozier, 1979.  &quot;A clear-sky longwave radiation model
+	for remote alpine areas&quot;, Archiv fur Meteorologie, Geophysik
+	und Bioklimatologie, Series B, vol. 27, no. 23, pp. 159-187.
+</P>
+

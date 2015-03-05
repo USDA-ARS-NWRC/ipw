@@ -1,0 +1,141 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-n</B> <I>N</I> [ <B>-m</B> <I>mask</I> ] [ <B>-i</B> <I>lo</I>,<I>hi</I> ] [ <B>-f</B> <I>floor</I> ]
+      [ <B>-c</B> <I>ceil</I> ] [ <B>-r</B> <I>rep_code</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads an IPW image and creates an image whose pixel values
+contain class identifiers for the correpesponding input image pixel.
+The classes are defined by the endpoints of the histogram of
+pixel values divided into N equal areas.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-n</B> <I>N</I>
+<DD>
+where N is the number of classes to divide the
+image histogram into equally
+
+<P>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+histogram only those pixels masked by nonzero values in
+the &quot;mask&quot; image
+
+<P>
+<DT><B>-i</B> <I>lo</I>,<I>hi</I>
+<DD>
+lo,hi	ignore any data values not in given range for histogram
+equalization (will be set to class 0 (no data) unless
+specified by <B>-f</b> and <B>-c</b> options)
+
+<P>
+<DT><B>-f</B> <I>floor</I>
+<DD>
+floor	class value for data values &lt; lo (only if <B>-i</b> specified)
+(must be in range (0,#classes) - defaults to 0: no data)
+
+<P>
+<DT><B>-c</B> <I>ceil</I>
+<DD>
+ceil		class value for data values &gt; hi (only if <B>-i</b> specified)
+(must be in range (0,#classes) - defaults to 0: no data)
+
+<P>
+<DT><B>-r</B> <I>rep_code</I>
+<DD>
+rep_code	code for method of determination of representative value
+for each class: 0=median, 1=mean, 2=midpoint of range
+(default: median)
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image	input image (defaults to stdin)
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+to convert a dem image to an image of 5 values representing equal
+elevation intervals between 500 and 2000m, such that elevations below
+500m are set to the 500m class, and above 2000m are set to the 2000m
+class:
+</P>
+<PRE>
+	classeq -n 5 -i 500,2000 -f 1 -c 5 &lt;dem
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>May 1990</DT>
+<DD>
+  Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1997</DT>
+<DD>
+  Converted to IPW Version 2.0, D. Marks, USGS, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>    <B><A href="classify.html">classify</A></B>,
+<B><A href="clmask.html">clmask</A></B>,
+<B><A href="cnhist.html">cnhist</A></B>,
+<B><A href="cnhist.all.html">cnhist.all</A></B>
+<B><A href="declass.html">declass</A></B>
+<B><A href="grhist.html">grhist</A></B>
+<B><A href="hist.html">hist</A></B>
+<B><A href="histeq.html">histeq</A></B>
+<B><A href="mkcrh.html">mkcrh</A></B>
+</DD>
+</DL>
+

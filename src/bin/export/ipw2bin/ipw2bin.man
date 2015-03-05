@@ -1,0 +1,112 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-m</B> <I>mask</I> ] [ <B>-n</B> <I>nodata</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads values from <I>image</I> (default: standard input) and
+writes binary data in float format to the standard output.  The
+image data may be masked with <I>mask</I>.  The data is written in line
+by sample order with no packing ( record length = #samples;
+#records = #lines).
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+Use <I>mask</I> as a mask image.  Any points in <I>mask</I> that are
+0 will have the corresponding points in <I>image</I> set to the
+<I>nodata</I> value.
+</DD>
+
+<P>
+<DT><B>-n</B> <I>nodata</I>
+<DD>
+Points that are masked will be printed as the value <I>nodata</I>
+(default: 0.0).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To export data to some packages such as PV-Wave, the line order must
+be reversed since the origin is at the lower-left instead of the
+upper left:
+</P><PRE>
+	flip -l image | binexp &gt; image.dat
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>nodata value ignored without mask
+</DT>
+<DD><BR>	The <B>-n</b> option is only valid with a mask image.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Binary floating point output may not be portable to other systems.
+</P><P>
+<I>image</I> must have only one band.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jun 1991</DT>
+<DD>
+  Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+  Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="rmhdr.html">rmhdr</A></B>,
+<B><A href="primg.html">primg</A></B>,
+<B><A href="atob.html">atob</A></B>
+</DD>
+</DL>
+

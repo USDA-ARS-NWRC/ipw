@@ -1,0 +1,67 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "hdrio.h"
+
+int
+hcopy(
+	int     fdi,		|* input file descriptor	 *|
+	int     fdo)		|* output file descriptor	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Hcopy copies header records from &quot;fdi&quot; to &quot;fdo&quot;, stopping after a
+preamble record has been read from &quot;fdi&quot;.
+</P><P>
+Call <B>%name</B> if you need to copy an entire header, including the
+preamble record (you will still be able to ADD records at the END).
+If you need to INSERT records at the BEGINNING of a header, call
+hwprmb, then insert the records with hputrec, then call hpass.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+OK for success, ERROR for failure
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_hdriocb
+_hdriocb
+</P>
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

@@ -1,0 +1,108 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads a 3 band <I>image</I> (default: standard input) and
+writes the adjusted diurnal temperature range (in degrees C) to
+the standard output as an 8-bit IPW image.
+This is used in the estimate of cloudiness and solar radiation extinction
+based on work by <I>Bristow and Campbell (1984)</I>
+and <I>Running, et al. (1987)</I>.
+</P><P>
+The input image has the following bands:
+</P><PRE>
+	Tmax(i)     daily maximum air temperature for day i
+	Tmin(i)     daily minimum air temperature for day i
+	Tmin(i+1)   daily maximum air temperature for day i+1
+</PRE><P>
+The output image is calculated as:
+</P><PRE>
+	deltaT(i) = Tmax(i) - { Tmin(i) + Tmin(i+1) } / 2
+</PRE>
+
+<H2>OPTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<PRE>
+          mux tmax1_img tmin1_img tmin2_img  |  <B>%name</B>  &gt; diurnal_t_range_image
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+<DT>image has <I>bands</I> bands, 3 band images only
+</DT>
+<DD><BR>
+The input image must have exactly three bands.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Oct 1993</DT>
+<DD>
+Written by Danny Marks, USGS, EPA ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="tcloud.html">tcloud</A></B>
+</DD>
+</DL>
+ 
+<DL>
+<DT>Unix</DT>
+<DD>
+mux
+</DD>
+</DL>
+ 
+<P>
+<A HREF="../bib.html#Bristow, Campbell 1984">Bristow, Campbell 1984</A>,
+<A HREF="../bib.html#Running, Nemani, Hungerford 1987">Running, Nemani, Hungerford 1987</A>
+</P>
+ 

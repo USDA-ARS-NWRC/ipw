@@ -1,0 +1,142 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-c</B> <I>lcoef</I>,<I>scoef</I>[,<I>...</I>] [ <B>-n</B> <I>nbits</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads the headers from <I>image</I> (default: standard input) and
+writes an image with the same number of lines and samples to the
+standard output.  The value of each output pixel is a linear
+combination of the pixel's raw line and sample coordinates.
+</P><P>
+The number of coefficients specified must be a multiple of 2, and
+the number of output bands will be half the number of coefficients.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-c</B> <I>lcoef</I>,<I>scoef</I>[,<I>...</I>]
+<DD>
+Output pixels are assigned the value:
+</DD>
+
+<P>line * <I>lcoef</I>  +  sample * <I>scoef</I>
+</P>
+
+<P>Each pair of <I>lcoef</I>,<I>scoef</I> will be used to generate
+a new output band.
+</P>
+
+<P>
+<DT><B>-n</B> <I>nbits</I>
+<DD>
+Use <I>nbits</I> per output pixel (default:
+log2(max(nlines,nsamps)), where nlines and nsamps are the
+dimensions of <I>image</I>).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To produce a 512 by 512 single-band diagonal <B>%name</B> with 8-bit pixels
+increasing in intensity from the upper left corner:
+</P><PRE>
+	mkbih -l 512 -s 512 -f | wedge -c 1,1 -n 8
+</PRE><P>
+Note that the input image can be a standalone BIH since only the
+header is required.
+</P><P>
+To produce an 8-bit image with 2 <B>%name</B> channels, the first
+increasing horizontally, and the second deceasing horizontally,
+sized to match an existing &quot;image&quot;:
+</P><PRE>
+	wedge -c 0,1,0,-1 -n 8 image
+</PRE><P>
+To produce a 16 by 16 8-bit image varying from .5 to 1.5 vertically:
+</P><PRE>
+	mkbih -l 16 -s 16 -f | wedge -c 1,0 -n 8 |  \
+		scale -o div -v 15 | scale -o add -v .5
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>must specify an even number of coefficients
+</DT>
+<DD><BR>	<B>-c</b> must have an even number of arguments
+</DD>
+
+<P>
+<DT>band <I>band</I>: both coefficients cannot be 0
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Any optional headers, other than &quot;lq&quot; headers, will be copied from
+the input image to the corresponding bands of the output image.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+	Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="mkbih.html">mkbih</A></B>
+</DD>
+</DL>
+<P>Frew, J., 1990.  The Image Processing Workbench.  Ph.D. Thesis,
+	Department of Geography, University of California, Santa
+	Barbara, CA, 382pp.
+</P>
+

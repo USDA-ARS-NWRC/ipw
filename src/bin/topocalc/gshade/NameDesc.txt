@@ -1,0 +1,1 @@
+gshade - cosine of illumination angle (global-scale)

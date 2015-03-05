@@ -1,0 +1,3 @@
+%define(name,"image_name")
+%define(description,"get name of an image")
+%define(category,"image")

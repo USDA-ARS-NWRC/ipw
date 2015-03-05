@@ -1,0 +1,78 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "geoh.h"
+
+GEOH_T **
+geohread(
+	int fd)
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads a GEOH image header from file descriptor fd.  An array
+of GEOH_T pointers is allocated, one per band.  If a band has a GEOH
+header, then an GEOH_T header is allocated and its address is placed
+in the corresponding array element; otherwise, the corresponding
+array element is NULL.
+</P><P>
+Before calling <B>%name</B>, the caller must verify (by calling hrname())
+that a GEOH header is available for ingesting.
+</P><P>
+<B>%name</B> is called by application programs to ingest GEOH headers.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+pointer to array of GEOH_T pointers; else NULL if EOF or error
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>can't allocate array of &quot;geo&quot; header pointers
+&quot;geo&quot; header: bad band &quot;<I>band</I>&quot;
+can't allocate &quot;geo&quot; header
+&quot;geo&quot; header: key &quot;<I>key</I>&quot; has no value
+&quot;geo&quot; header: bad key &quot;<I>key</I>&quot;
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

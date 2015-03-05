@@ -1,0 +1,138 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-z</B> <I>elev</I> [ <B>-K</B> ] [ <B>-m</B> ] [ <B>-r</B> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+</P><P>
+<B>%name</B> calculates vapor pressure as a function of measured thermal
+radiation and air temperature by inverting the equations in
+<I>Marks and Dozier, 1979</I>.
+Expects input of air temperature and incoming thermal
+radiation (W/m**2) from stdin.
+Output is vapor pressure and relative humidity if RH flag is set,
+or just vapor pressure.
+</P><P>
+Input is from stdin; output to stdout.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-z</B> <I>elev</I>
+<DD>
+<I>elev</I> is the reference elevation in meters.
+</DD>
+
+<P>
+<DT><B>-K</B> 
+<DD>
+Air temperatures are in degrees K (default: C).
+</DD>
+
+<P>
+<DT><B>-m</B> 
+<DD>
+The output values for vapor pressure are in millibars.
+(default: Pa).
+</DD>
+
+<P>
+<DT><B>-r</B> 
+<DD>
+Relative humidity is also outputed with vapor pressure.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To estimate vapor pressure and relative humidity from a thermal
+radiation value of 250 (W/m^2) and an air temperature of 4C:
+</P><PRE>
+	<B>%name</B> -z 2940 -r &lt;{3 180}
+</PRE><P>
+results in: ea=315.44,   rh=0.42
+</P>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jul 1986</DT>
+<DD>
+Written by D. Marks, CSL, UCSB;
+</DD>
+</DL>
+
+<DL>
+<DT>Jun 1995</DT>
+<DD>
+Converted to IPW by J. Domingo, OSU, EPA NHEERL/WED
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="dewpt.html">dewpt</A></B>,
+<B><A href="idewpt.html">idewpt</A></B>,
+<B><A href="irh2vp.html">irh2vp</A></B>,
+<B><A href="rh2vp.html">rh2vp</A></B>,
+<B><A href="isatvp.html">isatvp</A></B>,
+<B><A href="satvp.html">satvp</A></B>,
+<B><A href="sling.html">sling</A></B>,
+<B><A href="thermin.html">thermin</A></B>,
+<B><A href="trad.html">trad</A></B>,
+<B><A href="zpr.html">zpr</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Brutsaert 1975">Brutsaert 1975</A>,
+<A HREF="../bib.html#Marks 1979">Marks 1979</A>
+</P>
+ 

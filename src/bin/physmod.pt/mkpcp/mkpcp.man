@@ -1,0 +1,114 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B>
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> creates precipitation file for snobal(1).  The input
+is:
+</P><PRE>
+	precip mass (kg/m^2),  precip temp (C)
+</PRE><P>
+<B>%name</B> calculates the precentage of the mass that's snow
+based on the given temperature.  It also determines the snow's
+density.  This is based on the following table:
+</P><PRE>
+	temperature		% snow	snow density
+</PRE><PRE>
+	          T &lt; -5 C	 100%	   75 kg/m^3
+	  -5 C &lt;= T &lt; -3 C	 100%	  100 kg/m^3
+	  -3 C &lt;= T &lt; -1.5 C	 100%	  150 kg/m^3
+	-1.5 C &lt;= T &lt; -0.5 C	 100%	  175 kg/m^3
+	-0.5 C &lt;= T &lt; 0 C	  75%	  200 kg/m^3
+	   0 C &lt;= T &lt; 0.5 C	  25%	  250 kg/m^3
+	 0.5 C &lt;= T        	   0%	    0 kg/m^3
+</PRE><P>
+Note:  <B>%name</B> expects <I>precip temp</I>, not air temperature.
+Dewpoint temperature is the best estimate of <I>precip temp</I>.
+If air temperature is used all events occuring at temperatures
+of +0.5 and above will be assumed to be rain.
+</P><P>
+<B>%name</B> outputs the following to the standard output:
+</P><PRE>
+	precip mass (kg/m^2) % snow (0.0 to 1.0) snow density (kg/m^3) precip temp (C)
+</PRE><P>
+This output file is close to the format snobal expects for its
+precipitation images; the time since the start of the model run
+must still be added.
+</P>
+<H2>OPTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+none
+</P>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Sep 1999</DT>
+<DD>
+written by D. Marks, NWRC, USDA-ARS
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="standard/isnobal.html">isnobal</A></B>,
+<B><A href="standard/mkprecip.html">mkprecip</A></B>,
+<B><A href="standard/snobal.html">snobal</A></B>,
+</DD>
+</DL>
+ 
+<P>
+<A HREF="../bib.html#Marks 1998">Marks 1998</A>,
+<A HREF="../bib.html#Marks 1999a">Marks 1999a</A>,
+<A HREF="../bib.html#Susong 1999">Susong 1999</A>
+</P>

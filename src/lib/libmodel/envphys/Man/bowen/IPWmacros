@@ -1,0 +1,3 @@
+%define(name,"bowen")
+%define(description,"calculates Bowen ratio (H/LE)")
+%define(category,"envphys")

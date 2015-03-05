@@ -1,0 +1,83 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+int
+imgcopy(
+	int     i_fd,		|* input image file descriptor	 *|
+	int     o_fd)		|* output image file descriptor	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> copies all image data from file descriptor i_fd to file
+descriptor o_fd.
+</P><P>
+Image headers must be read from i_fd and written to o_fd before
+calling <B>%name</B>.
+</P><P>
+<B>%name</B> is typically called by programs that add/delete/modify IPW
+headers, but just pass image data through unaltered.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+OK for success, ERROR for failure
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>can't calculate input image size
+</DT>
+<DD><BR>	The total number of bytes in the input image wouldn't fit in a
+	signed long integer.
+</DD>
+
+<P>
+<DT>input image larger than header indicates
+</DT>
+<DD><BR>	EOF was not reached after the appropriate number of bytes were
+	copied.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

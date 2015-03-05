@@ -1,0 +1,48 @@
+#  This Makefile defines macros and rules for IPW directories that contain
+#  subdirectories.
+#
+#  This Makefile expects these macros to be defined:
+#
+#	DIRS     = list of subdirectories to be processed
+#	TARGETS  = list of acceptable targets to recursively call "make"
+#		   with on subdirectories
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#  A macro for recursively calling a particular MAKE target on subdirectories
+#
+#  Usage:	target : prerequisite ...
+#			@target=... ; subdirs='dir1 dir2 ...' ; \
+#			    $(recurse-on-subdirs)
+
+define recurse-on-subdirs
+  cwd=`pwd` ;							\
+  for dir in $$subdirs ; do 					\
+  	printf '%s\n' "--> Entering dir: $$cwd/$$dir" ;		\
+  	$(MAKE) -C $$dir --no-print-directory $$target ;	\
+  	status=$$? ;						\
+  	printf '%s\n' "<-- Returning to: $$cwd" ;		\
+  	if [ $$status -ne 0 -a $(KEEP_GOING) -eq 0 ] ; then 	\
+  		exit $$status ;					\
+  	fi ;							\
+  done
+endef
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#  For each subdirectory in DIRS, invoke MAKE on it with the given target
+
+.PHONY : $(TARGETS)
+$(TARGETS) :
+ifdef DIRS
+	@target=$@ ; subdirs='$(DIRS)' ; \
+	    $(recurse-on-subdirs)
+endif
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#  A special target for getting a list of the directories
+#  (used for over scripts to traverse the directories)
+
+print-dirs :
+	@printf "$(DIRS)"

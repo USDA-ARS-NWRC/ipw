@@ -1,0 +1,90 @@
+<HTML>
+
+<HEAD>
+ <TITLE>IPW function: uwflush</TITLE>
+</HEAD>
+
+<BODY>
+
+<H1 ALIGN=CENTER>uwflush</H1>
+
+<P ALIGN=CENTER>IPW Library Function<BR>
+Library - libipw<BR>
+Category - uio</P>
+
+<HR WIDTH="100%">
+
+<H2>NAME</H2>
+
+<P><B>uwflush</B> - flush buffered UIO output</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+int
+uwflush(
+	int     fd)		|* file descriptor		 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>uwflush</B> forces any pending UIO output to be written to file
+descriptor fd.
+</P><P>
+<B>uwflush</B> is usually called to force pending output down a pipe before
+beginning a potentially lengthy calculation.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+OK	for success
+</P><P>
+ERROR	for failure
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_uiocb
+</P>
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 10 April 1998  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>

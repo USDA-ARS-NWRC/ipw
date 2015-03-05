@@ -1,0 +1,61 @@
+ipw@avalanche{34} find ~/src -name "*.[ch]" -exec fgrep -l betanaught "{}" ";"
+/usr/packages/sparc/ipw/src/exp/ucsb/bin/twostream/main.c
+/usr/packages/sparc/ipw/src/exp/ucsb/lib/libDoz/mwgamma.c
+/usr/packages/sparc/ipw/src/exp/ucsb/lib/libDoz/betanaught.c
+/usr/packages/sparc/ipw/src/exp/ucsb/h/Dozier.h
+
+ipw@avalanche{37} find ~/src -name "*.[ch]" -exec fgrep -l delted "{}" ";"
+/usr/packages/sparc/ipw/src/exp/ucsb/bin/twostream/main.c
+/usr/packages/sparc/ipw/src/exp/ucsb/lib/libDoz/mwgamma.c
+/usr/packages/sparc/ipw/src/exp/ucsb/lib/libDoz/delted.c
+/usr/packages/sparc/ipw/src/exp/ucsb/h/Dozier.h
+
+ipw@avalanche{40} find ~/src -name "*.[ch]" -exec fgrep -l mwgamma "{}" ";"
+/usr/packages/sparc/ipw/src/exp/erlc/bin/gelevrad/gelevrad.c
+/usr/packages/sparc/ipw/src/exp/ucsb/bin/elevrad/radtbls.c
+/usr/packages/sparc/ipw/src/exp/ucsb/bin/twostream/main.c
+/usr/packages/sparc/ipw/src/exp/ucsb/lib/libDoz/mwgamma.c
+/usr/packages/sparc/ipw/src/exp/ucsb/h/Dozier.h
+
+ipw@avalanche{43} find ~/src -name "*.[ch]" -exec fgrep -l twostream "{}" ";"
+/usr/packages/sparc/ipw/src/bin/hor1d/main.c
+/usr/packages/sparc/ipw/src/exp/erlc/bin/gelevrad/gelevrad.c
+/usr/packages/sparc/ipw/src/exp/erlc/bin/gelevrad/main.c
+/usr/packages/sparc/ipw/src/exp/ucsb/bin/elevrad/radtbls.c
+/usr/packages/sparc/ipw/src/exp/ucsb/bin/elevrad/main.c
+/usr/packages/sparc/ipw/src/exp/ucsb/bin/solar/main.c
+/usr/packages/sparc/ipw/src/exp/ucsb/bin/toporad/main.c
+/usr/packages/sparc/ipw/src/exp/ucsb/bin/twostream/main.c
+/usr/packages/sparc/ipw/src/exp/ucsb/lib/libDoz/mwgamma.c
+/usr/packages/sparc/ipw/src/exp/ucsb/lib/libDoz/twostream.c
+/usr/packages/sparc/ipw/src/exp/ucsb/h/Dozier.h
+
+========================================================================
+
+functions in planck.c  (They aren't used by any IPW programs or other
+			library functions)
+
+ipw@avalanche{48} foreach func ( planck plkfq plkwn tbwlen tbfq tbwn )
+foreach? echo $func
+foreach? find ~/src -name "*.[ch]" -exec fgrep -l $func "{}" ";"
+foreach? end
+planck
+/usr/packages/sparc/ipw/src/exp/erlc/bin/qdips/Work/planck/planck.c
+/usr/packages/sparc/ipw/src/exp/ucsb/lib/libDoz/planck.c
+/usr/packages/sparc/ipw/src/exp/ucsb/h/Dozier.h
+plkfq
+/usr/packages/sparc/ipw/src/exp/erlc/bin/qdips/Work/planck/planck.c
+/usr/packages/sparc/ipw/src/exp/ucsb/lib/libDoz/planck.c
+plkwn
+/usr/packages/sparc/ipw/src/exp/erlc/bin/qdips/Work/planck/planck.c
+/usr/packages/sparc/ipw/src/exp/ucsb/lib/libDoz/planck.c
+tbwlen
+/usr/packages/sparc/ipw/src/exp/erlc/bin/qdips/Work/plkinv/plkinv.c
+/usr/packages/sparc/ipw/src/exp/ucsb/lib/libDoz/planck.c
+tbfq
+/usr/packages/sparc/ipw/src/exp/erlc/bin/qdips/Work/plkinv/plkinv.c
+/usr/packages/sparc/ipw/src/exp/ucsb/lib/libDoz/planck.c
+tbwn
+/usr/packages/sparc/ipw/src/exp/erlc/bin/qdips/Work/plkinv/plkinv.c
+/usr/packages/sparc/ipw/src/exp/ucsb/lib/libDoz/planck.c
+

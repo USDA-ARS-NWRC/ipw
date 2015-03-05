@@ -1,0 +1,162 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-n</B> <I>npts</I> [ <B>-c</B> ] [ <B>-p</B> <I>point_file</I> ] [ <B>-i</B> <I>image</I> ]
+      [ <B>-b</B> <I>nbits</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads a single-band image and creates an image whose
+floating point pixel values are the results of linear interpolation
+on the input image based on given X,Y pairs.
+(Formerly called "ftransform")
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-n</B> <I>npts</I>
+<DD>
+The file <I>point_file</I> contains <I>npts</I> X,Y pairs.
+</DD>
+
+<P>
+<DT><B>-c</B> 
+<DD>
+Perform clipping.  Interpolation will be clipped at the
+minimum and maximum X values given (default: linearly
+extrapolate for points outside the given X values).
+</DD>
+
+<P>
+<DT><B>-p</B> <I>point_file</I>
+<DD>
+Read X,Y pairs from <I>point_file</I> (default: standard input).
+</DD>
+
+<P>
+<DT><B>-i</B> <I>image</I>
+<DD>
+Read input image from <I>image</I> (default: standard input).
+</DD>
+</DL>
+
+<P>At least one of <B>-p</b> and/or <B>-i</b> must be specified.
+</P>
+
+<DL>
+<DT><B>-b</B> <I>nbits</I>
+<DD>
+Use <I>nbits</I> per output pixel (default: same as input image).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To create an image where wind speed varies as a simple function of
+elevation, assuming that all elevations are between 1000 and 4000m,
+and that wind speed varies linearly from 2 m/s at 1000m to 10 m/s
+at 4000m:
+</P><PRE>
+	echo &quot;1000 2.0 4000 10.0&quot; | iinterp -b 8 -n 2 -i elev_img
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>missing or illegal data in points file: <I>pts</I> points successfully read
+</DT>
+<DD><BR>	An error of some kind occurred while reading the point file.
+	Either a floating point number was mis-entered, or only one
+	of the X,Y pair was specified.
+</DD>
+
+<P>
+<DT>points not sorted in ascending X-order
+</DT>
+<DD><BR>	The X portions of the X,Y pairs must be sorted in ascending
+	order.  They may not be equal to each other.
+</DD>
+
+<P>
+<DT>more than <I>pts</I> points in point file - remainder ignored
+</DT>
+<DD><BR>	If more points are supplied than the <B>-n</b> option specifies,
+	the additional points will be ignored.
+</DD>
+
+<P>
+<DT>image has <I>bands</I> bands; single-band images only
+</DT>
+<DD><BR>	Only single band images are supported.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+<I>image</I> must have only one band.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Sep 1990</DT>
+<DD>
+  Written as "ftransform" by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1997</DT>
+<DD>
+  Converted to IPW Version 2.0, D. Marks, USGS, ERL-C
+</DD>
+</DL>
+
+<DL>
+<DT>Mar 1998</DT>
+<DD>
+  Name changed from "ftransform" to "iinterp" to conform to ipw
+naming convention, J. Domingo, OSU, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="lutx.html">lutx</A></B>,
+<B><A href="interp.html">interp</A></B>
+</DD>
+</DL>
+

@@ -1,0 +1,63 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "bih.h"
+
+int
+hnbytes(
+	int             fd,	|* image file descriptor	 *|
+	int             band)	|* image band #			 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> determines the number of bytes per band in the specified band
+of the image currently being read/written on file descriptor fd.
+</P><P>
+<B>%name</B> may not be called before a BIH is read/written from/to fd.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+number of bytes per band
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_bih
+</P>
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

@@ -1,0 +1,205 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-i</B> <I>infile</I> [ <B>-h</B> ] [ <B>-y</B> <I>year</I> ] [ <B>-m</B> <I>month</I> ] [ <B>-d</B> <I>day</I> ]
+      [ <B>-t</B> <I>type</I>,<I>...</I> ] [ <B>-a</B> <I>drain_area</I> ] [ <B>-l</B> <I>east</I>,<I>north</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Hcnx is designed to extract daily climate information from standard
+format data files from the Historical Climate Network of the U.S.
+Hcnx extracts the requested daily temperature, precipitation or
+stream flow data from the given input file and converts the units
+(temperatures from degrees F to degrees C, precip from hundredths
+of inches to millimeters, and runoff from cubic feet per second
+to depth of flow in millimeters per square meter).  The converted
+data is appended to daily output file(s).
+</P><P>
+The input file is assumed to be named s&lt;station_ID&gt;.dat for
+temp/precip data or q&lt;station_ID&gt;.dat or x&lt;station_ID&gt;.dat for
+streamflow data, where &lt;station_ID&gt; is the 6 character HCN station
+ID or 9 character USGS streamflow data ID.
+</P><P>
+The converted data for each requested day is appended to an output
+file named type.year.yd where
+</P><PRE>
+	type	is the data type: prcp, tmin, tmax, or roff
+	year	is the requested year
+	yd	is the julian or water day (0 - 365)
+</PRE><P>
+Each line of data in the output files has the format:
+</P><PRE>
+	station_ID data
+</PRE><P>
+or, if the <B>-l</b> (location) option is specified, the line will have the
+format:
+</P><PRE>
+	easting northing data
+</PRE><P>
+where
+</P>
+<PRE>
+	station_ID	is the 6-character station ID
+	easting		is the easting geographic coordinate 
+	northing	is the northing geographic coordinate 
+	data		is the converted precip or temp value
+</PRE><P>
+With the <B>-l</b> option specified, running this program for all the
+stations in a desired geographical area will produce daily output
+files that are suitable input files for the surface interpolation
+program &quot;surface&quot; to obtain IPW raster image file of interpolated
+data (see documentation for IPW surface program).
+</P><P>
+If a suspicious value flag for a data field of tmin, tmax, or prcp
+is not blank or if the runoff value is &quot;no data&quot;: 999999, the line
+of data is not written to the output file and the following line
+is written to the file type.year.errs:
+</P><PRE>
+	station_ID year yd sus_val data_code data
+</PRE><P>
+where
+</P>
+<PRE>
+	sus_val		is the suspicious value flag
+			(see data documentation for code meanings)
+	data_code	is the derivation of data code
+			(see data documentation for code meanings)
+	data		is the UNCONVERTED data value
+</PRE>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-i</B> <I>infile</I>
+<DD>
+input file name: s&lt;station_ID&gt;.dat or q&lt;station_ID&gt;.dat
+
+<P>
+<DT><B>-h</B> 
+<DD>
+flag for hydrological year order (default: calendar year)
+note: if specified, then year and month are also interpreted
+as hydrological year and month (i.e. &quot;<B>-m</b> 1 <B>-y</b> 1985&quot; for
+Oct 1984)
+
+<P>
+<DT><B>-y</B> <I>year</I>
+<DD>
+year of data to extract (default: all)
+
+<P>
+<DT><B>-m</B> <I>month</I>
+<DD>
+month of data to extract (default: all)
+
+<P>
+<DT><B>-d</B> <I>day</I>
+<DD>
+day of month to extract (default: all)
+
+<P>
+<DT><B>-t</B> <I>type</I>,<I>...</I>
+<DD>
+type(s) of data to extract: prcp, tmin, or tmax
+(only used for temp/precip data; default: all types in file)
+
+<P>
+<DT><B>-a</B> <I>drain_area</I>
+<DD>
+drainage area in square miles
+(NOTE: required for runoff data)
+
+<P>
+<DT><B>-l</B> <I>east</I>,<I>north</I>
+<DD>
+geographic location of station: easting, northing
+if specified, location will be substituted for station ID
+in output file
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To extract data for the station &quot;foo&quot;, for all of February, 1990:
+</P><PRE>
+	hcnx -i foo.dat -y 1990 -m 02
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1991</DT>
+<DD>
+  Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<DL>
+<DT>Jul 1991</DT>
+<DD>
+  Added <B>-l</b> option to substitute geographic projection for
+station ID in output file, by K. Longley, USEPA, ERL-C
+</DD>
+</DL>
+
+<DL>
+<DT>Sep 1991</DT>
+<DD>
+	 Added processing for runoff data (and <B>-a</b> option), by Kelly
+Longley, OSU, USEPA ERL-C
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1997</DT>
+<DD>
+	 Converted to IPW Version 2.0, by D. Marks, USGS, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+If the HCN file format is changed from what was distributed in 1991-92,
+which is probably certain, then <B>%name</B> won't work.
+</P>
+<H2>SEE ALSO</H2>
+
+<P>
+<A HREF="../bib.html#Karl 1990">Karl 1990</A><BR>
+</P>
+ 

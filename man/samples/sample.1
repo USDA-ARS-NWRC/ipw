@@ -1,0 +1,210 @@
+.TH "sample" "1" "20 January 1998" "IPW v2.0" "IPW  Commands"
+.SH NAME
+.PP
+\fBsample\fP - a sample IPW command to demonstrate IPW man pages
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBsample\fP \fB-z\fP \fIelev\fP \fB-b\fP \fIband\fP[,...] [ \fB-K\fP ] [ \fB-m\fP \fImask\fP ]
+     [ \fB-t\fP \fIbig-threshold\fP[,\fImedium-threshold\fP[,\fIsmall-threshold\fP]] ]
+     [ \fIimage\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+This section describes what the command does.  Each paragraph should be
+surrounded by paragraphs tags: <P> and </P>.
+.PP
+References to the command should use the IPW macro "name", so
+if the command is renamed, the man page will be updated automatically.
+The name of the command should be in boldface, e.g., \fBsample\fP.
+.PP
+Tables should be specified using PRE-formatted text.  For example,
+the following table shows those characters which must be represented
+by their HTML entity notation in an IPW man page:
+.sp
+.nf
+.ft CR
+     character            HTML notation
+
+     double quote (")     &quot;
+     less than (<)        &lt;
+     greater than (>)     &gt;
+     ampersand (&)        &amp;
+.ft R
+.fi
+.PP
+A reference to another IPW command should be specified as a link
+to that command's man page, for example,
+\fBisample\fP.
+The link should be in boldface, so that
+the referenced command will stand out in the Unix version of the man
+page.
+.PP
+This is an example of some small indented segments of text.  The Unix
+version of this man page will have the text indented as well, but without
+the bullets.
+.sp
+.RS
+when 0.0 < %_snow < 1.0, (a mixed rain/snow event):
+.br
+.RS
+snow temperature = 0.0
+.br
+rain temperature = T_pp 
+.br
+liquid H2O sat. = 100% 
+.br
+.RS
+when %_snow = 1.0 and T_pp => 0.0, (a warm snow-only event) 
+.br
+.RS
+snow temperature = 0.0 
+.br
+liquid H2O sat. = 100% 
+.br
+.RS
+when %_snow = 1.0 and T_pp < 0.0, (a cold snow event) 
+.br
+.RS
+snow temperature = T_pp 
+.br
+liquid H2O sat. = 0% 
+.br
+.SH OPTIONS
+.TP
+\fB-z\fP \fIelev\fP
+\fIelev\fP is the elevation of the reference location (m);
+used to compute air pressure.
+.sp
+.TP
+\fB-b\fP \fIband\fP[,...]
+Perform the calculation on only the specified bands of the input image.
+.sp
+.TP
+\fB-K\fP
+Accept/output temperatures in degrees K (default: degrees C).
+.sp
+.TP
+\fB-m\fP \fImask\fP
+Use \fImask\fP as a mask image.  Calculations are performed only for
+those points in the input image whose corresponding points in \fImask\fP
+are not 0.
+.sp
+.TP
+\fB-t\fP \fIbig-threshold\fP[,\fImedium-threshold\fP[,\fIsmall-threshold\fP]]
+This is an example of an optional option which must have at least
+one argument: \fIbig-threshold\fP.  This description of the option
+should state any default value, e.g., (default: 60 kg/m^2).
+.sp
+If the option has two arguments, the second argument is taken to
+be the \fImedium-threshold\fP (default 10 kg/m^2).
+.sp
+If the option has three arguments, the third argument is taken to
+be the \fIsmall-threshold\fP (default 1 kg/m^2).
+.SH OPERANDS
+.TP
+\fIimage\fP
+Use \fIimage\fP as the input image (default: standard input).
+.SH EXAMPLES
+.PP
+This section should include examples of how the command is used.  The
+actual command-line that would be typed in by the user for the example
+should be PRE-formatted text.
+.PP
+Here is an EXAMPLES section based on the IPW command 'primg':
+.PP
+To interactively examine pixel values in \fIimage\fP, type:
+.sp
+.nf
+.ft CR
+     primg -i \fIimage\fP
+.ft R
+.fi
+.PP
+then type the pixel coordinates on the standard input (but note
+that the coordinates must be typed in increasing line order).
+.PP
+If the text file "basin" contains the (line,sample) coordinates of
+the corners of a drainage basin in the DEM image "dem", and \fIline\fP,
+\fIsamp\fP are the coordinates of an arbitrary point within the drainage
+basin, then:
+.sp
+.nf
+.ft CR
+     poly -s \fIline\fP,\fIsamp\fP basin | primg -i dem
+.ft R
+.fi
+.PP
+will print all of the pixel values in the image "dem" that lie
+within the drainage basin.
+.SH FILES
+.sp
+.nf
+.ft CR
+     $(IPW)/aux/proj/std          Standard geographic projections
+     $(HOME)/ipw/foo.config       User's configuration file for
+                                    Foo modeling
+.ft R
+.fi
+.SH DIAGNOSTICS
+.TP
+elevation below sea level: \fIelev\fP
+.br
+The elevation \fIelev\fP must be 0 or positive.
+.sp
+.TP
+medium threshold (\fI#\fP) exceeds big threshold (\fI#\fP)
+.br
+The \fImedium-threshold\fP must be equal to or smaller than the
+\fIbig-threshold\fP.
+.sp
+.TP
+small threshold (\fI#\fP) exceeds medium threshold (\fI#\fP)
+.br
+The \fIsmall-threshold\fP must be equal to or smaller than the
+\fImedium-threshold\fP.
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.TP
+Aug 1984
+Written by J. Doe, UCSB
+.sp
+.TP
+Jun 1987
+Added the \fB-K\fP option.  Z. Smith, USGS
+.sp
+.TP
+Feb 1996
+Increased the number of thresholds from two to three to improve
+model stability over small temperature variations.  K. Brown, OSU
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO
+.TP
+IPW:
+\fBadvec\fP,
+\fBdeltaT\fP,
+\fBgradient\fP,
+\fBzpr\fP
+.TP
+Unix:
+diff, grep
+.PP
+Doe, J.A., 1976. A simplied approach to the standard foobar equations.
+\fIXYZ Technical Report 19\fP, Regional Climatic Research Institute,
+Cascadia, TI, 150p.
+.PP
+Garen, D.C., and D. Marks, 1996. Spatially distributed snow modelling
+in mountainous regions: Boise River application. In: \fIHydroGIS `96:
+Application of Geographic Information Systems in Hydrology and Water
+Resources Management\fP, IAHS Publication No. 235, pp. 421-428.
+.PP
+Morris, E.M., 1982. Sensitivity of the European Hydrological System
+snow models. In: \fIHydrological Aspects of Alpine and High-Mountain Areas\fP,
+J.W. Glen, ed., International Association of Hydrological Sciences, Wallingford,
+UK, IAHS-AIHS Publication 138, pp 221-231.

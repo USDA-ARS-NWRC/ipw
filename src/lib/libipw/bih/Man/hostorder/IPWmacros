@@ -1,0 +1,3 @@
+%define(name,"hostorder")
+%define(description,"get host byte order")
+%define(category,"bih")

@@ -1,0 +1,46 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "envphys.h"
+
+double
+wetbulb(
+     double  ta,      /* air temperature (K) */
+     double  dpt,     /* dewpoint temperature (K) */
+     double  press)   /* total air pressure (Pa)  */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> routine wetbulb is called to compute wet or ice bulb temperature from values
+of air and dewpoint temperatures (K), and air pressure (Pa),
+using Richard Essery's equations for the psychrometric constant,
+its value at specific temperatures from the Clausius-Clapeyron equation,
+and solves for the Tw or Ti using the Newton-Raphson iterative approximation.
+It returns wet or ice bulb temperture (K); works at all temperatures
+(accounting for both fusion and vaporization).
+
+<H2>RETURN VALUE</H2>
+
+<P>
+Wet or Ice Bulb temperature (K)
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>2012</DT>
+<DD>
+written by D. Marks, USDA-ARS, NWRC;
+</DD>
+</DL>
+

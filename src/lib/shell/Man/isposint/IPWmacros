@@ -1,0 +1,2 @@
+%define(name,"isposint")
+%define(description,"is argument a positive nonzero integer?")

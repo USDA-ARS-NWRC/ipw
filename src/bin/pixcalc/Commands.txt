@@ -1,0 +1,15 @@
+
+Pixel Calculations
+
+  imath     - calculate an arithmetic expression over each sample's pixels
+  imgsum    - sum all pixels in an image
+  normalize - normalize image bands
+  iinterp   - linearly interpolate single-band image using set of data pairs
+  ninterp   - linearly interpolate multi-band image over n-dimensional table
+  despike   - remove abnormally large pixel values (spikes)
+  bitcom    - bitwise combination of pixels (AND, OR, exclusive-OR)
+  iadd      - perform addition or subtraction on pixels (DEPRECIATED)
+  mult      - perform multiplication or division on pixels (DEPRECIATED)
+  scale     - multiply all pixels by a scaling factor (DEPRECIATED)
+  lincom    - linear combination of pixels (DEPRECIATED)
+  itrim     - trim image values based on min/max threshold (DEPRECIATED)

@@ -1,0 +1,131 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Names</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../../images/usda.gif" alt="USDA">
+<IMG SRC="../../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Names</H1>
+
+
+<P>
+Variable names should be self-documenting; e.g., <CODE>nsamps</CODE> for
+"number of samples", <CODE>i_fd</CODE> for "input file descriptor", etc. The
+meaning of a variable name, and the usage of the corresponding variable,
+should be invariant throughout the program.
+
+<P>
+In general, names must be longer than 1 character.  However, the following
+traditional 1-character local names may be used:
+
+<PRE>
+    c        <I>ASCII character</I>
+    i,j,k    <I>array or loop index</I>
+    m,n      <I>count or loop limit</I>
+    p,q      <I>pointer</I>
+    s        <I>pointer-to-string</I>
+</PRE>
+
+<P>
+The following 1-character prefixes are also widely used in IPW source code:
+
+<PRE>
+    i_       <I>input image</I>
+    m_       <I>mask image</I>
+    n        <I>number of</I>
+    o_       <I>output image</I>
+</PRE>
+
+<P>
+The suffix <CODE>"p"</CODE> indicates "pointer to". A double-indirect pointer
+is indicated by <CODE>"pp"</CODE>.
+
+<P>
+Long names should differ from one another by more than 2 characters, or by
+an obvious prefix (not suffix). Certain characters that are easily confused
+(e.g., 1 , l ,and I ;and 0 , O ,and Q) should not be relied on to distinguish
+different names. Finally, possible phonetic confusion between a name's
+"sound" and its meaning should be avoided; a classic example is
+<CODE>inch</CODE> for "input character"
+[<A HREF="../../bib.html#Plum 1984">Plum 1984</A>].
+
+<P>
+The preferred way of indicating word breaks in names is by an underscore.
+Using capitalization is also acceptable.
+
+<P>
+Here are the naming conventions for IPW:
+
+<UL>
+  <LI>macros - letters must be upper-case
+<P>
+  <LI><CODE>"typedef"</CODE>s - lower-case and end in <CODE>"_t"</CODE> for
+	scalar types; upper-case and end in <CODE>"_T"</CODE> for aggregate
+	types.
+<P>
+  <LI>local variables - first character is a lower-case letter
+<P>
+  <LI>global variables - first character is an upper-case letter
+<P>
+  <LI>functions - first character is a lower-case letter; should follow the
+	standard pattern of "object + verb"; e.g., <CODE>geohmake</CODE>
+	constructs a new image geodetic header.
+</UL>
+
+<P>
+Global variables and functions that are private to a module (i.e., shared
+by a group of functions, but not accessed outside that group) should have
+a leading underscore to indicate that their access is limited to 
+the module.
+
+<P>
+Example:
+
+<PRE>
+#define PIPE_BUF        4096
+
+#define DIM(a)          ( sizeof(a) / sizeof(a[0]) )
+#define STRSIZE(s)      ( strlen(s) + 1 )
+
+typedef int     bool_t;
+
+typedef struct node {
+            int            datum;
+            struct node   *prev;
+            struct node   *next;
+} LIST_T;
+
+static int      Line_number;    /* prefered   */
+static int      LineNumber;     /* acceptable */
+
+char
+fooPrint(
+        int      i_fd,           /* input image                  */
+        pixel_t *buffer,         /* pixel buffer                 */
+        int      bufSize)        /* length of buffer             */
+{
+        ...
+}
+</PRE>
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

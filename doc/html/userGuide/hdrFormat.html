@@ -1,0 +1,115 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>IPW Header Format</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../images/usda.gif" alt="USDA">
+<IMG SRC="../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Format of IPW Image Headers</H1>
+
+
+<P>
+The headers in an IPW image are stored as lines of text.  Each text line
+is either a <B>preamble</B> which indicates the start of a header, or
+a <B>datum</B> which contains the actual contents of the header.
+
+<P>
+<B>Preamble lines</B>
+
+<P>
+A preamble line begins with the unique identifier string:
+<CODE>"!&lt;header>"</CODE>.  After this string comes the header's type and
+the number of the band the header is associated with.  Here is
+an example of the preamble line for a GEO (geodetic) header for an
+image's first band (band 0):
+
+<PRE>
+     !&lt;header> geo 0 $Revision: 1.4 $
+</PRE>
+
+The characters following the band number represent revision information used
+internally by the IPW software.
+
+<P>
+<B>Datum lines</B>
+
+<P>
+A datum line in a header has the format:
+
+<PRE>
+     <I>keyword</I> = <I>value</I> [...]
+</PRE>
+
+For example, here are some of the datum lines from the BI (basic image)
+header of an image:
+
+<PRE>
+     nlines = 96 
+     nsamps = 281 
+     nbands = 3 
+</PRE>
+
+These lines indicate that the image has 96 lines, 281 samples per line, and
+3 bands (pixels) per sample.
+
+<P>
+The notation <CODE>"[...]"</CODE> in the format above indicates that the
+keyword may have multiple values.  A common example of this case is an
+LQ (linear quantization) header:
+
+<PRE>
+     !&lt;header> lq 0 $Revision: 1.4 $
+     map = 0 0
+     map = 255 56.78
+</PRE>
+
+An explanation of the <CODE><B>map</B></CODE> datum lines
+of a LQ header is described in the <A HREF="pixFormat.html">next section</A>
+of this guide.
+
+<P>
+<B>Where headers end and pixels begin</B>
+
+<P>
+A special preamble line marks the end of an IPW image's headers:
+
+<PRE>
+	!&lt;header> image -1 $Revision: 1.5 $^L
+</PRE>
+
+This last header line immediately preceeds the image's pixel data.
+
+<P>
+To facilitate the direct viewing of an IPW image's headers with the UNIX 
+pagination utility <CODE>"more"</CODE>, this last header line image
+contains a formfeed character (ASCII code 12, control-L) which is
+shown above as <CODE>"^L"</CODE>.  This formfeed causes the utility
+to stop just before the pixel data, and allows the user to terminate the
+utility before any binary pixel data is written to the terminal screen.
+
+<P>
+Furthermore, UNIX text processing commands such as <CODE>"sed"</CODE> and
+<CODE>"awk"</CODE> can be used to process an image's headers by utilizing the
+formfeed character as the marker to stop reading the image file.
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

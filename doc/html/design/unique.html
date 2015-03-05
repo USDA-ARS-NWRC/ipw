@@ -1,0 +1,83 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>IPW Design Goal: Uniqueness</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../images/usda.gif" alt="USDA">
+<IMG SRC="../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>IPW Design Goal: Uniqueness</H1>
+
+
+<P>
+IPW attempts to fill a unique niche in the set of tools available to a
+remote sensing investigator. This is not to say that IPW itself is unique
+in the sense that it is the only available image processing software, but
+rather that IPW does not duplicate any functionality already found in the
+UNIX environment, and works well with other tools in that environment.
+<P>
+
+<B>Avoid reinventing the wheel</B>
+<P>
+The UNIX environment already provides considerable functionality that can be
+directly utilized by IPW. IPW does not attempt to
+duplicate this functionality.  Unlike many image processing software
+systems, IPW does not contain a command interpreter, a file system, or
+any general text-manipulation tools, all of which are already provided by
+UNIX. While these UNIX facilities may not be perfect, they are certainly
+adequate, and moreover are uniform across all UNIX implementations.
+As much as possible, IPW attempts to solve only image processing problems,
+leaving general command and data management problems to the host system.
+
+<P>
+
+<B>Software tools philosophy</B>
+
+<P>
+
+A software tool may be defined as follows:
+<BLOCKQUOTE>
+it uses the machine; it solves a general problem, not a special case; and
+it's so easy to use that people will use it instead of building their own.
+[Kernighan 1976]
+</BLOCKQUOTE>
+
+IPW programs are designed as tools, and the IPW function libraries are
+designed to promote tool construction. Large software systems, and
+especially image processing systems, have traditionally grown by accretion,
+with a new function or program added for each new operation to be performed.
+In IPW, the emphasis is on generic operations (section 4.2) out of which
+more specialized operations may constructed. This both helps to
+keep the overall size of IPW m manageable, and to guarantee that any
+new additions are of maximum utility.
+<P>
+
+<B>Data import and export</B>
+<P>
+In order to avoid reinventing the wheel, and to function as tools, IPW
+programs must easily communicate with non-IPW software. Therefore, a
+fundamental design decision has been to facilitate the importation of data
+into IPW, and the exportation of IPW datasets to non-IPW software.
+It is not uncommon for IPW commands to be implemented as scripts which
+freely intermingle IPW programs and generic UNIX commands.
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

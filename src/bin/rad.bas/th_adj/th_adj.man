@@ -1,0 +1,138 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [<i>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> adjusts thermal irradiance for cloud and vegetation effects
+at a single time, using input clear-sky thermal radiation, supplied by
+<B><A href="topotherm.html">locally modified topotherm</A></B>,
+air temperature, and the sky-view factor for cloudcover, supplied by 
+<B><A href="cf_cloud.html">locally developed cf_cloud</A></B>,
+or the sky-view factor for vegetation, or a combined cloudcover and
+vegetation sky-view.
+<P>
+The input image has the following bands:
+<PRE>
+    band 0 : clear-sky thermal irradiance (Wm^2)
+     "   1 : air temperature (C)
+     "   2 : sky-view factor (0-1)
+</PRE><P>
+The first band is output from
+<B><A href="topotherm.html">locally modified topotherm</A></B>,
+the second band can be generated from data using standard ipw tools
+such as
+<B><A href="standard/imath.html">imath</A></B>
+or <B><A href="standard/iinterp.html">iinterp</A></B>,
+and the third is output from
+<B><A href="cf_cloud.html">locally modified stoporad</A></B>
+or from data.
+<P>
+Air temperature (band 1) is used to calculate thermal irrdiance with an
+emissivity of 1.0 after converting air temperature to K:
+<PRE>
+    BB_thermal = 5.6697e-8 * ta^4
+</PRE><P>
+Adjusted thermal irradiance is then:
+<PRE>
+    adj_thermal = (thermal_clear-sky * sky_view_fac) + (BB_thermal * (1 - sky_view_fac))
+</PRE><P>
+The output image has the one band:
+<PRE>
+    band 0 : adj_thermal
+</PRE><P>
+Output is to the stdout.
+</P>
+
+<H2>OPTIONS</H2>
+<P>
+None
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+
+<DT><I>image</I>
+<DD>three-band input image (default: standard input).
+</DD>
+
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+Running <B>%name</B> over a section of the Columbia Basin on
+June 22, 1990, with input files muxed together:
+</P><PRE>
+	mux th_in ta sky_view_facs | th_adj
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>input image has no LQH
+<DD>
+</DD>
+
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+
+<DT> Feb 2000
+<DD>
+Written by D. Marks, ARS-NWRC.
+</DD>
+
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="cf_cloud.html">locally locally developed cf_cloud</A></B>,
+<B><A href="standard/iinterp.html">iinterp</A></B>,
+<B><A href="standard/imath.html">imath</A></B>,
+<B><A href="standard/topotherm.html">topotherm</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Link 1999a">Link &amp; Marks 1999a</A>,
+<A HREF="../bib.html#Link 1999b">Link &amp; Marks 1999b</A>,
+<A HREF="../bib.html#Marks 1999b">Marks, Domingo, Susong, Link &amp; Garen 1999b</A>,
+<A HREF="../bib.html#Susong 1999">Susong, Marks, &amp; Garen 1999</A>
+</P>
+

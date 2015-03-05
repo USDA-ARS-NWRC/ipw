@@ -1,0 +1,63 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+int
+hbit(
+	unsigned        i)	|* unsigned integer	*|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> returns the highest bit set in the unsigned argument
+passed it and returns that bit.  A return value of zero
+indicates the value passed is zero.
+</P><P>
+<B>%name</B> is normally called to find the number of bits needed to
+hold an integer.
+</P>
+<H2>RETURN VALUE</H2>
+
+
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

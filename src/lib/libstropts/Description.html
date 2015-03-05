@@ -1,0 +1,135 @@
+<P>
+This library allows IPW programs to use string options instead
+of single-character options.  To use this library, a program's
+Makefile must contain this line before any "include" statements:
+
+<PRE>
+     STRING_OPTIONS := 1
+</PRE>
+
+For example, a sample Makefile of a program using string options
+might look like this:
+
+<PRE>
+     PGM := foo
+     DESCRIPTION := a sample IPW program
+
+     SRCS := main.c
+
+     STRING_OPTIONS := 1
+
+     include $(IPW)/make/command
+</PRE>
+
+<P>
+This library contains modified versions of these functions from the
+standard IPW library:
+
+<UL>
+    <LI> <A HREF="../man3/ipwenter.html">ipwenter</A>
+    <LI> <A HREF="../man3/opt_check.html">opt_check</A>
+    <LI> <A HREF="../man3/usage.html">usage</A>
+</UL>
+
+The modified versions have the same interface; i.e., they are invoked
+in the same way as their counterparts in the standard library.
+
+<P>
+The difference is that the program's options have names which are
+strings instead of single-characters.  To illustrate this difference,
+here is the example source code from the man page for the function
+<B>ipwenter</B> as it would appear with this library:
+
+<PRE>
+     main(
+          int          argc,
+          char          *argv[])
+     {
+
+     /* "-apple" option; no arguments */
+
+          static OPTION_T opt_apple = {
+               "apple",
+               &quot;(option description)&quot;,
+          };
+
+     /* "-banana" option; &gt;= 3 integer arguments */
+
+          static OPTION_T opt_banana = {
+               "banana",
+               &quot;(option description)&quot;,
+               INT_OPTARGS,
+               &quot;(arg description)&quot;,
+               OPTIONAL,
+               3,
+          };
+
+     /* "-cherry" option; &gt;= 1 real argument;
+                          must be specified */
+
+          static OPTION_T opt_cherry = {
+               "cherry",
+               &quot;(option description)&quot;,
+               REAL_OPTARGS,
+               &quot;(arg description)&quot;,
+               REQUIRED,
+          };
+
+     /* "-date" option; &gt;= 1 and &lt;= 4 string arguments;
+                        must be specified */
+
+          static OPTION_T opt_date = {
+               "date",
+               &quot;(option description)&quot;,
+               STR_OPTARGS,
+               &quot;(arg description)&quot;,
+               REQUIRED,
+               1,
+               4
+          };
+
+          static OPTION_T operands = {
+               OPERAND,
+               &quot;(operand description)&quot;,
+               STR_OPERANDS,
+               &quot;(operand placeholder)&quot;,
+               OPTIONAL
+          };
+
+          static OPTION_T *optv[] = {
+               &amp;opt_apple,
+               &amp;opt_banana,
+               &amp;opt_cherry,
+               &amp;opt_date,
+               &amp;operands,
+               0
+          };
+
+          ipwenter(argc, argv, optv, IPW_DESCRIPTION);
+          ...
+     }
+</PRE>
+
+<P>
+<B>Abbreviating String Options</B><BR>
+The user can abbreviate a string option as long as the
+abbreviation is distinct.  In the example above, the user can specify
+the first option in one of the following ways:
+
+<PRE>
+     -apple
+     -appl
+     -app
+     -ap
+     -a
+</PRE>
+
+<P>
+If there was another option named "apricot", then the shortest abbreviations
+the user could use for the two "a" options would be "-app" and "-apr".
+
+<P>
+String options permit more descriptive names for options, and improve
+the readability of shell scripts containing IPW commands.  And yet,
+when entering IPW commands directly, the user can save keystrokes
+by using abbreviations for string options.

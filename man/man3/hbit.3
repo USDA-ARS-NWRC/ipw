@@ -1,0 +1,38 @@
+.TH "hbit" "3" "10 April 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBhbit\fP - find highest-order bit in integer
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+int
+hbit(
+	unsigned        i)	|* unsigned integer	*|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBhbit\fP returns the highest bit set in the unsigned argument
+passed it and returns that bit.  A return value of zero
+indicates the value passed is zero.
+.PP
+\fBhbit\fP is normally called to find the number of bits needed to
+hold an integer.
+.SH RETURN VALUE
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

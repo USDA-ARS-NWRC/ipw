@@ -1,0 +1,60 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "solar.h"
+
+int
+sunangle(
+     double       latitude,    /* radians, southern lats < 0     */
+     double       longitude,   /* radians, western hemi. < 0     */
+     datetime_t  *datetime,    /* date-time (GMT)                */
+
+  /* output parameters */
+
+     double      *mu,          /* cosine of solar zenith angle   */
+     double      *azmSun,      /* solar azimuth angle, radians
+                                    (west of south < 0)          */
+     double      *radVec)      /* Earth-Sun radius vector
+                                    (can be NULL if not desired) */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates the sun angle (the azimuth and zenith angles
+of the sun's position) for a given geodetic location (specified
+by <I>latitude</I> and <I>longitude</I>) and a given date and time (specified
+by <I>datetime</I>.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+0	calculations completed successfully
+<P>
+1	sun below horizon and azmSun is negative
+<P>
+ERROR   error in one or more arguments (an explaining message has
+stored via the usrerr function)
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Oct 1997<DT>
+<DD>
+Extracted function from IPW program <B>sunang</B>.  J. Domingo, OSU
+</DD>
+</DL>
+
+
+<H2>SEE ALSO</H2>
+
+
+

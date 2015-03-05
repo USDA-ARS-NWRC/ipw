@@ -1,0 +1,3 @@
+%define(name,"sunpath")
+%define(description,"sun angle from solar declination and longtitude")
+%define(category,"solar")

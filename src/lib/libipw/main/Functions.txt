@@ -1,0 +1,7 @@
+
+main - command options, program startup and wrapup
+
+  ipwenter  - initialize an IPW main program
+  ipwexit   - terminate an IPW program
+  opt_check - check for conflicting command-line options
+  usage     - print usage message and exit

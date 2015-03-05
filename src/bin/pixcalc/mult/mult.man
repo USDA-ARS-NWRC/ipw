@@ -1,0 +1,145 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-n</B> <I>nbits</I> ] [ <B>-r</B> <I>band</I>,... ] [ <I>image</I> ]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads a multi-band <I>image</I> and
+writes the product of its bands to the standard output.  For
+each input sample, the corresponding output sample is:
+<PRE>
+	p[0] * p[1] * ... * p[nbands-1]
+</PRE><P>
+where <I>p</I> is the input pixel value and <I>nbands</I> is the number
+of input bands.
+<P>
+To effect division, specified bands are converted to reciprocals
+before multiplication.  Zeroes in the denominator are replaced by
+ones.
+</P>
+
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-n</B> <I>nbits</I>
+<DD>
+Use <I>nbits</I> bits per output pixel (default: maximum number
+of bits per input pixel).
+</DD>
+
+<P>
+<DT><B>-r</B> <I>band</I>,...
+<DD>
+Use the reciprocal of the pixel value in the specified
+bands.  To avoid division by 0, any 0 values in the
+specified bands will be set to 1.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I></DT>
+
+<DD>multi-band input image (default: standard input)
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To multiply two single-band images together:
+</P><PRE>
+        mux image1 image2 | mult
+</PRE><P>
+To divide the first band of a 2-band image by the second band
+(i.e. band0 / band1 ):
+</P><PRE>
+        mult -r 1
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT><B>-r</b> <I>band</I>: not that many bands
+</DT>
+<DD>A nonexistent input band was specified with <B>-r</b>.
+</DD>
+</DL>
+
+<H2>NOTES</H2>
+
+<P>
+This command has been DEPRECIATED because its functionality
+is provided by the command <A HREF="imath.html"><B>imath</B></A>.
+This command may be removed in future versions of IPW.
+
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+
+<P>
+
+<DT>Mar 1993</DT>
+<DD>
+Fixed to not blow up on constant surface outputs
+(i.e., when multiplying by value 0 images),
+Dana Jacobsen, ERL-C.
+</DD>
+
+<P>
+
+<DT>Apr 1993</DT>
+<DD>
+Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+
+<P>
+
+<DT>Oct 1993</DT>
+<DD>
+Multiplies are done in double precision.
+Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="imath.html">imath</A></B>,
+<B><A href="demux.html">demux</A></B>,
+<B><A href="mux.html">mux</A></B>,
+<B><A href="iadd.html">iadd</A></B>,
+<B><A href="lincom.html">lincom</A></B>,
+<B><A href="scale.html">scale</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A>
+</P>
+

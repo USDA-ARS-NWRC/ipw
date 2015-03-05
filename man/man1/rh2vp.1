@@ -1,0 +1,130 @@
+.TH "rh2vp" "1" "30 April 2009" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBrh2vp\fP - convert between relative humidity and vapor pressure
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBrh2vp\fP [ \fB-i\fP ] [ \fB-c\fP ] [ \fB-F\fP ] [ \fB-m\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBrh2vp\fP converts relative humidity (RH) to vapor pressure,
+or the inverse;
+Reads input air temp and RH, or air temp and vapor pressure
+from stdin;
+.PP
+(see \fIGeneral Meterology, Byers, 1974\fP)
+.PP
+Air temperature input in C (default) or F if \fB-F option set;
+Input RH from 0 to 1.0, or vapor pressure in Pa;
+.PP
+If \fB-i is set, input air temp and vapor pressure are converted to RH;
+.PP
+If \fB-c is set, output RH is clipped to not exceed 100%, or vapor
+pressure to exceed sat vapor pressure.
+.PP
+Calculates vapor pressure in Pa (default) or mb, or RH from 0 to 1.0;
+.PP
+Output is to standard output;
+.SH OPTIONS
+.TP
+\fB-i\fP
+perform inverse operation converting vapor pressure to RH
+.sp
+.TP
+\fB-c\fP
+clip output RH to <= 1.0, or vp <= svp
+.sp
+.TP
+\fB-F\fP
+Air temperatures are inputed in degrees F (default: C).
+.sp
+.TP
+\fB-m\fP
+The output values for vapor pressure are in millibars.
+(default: Pa).
+.SH OPERANDS
+.PP
+none
+.SH EXAMPLES
+.PP
+To convert air temperature (C) and RH to vapor pressure (Pa), clipping
+the result to make sure that RH is always <1.0:
+.sp
+.nf
+.ft CR
+	paste ta rh | \fBrh2vp\fP -c
+.ft R
+.fi
+
+.PP
+To convert air temperature (F) and RH to vapor pressure in mb:
+.sp
+.nf
+.ft CR
+	paste ta_f rh | \fBrh2vp\fP -F -m
+.ft R
+.fi
+
+.PP
+To convert air temperature (C) and vapor pressure (Pa) to RH,
+clipping the result to make sure that vapor pressure is always less
+than the saturation vapor pressure at that air temperature:
+.sp
+.nf
+.ft CR
+	paste ta vp | \fBrh2vp\fP -i -c
+.ft R
+.fi
+.SH FILES
+.PP
+none
+.SH DIAGNOSTICS
+.sp
+.TP
+checks for RH or vp < 0.0, and dies on error.
+.sp
+.TP
+checks for RH > 1.0, or vp > sat_vp, and either sets to saturation
+.br
+	if \fB-c (clipping) is set, or dies on error.
+.SH RESTRICTIONS
+.PP
+none
+.SH HISTORY
+.TP
+May 1986
+Written as qdips program \fBhytherm\fP to convert
+hygro-thermograph data by D. Marks, CSL, UCSB;
+.TP
+May 1995
+Converted to IPW as pgm \fBhythrm\fP by J. Domingo,
+OSU, ERL-C;
+.TP
+Mar 1997
+Converted to \fBrh2vp\fP, using C as default for Ta, and Pa
+as default units for vp, to conform with satvp and
+isatvp conventions; added \fB-i and \fB-c options,
+and changed -C  to a \fB-F option, and modified RH format
+from 0-100 to 0-1.0; D. Marks, USGS, ERL-C;
+.SH BUGS
+.PP
+none
+.SH SEE ALSO
+.TP
+IPW
+	\fBirh2vp\fP,
+\fBsatvp\fP,
+\fBisatvp\fP,
+\fBdewpt\fP,
+\fBidewpt\fP
+\fBsling\fP,
+\fBvptr\fP
+.TP
+Unix
+paste
+.PP
+Byers 1974,

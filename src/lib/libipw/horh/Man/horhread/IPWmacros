@@ -1,0 +1,3 @@
+%define(name,"horhread")
+%define(description,"read an IPW HORH header")
+%define(category,"horh")

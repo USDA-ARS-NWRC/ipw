@@ -1,0 +1,115 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> copies ASCII X-Y pairs of integers from the standard input
+to the standard output. If successive Xs differ by more than +- 1,
+then the intervening X values are also printed, along with linearly
+interpolated integer Ys.
+</P>
+<H2>OPTIONS</H2>
+
+
+<P>None
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+The following input:
+</P><PRE>
+	0 0
+	8 4
+</PRE><P>
+produces the following output:
+</P><PRE>
+	0 0
+	1 1
+	2 1
+	3 2
+	4 2
+	5 3
+	6 3
+	7 4
+	8 4
+</PRE>
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>input line must have exactly 2 fields
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+All Xs and Ys must be integers.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1997</DT>
+<DD>
+	Converted to IPW Version 2.0 by D. Marks, USGS, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="iinterp.html">iinterp</A></B>,
+<B><A href="mklut.html">mklut</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>UNIX</DT>
+<DD>	awk
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A><BR>
+</P>
+

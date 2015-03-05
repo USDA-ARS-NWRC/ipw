@@ -1,0 +1,3 @@
+%define(name,"mkipwdir")
+%define(description,"make a private IPW directory structure")
+%define(category,"Software Administration and Development")

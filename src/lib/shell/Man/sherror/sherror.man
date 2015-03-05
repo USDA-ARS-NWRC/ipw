@@ -1,0 +1,76 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <I>pgm</I> <I>message</I> [ <I>file</I> ]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is an error message generator that may be called by IPW shell
+scripts.  The error messages are printed in a similar format to the
+IPW error message standard for C programs.
+</P>
+
+<H2>OPTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+
+<DT><I>pgm</I>
+<DD>
+Name of the script that generated the error.
+</DD>
+
+<p>
+
+<DT><I>message</I>
+<DD>
+Message explaining the error.
+</DD>
+
+<p>
+
+<DT><I>file</I>
+<DD>
+Name of file that error is associated with.
+</DD>
+
+</DL>
+
+
+<H2>EXAMPLES</H2>
+
+<PRE>
+<B>%name</B> $0 &quot;$1: unsupported option&quot;
+
+<B>%name</B> $0 &quot;can't access file&quot; $filename
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+Always exits with nonzero status.
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>

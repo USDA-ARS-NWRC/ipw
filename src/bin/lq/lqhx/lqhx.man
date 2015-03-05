@@ -1,0 +1,148 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-h</B> <I>header</I> ] [ <B>-i</B> <I>image</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> copies <I>image</I> to the standard output, requantizing its
+pixels according to the quantization parameters of the <I>header</I>
+image.  Specifically, the output bands will have the same pixel
+sizes as <I>header</I>, and will receive (and be quantized according
+to) any corresponding &quot;lq&quot; (linear quantization) headers in
+<I>header</I>.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-h</B> <I>header</I>
+<DD>
+Read quantization parameters from <I>header</I> (default:
+standard input).  Pixel size information (number of
+bytes, number of bits) is obtained from the BIH (basic
+image header).  Any &quot;lq&quot; headers in <I>header</I> (there must
+be at least one) are copied to the output image.  Any
+other headers or image data in <I>header</I> is ignored.
+</DD>
+
+<P>
+<DT><B>-i</B> <I>image</I>
+<DD>
+Read image data from <I>image</I> (default: standard input).
+</DD>
+</DL>
+
+<P>At least one of <B>-h</b> and/or <B>-i</b> must be specified.
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>
+None
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To requantize &quot;image2&quot; to the same pixel sizes and ranges of
+values as in &quot;image1&quot;:
+</P><PRE>
+	lqhx -h image1 -i image2
+</PRE><P>
+To requantize a single-band &quot;image&quot; such that the input values
+0 .. 1 are distributed over 10 bits:
+</P><PRE>
+	mkbih -s 1 -l 1 -i 10 -f  |  mklqh -m 0,0,1023,1 -f  | \
+		lqhx -i image
+</PRE><P>
+Note that the -s and -l options are required by mkbih, even
+though those header fields are subsequently ignored.
+</P>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>new LQH not valid
+</DT>
+<DD><BR>	The <I>header</I> file has an invalid &quot;lq&quot; header, or does not
+	have any &quot;lq&quot; headers.
+</DD>
+
+<P>
+<DT>input image and LQH file have different # bands
+</DT>
+<DD><BR>	The <I>header</I> and <I>image</I> files must have the same number
+	of bands.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+<B>%name</B> does not check that the quantization borrowed from <I>header</I>
+is appropriate for <I>image</I>, i.e., that the pixel values in <I>image</I>
+lie in the ranges specified by the &quot;lq&quot; headers in <I>header</I>.
+Pixels below (above) the range of output values will be set to
+the lowest (highest) output value.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+	Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1997</DT>
+<DD>
+	Converted to IPW Version 2.0, D. Marks, USGS, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="lutx.html">lutx</A></B>,
+<B><A href="mkbih.html">mkbih</A></B>,
+<B><A href="mklqh.html">mklqh</A></B>,
+<B><A href="requant.html">requant</A></B>
+</DD>
+</DL>
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A><BR>
+</P>
+

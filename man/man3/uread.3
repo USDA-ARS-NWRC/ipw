@@ -1,0 +1,44 @@
+.TH "uread" "3" "10 April 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBuread\fP - UNIX read
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+int
+uread(
+	int       fd,		|* input file descriptor	 *|
+	addr_t    buf,		|* -> input buffer		 *|
+	int       nbytes)	|* #bytes to read		 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBuread\fP is a reliable interface to the UNIX read function.  It is
+guaranteed to return the number of bytes requested unless end-of-file
+is reached, or an I/O error occurs.
+.PP
+Note that the semantics of UNIX pipes are such that a normal UNIX
+read may return with less than the number of bytes requested, even
+when the pipe is not empty; this was the principal motivation for
+\fBuread\fP.
+.SH RETURN VALUE
+.PP
+>= 0	number of bytes read
+.PP
+ERROR	if failure
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+_uiocb
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

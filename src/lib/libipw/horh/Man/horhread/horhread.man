@@ -1,0 +1,67 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "horh.h"
+
+HORH_T **
+horhread(
+	int             fd)	|* image file descriptor	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Horhread reads a HORH image header from file descriptor fd.  An
+array of HORH_T pointers is allocated, one per band.  If a band
+has a HORH header, then a HORH_T header is allocated and its
+address is placed in the corresponding array element;
+otherwise, the corresponding array element is NULL.
+</P><P>
+Before calling <B>%name</B>, the caller must verify (by calling
+hrname()) that a HORH header is available for ingesting.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+pointer to array of HORH_T pointers; else NULL if EOF or error
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

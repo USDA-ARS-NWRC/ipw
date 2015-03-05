@@ -1,0 +1,3 @@
+%define(name,"seq")
+%define(description,"generate sequence of numbers")
+%define(category,"Numeric Data in Text Files")

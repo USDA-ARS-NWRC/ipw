@@ -1,0 +1,134 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-s</B> <I>start,end</I> [ <B>-i</B> <I>interval</I> ]
+      
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> was designed to calculate the wavelength weights from 
+radiation spectra for broad-band or interval albedo calculations.
+<B>%name</B> calculates the x-interval weights for x-y integration
+over the selected segment of x-y spectra.
+</P><P>
+<B>%name</B> reads x-y pairs, where x is usually the wavelength
+and y is the flux density in units of flux per x interval (eg. W ^-2 ^-nm).
+</P><P>
+Note that if the input spectra are sparse in x, then the weights will
+be less meaningful.
+The x-density of the spectra should be close to the x integration
+interval.
+</P><P>
+Input x-y pairs from standard input.
+</P><P>
+Output x-weight pairs to standard output.
+</P>
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-s</B> <I>start,end</I>
+<DD>
+<I>start,end</I> are the start and ending x-values for the selected
+integration segment.
+</DD>
+
+<P>
+<DT><B>-n</B> <I>count</I>
+<DD>
+<I>count</I> is the estimate of the max number of input pairs.
+(Used to set initial input array sizes (default: 40960)).
+</DD>
+
+<H2>OPERANDS</H2>
+
+<P>
+None
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate weights for a visible band (350-700 nm) from a radiation
+spectra, where wavelength is in nm and flux density is in W ^-2 ^-nm:
+</P><PRE>
+	paste wavelength flux_density | weights -s 350,700
+</PRE><P>
+To do the same calculation where the spectra are sparsely sampled (say
+a flux density value every 25 nm):
+</P><PRE>
+	paste wavelength flux_density | akintrp -d 1.0 -s 350 -n 351 | \
+	weights -s 350,700
+</PRE><P>
+The weights may be somewhat different between these two examples
+depending on how dense the initial spectra were.
+</P>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+<DT>
+too many input pairs 
+</DT><DT>
+segment start < initial spectra value
+</DT><DT>
+segment > final spectra value
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Specified segment must be contained within the data
+</P><P>
+y-values must be in units of flux/x-unit
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Oct 2001</DT>
+<DD>
+	Written by D. Marks, ARS-NWRC, Boise;
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="akintrp.html">akintrp</A></B>,
+<B><A href="ezint.html">ezint</A></B>,
+<B><A href="qdint.html">qdint</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Unix</DT>
+<DD>	paste
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Davis 1975">Davis and Rabinowitz 1975</A><BR>
+</P>
+ 

@@ -1,0 +1,3 @@
+%define(name,"numdays")
+%define(description,"return number of days in a month")
+%define(category,"datetime")

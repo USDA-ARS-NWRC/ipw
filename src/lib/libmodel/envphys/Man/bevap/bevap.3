@@ -1,0 +1,37 @@
+.TH "bevap" "3" "10 April 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBbevap\fP - evaporation rate from Bowen ratio
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include	"ipw.h"
+#include	"envphys.h"
+
+double
+bevap(
+     double  netrad,   /* net allwave radiation (W/m^2)  */
+     double  advec,    /* advected heat (W/m^2)          */
+     double  bowen,    /* Bowen ratio (H/LE)             */
+     double  storage,  /* change in heat storage (W/m^2) */
+     double  ts)       /* surface temperature (K)        */
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBbevap\fP calculates the evaporation rate from a saturated
+surface using the Bowen ratio technique.
+.SH RETURN VALUE
+.PP
+evaporation rate (kg/(sec m^2) (which is also the specific discharge
+in mm/sec)
+.SH HISTORY
+.TP
+Apr 1984
+written by D. Marks, CSL, UCSB;
+.sp
+.TP
+June 1995
+Ported from QDIPS to IPW by J. Domingo, OSU

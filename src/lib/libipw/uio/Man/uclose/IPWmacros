@@ -1,0 +1,3 @@
+%define(name,"uclose")
+%define(description,"close IPW file descriptor")
+%define(category,"uio")

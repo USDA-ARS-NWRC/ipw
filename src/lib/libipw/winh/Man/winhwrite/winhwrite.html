@@ -1,0 +1,99 @@
+<HTML>
+
+<HEAD>
+ <TITLE>IPW function: winhwrite</TITLE>
+</HEAD>
+
+<BODY>
+
+<H1 ALIGN=CENTER>winhwrite</H1>
+
+<P ALIGN=CENTER>IPW Library Function<BR>
+Library - libipw<BR>
+Category - winh</P>
+
+<HR WIDTH="100%">
+
+<H2>NAME</H2>
+
+<P><B>winhwrite</B> - write an IPW WINH header</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "file.h"
+
+int
+winhwrite(
+	int             fd,	|* output file descriptor	 *|
+	WINH_T        **winhpp)	|* -> array of WINH pointers	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<PRE>
+     winhwrite writes the array of WINH headers pointed to by winhpp
+</PRE>
+<P>
+to file descriptor fd.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+OK for success, ERROR for failure
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>May 1993</DT>
+<DD>
+	Changed ftoa calls to dtoa.  All headers now write double
+precision which should clean up some problems.  Dana Jacobsen.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 10 April 1998  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>

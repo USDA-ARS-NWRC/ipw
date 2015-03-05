@@ -1,0 +1,191 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-o</B> <I>aop</I> [ <B>-v</B> <I>val</I> ] [ <B>-m</B> <I>mask</I> ] [ <B>-n</B> <I>no_data</I> ] [ <I>image</I> ]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> scales an image by an operator and a value, or by a math
+transform, on a pixel by pixel basis: in[i] op val = out[i],
+or op(in[i]) = out[i].  Possible operators are add, sub, mult,
+div, and pow.  Also sqrt, ln(natural log)and exp, and log (log
+base 10) and 10**x.
+<P>
+Zeroes in the denominator are replaced by ones;
+<P>
+sqrt of values less that 0 are set to 0;
+<P>
+if pixel value is &lt;= 0 it is set to the machine negative epsilon
+(the constant DBL_EPSILON in the system header file "float.h")
+before the ln or log operation is performed.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-o</B> <I>aop</I>
+<DD>
+Perform the operation <I>aop</I> for each pixel.  Possible arithmitic
+operators are add (+), sub (-), mult (*), div (/), and pow (**)
+(<B>-v</b> required);
+also exponential operators sqrt, ln, exp, log, and 10x (10**x)
+(<B>-v</b> not required).
+</DD>
+
+<P>
+<DT><B>-v</B> <I>val</I>
+<DD>
+The image will be scaled by <I>val</I>.
+</DD>
+
+<P>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+Use <I>mask</I> as a mask image.  Any points in <I>mask</I> that are
+0 will be passed through either unchanged or with the
+<I>no_data</I> value if <B>-n</b> is specified.
+</DD>
+
+<P>
+<DT><B>-n</B> <I>no_data</I>
+<DD>
+All points in <I>mask</I> that are 0 will be passed through with
+the value <I>no_data</I> rather than the input value.
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I></DT>
+
+<DD>single-band input image (default: standard input)
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To add an offset of 1000 to an image:
+</P><PRE>
+        scale -o add -v 1000 image &gt;new_imagE
+</PRE><P>
+To convert an elev image from feet to meters:
+</P><PRE>
+        scale -o mult -v 0.3048 elev.feet &gt; elev.meters
+</PRE><P>
+To scale an image within a masked area from 0.0-1.0, and then
+convert it to e**x, while setting values outside the mask to -1.0:
+</P><PRE>
+        imgstat -m mask image (to get img_max and img_min)
+</PRE><PRE>
+        scale -o sub -v &lt;img_min&gt; -m mask image |
+        scale -o div -v &lt;img_max-img_min&gt; -m mask |
+        scale -o exp -m mask -n -1.0 &gt; new_image
+</PRE><P>
+Note: if the mask was not used, the first two steps
+of this problem could be done using requant or edhdr.
+</P>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT>image has <I>bands</I> bands; single band images only
+</DT>
+<DD>Only single band images are supported.  For operations
+between images, use iadd, mult, or (if it ever gets
+written) imath.
+</DD>
+
+<P>
+<DT>no mask provided; <B>-n</b> option ignored
+<DD>The <B>-n</b> option specifies a value to output when operating on
+a masked section of the image.  This is only meaningful when
+a mask image is supplied.
+</DD>
+
+<P>
+<DT>Bad arithmetic operator <I>op</I>
+<DD>Valid operations are &quot;add&quot;, &quot;sub&quot;, &quot;mult&quot;,
+&quot;div&quot;, &quot;pow&quot;, &quot;sqrt&quot;, &quot;ln&quot;,
+&quot;exp&quot;, &quot;log&quot;, and &quot;10x&quot;.
+Do not use their arithmetic equivalents, +,-,*,/,** or ^.
+</DD>
+
+<P>
+<DT>operator doesn't require a constant value; <B>-v</b> option ignored
+</DT>
+<DD>The <B>-v</b> option specifies a value to be combined with the
+operator; for &quot;sqrt&quot;, &quot;ln&quot;, &quot;exp&quot;,
+&quot;log&quot;, and &quot;10x&quot; no value is required.
+</DD>
+</DL>
+
+<H2>NOTES</H2>
+
+<P>
+This command has been DEPRECIATED because its functionality
+is provided by the command <A HREF="imath.html"><B>imath</B></A>.
+This command may be removed in future versions of IPW.
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jun 1990</DT>
+<DD>
+Written by Danny Marks, NSI, Environmental Protection
+Agency Laboratory, Corvallis OR
+</DD>
+
+<P>
+
+<DT>Oct 1990</DT>
+<DD>
+Added mask.  Kelly Longley, OSU, EPA ERL-C
+</DD>
+
+<P>
+
+<DT>Oct 1991</DT>
+<DD>
+Added fast_scale() for scaling without mask (change header instead
+pixels) Kelly Longley, OSU, EPA ERL-C
+</DD>
+
+<P>
+
+<DT>Sep 1995</DT>
+<DD>
+Added sqrt, ln, exp, log, and 10x options.
+Danny Marks, USGS, ERL-C
+</DD>
+</DL>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="imath.html">bitcom</A></B>,
+<B><A href="bitcom.html">bitcom</A></B>,
+<B><A href="edhdr.html">edhdr</A></B>,
+<B><A href="iadd.html">iadd</A></B>,
+<B><A href="lincom.html">lincom</A></B>,
+<B><A href="mult.html">mult</A></B>,
+<B><A href="requant.html">requant</A></B>
+</DD>
+</DL>
+

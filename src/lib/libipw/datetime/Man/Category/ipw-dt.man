@@ -1,0 +1,178 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+A date-time combination in IPW is represented by a single
+typedef:
+
+<PRE>
+    typedef <B>datetime_t</B> has these members:
+
+        int  year;    /* year (note: 90 = 90 AD, not 1990)  */
+        int  month;   /* month [1 - 12]                     */
+        int  day;     /* day of month [1 - 31]              */
+        int  hour;    /* time of day: hour [0 - 23]         */
+        int  min;     /*  "   "   " : minutes [0 - 59]      */
+        int  sec;     /*  "   "   " : seconds [0 - 59]      */
+</PRE>
+
+<P>
+<B>Constants</B>
+<P>
+
+<DL>
+
+<DT><SAMP>SECS_IN_MIN</SAMP>
+<DD>
+# of seconds in a minute (integer).
+</DD>
+
+<P>
+
+<DT><SAMP>SECS_IN_HR</SAMP>
+<DD>
+# of seconds in an hour (integer).
+</DD>
+
+<P>
+
+<DT><SAMP>SECS_IN_HR</SAMP>
+<DD>
+# of seconds in an hour.
+</DD>
+
+<P>
+
+<DT><SAMP>SECS_IN_DAY</SAMP>
+<DD>
+# of seconds in a day.
+</DD>
+
+<P>
+
+<DT><SAMP>MINS_IN_HR</SAMP>
+<DD>
+# of minutes in an hour.
+</DD>
+
+<P>
+
+<DT><SAMP>HRS_IN_DAY</SAMP>
+<DD>
+# of hours in a day.
+</DD>
+
+</DL>
+
+
+<P>
+<B>Macros</B>
+<P>
+
+<DT><SAMP>HR_TO_MIN(h)</SAMP>
+<DD>
+Convert # of hours (h) into # of minutes.
+</DD>
+
+<P>
+
+<DT><SAMP>HR_TO_SEC(h)</SAMP>
+<DD>
+Convert # of hours (h) into # of seconds.
+</DD>
+
+<P>
+
+<DT><SAMP>MIN_TO_SEC(m)</SAMP>
+<DD>
+Convert # of minutes (m) into # of seconds.
+</DD>
+
+<P>
+
+<DT><SAMP>MIN_TO_HR(m)</SAMP>
+<DD>
+Convert # of minutes (m) into # of hours.
+</DD>
+
+<P>
+
+<DT><SAMP>SEC_TO_MIN(s)</SAMP>
+<DD>
+Convert # of seconds (s) into # of minutes.
+</DD>
+
+<P>
+
+<DT><SAMP>SEC_TO_HR(s)</SAMP>
+<DD>
+Convert # of seconds (s) into # of hours.
+</DD>
+
+<P>
+
+<DT><SAMP>SEC_TO_DAY(s)</SAMP>
+<DD>
+Convert # of seconds (s) into # of days.
+</DD>
+
+<P>
+
+<DT><SAMP>DAY_TO_SEC(d)</SAMP>
+<DD>
+Convert # of days (d) into # of seconds.
+</DD>
+
+<P>
+
+<DT><SAMP>HMS_TO_SEC(h,m,s)</SAMP>
+<DD>
+Convert a time in hours (h), minutes (m), and seconds (s) into 
+a total # of seconds.
+</DD>
+
+<P>
+
+<DT><SAMP>DAYS_IN_YR(y)</SAMP>
+<DD>
+Returns the # of days in a given calendar year (y).  Handles
+leap years, so it returns either 365 or 366.
+</DD>
+
+</DL>
+
+
+<H2>SEE ALSO</H2>
+
+<DL>
+
+<DT>IPW:
+<DD>
+<A HREF="../man3/add_to_dt.html">add_to_dt()</A>,
+<A HREF="../man3/dt2str.html">dt2str()</A>,
+<A HREF="../man3/dt_diff.html">dt_diff()</A>,
+<A HREF="../man3/dt_in_order.html">dt_in_order()</A>,
+<A HREF="../man3/gmt2local.html">gmt2local()</A>,
+<A HREF="../man3/leapyear.html">leapyear()</A>,
+<A HREF="../man3/local2gmt.html">local2gmt()</A>,
+<A HREF="../man3/make_dt.html">make_dt()</A>,
+<A HREF="../man3/numdays.html">numdays()</A>,
+<A HREF="../man3/sec2hms.html">sec2hms()</A>,
+<A HREF="../man3/waterday.html">waterday()</A>,
+<A HREF="../man3/wday2mday.html">wday2mday()</A>,
+<A HREF="../man3/weekday.html">weekday()</A>,
+<A HREF="../man3/yday2mday.html">yday2mday()</A>,
+<A HREF="../man3/yearday.html">yearday()</A>,
+<A HREF="../man3/zone2str.html">zone2str()</A>
+</DD>
+
+</DL>

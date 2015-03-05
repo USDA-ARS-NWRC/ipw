@@ -1,0 +1,40 @@
+.TH "wday2mday" "3" "10 April 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBwday2mday\fP - converts a waterday into a month and day
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+void
+wday2mday(
+	int 	wateryear,	|* e.g., 1997			      *|
+	int     waterday,	|* [1 - 366]			      *|
+	int   * year,		|* output: [wateryear or wateryear-1] *|
+	int   * month,		|* output: [1 - 12]		      *|
+	int   * day)		|* output: [1 - 31]		      *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBwday2mday\fP converts a waterday and wateryear into a month, day,
+and year.
+.SH RETURN VALUE
+.PP
+None.
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

@@ -1,0 +1,3 @@
+%define(name,"no_history")
+%define(description,"turn off history mechanism in bihwrite")
+%define(category,"bih")

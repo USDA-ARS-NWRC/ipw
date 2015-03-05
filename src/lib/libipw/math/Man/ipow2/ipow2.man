@@ -1,0 +1,84 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+int
+ipow2(
+	int		expo)		|* exponent		*|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Ipow2 computes 2 to the power &quot;i&quot;, checking for out-of-range
+results.
+</P><P>
+Ipow2 is typically called to determine the range of values which may
+be assumed by a certain number of bits; e.g.:
+</P><PRE>
+	int	nelem;
+	BIH_T	*bihp;
+	...
+	nelem = ipow2(ltoi(bih_nbands(bihp)));
+	if (nelem == 0) {
+		error ...
+</PRE>
+<H2>RETURN VALUE</H2>
+
+<P>
+2**i is returned, or 0 if 2**i is out-of-range or undefined.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>2**&lt;i&gt; is not an integer
+</DT>
+<DD><BR>	if i is negative
+</DD>
+
+<P>
+<DT>2**&lt;i&gt; won't fit in an &quot;int&quot;
+</DT>
+<DD><BR>	if i is too large
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

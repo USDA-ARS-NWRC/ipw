@@ -1,0 +1,522 @@
+<HTML>
+
+<!--  This is a sample of a manual page ("man page") for an IPW		-->
+<!--  command.  Every line that starts with the 4 characters "<!--"	-->
+<!--  is a comment line for this sample file.   The comment lines	-->
+<!--  must be removed from an actual man page file (this can be		-->
+<!--  accomplished with redirecting this file into this command: 	-->
+<!--  grep -v "^<!--"							-->
+<!--									-->
+<!--  An IPW man page is basically an HTML document.  It undergoes a	-->
+<!--  simple transformation to yield the final HTML version of the man	-->
+<!--  page that is installed in IPW's web directory.  This 		-->
+<!--  transformation is just the replacement of certain IPW macros, 	-->
+<!--  and the addition of a standard ADDRESS section at the bottom of	-->
+<!--  the document.							-->
+<!--									-->
+<!--  An IPW macro has the format:					-->
+<!--									-->
+<!--	%IPW(macroName)							-->
+<!--									-->
+<!--  These macros are replaced with text that's specified outside of	-->
+<!--  the man page.  For example, the command's name and description	-->
+<!--  are specified in the command's Makefile, and can be inserted into	-->
+<!--  a man page by using the macros %IPW(name) and %IPW(description),	-->
+<!--  respectively.							-->
+<!--									-->
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	-->
+<!--									-->
+<!--  HEAD section and the start of the BODY section			-->
+<!--									-->
+<!--  The man page should start with the <HTML> line that appears as	-->
+<!--  the first line of this file, followed by these lines:		-->
+
+<HEAD>
+   <TITLE>%IPW(name)</TITLE>
+</HEAD>
+
+<BODY>
+
+<H1 ALIGN=CENTER>%IPW(name) 
+</H1>
+
+<P ALIGN=CENTER>IPW User Command<BR>
+Category - %IPW(category)</P>
+<HR WIDTH="100%">
+
+<!--  The command's name is used both in the document's title and as	-->
+<!--  the 1st-level header.  The top of the document also includes the	-->
+<!--  name of the category which the command belongs to.		-->
+<!--									-->
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	-->
+<!--									-->
+<!--  The sections that should appear in a command's man page are:	-->
+<!--									-->
+<!--	NAME								-->
+<!--	SYNOPSIS							-->
+<!--	DESCRIPTION							-->
+<!--	OPTIONS								-->
+<!--	OPERANDS							-->
+<!--	EXAMPLES							-->
+<!--	FILES								-->
+<!--	DIAGNOSTICS							-->
+<!--	RESTRICTIONS							-->
+<!--	HISTORY								-->
+<!--	BUGS								-->
+<!--	SEE ALSO							-->
+<!--									-->
+<!--  The sections that should appear in a library function's man page: -->
+<!--									-->
+<!--	NAME								-->
+<!--	SYNOPSIS							-->
+<!--	DESCRIPTION							-->
+<!--	ARGUMENTS							-->
+<!--	RETURN VALUE							-->
+<!--	EXAMPLES							-->
+<!--	FILES								-->
+<!--	DIAGNOSTICS							-->
+<!--	RESTRICTIONS							-->
+<!--	HISTORY								-->
+<!--	BUGS								-->
+<!--	SEE ALSO 							-->
+<!--									-->
+<!--  These various sections are described below.  The name of each	-->
+<!--  section is a 2nd-level header.  If a section has no accompanying	-->
+<!--  text, then it should have the text "<P>None.</P>" to explicitly	-->
+<!--  indicate that the section is empty instead of missing.  See the	-->
+<!--  BUGS section below.						-->
+<!--									-->
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	-->
+<!--									-->
+<!--  NAME section							-->
+<!--									-->
+<!--  It specifies the name of the command or function, and a brief one	-->
+<!--  line description.  Both the name and description are specified in	-->
+<!--  the command's Makefile, and are inserted in the man page through	-->
+<!--  the use of IPW macros.						-->
+<!--									-->
+<!--  As a general guideline, the length of the name and description,	-->
+<!--  plus two spaces and a "-" character should total less than 60	-->
+<!--  characters:							-->
+<!--									-->
+<!--		 1	   2	     3	       4	 5	   6	-->
+<!--    123456789012345678901234567890123456789012345678901234567890	-->
+<!--    name - description..........................................	-->
+<!--									-->
+<!--  The description is searched for keywords by the "man" command	-->
+<!--  when the "-k" option is specified.  Therefore, try to write a	-->
+<!--  description that summarizes the command or function using words	-->
+<!--  that might help a user locate the command or function.  Look at	-->
+<!--  existing IPW man pages for a good idea for how to word the	-->
+<!--  description, and to get an idea of the proper length.  		-->
+
+<H2>NAME</H2>
+
+<P><B>%IPW(name)</B> - %IPW(description)</P>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	-->
+<!--									-->
+<!--  SYNOPSIS section							-->
+<!--									-->
+<!--  For a command, this section specifies how the command is invoked	-->
+<!--  from the command line.  It should specify the options and		-->
+<!--  operands for the command.  The command name and options should	-->
+<!--  be in bold.  The arguments for the options should be in italics.	-->
+<!--  The operands should also be in italics.  Any option, argument for	-->
+<!--  an option, or operand that is optional should be surrounded by	-->
+<!--  square brackets, i.e., "[" ... "]" .				-->
+<!--									-->
+<!--  This section is specified as pre-formatted text.  The first line	-->
+<!--  should be left-justified; any additional lines should be indented	-->
+<!--  5 spaces.  Check both the HTML version and Unix versions of the	-->
+<!--  man page to verify that this section appears readable.  To	-->
+<!--  improve readability, make sure that an option and its arguments	-->
+<!--  are on the same line.						-->
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%IPW(name)</B> <B>-z</B> <I>elev</I> <B>-b</B> <I>band</I>[,...] [ <B>-K</B> ] [ <B>-m</B> <I>mask</I> ]
+     [ <B>-t</B> <I>big-threshold</I>[,<I>medium-threshold</I>[,<I>small-threshold</I>]] ]
+     [ <I>image</I> ]
+</PRE>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	-->
+<!--									-->
+<!--  DESCRIPTION section						-->
+<!--									-->
+<H2>DESCRIPTION </H2>
+
+<P>
+This section describes what the command does.  Each paragraph should be
+surrounded by paragraphs tags: &lt;P&gt; and &lt;/P&gt;.
+</P>
+
+<P>References to the command should use the IPW macro "name", so
+if the command is renamed, the man page will be updated automatically.
+The name of the command should be in boldface, e.g., <B>%IPW(name)</B>.
+</P>
+
+<P>Tables should be specified using PRE-formatted text.  For example,
+the following table shows those characters which must be represented
+by their HTML entity notation in an IPW man page:</P>
+
+<PRE>
+     character            HTML notation
+
+     double quote (&quot;)     &amp;quot;
+     less than (&lt;)        &amp;lt;
+     greater than (&gt;)     &amp;gt;
+     ampersand (&amp;)        &amp;amp;
+</PRE>
+
+<P>A reference to another IPW command should be specified as a link
+to that command's man page, for example,
+<B><A HREF="isample.html">isample</A></B>.
+The link should be in boldface, so that
+the referenced command will stand out in the Unix version of the man
+page.
+</P>
+
+<P>This is an example of some small indented segments of text.  The Unix
+version of this man page will have the text indented as well, but without
+the bullets.
+</P>
+
+<UL>
+<LI>when 0.0 &lt; %_snow &lt; 1.0, (a mixed rain/snow event):</LI>
+
+<UL>
+<LI>snow temperature = 0.0</LI>
+
+<LI>rain temperature = T_pp </LI>
+
+<LI>liquid H2O sat. = 100% </LI>
+</UL>
+</UL>
+
+<UL>
+<LI>when %_snow = 1.0 and T_pp =&gt; 0.0, (a warm snow-only event) </LI>
+
+<UL>
+<LI>snow temperature = 0.0 </LI>
+
+<LI>liquid H2O sat. = 100% </LI>
+</UL>
+</UL>
+
+<UL>
+<LI>when %_snow = 1.0 and T_pp &lt; 0.0, (a cold snow event) </LI>
+
+<UL>
+<LI>snow temperature = T_pp </LI>
+
+<LI>liquid H2O sat. = 0% </LI>
+</UL>
+</UL>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	-->
+<!--									-->
+<!--  OPTIONS section							-->
+<!--									-->
+<!--  This section describes the command's options individually.  The	-->
+<!--  options are formatted as a definition list.  The option and its	-->
+<!--  arguments should be formatted as in the SYNOPSIS section (i.e.,	-->
+<!--  the option in bold; arguments in italics).  To provide some	-->
+<!--  spacing between each option, but a paragraph tag between pair	-->
+<!--  of options.							-->
+
+<H2>OPTIONS </H2>
+
+<DL>
+<DT><B>-z</B> <I>elev</I></DT>
+
+<DD><I>elev</I> is the elevation of the reference location (m);
+used to compute air pressure.</DD>
+
+<P>
+
+<DT><B>-b</B> <I>band</I>[,...]</DT>
+
+<DD>Perform the calculation on only the specified bands of the input image.
+</DD>
+
+<P>
+
+<!--  If the option is optional (i.e., it enclosed by square brackets:	-->
+<!--  "[" and "]"), then do NOT include the brackets in the definition	-->
+<!--  term.  But make sure to describe what the default is if the	-->
+<!--  option is not used.  For example,					-->
+
+<DT><B>-K</B></DT>
+
+<DD>Accept/output temperatures in degrees K (default: degrees C).</DD>
+
+<P>
+
+<DT><B>-m</B> <I>mask</I></DT>
+<DD>Use <I>mask</I> as a mask image.  Calculations are performed only for
+those points in the input image whose corresponding points in <I>mask</I>
+are not 0.
+</DD>
+
+<!--  If the description for an option contains more than 1 paragraph,	-->
+<!--  only the first paragraph appears between the <DD> and </DD> tags.	-->
+<!--  All subsequent paragraphs should appear between <P> and </P>	-->
+<!--  tags.  For example,						-->
+
+<P>
+
+<DT><B>-t</B> <I>big-threshold</I>[,<I>medium-threshold</I>[,<I>small-threshold</I>]]</DT>
+
+<DD>This is an example of an optional option which must have at least
+one argument: <I>big-threshold</I>.  This description of the option
+should state any default value, e.g., (default: 60 kg/m^2).
+</DD>
+
+<P>If the option has two arguments, the second argument is taken to
+be the <I>medium-threshold</I> (default 10 kg/m^2). </P>
+
+<P>If the option has three arguments, the third argument is taken to
+be the <I>small-threshold</I> (default 1 kg/m^2).
+</P>
+
+</DL>
+
+<!--  Any additional descriptive text that isn't associated with a	-->
+<!--  particular option should be bracketed with <P> and </P> tags.	-->
+<!--  An example of such text would be a statement that explains that	-->
+<!--  certain combinations of options are not allowed:			-->
+<!--									-->
+<!--  <P>At least one of <B>-a</B>, <B>-c</B>, or <B>-i</B> must be	-->
+<!--  specified.							-->
+<!--  </P>								-->
+<!--									-->
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	-->
+<!--									-->
+<!--  OPERANDS section							-->
+<!--									-->
+<!--  This section describes the operands, if any, that the command	-->
+<!--  accepts (usually an image).  Each operand is formatted like an	-->
+<!--  option in the OPTIONS section: in a definition list.		-->
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I></DT>
+
+<DD>Use <I>image</I> as the input image (default: standard input).
+</DD>
+</DL>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	-->
+<!--									-->
+<!--  EXAMPLES section							-->
+
+<H2>EXAMPLES</H2>
+
+<P>This section should include examples of how the command is used.  The
+actual command-line that would be typed in by the user for the example
+should be PRE-formatted text.</P>
+
+<P>Here is an EXAMPLES section based on the IPW command 'primg':
+</P>
+
+<P>To interactively examine pixel values in <I>image</I>, type:
+</P>
+
+<PRE>
+     primg -i <I>image</I>
+</PRE>
+
+<P>then type the pixel coordinates on the standard input (but note
+that the coordinates must be typed in increasing line order).</P>
+ 
+<P>If the text file "basin" contains the (line,sample) coordinates of
+the corners of a drainage basin in the DEM image "dem", and <I>line</I>,
+<I>samp</I> are the coordinates of an arbitrary point within the drainage
+basin, then:</P>
+ 
+<PRE>
+     poly -s <I>line</I>,<I>samp</I> basin | primg -i dem
+</PRE>
+
+<P>will print all of the pixel values in the image "dem" that lie
+within the drainage basin.</P>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	-->
+<!--									-->
+<!--  FILES section							-->
+<!--									-->
+<!--  This section lists files related to the command, e.g.,		-->
+<!--  configuration files.  Only list those files that the user would	-->
+<!--  be concerned with; do NOT list temporary files.			-->
+<!--									-->
+<!--  This section is PRE-formatted text of two columns.  The first	-->
+<!--  column is the name of the file; the second column is a brief	-->
+<!--  description of the file.						-->
+<!--									-->
+<!--  Do not use tab characters in this section; cannot guarantee they	-->
+<!--  will be interpreted correctly.					-->
+
+<H2>FILES</H2>
+
+<PRE>
+     $(IPW)/aux/proj/std          Standard geographic projections
+     $(HOME)/ipw/foo.config       User's configuration file for
+                                    Foo modeling
+</PRE>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	-->
+<!--									-->
+<!--  DIAGNOSTICS section						-->
+<!--									-->
+<!--  This section lists those diagnostic messages that the command may	-->
+<!--  produce.  Each message should be accompanied by an explanation	-->
+<!--  that details the cause of the message and suggests any possible	-->
+<!--  corrective action the user may take.				-->
+<!--									-->
+<!--  Note:  list only these messages UNIQUE to the command.		-->
+<!--	     Diagnostic messages that are shared by more than one IPW	-->
+<!--	     command should be described in a single place (e.g., a	-->
+<!--	     "ipwdiag" man page.					-->
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT>elevation below sea level: <I>elev</I></DT>
+<DD><BR>
+The elevation <I>elev</I> must be 0 or positive.
+</DD>
+
+<P>
+
+<DT>medium threshold (<I>#</I>) exceeds big threshold (<I>#</I>)</DT>
+<DD><BR>
+The <I>medium-threshold</I> must be equal to or smaller than the
+<I>big-threshold</I>.
+</DD>
+
+<P>
+
+<DT>small threshold (<I>#</I>) exceeds medium threshold (<I>#</I>)</DT>
+<DD><BR>
+The <I>small-threshold</I> must be equal to or smaller than the
+<I>medium-threshold</I>.
+</DD>
+
+</DL>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	-->
+<!--									-->
+<!--  RESTRICTIONS section						-->
+<!--									-->
+<!--  This section explains any restrictions in using a command.  The	-->
+<!--  fact that a command is implemented as a script is NOT a		-->
+<!--  restriction.  In general, restrictions are rare.			-->
+
+<H2>RESTRICTIONS</H2>
+
+<P>None.</P>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	-->
+<!--									-->
+<!--  HISTORY section							-->
+<!--									-->
+<!--  This section lists the changes the command has undergone.		-->
+<!--									-->
+<!--  Note:  list only those changes that would be noticeable to the	-->
+<!--         IPW user; internal changes that are hidden from the user	-->
+<!--	     should be documented elsewhere (i.e., in the source code).	-->
+<!--									-->
+<!--  Format for dates:							-->
+<!--		3-letter month abbreviation followed by 4-digit year	-->
+
+<H2>HISTORY </H2>
+
+<DL>
+<DT>Aug 1984</DT>
+
+<DD>Written by J. Doe, UCSB</DD>
+
+<P>
+
+<DT>Jun 1987</DT>
+
+<DD>Added the <B>-K</B> option.  Z. Smith, USGS</DD>
+
+<P>
+
+<DT>Feb 1996</DT>
+
+<DD>Increased the number of thresholds from two to three to improve
+model stability over small temperature variations.  K. Brown, OSU</DD>
+</DL>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	-->
+<!--									-->
+<!--  BUGS section							-->
+<!--									-->
+<!--  This section describes any known bugs with the command.  A bug is -->
+<!--  behavior that is contrary to the documentation for the command.	-->
+
+<H2>BUGS</H2>
+
+<P>None. </P>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	-->
+<!--									-->
+<!--  SEE ALSO section							-->
+<!--									-->
+<!--  This section lists related IPW and Unix commands as well as any	-->
+<!--  related papers or documents from the IPW bibliography.		-->
+
+<H2>SEE ALSO </H2>
+
+<!--  First, list all related IPW commands in a definition list.  Each	-->
+<!--  command should be a link to that command's man page.  The list	-->
+<!--  should be in alphabetical order.					-->
+
+<DL>
+<DT>IPW:</DT> 
+<DD>
+<B><A HREF="advec.html">advec</A></B>,
+<B><A HREF="deltaT.html">deltaT</A></B>,
+<B><A HREF="gradient.html">gradient</A></B>,
+<B><A HREF="zpr.html">zpr</A></B>
+</DD>
+</DL>
+
+<!--  Second, if there are any related Unix commands, list them in a	-->
+<!--  separate paragraph in alphabetical order.				-->
+
+<DL>
+<DT>Unix:</DT>
+<DD>diff, grep
+</DD>
+</DL>
+
+<!--  Last, if there are any related reference material, list them in	-->
+<!--  alphabetical order with each item in a separate paragraph.	-->
+
+<P>Doe, J.A., 1976. A simplied approach to the standard foobar equations.
+<I>XYZ Technical Report 19</I>, Regional Climatic Research Institute,
+Cascadia, TI, 150p. </P>
+
+<P>Garen, D.C., and D. Marks, 1996. Spatially distributed snow modelling
+in mountainous regions: Boise River application. In: <I>HydroGIS `96:
+Application of Geographic Information Systems in Hydrology and Water
+Resources Management</I>, IAHS Publication No. 235, pp. 421-428. </P>
+
+<P>Morris, E.M., 1982. Sensitivity of the European Hydrological System
+snow models. In: <I>Hydrological Aspects of Alpine and High-Mountain Areas</I>,
+J.W. Glen, ed., International Association of Hydrological Sciences, Wallingford,
+UK, IAHS-AIHS Publication 138, pp 221-231. </P>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	-->
+<!--									-->
+<!--  Finally, the last lines should be:
+
+</BODY>
+</HTML>

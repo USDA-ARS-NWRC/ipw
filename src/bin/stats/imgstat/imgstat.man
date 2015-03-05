@@ -1,0 +1,263 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-m</B> <I>mask</I> ] [ <B>-c</B> ] [ <B>-h</B> <I>hist_file</I> ] [ <B>-a</B> ]
+      [ <B>-u</B> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads an <I>image</I> and computes the
+the minimum, maximum, median, mean, and standard deviation for all
+unmasked pixels.  These are then printed to the standard output in
+the following format:
+</P><PRE>
+     npixels:      {# of pixels}
+     min:          {min pixel value}
+     max:          {max pixel value}
+     median:       {median pixel value}
+     mean:         {mean pixel value}
+     stdev:        {standard deviation}
+</PRE><P>
+If the <B>-u</B> option is specified, then the following line is also
+printed:
+</P><PRE>
+     units:        {units from LQ header}
+</PRE><P>
+If the <B>-a</b> (abbreviated output) option is specified, the statistics
+are written on one line to the standard output with no titles.  If
+the <B>-u</B> option is specified with the <B>-a</b> option, then the units in
+quotes is also printed at the end of the output line.
+<P>
+<I>image</I> must have exactly one band unless the <B>-c</b> option
+is specified, in which case a two band image is expected, the first band
+being a class identifier, and the second band being the data.  In addition
+to the image statistics, per class information is printed to the
+standard output in the following format:
+</P><PRE>
+     nclasses:  {#classes}
+     class       #pixels    min     max     median     mean     stdev
+     {class0}  {#npixels}  {min}   {max}   {median}   {mean}   {stdev}
+     ...
+     {classN}  {#npixels}  {min}   {max}   {median}   {mean}   {stdev}
+</PRE><P>
+If the <B>-a</b> option is specified, the statistics are written without
+column headings.
+</P><P>
+If class statistics are being calculated, a histogram file with a
+count of the number of pixels in each class / data value combination
+can be written to a file by using the <B>-h</b> option.  This histogram
+file is a text file formatted like this:
+</P><PRE>
+     {class}   {data_value}   {count}
+</PRE>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+Use <I>mask</I> as a mask image.  Any points in <I>mask</I> that are 0
+will not be used when calculating statistics.
+</DD>
+
+<P>
+<DT><B>-c</B> 
+<DD>
+A 2 band image is expected, with the first band being a class
+identifier image, and the second being the data.  In addition
+to the statistics for the entire image, statistics for each
+class are also output.
+</DD>
+
+<P>
+<DT><B>-h</B> <I>hist_file</I>
+<DD>
+Histogram information for each class / data value combination
+will be written to the file <I>hist_file</I>.  One line will be
+written for each class / data value combination.  This option
+is only valid with the <B>-c</b> option.
+</DD>
+
+<P>
+<DT><B>-a</B> 
+<DD>
+The statistics will be printed in an abbreviated form with no
+header information.
+</DD>
+
+<P>
+<DT><B>-u</B> 
+<DD>
+Print the units.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I></DT>
+<DD>input image (default: standard input)
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate basic image statistics for the Columbia River basin given
+a DEM &quot;northwest&quot; and a basin mask &quot;columbia.mask&quot;:
+</P><PRE>
+	imgstat  -m columbia.mask  northwest
+</PRE><P>
+Given a class image &quot;veg&quot; and a soil moisture image &quot;soilm&quot;, statistics
+can be calculated for soil moisture within each vegetation class with:
+</P><PRE>
+	mux veg soilm | imgstat -c
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT>can't read class-range header
+</DT>
+<DD>The class identifier image (band 0) does not have a class-range
+header.  This header contains the number of classes.  Without
+this information, the program will use 2^nbits for the number
+of classes, which will usually be too many.  The program <B>mkcrh</B>
+can be used to add a class-range header.
+</DD>
+
+<P>
+<DT>-h option ignored; -c must also be specified
+</DT>
+<DD>Since the <B>-h</b> option prints out histogram information by class,
+the <B>-c</b> option must be specified to compute the class statistics.
+</DD>
+
+<P>
+<DT>-f is now obsolete</DT>
+</DT>
+<DD>The old <B>%name</B> used a slow algorithm that had to read the
+entire image into memory then sort it to find the median.
+Using Sun qsort, this could take hours or days for large
+images.  While GNU _quicksort reduced this to minutes, it still
+took far too long to be usable.  The new algorithm does not
+read the entire image, nor does it sort any data.  Large images
+can be processed in seconds, with no penalty for computing the
+median.  Therefore this option has been removed.
+</DD>
+
+<P>
+<DT>image has <I>bands</I> bands; image must have 2 bands
+</DT>
+<DD>The <B>-c</b> option was specified, so the input image must have
+two bands.  The first band is the class identifier, and the
+second band is the data.
+</DD>
+
+<P>
+<DT>image has <I>bands</I> bands; single band images only
+</DT>
+<DD>The <B>-c</b> option was not specified, so the input image must have
+only one band.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jun 1990</DT>
+<DD>
+Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR.
+</DD>
+
+<P>
+
+<DT>Jul 1990</DT>
+<DD>
+Added class statistics (<B>-c</b> option) and class histogram;
+Added <B>-f</B> option for &quot;fast&quot; computation - no median.
+Kelly Longley, Oregon State University.
+</DD>
+
+<P>
+
+<DT>Apr 1991</DT>
+<DD>
+Modified &quot;fast&quot; version to not read in entire file,
+Kelly Longley, Oregon State University.
+</DD>
+
+<P>
+<DT>Feb 1993</DT>
+<DD>
+Modified to use _quicksort instead of qsort for a huge
+increase in performance, Dana Jacobsen, ERL-C.
+</DD>
+
+<P>
+
+<DT>Aug 1993</DT>
+<DD>
+Completely rewrote program, using a histogramming
+algorithm.  We do not need to load in the entire image,
+so much less memory is taken.  No sorting is done, so it
+is much faster and has no penalty for computing the
+median.  The class and histogram output is formatted
+slightly differently.  Dana Jacobsen, ERL-C.
+</DD>
+
+<P>
+
+<DT>Jul 1995</DT>
+<DD>
+Check for reversed lq maps.  Dana Jacobsen, ERL-C.
+</DD>
+
+<P>
+
+<DT>Nov 1995</DT>
+<DD>
+Added -u option.  J. Domingo, OSU, EPA NHEERL/WED.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+Susceptible to rounding error.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW:</DT>
+<DD><B><A href="classify.html">classify</A></B>,
+<B><A href="hist.html">hist</A></B>,
+<B><A href="ipwfile.html">ipwfile</A></B>,
+<B><A href="imgsum.html">imgsum</A></B>,
+<B><A href="mkcrh.html">mkcrh</A></B>
+</DD>
+</DL>
+

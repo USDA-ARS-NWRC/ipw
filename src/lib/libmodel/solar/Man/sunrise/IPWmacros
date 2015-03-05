@@ -1,0 +1,3 @@
+%define(name,"sunrise")
+%define(description,"sunrise time (GMT) for a given place and date")
+%define(category,"solar")

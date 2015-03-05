@@ -1,0 +1,143 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-d</B> <I>header</I>[,<I>...</I>] ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads an IPW image <I>image</I> and
+writes only the image data to the standard output.
+</P>
+
+<H2>OPTIONS</H2>
+
+
+<DL>
+
+<DT><B>-d</B> <I>header</I>[,<I>...</I>]
+<DD>
+Delete only the specified <I>header</I>s (default: all).
+<I>header</I> should be the name of the header exactly as
+it appears in the header itself (ie: &quot;lq&quot; for a linear
+quantization header).  Recognized headers are:
+</DD>
+
+<PRE>
+     bi       Basic Image
+     cr       Class Range
+     geo      Geodetic
+     lq       Linear Quantization
+     or       Orientation
+     sat      Satellite
+     skew     Skew
+     sun      Sun Position
+     win      Window
+</PRE>
+
+<P>Nonspecified headers are copied to the standard output.
+</P>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I></DT>
+
+<DD>input image (default: standard input).
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+For a single-band image with <I>nbytes</I> bytes per pixel,
+</P><PRE>
+	rmhdr | btoa -{nbytes}
+</PRE><P>
+would be equivalent to
+</P><PRE>
+	primg -r -a
+</PRE><P>
+To delete the &quot;lq&quot; header from an image before running mstats
+(so the statistics will be computed for the quantized pixel values):
+</P><PRE>
+	rmhdr -d lq | mstats
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None.
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The default output of <B>%name</B> is not a valid IPW image, since it has
+no basic image header (nor any other header).  However, if <B>-d</b> is
+specified and its arguments do NOT include "bi", then
+<B>%name</B>'s output is a valid IPW image.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+
+<P>
+
+<DT>Oct 1997</DT>
+<DD>
+Fixed bug so that "bi" argument to <B>-d</B> option works correctly.
+J. Domingo, OSU
+</DD>
+
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="btoa.html">btoa</A></B>,
+<B><A href="edhdr.html">edhdr</A></B>,
+<B><A href="mkbih.html">mkbih</A></B>,
+<B><A href="mkcrh.html">mkcrh</A></B>,
+<B><A href="mkgeoh.html">mkgeoh</A></B>,
+<B><A href="mklqh.html">mklqh</A></B>,
+<B><A href="mksath.html">mksath</A></B>,
+<B><A href="mksunh.html">mksunh</A></B>,
+<B><A href="mkwinh.html">mkwinh</A></B>,
+<B><A href="prhdr.html">prhdr</A></B>
+</DD>
+</DL>
+
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A>
+</P>
+

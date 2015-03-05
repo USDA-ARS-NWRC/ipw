@@ -1,0 +1,1 @@
+ndig - number of digits in an integer

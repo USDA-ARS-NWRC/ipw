@@ -1,0 +1,38 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "image.h"
+
+int
+access(
+     IMAGE_T *image)   /* image file descriptor */
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+%name returns the pixel-access level of an image.
+
+<H2>RETURN VALUE</H2>
+
+<DL>
+
+<DT><TT>PIXEL_ACCESS</TT>
+<DD>
+Image's pixels are accessed as unsigned integers.
+</DD>
+
+<P>
+
+<DT><TT>FPIXEL_ACCESS</TT>
+<DD>
+Image's pixels are accessed as floating-point values.
+</DD>
+
+</DL>
+

@@ -1,0 +1,42 @@
+.TH "bihwrite" "3" "10 April 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBbihwrite\fP - write an IPW BIH header
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "bih.h"
+
+int
+bihwrite(
+	int      fd,		|* output file descriptor	 *|
+	BIH_T  **bihpp)		|* -> array of BIH pointers	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.sp
+.nf
+.ft CR
+     bihwrite writes the array of BIH headers pointed to by bihpp
+.ft R
+.fi
+.PP
+to file descriptor fd.
+.SH RETURN VALUE
+.PP
+OK for success, ERROR for failure
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

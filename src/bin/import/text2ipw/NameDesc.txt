@@ -1,0 +1,1 @@
+text2ipw - convert text file with data to IPW image

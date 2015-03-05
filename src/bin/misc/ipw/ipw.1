@@ -1,0 +1,66 @@
+.TH "ipw" "1" "10 April 1998" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBipw\fP - list IPW commands by category
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBipw\fP [ \fBuser\fP | \fBsystem\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBipw\fP prints a list of the currently-available
+IPW user or system commands on standard output.
+.SH OPTIONS
+.PP
+None.
+.SH OPERANDS
+.TP
+\fBuser\fP
+Print the list of IPW user commands (default).
+.sp
+.TP
+\fBsystem\fP
+Print the list of IPW system commands.
+.SH EXAMPLES
+.PP
+The following two commands will both print the list of available IPW
+user commands:
+.sp
+.nf
+.ft CR
+     % ipw
+
+     % ipw user
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     $IPW/src/bin/Commands.txt     text file with user commands
+     $IPW/src/sbin/Commands.txt    text file with system commands
+.ft R
+.fi
+.SH DIAGNOSTICS
+.PP
+None.
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.TP
+Jul 1990
+Written by James Frew, UCSB.
+.sp
+.TP
+Apr 1997
+Modified to work with IPW version 2's directory structure.  J. Domingo, OSU
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO
+.PP
+None.

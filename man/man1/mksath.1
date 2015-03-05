@@ -1,0 +1,116 @@
+.TH "mksath" "1" "10 April 1998" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBmksath\fP - add a satellite (SAT) header to an image
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBmksath\fP [ \fB-p\fP \fIplatform\fP ] [ \fB-s\fP \fIsensor\fP ] [ \fB-l\fP \fIlocation\fP ]
+      [ \fB-d\fP \fIdate\fP ] [ \fB-t\fP \fItime\fP ] [ \fB-b\fP \fIband\fP[,\fI...\fP] ] [ \fB-f\fP ]
+      [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBmksath\fP constructs an IPW satellite header (SATH) and inserts in into
+the headers of \fIimage\fP (default: standard input).  If the specified
+bands already have SAT headers, they are overridden, and a warning
+message is generated.
+.PP
+If the \fB-f option is specified, then only the headers are written to
+the standard output, and any input image data is ignored.
+.SH OPTIONS
+.TP
+\fB-s\fP \fIsensor\fP
+The image data were acquired by \fIsensor\fP (e.g., "TM", "SPOT",
+"AVIRIS", etc.).
+.sp
+.TP
+\fB-p\fP \fIplatform\fP
+The \fIsensor\fP was mounted on \fIplatform\fP (e.g., "Landsat-5",
+"ER-2", "C-130", etc.).
+.sp
+.TP
+\fB-l\fP \fIlocation\fP
+The image data were acquired at or over \fIlocation\fP.  This
+should not be a geodetic specification (use mkgeoh for that),
+but a sensor-, platform-, or project-specific identifier
+(e.g., experimental site name, Landsat path/row, etc.).
+.sp
+.TP
+\fB-d\fP \fIdate\fP
+The image data were acquired on \fIdate\fP.  The standard
+format for this is \fIYYYYMMDD\fP.
+.sp
+.TP
+\fB-t\fP \fItime\fP
+The image data were acquired at \fItime\fP.  The standard
+format for this is \fIhhmmss.sss...\fP.
+.PP
+At least one of \fB-s, \fB-p, \fB-l, \fB-d, and/or \fB-t must be specified.
+.TP
+\fB-b\fP \fIband\fP[,\fI...\fP]
+The "sat" header will be applied only to the specified
+\fIband\fPs (default: all bands).
+.sp
+.TP
+\fB-f\fP
+Force header output only.  Do not attempt to copy pixel
+data from \fIimage\fP to the standard output.  Note that there
+must still be at least an input BIH, and any input headers
+(except superseded "sat" headers) will still be copied to
+the standard output.
+.SH OPERANDS
+.TP
+\fIimage\fP
+satellite image (default: standard input)
+.SH EXAMPLES
+.PP
+To add a satellite header to a landsat TM image over the BOREAS site
+on February 15, 1997, at 9:42 in the morning:
+.sp
+.nf
+.ft CR
+	mksath -s TM -p "Landsat-7" -l BOREAS -d 19970215 -t 094200
+.ft R
+.fi
+
+.PP
+(the quotes around "Landsat-7" are necessary to avoid confusion with the
+shell.)
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.sp
+.TP
+bad band number: \fIband\fP
+A nonexistent input band was specified with \fB-b.
+.sp
+.TP
+band \fIband\fP: replacing previous SAT header
+Band \fIband\fP already had a "sat" headers, which was replaced
+by the newly-created one.
+.SH RESTRICTIONS
+.PP
+There are not yet any standard identifiers for \fIsensor\fP, \fIplatform\fP,
+or \fIlocation\fP.  The \fIdate\fP and \fItime\fP arguments are
+recommended but not enforced
+.SH HISTORY
+.TP
+Jul 1990
+Written by James Frew, UCSB.
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO
+.TP
+IPW:
+\fBmkbih\fP,
+\fBprhdr\fP,
+\fBrmhdr\fP,
+\fBtmpt\fP
+.PP
+Frew 1990
+.br

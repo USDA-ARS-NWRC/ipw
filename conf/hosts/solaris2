@@ -1,0 +1,19 @@
+/*
+ * host.h for Solaris 2.1 - 2.4
+ */
+
+#define	OPT_BUF		1024
+
+#define	REG_1		register
+#define	REG_2		register
+#define	REG_3		register
+#define	REG_4		register
+#define	REG_5		register
+#define	REG_6		register
+
+#define	FREG_1		register
+#define	FREG_2		register
+#define	FREG_3		register
+#define	FREG_4		register
+#define	FREG_5		register
+#define	FREG_6		register

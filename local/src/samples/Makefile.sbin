@@ -1,0 +1,4 @@
+CMD_TYPE := System
+DIRS :=
+
+include  $(IPW)/make/bin_dir

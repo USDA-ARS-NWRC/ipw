@@ -1,0 +1,165 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-m</B> <I>mask</I> ] [ <B>-v</B> <I>canopy_atten_image</I> ] [ <B>-c</B> <I>cloud_atten_image</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates thermal radiation from the atmosphere corrected
+for topographic effects, from near surface air temperature Ta,
+dew point temperature DPT, and elevation.
+Based on a model by Marks and Dozier (1979).
+</P><P>
+Contribution to emissivity from vegetation canopy and clouds is assumed to
+be proportional to attenuation of clear sky view (between 0-1) by each.
+Canopy shading is estimated using Beers' Law (Monteith and
+Unsworth, 1990), after Wigmosta, Vail, and Lettenmaier (1994).
+The input image are canopy or cloud attenuation (from cf_cloud for cloud
+attenmation, and from classified vegetation images (veg type, height, and
+density) using the imath function for vegetation) such that canopy or cloud
+view factors are (1 - canopy_or_cloud_attenuation).
+Atmospheric emissivity is enhanced by:
+</P><PRE>
+	emiss = emiss * (1 - vegfac) + vegfac
+</PRE><P>
+and by cloud cover:
+</P><PRE>
+	emiss = emiss * (1 - cloudfac) + cloudfac
+</PRE><P>
+(See Link and Marks 1999a & 1999b;
+Marks et al., 1998, 1999b)
+</P><P>
+The four-band input image; Band 0 is Ta, band 1 is DPT, band 2 is elev,
+and band 3 is skyview factor (from viewf or gviewf).
+Output is a 1-byte image of thermal irradiance from the atmosphere.
+</P><P>
+Vegetation and cloud view factors are computed as 1-attenuation from
+the input images.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+mask image
+
+<P>
+<DT><B>-v</B> <I>canopy_atten_image</I>
+<DD>
+veg attenuation factor image
+</DD>
+
+<P>
+<DT><B>-c</B> <I>cloud_atten_image</I>
+<DD>
+cloud attenuation factor image
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image	four-band input image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate thermal radiation over a basin within a dem grid:
+</P><PRE>
+	mux ta dpt elev skv | topotherm -m basin_mask
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>Input image must have four bands;
+terminates with error message;
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Oct 1992</DT>
+<DD>
+Written by Danny Marks, US Geological Survey,
+EPA Environmental Research Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<DL>
+<DT>Sep 1995</DT>
+<DD>
+Corrections for terrain view factor and vegetation view
+factor added by D. Marks, US Geological Survey,
+EPA Environmental Research Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<DL>
+<DT>Feb 2000</DT>
+<DD>
+Correction for cloud view factor added, and input changed
+to vegetation and cloud attenuation factors by D. Marks,
+USDA-ARS, NWRC, Boise, ID
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+Calculation of vegetation and cloud emissivity enhancement is
+still uncertian.  We need some more thermal data.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="cf_cloud.html">locally developed cf_cloud</A></B>,
+<B><A href="standard/gviewf.html">gviewf</A></B>,
+<B><A href="standard/imath.html">imath</A></B>,
+<B><A href="trad.html">locally modified trad</A></B>,
+<B><A href="standard/thermin.html">thermin</A></B>,
+<B><A href="standard/vptr.html">vptr</A></B>,
+<B><A href="standard/viewf.html">viewf</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Marks 1979">Marks &amp; Dozier 1979</A>,
+<A HREF="../bib.html#Monteith, Unsworth 1990">Monteith &amp; Unsworth 1990</A>,
+<A HREF="../bib.html#Wigmosta 1994">Wigmosta, Vail, &amp; Lettenmaier 1994</A>,
+<A HREF="../bib.html#Link 1999a">Link &amp; Marks 1999a</A>,
+<A HREF="../bib.html#Link 1999b">Link &amp; Marks 1999b</A>,
+<A HREF="../bib.html#Marks 1998">Marks, Kimball, Tingey, &amp; Link 1998</A>,
+<A HREF="../bib.html#Marks 1999b">Marks, Domingo, Susong, Link &amp; Garen 1999b</A>,
+<A HREF="../bib.html#Susong 1999">Susong, Marks, &amp; Garen 1999</A>
+</P>
+

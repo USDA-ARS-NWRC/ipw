@@ -1,0 +1,228 @@
+libipw - Main IPW library
+
+main - command options, program startup and wrapup
+
+  ipwenter  - initialize an IPW main program
+  ipwexit   - terminate an IPW program
+  opt_check - check for conflicting command-line options
+  usage     - print usage message and exit
+
+error - error handling
+
+  error  - print error message and exit
+  syserr - note occurrence of UNIX system error
+  uferr  - note occurrence of UNIX file error
+  usrerr - log user's error message string
+  warn   - print warning message
+
+math - mathematical functions
+
+  akcoef - computes coefficients for Akima-type spline interpolation
+  apfit  - least-squares polynomial fit
+  dtoa   - convert double-precision number to string
+  hbit   - find highest-order bit in integer
+  ipow2  - compute integral powers of 2
+  itoa   - convert integer to string
+  ltoi   - convert long int to int
+  msolve - solve a linear system using matrices
+  ndig   - number of digits in an integer
+  rotate - rotation of spherical coordinates
+  seval  - evaluation of spline at m points
+  splint - integral of spline function
+  zerobr - finds zero of a function by Brent's algorithm
+
+strvec - string vectors
+
+  addsv  - add a string to a strvec
+  delsv  - delete i'th string from strvec
+  dupsv  - duplicate a strvec
+  freesv - free an entire strvec
+  walksv - step through strings in strvec
+
+datetime - dates and times
+
+  add_to_dt   - add given 
+  dt2fmtstr   - (dt2fmtstr's description)
+  dt2str      - convert a local date-time into a string
+  dt_diff     - compute difference between two date-times
+  dt_in_order - are two date-times in chronological order?
+  gmt2local   - convert a gmt (UTC) date-time into local date-time
+  leapyear    - is a given year a leap year?
+  local2gmt   - convert a local date-time into GMT (UTC)
+  make_dt     - create a new date-time structure
+  now_dt      - (now_dt's description)
+  numdays     - return number of days in a month
+  sec2hms     - converts total seconds into hours, minutes, seconds
+  str2dt      - (str2dt's description)
+  waterday    - returns day of water year for a given date
+  wday2mday   - converts a waterday into a month and day
+  weekday     - returns the day of the week for a given date
+  yday2mday   - convert yearday into month and day
+  yearday     - returns the yearday (day of year) for a given date
+  zone2str    - convert time zone (in minutes) to string
+
+util - utility functions
+
+  ecalloc - memory allocator (interface to UNIX calloc)
+  allocnd - allocate a dynamic, dope-vectored array
+  imgcopy - copy all image data
+  no_tty  - exit if file descriptor is a terminal
+  rmlead  - skip leading white space in string
+  rmtrail - remove trailing white space from string
+
+uio - unstructured I/O on images
+
+  ubof        - check for UIO beginning-of-file
+  uclose      - close IPW file descriptor
+  ucopy       - copy between open files
+  ueof        - check for UIO end-of-file
+  ufilename   - get UNIX file name associated with file descriptor
+  ugets       - read a line from a UNIX file descriptor
+  uputs       - write a string to a UNIX file descriptor
+  uread       - UNIX read
+  uremove     - remove file
+  uropen      - open UNIX file for reading
+  urskip      - skip input on UNIX file descriptor
+  ustdin      - initialize UIO on standard input
+  ustdout     - initialize UIO on standard output
+  uwflush     - flush buffered UIO output
+  uwopen      - open UNIX file for writing
+  uwopen_temp - create a temporary UNIX file and open it for writing
+  uwrite      - UNIX write
+  mktemplate  - create a template for the name of a temporary file
+
+pixio - integer pixel I/O
+
+  pvread  - read pixel vectors
+  pvwrite - write pixel vectors
+  pxclose - close pixel I/O file descriptor
+
+fpio - floating-point pixel I/O
+
+  fpclose  - close floating-point I/O file descriptor
+  fpfmax   - access fpio maximum fpixel values
+  fpfmin   - access fpio minimum fpixel values
+  fphdrs   - read, then write any floating-point headers
+  fpmap    - access fpio fpixel[pixel] map arrays
+  fpmaplen - access fpio fpixel[pixel] map array lengths
+  fpvread  - read floating-point vectors
+  fpvwrite - write floating-point vectors
+  mnxfp    - minima and maxima of fpixel vectors
+
+units - units of measurement
+
+  units_as_str - convert units id into a string
+  units_match  - check if a string matches a units id
+
+hdrio - image header I/O
+
+  hcopy    - copy headers
+  hdralloc - allocate an IPW image header
+  hgetrec  - read and decode header record
+  hpass    - copy header records
+  hputrec  - encode and write a header record
+  hrband   - get current header band number
+  hrname   - get name of current input image header
+  hrskip   - skip input header records
+  hrvers   - get current header version string
+  hwprmb   - write preamble record
+
+bih - basic image headers
+
+  bihmake    - make an IPW basic image header
+  bihdup     - duplicate an IPW basic image header
+  bihread    - read an IPW BIH header
+  bihwrite   - write an IPW BIH header
+  bih        - get BIH header associated with file descriptor
+  hbyteorder - image byte order
+  hnlines    - number of lines in image
+  hnsamps    - number of samples in image line
+  hnbands    - number of bands in image
+  hnbits     - number of bits in image band
+  hnbytes    - number of bytes in image band
+  hostorder  - get host byte order
+  imgsize    - compute total number of bytes in image
+  sampsize   - compute total 
+  no_history - turn off history mechanism in bihwrite
+
+lqh - linear quantization headers
+
+  lqh      - get LQ header associated with file descriptor
+  lqhdup   - duplicate an IPW LQH header
+  lqhmake  - make an IPW LQH header
+  lqhread  - read an IPW LQH header
+  lqhwrite - write an IPW LQH header
+
+geoh - geodetic headers
+
+  geohdup   - duplicate an IPW GEOH header
+  geohfree  - free all left over parts of a GEO header
+  geohmake  - make an IPW GEOH header
+  geohread  - read an IPW GEOH header
+  geohspace - get spacing from geodetic header
+  geohwrite - write an IPW GEOH header
+
+winh - window headers
+
+  winhdup   - duplicate an IPW WINH header
+  winhfree  - free all left over parts of a WIN header
+  winhmake  - make an IPW WINH header
+  winhread  - read an IPW WINH header
+  winhwrite - write an IPW WINH header
+
+horh - horizon headers
+
+  horhmake  - make an IPW HORH header
+  horhread  - read an IPW HORH header
+  horhwrite - write an IPW HORH header
+
+orh - orientation headers
+
+  orhdup   - duplicate an IPW ORH header
+  orhfree  - free all left over parts of a OR header
+  orhmake  - make an IPW ORH header
+  orhread  - read an IPW ORH header
+  orhwrite - write an IPW ORH header
+
+skewh - image skew headers
+
+  skewhmake  - make an IPW SKEWH header
+  skewhread  - read an IPW SKEWH header
+  skewhwrite - write an IPW SKEWH header
+
+sath - satellite headers
+
+  sathdup   - duplicate an IPW SATH header
+  sathmake  - make an IPW SATH header
+  sathread  - read an IPW SATH header
+  sathwrite - write an IPW SATH header
+
+sunh - sun geometry headers
+
+  sunhmake  - make an IPW SUNH header
+  sunhread  - read an IPW SUNH header
+  sunhwrite - write an IPW SUNH header
+
+crh - class range headers
+
+  crh      - get CR header associated with file descriptor
+  crhdup   - duplicate an IPW CRH header
+  crhmake  - make an IPW CRH header
+  crhread  - read an IPW CRH header
+  crhsort  - return a copy of classes sorted by class number
+  crhwrite - write an IPW CRH header
+
+gethdrs - general header processing
+
+  copyhdrs - copy IPW image headers
+  gethdrs  - process IPW image headers
+  skiphdrs - skip IPW image headers
+
+mapproj - map projections
+
+  get_proj_id    - get ID for projection's short name
+  get_proj_name  - get name of projection for given ID
+  get_proj_units - get name for projection units ID
+  pack_dms       - convert decimal degrees to packed DMS
+  read_proj      - read projection definition file
+  unpack_dms     - convert packed DMS to decimal degrees

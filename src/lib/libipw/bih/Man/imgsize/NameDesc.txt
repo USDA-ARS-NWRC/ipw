@@ -1,0 +1,1 @@
+imgsize - compute total number of bytes in image

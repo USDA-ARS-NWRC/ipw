@@ -1,0 +1,18 @@
+<P>
+This library is the energy-balance snowmelt model for the IPW
+programs <B>snobal</B> and <B>isnobal</B>.
+<P>
+The library essentially runs the snow-balance model on a single point.
+An IPW program calls the function "init_snow" to establish the
+initial conditions for the snowpack.  The program then calls
+the function "do_data_tstep" to run the snow-balance model for a
+single data-time step on a single point.
+<P>
+The include file "snobal.h" documents the global variables that the
+program uses to communicate with the library routines.
+<P>
+Before calling any routine in this library, the program needs
+to initialize the model's constant parameters and the information
+about the timesteps.  See the file "snobal.h" for list of pertinent
+global variables.
+<P>

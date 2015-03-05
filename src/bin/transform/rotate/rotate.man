@@ -1,0 +1,106 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-a</B> <I>angle</I> [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> uses Paeth rotation to reorient an images scan lines to
+an arbitrary angle.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-a</B> <I>angle</I>
+<DD>
+<I>image</I> will be rotated by <I>angle</I> degrees, clockwise from
+the upper left corner, in degrees.
+angle must be between -45 and 45.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To <B>%name</B> a dem image 16.5 degrees to the right (clockwise):
+</P><PRE>
+	rotate -a 16.5 dem_image
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The angle of rotation must be between -45 and 45.
+</P><P>
+The resulting image shows very noticible aliasing.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+	Written by Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+The image does not have a minimal size -- the intermediate steps
+often create a large image than is necessary to hold all the pixel
+data.
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="flip.html">flip</A></B>,
+<B><A href="skew.html">skew</A></B>,
+<B><A href="transpose.html">transpose</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Image</DT>
+<DD>	pnmrotate, imrotate
+</DD>
+</DL>
+<P>A. Paeth, &quot;A fast algorithm for general raster rotation,&quot; in
+	Proceedings, Graphics Interface '86, pp. 77-81,
+	Vancouver, BC, 1986.
+</P>
+

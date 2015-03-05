@@ -1,0 +1,224 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-n</B> <I>neighbors</I> ] [ <B>-h</B> <I>header</I> ] [ <B>-g</B> ]  <B>-p</B> <I>points</I> <I>file</I>
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> works in conjunction with the msurface program to
+provide a much faster means of interpolating multiple surfaces from 
+the same set of input data points.
+</P><P>
+<B>%name</B> reads an ASCII file of point locations and produces an output
+image which stores nearest neighbor information.  Each pixel in
+the output image contains the index (from zero to npoints-1) of
+the n'th nearest point in {points file}.  Band 0 of the
+output image contains the index value of the closest neighbor, 
+band 1 contains the index value of the next-closest neighbor, etc.
+</P><P>
+The output image made by <B>%name</B> is used by msurface as the means
+of obtaining nearest-neighbor information for an inverse-distance-
+weighting interpolation.  <B>%name</B> builds an image of nearest-
+neighbor information based on easting/northing values from a 
+points file, and msurface interpolates a surface for a variable
+z based on easting/northing/z values from a points file.  The
+easting/northing values from all points files must correspond
+exactly.
+</P><P>
+NOTE:  the output image created by <B>%name</B> will contain N 
+annotation strings in its band 0 basic image header, where N is
+the number of lines in {points file}.  These annotation strings
+contain easting/northing values, so that the msurface command may
+check that its input points are compatible (see the warning below).
+</P><P>
+WARNING:  The stored index values contained in the <B>%name</B>
+</P>
+<PRE>
+	  output image are simply the positions of each
+	  point within {points file}.  When the msurface
+	  program is run, it must be given an input {points file}
+	  that corresponds EXACTLY with the easting/northing 
+	  values used by msurfprep.  This means that the points
+	  files used by msurfprep and msurface must not be sorted
+	  differently.  The msurface program will fail if its
+	  input points file doesn't match up with the points file
+	  used by msurfprep.
+</PRE>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-n</B> <I>neighbors</I>
+<DD>
+The number of nearest neighbors to be stored will 
+be <I>neighbors</I> (default: 12).  This number will be the
+number of bands in the output image.  If the data sets
+which will be used by msurface contain nodata
+values, then <I>neighbors</I> should be larger than the number
+of interpolation points <I>n_interp</I> you intend to use 
+with msurface.  If the datasets have no missing values,
+then <I>neighbors</I> can be equal to your intended <I>n_interp</I>.
+</DD>
+
+<P>
+<DT><B>-h</B> <I>header</I>
+<DD>
+The IPW header file <I>header</I> (default: standard input) will
+be used to determine the number of lines, samples, 
+and geodetic information (from the &quot;geo&quot; header).  
+</DD>
+
+<P>
+<DT><B>-g</B>
+<DD>
+Use spherical great-circle-distance computation.
+If the <B>-g</B> is not set, use default Euclidean distance computation.
+</DD>
+
+<P>
+<DT><B>-p</B> <I>points</I>
+<DD>
+Points will be read in from {points file}.
+The {points file} contains at least two values per line, viz:
+</DD>
+
+<P>easting  northing  {optional additional fields ignored}
+</P>
+
+<P>where the easting and northing are specified in the same
+coordinate system as given in the &quot;geo&quot; header.
+Any additional information on each line is ignored.
+</P>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+     To create an input nearest-neighbor image:
+</P>
+<PRE>
+             msurfprep -h hdr.file -p pt.file1 &gt; neibs.img
+</PRE>
+<P>
+     To interpolate a surface with msurface:
+</P>
+PRE>
+             msurface -p pt.file2 neibs.img &gt; outsurf.img
+</PRE>
+<P>
+To check that pt.file1 and pt.file2 refer to the same set of
+eastings/northings:
+</P>
+<PRE>
+             awk '{print $1,$2}' pt.file1 &gt; foo1
+             awk '{print $1,$2}' pt.file2 &gt; foo2
+             diff foo1 foo2 
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>error reading point <I>npoint</I> from input file
+</DT>
+
+<P>
+<DT>input header has no geodetic header
+</DT>
+<DD><BR>	The input header file must have a GEO header.
+</DD>
+
+<P>
+<DT>WARNING: Using Euclidean distance with 'deg' units
+</DT>
+<DD><BR>	If units are degrees, one usually wants to use the <B>-g</B>
+	option for spherical distance computation.
+</DD>
+
+<P>
+<DT>WARNING: Using geo distance with seemingly non-geo units
+</DT>
+<DD><BR>	<B>-g</B> was invoked, but coordinates are beyond the range
+	of valid latitudes/longitudes.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The mask and header file must be single band.
+</P><P>
+Map projection distortions can introduce significant
+error in distance computations as the spatial extent of
+the image increases, or if an improper map projection is used.
+For example, interpolating a surface over an Arctic region while
+using a US Albers projection would produce unusual (and incorrect)
+results.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1994</DT>
+<DD>
+	Written by Rusty Dodson, Mantech Environmental Inc.,
+ERL-C.
+</DD>
+
+<DT>Apr 1995</DT>
+<DD>
+	Changed bihmake call, Dana Jacobsen, ERL-C.
+</DD>
+
+<DT>Jun 1995</DT>
+<DD>
+	Added <B>-g</B> option, Rusty Dodson, Mantech Environmental Inc.,
+ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="msurface.html">msurface</A></B>,
+<B><A href="surface.html">surface</A></B>,
+<B><A href="mkproj.html">mkproj</A></B>,
+<B><A href="reproj.html">reproj</A></B>,
+<B><A href="mkgeoh.html">mkgeoh</A></B>,
+<B><A href="mkbih.html">mkbih</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Unix</DT>
+<DD>	awk, diff
+</DD>
+</DL>
+

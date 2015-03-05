@@ -1,0 +1,118 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-s</B> <I>seed</I> ] [<I>image ...</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> copies lines from <I>image</I>s (default: standard input) and
+writes to the standard output, arranging the lines in random order.
+</P><P>
+An image name of '-' means the standard input.
+</P>
+
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-s</B> <I>seed</I>
+<DD>
+A seed value of <I>seed</I> will be given to random, producing
+repeatable output (default: no seed).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+
+<DT><I>image ...</I></DT>
+<DD>input image(s) to be scrambled
+</DD>
+
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To produce a scrambled version of <I>file</I>:
+<PRE>
+     randomize file
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT># of values must be &gt; 0
+<DD>There must be at least one line of input.
+</DD>
+
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>May 1988</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+Added <B>-s</b> option.  Allowed to read images on the command
+line as well as from standard input.
+Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1997</DT>
+<DD>
+Converted to IPW Version 2.0, D. Marks, USGS, ERL-c
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW:</DT>
+<DD><B><A href="random.html">random</A></B>,
+<B><A href="wedge.html">wedge</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>UNIX:</DT>
+<DD>wc, paste, sort, sed
+</DD>
+</DL>
+

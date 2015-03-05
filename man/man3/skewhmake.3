@@ -1,0 +1,36 @@
+.TH "skewhmake" "3" "10 April 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBskewhmake\fP - make an IPW SKEWH header
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "skewh.h"
+
+SKEWH_T *
+skewhmake(
+	double     angle)	|* skew angle (degrees)		 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBskewhmake\fP allocates an IPW SKEW header.  The header is initialized with
+the remaining arguments.
+.SH RETURN VALUE
+.PP
+pointer to new SKEW header; NULL if error
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

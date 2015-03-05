@@ -1,0 +1,23 @@
+Possible targets for "make" command:
+
+all		Make the HTML and troff man pages, and the text and HTML
+		  files with the function's name and description (default).
+install		Same as "install-man" target.
+clean		Same as "clean-man" target.
+uninstall	Same as "uninstall-man" target.
+
+list-of-links	Print a list of other functions in this category as HTML
+		  links (for the SEE ALSO section).
+ 
+man		Make the HTML and troff versions of the man page.
+install-man	Install the HTML and troff man pages.
+sample-man	Copy a sample man page into the current directory as an
+		  initial version of the man page.
+clean-man	Remove the HTML and troff versions of the man page.
+uninstall-man	Uninstall the HTML and troff versions of the man page.
+name-desc	Make the text and HTML files with the function's name and
+		  description.
+redo-name-desc	Remake the text and HTML files with the function's name and
+		  description.
+clean-name-desc	Remove the text and HTML files.
+help		Displays this message.

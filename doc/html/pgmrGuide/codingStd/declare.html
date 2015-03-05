@@ -1,0 +1,127 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Declarations</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../../images/usda.gif" alt="USDA">
+<IMG SRC="../../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Declarations</H1>
+
+
+<P>
+No more than one name should appear in a declaration. The ease of modification
+this affords is well worth the extra text consumed.
+
+<P>
+Local objects should be declared close to their point of first use. In
+practice, this implies that block-level declarations should be used freely,
+and that individual blocks should be kept short. Local declarations should
+never override declaration made at a higher level.
+
+<P>
+Local function declarations should be avoided, by one of the following
+techniques:
+
+<UL>
+  <LI>Declare all functions at the top level, either in header files or near
+      the beginning of the source file.
+    <P>
+  <LI>Define static functions before global functions in the source file, so
+      there are no forward references.
+</UL>
+
+<P>
+Declarations are indented at the same level as the block in which they occur.
+A storage class specifier, if present, is separated from the following type
+specifier by a single blank. 
+In pointer declarations, identifiers with leading <CODE>"*"</CODE>s may be
+back-indented the appropriate number of spaces so that the first
+character of the identifier name aligns with other identifiers. An initializer,
+if present, is separated from the identifier by a single space.
+
+<P>
+Example:
+
+<PRE>
+{
+        static bool_t   already = FALSE;  /* ? already called      */
+
+        pixel_t        *buf;              /* -> image line buffer  */
+        int             fd = ERROR;       /* image file descriptor */
+        int             line;             /* image line #          */
+        int             nlines;           /* # image lines         */
+
+        ... <I>C code</I> ...
+
+        for (line = 0; line < nlines; ++line) {
+                 char  *bufp = buf;
+
+                 ... <I>C code</I> ...
+        }
+}
+</PRE>
+
+<P>
+Long integer constants in initializers should always include the trailing
+<CODE>"L"</CODE>.
+Global and static variables that are not explicitly initialized will default
+to 0. If 0 is not a sensible value for such a variable, then it should be
+explicitly initialized.
+
+<P>
+If the declaration of an aggregate contains an initializer, then the
+initializer must be fully specified; don't omit trailing 0's. The only
+exception to this is a top-level global variable definition in a file by
+itself, which is being initialized only to force storage allocation.
+
+<P>
+Variable and function declarations are grouped according to the following
+criteria, and appear in the following order. Each group of declarations
+is followed by at least one blank line.
+
+<UL>
+  <LI> <CODE>extern</CODE> variable declarations
+  <LI> <CODE>extern</CODE> function declarations
+  <LI> <CODE>static</CODE> variable definitions
+  <LI> <CODE>static</CODE> function definitions
+  <LI> global variable definitions
+  <LI> global function definitions
+</UL>
+
+<P>
+Within a block, definitions are grouped and ordered as follows:
+
+<UL>
+  <LI><CODE>static</CODE> definitions
+  <LI>local scalar definitions
+  <LI>local aggregate definitions
+</UL>
+
+<P>
+<CODE>"typedef"</CODE> statements should
+always be top-level, and are formatted like ordinary declarations.
+Macros which represent possible values of a structure member should be
+<CODE>"#define"</CODE>d immediately following the structure's
+<CODE>"typedef"</CODE>.
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

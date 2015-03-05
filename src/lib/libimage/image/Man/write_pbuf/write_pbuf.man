@@ -1,0 +1,41 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "image.h"
+
+bool_t
+%name(
+     IMAGE_T  *image,     /* output image              */
+     PIXEL    *buffer,    /* buffer of pixels to write */
+     int       nsamples)  /* # of samples in buffer    */
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B>() writes the unsigned-integer pixels in a
+given buffer to an image.
+
+<H2>RETURN VALUE</H2>
+
+<DL>
+
+<DT><TT>TRUE</TT>
+<DD>
+Pixels were written to the image.
+</DD>
+
+<P>
+
+<DT><TT>FALSE</TT>
+<DD>
+An error occurred while writing.
+</DD>
+
+</DL>
+

@@ -1,0 +1,43 @@
+.TH "imgsize" "3" "10 April 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBimgsize\fP - compute total number of bytes in image
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "bih.h"
+
+long
+imgsize(
+	int             fd)	|* image file descriptor	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBimgsize\fP computes the total number of image data (pixel) bytes in the
+image accessed via file descriptor fd.
+.PP
+The value returned by \fBimgsize\fP does NOT include the bytes occupied by
+header data (e.g., for an image with 512 lines, 512 samples, 1 band,
+and 1 byte per pixel, the value returned by \fBimgsize\fP will be 512*512).
+.PP
+\fBimgsize\fP is typically called by application programs that modify image
+headers and then copy all image data by calling ucopy.
+.SH RETURN VALUE
+.PP
+total # bytes in image
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

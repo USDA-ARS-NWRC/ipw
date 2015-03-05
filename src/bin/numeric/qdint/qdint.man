@@ -1,0 +1,150 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-a</B> <I>lower </I> ] [ <B>-b</B> <I>upper </I> ] [ <B>-y</B> ] [ <B>-d</B> <I>dx </I> ] [ <B>-r</B> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Qdint performs numerical integration, using a spline fit,
+over a set of x-y pairs read in from the standard input.
+It outputs the # of input pairs, the value of integral and the x-value
+at the half-integral to standard output.
+</P><P>
+The x values of the input pairs can be omited, and <B>%name</B>
+will compute x values from a starting x value (default: 0.0)
+and a delta x value (default: 1.0).
+</P><P>
+Qdint can also remove a background value from all the y values.
+The background value is assumed to be the first y value.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-a</B> <I>lower </I>
+<DD>
+Use <I>lower</I> as the lower integration limit (default: first
+x value).
+</DD>
+
+<P>
+<DT><B>-b</B> <I>upper </I>
+<DD>
+Use <I>upper</I> as the lower integration limit (default: last
+x value).
+</DD>
+
+<P>
+<DT><B>-y</B> 
+<DD>
+Read in only y values from standard input, and compute
+x values using a lower integration limit and a delta-x value.
+</DD>
+
+<P>
+<DT><B>-d</B> <I>dx</I>
+<DD>
+Use <I>dx</I> as the delta-x value when computing x values
+(default: 1.0).  This option can only be used with the <B>-y</b>
+option.
+</DD>
+
+<P>
+<DT><B>-r</B> 
+<DD>
+Remove the background value (i.e., the first y value) from
+all the y values.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To integrate solar radiation to J/m^2 from data on average radiation in
+W/m^2 at hourly intervals, setting the lower limit to 0.0 to avoid
+negative integrals around sunrise and sunset:
+</P><PRE>
+	qdint  -a 0.0 -y -d 3600 &lt;rad_vector
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jun 1983</DT>
+<DD>
+Written by D. Marks and J. Dozier, CSL, UCSB;
+</DD>
+
+<P>
+
+<DT>Jan 1985</DT>
+<DD>
+Updated and improved by D. Marks, CSL, UCSB;
+</DD>
+
+<P>
+
+<DT>Jun 1996</DT>
+<DD>
+Ported to IPW. J. Domingo, OSU
+</DD>
+
+<P>
+
+<DT>Aug 1997</DT>
+<DD>
+Converted to IPW Version 2.0 by D. Marks, USGS, ERL-C
+</DD>
+
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD><B><A href="akintrp.html">akintrp</A></B>,
+<B><A href="ezint.html">ezint</A></B>,
+<B><A href="interp.html">interp</A></B>
+</DD>
+</DL>
+<P>
+<A HREF="../bib.html#Davis and Rabinowitz 1975">Davis and Rabinowitz 1975</A><BR>
+</P>
+

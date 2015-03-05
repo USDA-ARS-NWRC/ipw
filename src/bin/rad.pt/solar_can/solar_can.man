@@ -1,0 +1,197 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [<B>-v</B> <I>vegetation single scattering albedo </I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<I>%name</I> is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+</P><P>
+<I>%name</I> calculates incident and reflected solar radiation below a
+canopy, acounting for multiple scattering from the atmosphere and
+the canopy from input of above canopy global and direct solar, cos(z),
+LAI, canopy albedo, and surface albedo.
+It is based on work done in M. Tribbeck's dissertation (University of
+Reading, UK, 2002).
+</P><P>
+Note: Input canopy single scattering albedo should be appropriate for
+wavelength range of input solar radiation; the default value of 0.25
+is for broad-band solar (250-2500nm) in conifers.
+A value for more specific band widths would have to be input.
+</P><P>
+Canopy solar transmissivity and reflectivity coefs are calculated by
+a third order exponential integral function from Numerical Recipies in
+Fortran 90, converted to C by D. Marks.
+</P><P>
+Canopy transmissivity and reflectivity coeficients are assumed to be
+independent of wavelength, which is probably OK for broad band inputs.
+Input solar may be input in any wavelength band, as long as the surface 
+and canopy albedos are correct.
+</P><P>
+Output is direct, diffuse, and total below canopy solar radiation at
+the surface, total below canopy solar radiation reflected from the surface,
+below canopy net solar radiation, and solar radiation reflected back to the
+atmosphere at the top of the canopy.
+</P><P>
+Input is to stdin; output to stdout.
+</P>
+<H2>OPTIONS</H2>
+
+<P>
+<DL>
+<DT><B>-v</B> <I>alb_v</I>
+<DD>
+<I>alb_v</I> is the single scattering canopy albedo (0-1.0)
+(default: 0.25)
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate solar radiation below a canopy using an LAI
+of 2.5 and following input data set ("testfile"):
+</P><PRE>
+        Si      Sb        mu_0          lai    alb_s
+        =============================================
+        0       0.0     -0.606527       2.5     0.0
+        0       0.0     -0.571449       2.5     0.0
+        0       0.0     -0.489712       2.5     0.0
+        0       0.0     -0.366879       2.5     0.0
+        0       0.0     -0.211317       2.5     0.0
+        0       0.0     -0.033621       2.5     0.0
+        31      22.4    0.154107        2.5     0.8194
+        212     182.9   0.339080        2.5     0.8014
+        418     378.9   0.508701        2.5     0.7866
+        605     560.3   0.651420        2.5     0.7747
+        754     705.8   0.757523        2.5     0.7663
+        852     801.6   0.819791        2.5     0.7621
+        891     839.2   0.833997        2.5     0.7622
+        876     822.9   0.799188        2.5     0.7667
+        803     749.0   0.717753        2.5     0.775
+        679     624.3   0.595260        2.5     0.7869
+        501     447.2   0.440074        2.5     0.8012
+        322     266.2   0.262789        2.5     0.8171
+        114     58.8    0.075504        2.5     0.8167
+        0       0.0     -0.109001       2.5     0.0
+        0       0.0     -0.278136       2.5     0.0
+        0       0.0     -0.420363       2.5     0.0
+        0       0.0     -0.525975       2.5     0.0
+        0       0.0     -0.587765       2.5     0.0
+</PRE>
+
+<P>
+The command "solar_can < testfile" yields:
+</P>
+
+<PRE>
+sw_vb   sw_vd   sw_v    sw_so   sw_net  sw_oc
+======  ======  ======  ======  ======  =====
+0.00    0.00    0.00    0.00    0.00    0.00
+0.00    0.00    0.00    0.00    0.00    0.00
+0.00    0.00    0.00    0.00    0.00    0.00
+0.00    0.00    0.00    0.00    0.00    0.00
+0.00    0.00    0.00    0.00    0.00    0.00
+0.00    0.00    0.00    0.00    0.00    0.00
+3.07    2.47    5.54    4.54    1.00    4.90
+29.35   8.34    37.69   30.21   7.49    33.29
+82.61   11.19   93.80   73.79   20.02   66.79
+154.61  12.78   167.39  129.68  37.71   98.51
+224.98  13.76   238.74  182.95  55.79   124.39
+274.95  14.39   289.33  220.50  68.83   141.58
+292.42  14.78   307.21  234.15  73.05   148.39
+275.83  15.16   291.00  223.11  67.89   145.50
+227.02  15.44   242.45  187.90  54.55   132.23
+158.04  15.66   173.70  136.68  37.01   110.12
+86.01   15.42   101.44  81.27   20.17   79.64
+38.60   16.03   54.63   44.64   9.99    50.58
+8.04    15.85   23.90   19.52   4.38    18.29
+0.00    0.00    0.00    0.00    0.00    0.00
+0.00    0.00    0.00    0.00    0.00    0.00
+0.00    0.00    0.00    0.00    0.00    0.00
+0.00    0.00    0.00    0.00    0.00    0.00
+0.00    0.00    0.00    0.00    0.00    0.00
+</PRE>
+
+<P>
+Where:
+</P>
+
+<PRE>
+sw_vb  = below canopy direct radiation
+sw_vd  = below canopy diffuse radiation
+sw_v   = total below canopy downward radiation
+sw_so  = total below canopy upward radiation
+sw_net = net below canopy radiation
+sw_oc  = total above canopy upward radiation
+</PRE>
+
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jul 2002</DT>
+<DD>
+	Written by D. Marks and M. Tribbeck, ARS-NWRC, Boise, Id;
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="standard/albedo.html">albedo</A></B>,
+<B><A href="standard/thermin.html">thermin</A></B>,
+<B><A href="standard/trad.html">trad</A></B>,
+<B><A href="new_commands/trad_can.html">trad_can</A></B>
+<B><A href="standard/vptr.html">vptr</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Tribbeck 2002">Tribbeck 2002</A>,
+<A HREF="../bib.html#Press 1999">Press, Vetterling, Teukolsky, Flannery 1999</A>
+</P>
+

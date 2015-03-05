@@ -1,0 +1,140 @@
+.TH "mklqh" "1" "10 April 1998" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBmklqh\fP - add a linear quantization (LQ) header to an image
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBmklqh\fP \fB-m\fP \fIin\fP,\fIout\fP[,\fIin\fP,\fIout\fP,\fI...\fP] [ \fB-u\fP \fIunits\fP ] [ \fB-i\fP \fIinterp\fP ]
+      [ \fB-b\fP \fIband\fP[,\fI...\fP] ] [ \fB-f\fP ] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBmklqh\fP constructs an IPW linear quantization header (LQH) and inserts
+it into the headers of \fIimage\fP (default: standard input).  If the
+specified bands already have LQ headers, they are overridden, and
+a warning message is generated.
+.PP
+If the \fB-f option is specified, then only the headers are written to
+the standard output, and any input image data is ignored.
+.SH OPTIONS
+.TP
+\fB-m\fP \fIin\fP,\fIout\fP[,\fIin\fP,\fIout\fP,\fI...\fP]
+Construct a linear mapping between the breakpoints
+\fIin,out\fP,...  At least 1 \fIin,out\fP pair must be supplied.
+The breakpoint pairs 0,0 and 2^nbits-1,0 are assumed
+unless explicitly overridden.
+.sp
+.TP
+\fB-u\fP \fIunits\fP
+The floating-point pixel values are expressed in units of
+\fIunits\fP (e.g., "W m^-2", "nm") (default: none).
+This field is for annotation only.
+.sp
+.TP
+\fB-i\fP \fIinterp\fP
+Use \fIinterp\fP to interpolate floating-point values between
+breakpoints (default: "linear").  Currently only "linear"
+is supported.
+.sp
+.TP
+\fB-b\fP \fIband\fP[,\fI...\fP]
+The "lq" header will be applied only to the specified
+\fIband\fPs (default: all bands).
+.sp
+.TP
+\fB-f\fP
+Force header output only.  Do not attempt to copy pixel
+data from \fIimage\fP to the standard output.  Note that there
+must still be at least an input BIH, and any input headers
+(except superseded "lq" headers) will still be copied to
+the standard output.
+.SH OPERANDS
+.TP
+\fIimage\fP
+input image (default: standard input)
+.SH EXAMPLES
+.PP
+To construct an "lq" header that will map 8-bit pixels (0 .. 255)
+into the floating point range 0 .. 1:
+.sp
+.nf
+.ft CR
+        mklqh -m 0,0,255,1
+.ft R
+.fi
+
+.PP
+To construct an "lq" header that will map 12-bit pixels (0 .. 4095)
+into the range 2762 .. 3417:
+.sp
+.nf
+.ft CR
+        mklqh -m 0,2762,4095,3417
+.ft R
+.fi
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.TP
+bands \fIband1\fP and \fIband2\fP have different # bits / pixel
+All bands to which the "lq" header is applied must have
+the same number of bits per pixel.
+.sp
+.TP
+must specify pixel,fpixel pairs for \fB-m
+\fB-m must have an even number of arguments.
+.sp
+.TP
+no band \fIband\fP
+A nonexistent input band was specified with \fB-b.
+.sp
+.TP
+band \fIband\fP: replacing previous LQ header
+Band \fIband\fP already had a "lq" header, which was replaced
+by the newly-created one.
+.SH RESTRICTIONS
+.PP
+There are not yet any standard identifiers for \fIunits\fP.
+.PP
+The default breakpoints can lead to unexpected quantization mappings
+or errors from \fBmklqh\fP.  For example, the mapping
+.sp
+.nf
+.ft CR
+	mklqh -m 0,0,127,1
+.ft R
+.fi
+
+.PP
+succeeds for 7-bit pixels, but for 8-bit pixels there would be an
+additional implicit breakpoint at 255,0, which would make the mapping
+non-monotonic.
+.SH HISTORY
+.TP
+Jul 1990
+Written by James Frew, UCSB.
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO
+.TP
+IPW
+\fBgradient\fP,
+\fBhor1d\fP,
+\fBlincom\fP,
+\fBlqhx\fP,
+\fBmkbih\fP,
+\fBmstats\fP,
+\fBmult\fP,
+\fBprhdr\fP,
+\fBrmhdr\fP,
+\fBshade\fP,
+\fBviewcalc\fP,
+\fBwedge\fP
+.PP
+Frew 1990
+.br

@@ -1,0 +1,131 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [<I>image ...</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> copies the IPW headers of the input <I>image</I>s 
+to the standard output.  If more than one
+<I>image</I> is specified, then each group of output headers will
+be preceded by:
+<PRE>
+     ::::::::::::::
+     {image}
+     ::::::::::::::
+</PRE>
+
+<P>
+IPW headers are printable text and are always separated from the
+image data by a form feed (ASCII NP, control-L) character.  You can therefore
+view the header of any IPW image directly with a pagination
+command such as <B>more</B> that pauses when it encounters a form feed.
+</P>
+
+<H2>OPTIONS</H2>
+
+<P>None.
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+
+<DT><I>image ...</I></DT>
+<DD>
+input image(s) (default: standard input).
+</DD>
+
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+The command:
+<PRE>
+	prhdr image
+</PRE><P>
+might produce something like the following output:
+</P><PRE>
+	!&lt;header&gt; basic_image_i -1 $Revision: 1.8 $
+	byteorder = 3210
+	nlines = 96
+	nsamps = 281
+	nbands = 1
+	!&lt;header&gt; basic_image 0 $Revision: 1.8 $
+	bytes = 1
+	bits = 8
+	annot = Calculated NDVI for Period 03/02 thru 03/15/1990
+	history = indvi
+	!&lt;header&gt; image -1 $Revision: 1.5 $
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None.
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="mkbih.html">mkbih</A></B>,
+<B><A href="mkcrh.html">mkcrh</A></B>,
+<B><A href="mkgeoh.html">mkgeoh</A></B>,
+<B><A href="mklqh.html">mklqh</A></B>,
+<B><A href="mksath.html">mksath</A></B>,
+<B><A href="mksunh.html">mksunh</A></B>,
+<B><A href="mkwinh.html">mkwinh</A></B>,
+<B><A href="rmhdr.html">rmhdr</A></B>
+</DD>
+
+<P>
+
+<DT>UNIX</DT>
+<DD>less, more, sed
+</DD>
+
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A><BR>
+</P>
+

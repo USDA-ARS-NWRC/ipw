@@ -1,0 +1,143 @@
+.TH "bowvap" "1" "10 April 1998" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBbowvap\fP - evaporation rate using Bowen ratio
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBbowvap\fP [ \fB-z\fP \fIelev\fP ] [ \fB-p\fP \fIair-pressure\fP ] [ \fB-v\fP \fIview-factor\fP ]
+       [ \fB-l\fP \fIlapse-rate\fP ] [ \fB-t\fP \fItimestep\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBbowvap\fP is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as "qdips" (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+.PP
+\fBbowvap\fP calculates evaporation rate using \fIBowen (1926)\fP
+ratio approach;
+Output is rate in kg/(sec m**2) which is specific discharge
+in mm/sec;
+Reads input file from stdin of form:
+.sp
+.nf
+.ft CR
+	ts, ta, ea, snet, advec, store, time
+.ft R
+.fi
+.sp
+.nf
+.ft CR
+	where:
+		ts     = surface temperature (C)
+		ta     = air temperature (C)
+		ea     = vapor pressure (Pa)
+		snet   = net solar radiation (W/m**2)
+		advec  = energy from advection (W/m**2)
+		store  = change in energy storage (W/m**2)
+		time   = time since last meas. (hrs)
+.ft R
+.fi
+
+.PP
+Sea Level (0.0 m) is default unless z is set;
+Standard atmospheric pressure (101324.6 Pa) is default
+unless pa is set;
+If z is set and pa is not, pa is calculated from z;
+If pa is set and z is not, z is roughly estimated from pa;
+View factor of 1.0 is default unless vf is set;
+Environmental lapse rate of -0.0065 deg/m is default unless
+lapse is set;
+If tstep is set, then time step is assumed constant,
+and time is not read from stdin;
+Tstep should be set in decimal hours;
+.PP
+Surface emissivity of 1.0 is assumed;
+Storage and advection may be ignored by setting them to 0.0;
+.PP
+Output to stdout;
+.SH OPTIONS
+.TP
+\fB-z\fP \fIelev\fP
+Elevation (default: 0.0 m)
+.sp
+.TP
+\fB-p\fP \fIair-pressure\fP
+In Pascals; (default: 101324.6 Pa)
+.sp
+.TP
+\fB-v\fP \fIview-factor\fP
+Portion of overlying hemisphere that is sky (0-1.0; default: 1.0)
+.sp
+.TP
+\fB-l\fP \fIlapse-rate\fP
+Temperature lapse rate (default: -0.0065 K/m)
+.sp
+.TP
+\fB-t\fP \fItimestep\fP
+In decimal hours
+.SH OPERANDS
+.PP
+None
+.SH EXAMPLES
+.PP
+To calculate evaporation at an open site over snow at 1200m from hourly data
+on air and surface temperature, net radiaiton, advection, and energy
+storage:
+.sp
+.nf
+.ft CR
+	bowvap -z 1200 -t 1.0
+        Input ts,   ta,  ea, snet, advec, store;
+              -0.03 -0.2 601 0.0   2.2    -9.8
+yields:
+        rate = -2.141907e-08; total = -0.00008;
+.ft R
+.fi
+.SH FILES
+.PP
+None
+.SH DIAGNOSTICS
+.PP
+None
+.SH RESTRICTIONS
+.PP
+None
+.SH HISTORY
+.TP
+Apr 1984
+Written by D. Marks, CSL, UCSB;
+.TP
+May 1995
+Converted to IPW by J. Domingo, OSU, ERL-C
+.SH BUGS
+.PP
+None
+.SH SEE ALSO
+.TP
+IPW
+\fBadvec\fP,
+\fBgsnow\fP,
+\fBpenmanx\fP,
+\fBipmx\fP,
+\fBpmx\fP,
+\fBptaylorx\fP,
+\fBiptx\fP,
+\fBptx\fP,
+\fBsoilt\fP,
+\fBsoiltmp\fP,
+\fBsrftmp\fP,
+\fBswp\fP,
+\fBtrb_Ri\fP,
+\fBitrbxfr\fP,
+\fBtrbxfr\fP
+.TP
+Unix
+paste
+.PP
+Bowen 1926
+Monteith, Unsworth 1990
+</P

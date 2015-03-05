@@ -1,0 +1,3 @@
+%define(name,"units_as_str")
+%define(description,"convert units id into a string")
+%define(category,"units")

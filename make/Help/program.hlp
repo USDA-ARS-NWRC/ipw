@@ -1,0 +1,40 @@
+Possible targets for "make" command:
+
+all		Make the command, its man pages, the text and HTML
+		  files with the command's name and description. (default)
+install		Install the command, and its HTML and troff man pages.
+cmd		Make the program for the command.
+install-cmd	Install the command.
+uninstall-cmd	Uninstall the command.
+uninstall	Uninstall the command, and its HTML and troff man pages.
+clean-cmd	Remove the command.
+clean-objs	Remove the command and the object files.
+clean		Remove the command, its HTML and troff man pages, and
+		  any debugging versions of the command and its object files.
+
+debug		Make a debugging version of the program in the
+		  subdirectory "Debug" with non-debugging libraries.
+debug-all	Make a debugging version of the program with the
+		  extension ".all" in the subdirectory "Debug" with
+		  debugging libraries.
+clean-debug	Remove the debugging versions of the program and their
+		  object files.
+clean-debug-cmd	Remove the debugging versions of the program
+clean-debug-obj	Remove the debugging versions of program's object files.
+
+man		Make the HTML and troff versions of the man page.
+install-man	Install the HTML and troff man pages.
+sample-man	Copy a sample man page into the current directory as an
+		  initial version of the man page.
+clean-man	Remove the HTML and troff versions of the man page.
+uninstall-man	Uninstall the HTML and troff versions of the man page.
+name-desc	Make the text and HTML files with the command's name and
+		  description.
+redo-name-desc	Remake the text and HTML files with the command's name and
+		  description.
+clean-name-desc	Remove the text and HTML files.
+
+tar    cpio	Make a tar or cpio archive for exporting the command (local
+tar.Z  cpio.Z	  commands only).  The ".Z" and ".gz" targets also compress the
+tar.gz cpio.gz	  archive using "compress" and GNU's "gzip" respectively.
+help		Displays this message.

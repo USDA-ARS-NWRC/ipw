@@ -1,0 +1,64 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "bih.h"
+
+int
+bihwrite(
+	int      fd,		|* output file descriptor	 *|
+	BIH_T  **bihpp)		|* -> array of BIH pointers	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<PRE>
+     bihwrite writes the array of BIH headers pointed to by bihpp
+</PRE>
+<P>
+to file descriptor fd.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+OK for success, ERROR for failure
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

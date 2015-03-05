@@ -1,0 +1,67 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "lqh.h"
+
+LQH_T **
+lqhdup(
+	LQH_T  **oldhpp,	|* -> old LQH array		 *|
+	int      nbands)	|* # header bands		 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> creates a duplicate of the IPW LQH header pointed to by
+&quot;old&quot;.
+</P><P>
+<B>%name</B> is an easy way for applications programs to create a new LQH
+(e.g., for an output image, after having read the LQH for an input
+image).
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+A pointer to the duplicate header is returned.  NULL is returned if
+an error occurs.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

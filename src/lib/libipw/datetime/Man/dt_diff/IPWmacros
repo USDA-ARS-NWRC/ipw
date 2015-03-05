@@ -1,0 +1,3 @@
+%define(name,"dt_diff")
+%define(description,"compute difference between two date-times")
+%define(category,"datetime")

@@ -1,0 +1,66 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "lqh.h"
+
+LQH_T *
+lqhmake(
+	int             nbits,	  |* #bits / pixel		 *|
+	int             nbkpts,	  |* #breakpoints		 *|
+	pixel_t        *ival,	  |* array of integer bkpts	 *|
+	fpixel_t       *fval,	  |* array of floating-pt bkpts	 *|
+	char           *units,	  |* fpixel units of measurement *|
+	char           *interp)	  |* interpolation function name *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> allocates a single IPW LQ header.  The header is initialized
+with the arguments.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+pointer to new LQ header; NULL if error
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

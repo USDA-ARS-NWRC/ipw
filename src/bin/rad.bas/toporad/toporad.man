@@ -1,0 +1,171 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-n</B> ] [ <B>-r</B> <I>R0</I> ] [ <B>-d</B> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates the topographic distribution of solar radiation
+at a single time, using input beam and diffuse radiation calculations
+supplied by elevrad.  The input image has the following bands:
+<PRE>
+    band 0 : beam irradiance
+     "   1 : diffuse irradiance
+     "   2 : local illumination angle
+     "   3 : sky view factor
+     "   4 : terrain configuration factor
+     "   5 : surface albedo
+</PRE><P>
+The input image should also have a &quot;sun&quot; header specifying the
+cosine of the solar zenith angle.
+<P>
+The first five bands are usually calculated using other programs.
+elevrad calculates beam and diffuse radiation, shade calculates
+the local illumination angle (with input from gradient), and viewf
+calculates the sky view and terrain configuration factors.
+<P>
+The sixth band (surface albedo) can be derived from (satellite) data,
+or, for snow, calculated using programs albedo, salbedo, or glob.alb.
+</P>
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-n</B> 
+<DD>
+Radiation output will be net, rather than incoming.
+</DD>
+
+<P>
+<DT><B>-r</B> <I>R0</I>
+<DD>
+reflectance of the substrate (if not specified, albedo at
+the point will be used to calculate reflectance of the
+adjacent terrain)
+</DD>
+
+<P>
+<DT><B>-d</B>
+<DD>
+Add the diffuse irradiance as a second band in the output image.
+</DD>
+
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+
+<DT><I>image</I>
+<DD>six-band input image (default: standard input).
+</DD>
+
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+Running <B>%name</B> over a section of the Columbia Basin on June 22, 1990,
+with input files muxed together:
+</P><PRE>
+	mux beam-diffuse illcos skyview-terrain albedo | toporad
+</PRE>
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>input image has no LQH
+<DD>
+</DD>
+
+<DT>input image has no SUNH, mu0 set to 0.5
+<DD>
+</DD>
+
+<DT>
+input band <I>band</I> has no SUNH, mu0 set to 0.5
+<DD>
+</DD>
+
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+
+<DT>Jul 1989
+<DD>
+Written by Jeff Dozier, UCSB.
+</DD>
+
+<DT>Nov 1998
+<DD>
+Added -d option.  J. Domingo, OSU
+</DD>
+
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="standard/toporad.html">standard toporad</A></B>,
+<B><A href="stoporad.html">locally modified stoporad</A></B>,
+<B><A href="standard/elevrad.html">elevrad</A></B>,
+<B><A href="standard/gtoporad.html">gtoporad</A></B>,
+<B><A href="standard/gtoporad.24.html">gtoporad.24</A></B>,
+<B><A href="standard/gtopquad.html">gtopquad</A></B>,
+<B><A href="standard/gviewf.html">gviewf</A></B>,
+<B><A href="standard/gviewf-mp.html">gviewf-mp</A></B>,
+<B><A href="standard/gelevrad.html">gelevrad</A></B>,
+<B><A href="standard/gshade.html">gshade</A></B>,
+<B><A href="standard/ggradient.html">ggradient</A></B>,
+<B><A href="standard/gradient.html">gradient</A></B>,
+<B><A href="standard/ghorizon.html">ghorizon</A></B>,
+<B><A href="standard/horizon.html">horizon</A></B>,
+<B><A href="standard/hor1d.html">hor1d</A></B>,
+<B><A href="standard/toporad.24.html">toporad.24</A></B>,
+<B><A href="standard/topquad.html">topquad</A></B>,
+<B><A href="standard/twostream.html">twostream</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Dozier 1980">Dozier 1980</A>,
+<A HREF="../bib.html#Dozier 1981">Dozier &amp; Frew 1981</A>,
+<A HREF="../bib.html#Dozier 1991">Dozier, Bruno, &amp; Downey 1991</A>,
+<A HREF="../bib.html#Dozier 1990">Dozier &amp; Frew 1990</A>,
+<A HREF="../bib.html#Dubayah 1990">Dubayah, Dozier, &amp; Davis 1990</A>,
+<A HREF="../bib.html#Dubayah 1992">Dubayah &amp; Van Katwijk 1992</A>,
+<A HREF="../bib.html#Dubayah 1994">Dubayah 1994</A>,
+<A HREF="../bib.html#Marks 1991">Marks, Dubayah, &amp; Longley 1991</A>,
+</P>
+

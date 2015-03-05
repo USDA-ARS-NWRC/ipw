@@ -1,0 +1,3 @@
+%define(name,"ipwfile")
+%define(description,"print basic info about an IPW image")
+%define(category,"Basic Image Commands")

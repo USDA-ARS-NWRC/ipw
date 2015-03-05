@@ -1,0 +1,122 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [<B> - i </B>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+</P><P>
+<B>%name</B> calculates moist static energy MSE (J/kg) from air temp Ta,
+vapor pressure ea, for specified elevation level z,
+from input of Ta (C), ea (Pa), and z (m).
+Or inverts moist static energy equation to
+calculate vapor pressure for specified elevation level,
+from input of Ta (C), MSE (J/kg), and z (m).
+</P><P>
+(see <I>Dynamic Meteorology, Holton, 1979</I>)
+</P><P>
+Input is to stdin; output to stdout.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-i</B> 
+<DD>
+Calculate vapor pressure from air temp, elev, and moist
+static energy
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<PRE>
+	paste ta z vp pa | <B>%name</B>
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Apr 1992</DT>
+<DD>
+Written by S. Grayson &amp; D. Marks, ERL-C;
+</DD>
+</DL>
+
+<DL>
+<DT>May 1995</DT>
+<DD>
+Converted to IPW by J. Domingo, OSU, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="dewpt.html">dewpt</A></B>,
+<B><A href="idewpt.html">idewpt</A></B>,
+<B><A href="irh2vp.html">irh2vp</A></B>,
+<B><A href="rh2vp.html">rh2vp</A></B>,
+<B><A href="isatvp.html">isatvp</A></B>,
+<B><A href="satvp.html">satvp</A></B>,
+<B><A href="sling.html">sling</A></B>,
+<B><A href="vptr.html">vptr</A></B>
+<B><A href="ipott.html">ipott</A></B>,
+<B><A href="pott.html">pott</A></B>,
+<B><A href="zpr.html">zpr</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Unix</DT>
+<DD>	paste
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Holton 1979">Holton 1979</A>,
+</P>
+ 

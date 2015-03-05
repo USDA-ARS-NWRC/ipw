@@ -1,0 +1,3 @@
+%define(name,"lqhwrite")
+%define(description,"write an IPW LQH header")
+%define(category,"lqh")

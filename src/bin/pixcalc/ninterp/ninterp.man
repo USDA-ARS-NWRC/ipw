@@ -1,0 +1,150 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-t</B> <I>file</I> [ <B>-n</B> <I>nbits </I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> interpolates each point in an n-band image over an
+n-dimensional table.  It produces a single-band output image
+that's written to standard output.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-t</B> <I>file</I>
+<DD>
+file
+Load the interpolation table from the specified file
+(the filename &quot;-&quot; refers to standard input).  The file
+is a text file with a sequence of numbers describing
+size and contents of the table.  The format of the file
+is flexible as long as the numbers are separated by
+whitespace.  In the description below, &lt;int&gt; denotes
+an integer value, &lt;float&gt; denotes a floating-point value,
+and comments appear in brackets &quot;{&quot; and &quot;}&quot;:
+</DD>
+
+<P>&lt;int&gt;		{ 'n' = # of dimensions in the table; =&gt; 1 }
+</P>
+
+<P>&lt;int&gt;		{ 's1' = size of most-significant dimension;
+all dimension' sizes must be =&gt; 2 }
+&lt;float&gt;		{ 'x_1:1' = 1st value in list of values for
+this dimension; in increasing order }
+&lt;float&gt;		{ 'x_1:2' = 2nd value }	
+...		  ...
+&lt;float&gt;		{ 'x_1:s1' = last value }	
+</P>
+
+<P>&lt;int&gt;		{ 's2' = size on next-significant dimension }
+&lt;float&gt;		{ 'x_2:1' = 1st value }	
+...		  ...
+&lt;float&gt;		{ 'x_2:s2' = last value }	
+</P>
+
+<P>...
+</P>
+
+<P>&lt;int&gt;		{ 'sn' = size of least-significant dimension }
+&lt;float&gt;		{ 'x_n:1' = 1st value }	
+...		  ...
+&lt;float&gt;		{ 'x_n:sn' = last value }	
+</P>
+
+<P>&lt;float&gt;		{ value for &lt;x_1:1, x_2:1, ..., x_n-1:1, x_n:1&gt;
+=	1st value in list of table entries in
+what would be called 'row-major order'
+for a 2-dimension table }
+&lt;float&gt;		{ x_1:1, x_2:1, ..., x_n-1:1, x_n:2 }
+...						  ...
+&lt;float&gt;		{ x_1:1, x_2:1, ..., x_n-1:1, x_n:sn }
+</P>
+
+<P>&lt;float&gt;		{ x_1:1, x_2:1, ..., x_n-1:2, x_n:1 }
+&lt;float&gt;		{ x_1:1, x_2:1, ..., x_n-1:2, x_n:2
+...						  ...
+&lt;float&gt;		{ x_1:1, x_2:1, ..., x_n-1:2, x_n:sn }
+</P>
+
+<P>...		...
+</P>
+
+<P>&lt;float&gt;		{ x_1:1, x_2:2, ..., x_n-1:1, x_n:1 }
+&lt;float&gt;		{ x_1:1, x_2:2, ..., x_n-1:1, x_n:2 }
+...						  ...
+&lt;float&gt;		{ x_1:1, x_2:2, ..., x_n-1:1, x_n:sn }
+</P>
+
+<P>...		...
+</P>
+
+<P>&lt;float&gt;		{ x_1:s1, x_2:1, ..., x_n-1:1, x_n:1 }
+&lt;float&gt;		{ x_1:s1, x_2:1, ..., x_n-1:1, x_n:2 }
+...						   ...
+&lt;float&gt;		{ x_1:s1, x_2:1, ..., x_n-1:1, x_n:sn }
+</P>
+
+<P>...		...
+</P>
+
+<P>&lt;float&gt;		{ x_1:s1, x_2:s2, ..., x_n-1:sn-1, x_n:1 }
+&lt;float&gt;		{ x_1:s1, x_2:s2, ..., x_n-1:sn-1, x_n:2 }
+...						   ...
+&lt;float&gt;		{ x_1:s1, x_2:s2, ..., x_n-1:sn-1, x_n:sn }
+</P>
+
+<P>
+<DT><B>-n</B> <I>nbits </I>
+<DD>
+nbits
+Use &lt;nbits&gt; # of bits for the single-band output image
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>May 1997</DT>
+<DD>
+Written by J. Domingo, OSU
+</DD>
+</DL>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+
+<DT>IPW:
+<DD>
+<A HREF="iinterp.html"><B>iinterp</B></A>,
+<A HREF="interp.html"><B>interp</B></A>
+</DD>
+
+</DL>

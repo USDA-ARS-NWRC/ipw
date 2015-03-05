@@ -1,0 +1,79 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+int
+akcoef(
+	double    *x,	|* vector of increasing x values	*|
+	double    *y,	|* vector of corresponding y values	*|
+	int        nx,	|* # of points in x & y vectors		*|
+	double    *c)	|* output: spline coefficients 		*|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> computes the spline coefficients for Akima interpolation.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+OK	coefficients computed
+</P><P>
+ERROR	error occurred, and message stored via 'usrerr' routine
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1982</DT>
+<DD>
+	written by J. Dozier, Department of Geography, UCSB
+(based on IMSL's iqhscu)
+</DD>
+</DL>
+
+<DL>
+<DT>May 1996</DT>
+<DD>
+	Ported to IPW.  J. Domingo, OSU
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

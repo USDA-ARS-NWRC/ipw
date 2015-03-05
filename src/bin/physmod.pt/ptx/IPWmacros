@@ -1,0 +1,3 @@
+%define(name,"ptx")
+%define(description,"potential evaporation (PE) using simplified Priestly-Taylor method")
+%define(category,"Physical Modeling: Point")

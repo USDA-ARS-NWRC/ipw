@@ -1,0 +1,304 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-v</B> ] [ <B>-s</B> ] [ <B>-o</B> <I>order</I> ] [ <B>-M</B> <I>maxorder</I> ]
+      [ <B>-t</B> <I>tolerance</I> ] [ <B>-c</B> <I>min</I>,<I>max</I>[<I>...</I>] ] [ <B>-m</B> <I>mask</I> ]
+      [ <I>images ...</I> ]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads two or more IPW images and calculates the best fit
+polynomial that relates the images.  Currently <B>%name</B> supports
+only two images and least squares polynomial fitting.  The output
+is formatted:
+</P><PRE>
+     nfiles     number of independent files
+     degree     degree of interpolating polynomial
+     p[0]     	the first term of the polynomial
+     ...
+     p[n-1]     the last term (p[n-1]^degree)
+     xmin     	minimum X (independent) value seen
+     xmax     	maximum X (independent) value seen
+     ...     	(miny, maxy) for other independent files
+     ymin     	minimum Y of interpolated values
+     ymax     	maximum Y of interpolated values
+     p_syx     	interp standard error of estimate
+     g_sdev     data   standard deviation
+     g_lr2     	data   linear correlation coefficient
+     p_r2     	interp coefficient of multiple determination
+     g_cofv     data   coefficent of variation
+     p_cofv     interp coefficent of variation
+     p_cofc     interp coefficient of contingency
+     file     	dependent file name
+</PRE><P>
+The last image given is the dependant image.  All preceding
+images are the independent images.  Given independent images
+and the relation, <B><A HREF="ipwinterp.html">ipwinterp</A></B>
+will calculate a dependent image.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-v</B> 
+<DD>
+<B>%name</B> will print extra information on the standard error.
+This includes progress information as well as a running set
+of statistics and the interpolating polynomial for the last
+order polynomial computed.
+</DD>
+
+<P>
+<DT><B>-s</B> 
+<DD>
+When doing the polynomial fit, don't precalculate the large
+M and M transpose arrays.  This saves (degree * number of
+points) * 8 bytes at the expense of recalculating the fit
+for each point in the array.  For images of over 256x256
+this is recommended as the extra time taken will start to be
+balanced by the time saved allocating huge chunks of memory.
+</DD>
+
+<P>
+<DT><B>-o</B> <I>order</I>
+<DD>
+Calculate an interpolating polynomial of order <I>order</I>.  If
+this option is specified, <B>%name</B> does not make any
+decisions about when to continue, and only one calculation
+is done.
+</DD>
+
+<P>
+<DT><B>-M</B> <I>maxorder</I>
+<DD>
+<B>%name</B> will never attempt to calculate a polynomial of
+order greater than <I>maxorder</I> (default: 20).  The problem
+with polynomial fitting is that it can oscillate wildly at
+high orders.  To see how various fits look, use <B>istatgraph</B>.
+This option can be used to limit the maximum order to some
+reasonable number, which depends on the data.  As a general
+rule, polynomial fits above 5th order are not recommended.
+</DD>
+
+<P>
+<DT><B>-t</B> <I>tolerance</I>
+<DD>
+select order when the errp (see diagnostics) changes less
+than <I>tolerance</I> (default: 0.01).  To calculate which
+interpolating polynomial to use, <B>%name</B> starts at order 0
+(the mean) and goes up.  When the errp changes less than the
+tolerance value, there is little gain to be had by going any
+higher.  The interpolating polynomial before the last one
+computed is selected.
+</DD>
+
+<P>
+<DT><B>-c</B> <I>min</I>,<I>max</I>[<I>...</I>]
+<DD>
+<B>%name</B> will ignore any points where the dependent image
+values fall under <I>min</I> or over <I>max</I>.  This can be used to
+cut out spurious values.
+</DD>
+
+<P>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+Use <I>mask</I> as a mask image.  Any points in <I>mask</I> that are
+0 will have the corresponding points in <I>image</I>s ignored.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>images ...</I></DT>
+
+<DD>IPW images (last image is dependant, all others are independent)
+currently, only 2-image inputs are supported.
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To interpolate AVHRR channel 5 data given elevation:
+</P><PRE>
+	istatrel elev.ipw ch5.ipw
+</PRE><P>
+Examining the data with <B>istatgraph</B> shows that the cloud and snow
+values are making the polynomial come out wrong.  Trying again,
+but this time raise the tolerance (so a lower order polynomial
+might be selected), add clipping values (ignore clouds), and use
+mask.can as a mask (to only calculate values for Canada):
+</P><PRE>
+	istatrel  -t 0.02  -c 260,320  -m mask.can  elev.ipw ch5.ipw
+</PRE><P>
+To get a quick data analysis of the resulting polynomial, pipe the
+output of <B>%name</B> into &quot;ipwinterp -a&quot;:
+</P><PRE>
+	istatrel image1 image2 | ipwinterp -a
+</PRE><P>
+To see a quick graph of two images:
+</P><PRE>
+	mux image1 image2 | zoom -l -10 -s -10 | primg -a |
+		gnugraph -m 1 -S 1 .0005 | xplot
+</PRE><P>
+where the arguments to zoom can be changed depending on how many
+points are in your image (no zoom command at all will make primg
+and graph take extraordinarily long times for even medium size
+images).  The istatgraph command plots a graph using gnuplot, which
+can be interactively rescaled, and can also print the graph.
+</P>
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT>image 1 has more than one band; single band images only
+<DD>
+</DD>
+<DT>image 2 has more than one band; single band images only
+<DD>The images must be single band only.
+</DD>
+
+<P>
+<DT>istatrel currently supports only 2 images
+</DT>
+<DD><B>%name</B> only supports non-multivariate regression currently.
+This means you can get a relationship between any two images,
+but you cannot use more than one (to do things like estimate
+channel 5 data given both channel 1 and channel 2 data).
+</DD>
+
+</DL>
+<P>
+<PRE>
+data:   lr2  : <I>g_lr2</I>    cofv : <I>g_cofv</I>   sdev : <I>g_sdev</I>
+est :   r2   : <I>p_r2</I>     cofc : <I>p_cofc</I>   syx  : <I>p_syx</I>
+est%:   err% : <I>errp</I>     %cofv: <I>cofvp</I>
+order <I>ord</I>: <I>p[0]</I> + <I>p[1]</I> x^1 + <I>...</I> + <I>p[ord-1]</I> x^<I>ord</I> (<I>errp</I>)
+</PRE>
+<DL><DT><TT>data:   ...</TT>
+<DD>
+This is a running table of the current polynomial and its
+statistics about fit.  Programs such as istatgraph can read
+this information to plot the various fits, or it can be
+read by someone interested in the statistics of the fit.
+The polynomial is of order <I>ord</I> and should be directly
+readable.  The <I>errp</I> given in parenthesis after the
+polynomial is an indication of the error percentage between
+the original data and the estimated data.  See below for more.
+<I>g</I> is a prefix meaning global, or the original data (X).
+<I>p</I> is a prefix meaning polynomial, or the dependent data (Y)
+as interpolated by this fit.
+<P>
+The statistics calculated by <B>%name</B> are listed here.  Those
+that are printed out are marked by a leading &quot;o&quot;.
+<PRE>
+      g_sigmax    Sum of the X values.
+      g_sigmax2   Sum of the squares of the X values.
+      g_sigmay    Sum of the Y values.
+      g_sigmay2   Sum of the squares of the Y values.
+      g_sigmaxy   Sum of (X values multiplied by the Y values).
+      g_mean      g_sigmax / n.
+      g_r         (n.sigmaxy - sigmax.sigmay) / 
+                    sqrt( (n.sigmax2 - sigmax.sigmax) *
+                    (n.sigmay2 - sigmay.sigmay)  )
+      g_ssto      Sum of (y - g_mean)^2.
+    o g_lr2       g_r * g_r.  This is the coefficient of
+                    determination.
+      g_s2        (g_sigmay2 / n) - (g_sigmay / n)^2
+    o g_sdev      sqrt(g_s2).  This is the standard deviation.
+    o g_cofv      g_sdev / (g_sigmay / n).  This is the
+                    coefficient of variation.
+
+      p_res       observed value - predicted value.  Residual.
+      p_sse       sum of the squares of the residuals.  This is
+                    the error sum of squares.
+      p_sigmay    Sum of the predicted values.
+      p_sigmay2   Sum of the squares of the predicted values.
+      p_chi2      Sum of (p_res.p_res) / abs(predicted value).
+      p_o2        (p_sigmay2 / n) - (p_sigmay / n)^2
+      p_odev      sqrt(o2).  This is the standard deviation of
+                    the predicted values.
+      p_cofv      p_odev / (p_sigmay / n).  This is the
+                    coefficient of variation.
+    o p_cofc      sqrt( chi2 / (chi2 + n) ).  This is the
+                    coefficient of contingency.
+      p_ssr       Sum of the squares of the predicted values
+                    minus the mean of the observed values.
+                    Calculated by g_ssto - p_sse.  This is the
+                    regression sum of squares.
+      p_msr       p_ssr / (degree - 1).  This is the regression
+                    mean square.
+      p_mse       p_sse / (npoints - degree).  This is the
+                    error mean square.
+      p_fstar     p_msr / p_mse.  This can be used to evaluate
+                    the overall goodness of fit by using an F-test.
+    o p_r2        1.0 - ( (n-1) p_sse ) / ( (n-d) p_ssto ).  This
+                    is the coefficient of multiple determination.
+    o p_syx       sqrt( p_sse / n ).  This is the standard
+                    error of estimate of Y on X.
+    o errp        p_syx / g_sdev.  This is an error ratio that
+                    gives a good idea of how much error is present.
+    o cofvp       p_cofv / g_cofv.  A ratio that gives some idea
+                    how close the coefficients of variation of
+                    the original data and the estimated data are.
+</PRE>
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Currently only allows two images (non-multivariate regression).
+<P>
+Calculates quite a large number of statistics internally, but only
+makes use of a few.
+<P>
+Without the <B>-s</b> option, memory use can grow extraordinarily large.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Mar 1992</DT>
+<DD>
+Written by Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD><B><A href="ipwinterp.html">ipwinterp</A></B>,
+<B><A href="istatgraph.html">istatgraph</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Neter 1989">Neter 1989</A>,
+<A HREF="../bib.html#Spiegel 1961">Spiegel 1961</A>,
+<A HREF="../bib.html#Jobson 1991">Jobson 1991</A>
+</P>
+

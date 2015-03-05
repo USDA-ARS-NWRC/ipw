@@ -1,0 +1,43 @@
+.TH "uremove" "3" "10 April 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBuremove\fP - remove file
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+int
+uremove(
+	const char   *filename)	   |* name of file to remove	*|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+remove cause the file whose name is the string pointed to by filename
+to be removed.  Subsequent attempts to open the file will fail,
+unless it is created anew.
+.PP
+\fBuremove\fP is typically used by application programs to delete scratch
+files.
+.PP
+If the file is open, then the behavior of remove is
+implementation-defined.
+.SH RETURN VALUE
+.PP
+OK	success
+.PP
+ERROR	for failure
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

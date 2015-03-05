@@ -1,0 +1,116 @@
+.TH "ipw-dt" "5" "5 May 1998" "IPW v2" "IPW Header Files"
+.SH NAME
+.PP
+\fBipw-dt\fP - dates and times
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+.ft R
+.fi
+.SH DESCRIPTION
+A date-time combination in IPW is represented by a single
+typedef:
+.sp
+.nf
+.ft CR
+    typedef \fBdatetime_t\fP has these members:
+
+        int  year;    /* year (note: 90 = 90 AD, not 1990)  */
+        int  month;   /* month [1 - 12]                     */
+        int  day;     /* day of month [1 - 31]              */
+        int  hour;    /* time of day: hour [0 - 23]         */
+        int  min;     /*  "   "   " : minutes [0 - 59]      */
+        int  sec;     /*  "   "   " : seconds [0 - 59]      */
+.ft R
+.fi
+.PP
+\fBConstants\fP
+.PP
+.TP
+\f(CRSECS_IN_MIN\fP
+# of seconds in a minute (integer).
+.sp
+.TP
+\f(CRSECS_IN_HR\fP
+# of seconds in an hour (integer).
+.sp
+.TP
+\f(CRSECS_IN_HR\fP
+# of seconds in an hour.
+.sp
+.TP
+\f(CRSECS_IN_DAY\fP
+# of seconds in a day.
+.sp
+.TP
+\f(CRMINS_IN_HR\fP
+# of minutes in an hour.
+.sp
+.TP
+\f(CRHRS_IN_DAY\fP
+# of hours in a day.
+.PP
+\fBMacros\fP
+.PP
+.TP
+\f(CRHR_TO_MIN(h)\fP
+Convert # of hours (h) into # of minutes.
+.PP
+.TP
+\f(CRHR_TO_SEC(h)\fP
+Convert # of hours (h) into # of seconds.
+.PP
+.TP
+\f(CRMIN_TO_SEC(m)\fP
+Convert # of minutes (m) into # of seconds.
+.PP
+.TP
+\f(CRMIN_TO_HR(m)\fP
+Convert # of minutes (m) into # of hours.
+.PP
+.TP
+\f(CRSEC_TO_MIN(s)\fP
+Convert # of seconds (s) into # of minutes.
+.PP
+.TP
+\f(CRSEC_TO_HR(s)\fP
+Convert # of seconds (s) into # of hours.
+.PP
+.TP
+\f(CRSEC_TO_DAY(s)\fP
+Convert # of seconds (s) into # of days.
+.PP
+.TP
+\f(CRDAY_TO_SEC(d)\fP
+Convert # of days (d) into # of seconds.
+.PP
+.TP
+\f(CRHMS_TO_SEC(h,m,s)\fP
+Convert a time in hours (h), minutes (m), and seconds (s) into
+a total # of seconds.
+.PP
+.TP
+\f(CRDAYS_IN_YR(y)\fP
+Returns the # of days in a given calendar year (y).  Handles
+leap years, so it returns either 365 or 366.
+.SH SEE ALSO
+.TP
+IPW:
+add_to_dt(),
+dt2str(),
+dt_diff(),
+dt_in_order(),
+gmt2local(),
+leapyear(),
+local2gmt(),
+make_dt(),
+numdays(),
+sec2hms(),
+waterday(),
+wday2mday(),
+weekday(),
+yday2mday(),
+yearday(),
+zone2str()

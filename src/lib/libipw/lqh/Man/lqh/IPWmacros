@@ -1,0 +1,3 @@
+%define(name,"lqh")
+%define(description,"get LQ header associated with file descriptor")
+%define(category,"lqh")

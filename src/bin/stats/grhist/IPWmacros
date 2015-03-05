@@ -1,0 +1,3 @@
+%define(name,"grhist")
+%define(description,"graph an IPW histogram")
+%define(category,"Image Statistics")

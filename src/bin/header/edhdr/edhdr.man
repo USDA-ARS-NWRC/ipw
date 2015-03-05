@@ -1,0 +1,132 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <I>image ...</I>
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> allows interactive editing of IPW image headers.  The header is
+copied into a scratch file and the editor specified in the EDITOR
+environment variable (default: vi) is invoked.  After the editor
+exits, the image is reconstructed with the new header.
+</P>
+
+<H2>OPTIONS</H2>
+
+<P>None.
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+
+<DT><I>image ...</I></DT>
+<DD>list of images whose headers are to be edited.
+</DD>
+
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To use <B>%name</B> (instead of scale) to stretch a 12-bit dem image so that the
+shaded relief image will show inhanced topographic structure:
+</P>
+<PRE>
+        edhdr dem
+
+           <I>Change this line in the header:</I>
+
+                   map = 4095 4095
+
+           <I>to this:</I>
+
+                   map = 4095 40950
+
+        gradient dem | shade -z 45 -a -135
+</PRE>
+
+<H2>FILES</H2>
+
+<PRE>
+     <I>image</I>.BAK          temporary copy of <I>image</I>
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT>standard input and output must be a terminal</DT>
+<DD>
+The default editor (vi) must be connected to a terminal.
+</DD>
+
+<P>
+
+<DT>image not writable</DT>
+<DD>
+The input image is also the output image, so it must be writable.
+</DD>
+
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+There is NO sanity checking of the edited header.  Don't use this
+program unless you know what you are doing.
+<P>
+The directory in which <B>%name</B> is invoked must have enough free
+space for a copy of each input image.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="edimg.html">edimg</A></B>,
+<B><A href="gradient.html">gradient</A></B>,
+<B><A href="lqhx.html">lqhx</A></B>,
+<B><A href="prhdr.html">prhdr</A></B>,
+<B><A href="requant.html">requant</A></B>,
+<B><A href="rmhdr.html">rmhdr</A></B>,
+<B><A href="scale.html">scale</A></B>,
+<B><A href="shade.html">shade</A></B>
+</DD>
+
+<P>
+
+<DT>UNIX:</DT>
+<DD>vi (or documentation for the editor specified by $EDITOR)
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A><BR>
+</P>
+

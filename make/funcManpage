@@ -1,0 +1,59 @@
+#  This Makefile defines macros and rules for the manpages for IPW
+#  library functions.
+#
+#  This Makefile expects these macros to be defined:
+#
+#	NAME        = name of the IPW library function (the file containing
+#		      the source for the manpage is assumed to be NAME.man)
+#	DESCRIPTION = one-line description for the library function
+
+MAN_SECTION := 3
+PATH_TO_MAN := ..
+
+HELP_FILE := funcManpage
+
+#  Fetch the category's name from grandparent directory
+
+ifndef CATEGORY
+  CATEGORY := $(shell $(MAKE) --no-print-directory -C ../.. -s category-name)
+endif
+
+#  Fetch the library's name from the great-grandparent directory and
+#  create an IPW macro from it
+
+ifndef LIB_NAME
+  LIB_NAME := $(shell $(MAKE) --no-print-directory -C ../../.. -s library-name)
+endif
+
+IPWMACRO_OPTS := -Dlibrary=lib$(LIB_NAME)
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.PHONY : all
+all : man name-desc
+
+include $(IPW)/make/_macros
+include $(IPW)/make/_manpage
+include $(IPW)/make/_namedesc
+include $(IPW)/make/_rules
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#  Target to print a list of funcs as HTML links (for filling in the
+#  SEE ALSO section)
+
+.PHONY : list-of-links
+list-of-links :
+	@$(MAKE) --no-print-directory -C ../.. -s SKIP_FUNC=$(NAME) $@
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.PHONY : install clean uninstall uninstall+clean
+
+install : all install-man
+
+clean : clean-man clean-name-desc clean-ipwmacro
+
+uninstall : uninstall-man
+
+uninstall+clean : uninstall clean

@@ -1,0 +1,166 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-a</B> <I>angle</I> ] [ <B>-h</B> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> copies <I>image</I> (default: standard input) to the standard
+output, skewing the origin of successive lines by a specified
+angle.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-a</B> <I>angle</I>
+<DD>
+Introduce horizontal <B>%name</B> such the the left edge of the output
+image is tilted &quot;angle&quot; degrees clockwise from vertical.  The
+resulting &quot;dead space&quot; in the output image is 0-filled.  A
+<B>%name</B> header is written to the output image.
+</DD>
+</DL>
+
+<P>If <B>-a</b> is not specified, then the <B>%name</B> indicated by the input <B>%name</B>
+
+<P>header is removed.
+</P>
+
+<DL>
+<DT><B>-h</B> 
+<DD>
+ignore input <B>%name</B> header.  This allows an image to be skewed
+more than once, e.g. during rotation by shearing.
+</DD>
+
+<P>
+<DT><B>-h</B> 
+<DD>
+may not be specified unless <B>-a</b> is also specified.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+The command:
+</P><PRE>
+	skew -a 30
+</PRE><P>
+causes the following transformation:
+</P><PRE>
+	+-----------+		+---------------+
+	|           |		|000/          /|
+	|   input   |		|00/  output  /0|
+	|   image   |		|0/   image  /00|
+	|           |		|/          /000|
+	+-----------+		+---------------+
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     $TMPDIR/skew<I>NNNNN</I>
+     	Temporary copy of all input headers.
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>image is already skewed
+</DT>
+<DD><BR>	<B>-a</b> was specified, and the input image contains a &quot;<B>%name</B>&quot;
+	header.
+</DD>
+
+<P>
+<DT>image is not skewed
+</DT>
+<DD><BR>	<B>-a</b> was not specified, and the input image does not contain
+	a &quot;<B>%name</B>&quot; header.
+</DD>
+
+<P>
+<DT>band <I>band</I> has no skew header
+different skew angles: bands 0, <I>band</I>
+</DT>
+<DD><BR>	If <B>-a</b> is not specified, then all input bands must have a
+	&quot;<B>%name</B>&quot; header, and they must be the same.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The <B>%name</B> angle given by <B>-a</b> must be between -45 and 45 degrees.
+</P><P>
+If <B>-a</b> is specified then the input image must NOT have a <B>%name</B> header,
+unless <B>-h</b> is also specified, and a &quot;<B>%name</B>&quot; header is written to the
+output image.
+</P><P>
+If <B>-a</b> is NOT specified then the input image must contain a &quot;<B>%name</B>&quot;
+header with the same <B>%name</B> angle for all bands.  The <B>%name</B> indicated
+by this header is removed from the output image, and no &quot;<B>%name</B>&quot;
+header is written to the output image.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+	Converted to ANSI C, ran through Purify.
+Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="flip.html">flip</A></B>,
+<B><A href="gviewf.html">gviewf</A></B>,
+<B><A href="horizon.html">horizon</A></B>,
+<B><A href="rotate.html">rotate</A></B>,
+<B><A href="transpose.html">transpose</A></B>,
+<B><A href="viewf.html">viewf</A></B>
+</DD>
+</DL>
+<P>Frew, J., 1990.  The Image Processing Workbench.  Ph.D. Thesis,
+	Department of Geography, University of California, Santa
+	Barbara, CA, 382pp.
+</P>
+

@@ -1,0 +1,138 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-m</B> <I>mask</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties over an area.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs to simulate the process at a point
+by D. Marks, during the 1980's at UCSB.  <B>%name</B> is the spatial version
+of <B>satvp</B>.
+</P>
+
+<P>
+<B>%name</B> reads a single band <I>image</I> (default: standard input)
+containing dew point temperature (in degrees C) and writes the
+corresponding saturation vapor pressure image (in Pascals) to the
+standard output.
+</P><P>
+(see <I>General Meterology, Byers, 1974</I>)
+</P>
+
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+Use <I>mask</I> as a mask image.  Any points in <I>mask</I> that
+are 0 will have the corresponding output pixels set to 0.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image	input dew point temperature image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+Given dew point temperature, get vapor pressure:
+</P><PRE>
+	isatvp dewpt.img
+</PRE>
+
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>image has <I>bands</I> bands; single band images only
+</DT>
+<DD><BR>	Only single band images are accepted.
+</DD>
+
+<P>
+<DT>unrealistic dew point temperature: <I>temp</I>
+</DT>
+<DD><BR>	A dew point temperature was given that was below 0 degrees
+	Celcius.  It is possible that a program like despike could
+	correct these values.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jun 1983</DT>
+<DD>
+	Written by Danny Marks, CSL, UCSB.
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1984</DT>
+<DD>
+	Modified to QDIPS format.  Danny Marks, CSL, UCSB.
+</DD>
+</DL>
+
+<DL>
+<DT>Oct 1992</DT>
+<DD>
+	Converted to IPW.  Danny Marks, USGS, EPA ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<B><A href="idewpt.html">idewpt</A></B>,
+<B><A href="dewpt.html">dewpt</A></B>,
+<B><A href="irh2vp.html">irh2vp</A></B>,
+<B><A href="rh2vp.html">rh2vp</A></B>,
+<B><A href="satvp.html">satvp</A></B>,
+<B><A href="sling.html">sling</A></B>,
+<B><A href="vptr.html">vptr</A></B>
+</DD>
+</DL>
+ 
+<P>
+<A HREF="../bib.html#Byers 1974">Byers 1974</A>,
+</P>
+

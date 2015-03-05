@@ -1,0 +1,22 @@
+Possible targets for "make" command:
+
+all		Make all the commands for the shell-library, their man pages
+		  and the lists of commands (default).
+library		Make all the commands.
+scripts		Same as "library" target.
+install-scripts	Make and install all the commands.
+install-lib	Same as "install-scripts" target.
+install		Install all the commands, and their man pages.
+
+man		Make the HTML and Unix man pages for all the commands.
+install-man	Install the HTML and Unix man pages.
+uninstall-man	Uninstall the HTML and Unix man pages.
+clean-man	Remove the HTML and Unix man pages from the directories
+		  where man pages are made.
+
+clean		Remove all local copies of commands and their man pages.
+uninstall	Uninstall the commands, along with their HTML and Unix
+		  man pages.
+uninstall-lib	Uninstall the commands.
+real-clean	Remove all derived files.
+help		Displays this message.

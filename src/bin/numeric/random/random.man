@@ -1,0 +1,155 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-n</B> <I>nlines</I> <B>-r</B> <I>min</I>,<I>max</I>[,<I>...</I>] [ <B>-p</B> <I>precision</I> ]
+      [ <B>-s</B> <I>seed</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Random prints columns of <B>%name</B> values in the range specified as
+ASCII text to the standard output.  One column is printed for each
+min,max pair specified.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-n</B> <I>nlines</I>
+<DD>
+Print <I>nlines</I> lines of output.
+</DD>
+
+<P>
+<DT><B>-r</B> <I>min</I>,<I>max</I>[,<I>...</I>]
+<DD>
+Output values will range between <I>min</I> and <I>max</I> inclusive.
+Each <I>min</I>,<I>max</I> pair will control an output column.
+</DD>
+</DL>
+
+<P>Both <B>-n</b> and <B>-r</b> must be specified.
+</P>
+
+<DL>
+<DT><B>-p</B> <I>precision</I>
+<DD>
+Print output values using <I>precision</I> digits of precision
+(default: 0, meaning round to nearest integer).
+</DD>
+
+<P>
+<DT><B>-s</B> <I>seed</I>
+<DD>
+Initialize the <B>%name</B> number generator with <I>seed</I>
+(default: obtain seed from system clock).  This option can
+be used to obtain the same output from multiple invocations
+of <B>%name</B>.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>	None
+</P><P>
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+The command:
+</P><PRE>
+	random -n 5 -r 0,10,0,10
+</PRE><P>
+yields something like:
+</P><PRE>
+	7 1
+	5 8
+	7 2
+	1 8
+	0 2
+</PRE><P>
+To obtain the values of 100 randomly selected pixels from a
+512 line by 512 sample &quot;image&quot;:
+</P><PRE>
+	random -n 100 -r 0,511,0,511 | sort -n | primg -i image
+</PRE><P>
+Note that the <B>%name</B> coordinates must be sorted before being
+passed to primg.
+</P>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT># of values must be &gt; 0
+</DT>
+<DD><BR>	<I>nlines</I> must be a positive, non-zero integer.
+</DD>
+
+<P>
+<DT>range(s) must be specified by min,max pairs
+</DT>
+<DD><BR>	<B>-r</b> must have an even number of arguments
+</DD>
+
+<P>
+<DT>output precision must be &gt;= 0
+</DT>
+<DD><BR>	<I>precision</I> must be a positive integer.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+<B>%name</B> uses the <B>%name</B>(3) functions from 4.3 BSD UNIX.  The source
+for these functions is normally included with IPW.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="primg.html">primg</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>UNIX</DT>
+<DD>	random, sort
+</DD>
+</DL>
+<P>Frew, J., 1990.  The Image Processing Workbench.  Ph.D. Thesis,
+	Department of Geography, University of California, Santa
+	Barbara, CA, 382pp.
+</P>
+

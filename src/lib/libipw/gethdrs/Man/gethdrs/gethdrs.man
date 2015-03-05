@@ -1,0 +1,112 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "gethdrs.h"
+
+void
+gethdrs(
+	int             fdi,	  |* input image file descriptor  *|
+	GETHDR_T      **request,  |* -> header requests		  *|
+	int             nbands,	  |* # bands in output image	  *|
+	int             fdo)	  |* output image file descriptor *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> provides a high-level interface to the IPW &quot;hdrio&quot; routines.
+Image headers are read from file descriptor fdi and, subject to the
+interpretation of request, written to file descriptor fdo.
+</P><P>
+request points to an array of pointers to GETHDR_T structures.  The
+last element in the array must be a NULL pointer.
+</P><P>
+Each GETHDR_T structure specifies the disposition of a particular
+type of IPW header.  The first two fields of the structure should be
+initialized to the name of the IPW header to be processed, and a
+pointer to the header's ingest routine.  If the ingest routine pointer
+is NULL, then the header will be skipped; otherwise, the header will
+be ingested and its address will be available via the hdr_addr macro
+when <B>%name</B> returns.
+</P><P>
+Headers that are not mentioned in the structures pointed to via
+request, and that pertain to band numbers less than nbands, are
+copied to file descriptor fdo.  You must therefore read the BIH from
+fdi, and write a BIH to fdo, before calling <B>%name</B>.
+</P><P>
+nbands == NO_COPY prevents any header output by <B>%name</B>.
+</P><P>
+The following example will hopefully make this a little clearer:
+</P><PRE>
+	static GETHDR_T h_lqh = {LQH_HNAME, (ingest_t)lqhread};
+	static GETHDR_T h_orh = {ORH_HNAME};
+	static GETHDR_T *request[] = {&amp;h_lqh, &amp;h_orh, NULL};
+	...
+	i_bihpp = bihread(i_fd);
+	...
+	bihwrite(o_fd, o_bihpp);
+	gethdrs(i_fd, request, bih_nbands(o_bihpp), o_fd);
+	i_lqhpp = (LQH_T **) hdr_addr(h_lqh);
+	...
+	lqhwrite(o_fd, o_lqhpp);
+	boimage(o_fd);
+</PRE><P>
+In this code fragment, we have arranged to ingest a LQ header, skip
+an ORH header, and copy any other headers encountered to fdo.  Note
+that we must explicity write a LQ header if we want one to be placed
+in the output image -- ingested headers are NOT copied.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>can't copy <I>header-name</I> header
+can't skip <I>header-name</I> header
+can't ingest <I>header-name</I> header
+header read error
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

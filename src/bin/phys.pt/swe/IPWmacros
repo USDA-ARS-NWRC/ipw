@@ -1,0 +1,3 @@
+%define(name,"swe")
+%define(description,"snow water equivalent (SWE)")
+%define(category,"Environmental Physics and Properties: Point")

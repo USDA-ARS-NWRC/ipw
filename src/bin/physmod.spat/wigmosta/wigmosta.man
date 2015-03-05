@@ -1,0 +1,175 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-m</B> <I>mask</I> ] [ <B>-v</B> ] [ <B>-s</B> <I>soil</I> ] [ <B>-w</B> <I>water</I> ]
+      [ <B>-t</B> <I>dt</I> ] [ <B>-n</B> <I>steps</I> ] [ <B>-d</B> <I>drain</I> ] [ <B>-D</B> <I>samp</I>,<I>row</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> runs Mark Wigmosta's hydrology model, including percolation
+at saturated subsurface flow.  It takes a DEM image from the standard
+input, and writes a 4-band ipw file indicating the water levels to
+the standard output.  The output file is structured as:
+</P><PRE>
+	Band 0:	surface water (m)
+	Band 1: water in root zone 1 (m)
+	Band 2: water in root zone 2 (m)
+	Band 3: depth to saturated zone (m) 
+</PRE><P>
+Soil definition parameters can be provided by supplying a file name
+to the <B>-s</b> option.  If no <B>-s</b> option is selected, &quot;reasonable&quot; defaults
+are selected.
+</P><P>
+Initial water levels may be specified using the <B>-w</b> option.  If no <B>-w</b>
+option is present, &quot;reasonable&quot; defaults are selected.
+</P><P>
+A mask can be applied to the DEM using the <B>-m</b> option.  A zero mask
+</P>
+<PRE>
+     file entry for a grid cell indicates that the CELL will not participate
+     in the model's calculation.  No flow to, from or through these cells 
+</PRE>
+<P>
+occurs.  This option is typically used to delineate a particular
+basin for processing.
+</P><P>
+Values for the length of the timestep (dt, in hours) and the number
+</P>
+<PRE>
+     of timesteps to run may be specified in the command line.  If they 
+     are specified, they override the default values.
+</PRE><P>
+Grid cells that drain water out of the system can be specified in 
+two ways:  A single drain cell can be specified with the <B>-D</b> option,
+which takes a (sample,row) coordinate pair as input.  Multiple drain
+cells can be specified with a bitmask ipw file using the <B>-d</b> option.
+The <B>-D</b> and <B>-d</b> options cannot be used simulatenously.  The default 
+condition is that no drain cells are used.  
+</P><P>
+An output grid of scalars indicating the cumulative outflow from each 
+cell across the entire simulation can be created using the -f option.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-d</B> <I>drain</I>
+<DD>
+Use <I>mask</I> to determine grid cells that will be outflow drains.
+
+<P>
+<DT><B>-D</B> <I>samp</I>,<I>row</I>
+<DD>
+Use <I>samp</I>,<I>row</I> as the coordinates of a single drain cell.
+</DD>
+</DL>
+
+<P>At most one of <B>-d</b> or <B>-D</b> may be specified.
+</P>
+
+<DL>
+<DT><B>-f</B> 
+<DD>
+Write cumulative outflow as a grid to the file <I>flow</I>.
+
+<P>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+Use <I>mask</I> as a mask for cells to be ignored.
+
+<P>
+<DT><B>-n</B> <I>steps</I>
+<DD>
+Run for <I>steps</I> time steps.
+
+<P>
+<DT><B>-s</B> <I>soil</I>
+<DD>
+Use soil type parameters from the file <I>soil</I> (default: use
+&quot;reasonable&quot; values).
+
+<P>
+<DT><B>-w</B> <I>water</I>
+<DD>
+Use initial water levels from the file <I>water</I> (default: use
+&quot;reasonable&quot; values).
+
+<P>
+<DT><B>-t</B> <I>dt</I>
+<DD>
+Set the time step size to <I>dt</I> hours.
+
+<P>
+<DT><B>-v</B> 
+<DD>
+Run in verbose mode.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+No evapotranspiration.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jun 1995</DT>
+<DD>
+	Started by Kevin L. Novins, ERL-C.  Uses several modules 
+written by Mark Wigmosta, Battelle PNL.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+Not tested, or finished...
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="bmask.html">bmask</A></B>,
+<B><A href="pmask.html">pmask</A></B>,
+<B><A href="wbal.html">wbal</A></B>
+</DD>
+</DL>
+<P>M. Wigmostra, L. Vail, D. Lettenmaier, 1994.  &quot;A Distributed
+	Hydrology-Vegetation Model for Complex Terrain&quot;, Water Resources
+	Research, v.30 n.6, pp 1665-1679.
+</P>
+

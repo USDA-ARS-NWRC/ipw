@@ -1,0 +1,152 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-i</B> <I>in_nbits</I> ] [ <B>-o</B> <I>out_nbits</I> ] [ <B>-k</B> <I>bkgd</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> creates an IPW lookup table and writes it to the standard
+output.  The lookup table is filled in with text values read from
+the standard input in the form:
+</P><PRE>
+	in	out
+</PRE><P>
+<B>%name</B> sets the <I>in</I>th element (relative to 0) of the lookup table
+to <I>out</I>.  The input lines must be sorted so that the <I>in</I> values
+are in numerically ascending order.
+</P><P>
+Unreferenced LUT locations are set to a default value.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-i</B> <I>in_nbits</I>
+<DD>
+number of bits per input image pixel (default: 8).  The
+output lookup table will contain 2^<I>in_nbits</I> entries.
+</DD>
+
+<P>
+<DT><B>-o</B> <I>out_nbits</I>
+<DD>
+number of bits per output image pixel (default: 8).  The
+output lookup table will contain <I>out_nbits</I>-bit pixels.
+</DD>
+
+<P>
+<DT><B>-k</B> <I>bkgd</I>
+<DD>
+default output value (default: 0).
+</DD>
+</DL>
+
+<P><B>-i</b>, <B>-o</b>, and <B>-k</b> must all have positive non-zero integer arguments.
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>
+None
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To convert &quot;image&quot; with 12-bit pixels to 8-bit pixels with linear
+scaling:
+</P><PRE>
+	interp | mklut -i 12 | lutx -i image
+	0 0
+	4095 255
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>can't write lookup table to a terminal
+</DT>
+<DD><BR>	<B>%name</B> will not write a lookup table to a terminal device.
+</DD>
+
+<P>
+<DT><I>arg</I>: not a positive integer
+</DT>
+<DD><BR>	All arguments must be positive non-zero integers.
+</DD>
+
+<P>
+<DT><I>in_nbits</I>: too many bits per input pixel
+</DT>
+<DD><BR>	A 2^<I>in_nbits</I>-entry lookup table won't fit in memory.
+</DD>
+
+<P>
+<DT>mkbih: WARNING: input image larger than header indicates
+</DT>
+<DD><BR>	<B>%name</B> was given an image with more values than would fit
+	in the input number of bits.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Only single-band LUTs may be created.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1997</DT>
+<DD>
+	Converted to IPW Version 2.0 by D. Marks, USGS, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="interp.html">interp</A></B>,
+<B><A href="lutx.html">lutx</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>UNIX</DT>
+<DD>	sort
+</DD>
+</DL>
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A><BR>
+</P>
+

@@ -1,0 +1,108 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads an IPW image (default: standard input) and writes it
+it to the standard output in &quot;xim&quot; format.  An image in xim format
+may be displayed in a X window by the xim or xxim commands. 
+</P><P>
+Since xv and xloadimage support many more operations and formats
+than the xim program, including modified versions of each that
+support IPW images directly, <B>%name</B> is archaic.  ipw2ppm will
+convert images into the industry standard PPM format, including
+support for color images.
+</P>
+<H2>OPTIONS</H2>
+
+
+<P>None
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To display the IPW image &quot;zot&quot; in an X window:
+</P><PRE>
+	ipw2xim zot | xim
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>image must have 1 band
+</DT>
+<DD><BR>	<B>%name</B> supports only single band images.
+</DD>
+
+<P>
+<DT>band 0 has more than 256 levels per pixel
+</DT>
+<DD><BR>	The xim format does not support more than 8 bits per color
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Color images are not currently supported.
+</P><P>
+xim and xxim automatically requantize their input (by dithering) to
+the resolution of the X display device.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="xim.html">xim</A></B>,
+<B><A href="ipw2ppm.html">ipw2ppm</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Image</DT>
+<DD>	ximtoppm
+</DD>
+</DL>
+

@@ -1,0 +1,3 @@
+%define(name,"ssxfr")
+%define(description,"steady state heat transfer between 2 layers")
+%define(category,"envphys")

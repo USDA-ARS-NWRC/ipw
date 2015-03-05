@@ -1,0 +1,174 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-n</B> <I>size</I> ] [ <B>-o</B> <I>min</I>,<I>max</I> ] [ <B>-i</B> <I>min</I>,<I>max</I> ]
+      [ <B>-f</B> <I>floor</I> ] [ <B>-c</B> <I>ceil</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads an IPW histogram from the standard input and writes
+an IPW lookup table to the standard output.
+<P>
+The lookup table may be applied to the original image (with the
+IPW command <B>lutx</B>) to produce a &quot;histogram equalized&quot; image
+(i.e. an image with a nearly-flat histogram).
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-n</B> <I>size</I>
+<DD>
+number of elements in the histogram (default: 256)
+</DD>
+
+<P>
+<DT><B>-i</B> <I>min</I>,<I>max</I>
+<DD>
+minimum and maximum values to use from the input histogram
+(default: 0, <I>size</I>-1)
+</DD>
+
+<P>
+<DT><B>-o</B> <I>min</I>,<I>max</I>
+<DD>
+minimum and maximum values to appear in the output look-up
+table (default: 0, <I>size</I>-1)
+</DD>
+
+<P>
+<DT><B>-f</B> <I>floor</I>
+<DD>
+Have the output lookup table map input values less than the
+specified minimum to <I>floor</I> (default: output minimum)
+</DD>
+
+<P>
+<DT><B>-c</B> <I>ceil</I>
+<DD>
+Have the output lookup table map input values greater than the
+specified maximum to <I>ceil</I> (default: output maximum)
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To produce a histogram-equalized version of &quot;image&quot;:
+</P><PRE>
+	hist image | histeq | lutx -i image
+</PRE><P>
+If &quot;image&quot; has 12-bit pixels, and the output image should have 8-bit
+pixels, then replace the <B>%name</B> command above with:
+</P><PRE>
+	histeq -n 4096 -o 0,255
+</PRE><P>
+To avoid having extreme values overwhelm the output mapping, they
+could be excluded by specifying an input range:
+</P><PRE>
+	histeq -n 4096 -o 0,255 -i 1,4094
+</PRE>
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>can't read histogram from a terminal
+<DD>
+</DD>
+
+<DT>can't write lut to a terminal
+<DD><B>%name</B> will not read from or write to a terminal.
+</DD>
+
+<P>
+
+<DT>bad option causes 0-bit output values
+<DD>
+</DD>
+<DT>bad option causes <I>nbytes</I>-byte output values
+<DD>One or more of the options would have resulted in a lookup
+table with pixels outside the permissable size range of
+1 .. 32 bits.
+</DD>
+
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The <B>-n</b> option exists only because <B>%name</B> is implemented as a
+shell script and does not read the histogram's header.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Mar 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+
+<P>
+<DT>Nov 1990</DT>
+<DD>
+Changed input syntax, James Frew, UCSB.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="classeq.html">classeq</A></B>,
+<B><A href="cnhist.html">cnhist</A></B>,
+<B><A href="cnhist.all.html">cnhist.all</A></B>,
+<B><A href="grhist.html">grhist</A></B>,
+<B><A href="hist.html">hist</A></B>,
+<B><A href="lutx.html">lutx</A></B>
+</DD>
+
+<P>
+
+<DT>UNIX:</DT>
+<DD>awk
+</DD>
+
+<P>
+<DT>Image:</DT>
+<DD>ppmhist, xv
+</DD>
+
+</DL>
+
+<P>
+<A HREF="../bib.html#Pratt 1991">Pratt 1991</A> (pp 275-284),
+<A HREF="../bib.html#Frew 1990">Frew 1990</A><BR>
+</P>
+

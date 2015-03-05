@@ -1,0 +1,165 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>IPW Libraries</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../images/usda.gif" alt="USDA">
+<IMG SRC="../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>IPW Libraries</H1>
+
+
+<P>
+<UL>
+    <LI><A HREF="libipw.html"><TT>libipw</TT></A>
+		- standard IPW library
+    <LI><A HREF="libmodel.html"><TT>libmodel</TT></A>
+		- environmental-physics modeling
+    <LI><A HREF="libsnobal.html"><TT>libsnobal</TT></A>
+		- energy-balance snowmelt model
+    <LI><A HREF="libgctp.html"><TT>libgctp</TT></A>
+		- USGS's General Cartographic Transformation Package
+    <LI><A HREF="libtopo.html"><TT>libtopo</TT></A>
+		- topographic calculations
+    <LI><A HREF="libimage.html"><TT>libimage</TT></A>
+		- advanced interface to IPW images (under development)
+    <LI><A HREF="libstropts.html"><TT>libstropts</TT></A>
+		- options with long (multi-character) names
+</UL>
+
+<UL>
+    <LI>
+        <A HREF="../local/libs/index.html"> Local libraries</A>
+</UL>
+
+<P>
+<B>Library Documentation</B>
+
+<P>
+The documentation for an IPW library consists of a description file (like
+those above), the man pages for the function categories, and the man
+pages for the functions themselves.
+
+<P>
+A library's description file has two sections:
+
+<OL>
+    <LI>narrative text explaining the purpose and use of the library, and
+    <LI>a list of categories and their functions.
+</OL>
+
+<P>
+The contents of the first section are stored in a file called
+<CODE>"Description.html"</CODE> in the library's source directory.  The
+second section is generated automatically from the Makefiles within
+the library's source directory.
+
+<P>
+<B>Man pages</B>
+
+<P>
+The man pages for each category and its functions are stored in a
+subdirectory called <CODE>"Man"</CODE> located in the category's
+source directory.  The source file for the category's man page is located
+in the subdirectory <CODE>"Man/Category"</CODE>.  This man page
+typically describes the header file associated with the category.
+
+<P>
+The source file for each function's man page resides in a separate
+subdirectory named after the function.  For example, the source file
+for the function <CODE>"foo"</CODE>'s man page would be located in the
+subdirectory <CODE>"Man/foo"</CODE>.
+
+<P>
+<B>Makefiles</B>
+
+<P>
+There are three levels of Makefiles within a library's source directory:
+
+<OL>
+    <LI>top-level Makefile for the library itself,
+    <LI>Makefile for each category, and
+    <LI>individual Makefile for each man page.
+</OL>
+
+<P>
+The Makefile format for the top two levels is the same; they simply
+list the categories in the library, and the functions in each category.
+
+<PRE>
+     ---  <I>library Makefile</I>  ---
+
+     LIB := name
+     DESCRIPTION := ...
+
+     DIRS := cat1 cat2 ...
+
+     include $(IPW)/make/library
+
+
+     ---  <I>category Makefile</I>  ---
+
+     CATEGORY := name
+     DESCRIPTION := ...
+
+     FUNCS := func1 func2 ...
+
+     include $(IPW)/make/funcCategory
+</PRE>
+
+<P>
+The categories and functions appear in the library's description file
+is the order specified.  Each function has its own source file with
+the extension <CODE>".c"</CODE>.  In the example above, the source files
+would be <CODE>"func1.c"</CODE>, <CODE>"func2.c"</CODE>, etc.  Note that
+the extensions are <B>not</B> specified with the FUNCS macro.
+
+<P>
+If a category has additional private functions that are called only by the
+category's public functions and not from outside the category, then
+the source files for these private functions are specified using the
+optional <CODE>PRIVATE_SRCS</CODE> macro:
+
+<PRE>
+     FUNCS := ...
+
+     PRIVATE_SRCS := _init.c _globals.c _newItem.c
+
+     include $(IPW)/make/funcCategory
+</PRE>
+
+<P>
+The Makefiles for the man pages for the category and its functions have
+the same format, differing only in the include file that's referenced:
+
+<PRE>
+     NAME := foo
+     DESCRIPTION := blah blah blah
+
+     include $(IPW)/make/funcCatManpg
+
+       <I>or</I>
+
+     include $(IPW)/make/funcManpage
+</PRE>
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 21 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

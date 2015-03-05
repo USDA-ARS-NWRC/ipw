@@ -1,0 +1,72 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>IPW Design Goal - Simplicity</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../images/usda.gif" alt="USDA">
+<IMG SRC="../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>IPW Design Goal - Simplicity</H1>
+
+
+<P>
+Complexity is probably the single most important enemy of software quality.
+[Meyer 1988]
+Simplicity promotes comprehensibility: simple software is easier to understand.
+In turn, software that is understood is more likely to be trusted and used.
+Simplicity also promotes maintainability: simple software is easier to debug
+and modify.
+<P>
+Of course, lack of complexity should not imply lack of necessary functionality.
+Rather, the temptation to add functionality should always be balanced
+against the need to keep the entire system comprehensible.
+</P>
+
+<B>Comprehensible</B>
+<P>
+IPW may be understood at many levels. The casual user may only be concerned
+with the functioning of a few common commands; e.g., just enough to display
+an image on a particular output device. A more serious user may need to
+understand how multiple IPW commands may be combined at the command-script
+level. An application programmer will need to understand the structure of
+an IPW command at the source level, and the facilities provided by the IPW
+function libraries. Finally, the maintainer of IPW may ultimately need to
+understand the structure and function of any IPW module.
+<P>
+Complexity at any of these levels hinders understanding. Without simplicity
+as an overall design goal, it is easy to select complex designs which offer
+more features or greater efficiency. It is easy to forget that these
+purported gains may be useless if the code embodying them is misused or
+avoided because its behavior is not fully understood.
+
+<P>
+
+<B>Maintainable</B>
+<P>
+Another important consequence of simplicity is ease of maintenance. The less
+complicated a piece of software is, the easier it is to track down bugs in it.
+This applies at all levels -- command scripts are easier to maintain if the
+commands they invoke have a limited, well-defined set of options, just as
+C code is easier to maintain if the algorithms employed are the most
+straightforward possible.
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

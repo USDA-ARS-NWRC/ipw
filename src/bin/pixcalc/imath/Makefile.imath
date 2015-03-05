@@ -1,0 +1,12 @@
+PGM := imath
+DESCRIPTION := perform calculation over an image
+
+#SRCS := main.c command.c cmdbuf.c expression.c token.c vars.c
+
+#  To test the token module
+#SRCS := main_token.c token.c
+
+include $(IPW)/make/command
+
+#  To test various modules
+#CFLAGS += -DDEBUG

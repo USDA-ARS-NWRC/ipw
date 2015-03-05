@@ -1,0 +1,38 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "envphys.h"
+
+double
+dew_point(
+     double  e)      /* vapor pressure (Pa) */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> returns the dew point temperature for a given vapor pressure.
+</P>
+
+<H2>RETURN VALUE</H2>
+
+dew point temperature (K)
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Apr 1989</DT>
+<DD>
+Fixed to accept saturation over ice.  D. Marks, USEPA, Corvallis, OR
+</DD>
+</DL>
+
+

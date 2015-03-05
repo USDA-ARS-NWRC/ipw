@@ -1,0 +1,40 @@
+/*
+ * host.h for Sun-[23] + SunOS 3.0[-] (no System V enhancements)
+ */
+
+#define	CC_UCHAR	1
+#define	CC_ULONG	1
+#define	CC_USHORT	1
+
+#define	CC_NOBCOPY	0
+#define	CC_NOBZERO	0
+
+#define	CC_INDEX	1
+#define	CC_RINDEX	1
+
+#define	CC_SAMESIZE	0
+
+#define	OPT_BUF		4096
+#define	PIXEL		unsigned
+#define	FPIXEL		float
+#define	FPIXEL_DIG	FLT_DIG
+#define FPIXEL_MAX	FLT_MAX
+#define FPIXEL_MIN	-(FLT_MAX)
+#define	XSIZE		unsigned
+#define	XTIME		long
+
+#define	REG_1		register
+#define	REG_2		register
+#define	REG_3		register
+#define	REG_4		register
+#define	REG_5		register
+#define	REG_6		register
+
+#define	FREG_1		register
+#define	FREG_2		register
+#define	FREG_3		register
+#define	FREG_4		register
+#define	FREG_5		register
+#define	FREG_6		register
+
+/* $Header: /home/ipw/h/conf/RCS/sun,v 1.8 90/01/28 13:19:20 frew Exp $ */

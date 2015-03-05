@@ -1,0 +1,285 @@
+<!--  Comments in this man page appear as HTML comments, i.e., those	  -->
+<!--  lines that begin with the 4 characters "<!--".  Because they   	  -->
+<!--  are HTML comments, they will not be displayed in the HTML		  -->
+<!--  version of this man page.  And they will be filtered out of the	  -->
+<!--  troff version.  Therefore, the comments can be left in this man	  -->
+<!--  page until it is completed.  Upon completion of the man page,  	  -->
+<!--  the comments can removed by filtering this file through the	  -->
+<!--  command:								  -->
+<!--									  -->
+<!--		grep -v "^<!--"						  -->
+<!--									  -->
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  In general, an IPW header file corresponds to a single function	  -->
+<!--  category in an IPW library.  In this case, a single man page	  -->
+<!--  documents both the header file and the function category.  For	  -->
+<!--  example, the man page named "bih" describes the function category	  -->
+<!--  for IPW basic image headers and its corresponding header file	  -->
+<!--  "bih.h".								  -->
+<!--  									  -->
+<!--  However, an IPW header file may correspond to several function	  -->
+<!--  categories, e.g., the standard IPW header file "ipw.h".  In	  -->
+<!--  this case, the header file has several man pages associated 	  -->
+<!--  with it, one for each function category.  The naming convention	  -->
+<!--  for these man pages is to use a combination of the header		  -->
+<!--  file's name and the function category's name.  For example, the	  -->
+<!--  man page named "ipw-dt" is one of the man pages for the header	  -->
+<!--  file "ipw.h" which describes the function category		  -->
+<!--  for dates and times ("datetime").					  -->
+<!--  									  -->
+<!--  The sections in the man page for an IPW header file are:		  -->
+<!--  									  -->
+<!--      NAME								  -->
+<!--      SYNOPSIS							  -->
+<!--      DESCRIPTION							  -->
+<!--      SEE ALSO							  -->
+<!--  									  -->
+<!--  These various sections are described below.  The name of each	  -->
+<!--  section is a 2nd-level header.					  -->
+<!--  									  -->
+<!--  Use the IPW macro "%name" to refer to the man page, instead of	  -->
+<!--  using its name explicity.  This macro should be surrounded by	  -->
+<!--  bold tags, i.e.,							  -->
+<!--  									  -->
+<!--       <B>%name</B>							  -->
+<!--  									  -->
+<!--  Do NOT use tabs in pre-formated text, i.e., text surrounded by	  -->
+<!--  the tags "<PRE>" and "</PRE>".  There is no guarantee		  -->
+<!--  that tabs will display correctly.  Use only spaces.		  -->
+<!--  									  -->
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  NAME section							  -->
+<!--  									  -->
+<!--  It specifies the name of the function category, and its brief	  -->
+<!--  description.  Both the name and description are specified in the	  -->
+<!--  function category's Makefile, and are inserted in the man page	  -->
+<!--  through the use of IPW macros.					  -->
+<!--  									  -->
+<!--  As a general guideline, try to keep the description to a very	  -->
+<!--  brief phrase since it is used in the titles and headings of	  -->
+<!--  HTML versions of the man page.  Look at existing IPW man pages	  -->
+<!--  for a good idea for how to word the description, and to get an	  -->
+<!--  idea of the proper length.					  -->
+<!--  									  -->
+<H2>NAME</H2>
+
+<P>
+<B>%name</B> - %description
+</P>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  SYNOPSIS section							  -->
+<!--  									  -->
+<!--  This section specifies how the header file is included in an	  -->
+<!--  IPW program.  It is tagged as pre-formatted text.			  -->
+<!--  									  -->
+<!--  If the header file requires other header files to be included	  -->
+<!--  prior to its inclusion, list those files as well.			  -->
+<!--  									  -->
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "snow.h"
+</PRE>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  DESCRIPTION section						  -->
+<!--  									  -->
+<!--  This section describes what the function category represents.	  -->
+<!--  Remember to preceed each paragraph with a paragraph tag "<P>".	  -->
+<!--  									  -->
+<H2>DESCRIPTION</H2>
+
+<P>
+Basic image headers for IPW images describe the images'
+basic properties, e.g., the number of lines in the image,
+the number of samples per line, the number of pixels (bands)
+per sample, the number of bits per pixel, etc.
+
+<!--  Next, describe any public "typedef"s defined in the		  -->
+<!--  header file associated with the function category.  List only	  -->
+<!--  those fields that are public, i.e., those fields that the		  -->
+<!--  application programmer should change.				  -->
+<!--  									  -->
+<!--  The list of fields should be PRE-formatted, and the name of	  -->
+<!--  the typedef should be in boldface.				  -->
+<!--  									  -->
+<P>
+A date-time combination in IPW is represented by a single
+typedef:
+ 
+<PRE>
+    typedef <B>datetime_t</B> has these fields:
+ 
+        int  year;    /* year (note: 90 = 90 AD, not 1990)  */
+        int  month;   /* month [1 - 12]                     */
+        int  day;     /* day of month [1 - 31]              */
+        int  hour;    /* time of day: hour [0 - 23]         */
+        int  min;     /*  "   "   " : minutes [0 - 59]      */
+        int  sec;     /*  "   "   " : seconds [0 - 59]      */
+</PRE>
+ 
+<!--  Next, list any public constants associated with the category	  -->
+<!--  that are defined in header file.					  -->
+<!--  									  -->
+<P>
+<B>Constants</B>
+<P>
+
+<DL>
+ 
+<DT><SAMP>SECS_IN_MIN</SAMP>
+<DD>
+# of seconds in a minute (integer).
+</DD>
+ 
+<P>
+ 
+<DT><SAMP>SECS_IN_HR</SAMP>
+<DD>
+# of seconds in an hour (integer).
+</DD>
+ 
+<P>
+ 
+<DT><SAMP>SECS_IN_HR</SAMP>
+<DD>
+# of seconds in an hour.
+</DD>
+ 
+<P>
+ 
+<DT><SAMP>SECS_IN_DAY</SAMP>
+<DD>
+# of seconds in a day.
+</DD>
+ 
+</DL>
+
+<!--  Next, list any public macros associated with the category		  -->
+<!--  that are defined in header file.  Make sure to indicate		  -->
+<!--  the type of arguments expected if it is not clear from		  -->
+<!--  the macro's name or description.					  -->
+<!--  									  -->
+<P>
+<B>Macros</B>
+<P>
+ 
+<DT><SAMP>HR_TO_MIN(h)</SAMP>
+<DD>
+Convert # of hours (h) into # of minutes.
+</DD>
+ 
+<P>
+ 
+<DT><SAMP>HMS_TO_SEC(h,m,s)</SAMP>
+<DD>
+Convert a time in hours (h), minutes (m), and seconds (s) into 
+a total # of seconds.
+</DD>
+ 
+<P>
+ 
+<DT><SAMP>DAYS_IN_YR(y)</SAMP>
+<DD>
+Returns the # of days in a given calendar year (y).  Handles
+leap years, so it returns either 365 or 366.
+</DD>
+ 
+</DL>
+ 
+<!--  An alternative to using a definition list can be used if		  -->
+<!--  there is a group of related macros, for example, a set of		  -->
+<!--  macros for accessing fields in a typedef.				  -->
+<!--  									  -->
+<P>
+The following macros are defined for accessing the fields in the
+BIH_T structure:
+ 
+<PRE>
+    BIH_T * p;
+ 
+    bih_byteorder(p)
+    bih_nlines(p)
+    bih_nsamps(p)
+    bih_nbands(p)
+    bih_nbytes(p)
+    bih_nbits(p)
+    bih_history(p)
+    bih_annot(p)
+</PRE>
+
+<!--  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	  -->
+<!--  									  -->
+<!--  SEE ALSO section							  -->
+<!--  									  -->
+<!--  This section lists related IPW and Unix functions as well		  -->
+<!--  as any relevant papers and references.  All the functions		  -->
+<!--  appear in a definition list with the IPW functions preceeding	  -->
+<!--  the Unix functions.  Each IPW functions should be a link to its	  -->
+<!--  man page.								  -->
+<!--  									  -->
+<!--  To assist in completing this section, there is a pre-defined	  -->
+<!--  target in the Makefiles for the man pages for library functions	  -->
+<!--  called "list-of-links".  This target will print a list of		  -->
+<!--  the other library functions in the same category as a given	  -->
+<!--  library function.  The list is printed as HTML text, therefore,	  -->
+<!--  it can be stored in a file, and then placed into the source	  -->
+<!--  file for a man page:						  -->
+<!--  									  -->
+<!--      make list-of-links > temp					  -->
+<!--      edit the source file "foo.man" and read in the file "temp"	  -->
+<!--  									  -->
+<H2>SEE ALSO</H2>
+
+<DL>
+
+<DT>IPW:
+<DD>
+<A HREF="mwgamma.html">mwgamma()</A>,
+<A HREF="twostream.html">twostream()</A>
+</DD>
+
+<P>
+
+<DT>Unix:
+<DD>
+fread(), fwrite()
+</DD>
+
+</DL>
+
+<!--  Relevant papers and references are then listed in alphabetical	  -->
+<!--  order.  Each item should formatted as a separate paragraph	  -->
+<!--  following standard bibliographic notation.			  -->
+<!--  									  -->
+<P>
+Brutsaert, W., 1975. On a derivable formula for long-wave
+radiation from clear skies.  <I>Water Resources Research</I>,
+vol. 11, no. 5, pp 742-744. 
+<P>
+Marks, D., and J. Dozier, and R.E. Davis, 1979. A clear-sky
+longwave radiation model for remote alpine areas. <I>Archiv
+fur Meteorologie, Geophysik und Bioklimatologie, Series B</I>,
+vol. 27, no. 23, pp. 159-187. 
+
+<!--  If two or more functions share the references, one alternative	  -->
+<!--  is to place all the references into a separate bibliography	  -->
+<!--  document, and simply include a list of citations as links into	  -->
+<!--  this document.							  -->
+<!--  									  -->
+<!--  The IPW software uses this approach.  The convention for naming	  -->
+<!--  anchors in the bibliography is the first author's last name	  -->
+<!--  followed by the year.  If there are two or more references by	  -->
+<!--  an author in the same year, a suffix of a single lowercase	  -->
+<!--  letter is used to distinguish between them.			  -->
+<!--  									  -->
+<P>
+<A HREF="../../bib.html#Brutsaert 1975">Brutsaert 1975</A>,
+<A HREF="../../bib.html#Marks 1979">Marks 1979</A>
+

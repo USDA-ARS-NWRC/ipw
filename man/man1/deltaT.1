@@ -1,0 +1,79 @@
+.TH "deltaT" "1" "10 April 1998" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBdeltaT\fP - adjusted diurnal temperature range
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBdeltaT\fP [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBdeltaT\fP reads a 3 band \fIimage\fP (default: standard input) and
+writes the adjusted diurnal temperature range (in degrees C) to
+the standard output as an 8-bit IPW image.
+This is used in the estimate of cloudiness and solar radiation extinction
+based on work by \fIBristow and Campbell (1984)\fP
+and \fIRunning, et al. (1987)\fP.
+.PP
+The input image has the following bands:
+.sp
+.nf
+.ft CR
+	Tmax(i)     daily maximum air temperature for day i
+	Tmin(i)     daily minimum air temperature for day i
+	Tmin(i+1)   daily maximum air temperature for day i+1
+.ft R
+.fi
+
+.PP
+The output image is calculated as:
+.sp
+.nf
+.ft CR
+	deltaT(i) = Tmax(i) - { Tmin(i) + Tmin(i+1) } / 2
+.ft R
+.fi
+.SH OPTIONS
+.PP
+none
+.SH OPERANDS
+.PP
+none
+.SH EXAMPLES
+.sp
+.nf
+.ft CR
+          mux tmax1_img tmin1_img tmin2_img  |  \fBdeltaT\fP  > diurnal_t_range_image
+.ft R
+.fi
+.SH FILES
+.PP
+none
+.SH DIAGNOSTICS
+.TP
+image has \fIbands\fP bands, 3 band images only
+.br
+The input image must have exactly three bands.
+.SH RESTRICTIONS
+.PP
+none
+.SH HISTORY
+.TP
+Oct 1993
+Written by Danny Marks, USGS, EPA ERL-C.
+.SH BUGS
+.PP
+none
+.SH SEE ALSO
+.TP
+IPW:
+\fBtcloud\fP
+.TP
+Unix
+mux
+.PP
+Bristow, Campbell 1984,
+Running, Nemani, Hungerford 1987

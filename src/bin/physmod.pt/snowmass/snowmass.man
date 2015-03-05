@@ -1,0 +1,110 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is a simple radiation based daily snowmelt model.  It
+reads from standard input; each line should have:
+</P><P><PRE>
+	solar thermal Tmax Tmin dpt pcp lai elev u dt intrcpt
+</PRE></P><P>
+where:
+</P>
+<PRE>
+	solar   = total daily solar incidence at top of canopy (J)
+	thermal = total daily thermal irradiance at forest floor (J) 
+	Tmax    = daily maximum air temperature (C) 
+	Tmin    = minimum daily air temperature (C) 
+	dpt     = dewpoint temperature (C)
+	lai     = leaf area index (1 sided)
+	elev    = site elevation (m)
+	u       = mean daily wind speed (m/s)
+	dt      = time period of Solin data (hrs)
+	intrcpt = pcp intercept. coeff. (m/lai)
+	          (default: -1=0.001m lai^-1)
+</PRE><P>
+Output is to stdout.
+</P><PRE>
+ 	assumptions:
+</PRE><P>
+sublimation and melt only occurs during the day; if wind speed is zero 
+then wind is parameterized between 0.1m for full forest cover and 1.5m/s
+for open areas. Penman-Monteith method used to sublimate snow.
+</P>
+<H2>OPTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+</P>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Mar 1995</DT>
+<DD>
+Written by John Kimball; SWR School of Forestry, University
+of Montana. Modified from Coughlan's snow model for coniferous 
+forests (Coughlan PhD Dissertation, ch. 2).
+</DD>
+</DL>
+
+<DL>
+<DT>Jun 1995</DT>
+<DD>
+Converted to IPW by J. Domingo, OSU, EPA NHEERL/WED
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A HREF="snobal.html">snobal</A></B>,
+<B><A HREF="isnobal.html">isnobal</A></B>
+</DD>
+</DL>
+

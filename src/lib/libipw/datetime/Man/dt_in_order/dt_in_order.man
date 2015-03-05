@@ -1,0 +1,43 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+bool_t
+dt_in_order(
+     datetime_t  *dt1,       /* first date-time                  */
+     datetime_t  *dt2)       /* second date-time                 */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> determines if the two given date-times are in
+chronological order.
+
+<H2>RETURN VALUE</H2>
+
+<P>
+TRUE
+The first date-time is either before or the same as the second
+date-time.
+<P>
+FALSE  The first date-time is after the second date-time.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Oct 1997</DT>
+<DD>
+Written by J. Domingo, OSU.
+</DD>
+</DL>
+
+

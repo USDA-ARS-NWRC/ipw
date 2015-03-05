@@ -1,0 +1,61 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "radiation.h"
+
+void
+mwgamma(
+     double   u0,       /* cosine of illumination angle     */
+     double   w,        /* single-scattering albedo         */
+     double   g,        /* scattering asymmetry parameter   */
+     double  *gam,      /* output gamma values (4)          */
+     int      method)   /* DELTA_EDDINGTON or MEADOR_WEAVER */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> computes the gamma values for twostream calculations.
+The method used to compute the gamma values is specified by one of two
+constants defined in the <TT>"radiation.h"</TT> header file:
+DELTA_EDDINGTON or MEADOR_WEAVER.
+<P>
+
+<H2>RETURN VALUE</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Jun 1989</DT>
+<DD>
+Written by J. Dozier
+</DD>
+
+</DL>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<A HREF="twostream.html">twostream()</A>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Meador 1980">Meador 1980</A><BR>
+</P>
+
+

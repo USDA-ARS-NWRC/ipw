@@ -1,0 +1,49 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "envphys.h"
+
+double
+ssxfr(
+     double  k1,   /* layer 1's thermal conductivity (J / (m K sec)) */
+     double  k2,   /* layer 2's    "         "                       */
+     double  t1,   /* layer 1's average layer temperature (K)        */
+     double  t2,   /* layer 2's    "      "        "                 */
+     double  d1,   /* layer 1's thickness (m)                        */
+     double  d2)   /* layer 2's    "       "                         */
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+%name calculates the steady state heat transfer between two layers.
+
+<H2>RETURN VALUE</H2>
+
+<P>
+heat transfer between layers (W/m^2)
+
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Jul 1984</DT>
+<DD>
+Written for QDIPS by D. Marks, CSL (GSFC), UCSB;
+</DD>
+
+<P>
+
+<DT>May 1995</DT>
+<DD>
+Ported to IPW.  J. Domingo, OSU
+</DD>
+</DL>
+

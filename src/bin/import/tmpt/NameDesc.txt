@@ -1,0 +1,1 @@
+tmpt - make IPW image from Thematic Mapper (TM) image on tape

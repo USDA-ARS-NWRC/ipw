@@ -1,0 +1,3 @@
+%define(name,"hle1")
+%define(description,"sensible and latent heat from data at 1 height")
+%define(category,"envphys")

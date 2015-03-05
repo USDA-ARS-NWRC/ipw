@@ -1,0 +1,73 @@
+This directory contains various "canned" versions of h/config.h.  The comment
+at the top of each file notes which operating system and hardware the file has
+been tested on.
+
+If one of these is directly usable in your environment, then copy or link it
+to h/config.h.
+
+Otherwise, copy the one that most closely approximates your configuration into
+h/config.h and edit it appropriately.  Once it works, please mail a copy of it
+to "ipw@crseo.ucsb.edu" so we can incorporate it into the standard
+distribution.  Be sure that the comment at the top of the file adequately
+describes your particular operating system and hardware.
+
+IPW-defined compilation controls (define as 1 below, if applicable)
+
+	CC_UCHAR	OK to use "unsigned char"
+	CC_ULONG	OK to use "unsigned long"
+	CC_USHORT	OK to use "unsigned short"
+
+	CC_NOBCOPY	substitute memcpy(p2, p1, n) for bcopy(p1, p2, n)
+	CC_NOBZERO	substitute memset(p, 0, n) for bzero(p, n)
+	CC_INDEX	substitute index() for strchr()
+	CC_RINDEX	substitute rindex() for strrchr()
+
+	CC_SAMESIZE	force all pixels in an image to be stored in the same
+			number of bytes
+
+	CC_EXTRA_STDIO	Does stdio.h leave out lots of things?
+	CC_NEED_FLSBUF	Do we need to define FLSBUF to get things to work?
+	IEEE_drem	Do we have an IEEE drem function?
+
+	SORT_ALG	What routine to use for sorting?  (qsort or _quicksort)
+
+miscellaneous stuff that must be tuned by hand
+
+	OPT_BUF		"optimum" I/O buffer size (bytes).  Should be
+			determined experimentally.
+
+	PIXEL		C type of pixels used by the pixio package.  Usually
+			"unsigned".  Must be an unsigned integer type.  Pixels
+			that won't fit in this type cannot be read/written.
+
+	FPIXEL		C type of pixels used by the fpio package.  Usually
+			"float".
+
+	FPIXEL_MAX	Maximum value for FPIXEL.  Usually FLT_MAX from
+			<limits.h>.
+
+	FPIXEL_MIN	Minimum value for FPIXEL.  Usually -FLT_MAX from
+			<limits.h>.
+
+	XSIZE		type of sizeof().  Usually "unsigned".  IPW uses XSIZE
+			(actually, xsize_t) wherever "size_t" would be used in
+			an ANSI C environment.  If your <stdio.h> has a typedef
+			for size_t, then you can define XSIZE to be size_t,
+			since <stdio.h> is automatically included by ipw.h.
+
+	XTIME		type of time().  Usually "long".  IPW uses XTIME
+			(actually, xtime_t) wherever "time_t" would be used in
+			an ANSI C environment.  If your <time.h> has a typedef
+			for time_t, then you can define XSIZE to be time_t,
+			since <time.h> is included by all modules that use
+			xtime_t.
+
+	REG_[1-6]	integer/pointer register storage class declarations.
+			Define REG_n as register if n registers are available,
+			else define as nothing.
+
+	FREG_[1-6]	floating-point register storage class declarations.
+			Define REG_n as register if n registers are available,
+			else define as nothing.
+
+$Header: /home/ipw/h/conf/RCS/README,v 1.5 89/12/12 18:16:19 frew Exp $

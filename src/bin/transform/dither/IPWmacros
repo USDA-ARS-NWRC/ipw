@@ -1,0 +1,3 @@
+%define(name,"dither")
+%define(description,"convert IPW image into bilevel image using ordered dithering")
+%define(category,"Image Transformation")

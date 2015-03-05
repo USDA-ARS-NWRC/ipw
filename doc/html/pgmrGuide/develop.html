@@ -1,0 +1,127 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Developing New IPW Software</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../images/usda.gif" alt="USDA">
+<IMG SRC="../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Developing New IPW Software</H1>
+
+
+<P>
+A programmer developing new IPW software should use a separate development
+directory with a tree structure like IPW's directory.  For example,
+
+<PRE>
+    $HOME/.../ipw/         <I>programmer's development directory</I>
+               |
+               +- bin/        <I>user commands</I>
+               |
+               +- h/          <I>C header files</I>
+               |
+               +- lib/        <I>libraries</I>
+               |
+               +- man/        <I>manual pages (troff versions)</I>
+               |
+               +- sbin/       <I>system commands</I>
+               |
+               +- src/        <I>source directory</I>
+               |
+               +- tests/      <I>tests</I>
+               |
+               +- www/        <I>Web documentation including</I>
+                                <I>manual pages</I>
+</PRE>
+
+<P>
+The name of the development directory does not need to be <CODE>"ipw"</CODE>;
+however, the names of its subdirectories must be those noted above.
+The system command <CODE>"<A HREF="../man1/mkipwdir.html">mkipwdir</A>"</CODE>
+facilitates the setup of this directory structure.
+
+<P>
+The <CODE>include</CODE> files that are used in IPW Makefiles are designed
+to perform compiling, linking, and installation relative to the directories
+where the Makefiles reside.  Therefore, when a programmer compiles an IPW
+program whose source directory is located in the development directory (e.g.,
+<CODE>"$HOME/.../ipw/src/bin/<I>cmd</I>"</CODE>), the corresponding header
+directory (e.g., <CODE>"$HOME/.../ipw/h"</CODE>) is searched for header
+files, and the corresponding library directory 
+(e.g., <CODE>"$HOME/.../ipw/lib"</CODE>) is searched for additional IPW
+libraries.
+
+<P>
+When the programmer installs a command, the executable file is placed
+in the corresponding binary directory (e.g., <CODE>"$HOME/.../ipw/bin"</CODE>).
+Similarly, a library whose source directory resides in the development
+directory is installed in the corresponding library directory
+(e.g., <CODE>"$HOME/.../ipw/lib"</CODE>).
+
+<P>
+The man pages for a command, library function, or header file located
+in the development directory are installed in the corresponding manual
+and Web directories (e.g., <CODE>"$HOME/.../ipw/man"</CODE> for
+troff versions, and <CODE>"$HOME/.../ipw/www/</CODE> for
+the HTML versions).
+
+<P>
+<B>IPW's <CODE>"local"</CODE> directory</B> 
+
+<P>
+Once development is complete, a new command or library is made available
+to the local installation of IPW by copying the command's or library's
+source directory into IPW's <CODE>"local"</CODE> subdirectory.  This
+directory has a tree structure like that of the top-level IPW directory.
+
+<PRE>
+    $IPW/          <I>IPW directory</I>
+      |
+      +- local/       <I>local IPW commands and libraries</I>
+          |
+          +- bin/        <I>user commands</I>
+          |
+          +- h/          <I>C header files</I>
+          |
+          +- lib/        <I>libraries</I>
+          |
+          +- man/        <I>manual pages (troff versions)</I>
+          |
+          +- sbin/       <I>system commands</I>
+          |
+          +- src/        <I>source directory</I>
+          |
+          +- tests/      <I>tests</I>
+          |
+          +- www/        <I>Web documentation including</I>
+                              <I>manual pages</I>
+</PRE>
+
+<P>
+Because a programmer's development directory has the same tree structure as
+IPW's local directory, the migration of source code from the former into
+the latter is simple.  The programmer need only copy a source
+directory, and invoke the <CODE>"make"</CODE> utility with the
+<CODE>"install"</CODE> target; no modifications to Makefiles or other
+source files are required.
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,236 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-v</B> ] [ <B>-a</B> ] [ <B>-b</B> <I>bits</I> ] [ <B>-m</B> <I>mask</I> ] <I>image</I>
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads parameters from the standard input (supplied by
+the IPW program istatrel) and a single-band IPW image, and
+calculates an estimated image which is written to the standard
+output.
+</P><P>
+The output image is calculated by applying the polynomial
+interpolating function received from the standard input to each
+point in the independent image specified on the command line.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-v</B> 
+<DD>
+<B>%name</B> will print extra information on the standard
+error.  This includes the number of points read, the
+number of points interpolated (points inside the range of
+the original data) and the number of point extrapolated
+(points outside the range of the original data).  Verbose
+output also includes a quick data fit analysis.
+</DD>
+
+<P>
+<DT><B>-a</B> 
+<DD>
+A quick data fit analysis only is requested.  No output
+image is generated, and no input image is required.
+</DD>
+
+<P>
+<DT><B>-b</B> <I>bits</I>
+<DD>
+The number of bits in the output image is <I>bits</I>
+(default: 8).
+</DD>
+
+<P>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+Use <I>mask</I> as a mask image.  Any points in <I>mask</I> that are
+0 will have the corresponding points in <I>image</I> ignored.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I></DT>
+
+<DD>	image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+Given USA and Canada elevation images, and USA AVHRR channel 5
+data, make an estimated channel 5 surface for Canada:
+</P><PRE>
+	istatrel usa-elev.ipw usa-ch5.ipw | ipwinterp can-elev.ipw
+</PRE><P>
+To give some information on how two NDVI and LAI images are related:
+</P><PRE>
+	istatrel ndvi.ipw lai.ipw | ipwinterp -a
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>Good: Very high linear correlation in original data.
+</DT>
+<DD><BR>	The coefficient of determination (r^2) of the original
+	data is above 0.9.
+</DD>
+
+<P>
+<DT>Good: Very low coeff of variation in original data.
+</DT>
+<DD><BR>	The coefficient of variation (s/Xbar), also known as the
+	coefficient of dispersion, of the original data is
+	below 0.1.
+</DD>
+
+<P>
+<DT>Bad:  Very low coeff of multiple determination.
+</DT>
+<DD><BR>	The coefficient of multiple determination (r^2) between
+	the original image and the interpolated polynomial is
+	below 0.5.
+</DD>
+
+<P>
+<DT>Bad:  Very high coeff of contingency.
+</DT>
+<DD><BR>	The coefficient of contingency (a measure of the degree
+	of relationship, association, or dependence of the
+	classifications) is above 0.9.
+</DD>
+
+<P>
+<DT>Ave:  High coeff of contingency.
+</DT>
+<DD><BR>	The coefficient of contingency is above 0.5.
+</DD>
+
+<P>
+<DT>Good: Very low coeff of contingency.
+</DT>
+<DD><BR>	The coefficient of contingency is below 0.1.
+</DD>
+
+<P>
+<DT>Bad:  High error percentage.  Can't establish relation.
+</DT>
+<DD><BR>	The error percentage ( (the standard error of estimate of
+	Y on X) / (the standard deviation) ) is above 0.9.
+</DD>
+
+<P>
+<DT>Ave:  Relation has high error percentage.
+</DT>
+<DD><BR>	The error percentage is above 0.5.
+</DD>
+
+<P>
+<DT>Good: Relation is very strong.
+</DT>
+<DD><BR>	The error percentage is below 0.1.
+</DD>
+
+<P>
+<DT>Bad:  High cofv percentage.  Can't establish relation.
+</DT>
+<DD><BR>	The interpolated to original coefficient of variation
+	ratio ( (the coefficient of variation between the
+	original image and the interpolated polynomial) / (the
+	coefficient of variation of the original data) ) is
+	below 0.1.
+</DD>
+
+<P>
+<DT>Good: Relation established.
+</DT>
+<DD><BR>	The interpolated to original coefficient of variation
+	ratio is above 0.5.
+</DD>
+
+<P>
+<DT>Good: Relation is very strong.
+</DT>
+<DD><BR>	The interpolated to original coefficient of variation
+	ratio is above 0.9.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+If too many points are extrapolated (use the <B>-v</b> option to see this)
+rather than interpolated, the results are likely to not be accurate.
+</P><P>
+The quick data fit analysis has been put together by empirical
+evidence.  It is not too hard to get a data set that gives
+contradictory remarks.  If it gives more than one bad remark, it
+would be best to view the data and relationships established using
+istatgraph.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Mar 1992</DT>
+<DD>
+	Written by Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+	Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1997</DT>
+<DD>
+	Converted to IPW Version 2.0, D. Marks, USGS, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="istatrel.html">istatrel</A></B>,
+<B><A href="istatgraph.html">istatgraph</A></B>
+</DD>
+</DL>
+<P>
+<A HREF="../bib.html#Jobson 1991">Jobson 1991</A>,
+<A HREF="../bib.html#Neter 1989">Neter 1989</A>,
+<A HREF="../bib.html#Spiegel 1961">Spiegel 1961</A><BR>
+</P>
+

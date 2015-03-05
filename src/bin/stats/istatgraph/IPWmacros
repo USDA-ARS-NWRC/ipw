@@ -1,0 +1,3 @@
+%define(name,"istatgraph")
+%define(description,"plot two images and the interpolations from 'istatrel' command")
+%define(category,"Image Statistics")

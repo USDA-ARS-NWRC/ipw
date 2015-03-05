@@ -1,0 +1,68 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "envphys.h"
+
+int
+budyer(
+     double  z,    /* upper height of wind speed & temp measurement (m) */
+     double  z0,   /* lower height of wind speed & temp measurement (m),
+                      (maybe roughness length)                          */
+     double  t,    /* temperature at z (K)                              */
+     double  t0,   /*      "      "  z0 (K)                             */
+     double  e,    /* vapor pressure at z (Pa)                          */
+     double  e0,   /*   "      "     "  z0 (Pa)                         */
+     double  u,    /* wind speed at z (m/s)                             */
+     double  u0,   /*  "     "   "  z0 (m/s)                            */
+     double  p,    /* pressure (Pa)                                     */
+
+    /* output variables */
+
+     double  *h,   /* sensible heat exchange (W/m^2)                    */
+     double  *le)  /* latent heat exchange (W/m^2)                      */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates sensible and latent heat exchanges using
+the Businger-Dyer model for turbulent transfer.  See chapter 6 of the
+reference below.
+
+<H2>RETURN VALUE</H2>
+
+<PRE>
+     OK      all calculations successfully completed.
+
+     ERROR   either argument <I>e</I> or <I>e0</I> exceeds saturation vapor
+             pressure at the appropriate temperature (the
+             function fixes the erroneous value(s), issues
+             a warning message, and proceeds with the
+             calculations).
+</PRE>
+
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jun 1995</DT>
+<DD>
+Converted from QDIPS to IPW by J. Domingo, OSU
+</DD>
+</DL>
+
+
+<H2>SEE ALSO</H2>
+
+<P>
+<A HREF="../bib.html#Fleagle 1980">Fleagle 1980</A><BR>
+</P>
+
+

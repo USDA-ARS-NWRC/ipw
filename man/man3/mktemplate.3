@@ -1,0 +1,59 @@
+.TH "mktemplate" "3" "2 June 2009" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBmktemplate\fP - create a template for the name of a temporary file
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+char *
+mktemplate(const char * prefix)		|* prefix for file name *|
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBmktemplate\fP creates a template for the name of a temporary file.  The
+format of the template is "/tmp/{prefix}.XXXXXX".  The template returned
+by mktemplate is then passed to the
+uwopen_temp() function to create
+the actual name for a temporary file and to open it.
+.PP
+The caller is responsible for deallocating the returned template.
+.SH RETURN VALUE
+.TP
+non-NULL
+New template.
+.sp
+.TP
+NULL
+Insufficient memory to create the template.
+.SH EXAMPLES
+.PP
+Typical usage:
+.sp
+.nf
+.ft CR
+    char * template;
+    template = mktemplate("foo");
+    if (template == NULL)
+        error("Unable to create template for temporary file");
+    int fdt;
+    fdt = uwopen_temp(template);
+    ...
+    uclose(fdt);
+    SAFE_FREE(template);
+.ft R
+.fi
+.SH GLOBALS ACCESSED
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+Uses "/tmp" as the directory.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO
+.TP
+IPW:
+uwopen_temp()

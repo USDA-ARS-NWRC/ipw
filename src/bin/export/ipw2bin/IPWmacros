@@ -1,0 +1,3 @@
+%define(name,"ipw2bin")
+%define(description,"convert IPW image to binary file")
+%define(category,"Exporting IPW Image Data")

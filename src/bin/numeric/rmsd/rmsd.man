@@ -1,0 +1,114 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads an X-Y vector pair (X = "measured".
+Y = "modeled") from the standard input and computes
+root mean square difference (RMSD), model efficiency (ME),
+and mean bias difference (MBD). (Note that RMSD and MBD are
+considered "difference" rather than "error" statistics because
+there is generally a significant uncertainty in the measured
+parameter which makes it difficult to assume that difference
+between the "modeled" and "measured" value is an error.)
+A small RMSD and MBD shows a good "fit" between the vectors,
+as does a ME value approaching 1.0.
+</P>
+
+<H2>OPTIONS</H2>
+
+<P>None
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+The following input:
+</P><PRE>
+	 0  1
+	 2  3
+	 4  5
+	 6  7
+	 8  9
+	10 11
+</PRE><P>
+produces the following output:
+</P><PRE>
+	n =  6
+	mean =  5
+	Model Efficiency, ME 0.914286
+	RMSD 1
+	Mean Bias Difference, MBD 1
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>input line must have exactly 2 fields
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Oct 2001</DT>
+<DD>
+	Written by D. Marks, ARS-NWRC, Boise, ID.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+</DL>
+
+<DL>
+<DT>UNIX</DT>
+
+<DD><B>awk</B></DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A>,
+<A HREF="../bib.html#Green 1986">Green and Stepheson 1986</A>,
+<A HREF="../bib.html#Marks 1999a">Marks 1999a</A>,
+<A HREF="../bib.html#Nash 1970">Nash and Sutcliffe 1970</A>
+</P>
+

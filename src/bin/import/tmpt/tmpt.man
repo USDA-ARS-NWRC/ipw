@@ -1,0 +1,69 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-b</B> <I>band</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads a TM image off of tape and writes an IPW file.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-b</B> <I>band</I>
+<DD>
+Which band to read (default: 1).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+
+<H2>FILES</H2>
+
+<PRE>
+     The output file will be 2983 lines by 4220 samples.  It will have
+     &quot;lq&quot; (linear quantization), &quot;sun&quot;, and &quot;sat&quot; headers.
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The tape device read is /dev/nrmt0.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Nov 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+</DD>
+</DL>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>UNIX</DT>
+<DD>	dd
+</DD>
+</DL>
+

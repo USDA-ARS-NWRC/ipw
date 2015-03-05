@@ -1,0 +1,184 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-z</B> <I>elev</I> ] [ <B>-p</B> <I>air-pressure</I> ] [ <B>-v</B> <I>view-factor</I> ]
+       [ <B>-l</B> <I>lapse-rate</I> ] [ <B>-t</B> <I>timestep</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+</P><P>
+<B>%name</B> calculates evaporation rate using <I>Bowen (1926)</I>
+ratio approach;
+Output is rate in kg/(sec m**2) which is specific discharge
+in mm/sec;
+Reads input file from stdin of form:
+</P><PRE>
+	ts, ta, ea, snet, advec, store, time 
+</PRE>
+<PRE>
+	where:
+		ts     = surface temperature (C)
+		ta     = air temperature (C)
+		ea     = vapor pressure (Pa)
+		snet   = net solar radiation (W/m**2)
+		advec  = energy from advection (W/m**2)
+		store  = change in energy storage (W/m**2)
+		time   = time since last meas. (hrs)
+</PRE><P>
+Sea Level (0.0 m) is default unless z is set;
+Standard atmospheric pressure (101324.6 Pa) is default
+unless pa is set;
+If z is set and pa is not, pa is calculated from z;
+If pa is set and z is not, z is roughly estimated from pa;
+View factor of 1.0 is default unless vf is set;
+Environmental lapse rate of -0.0065 deg/m is default unless
+lapse is set;
+If tstep is set, then time step is assumed constant,
+and time is not read from stdin;
+Tstep should be set in decimal hours;
+</P><P>
+Surface emissivity of 1.0 is assumed;
+Storage and advection may be ignored by setting them to 0.0;
+</P><P>
+Output to stdout;
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-z</B> <I>elev</I>
+<DD>
+Elevation (default: 0.0 m)
+</DD>
+
+<P>
+<DT><B>-p</B> <I>air-pressure</I>
+<DD>
+In Pascals; (default: 101324.6 Pa)
+</DD>
+
+<P>
+<DT><B>-v</B> <I>view-factor</I>
+<DD>
+Portion of overlying hemisphere that is sky (0-1.0; default: 1.0)
+</DD>
+
+<P>
+<DT><B>-l</B> <I>lapse-rate</I>
+<DD>
+Temperature lapse rate (default: -0.0065 K/m)
+</DD>
+
+<P>
+<DT><B>-t</B> <I>timestep</I>
+<DD>
+In decimal hours
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate evaporation at an open site over snow at 1200m from hourly data
+on air and surface temperature, net radiaiton, advection, and energy
+storage:
+</P><PRE>
+	bowvap -z 1200 -t 1.0
+        Input ts,   ta,  ea, snet, advec, store;
+              -0.03 -0.2 601 0.0   2.2    -9.8
+yields:
+        rate = -2.141907e-08; total = -0.00008;
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Apr 1984</DT>
+<DD>
+Written by D. Marks, CSL, UCSB;
+</DD>
+</DL>
+
+<DL>
+<DT>May 1995</DT>
+<DD>
+Converted to IPW by J. Domingo, OSU, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="advec.html">advec</A></B>,
+<B><A href="gsnow.html">gsnow</A></B>,
+<B><A href="penmanx.html">penmanx</A></B>,
+<B><A href="ipmx.html">ipmx</A></B>,
+<B><A href="pmx.html">pmx</A></B>,
+<B><A href="ptaylorx.html">ptaylorx</A></B>,
+<B><A href="iptx.html">iptx</A></B>,
+<B><A href="ptx.html">ptx</A></B>,
+<B><A href="soilt.html">soilt</A></B>,
+<B><A href="soiltmp.html">soiltmp</A></B>,
+<B><A href="srftmp.html">srftmp</A></B>,
+<B><A href="swp.html">swp</A></B>,
+<B><A href="trb_Ri.html">trb_Ri</A></B>,
+<B><A href="itrbxfr.html">itrbxfr</A></B>,
+<B><A href="trbxfr.html">trbxfr</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Unix</DT>
+<DD>
+paste
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Bowen 1926">Bowen 1926</A>
+<A HREF="../bib.html#Monteith, Unsworth 1990">Monteith, Unsworth 1990</A>
+</P
+

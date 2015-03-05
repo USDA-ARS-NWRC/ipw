@@ -1,0 +1,1 @@
+poly - print coordinates of pixels for in a polygon

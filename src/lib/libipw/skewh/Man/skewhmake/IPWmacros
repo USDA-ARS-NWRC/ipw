@@ -1,0 +1,3 @@
+%define(name,"skewhmake")
+%define(description,"make an IPW SKEWH header")
+%define(category,"skewh")

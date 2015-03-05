@@ -1,0 +1,144 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-y</B> <I>yeartype</I> <B>-o</B> <I>out_prefix</I> [ <I>infile</I> ]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads an ASCII file of a year's worth of daily precipitation
+station data, and writes 12 ASCII files.  Each output file pertains to one
+month, and contains the monthly proportion of the observed variable 
+which occurred each day.  For example, if, for a given station, the
+month of september had only two days of rainfall, then the output
+file for that month would show 0.5 for the two days it rained, and 0.0
+for all other days. 
+<P>
+Negative precipitation values are assumed to be missing and are 
+output as -9999, so that the
+<B><A HREF="msurface.html">msurface</A></B>
+program will ignore them.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+
+<DT><B>-y</b> <I>yeartype</I>
+<DD>
+This option controls whether the daily observation data are stored
+in water-year (Oct. 1 - Sept. 30) (<I>yeartype</I> = &quot;w&quot;) or
+calendar-year (Jan. 1 - Dec. 31) (<I>yeartype</I> = &quot;c&quot;)
+order.
+</DD>
+
+<P>
+<DT><B>-o</B> <I>out_prefix</I>
+<DD>
+The output files will be called &quot;<I>output_prefix</I>.1&quot; through
+&quot;<I>output_prefix</I>.12&quot;.  The numbers 1-12 pertain to the
+calendar month (jan-dec) or the water month (oct-dec)
+depending on the choice of <B>-y</b>.  The fields of each
+output file are: 
+<PRE>
+
+         easting northing val1 val2 ... valN
+</PRE>
+<P>
+where &quot;N&quot; is the last day of the month.
+</P>
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>infile</I></DT>
+<DD>
+A station file which is an ASCII file of climate station data.  Each record
+of station file pertains to one measurement station.
+The fields of each record are assumed to be:
+<PRE>
+        id z y x string obs1 obs2 ... obs365
+</PRE><P>
+where:
+<PRE>
+        id     - station identifier (alphanumeric)
+        z      - station elevation 
+        y      - station northing  
+        x      - station easting   
+        string - variable identifier, e.g. &quot;Prcp&quot;
+        obs{n} - daily observations of a variable
+</PRE><P>
+</DD>
+
+</DL>
+
+<H2>EXAMPLES</H2>
+
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT>NOTE: station 'xxx' for month <I>n</I>: <I>x</I> nodata values.
+<DD>The program prints a warning to stderr if a station
+has more than 15 nodata values in a given month.  A final
+summary of all nodata statistics is also printed to stderr.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Leap year is not handled.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Dec 1993
+<DD>
+Started by Paul Hardin, ERL-C.
+</DD>
+
+<P>
+
+<DT>Aug 1994
+<DD>
+Working version completed by Rusty Dodson, ERL-C.
+</DD>
+
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:
+<DD>
+<B><A HREF="iadd.html">iadd</A></B>,
+<B><A HREF="mult.html">mult</A></B>,
+<B><A HREF="normalize.html">normalize</A></B>,
+<B><A HREF="scale.html">scale</A></B>
+</DD>
+</DL>
+
+

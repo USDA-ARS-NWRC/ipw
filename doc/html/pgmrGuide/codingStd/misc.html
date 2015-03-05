@@ -1,0 +1,84 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Miscellany</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../../images/usda.gif" alt="USDA">
+<IMG SRC="../../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Miscellany</H1>
+
+
+<P>
+If a function explicitly allocates storage, then it should either
+<CODE>"free"</CODE> the
+storage before it returns, or pass a pointer to the storage back to the caller,
+in which case the disposition of the storage becomes the caller's
+responsibility.
+
+<P>
+Functions should always explicitly allocate any storage they require for
+their own use -- the practice of passing "work vectors" as arguments is
+strongly discouraged.
+
+<P>
+If a function is known to set the global variable <CODE>"errno"</CODE>,
+then <CODE>"errno"</CODE> should
+be cleared before, and examined after, every call to the function, unless
+the function provides some other way to detect whether an error has
+occurred (e.g., by a unique return value).
+
+<P>
+Source text lines should not contain more than 78 characters after tabs
+have been expanded into spaces.
+
+<P>
+In situations where the <CODE>"++"</CODE> and <CODE>"--"</CODE> operators
+would have the same effect in either
+prefix or postfix form, use the prefix form.
+
+<P>
+Example:
+
+<PRE>
+/* wrong */                          /* right */
+for (i = 0; i < n; i++) {            for (i = 0; i < n; ++i) {
+</PRE>
+
+<P>
+The expression following <CODE>return</CODE> or <CODE>sizeof</CODE> should
+be enclosed in parentheses.
+
+<P>
+Finally, focus on getting a program or function to work before attempting
+to enhance its performance.  The performance of a piece of code
+(usually taken to mean how fast it executes,
+but also often meaning how sparingly it uses machine resources) is of secondary
+concern to its maintainability, portability, and style:
+
+<BLOCKQUOTE>
+It' s easier to get a working system efficient than it is to get an
+efficient system working.
+[<A HREF="../../bib.html#Minow 1984">Minow 1984</A>]
+</BLOCKQUOTE>
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

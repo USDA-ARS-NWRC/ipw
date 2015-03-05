@@ -1,0 +1,225 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-i</B> <I>inproj</I> <B>-o</B> <I>outproj</I> [ <B>-r</B> <I>resamp</I> ] [ <B>-g</B> <I>geoh</I> ]
+      [ <B>-b</B> <I>bline</I>,<I>bsamp</I> ] [ <B>-d</B> <I>dline</I>,<I>dsamp</I> ] [ <B>-l</B> <I>#lines</I> ]
+      [ <B>-s</B> <I>#samples</I> ] [ <B>-m</B> <I>mask</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Reproj is part of an extensive suite of projection transformation
+tools coded into IPW by Kelly Longley (OSU) at the EPA Laboratory
+in Corvallis, Oregon.  All are based on the libraries from the
+General Cartographic Transformation Package (GCTP), which were converted
+to C from fortran during early 1990 by Ms. Longley.
+</P><P>
+<B>%name</B> converts an image to a new geographic projection using the
+USGS General Cartographic Transformation Package (GCTP) software.
+The input and output projection parameters are defined in files inproj
+(<B>-i</b> parameter) and outproj (<B>-o</b> parameter) respectively (see below for
+file format).  The geodetic coordinates and size of the output image
+are determined by the given geo header, if provided, or otherwise
+by the coordinates of the upper-left image corner (<B>-b</b> parameter),
+pixel size (<B>-d</b> parameter), and number of lines and samples (<B>-l</b> and
+<B>-s</b> parameters).  The output image is written to stdout.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-i</B> <I>inproj</I>
+<DD>
+input projection definition file
+</DD>
+
+<P>
+<DT><B>-o</B> <I>outproj</I>
+<DD>
+output projection definition file
+</DD>
+
+<P>
+<DT><B>-r</B> <I>resamp</I>
+<DD>
+resampling method; currently defined methods are
+cc	for cubic convolution resampling
+bi	for bilinear resampling
+nn	for nearest neighbor resampling
+(default: nn)
+</DD>
+
+<P>
+<DT><B>-g</B> <I>geoh</I>
+<DD>
+geodetic header to define output image coordinates and size
+(defaults to stdin)
+Note: either <B>-g</b> is specified or all of (<B>-b</b>,<B>-d</b>,<B>-l</b>,<B>-s</b>) must
+be specified
+</DD>
+
+<P>
+<DT><B>-b</B> <I>bline</I>,<I>bsamp</I>
+<DD>
+output image coordinates for upper-left image corner
+</DD>
+
+<P>
+<DT><B>-d</B> <I>dline</I>,<I>dsamp</I>
+<DD>
+pixel size in output image coordinates in both dimensions
+</DD>
+
+<P>
+<DT><B>-l</B> <I>#lines</I>
+<DD>
+number lines in output image
+</DD>
+
+<P>
+<DT><B>-s</B> <I>#samples</I>
+<DD>
+number of samples in output image
+</DD>
+
+<P>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+mask image for the input image
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image	input image (default:stdin)
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+<B>%name</B> <B>-i</b> defs.geo <B>-o</b> defs.albers <B>-b</b> 5020083,6791794 <B>-d</b> -1000,1000 \
+</P>
+<PRE>
+       -l 512 -s 512 window-elev.ipw  &gt; window-albers.ipw
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     The projection definition files are ASCII files with the following
+     format:
+     	projection ID
+     	units code
+     	zone code
+     	datum code
+     	projection parameters (15 values)
+     The files may be created with programs mkgeo, mkalbers, etc.  See
+     the USGS documentation for the General Cartographic Transformation
+     Package for details on the parameters.
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Single-band images only
+</P><P>
+There must be enough virtual memory to read in the entire input
+image.  Time is proportional to the output image size, and space
+is proportional to the input image size.  The amount of memory
+that will be used is approximately (4 * nlines * nsamps) + 100k
+where nlines and nsamps are the dimensions of the input image.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jun 1991</DT>
+<DD>
+	Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<DL>
+<DT>Jun 1993</DT>
+<DD>
+	Changed to ANSI C, changed prototypes,
+Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1993</DT>
+<DD>
+	Added Cubic Convolution, Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>Oct 1994</DT>
+<DD>
+	Changed bilinear to replicate pixels like CC.
+Rusty Dodson, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>Jul 1995</DT>
+<DD>
+	Fixed bug with bilinear pixel replication.
+Dana Jacobsen, USGS, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+The Cubic Convolution code is not fully tested.
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="mkalbers.html">mkalbers</A></B>,
+<B><A href="mkgeo.html">mkgeo</A></B>,
+<B><A href="mklambert.html">mklambert</A></B>,
+<B><A href="mklamcc.html">mklamcc</A></B>,
+<B><A href="mkproj.html">mkproj</A></B>,
+<B><A href="reproj_area.html">reproj_area</A></B>,
+	<B><A href="transcoord.html">transcoord</A></B>
+</DD>
+</DL>
+<P>Evenden, G.I., 1983.  &quot;Forward and inverse cartographic projection
+	procedures&quot;, USGS Open-File Report 83-623, 85 p.
+</P>
+<P>Elassal, A.A., 1987.  &quot;General Cartographic Transformation Package
+	(GCTP), Version II&quot;, NOAA Technical Report NOS 124 CGS 9,
+	24p.
+</P>
+<P>Snyder, J.P., 1987.  &quot;Map projections - A working manual&quot;, USGS
+	Professional Paper 1395, 383 p.
+</P>
+<P>Snyder, J.P., and R.M. Voxland, 1989.  &quot;An album of map projections&quot;,
+	USGS Professional Paper 1453, 249 p.
+</P>
+

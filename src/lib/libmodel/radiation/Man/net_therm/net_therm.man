@@ -1,0 +1,44 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "radiation.h"
+
+double
+net_therm(
+     double  ta,          /* air temperature (K)                     */
+     double  ts,          /* surface temperature (K)                 */
+     double  pa,          /* air pressure (Pa)                       */
+     double  ea,          /* vapor pressure (Pa)                     */
+     double  surfemiss,   /* surface emissivity (0.0 - 1.0)          */
+     double  skyfac,      /* terrain skyfactor (0.0 - 1.0)           */
+     double  lapse,       /* temp. lapse rate (deg/m) (negative up!) */
+     double  z)           /* elevation (m)                           */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates net thermal radiation.
+</P>
+
+<H2>RETURN VALUE</H2>
+
+<P>
+net thermal radiation (W/m^2)
+</P>
+
+
+<H2>SEE ALSO</H2>
+
+<P>
+<A HREF="../bib.html#Marks 1979">Marks 1979</A>
+</P>
+
+

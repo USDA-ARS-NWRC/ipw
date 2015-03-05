@@ -1,0 +1,1 @@
+no_history - turn off history mechanism in bihwrite

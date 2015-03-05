@@ -1,0 +1,1 @@
+weights - calculates x-interval weights for selected x-y integration segment

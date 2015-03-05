@@ -1,0 +1,78 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "units.h"
+
+char *
+units_as_str(
+	UNITS_T           id)	|* units id 			*|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> converts a units <I>id</I> into a string (usually for
+printing).
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+<B>%name</B> returns a string corresponding to the given units id.
+If the units id is not valid, the string &quot;unknown&quot; is returned.
+</P><P>
+The pointer returned by this function points to static memory;
+therefore, do not try free up (i.e., deallocate) this string.
+</P>
+<H2>EXAMPLES</H2>
+
+<P>
+This function call
+</P><PRE>
+	printf (&quot;Error: Expected the units to be %s.&quot;,
+		units_as_str(U_METERS_PER_SECOND));
+</PRE><P>
+produces this output:
+</P><PRE>
+	Error: Expected the units to be m/s.
+</PRE>
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_unitStrings
+</P>
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Nov 1995</DT>
+<DD>
+	Written by J. Domingo, OSU
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

@@ -1,0 +1,3 @@
+%define(name,"dtoa")
+%define(description,"convert double-precision number to string")
+%define(category,"math")

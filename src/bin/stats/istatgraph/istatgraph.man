@@ -1,0 +1,186 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-v</B> ] [ <B>-n</B> <I>number</I> ] [ <B>-r</B> ] [ <B>-p</B> ] [ <B>-c</B> ]
+      [ <B>-k</B> <I>keypos</I> ] <I>image1 image2</I> [ -- <I>istatrel options</I> ]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads two IPW images and plots a graph of the two,
+along with a number of lines showing the successive interpolating
+polynomials that
+<B><A HREF="istatrel.html">istatrel</A></B>
+generates.  If no options are given to
+<B><A HREF="istatrel.html">istatrel</A></B>,
+the interpolation used will be the next to the last polynomial order.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-v</B> 
+<DD>
+<B>%name</B> will print extra information on the standard
+error.  This includes progress information, as well as
+information about the number of points being plotted.  For
+very large images this is useful to see how far along the
+program is.
+</DD>
+
+<P>
+<DT><B>-n</B> <I>number</I>
+<DD>
+Plot close to <I>number</I> (default: 1000) points.  The more
+points are used the more accurate the plot will be, but
+the longer it will take to compute.  In general, values
+of over 10,000 will lead to significant waits, while
+values near 1,000 yield a good compromise.
+</DD>
+
+<P>
+<DT><B>-r</B> 
+<DD>
+When reducing the number of points to be plotted, use the
+resamp program instead of zoom.  resamp takes the average
+of points rather then subsampling (dropping points), so
+might give a different effect.
+</DD>
+
+<P>
+<DT><B>-p</B> 
+<DD>
+Generate postscript output instead of displaying an X
+window.
+</DD>
+
+<P>
+<DT><B>-c</B> 
+<DD>
+Generate color postscript.
+</DD>
+
+<P>
+<DT><B>-k</B> <I>keypos</I>
+<DD>
+Use <I>keypos</I> as the position for the plot key (default:
+upper-right corner).  <I>keypos</I> should be a pair of values
+specifying the key's (x,y) position using the image data
+values.  The key text will be to the left of the <I>x</I> point
+and the example lines and points will be on the right.  The
+first line of text will be on the <I>y</I> point.
+</DD>
+
+<P>
+<DT><B>--</B> 
+<DD>
+Stop processing of arguments.  This should be used if
+further arguments meant for 
+<B><A HREF="istatrel.html">istatrel</A></B>
+are to be specified.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image1 image2</I>
+
+<DD>input images
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To see what the relationship between elevation and AVHRR channel 4
+irradiance is, what sort of relationship istatrel will generate,
+and a quick data analysis by ipwinterp:
+</P><PRE>
+        istatgraph -v elev.ipw ch4.ipw
+</PRE><P>
+To print this same graph:
+<PRE>
+        istatgraph -p elev.ipw ch4.ipw | lpr
+</PRE><P>
+To see the relationship between &quot;et.gs.ipw&quot; and &quot;wbi.ipw&quot;, moving
+the key down to the lower right corner, and giving istatrel a -t
+option to lower the shutoff tolerance so another interpolation
+is done:
+</P><PRE>
+	istatgraph -k -500,-2700 et.gs.ipw wbi.ipw -- -t 0.0001
+</PRE><P>
+For a pair of very large images it might be nice to be verbose, use
+the memory-saving option of <B>istatrel</B>, and limit the maximum order of
+the plot to 2:
+</P><PRE>
+	istatgraph -v image1 image2 -- -s -M 2
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None.
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The plotted interpolations from istatrel are computed by running
+istatrel on the original images, not the reduced images.  The
+point of reducing the images is to speed up the plotting process,
+not to reduce the data used by
+<B><A HREF="istatrel.html">istatrel</A></B>.
+</P><P>
+The &quot;quick data analysis&quot; printed by
+<B><A HREF="ipwinterp.html">ipwinterp</A></B>
+is based on empirical
+evidence, so don't put too much faith in what it says.  See its
+man page for an explanation of the diagnostics.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+Written by Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD><B><A href="istatrel.html">istatrel</A></B>,
+<B><A href="ipwinterp.html">ipwinterp</A></B>,
+<B><A href="zoom.html">zoom</A></B>,
+<B><A href="resamp.html">resamp</A></B>,
+<B><A href="primg.html">primg</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>UNIX:</DT>
+<DD>perl, gnuplot, wc
+</DD>
+</DL>
+

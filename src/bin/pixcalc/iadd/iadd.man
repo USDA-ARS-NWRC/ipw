@@ -1,0 +1,128 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-n</B> <I>nbits</I> ] [ <B>-s</B> <I>bands</I>,<I>...</I> ] [ <I>image</I> ]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads a multi-band <I>image</I> and
+writes the sum of its bands on the standard output.  For each
+input sample, the corresponding output sample is:
+<PRE>
+	p[0] + p[1] + ... + p[nbands-1]
+</PRE>
+<P>
+where <I>p</I> is the input pixel value and <I>nbands</I> is the number of
+input bands.
+<P>
+To effect subtraction, specified bands are converted to negatives
+before addition.
+</P>
+
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-n</B> <I>nbits</I>
+<DD>
+Use <I>nbits</I> bits per output pixel (default: maximum number of
+bits per input pixel).
+</DD>
+
+<P>
+<DT><B>-s</B> <I>bands</I>,<I>...</I>
+<DD>
+Use the negative of the pixel value in the specified bands.
+</DD>
+
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I></DT>
+<DD>multi-band input image (default: standard input)
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To add two single-band images together:
+<PRE>
+     mux image1 image2 | iadd
+</PRE>
+<P>
+To subtract band 1 from band 0 of a 2-band image:
+<PRE>
+     iadd -s 1
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT><B>-s</b> <I>band</I>: not that many bands
+</DT>
+<DD>A nonexistent input band was specified with <B>-s</b>.
+</DD>
+
+</DL>
+
+<H2>NOTES</H2>
+
+<P>
+This command has been DEPRECIATED because its functionality
+is provided by the command <A HREF="imath.html"><B>imath</B></A>.
+This command may be removed in future versions of IPW.
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Written by Danny Marks, ERL-C.
+</DD>
+
+<P>
+
+<DT>Apr 1993</DT>
+<DD>
+Doesn't blow up on result-0 images.  Ran through Purify.
+Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="imath.html">imath</A></B>,
+<B><A href="lincom.html">lincom</A></B>,
+<B><A href="mult.html">mult</A></B>,
+<B><A href="mux.html">mux</A></B>,
+<B><A href="scale.html">scale</A></B>
+</DD>
+</DL>
+

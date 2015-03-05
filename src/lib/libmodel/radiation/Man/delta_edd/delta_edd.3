@@ -1,0 +1,30 @@
+.TH "delta_edd" "3" "10 April 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBdelta_edd\fP - delta-Eddington transformation
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+#include "radiation.h"
+
+void
+delta_edd(
+     double  *omega,   /* single-scattering albedo       */
+     double  *g,       /* scattering asymmetry parameter */
+     double  *tau)     /* optical depth                  */
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBdelta_edd\fP computes the delta-Eddington transformations of its
+arguments.
+.SH RETURN VALUE
+.PP
+None.
+.SH HISTORY
+.TP
+Mar 1988
+Written by J. Dozier

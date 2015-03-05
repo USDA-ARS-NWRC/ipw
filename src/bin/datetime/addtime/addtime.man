@@ -1,0 +1,189 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-d</B> <I>year,month,day,hour,min,sec</I> ] [ <B>-h</B> <I>hours</I> ]
+     [ <B>-m</B> <I>minutes</I> ] [ <B>-s</B> <I>seconds</I> ] [ <B>-v</B> ]  [ <I>date-time</I> ]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> adds a time interval to a specified date-time.  The date-time is
+specified either with the <B>-d</B> option or as a single operand.  The time
+interval is specified as a combination of hours, minutes, and seconds using
+the <B>-h</B>, <B>-m</B>, and <B>-s</B> options, respectively.  The interval
+may be negative, to effect subtraction as well.
+<P>
+The resulting date-time is printed to standard output in the same format
+as the input date-time.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+
+<DT><B>-d</B> <I>year,month,day,hour,min,sec</I>
+<DD>
+The date-time to add the time interval to.  All the arguments, i.e.,
+<I>year</I> through <I>sec</I>, are integer values.  If the date-time is
+not specified with this option, it must be specified as an operand.
+</DD>
+
+<P>
+<DT><B>-h</B> <I>hours</I>
+<DD>
+The number of hours in the time interval to add to the date-time.  <I>hours</I>
+may be negative, and may be a decimal number to indicate a portion of
+an hour, for example, 1.5 for one and a half hours. (default: 0)
+</DD>
+
+<P>
+<DT><B>-m</B> <I>minutes</I>
+<DD>
+The number of minutes in the time interval to add to the date-time.
+<I>minutes</I> may be negative, and may be a decimal number to indicate a
+portion of an minute, for example, 2.5 for two minutes and 30 seconds.
+(default: 0)
+</DD>
+
+<P>
+<DT><B>-s</B> <I>seconds</I>
+<DD>
+The number of seconds in the time interval to add to the date-time.  
+<I>seconds</I> may be negative; however, unlike the hours and minutes, it
+must be an integer. (default: 0)
+</DD>
+
+</DL>
+
+<P>
+At least one of the <B>-h</B>, <B>-m</B> and <B>-s</B> options must be
+specified.  If two or more of these options are given, then the time
+interval consists of their sum.
+
+<DL>
+
+<DT><B>-v</B> 
+<DD>
+Verbose mode.  This option causes the given date-time, the time interval,
+and the resulting date-time to be printed in an English format on
+standard error.  For example,
+<PRE>
+    Thu Oct  1 12:00:00 1998
+     + 3.000000 hours    ===> Thu Oct  1 15:00:00 1998
+</PRE>
+</DD>
+
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+
+<DT><I>date-time</I>
+<DD>
+The date-time to add the time interval to.  The format of <I>date-time</I>
+is the same as the default format for
+<B><A href="cvtime.html">cvtime</A></B>: "%Y_%m_%d+%H:%M:%S",
+e.g., "1963_12_04+12:34:56".  If the date-time is not specified as an
+operand, then it must be specified with the <B>-d</B> option.
+</DD>
+
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To add 4.6 hours to June 22nd, 1990, 9:00 am:
+<PRE>
+     addtime -d 1990,6,22,9,0,0 -h 4.6
+</PRE><P>
+The following example has a fragment of a sh shell script that produces a
+series of 100 date-times starting at midnight on October 1, 1997 with an
+interval of an hour and half:
+<PRE>
+    interval="-h 1.5"
+    dt="1997_10_01+00:00:00"
+    i=1
+    while [ $i -le 100 ] ; do
+        printf "$dt\n"
+        dt=`addtime $interval $dt`
+        i=`expr $i + 1`
+    done
+</PRE><P>
+In the example above, the interval could have been also specified in
+one of these alternative ways:
+<PRE>
+    interval="-h 1 -m 30"
+    interval="-m 90"
+</PRE><P>
+
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Sep 1990</DT>
+<DD>
+Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+</DD>
+
+<P>
+
+<DT>Sep 1992</DT>
+<DD>
+Changed to use mktime instead of timegm and not do
+arithmetic on time_t's.  Dana Jacobsen, ERL-C.
+</DD>
+
+<P>
+
+<DT>Aug 1993</DT>
+<DD>
+Changed to split time in two parts to avoid integer
+overflow and round answer.  Dana Jacobsen, ERL-C.
+</DD>
+
+<P>
+
+<DT>Aug 1997</DT>
+<DD>
+Converted to Version 2.0; eliminated the <B>-c</B> option
+(output UNIX clock time (seconds since 1/1/1970)).
+Danny Marks, USGS, ERL-C.
+</DD>
+
+<P>
+
+<DT>Nov 1998
+<DD>
+Allow the date-time to specified as an operand using the
+same format as <B>cvtime</B>'s operand.  Also added the
+<B>-m</B> and <B>-s</B> options.  J. Domingo, OSU
+</DD>
+
+</DL>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD><B><A href="cvtime.html">cvtime</A></B>,
+</DD>
+</DL>

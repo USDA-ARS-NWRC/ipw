@@ -1,0 +1,125 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [<I> &lt;infile </I>]<I> </I>[<I> &gt;outfile </I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates mean daily vapor pressure using minimum daily air 
+temperature as a surrogate for mean daily dew point. 
+Estimated vapor pressure is adjusted using an aridity index 
+derived from <I>Priestley-Taylor (1972)</I>, daily ET estimates and 
+annual precipitation.
+The program reads input from a file or from stdin:
+</P><PRE>
+	Rn, tx, tn, daylen, pcp, PcpYR,
+</PRE><PRE>
+	Rn	= Net radiation (W/m2) 
+	tx	= Maximum 24hr air temperature (C)
+	tn	= Minimum 24hr air temperature (C)
+	daylen	= length of daylight (s)
+	pcp	= daily precipitation (mm)
+	PcpYR	= Annual precipitation for site (mm)
+</PRE><P>
+Output is to stdout.
+Use Daily data
+</P><P>
+Assumptions:
+</P><P>
+G is 10% of Rn; Priestley-Taylor parameter=1.26 
+(Priestley and Taylor 1972). If daily pcp&gt;0.0
+tn=dewpoint.
+</P><P>
+recommended for arid and semi-arid areas where differences 
+between dewpoint and Tn are generally large 
+(see <I>Kimball et al. 1997</I>).
+</P>
+
+<H2>OPTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+none
+</P>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>terminates with error message;
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Feb 1996</DT>
+<DD>
+written by John Kimball, NTSG Forestry,
+University of Montana
+</DD>
+</DL>
+
+<DL>
+<DT>Jun 1997</DT>
+<DD>
+added daily precipitation as an input
+to filter data, John Kimball, NTSG, U of M
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT> 
+<DD>
+<B><A HREF="deltaT.html">deltaT</A></B>,
+<B><A HREF="vptr.html">vptr</A></B>
+</DD>
+</DL>
+ 
+<P>
+<A HREF="../bib.html#Campbell 1977">Campbell 1977</A>,
+<A HREF="../bib.html#Kimball, Running, Nemani 1997">Kimball, Running, Nemani 1997</A>,
+<A HREF="../bib.html#Priestley, Taylor 1972">Priestley, Taylor 1972</A>,
+<A HREF="../bib.html#Running, Coughlan 1988">Running, Coughlan 1988</A>
+</P>
+

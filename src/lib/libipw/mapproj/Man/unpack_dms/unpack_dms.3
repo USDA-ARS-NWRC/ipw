@@ -1,0 +1,38 @@
+.TH "unpack_dms" "3" "10 April 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBunpack_dms\fP - convert packed DMS to decimal degrees
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "mapproj.h"
+
+double
+unpack_dms(
+	double	dms)		|* input value in packed DMS	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBunpack_dms\fP converts the given value in packed DMS format
+(degrees/minutes/seconds in the format +/-DDDMMSS.SSS where
+DDD is the degrees, MM is minutes and SS.SSS is seconds.) to
+decimal degrees.
+.SH RETURN VALUE
+.PP
+DMS value in double precision.
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

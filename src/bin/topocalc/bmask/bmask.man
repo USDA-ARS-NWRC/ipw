@@ -1,0 +1,108 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-p</B> <I>l</I>,<I>s</I> [ <B>-f</B> <I>flat</I> ] [ <B>-m</B> <I>pit_mask</I> ]
+      [ <I>image</I> ]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Given a seed point and 2-band gradient file, <B>%name</B> returns a mask 
+that marks all cells that drain through the seed point.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+
+<DT><B>-p</B> <I>l</I>,<I>s</I>
+<DD>
+specify the seed point (line, sample)
+</DD>
+
+<P>
+<DT><B>-f</B> <I>flat</I>
+<DD>
+specify the flatness threshold.  All slopes in the gradient 
+file less than <I>flat</I> are considered 0 (default .001).
+</DD>
+
+<P>
+<DT><B>-m</B> <I>pit_mask</I>
+<DD>
+specify a pit mask.  All nonzero entries in the pit mask
+are marked with 0 slope before calculation.
+</DD>
+
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I>
+<DD>
+2-band gradient image (default: standard input).
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To compute the basin mask for a noisy DEM, with pour point at l=265,
+s=201:
+</P>
+<PRE>
+    mux elev gradient | pmask -f 0.005 &gt;pit_mask
+    bmask -p 265,201 -f 0.01 -m pit_mask gradient &gt;basin_mask
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>May 1995</DT>
+<DD>
+Kevin L. Novins, ERL-C.  Based on Qdips program
+by D. Marks.
+</DD>
+
+<P>
+
+<DT>Jun 1998
+<DD>
+Separated source code shared with <B>pmask</B> command into
+a separate library.  J. Domingo, OSU.
+</DD>
+
+</DL>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+
+<DT>IPW:
+<DD>
+<A HREF="pmask.html"><B>pmask</B></A>,
+<A HREF="gradient.html"><B>gradient</B></A>
+</DD>
+
+</DL>
+
+<P>
+<A HREF="../bib.html#Marks 1984">Marks 1984</A>
+</P>

@@ -1,0 +1,171 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-v</B> <I>val</I>,<I>val</I> [ <B>-n</B> <I>nodata</I> ] [ <B>-p</B> <I>nbits</I> ] [ <B>-c</B> ] [ <B>-b</B> ]
+      [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+This program trims values from an image (single or multi-band)
+which are not within a specified output range (omin, omax).  
+Input pixel values which are
+&gt;= omin and &lt;= omax will be preserved in the output image.  Input
+pixel values which are outside the min,max range will be output
+as one of the following:
+</P><PRE>
+    -   zero:  this is the default nodata value.	
+</PRE><PRE>
+    -   the {nodata} value specified by -n
+</PRE><PRE>
+    - 	if -c (cap mode) is set, then output values are capped
+	at the min,max range.
+</PRE><P>
+If the <B>-b</b> option (binary mode) is set, then the output image will
+be a binary (0,1) mask, where values within min,max are 1's and
+all other values are 0's.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-v</B> <I>val</I>,<I>val</I>
+<DD>
+<I>val,val</I> are min,max values for the output image.
+To use the lowest/highest input image value, enter &quot;x&quot;
+for the min or max value.
+</DD>
+
+<P>
+<DT><B>-n</B> <I>nodata</I>
+<DD>
+nodata value (default: 0) 	
+</DD>
+
+<P>
+<DT><B>-c</B> 
+<DD>
+cap mode: set values &gt; max to max, values &lt; min to min
+(default: values &gt; max or &lt; min get nodata)
+</DD>
+
+<P>
+<DT><B>-b</B> 
+<DD>
+binary mode: output image will be a 0-1 binary mask.
+Values within the min,max range are set to 1, all 
+others set to 0.
+</DD>
+
+<P>
+<DT><B>-p</B> <I>nbits</I>
+<DD>
+precision:  use <I>nbits</I> in the output image.  (default: 8)
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+Given an image of temperatures called tavg.ipw:  
+</P><P>
+To make an image containing only temperatures within -10,10,
+with outside values set to -99:
+</P><PRE>
+	itrim -v -10,10 -n -99 tavg.ipw
+</PRE><P>
+To make a mask which delineates all negative temperatures:
+</P><PRE>
+	itrim -v x,-0.0001 -b tavg.ipw
+</PRE><P>
+To cap very cold (&lt; -40) temperatures at -40: 
+</P><PRE>
+	itrim -v -40,x -c tavg.ipw
+</PRE><P>
+To compute growing degree days for the 12-band image tavg.mon.ipw,
+using a threshold of 5.0 degrees:
+</P><PRE>
+        scale -o sub -v 5.0 tavg.mon.ipw                    \
+            | itrim -v 0,x                                  \
+            | lincom -c 31,28,31,30,31,30,31,31,30,31,30,31 \
+            | iadd                                          \
+            &gt; gdd.ipw
+</PRE>
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>may specify no more than 1 of: <B>-c</b>,<B>-b</b>,<B>-n</b>
+</DT>
+<DD><BR>	The <B>-c</b>,<B>-b</b>,<B>-n</b> options are mutually exclusive.
+</DD>
+</DL>
+
+
+<H2>NOTES</H2>
+
+<P>
+This command has been DEPRECIATED because its functionality
+is provided by the command <A HREF="imath.html"><B>imath</B></A>.
+
+<PRE>
+    itrim -c --> imath -expr "b0 < min ? min : b0 > max ? max : b0"
+    itrim -n --> imath -expr "b0 < min or b0 > max ? nodata : b0"
+    itrim -b --> imath -expr "b0 < min or b0 > max ? 0 : 1"
+</PRE>
+<P>
+This command may be removed in future versions of IPW.
+
+<P>
+Beware when using <B>%name</B> on categorical data with lq headers.
+E.g., due to quantization, category 10 may be stored as 10.013 
+and thus fall outside of a requested 1,10 range.  Using a
+range of 0.5,10.5 would successfully get the values 1-10.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Oct 1995</DT>
+<DD>
+	 Rusty Dodson, MERSC, NHEERL-WED.
+</DD>
+</DL>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="imath.html">imath</A></B>,
+<B><A href="scale.html">scale</A></B>,
+<B><A href="iadd.html">iadd</A></B>,
+<B><A href="mult.html">mult</A></B>,
+<B><A href="lincom.html">lincom</A></B>,
+<B><A href="iinterp.html">iinterp</A></B>
+
+</DD>
+
+</DL>
+

@@ -1,0 +1,67 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "file.h"
+
+int
+geohwrite(
+	int             fd,	  |* output file descriptor	 *|
+	GEOH_T        **geohpp)	  |* -> array of GEOH pointers	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<PRE>
+     geohwrite writes the array of GEOH headers pointed to by geohpp
+</PRE>
+<P>
+to file descriptor fd.
+</P><P>
+<B>%name</B> is called by IPW application programs to write
+GEOH headers.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+OK for success, ERROR for failure
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

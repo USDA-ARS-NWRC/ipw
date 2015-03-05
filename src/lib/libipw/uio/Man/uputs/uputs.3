@@ -1,0 +1,40 @@
+.TH "uputs" "3" "10 April 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBuputs\fP - write a string to a UNIX file descriptor
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+int
+uputs(
+	int             fd,	|* input file descriptor	 *|
+	const char     *buf)	|* -> input buffer		 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBuputs\fP writes an EOS-terminated string from buf to fd.  The trailing
+EOS is not written.
+.PP
+Use \fBuputs\fP for efficient output of ASCII text (e.g., image headers)
+to IPW data files.
+.SH RETURN VALUE
+.PP
+>= 0	number of characters written
+.PP
+ERROR	errors or end-of-file.
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

@@ -1,0 +1,241 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-s</B> <I>start</I> <B>-d</B> <I>day</I> <B>-g</B> <I>gsize</I> <B>-m</B> <I>maxgsz</I> <B>-c</B> <I>dirt</I> [ <B>-v</B> ]
+      [ <B>-r</B> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties over an area.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs to simulate the process at a point
+by D. Marks, during the 1980's at UCSB.
+<B>%name</B> is the spatial version of <B>albedo</B>.
+</P>
+
+<P>
+<B>%name</B> is designed
+to estimate albedo of snow in either the visible (280-700nm), or solar
+IR (700-2800nm) spectral bands, over an image of cosine solar zenith.
+It is based on work by <I>Warren and Wiscombe (1980), Wiscombe and Warren (1980),
+Marshall and Warren (1986), Marks (1988), and Marks and Dozier (1992)</I>.
+</P><P>
+Snow albedo is modeled as a function of grain growth, and sun angle;
+Albedo decay is estimated as a function of grain growth by approximating a
+set of theoretical values presented in <I>Marshall and Warren (1986)</I>.
+Reasonable grain growth rates and contamination values are
+based on two years of snow albedo measurements from the Mammoth Mt. snow
+study plot in the eastern Sierra Nevada, California.
+</P><P>
+Grain growth rate approximated by a second order Chebyshev
+polynomial (see routine <B>growth()</B>), as this function fit the
+Mammoth data.  Albedo increase with low solar incidence angles
+are approximated with as a function of cos(z); which also fit
+the Mammoth data.  Both functions give results that approximate
+measured values, and agree with results in <I>Choudhury (1981)</I>,
+and <I>McGuffie and Henderson-Sellers (1985)</I>, both of which
+present an analysis of the broad band albedo of snow.
+</P><P>
+<I>Marshall and Warren (1986)</I> show that albedo, when the solar zenith
+is 0, is related to the square root of the grain radius by:
+</P>
+<PRE>
+	alb(vis0) = 1.0 - sqrt(gsize)/500;
+	alb(ir0)  = 0.85447 * exp(-0.02123 * sqrt(gsize));
+</PRE>
+<P>
+This allows a linear alb(vis) decay from about .98 to .90,
+and a non-linear alb(ir) decay from .70 to .40, when given
+reasonable inputs;
+The effect of zenith angle is also related to the sqrt(gsize):
+</P>
+<PRE>
+	dzv = (sqrt(gsize) * 1.375e-3) * (1 - cos(z));
+	alb(visz) = alb(vis0) + dzv;
+	dzir = (sqrt(gsize) * 2.0e-3 + 0.1) * (1 - cos(z));
+	alb(irz) = alb(ir0) + dzir;
+</PRE>
+<P>
+This allows alb(vis) increases from .014 to .068 with zenith
+angle, and alb(ir) increases from .12 to .20 with zenith angle;
+</P><P>
+The Mammoth data show new snow &quot;gsize&quot; values tend to be around
+100-200 in spring, with larger or smaller values later or
+earlier in the season; &quot;maxgsz&quot; tends to be 500-700 mu m in mid
+season, with values seldom reaching 1000;
+&quot;dirt&quot; is a factor relating the &quot;effective grain size&quot; in the
+visible to that in the IR, as the visible is strongly effected
+by contamination while the IR is not;
+Contamination is site specific but the Mammoth data show
+that the &quot;effective grain size&quot; in the visible is usually
+between 1.5 and 3.0 times what it is in the IR;
+Lower values may be used in early season, and higher in late
+season conditions;
+</P><P>
+Input image contains cosine local illumination angle.
+</P><P>
+Output image is written to stdout contains two bands:
+</P>
+<PRE>
+	alb(vis) and alb(ir) at each pixel location.
+</PRE>
+<P>
+If the <B>-v</b> (vis only) or <B>-r</b> (ir only) flag is specified then the
+output image will contain only the specified band.
+If cosz &lt;= 0.0 (sun below horizon), resulting output albedo is set to
+the minimum value (as if cosz = 1.0 - sun directly overhead).
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-s</B> <I>start</I>
+<DD>
+time of last snow storm (decimal days)
+
+<P>
+<DT><B>-d</B> <I>day</I>
+<DD>
+current day (decimal days)
+
+<P>
+<DT><B>-g</B> <I>gsize</I>
+<DD>
+effective grain radius of snow after last storm (mu m)
+
+<P>
+<DT><B>-m</B> <I>maxgsz</I>
+<DD>
+maximum grain radius expected from grain growth (mu m)
+
+<P>
+<DT><B>-c</B> <I>dirt</I>
+<DD>
+effective contamination for adjustment to visible albedo
+(usually between 1 and 5 (integer values only))
+
+<P>
+<DT><B>-v</B> 
+<DD>
+output visible band only
+
+<P>
+<DT><B>-r</B> 
+<DD>
+output IR band only
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>
+input image containing mu (cosine local solar illumination angle)
+at each pixel location
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate visible (280-700nm) albedo over snow for 9AM, February 15,
+1995, over a DEM grid of the Park City, UT area:
+</P><P>
+To get sun angles (zenith and azimuth):
+</P>
+<PRE>
+	sunang -i 1995,02,15,09 -b 40,37,12 -l -111,31,58 -z 420 &gt;angles
+</PRE><P>
+To get image of illumnination angles (mu):
+</P>
+<PRE>
+	gradient elev_image | shade -z zenith -a azimuth &gt;mu_image
+</PRE><P>
+Then:
+</P>
+<PRE>
+	salbedo -s 124.0 -d 137.375 -g 150 -m 600 -c 1 -v mu_image
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Oct 1990</DT>
+<DD>
+Adapded from D. Marks point model (QDIPS program <B>albedo</B>),
+to run over an IPW image, by Kelly Longley, Oregon State
+University, Environmental Research Laboratory, Corvallis
+</DD>
+</DL>
+
+<DL>
+<DT>Dec 1990</DT>
+<DD>
+Changed output albedo(cosz=0) to minimum (as if cosz=1.0)
+Kelly Longley, OSU, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="albedo.html">albedo</A></B>,
+<B><A href="glob.alb.html">glob.alb</A></B>,
+<B><A href="gradient.html">gradient</A></B>,
+<B><A href="shade.html">shade</A></B>,
+<B><A href="sunang.html">sunang</A></B>,
+<B><A href="cvtime.html">cvtime</A></B>,
+<B><A href="elevrad.html">elevrad</A></B>,
+<B><A href="selevrad.html">selevrad</A></B>,
+<B><A href="toporad.html">toporad</A></B>,
+<B><A href="stoporad.html">stoporad</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Choudhury 1981">Choudhury 1981</A>,
+<A HREF="../bib.html#Marks 1988">Marks 1988</A>,
+<A HREF="../bib.html#Marks 1992b">Marks 1992b</A>,
+<A HREF="../bib.html#Marshall, Warren 1987">Marshall, Warren 1987</A>,
+<A HREF="../bib.html#McGuffie, Henderson-Sellers 1985">McGuffie, Henderson-Sellers 1985</A>,
+<A HREF="../bib.html#Warren 1980">Warren 1980</A>,
+<A HREF="../bib.html#Wiscombe 1980">Wiscombe 1980</A>
+</P>
+ 

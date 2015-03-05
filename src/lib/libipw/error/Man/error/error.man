@@ -1,0 +1,62 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+void error(format, arg, ...)
+char *format;
+{type} arg; ...
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Error prints the <B>%name</B> message described by the printf-style &quot;format&quot;
+and &quot;args&quot; on the standard <B>%name</B> output.  If usrerr() has been called,
+its argument is also printed.  If syserr() has been called, a UNIX
+system <B>%name</B> message is also printed.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

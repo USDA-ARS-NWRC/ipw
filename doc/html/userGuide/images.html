@@ -1,0 +1,61 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>IPW Images</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../images/usda.gif" alt="USDA">
+<IMG SRC="../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>IPW Images</H1>
+
+
+<P>
+IPW images contain spatial data for a geographic region.  The term "image"
+is an artifact of IPW's origins in processing images from remote sensing.
+However, an IPW image is not limited to remote sensing data; an image
+may contain any spatial data distributed in regular intervals
+over a region.  An example is a digital elevation map (DEM).
+
+<P>
+<B>Elements of an IPW Image</B>
+<UL>
+  <LI><A HREF="linesAndSamples.html">Lines and samples</A> -
+      the spatial organization of the data.
+  <LI><A HREF="pixelsAndBands.html">Pixels and bands</A> -
+      the information stored per element of the region.
+  <LI><A HREF="headers.html">Headers</A> -
+      the attributes of the image and its data.
+</UL>
+
+<P>
+<B>File format</B>
+
+<P>
+Each IPW image is a single UNIX file with two sections:
+
+<OL>
+  <LI>the <A HREF="hdrFormat.html">headers stored as text</A>,
+	followed by
+  <LI>the <A HREF="pixFormat.html">pixel data stored as binary values</A>.
+</OL>
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

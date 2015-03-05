@@ -1,0 +1,121 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Indentation and braces</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../../images/usda.gif" alt="USDA">
+<IMG SRC="../../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Indentation and braces</H1>
+
+
+<P>
+A standardized style of indentation and brace placement enhances readability
+by making the physical layout of the code reflect its logical structure. The
+style used in the IPW source code is derived from the style popularized in
+the original C language textbook
+[<A HREF="../../bib.html#Kernighan 1978">Kernighan 1978</A>].
+
+<P>
+A <CODE>"{"</CODE> is placed on the same line as the associated control
+statement, preceded by at least one blank. A <CODE>"}"</CODE> is placed on
+a line by itself at the same indent level as the associated control
+statement (except for the <CODE>do-while</CODE> construct;
+see example). The indent level between braces is increased one tab stop.
+
+<P>
+Examples:
+
+<PRE>
+for (i = 0; i < n; ++i) {
+        foo(i);
+}
+
+while ((c = getchar() ) != EOF) {
+        putchar(c);
+}
+
+do {
+        foo(i);
+} while (--i > 0);
+
+if (i < 0) {
+        lt0 = TRUE;
+}
+else if (i == 0) {
+        is0 = TRUE;
+}
+
+switch (option) {
+
+    case 'b':
+        bflag = TRUE;
+        break;
+
+    default:
+        error("%c: bad option ", option);
+}
+</PRE>
+
+<P>
+Braces may NOT be elided for one-line blocks. One often needs to add
+statements to a block, and having to remember to add the braces as well
+unnecessarily complicates maintainability.
+
+<P>
+For function definitions, both braces are placed in column 1, and the formal
+argument declarations are indented one level. Any storage class or type
+specifiers are separated from the function name by a single newline.
+
+<P>
+Example:
+
+<PRE>
+int
+abs(
+        int	i)
+{
+        ...  <I>C code</I>  ...
+}
+</PRE>
+
+<P>
+Braces may NOT be elided in multidimensional aggregate initializers.
+The inner-most <CODE>"}"</CODE> in an aggregate initializer MAY be on the
+same line as its corresponding <CODE>"{"</CODE> .  In general, the layout
+of an aggregate initializer
+should reflect the structure of the aggregate.
+
+<P>
+Examples:
+
+<PRE>
+fpixel_t        lap_kernel[3][3] = { /* Laplacian kernel */
+        {0.0, -1.0, 0.0},
+        {-1.0, 4.0, -1.0},
+        {0.0, -1.0, 0.0},
+};
+
+int     bytebits[] = {1, 2, 4, 8, 16, 32, 64, 128};
+</PRE>
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

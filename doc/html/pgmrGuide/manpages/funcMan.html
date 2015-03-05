@@ -1,0 +1,340 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Sections in an IPW Library Function's Man Page</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../../images/usda.gif" alt="USDA">
+<IMG SRC="../../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Sections in an IPW Library Function's Man Page</H1>
+
+<P>
+The sections in an IPW library function's man page are:
+<PRE>
+    <A HREF="#NAME">NAME</A>
+    <A HREF="#SYNOPSIS">SYNOPSIS</A>
+    <A HREF="#DESCRIPTION">DESCRIPTION</A>
+    <A HREF="#RETURN VALUE">RETURN VALUE</A>
+    <A HREF="#HISTORY">HISTORY</A>      (optional)
+    <A HREF="#SEE ALSO">SEE ALSO</A>     (optional)
+</PRE><P>
+These various sections are described below.  The name of each
+section is a 2nd-level header.
+<P>
+Use the IPW macro <SAMP>"%name"</SAMP> to refer to the function, instead of
+using its name explicity.  Except for examples of actual uses of
+the command, this macro should be surrounded by bold tags, i.e.,
+<PRE>
+     &lt;B>%name&lt;/B>
+</PRE><P>
+Do NOT use tabs in pre-formated text, i.e., text surrounded by
+the tags <SAMP>"&lt;PRE>"</SAMP> and <SAMP>"&lt;/PRE>"</SAMP>.  There is no guarantee
+that tabs will display correctly.  Use only spaces.
+<P>
+<P>
+<B>NAME section</B><A NAME="NAME">
+<P>
+It specifies the name of the function, and its brief one-line
+description.  Both the name and description are specified in the
+function's Makefile, and are inserted in the man page through the
+use of IPW macros.
+<P>
+As a general guideline, try to keep the length of the name and
+description, plus two spaces and a "-" character, less than 60
+characters:
+<PRE>
+             1         2         3         4         5         6
+    123456789012345678901234567890123456789012345678901234567890
+    name - description..........................................
+</PRE><P>
+The description is searched for keywords by the "man" command
+when the "-k" option is specified.  Therefore, try to write a
+description that summarizes the function using words that might
+help a programmer locate the function.  Look at existing IPW
+man pages for a good idea for how to word the description,
+and to get an idea of the proper length.
+<P>
+<P>Example:
+<PRE>
+    &lt;H2>NAME&lt;/H2>
+
+    &lt;P>
+    &lt;B>%name&lt;/B> - %description
+    &lt;/P>
+
+</PRE>
+<P>
+<B>SYNOPSIS section</B><A NAME="SYNOPSIS">
+<P>
+This section specifies how the function is invoked within an
+IPW program.  It is tagged as pre-formatted text.
+<P>
+Any header files that must be included are listed first.  Next
+comes the function's prototype with the function's type and name
+on separate lines.  Each argument for the function is also on
+a separate line indented 5 spaces.  A brief comment should
+describe each argument including its units of measure.
+<P>
+Remember not to use tabs in the pre-formatted text.
+<P>
+<P>Example:
+<PRE>
+    &lt;H2>SYNOPSIS&lt;/H2>
+
+    &lt;PRE>
+    #include "ipw.h"
+    #include "snow.h"
+
+    double
+    %name(
+         double  rho,    /* snow layer's density (kg/m^3)             */
+         double  tsno,   /* snow layer's temperature (K)              */
+         double  tg,     /* soil temperature (K)                      */
+         double  ds,     /* snow layer's thickness (m)                */
+         double  dg,     /* dpeth of soil temperature measurement (m) */
+         double  pa)     /* air pressure (Pa)                         */
+    &lt;/PRE>
+
+</PRE>
+<P>If the function has no arguments, then place the <SAMP>"void)"</SAMP>
+on the same line as the function's name.
+<P>
+<P>Example:
+<PRE>
+    &lt;PRE>
+    #include "ipw.h"
+    #include "bih.h"
+
+    char *
+    %name(void)
+    &lt;/PRE>
+
+</PRE>
+<P>If the function has output arguments (i.e., arguments which
+are used to return additional values), they appear last in the
+argument list, and are clearly marked as such.
+
+<P>Example:
+<PRE>
+    &lt;PRE>
+    #include "ipw.h"
+
+    void
+    %name(
+         int    total_secs,   /* total time as seconds */
+
+      /* outputs */
+
+         int  * hrs,          /* 0 - ...               */
+         int  * mins,         /* 1 - 59                */
+         int  * secs)         /* 1 - 59                */
+    &lt;/PRE>
+
+</PRE>
+<P>
+<B>DESCRIPTION section</B><A NAME="DESCRIPTION">
+<P>
+This section describes what the function does.  Each paragraph
+should be preceeded by a paragraph tag <SAMP>"&lt;P>"</SAMP>.  The names of
+arguments should be itacilized.
+
+<P>Example:
+<PRE>
+    &lt;H2>DESCRIPTION&lt;/H2>
+
+    &lt;P>
+    &lt;B>%name&lt;/B> calculates the sun angle (the azimuth and zenith
+    angles of the sun's position) for a given geodetic location
+    (specified by &lt;I>latitude&lt;/I> and &lt;I>longitude&lt;/I>) and a given
+    date and time (specified by &lt;I>datetime&lt;/I>). 
+
+</PRE>
+<P>Information in columns like tables should be specified as
+PRE-formatted text.
+
+<P>Example:
+<PRE>
+    &lt;P>
+    &lt;B>%name&lt;/B> reads the given projection definition file, writes the
+    contents into a projdef struct, and returns a pointer to the
+    struct. The projection definition files are ASCII files with
+    the following format: 
+    &lt;PRE>
+        projection ID
+        units code
+        zone code
+        datum code
+        projection parameters (15 values)
+    &lt;/PRE>
+
+</PRE>
+<P>
+<B>RETURN VALUE section</B><A NAME="RETURN VALUE">
+<P>
+This section describes the value returned by the function.
+If the function doesn't return any value (i.e., its type is
+<SAMP>"void"</SAMP>), then this section should simply be <SAMP>"None."</SAMP>.
+
+<P>Example:
+<PRE>
+    &lt;H2>RETURN VALUE&lt;/H2>
+
+    &lt;P>
+    Number of days in the month.
+
+</PRE>
+<P>If there is a small list of possible return values, then
+they are formatted as a definition list.
+
+<P>Example:
+<PRE>
+    &lt;DL>
+
+    &lt;DT>!= NULL
+    &lt;DD>
+    Pointer to new header structure.
+    &lt;/DD>
+
+    &lt;P>
+
+    &lt;DT>NULL
+    &lt;DD>
+    Error occurred; a message explaining it was stored with the
+    "usrerr" function.
+    &lt;/DD>
+
+    &lt;/DL>
+
+</PRE>
+<P>
+<B>HISTORY section</B><A NAME="HISTORY">  (optional)
+<P>
+This optional section lists the changes the function has
+undergone.  Only those changes that affect the function's
+external behavior should be documented.  Any internal changes
+(e.g., restructuring of the source code) should NOT be included
+here, but rather in the function's source code.
+<P>
+The changes are formatted in a definition list in chronological
+order.  The date of each change is a 3-letter abbreviation for
+the month with the 4-digit year.
+
+<P>Example:
+<PRE>
+    &lt;H2>HISTORY &lt;/H2>
+
+    &lt;DL>
+
+    &lt;DT>Dec 1983 
+    &lt;DD>
+    Written by D. Marks, CSL/UCSB. 
+    &lt;/DD>
+
+    &lt;P>
+
+    &lt;DT>Oct 1992 
+    &lt;DD>
+    Converted from QDIPS to IPW by D. Marks, USGS, EPA ERL/C.
+    &lt;/DD>
+
+    &lt;/DL>
+
+</PRE>
+<P>
+<B>SEE ALSO section</B><A NAME="SEE ALSO">  (optional)
+<P>
+This optional section lists related IPW and Unix functions as
+well as any relevant papers and references.  All the functions
+appear in a definition list with the IPW functions preceeding
+the Unix functions.  Each IPW functions should be a link to its
+man page.
+<P>
+To assist in completing this section, there is a pre-defined
+target in the Makefiles for the man pages for library functions
+called <SAMP>"list-of-links"</SAMP>.  This target will print a list of
+the other library functions in the same category as a given
+library function.  The list is printed as HTML text, therefore,
+it can be stored in a file, and then placed into the source
+file for a man page:
+<PRE>
+    make list-of-links > temp
+    <I>edit the source file</I> "foo.man" <I>and read in the file</I> "temp"
+</PRE><P>
+<P>Example:
+<PRE>
+    &lt;H2>SEE ALSO&lt;/H2>
+
+    &lt;DL>
+
+    &lt;DT>IPW:
+    &lt;DD>
+    &lt;A HREF="mwgamma.html">mwgamma()&lt;/A>,
+    &lt;A HREF="twostream.html">twostream()&lt;/A>
+    &lt;/DD>
+
+    &lt;P>
+
+    &lt;DT>Unix:
+    &lt;DD>
+    fread(), fwrite()
+    &lt;/DD>
+
+    &lt;/DL>
+
+</PRE>
+<P>Relevant papers and references are then listed in alphabetical
+order.  Each item should formatted as a separate paragraph
+following standard bibliographic notation.
+
+<P>Example:
+<PRE>
+    &lt;P>
+    Brutsaert, W., 1975. On a derivable formula for long-wave
+    radiation from clear skies.  &lt;I>Water Resources Research&lt;/I>,
+    vol. 11, no. 5, pp 742-744. 
+    &lt;P>
+    Marks, D., and J. Dozier, and R.E. Davis, 1979. A clear-sky
+    longwave radiation model for remote alpine areas. &lt;I>Archiv
+    fur Meteorologie, Geophysik und Bioklimatologie, Series B&lt;/I>,
+    vol. 27, no. 23, pp. 159-187. 
+
+</PRE>
+<P>If two or more functions share the references, one alternative
+is to place all the references into a separate bibliography
+document, and simply include a list of citations as links into
+this document.
+<P>
+The IPW software uses this approach.  The convention for naming
+anchors in the bibliography is the first author's last name
+followed by the year.  If there are two or more references by
+an author in the same year, a suffix of a single lowercase
+letter is used to distinguish between them.
+
+<P>Example:
+<PRE>
+    &lt;P>
+    &lt;A HREF="../../bib.html#Brutsaert 1975">Brutsaert 1975&lt;/A>,
+    &lt;A HREF="../../bib.html#Marks 1979">Marks 1979&lt;/A>
+
+</PRE>
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../../intro.html">IPW documentation</A>  /
+Last revised 29 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

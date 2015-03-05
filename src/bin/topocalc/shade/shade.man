@@ -1,0 +1,151 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-z</B> <I>zenith</I> ] [ <B>-u</B> <I>cos</I> ] <B>-a</B> <I>azimuth</I> [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads a 2-band slope and aspect image (the output from
+the IPW gradient command) from <I>image</I> (default: standard input),
+and writes an image of local illumination cosines (relative to
+a specified solar position) to the standard output.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-z</B> <I>zenith</I>
+<DD>
+The solar zenith angle is <I>zenith</I> (0 .. 90) degrees.
+</DD>
+
+<P>
+<DT><B>-u</B> <I>cos</I>
+<DD>
+The cosine of the solar zenith angle is <I>cos</I> (0 .. 1).
+</DD>
+</DL>
+
+<P>At least on of <B>-z</b> or <B>-u</b> must be specified.  If both are specified,
+
+<P>then <B>-z</b> is ignored.
+</P>
+
+<DL>
+<DT><B>-a</B> <I>azimuth</I>
+<DD>
+The solar azimuth is <I>azimuth</I> degrees (-180 .. 180) counter-
+clockwise from south (positive east, negative west).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image	input 2-band gradient (slope, aspect) image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To produce a nice-looking shaded-relief map from a DEM (i.e.,
+one with the sun in the cartographically traditional, but, for
+the northern hemisphere, physically impossible position of 45
+degrees above the northwest horizon):
+</P><PRE>
+	gradient elev_image | shade -z 45 -a -135
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>input file has no LQH
+</DT>
+<DD><BR>	An &quot;lq&quot; header is necessary to convert the quantized
+	slopes and aspects to their actual values.
+</DD>
+
+<P>
+<DT>band 0 of input not slope
+</DT>
+<DD><BR>	The range of floating-point values in band 0 is
+	inappropriate for quantized slopes.  <B>%name</B> will continue
+	executing, but the output values will almost certainly
+	be incorrect.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1990</DT>
+<DD>
+	Changed <B>%name</B>[s][a] calculation to prevent rounding.
+Kelly Longley, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+	Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="gradient.html">gradient</A></B>,
+<B><A href="ggradient.html">ggradient</A></B>,
+<B><A href="gshade.html">gshade</A></B>
+</DD>
+</DL>
+<P>Frew, J., 1990.  The Image Processing Workbench.  Ph.D. Thesis,
+	Department of Geography, University of California, Santa
+	Barbara, CA, 382pp.
+</P>
+<P>Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain
+	parameters for radiation modeling from digital elevation
+	data.  IEEE Transactions on Geoscience and Remote Sensing,
+	vol. 28, no. 5, pp 963-969.
+</P>
+

@@ -1,0 +1,489 @@
+NAME
+	isnobal - DEM  Grid-based  2-layer  spatially  distributed
+	energy balance snowmelt model
+
+SYNOPSIS
+	isnobal -t data-tstep[,norm-tstep[,med-tstep[,sm-tstep]]]
+	     [ -r restart-index ] [ -n #steps ] [ -I init-image ]
+	     [ -i input-prefix ] [ -p prfile ] [ -m mask ]
+	     [ -O output-frequency ] [ -e em_prefix ]
+	     [ -s snow_prefix ] [ -U ] [ -K ] [ -M max-h2o ]
+	     [ -C [compress_cmd] ]
+	     [ -T norm-threshold[,med-threshold[,sm-threshold]] ]
+
+
+DESCRIPTION
+	DEM grid-based model using the energy balance to calculate
+	snowmelt, and to predict runoff, from input data on snow
+	properties, terrain and region characteristics, precipitation,
+	and climate.  Similar to the approach used by Anderson
+	(1976), and Morris (1982), but designed to run on simpler,
+	more generalizable inputs.  The model was first presented by
+	Marks (1988), described conceptually by Marks, et. al (1992)
+	and Marks and Dozier (1992), and then described in great
+	detail by Marks, et. al (1997).
+
+	The model approximates the snow cover as being composed of
+	two layers, a surface fixed-thickness active layer and a
+	lower layer, solving for the temperature (C) and specific
+	mass (kg/m^2) which is the mass per unit area (from density
+	* depth (kg/m^3 * m)) for each layer, and then computing the
+	temperature and specific mass for the snowcover.
+
+	Melt is computed in either layer when the accumulated energy
+	exceeds the "cold content" or when the "cold content" is >
+	0.0.  Cold content is the energy required to bring the snow
+	cover temperature up to freezing (0 C).  Runoff is estimated
+	when the accumulated melt and liquid H2O content exceeds a
+	user-defined threshold.
+
+	This version of the model is a simplification of the point
+	version, snobal, designed to run over a DEM grid or image of
+	10^4 to 10^6 cells.  It has been successfully tested over
+	the Emerald Lake basin in the Sierra Nevada (5m DEM, 5x10^4
+	grid cells), the Boise River basin in Idaho (250m DEM,
+	3.5x10^4 grid cells), and the Park City drainage in the
+	Wasatch Mts. of Utah (75m DEM, 8.2x10^4 grid cells) on runs
+	of 2 weeks to 6 months.  The only constraint on the size of
+	the grid is available disk storage, memory, and CPU speed.
+	(A 6 month run over the Park City grid required 500Mb of
+	input files, generated 1500Mb of output, and took 6.5 hours
+	on a SUN Ultra 170E with 256Mb of real memory.)
+
+	Constants, assumed over the grid:
+
+	     max_z_s_0   = 0.25m   Thickness of the active layer
+	     z_u         = 5.0m    Height above the ground of the wind speed measurement
+	     z_T         = 5.0m    Height above the ground of the air temp and vapor
+	                           pressure measurements
+
+	Inputs:
+
+	Input image data are required for initial snowcover and surface
+	conditions, for input climate data at each time-step,
+	and for precipitation events.  Initial condition data are
+	specified only at the beginning of the run.  Precipitation
+	data include an ASCII file specifying the time since the run
+	start for the event and the name of the precipitation file,
+	which contains precipitation mass, % snow, snow density, and
+	precipitation temperature.
+
+	Initial conditions image (7-band):
+
+	     z         =   elevation (m)
+	     z_0       =   roughness length (m)
+	     z_s       =   total snowcover depth (m)
+	     rho       =   average snowcover density (kg/m^3)
+	     T_s_0     =   active snow layer temperature (C)
+	     T_s       =   average snowcover temperature (C)
+	     h2o_sat   =   % of liquid H2O saturation (relative
+	                   water content, i.e., ratio of water in
+	                   snowcover to water that snowcover could
+	                   hold at saturation)
+
+	If the -r option (restart), the image has an additional band
+	for the lower snow layer's temperature, T_s_l, (8-bands):
+
+	     z         =   elevation (m)
+	     z_0       =   roughness length (m)
+	     z_s       =   total snowcover depth (m)
+	     rho       =   average snowcover density (kg/m^3)
+	     T_s_0     =   active snow layer temperature (C)
+	     T_s_l     =   temperature of the snowpack's lower
+	                   layer (C)
+	     T_s       =   average snowcover temperature (C)
+	     h2o_sat   =   % of liquid H2O saturation (relative
+	                   water content, i.e., ratio of water in
+	                   snowcover to water that snowcover could
+	                   hold at saturation)
+
+	Precipitation data is defined by an ASCII description file
+	that includes one line per precipitation event, where each
+	line has the format:
+
+
+	   time_since_run_start (decimal hrs.)   name_of_precip_image
+
+	where the first entry must be >= start time.
+
+	Precipitation image (4-band):
+
+	     m_pp       =   total precipitation mass (kg/m^2)
+	     %_snow     =   % of precipitation mass that was snow (0 to 1.0)
+	     rho_snow   =   density of snowfall (kg/m^3)
+	     T_pp       =   average precip. temperature (C) (from dew point
+	                    temperature if available, or can be estimated
+	                    from air temperature during storm, or minimum
+	                    daily temperature)
+
+	Like the point model, the DEM-based model will parse mixed
+	rain/snow events.  It is designed to accept inputs that
+	could be derived from typical NRCS Snotel data such as total
+	precipitation, snow mass increase, and temperature.  The
+	user must estimate average density and percent snow if depth
+	data are unavailable.  The model makes the following assumptions
+	about the snow temperature, rain temperature, and
+	liquid water saturation of the snow:
+
+	     when 0.0 < %_snow < 1.0, (a mixed rain/snow event)
+	          snow temperature = 0.0
+	          rain temperature = T_pp
+	          liquid H2O sat.  = 100%
+
+	     when %_snow = 1.0 and T_pp => 0.0, (a warm snow-only event)
+	          snow temperature = 0.0
+	          liquid H2O sat.  = 100%
+
+	     when %_snow = 1.0 and T_pp < 0.0, (a cold snow event)
+	          snow temperature = T_pp
+	          liquid H2O sat.  = 0%
+
+	Input images with climate parameters are required for each
+	time-step to drive the model.  These 5- or 6-band images
+	must have a common prefix, and a suffix that indicates the
+	relative order of the inputs numerically (e.g.,
+	"input_prefix.N", where "N" is the time-step index).  The
+	first value of "N" should always be zero (0), and the last
+	should always be (1 - #_inputs).  "N" should be padded with
+	zeros so that every value of "N" has the same number of
+	digits as the last value of "N".  For example, if there are
+	1200 input files, then "N" will always have 4 digits (e.g.,
+	input_prefix.0000, input_prefix.0001, ...,
+	input_prefix.1199).
+
+	Input image (6-band):
+
+	     I_lw   =   incoming thermal (long-wave) radiation (W/m^2)
+	     T_a    =   air temperature (C)
+	     e_a    =   vapor pressure (Pa)
+	     u      =   wind speed (m/sec)
+	     T_g    =   soil temperature at 0.5 m depth (C)
+	     S_n    =   net solar radiation (W/m^2)
+
+	If there is no solar radiation (the sun is "down"), the last
+	band may be omitted.
+
+	Time-steps (data time-step and run time-steps):
+
+	The "data time-step" is the time interval, in minutes,
+	between the input images.  The model assumes that this
+	interval is constant.  Because the snowcover energy balance
+	is very sensitive to diurnal variations in climate (radiation,
+	temperature, etc.), the "data time-step" must be 360
+	minutes (6 hours) or less.  Best results are achieved with a
+	data time-step of 180 minutes (3 hours) or less.  Data
+	time-steps greater than 60 minutes must be multiples of
+	whole hours (e.g., 120 minutes, or 180 minutes).
+
+	A "run time-step" is the internal time-step that the model
+	actually solves the energy balance over.  Because input
+	values are assumed to be averages over a run time-step, it
+	is always 60 minutes (1 hour) or less to insure a stable
+	model solution.  Solution instabilities occur when the run
+	time-step is too long to account for rapid changes in the
+	energy balance (e.g., at sun rise or sunset), or when a
+	layer's mass is too small to accommodate the assumption of
+	an average flux over the run time-step.
+
+	There are 3 lengths of run time-steps: "normal, medium, and
+	small".  By default, the model uses the normal run time-step
+	which is the longest of the three run time-steps.  The normal
+	time-step must divide evenly into the data time-step
+	(i.e., the data time-step is an integer multiple of the normal
+	run time-step).  The input data for a normal run time-
+	step (climate data and some precipitation values) are computed
+	from the input records by linear interpolation.
+
+	The shorter run time-steps (medium and small) are to insure
+	solution stability, and are only used as a layer's mass
+	diminishes to the user defined threshold.  When either
+	layer's mass drops below the specified threshold, the model
+	divides a larger run time-step into shorter run time-steps
+	(e.g., divides a normal run time-step into medium run time-
+	steps).  There are three mass thresholds; one for each run
+	time-step: normal, medium, and small.  When a layer's mass
+	falls below the threshold for the the small run time-step,
+	the model removes the layer.
+
+	Just as the normal run time-step divides evenly into the
+	data time-step, each of the two shorter run time-steps must
+	divide evenly into the next larger run time-step (medium
+	into normal, small into medium).  And like the normal time-
+	steps, the input data for medium and small time-steps are
+	linearly interpolated from the input records.
+
+	Because the mass thresholds will be reached at different
+	times over the DEM grid, the model solution of the energy
+	balance at a given time-step may require different run
+	time-steps over the grid.  This improves model efficiency,
+	requiring additional iterations only for those grid cells
+	where the mass is below a critical threshold.
+
+	Outputs:
+
+	The model writes a pair of output images at the end of the
+	model run, unless the output frequency option (-O) is specified.
+	Output images are a 10-band energy and mass flux
+	image, and a 9-band snow condition image.  If the "-O"
+	option is specified, a pair of output images can be generated
+	at a frequency up to one per input image.  Typically,
+	however, output is generated at a lower frequency than
+	input.  For example if input data time-step is 3 hrs (180
+	min), and a daily output is required, then the output frequency
+	is set at "8" (1 pair of output images for every 8
+	input images).
+
+	Energy & mass flux image (10-band):
+
+	     R_n          =   average net all-wave rad (W/m^2)
+	     H            =   average sensible heat transfer (W/m^2)
+	     L_v_E        =   average latent heat exchange (W/m^2)
+	     G            =   average snow/soil heat exchange (W/m^2)
+	     M            =   average advected heat from precip. (W/m^2)
+	     delta_Q      =   average sum of e.b. terms for snowcover (W/m^2)
+	     E_s          =   total evaporation (kg, or mm/m^2)
+	     melt         =   total melt (kg, or mm/m^2)
+	     ro_predict   =   total predicted runoff (kg, or mm/m^2)
+	     cc_s         =   snowcover cold content (energy required to
+	                      bring snowpack's temperature to 273.16K)
+	                      (J/m^2)
+
+	Note:  The averages are mean values since the last energy &
+	mass output image; totals are since the last energy & mass
+	output image; If the "-O" option is not set, averages and
+	totals are for the entire run.
+
+	Snow conditions image (9-band):
+
+	     z_s       =   predicted depth of snowcover (m)
+	     rho       =   predicted average snow density (kg/m^3)
+	     m_s       =   predicted specific mass of snowcover (kg/m^2)
+	     h2o       =   predicted liquid H2O in snowcover (kg/m^2)
+	     T_s_0     =   predicted temperature of surface layer (C)
+	     T_s_l     =   predicted temperature of lower layer (C)
+	     T_s       =   predicted average temp of snowcover (C)
+	     z_s_l     =   predicted lower layer depth (m)
+	     h2o_sat   =   predicted % liquid h2o saturation
+
+OPTIONS
+	-t data-tstep[,norm-tstep[,med-tstep[,sm-tstep]]]
+
+	     data-tstep is time step for the input images (minutes).
+	     If more than 60 minutes (1 hour), than it must a multiple
+	     of 60 minutes, e.g., 120 minutes (2 hrs), 180 min
+	     (3 hrs), etc.  Maximum is 360 minutes (6 hours).
+
+	     norm-tstep is the normal run time-step.  It must divide
+	     the data time-step evenly (default: 60 min or the data
+	     time-step, whichever is smaller).
+
+	     med-tstep is the medium run time-step.  It must divide
+	     the normal run time-step evenly (default: 15 min or the
+	     normal time-step, whichever is smaller).
+
+	     sm-tstep is the small run time-step.  It must divide
+	     the medium run time-step evenly (default: 1 min).
+
+
+	-T norm-threshold[,med-threshold[,sm-threshold]]
+
+	     If a layers mass is below norm-threshold, the model
+	     divides each normal run time-step into medium run
+	     time-steps (default 60 kg/m^2).
+
+	     If a layers mass is below med-threshold, the model
+	     divides each medium run time-step into small run time-
+	     steps (default 10 kg/m^2).
+
+	     If a layers mass is below sm-threshold, the model considers
+	     the layer non-existent, i.e., it removes the
+	     layer (default 1 kg/m^2).
+
+	-r restart_index
+
+	     The model is being restarted with restart_index as the
+	     step index of the first time-step.  This index must be
+	     > 0 (default: the index of the first time-step is 0).
+
+	-n #steps
+
+	     Number of time steps for the model to run (default: 1).
+
+	-I image
+
+	     Initial conditions image.  If the -r option is not
+	     present, this image has 7 bands.  If the -r option is
+	     present, the image has additional 8th band which specifies
+	     the temperature of the snowpack's lower layer.
+
+	-i image_prefix
+
+	     Input image prefix; each input image has 5 or 6 bands;
+	     if the sun is down, the sixth band is omitted.
+
+	-p pr_file
+
+	     The ASCII text precipitation input definition file
+	     defining the event time and the name of the 4-band
+	     precipitation image.
+
+	-m mask
+
+	     Mask image defining the grid cells over which the model
+	     will be run.
+
+	-O out-frequency
+
+	     The frequency at which output images are generated
+	     relative to the frequency of inputs.  (default: two
+	     output images (1 energy/mass and 1 snow properties) at
+	     the end of the run).
+
+	-e em_prefix
+
+	     The 10-band energy/mass output images are called
+	     "em_prefix.N" where N is N is the index of the current
+	     time-step.  N is padded with zeroes like the suffixes
+	     for the input images (see -i option).
+
+	-s snow_prefix
+
+	     The 9-band snow-conditions output images are called
+	     "snow_prefix.N" where N is N is the index of the
+	     current time-step.  N is padded with zeroes like the
+	     suffixes for the input images (see -i option).
+
+	-U    The units field of each input images LQ headers are
+	     checked to make sure the proper units are being used.
+	     A units mismatch causes a warning to be issued.
+	     (Default: no units checking).
+
+	-M max-h2o
+
+	     The snowcover's maximum liquid H2O content as a volume
+	     ratio: V_water/(V_snow - V_ice); used to predict runoff
+	     (default: 0.01).
+
+	-C [compress_cmd]
+
+	     Forces compression of output images; compress_cmd can
+	     be specified to force use of a specific compression
+	     command.  If compress_cmd is not specified, then the
+	     model uses "gzip" (default: output images are not
+	     compressed).
+
+FILES
+	TMPDIR/isnobal*     (temporary image files)
+
+HISTORY
+	     Sep 1990       Modified D. Marks point model (QDIPS program
+	                       snobal) to run over IPW image, by Kelly Longley,
+	                       Oregon State University, Environmental
+	                       Research Laboratory, Corvallis
+	     September, 1990   Now loops on time steps (with temp file) and
+	                       handles precip, by K. Longley, OSU, EPA ERL-C
+	     October, 1990     Added intermediate outputs and restart mode -
+	                       All works!  by K. Longley, OSU, EPA ERL-C
+	     November, 1990    Output image contains averages and/or totals;
+	                       restart image now needs 24 bands, by K. Longley
+	                       OSU, EPA ERL-C
+	     November, 1990    Sped up by making temp file have variable
+	                       length lines (no data for masked points), by
+	                       K. Longley, OSU, EPA ERL-C
+	     December, 1990    Averages outputs since last output instead
+	                       over entire run, by K. Longley, OSU, EPA
+	                       ERL-C
+	     July, 1996        Modified program structure to use library of
+	                       routines shared with 'snobal' program.
+	                       Renamed options for consistency with 'snobal'.
+	                       Added -U and -M options.  J. Domingo,
+	                       OSU.
+	     January, 1997     The suffixes for the input images now have a
+	                       fixed number of digits (e.g., snow.001,
+	                       snow.002, ..., snow.010 instead of snow.1,
+	                       snow.2, ..., snow.10) J. Domingo, OSU
+	     April, 1997       Updated snobal library to limit snow density
+	                       to 750 kg/m3.  Minor corrections to this man
+	                       page.  Fixed bug so that h2o_sat is written
+	                       into the temporary image between timesteps.
+	                       Snow temperatures where there's no snow are
+	                       set to a minimum snow temperature (-75 C)
+	                       instead of 0 K (= -273.16) to yield smaller
+	                       quantization ranges in snow output images.
+	                       J. Domingo, OSU
+	     May, 1997         Updated snobal library: when snowcover's mass
+	                       falls below the small timestep's threshold,
+	                       it now becomes runoff (instead of being
+	                       tossed away); and, fixed bug so that turbulent
+	                       transfer calculations use difference
+	                       between snowcover height and measurement
+	                       heights.  Isnobal now checks to make sure
+	                       prefixes for both types of output images are
+	                       different (-e and -s options).  J. Domingo,
+	                       OSU
+
+
+SEE ALSO
+	IPW:	advec, albedo, elevrad, glob.alb, gsnow, gradient,
+		horizon, refdx, shade,
+		stoporad, solar, selevrad, sunlight, thermin,
+		tcloud, toporad, toporad.24,
+		topquad, topotherm, trad, viewf, topotherm,
+		mkprecip, snobal, snowmass, swe,
+		wbal, dewpt, deltaT, deltaz, pott, rh2vp,
+		satvp, sling, surface, surftmp, vptr, zpr
+
+
+	Anderson, E.A., 1976.  A point energy and mass balance model
+	of a snow cover.  NWS Technical Report 19, National
+	Oceanic and Atmospheric Administration, Washington, DC,
+	150p.
+
+	Morris, E.M., 1982. Sensitivity of the European Hydrological
+	System snow models.  In: Hydrological Aspects of Alpine
+	and High-Mountain Areas, J.W. Glen, ed., International
+	Association of Hydrological Sciences, Wallingford, UK,
+	IAHS-AIHS Publication 138, pp 221-231.
+
+	Marks, D., 1988. Climate, Energy Exchange, and Snowmelt in
+	Emerald Lake Watershed, Sierra Nevada.  PhD Thesis,
+	Departments of Geography and Mechanical Engineering,
+	University of California Santa Barbara, CA, 158p.
+
+	Marks, D., J. Dozier, and R.E. Davis, 1992.  Climate and
+	energy exchange at the snow surface in the alpine
+	region of the Sierra Nevada: 1. Meteorological measurements
+	and monitoring.  Water Resources Research, vol.
+	28, no. 11, pp. 3029-3042.
+
+	Marks, D., and J. Dozier, 1992.  Climate and energy exchange
+	at the snow surface in the alpine region of the Sierra
+	Nevada:  2. Snow cover energy balance.  Water Resources
+	Research, vol. 28, no. 11, pp. 3043-3054.
+
+	Garen, D.C., and D. Marks, 1996.  Spatially distributed snow
+	modelling in mountainous regions:  Boise River application.
+	In: HydroGIS `96:  Application of Geographic
+	Information Systems in Hydrology and Water Resources
+	Management, IAHS Publication No. 235, pp. 421-428.
+
+	Van Heeswijk, M., J. Kimball, and D. Marks, 1996.  Simulation
+	of water available for runoff in clearcut forest
+	openings during rain-on-snow events in the western Cascase
+	Range of Oregon and Washington.  USGS Water-
+	Resources Investigations Report 95-4219, Tacoma, Washington, 67pp.
+
+	Marks, D., J. Kimball, and D. Tingey, 1997.  The sensitivity
+	of snowmelt processes to climate conditions and forest
+	cover during rain-n-snow:  A study of the 1996 Pacific
+	Northwest flood.  Submitted to Hydrological Processes).
+
+	Marks, D., J. Domingo, D. Susong, and D. Garen, 1997, A
+	topographically distributed energy balance snowmelt
+	model.  (submitted to Water Resources Research).
+
+	Susong, D., D. Marks, D. Garen, and J. Mason, 1997.  Application
+	of an energy-balance snowmelt model to estimate
+	ground-water recharge in a mountain basin under varying
+	climate conditions.  (submitted to Hydrological
+	Processes).

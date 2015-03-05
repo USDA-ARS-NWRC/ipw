@@ -1,0 +1,300 @@
+<HTML>
+
+
+<HEAD>
+   <TITLE>%IPW(name)</TITLE>
+</HEAD>
+
+<BODY>
+
+<H1 ALIGN=CENTER>%IPW(name) 
+</H1>
+
+<P ALIGN=CENTER>IPW User Command<BR>
+Category - %IPW(category)</P>
+<HR WIDTH="100%">
+
+
+<H2>NAME</H2>
+
+<P><B>%IPW(name)</B> - %IPW(description)</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%IPW(name)</B> <B>-z</B> <I>elev</I> <B>-b</B> <I>band</I>[,...] [ <B>-K</B> ] [ <B>-m</B> <I>mask</I> ]
+     [ <B>-t</B> <I>big-threshold</I>[,<I>medium-threshold</I>[,<I>small-threshold</I>]] ]
+     [ <I>image</I> ]
+</PRE>
+
+<H2>DESCRIPTION </H2>
+
+<P>
+This section describes what the command does.  Each paragraph should be
+surrounded by paragraphs tags: &lt;P&gt; and &lt;/P&gt;.
+</P>
+
+<P>References to the command should use the IPW macro "name", so
+if the command is renamed, the man page will be updated automatically.
+The name of the command should be in boldface, e.g., <B>%IPW(name)</B>.
+</P>
+
+<P>Tables should be specified using PRE-formatted text.  For example,
+the following table shows those characters which must be represented
+by their HTML entity notation in an IPW man page:</P>
+
+<PRE>
+     character            HTML notation
+
+     double quote (&quot;)     &amp;quot;
+     less than (&lt;)        &amp;lt;
+     greater than (&gt;)     &amp;gt;
+     ampersand (&amp;)        &amp;amp;
+</PRE>
+
+<P>A reference to another IPW command should be specified as a link
+to that command's man page, for example,
+<B><A HREF="isample.html">isample</A></B>.
+The link should be in boldface, so that
+the referenced command will stand out in the Unix version of the man
+page.
+</P>
+
+<P>This is an example of some small indented segments of text.  The Unix
+version of this man page will have the text indented as well, but without
+the bullets.
+</P>
+
+<UL>
+<LI>when 0.0 &lt; %_snow &lt; 1.0, (a mixed rain/snow event):</LI>
+
+<UL>
+<LI>snow temperature = 0.0</LI>
+
+<LI>rain temperature = T_pp </LI>
+
+<LI>liquid H2O sat. = 100% </LI>
+</UL>
+</UL>
+
+<UL>
+<LI>when %_snow = 1.0 and T_pp =&gt; 0.0, (a warm snow-only event) </LI>
+
+<UL>
+<LI>snow temperature = 0.0 </LI>
+
+<LI>liquid H2O sat. = 100% </LI>
+</UL>
+</UL>
+
+<UL>
+<LI>when %_snow = 1.0 and T_pp &lt; 0.0, (a cold snow event) </LI>
+
+<UL>
+<LI>snow temperature = T_pp </LI>
+
+<LI>liquid H2O sat. = 0% </LI>
+</UL>
+</UL>
+
+
+<H2>OPTIONS </H2>
+
+<DL>
+<DT><B>-z</B> <I>elev</I></DT>
+
+<DD><I>elev</I> is the elevation of the reference location (m);
+used to compute air pressure.</DD>
+
+<P>
+
+<DT><B>-b</B> <I>band</I>[,...]</DT>
+
+<DD>Perform the calculation on only the specified bands of the input image.
+</DD>
+
+<P>
+
+
+<DT><B>-K</B></DT>
+
+<DD>Accept/output temperatures in degrees K (default: degrees C).</DD>
+
+<P>
+
+<DT><B>-m</B> <I>mask</I></DT>
+<DD>Use <I>mask</I> as a mask image.  Calculations are performed only for
+those points in the input image whose corresponding points in <I>mask</I>
+are not 0.
+</DD>
+
+
+<P>
+
+<DT><B>-t</B> <I>big-threshold</I>[,<I>medium-threshold</I>[,<I>small-threshold</I>]]</DT>
+
+<DD>This is an example of an optional option which must have at least
+one argument: <I>big-threshold</I>.  This description of the option
+should state any default value, e.g., (default: 60 kg/m^2).
+</DD>
+
+<P>If the option has two arguments, the second argument is taken to
+be the <I>medium-threshold</I> (default 10 kg/m^2). </P>
+
+<P>If the option has three arguments, the third argument is taken to
+be the <I>small-threshold</I> (default 1 kg/m^2).
+</P>
+
+</DL>
+
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I></DT>
+
+<DD>Use <I>image</I> as the input image (default: standard input).
+</DD>
+</DL>
+
+
+<H2>EXAMPLES</H2>
+
+<P>This section should include examples of how the command is used.  The
+actual command-line that would be typed in by the user for the example
+should be PRE-formatted text.</P>
+
+<P>Here is an EXAMPLES section based on the IPW command 'primg':
+</P>
+
+<P>To interactively examine pixel values in <I>image</I>, type:
+</P>
+
+<PRE>
+     primg -i <I>image</I>
+</PRE>
+
+<P>then type the pixel coordinates on the standard input (but note
+that the coordinates must be typed in increasing line order).</P>
+ 
+<P>If the text file "basin" contains the (line,sample) coordinates of
+the corners of a drainage basin in the DEM image "dem", and <I>line</I>,
+<I>samp</I> are the coordinates of an arbitrary point within the drainage
+basin, then:</P>
+ 
+<PRE>
+     poly -s <I>line</I>,<I>samp</I> basin | primg -i dem
+</PRE>
+
+<P>will print all of the pixel values in the image "dem" that lie
+within the drainage basin.</P>
+
+
+<H2>FILES</H2>
+
+<PRE>
+     $(IPW)/aux/proj/std          Standard geographic projections
+     $(HOME)/ipw/foo.config       User's configuration file for
+                                    Foo modeling
+</PRE>
+
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT>elevation below sea level: <I>elev</I></DT>
+<DD><BR>
+The elevation <I>elev</I> must be 0 or positive.
+</DD>
+
+<P>
+
+<DT>medium threshold (<I>#</I>) exceeds big threshold (<I>#</I>)</DT>
+<DD><BR>
+The <I>medium-threshold</I> must be equal to or smaller than the
+<I>big-threshold</I>.
+</DD>
+
+<P>
+
+<DT>small threshold (<I>#</I>) exceeds medium threshold (<I>#</I>)</DT>
+<DD><BR>
+The <I>small-threshold</I> must be equal to or smaller than the
+<I>medium-threshold</I>.
+</DD>
+
+</DL>
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>None.</P>
+
+
+<H2>HISTORY </H2>
+
+<DL>
+<DT>Aug 1984</DT>
+
+<DD>Written by J. Doe, UCSB</DD>
+
+<P>
+
+<DT>Jun 1987</DT>
+
+<DD>Added the <B>-K</B> option.  Z. Smith, USGS</DD>
+
+<P>
+
+<DT>Feb 1996</DT>
+
+<DD>Increased the number of thresholds from two to three to improve
+model stability over small temperature variations.  K. Brown, OSU</DD>
+</DL>
+
+
+<H2>BUGS</H2>
+
+<P>None. </P>
+
+
+<H2>SEE ALSO </H2>
+
+
+<DL>
+<DT>IPW:</DT> 
+<DD>
+<B><A HREF="advec.html">advec</A></B>,
+<B><A HREF="deltaT.html">deltaT</A></B>,
+<B><A HREF="gradient.html">gradient</A></B>,
+<B><A HREF="zpr.html">zpr</A></B>
+</DD>
+</DL>
+
+
+<DL>
+<DT>Unix:</DT>
+<DD>diff, grep
+</DD>
+</DL>
+
+
+<P>Doe, J.A., 1976. A simplied approach to the standard foobar equations.
+<I>XYZ Technical Report 19</I>, Regional Climatic Research Institute,
+Cascadia, TI, 150p. </P>
+
+<P>Garen, D.C., and D. Marks, 1996. Spatially distributed snow modelling
+in mountainous regions: Boise River application. In: <I>HydroGIS `96:
+Application of Geographic Information Systems in Hydrology and Water
+Resources Management</I>, IAHS Publication No. 235, pp. 421-428. </P>
+
+<P>Morris, E.M., 1982. Sensitivity of the European Hydrological System
+snow models. In: <I>Hydrological Aspects of Alpine and High-Mountain Areas</I>,
+J.W. Glen, ed., International Association of Hydrological Sciences, Wallingford,
+UK, IAHS-AIHS Publication 138, pp 221-231. </P>
+
+
+</BODY>
+</HTML>

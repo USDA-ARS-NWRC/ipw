@@ -1,0 +1,35 @@
+.TH "ssxfr" "3" "10 April 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBssxfr\fP - steady state heat transfer between 2 layers
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+#include "envphys.h"
+
+double
+ssxfr(
+     double  k1,   /* layer 1's thermal conductivity (J / (m K sec)) */
+     double  k2,   /* layer 2's    "         "                       */
+     double  t1,   /* layer 1's average layer temperature (K)        */
+     double  t2,   /* layer 2's    "      "        "                 */
+     double  d1,   /* layer 1's thickness (m)                        */
+     double  d2)   /* layer 2's    "       "                         */
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+ssxfr calculates the steady state heat transfer between two layers.
+.SH RETURN VALUE
+.PP
+heat transfer between layers (W/m^2)
+.SH HISTORY
+.TP
+Jul 1984
+Written for QDIPS by D. Marks, CSL (GSFC), UCSB;
+.sp
+.TP
+May 1995
+Ported to IPW.  J. Domingo, OSU

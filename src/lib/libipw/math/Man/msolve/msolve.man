@@ -1,0 +1,44 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+void
+msolve(
+     double  **A,   /* n-by-n matrix of coefficients    */
+     double   *x,   /* output: answers for n variables  */
+     double   *b,   /* n-by-1 matrix of constant values */
+     long      n)   /* # of linear equations            */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> solves a set of linear equations using matrices.  The
+set contains <I>n</I> linear equations for <I>n</I> variables.  The set
+represents the linear system <I>Ax</I> = <I>b</I>.  This function solves this
+system by Gaussian elimination and then back-substitution.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Jan 1992</DT>
+<DD>
+Written by Dana Jacobsen, EPA ERL-C
+</DD>
+
+</DL>
+
+

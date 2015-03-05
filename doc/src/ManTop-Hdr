@@ -1,0 +1,14 @@
+<HTML>
+
+<HEAD>
+ <TITLE>IPW: %description</TITLE>
+</HEAD>
+
+<BODY>
+
+<H1 ALIGN=CENTER>%name</H1>
+
+<P ALIGN=CENTER>%Description in IPW</P>
+
+<HR WIDTH="100%">
+

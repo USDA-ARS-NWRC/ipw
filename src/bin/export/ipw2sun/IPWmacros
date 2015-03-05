@@ -1,0 +1,3 @@
+%define(name,"ipw2sun")
+%define(description,"convert IPW image to Sun rasterfile")
+%define(category,"Exporting IPW Image Data")

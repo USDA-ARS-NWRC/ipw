@@ -1,0 +1,89 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>IPW Design Goal - Portability</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../images/usda.gif" alt="USDA">
+<IMG SRC="../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>IPW Design Goal - Portability</H1>
+
+
+<P>
+Scientific computing is in a continual state of flux, especially in an academic
+environment, where new hardware is often available at deep discounts. To
+take maximum advantage of the available computing power, it is essential
+that commonly-used software be easily ported to new environments. Moreover,
+the data must also be portable, especially in a network of heterogeneous
+machines. Finally, investigators using the software and data must be able to
+move between these environments without retraining.
+<P>
+
+<B>Code portability</B>
+<P>
+IPW has been implemented from the beginning with portability in mind. This has
+been achieved both by a comprehensive coding standard (see Appendix A), and
+by careful specification of a generic target C and UNIX environment.
+<P>
+
+Two strategies were used to address this goal in <B>IPW version 2</B>. First, standards were identified for both the UNIX and C environments:
+
+<UL>
+  <LI><A HREF="http://www.UNIX-systems.org/">Open Group's Single
+      Unix Specification</A></LI>
+  <LI>ISO's C standard (technically identical to ANSI's C standard) </LI>
+</UL>
+
+<P>Second, the dependency of IPW on other specific software packages was
+minimized. IPW would require other software packages only if they provided
+necessary functionality that was not available otherwise. To maximize
+portability of IPW, these software packages would have to be available on
+many common UNIX platforms.  To see what software packages IPW currently
+requires, please consult the
+<A HREF=" https://www.nmepscor.org/trac/IPW/wiki/SystemRequirements">System Requirements</A>.
+<P>
+
+<B>Data portability</B>
+<P>
+The ability to run IPW on heterogeneous hardware would be seriously
+compromised if IPW image data could not be moved from one machine to
+another of different architecture. IPW handles this by using only ASCII or
+unsigned binary integer data, and by transparently adjusting the byte order
+of multi-byte integers. All ancillary data in IPW images are stored in ASCII,
+and all pixel data are stored as (possibly multi-byte) unsigned integers.
+All IPW images contain a datum identifying the byte ordering of the
+machine on which they were created, and the IPW I/O routines transparently
+adjust the byte order if it differs from that of the machine on which the
+image is being read.
+
+<p>
+
+<B>Investigator portability</B>
+<P>
+The user, programmer, and maintainer interfaces to IPW a re identical across
+all IPW hosts. This frees investigators from having to shift gears when they
+use IPW on a variety of hardware platforms. Such i investigator portability,
+often overlooked in favor of exploiting unique features of particular
+environments, is essential if IPW is to be usable in a heterogeneous
+computing environment.
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 29 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

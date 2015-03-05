@@ -1,0 +1,3 @@
+%define(name,"twostream")
+%define(description,"two-stream radiative transfer model of a homogeneous layer")
+%define(category,"Radiation Modeling: Point")

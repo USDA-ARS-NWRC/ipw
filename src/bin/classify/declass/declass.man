@@ -1,0 +1,109 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-h</B> <I>lqh</I> ] [ <B>-b</B> <I>#bits</I>,<I>...</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads an IPW image and creates an image whose pixel values
+contain the representative value for the class of the corresponding
+input pixel.  For bands that are not classified (no CRH header), the
+input pixel values are simply copied.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-h</B> <I>lqh</I>
+<DD>
+specify linear quantization header for output image
+
+<P>
+<DT><B>-b</B> <I>#bits</I>,<I>...</I>
+<DD>
+specify #bits in output image (defaults to 8 bits)
+(ignored if <B>-h</b> specified)
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image	input image (defaults to stdin)
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+If a classifed elevation image was created from this class range file:
+</P><PRE>
+	1500 3000 2000
+	3000 5000 3500
+</PRE><P>
+using the command:
+</P><PRE>
+	classify -i cf -c 2 dem &gt;dem.class
+</PRE><P>
+then we can use <B>%name</B> to create an image of 2000's and 3500's, with
+0's in all the unclassified pixels:
+</P><PRE>
+	declass dem.class &gt;dem.rep_val
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jun 1990</DT>
+<DD>
+   Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="classeq.html">classeq</A></B>,
+<B><A href="classify.html">classify</A></B>,
+<B><A href="mkcrh.html">mkcrh</A></B>
+</DD>
+</DL>
+

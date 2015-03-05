@@ -1,0 +1,136 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> makes precipitation images for isnobal(1).  The input
+image is a 2-band image:
+</P><PRE>
+	band 0 = total precipitation mass (kg/m^2)
+	band 1 = precipitation temperature (C)
+</PRE><P>
+<B>%name</B> calculates the precentage of the mass that's snow
+based on the given temperature.  It also determines the snow's
+density.  This is based on the following table:
+</P><PRE>
+	temperature		% snow	snow density
+</PRE><PRE>
+	          T &lt; -5 C	 100%	   75 kg/m^3
+	  -5 C &lt;= T &lt; -3 C	 100%	  100 kg/m^3
+	  -3 C &lt;= T &lt; -1.5 C	 100%	  150 kg/m^3
+	-1.5 C &lt;= T &lt; -0.5 C	 100%	  175 kg/m^3
+	-0.5 C &lt;= T &lt; 0 C	  75%	  200 kg/m^3
+	   0 C &lt;= T &lt; 0.5 C	  25%	  250 kg/m^3
+	 0.5 C &lt;= T        	   0%	    0 kg/m^3
+</PRE><P>
+It is recommended that the dew-point temperature be used to approximate
+the precipitation temperature
+</P>
+<P>
+<B>%name</B> writes a 4-band output image to standard output:
+</P><PRE>
+	band 0 = total precipitation mass (kg/m^2) (= input band 0)
+	band 1 = % of total mass that's snow (0.0 to 1.0)
+	band 2 = snow's density (kg/m^3)
+	band 3 = precipitation temperature (C)	   (= input band 1)
+</PRE><P>
+This output image is the format isnobal expects for its precipitation
+images.
+</P>
+<P>
+Note: <B>%name</B> currently uses fixed quantization max/min ranges
+for all output bands.  This causes quantization problems for band 0
+and band 3 of the output image (input bands 0 and 1). 
+To fix this problem, those output bands have been set to 12 bits.
+The program needs to be re-written to pass the input quantization
+through to the output image.
+</P>
+
+<H2>OPTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>input image:   precip, %_snow, snow_density, precip_temp
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+none
+</P>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Nov 1996</DT>
+<DD>
+Changed # of bits per output band from 16 to 8, J. Domingo, OSU
+</DD>
+</DL>
+
+<DL>
+<DT>Oct 2001</DT>
+<DD>
+Changed quantization range and number of bits (from 8 to 12)
+for output bands 0 and 3 (precip mass and temperature)
+to reduce quantization problems (it seemed like such a
+good idea in 1996...), D. Marks, ARS-NWRC
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="isnobal.html">bowvap</A></B>,
+<B><A href="snobal.html">ipmx</A></B>
+</DD>
+</DL>
+<P>
+<A HREF="../bib.html#Link 1999a">Link & Marks, 1999a</A>,
+<A HREF="../bib.html#Marks 1999a">Marks, Domingo, Susong, Link, & Garen 1999a</A>,
+<A HREF="../bib.html#Marks 2001b">Marks, Link, Winstral, & Garen 1992b</A>
+</P>
+

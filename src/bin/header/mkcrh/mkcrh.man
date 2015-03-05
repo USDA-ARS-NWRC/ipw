@@ -1,0 +1,164 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-c</B> <I>class_file</I> ] [ <B>-l</B> <I>floor</I> ] [ <B>-h</B> <I>ceil</I> ]
+      [ <B>-a</B> <I>annot</I> ] [ <B>-u</B> <I>units</I> ] [ <B>-b</B> <I>band</I>[,<I>...</I>] ] [ <B>-f</B> ]
+      [ <B>-i</B> <I>image</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> constructs a class range (CR) header and appends it to
+the input image.  If the specified bands already have CR headers,
+they are overridden, and a warning message is generated.
+</P><P>
+If the <B>-f</b> option is specified, then only the headers are written to
+the standard output, and any input image data is ignored.
+</P>
+
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-c</B> <I>class_file</I>
+<DD>
+The file containing lo, hi, representative value triples
+for each class.  At least two triples must be supplied.
+(default: stdin)
+</DD>
+
+<P>
+<DT><B>-l</B> <I>floor</I>
+<DD>
+class for all values less than lo of lowest triple (floor)
+</DD>
+
+<P>
+<DT><B>-h</B> <I>ceil</I>
+<DD>
+class for all values greater than hi of lowest triple (ceil)
+</DD>
+
+<P>
+<DT><B>-a</B> <I>annot</I>
+<DD>
+annotation string
+</DD>
+
+<P>
+<DT><B>-u</B> <I>units</I>
+<DD>
+units string
+</DD>
+
+<P>
+<DT><B>-b</B> <I>band</I>[,<I>...</I>]
+<DD>
+bands to which these classes will be applied.  (default: all bands)
+</DD>
+
+<P>
+<DT><B>-f</B> 
+<DD>
+force header output; don't copy input image
+</DD>
+
+<P>
+<DT><B>-i</B> <I>image</I>
+<DD>
+input image (default: stdin).
+</DD>
+</DL>
+
+<P>
+At least one of the <B>-i</B> or <B>-c</B> option must be specified.
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To classify an elevation image into three classes between 100m and 3000m,
+setting everything below 100m to 0, and everything above 3000m to 3000:
+<PRE>
+     class_file =  100 1000  500
+                  1000 2000 1500
+                  2000 3000 2500
+
+     cat class_file | %name -l 0 -h 3000 -i elev_image
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None.
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>May 1990</DT>
+<DD>
+Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+</DD>
+
+<P>
+<DT>Jun 1990</DT>
+<DD>
+Added <B>-l</b> floor, <B>-h</b> ceil and <B>-u</b> units options,
+by K. Longley, OSU, EPA ERL-C
+</DD>
+
+<P>
+<DT>Jul 1990</DT>
+<DD>
+No longer required classes to be sorted, by K. Longley, OSU, EPA ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="classeq.html">classeq</A></B>,
+<B><A href="classify.html">classify</A></B>,
+<B><A href="clmask.html">clmask</A></B>,
+<B><A href="cnhist.html">cnhist</A></B>,
+<B><A href="hist.html">hist</A></B>,
+<B><A href="histeq.html">histeq</A></B>,
+<B><A href="declass.html">declass</A></B>
+</DD>
+</DL>
+

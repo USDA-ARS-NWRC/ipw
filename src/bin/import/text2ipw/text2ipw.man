@@ -1,0 +1,191 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-l</B> <I>nlines</I> <B>-s</B> <I>nsamps</I> [ <B>-b</B> <I>nbands</I> ] [ <B>-n</B> <I>nbits</I>[,<I>...</I>] ]
+      [<I>infile</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads ASCII floating point values from <I>infile</I> (default:
+standard input) and writes an IPW image containing those points to
+the standard output.
+</P><P>
+The data values are read free-format: any amount of white space
+separates each value, any number of values may be on an input line.
+The data values are assumed to be in band-interleaved-by-pixel, row
+by column order.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-l</B> <I>nlines</I>
+<DD>
+The output image will have <I>nlines</I> lines.
+</DD>
+
+<P>
+<DT><B>-s</B> <I>nsamps</I>
+<DD>
+The output image will have <I>nsamps</I> samples.
+</DD>
+
+<P>
+<DT><B>-l</B> <I>nlines</I>
+<DD>
+and <B>-s</b> must always be specified.
+</DD>
+
+<P>
+<DT><B>-b</B> <I>nbands</I>
+<DD>
+The output image will have <I>nbands</I> bands (default: 1).  For
+each sample in the output image, <I>nbands</I> values will be read.
+</DD>
+
+<P>
+<DT><B>-n</B> <I>nbits</I>[,<I>...</I>]
+<DD>
+The output image will have <I>nbits</I> bits for each band
+(default: 8).  If more than one value is given, there must
+be <I>nbands</I> values given.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>infile</I>]</DT>
+
+<DD>	infile
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+If the file &quot;input.dat&quot; contains:
+</P><PRE>
+	0       0.5     2.2     1.3     6.5     12.2
+	21.5    3.5     -1.5    0.1     13.4    -1.9
+</PRE><P>
+then the following command:
+</P><PRE>
+     %name  -l 6  -s 2  input.dat  &gt;image
+</PRE><P>
+creates an image with 6 lines, 2 samples per line where the
+first lines contains samples 0 and 0.5, line 2 contains samples
+2.2 and 1.3, etc.
+</P>
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>input file contains more than %d values - remainder ignored
+</DT>
+<DD><BR>	More data values were given than could fit in <I>nlines</I> by
+	<I>nsamps</I> by <I>nbands</I>.
+</DD>
+
+<P>
+<DT>read past EOF, line <I>line</I>
+</DT>
+<DD><BR>	Not enough data values were given to fill <I>nlines</I> by <I>nsamps</I>
+	by <I>nbands</I>.
+</DD>
+
+<P>
+<DT>must specify #bits for each band or one value for all
+</DT>
+<DD><BR>	If the <B>-n</b> option is used, it must have either one argument,
+	which specified the bits for all bands, or the same number
+	of arguments as bands in the output image as specified by
+	the <B>-b</b> option.
+</DD>
+
+<P>
+<DT>write error - output file likely incomplete
+</DT>
+<DD><BR>	It is likely that the program ran out of temporary space.  By
+	changing the value of your environment variable &quot;TMPDIR&quot; to
+	a directory with more space, it may succeed.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+If a one band image is output, and <I>nlines</I> * <I>nsamps</I> is less than
+1 million, then no temporary file will be used.  This has some
+advantages, but the program will use more memory.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+
+<DT>Jul 1990</DT>
+<DD>
+	Written by Kelly Longley, ERL-C.
+</DD>
+
+<P>
+
+<DT>Aug 1993</DT>
+<DD>
+New routine ffscanf reads in multiple values in one call
+of fscanf for speed improvement.  It also can correctly
+deal with fpixel_t not being a float.
+Dana Jacobsen, ERL-C.
+</DD>
+
+<P>
+
+<DT>May 1996</DT>
+<DD>
+Name changed from &quot;import&quot; to &quot;<B>%name</B>&quot; to avoid
+conflict with ImageMagic (Unix) utility of the same name.
+Danny Marks, USGS/ERL-C.
+</DD>
+
+<DT>Jun 1998
+<DD>
+Name changed from "iimport" for consistency with other IPW commands.
+J.Domingo, OSU
+</DD>
+
+</DL>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="primg.html">primg</A></B>,
+<B><A href="text2bin.html">text2bin</A></B>,
+<B><A href="bin2text.html">bin2text</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Unix</DT>
+<DD>	awk, perl
+</DD>
+</DL>
+

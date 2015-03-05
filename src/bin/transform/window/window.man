@@ -1,0 +1,195 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-b</B> <I>line</I>,<I>samp</I> ] [ <B>-c</B> <I>line</I>,<I>samp</I> ] [ <B>-e</B> <I>line</I>,<I>samp</I> ]
+      [ <B>-n</B> <I>nlines</I>,<I>nsamps</I> ] [ <B>-w</B> <I>band</I> ] [ <B>-g</B> <I>band</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads an image from <I>image</I> (default: standard input) and
+writes a specified <B>%name</B> (subimage) to the standard output.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-b</B> <I>line</I>,<I>samp</I>
+<DD>
+The beginning (upper-left corner) of the <B>%name</B> is
+<I>line</I>,<I>samp</I> (default: beginning of input image).
+</DD>
+
+<P>If only <B>-b</b> is specified, then the <B>%name</B> extends diagonally
+from <I>line</I>,<I>samp</I> to the last sample on the last line of
+the input image.
+</P>
+
+<P>
+<DT><B>-c</B> <I>line</I>,<I>samp</I>
+<DD>
+The center of the <B>%name</B> is <I>line</I>,<I>samp</I>.  The center of
+an even number of lines or samples is the larger of the two
+possible values; e.g., the center line of lines 0..511 is
+256, not 255.
+</DD>
+
+<P>If only <B>-c</b> is specified, then the <B>%name</B> is the largest
+possible odd number of input lines and samples centered
+on <I>line</I>,<I>samp</I>.
+</P>
+
+<P>
+<DT><B>-e</B> <I>line</I>,<I>samp</I>
+<DD>
+the end (lower-right corner) of the <B>%name</B> is <I>line</I>,<I>samp</I>
+(default: end of input image).
+</DD>
+
+<P>If only <B>-e</b> is specified, then the <B>%name</B> extends diagonally
+from the first sample on the first line of the input image
+to <I>line</I>,<I>samp</I>.
+</P>
+
+<P>
+<DT><B>-n</B> <I>nlines</I>,<I>nsamps</I>
+<DD>
+The <B>%name</B> has <I>nlines</I> lines and <I>nsamps</I> samples per
+line (default: remainder of image).
+</DD>
+
+<P>If only <B>-n</b> is specified, then the <B>%name</B> begins at the
+first sample of the first line of the input image.
+</P>
+</DL>
+
+<P>At least one, and no more than two, of <B>-b</b>, <B>-c</b>, <B>-e</b>, and/or <B>-n</b>
+
+<P>must be specified.
+</P>
+
+<DL>
+<DT><B>-w</B> <I>band</I>
+<DD>
+The arguments to <B>-b</b>, <B>-c</b>, and/or <B>-e</b> are specified in the
+coordinates of band <I>band</I>'s <B>%name</B> (&quot;win&quot;) header.
+</DD>
+
+<P>
+<DT><B>-g</B> <I>band</I>
+<DD>
+The arguments to <B>-b</b>, <B>-c</b>, and/or <B>-e</b> are specified in the
+coordinates of band <I>band</I>'s geodetic (&quot;geo&quot;) header.
+</DD>
+</DL>
+
+<P>At most one of <B>-w</b> or <B>-g</b> may be specified.
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To produce a 2x enlargement of the center of a 512x512 image:
+</P><PRE>
+	window -c 256,256 -n 256,256 | zoom -l 2 -s 2
+</PRE><P>
+To extract a 1 km by 1 km <B>%name</B> from a 5-meter DEM, beginning
+at UTM northing 4051800 and easting 349350:
+</P><PRE>
+	window -g 0 -b 4051800,349350 -e 4050805,350345
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     $TMPDIR/windo<I>NNNNN</I>
+     	Temporary copy of all input headers.
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>specified window exceeds boundaries of input image
+</DT>
+<DD><BR>	Windows are not clipped to fit the input image.  The
+	specification must be correct to start with.
+</DD>
+
+<P>
+<DT>no geodetic header for band <I>band</I>
+no window header for band <I>band</I>
+</DT>
+<DD><BR>	<B>-g</b> or <B>-w</b> was specified and there was no corresponding
+	header for the specified input band.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Input &quot;win&quot; and &quot;geo&quot; headers are transformed correctly; other
+input headers are copied verbatim to the output image.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+	Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 2010</DT>
+<DD>
+	Fixed a bug where memory chunk was being freed twice (ticket #21).
+	James Domingo, Green Code LLC
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="mkgeoh.html">mkgeoh</A></B>,
+<B><A href="mkwinh.html">mkwinh</A></B>,
+<B><A href="zoom.html">zoom</A></B>
+</DD>
+</DL>
+<P>Frew, J., 1990.  The Image Processing Workbench.  Ph.D. Thesis,
+	Department of Geography, University of California, Santa
+	Barbara, CA, 382pp.
+</P>
+

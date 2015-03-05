@@ -1,0 +1,124 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <I>image1 image2 ...</I>
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Mux band-interleaves the operand images into a single output image
+that contains all of the input bands and writes the result to the
+standard output. 
+</P>
+<H2>OPTIONS</H2>
+
+<P>None.
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image1 image2 ...</I></DT>
+
+<DD>input images; the operand &quot;-&quot; means the standard input. 
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To combine &quot;red&quot;, &quot;green&quot;, and &quot;blue&quot; images into a single
+&quot;color&quot; image:
+<PRE>
+	mux red green blue  &gt;color
+</PRE>
+<P>
+To multiply &quot;image1&quot; by &quot;image2&quot;:
+<PRE>
+	mux image1 image2  |  mult
+</PRE>
+
+<H2>FILES</H2>
+
+<PRE>
+None.
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>image size differs from 1st image
+</DT>
+<DD>All input images must have the same number of lines and
+samples.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The input images must agree in every dimension except number of
+bands.
+</P><P>
+The maximum number of input images is limited by the number of
+files that a program may have open simultaneously.  This limit is
+set in the C shell by the &quot;limit&quot; command.  Try a command like:
+<PRE>
+	limit descriptors 256
+</PRE><P>
+to get more.  This limit can be worked around by piping one <B>%name</B>
+into another:
+<PRE>
+	mux image1 ... imageN | mux - imageN+1 ...
+</PRE>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+
+<P>
+
+<DT>Apr 1993</DT>
+<DD>
+Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW:</DT>
+<DD><B><A href="demux.html">demux</A></B>
+</DD>
+
+<P>
+
+<DT>UNIX:</DT>
+<DD>limit
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A><BR>
+</P>
+

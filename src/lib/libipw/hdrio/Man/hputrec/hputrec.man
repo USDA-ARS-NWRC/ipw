@@ -1,0 +1,74 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "hdrio.h"
+
+int
+hputrec(
+	int             fd,	    |* output file descriptor	 *|
+	const char     *comment,    |* -> comment string	 *|
+	const char     *key,	    |* -> keyword string	 *|
+	const char     *value)	    |* -> value string		 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> creates a header record and writes it to fd.  If key is
+non-NULL, then a key-value pair is placed in the record, using the key
+string pointed to by key and the value string pointed to by value.  If
+comment is non-NULL, then the string pointed to by comment is written
+as a comment at the end of the record.
+</P><P>
+Hputrec is meant to be called by header-specific output functions.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+OK for success, ERROR for failure
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>header record key+value fields too long
+header record comment field too long
+</DT>
+<DD><BR>	The specified field(s) wouldn't fit in a header record.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+If key is non-NULL, then value must be non-NULL.  If key is NULL,
+then value must be NULL.
+</P>
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

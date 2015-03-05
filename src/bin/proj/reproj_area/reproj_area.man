@@ -1,0 +1,147 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-i</B> <I>inproj</I> <B>-o</B> <I>outproj</I> [<I>mask</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Reproj_area is part of an extensive suite of projection transformation
+tools coded into IPW by Kelly Longley (OSU) at the EPA Laboratory
+in Corvallis, Oregon.  All are based on the libraries from the
+General Cartographic Transformation Package (GCTP), which were converted
+to C from fortran during early 1990 by Ms. Longley.
+</P><P>
+Reproj_area calculates the coordinates in the output projection
+space of the minimum area required to hold all unmasked points in
+the given mask image.  All unmasked points are converted to the new
+map projection using the USGS General Cartographic Transformation
+Package (GCTP) software to determine the minimum bounding rectangle.
+The input and output projection parameters are defined in files
+inproj (<B>-i</b> parameter) and outproj (<B>-o</b> parameter) respectively
+(see below for file format).  The coordinates in the output map
+projection are written in ASCII to stdout in the order:
+</P>
+<PRE>
+	min_easting max_easting min_northing max_northing
+</PRE>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-i</B> <I>inproj</I>
+<DD>
+input projection definition file
+</DD>
+
+<P>
+<DT><B>-o</B> <I>outproj</I>
+<DD>
+output projection definition file
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>mask</I>]</DT>
+
+<DD>	mask	input mask image (default:stdin)
+</DD><P>
+		If all bits are &quot;on&quot; (ie &quot;mask&quot; is not a mask file...) the
+		bounding-box for the entire image is returned.
+</P><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To find the bounding-box for the Columbia River Basin when converting
+from geodetic to Albers projections:
+</P><PRE>
+	reproj_area -i geo.defs -o albers.defs mask.geo.col
+</PRE><P>
+Geo.defs and albers.defs are the projection definition files (see
+mk.proj).
+</P>
+<H2>FILES</H2>
+
+<PRE>
+     The projection definition files are ASCII files with the following
+     format:
+     	projection ID
+     	units code
+     	zone code
+     	datum code
+     	projection parameters (15 values)
+     The files are created by using the program &quot;mk.proj&quot;, but may be
+     created with programs mkgeo, mkalbers, mkutm, mklamcc, etc.  See
+     the USGS documentation for the General Cartographic Transformation
+     Package for details on the parameters.
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Single-band images only
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Sep 1991</DT>
+<DD>
+	Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="mkalbers.html">mkalbers</A></B>,
+<B><A href="mkgeo.html">mkgeo</A></B>,
+<B><A href="mklambert.html">mklambert</A></B>,
+<B><A href="mklamcc.html">mklamcc</A></B>,
+<B><A href="mkproj.html">mkproj</A></B>,
+<B><A href="reproj.html">reproj</A></B>,
+	<B><A href="transcoord.html">transcoord</A></B>
+</DD>
+</DL>
+<P>Evenden, G.I., 1983.  &quot;Forward and inverse cartographic projection
+	procedures&quot;, USGS Open-File Report 83-623, 85 p.
+</P>
+<P>Elassal, A.A., 1987.  &quot;General Cartographic Transformation Package
+	(GCTP), Version II&quot;, NOAA Technical Report NOS 124 CGS 9,
+	24p.
+</P>
+<P>Snyder, J.P., 1987.  &quot;Map projections - A working manual&quot;, USGS
+	Professional Paper 1395, 383 p.
+</P>
+<P>Snyder, J.P., and R.M. Voxland, 1989.  &quot;An album of map projections&quot;,
+	USGS Professional Paper 1453, 249 p.
+</P>
+

@@ -1,0 +1,31 @@
+The graph.plot is not an IPW image.  Instead, it's the output from the Unix
+graph(1) command.  The format of the file is described by the plot(4B) man
+page.  The copy of graph.plot here in this directory was generated on an
+older version of Solaris (< Solaris 9).  The copy of graph.plot in the
+../Outputs/ directory was generated on Solaris 9.  They differ by 4 bytes.
+The ./graph.plot file has 4 extra bytes:
+
+  od -tcxC ./graph.plot
+  0000000    s  \0  \0  \0  \0  \0 020  \0 020   e   l 310  \0 310  \0 240
+             73  00  00  00  00  00  10  00  10  65  6c  c8  00  c8  00  a0
+  0000020  017 310  \0   n 240 017 240 017   n 310  \0 240 017   n 310  \0
+             0f  c8  00  6e  a0  0f  a0  0f  6e  c8  00  a0  0f  6e  c8  00
+  0000040  310  \0   l 273 005 310  \0 273 005 240 017   l 255  \n 310  \0
+             c8  00  6c  bb  05  c8  00  bb  05  a0  0f  6c  ad  0a  c8  00
+  0000060  255  \n 240 017   l 310  \0 273 005 240 017 273 005   l 310  \0
+             ad  0a  a0  0f  6c  c8  00  bb  05  a0  0f  bb  05  6c  c8  00
+  0000100  255  \n 240 017 255  \n   m 310  \0 214  \0   t   0       -   x
+             ad  0a  a0  0f  ad  0a  6d  c8  00  8c  00  74  30  20  2d  78
+  0000120    -       1   5   0   0  \n   t          \n   t   0       -   y
+             2d  20  31  35  30  30  0a  74  20  20  0a  74  30  20  2d  79
+                                    ^^^^^^^         ^^^^^^^
+
+Both occurrences of the 2-character sequence "\nt" have been removed in the
+../Outputs/graph.plot file.  Perhaps due to a change in the graph(1) command,
+but no documentation to that effect could be found.
+
+Although graph.plot is not an IPW image, the pre-Solaris-9 copy of the file
+was placed in this directory to allow the grhist test to pass on the few
+Solaris 8 machines still used by IPW users.  Since Solaris 8 is in Phase 2 of
+its End Of Life (EOL) according to Sun (as of May 29, 2009), this temporary
+work-around will eventually become unnecessary and then can be removed.

@@ -1,0 +1,65 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "hdrio.h"
+
+int
+hwprmb(
+	int             fd,	   |* output file descriptor	 *|
+	const char     *name,	   |* header name		 *|
+	int             band,	   |* header band number	 *|
+	const char     *version)   |* header version string	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Hwid constructs a header ID from header name &quot;name&quot;, header band
+number &quot;band&quot;, and header version string &quot;version&quot;, and writes the
+corresponding preamble record to &quot;fd&quot;.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+OK for success, ERROR for failure
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+All values placed in the preamble record will be truncated to fit the
+destination field width.  See hdrio.h for the specifics.
+</P>
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

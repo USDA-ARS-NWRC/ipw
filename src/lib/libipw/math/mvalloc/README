@@ -1,0 +1,33 @@
+    The MValloc package is a set of C functions to allocate general
+n-dimensional matrices (n==1 gives an array).  The code is written to run
+under ANSI or classic C compilers.  The vector/matrix elements
+can be:
+
+ char, short, int, long (or signed/unsigned variants)
+ float, double
+ void *
+
+    The function MValloc returns a void * that can be assigned directly to
+a  pointer of the desired type (eg. double *** for a 3-d double matrix).
+The resulting pointer can then be subscripted like a normal C matrix.
+All the edge pointer spaghetti is done by MValloc to make this work, and in
+the larger dimensional cases there are a lot of pointers... 
+In addition to initiating the pointers, MValloc hides information about
+the matrix that can be returned from other MV query functions, as shown
+int mvalloc.h and described in the file called Interface.
+
+    The MValloc package rigorously treats the base pointers to objects
+differently (eg. char * and double * may have different size and
+representation), and makes no assumptions at all for 1, 2 and 3-d matrices.
+However, in order to make n-dimensional allocation possible, I make the
+fairly portable assumption that for any given base object, say double, 
+the deeper pointer levels (double **, double ***, ...) all have the same
+size and representation.  This has proven to be valid on many systems,
+including DECstations, Sun Sparc,  Silicon Graphics Iris, PC with MSC
+compiler.  If it doesn't work on your system I'd be interested to hear
+about it, but remember, you get what you pay for :-).
+
+    The functions test1.c through test5.c are examples of how to use the
+pacakage for dimensions 1, 2, 3, 4 and 5.
+
+Chris Thewalt (2/16/92)

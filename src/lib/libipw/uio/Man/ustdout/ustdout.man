@@ -1,0 +1,62 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+int
+ustdout(void)
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> initializes the UIO package for writing the program's standard
+output.
+</P><P>
+<B>%name</B> should be called by an IPW main() if the program will be
+writing image data to the standard output.  <B>%name</B> should NOT be
+called if the program uses UNIX stdio output functions (e.g.,
+printf).
+</P><P>
+<B>%name</B> causes program termination if any errors are encountered.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+writable UNIX file descriptor
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

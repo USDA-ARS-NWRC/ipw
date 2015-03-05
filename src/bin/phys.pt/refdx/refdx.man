@@ -1,0 +1,214 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-r</B> ] [ <B>-i</B> ] <B>-s</B> <I>substance</I>[,<I>...</I>] [ <B>-t</B> <I>temp</I> ]
+      [ <B>-u</B> <I>units</I> ] [ <B>-d</B> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> was originally written as a &quot;qdips&quot; program at
+UCSB by Jeff Dozier.  It was converted to ipw in 1989.
+</P><P>
+<B>%name</B> prints out the complex refractive index for the named
+sunstance(s), for wavelengths read from the standard input.
+Optionally, the dielectric function can be printed instead of the
+refractive index.
+</P><P>
+(see <I>Ice Physics, Hobbs, 1974</I>)
+</P><P>
+Input list of wavelengths from stdin.
+</P><P>
+The values are obtained by fitting an Akima spline to data tables.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-r</B> 
+<DD>
+Only the real part is printed (default: print complex).
+</DD>
+
+<P>
+<DT><B>-i</B> 
+<DD>
+Only the imaginary part is printed (default: print complex).
+</DD>
+
+<P>
+<DT><B>-s</B> <I>substance</I>[,<I>...</I>]
+<DD>
+The substance in question is <I>substance</I>.  The substances
+supported are:
+</DD>
+
+<P>ice
+water
+</P>
+
+<P>
+<DT><B>-t</B> <I>temp</I>
+<DD>
+The temperature in degrees Celcius is <I>temp</I> (default: -5).
+</DD>
+
+<P>
+<DT><B>-u</B> <I>units</I>
+<DD>
+The wavelengths are specified in <I>units</I> (default: um,
+micrometers).  To obtain a list of supported units, use
+&quot;<B>-u</B> help&quot; for a list of the units.
+These are currently:
+</DD>
+
+<PRE>
+        A       Angstroms
+        nm      nanometers
+        um      micrometers
+        mm      millimeters
+        cm      centimeters
+        m       meters
+        icm     inverse centimeters (wave numbers)
+        MHz     megahertz
+        GHz     gigahertz
+</PRE>
+
+<P>
+<DT><B>-d</B> 
+<DD>
+Print the dielectric function for <I>substance</I> (default: print
+the refractive index).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+The refractive index of ice and water for 3.55 micrometers:
+</P><PRE>
+	<B>refdx</B> -s ice,water
+	3.55
+</PRE><P>
+should yield:
+</P><PRE>
+	3.55    1.4366  1.125e-02       1.3914  7.196e-03
+</PRE><P>
+Where at 23 cm:
+</P><PRE>
+	<B>refdx</B> -s ice,water -u cm
+	23
+</PRE><P>
+should yield:
+</P><PRE>
+	23      1.7865  2.166e-04       9.4017  7.677e-01
+</PRE><P>
+To obtain refractive index of ice at 0C, in 2-nm increments from 200nm
+to 400nm:
+</P><PRE>
+	<B>seq</B> -r 200,400 | <B>refdx</B> -s ice -t 0 -u nm
+</PRE>
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>maximum is <I>n</I> substances
+</DT>
+<DD><BR>
+A maximum of <I>n</I> substances can be requested in any one run.
+</DD>
+
+<P>
+<DT>don't know refractive index for substance <I>subst</I>
+</DT>
+<DD><BR>
+The supported substances are currently &quot;water&quot; and &quot;ice&quot;.
+</DD>
+
+<P>
+<DT>wavelength out of range (less than zero)
+</DT>
+<DD><BR>
+The wavelength given was less than or equal to zero.
+</DD>
+
+<P>
+<DT>wavelength <I>wl</I> out of range
+</DT>
+<DD><BR>
+The wavelength <I>wl</I> given is too high.
+</DD>
+
+<P>
+<DT>units <I>units</I> not supported
+</DT>
+<DD><BR>
+A list of the supported units can be obtained by a command
+line such as: &quot;<B>%name</B> <B>-s</b> ice <B>-u</b> help&quot;.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Only water and ice are currently supported substances.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jan 1989</DT>
+<DD>
+Written by Jeff Dozier, UCSB.
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1993</DT>
+<DD>
+Converted to ANSI C.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="albedo.html">albedo</A></B>,
+<B><A href="salbedo.html">salbedo</A></B>,
+<B><A href="glob.alb.html">glob.alb</A></B>,
+<B><A href="seq.html">seq</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Hobbs 1974">Hobbs 1974</A>
+</P>
+ 

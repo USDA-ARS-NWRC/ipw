@@ -1,0 +1,78 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "crh.h"
+
+int
+crhwrite(
+	int     fd,		|* output file descriptor	 *|
+	CRH_T **crhpp)		|* -> array of CRH pointers	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<PRE>
+     crhwrite writes the array of CRH headers pointed to by crhpp
+</PRE>
+<P>
+to file descriptor fd.
+</P><P>
+<B>%name</B> is called by IPW application programs to write
+CRH headers.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+OK for success, ERROR for failure
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Written by Kelly Longley, ERL-C.
+</DT>
+<DD>
+ritten by Kelly Longley, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+crhsort expects a *CRH_T, while we pass in a *CLASS.  This is wrong,
+but I'm not sure I want to fix it.  It should blow up, but it seems
+to work, so I won't muck with it now.  Dana Jacobsen, ERL-C.
+</P><P>
+Well, I've decided to muck with it.  Hopefully, the fix won't blow
+up.  J. Domingo, OSU, 29 May 1996
+</P>
+<H2>SEE ALSO</H2>
+
+
+

@@ -1,0 +1,63 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "fpio.h"
+
+int
+fpclose(
+	int fd)		|* file descriptor		*|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> resets all floating-point I/O information associated with file
+descriptor fd, then calls pxclose to close the associated file.
+</P><P>
+Call <B>%name</B> if you need to reclaim a file descriptor that has been
+read|written by fpvread|fpvwrite.
+</P><P>
+Do not attempt any FP operations (including LQH access) to the file
+descriptor after this function is called.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+OK for success, ERROR for failure
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_fpiocb
+</P>
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

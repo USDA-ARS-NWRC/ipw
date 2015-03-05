@@ -1,0 +1,129 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Comments</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../../images/usda.gif" alt="USDA">
+<IMG SRC="../../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Comments</H1>
+
+
+<P>
+Comments are intended to aid in the understanding of the code. You may assume
+that the person reading the comments knows the C language about as well as
+you do; however, you may <B>not</B> assume that reader understands anything
+about the particular problem that your code is trying to solve. This leads to
+the general rule, "comment the purpose of the code, not the implementation"
+[<A HREF="../../bib.html#Lapin 1987">Lapin 1987</A>].
+Extraneous comments about obvious features of C
+(e.g., <CODE>/*&nbsp;increment&nbsp;i&nbsp;*/ </CODE>) will cause
+the reader of your code to "tune out" the comments altogether.
+
+<P>
+There are three distinct styles of comments used in IPW source code:
+
+<UL>
+<LI>End-of-line comments are allowed ONLY on declarations and #defines. The
+  "/*" of an end-of-line comment begins at tab stop 5 (column 41), or the next
+  available tab stop. The "*/" of an end-of-line comment begins at tab stop
+  9 (column 73), or the next available column.
+
+<P>
+
+<LI>One-line comments are used to annotate a specific property (e.g., a
+  non-portable piece of code) of the immediately following statement
+  (no intervening blank
+  lines).  One-line comments are preceded by at least one blank line.
+
+<P>
+
+<LI>Block comments separate "paragraphs" of code or global definitions.
+  There should be no blank
+  lines preceding or following a block comment, that would not otherwise be
+  required by these standards. The "/*" of a block comment is on its own line.
+  Each line of a block comment has a "*" before any text.  The "*"s are
+  vertically aligned with the first "*" in the first line
+  of the block comment. The last line of a block comment is the closing "*/".
+
+</UL>
+
+<P>
+Examples:
+
+<PRE>
+#define ERROR (-1)               /* description of "ERROR"     */
+
+int
+foo(
+        int bar)                 /* description of "bar "      */
+{
+        ... <I>C code</I> ...
+
+        /*
+         * a block comment describing the purpose
+         * (as opposed to the implementation)
+         * of the next several lines
+         */
+        ... <I>C code</I> ...
+
+        /* a one-line comment about the next statement */
+        ... <I>C code</I> ...
+}
+</PRE>
+
+<P>
+The top-level unit of documentation is a globally-scoped (i.e., defined
+outside any block) function or variable. Each module (compiled source file)
+should contain exactly one global object.  Preserving a one-to-one
+correspondence between modules and linkable objects minimizes the amount
+of unused code that gets linked into an executable program.
+
+<P>
+Procedural code should be thought of as consisting of "paragraphs" of
+C statements. The purpose of each paragraph of statements should be
+described in a preceding block comment. Block comments should be terse,
+and should amplify, NOT simply re-state, the following code. In particular,
+comments should not contain pseudo-code: the actual code should be as
+readable as any pseudo-code description.
+
+<P>
+If a paragraph of code implements a published algorithm, then the preceding
+block comment should contain a full reference to the publication, including
+page and equation numbers.
+
+<P>
+One-line comments should not be used where a block comment would achieve the
+same purpose, since the change in comment styles is inherently distracting.
+Instead, one-line comments should be used chiefly to call attention to
+"gray areas" in the code, which might require maintenance.  For example,
+a potentially non-portable use of C could be flagged with a one-line comment.
+
+<P>
+Variable definitions always contain an end-of-line comment. If the permissible
+values of the variable are restricted to a subrange of its type, then the
+subrange should be specified in the comment. Similarly, any physical units
+associated with values of the variable (meters, degrees, etc.) should
+be documented in the end-of-line comment, unless they are obvious from the
+variable name.
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

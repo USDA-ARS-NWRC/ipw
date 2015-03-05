@@ -1,0 +1,122 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads an IPW image (default: standard input) and writes it
+to the standard output in Sun Microsystems &quot;rasterfile&quot; format.
+</P>
+<H2>OPTIONS</H2>
+
+
+<P>None
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To dither a single-band image and display it on a Sun:
+</P><PRE>
+	dither image | ipw2sun | screenload
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>input image has <I>nbands</I> bands (only 1 allowed)
+input image has <I>nbits</I>-bit pixels (only 1 or 8 allowed)
+input image has <I>bytes</I>-byte pixels (only 1 allowed)
+</DT>
+<DD><BR>	These restrictions are inherent in the Sun rasterfile
+	formats supported.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The input image must have 1 band and 1 or 8 bits per pixel.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+	Only use Sun's header file when on a 386i.
+Dana Jacobsen, ERLC.
+</DD>
+</DL>
+
+<DL>
+<DT>May 1993</DT>
+<DD>
+	Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="dither.html">dither</A></B>,
+<B><A href="rastool.html">rastool</A></B>,
+<B><A href="ipw2pgm.html">ipw2pgm</A></B>,
+<B><A href="ipw2ppm.html">ipw2ppm</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>UNIX</DT>
+<DD>	screenload
+</DD>
+</DL>
+
+<DL>
+<DT>Image</DT>
+<DD>	pnmtorast, rasttopnm, rastorle, rletorast, xv, xloadimage
+</DD>
+</DL>
+<P>rasterfile(5) in &quot;UNIX Interface Reference Manual&quot;, part number 
+800-1303-04, Sun Microsystems, Inc.
+</P>
+

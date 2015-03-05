@@ -1,0 +1,4 @@
+SCRIPT := sample.sh
+DESCRIPTION := a sample IPW script
+
+include $(IPW)/make/command

@@ -1,0 +1,87 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <I>image ...</I>
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> returns the minimum and maximum values of the floating
+point maps of all the given images.  The minimum and maximum are
+output to the standard output.
+</P>
+
+<H2>OPTIONS</H2>
+
+<P>None.
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image ...</I></DT>
+
+<DD>input image(s)
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To get the min and max values of 24 hourly images of air temperature
+so that they can all be quantized over the same range:
+</P><PRE>
+     lqmm img1 img2 img3 ... img24
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None.
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW:</DT>
+<DD><B><A href="imgstat.html">imgstat</A></B>,
+<B><A href="prhdr.html">prhdr</A></B>,
+<B><A href="requant.html">requant</A></B>
+</DD>
+</DL>
+

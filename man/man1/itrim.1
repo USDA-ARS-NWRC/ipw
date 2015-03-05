@@ -1,0 +1,159 @@
+.TH "itrim" "1" "4 September 1998" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBitrim\fP - trim image values based on min/max threshold (DEPRECIATED)
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBitrim\fP \fB-v\fP \fIval\fP,\fIval\fP [ \fB-n\fP \fInodata\fP ] [ \fB-p\fP \fInbits\fP ] [ \fB-c\fP ] [ \fB-b\fP ]
+      [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+This program trims values from an image (single or multi-band)
+which are not within a specified output range (omin, omax).
+Input pixel values which are
+>= omin and <= omax will be preserved in the output image.  Input
+pixel values which are outside the min,max range will be output
+as one of the following:
+.sp
+.nf
+.ft CR
+    -   zero:  this is the default nodata value.
+.ft R
+.fi
+
+.sp
+.nf
+.ft CR
+    -   the {nodata} value specified by -n
+.ft R
+.fi
+
+.sp
+.nf
+.ft CR
+    - 	if -c (cap mode) is set, then output values are capped
+	at the min,max range.
+.ft R
+.fi
+
+.PP
+If the \fB-b option (binary mode) is set, then the output image will
+be a binary (0,1) mask, where values within min,max are 1's and
+all other values are 0's.
+.SH OPTIONS
+.TP
+\fB-v\fP \fIval\fP,\fIval\fP
+\fIval,val\fP are min,max values for the output image.
+To use the lowest/highest input image value, enter "x"
+for the min or max value.
+.sp
+.TP
+\fB-n\fP \fInodata\fP
+nodata value (default: 0)
+.sp
+.TP
+\fB-c\fP
+cap mode: set values > max to max, values < min to min
+(default: values > max or < min get nodata)
+.sp
+.TP
+\fB-b\fP
+binary mode: output image will be a 0-1 binary mask.
+Values within the min,max range are set to 1, all
+others set to 0.
+.sp
+.TP
+\fB-p\fP \fInbits\fP
+precision:  use \fInbits\fP in the output image.  (default: 8)
+.SH OPERANDS
+.PP
+None.
+.SH EXAMPLES
+.PP
+Given an image of temperatures called tavg.ipw:
+.PP
+To make an image containing only temperatures within -10,10,
+with outside values set to -99:
+.sp
+.nf
+.ft CR
+	itrim -v -10,10 -n -99 tavg.ipw
+.ft R
+.fi
+
+.PP
+To make a mask which delineates all negative temperatures:
+.sp
+.nf
+.ft CR
+	itrim -v x,-0.0001 -b tavg.ipw
+.ft R
+.fi
+
+.PP
+To cap very cold (< -40) temperatures at -40:
+.sp
+.nf
+.ft CR
+	itrim -v -40,x -c tavg.ipw
+.ft R
+.fi
+
+.PP
+To compute growing degree days for the 12-band image tavg.mon.ipw,
+using a threshold of 5.0 degrees:
+.sp
+.nf
+.ft CR
+        scale -o sub -v 5.0 tavg.mon.ipw                    \\
+            | itrim -v 0,x                                  \\
+            | lincom -c 31,28,31,30,31,30,31,31,30,31,30,31 \\
+            | iadd                                          \\
+            > gdd.ipw
+.ft R
+.fi
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.sp
+.TP
+may specify no more than 1 of: \fB-c,\fB-b,\fB-n
+.br
+	The \fB-c,\fB-b,\fB-n options are mutually exclusive.
+.SH NOTES
+.PP
+This command has been DEPRECIATED because its functionality
+is provided by the command \fBimath\fP.
+.sp
+.nf
+.ft CR
+    itrim -c --> imath -expr "b0 < min ? min : b0 > max ? max : b0"
+    itrim -n --> imath -expr "b0 < min or b0 > max ? nodata : b0"
+    itrim -b --> imath -expr "b0 < min or b0 > max ? 0 : 1"
+.ft R
+.fi
+.PP
+This command may be removed in future versions of IPW.
+.PP
+Beware when using \fBitrim\fP on categorical data with lq headers.
+E.g., due to quantization, category 10 may be stored as 10.013
+and thus fall outside of a requested 1,10 range.  Using a
+range of 0.5,10.5 would successfully get the values 1-10.
+.SH HISTORY
+.TP
+Oct 1995
+	 Rusty Dodson, MERSC, NHEERL-WED.
+.SH SEE ALSO
+.TP
+IPW
+\fBimath\fP,
+\fBscale\fP,
+\fBiadd\fP,
+\fBmult\fP,
+\fBlincom\fP,
+\fBiinterp\fP

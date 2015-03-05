@@ -1,0 +1,156 @@
+Configuring the Software
+------------------------
+
+1.  Change directory into the directory where the IPW software will be built
+    and where this Install file is located.
+
+2.  Run the "configure" script.  This script determines the type of machine
+    and operating system you're on, and sets up some local configuration
+    files.
+
+     ./configure
+
+
+Building the Software
+---------------------
+
+You can type "make help" to see what the make targets are and how they
+may be used. If you have a problem and the build or install steps fail
+to complete without error, you should clean everyting out using the 
+"make distclean" command, and start over from the beginning.
+
+1.  Set the environment variable "IPW" to the IPW directory (the
+    command below assumes you are in that directory).
+
+    *Note: the pwd command is surrounded by "backward" quotes " ` ", which
+    not only look different, but have a different meaning to the shell.
+
+    For Bourne shells (sh, bash):
+
+     export IPW=`pwd`
+
+    For C shells (csh, tcsh):
+
+     setenv IPW `pwd`
+
+It is a good idea to check the IPW environment variable to make sure it is
+properly set - if it isn't the build won't be successful.  This can be done
+by comparing the output from "echo $IPW" to the output from "pwd";
+they should be the same. 
+
+2.  To build the IPW software, run the "make" utility.  We recommend that
+    you redirect the output into the "tee" command.  That will allow you
+    to watch the progress the build process while saving the output to a
+    file.  That file can be handy if an error occurs.
+
+    For Bourne shells (sh):
+
+     cd $IPW
+     make 2>&1 | tee Make.out
+
+    For C shells (csh):
+
+     cd $IPW
+     make |& tee Make.out
+
+
+Installing the Software
+-----------------------
+
+1.  The IPW software is built in the $IPW/src directory structure.  In order
+    to use it, it must be copied ("installed") into other directories.
+    Historically, IPW commands are installed into the $IPW/bin and $IPW/sbin
+    directories.  To install the software, use the "install" target with the
+    "make" utility.  We again recommend redirecting the output to the "tee"
+    command, but this time into a different file.
+
+    For Bourne shells (sh):
+
+     make install 2>&1 | tee Make-install.out
+
+    For C shells (csh):
+
+     make install |& tee Make-install.out
+
+2.  After compiling and installing the IPW software, you can run a
+    series of tests to check the software.  Again, we recommend that you
+    redirect the output to a file:
+
+    For Bourne shells (sh):
+
+     make tests 2>&1 | tee Make-tests.out
+
+    For C shells (csh):
+
+     make tests |& tee Make-tests.out
+
+    Errors are indicated by asterisks and a message.  Certain programs will
+    not be tested because their behavior is either not reproducible without
+    problems (ipw, binexp), or they read from tape (tmpt, dempt), or other
+    reasons.  They will be indicated by the line "Not testing program" which
+    is not to be construed as an error message.
+
+    Some programs may have the appendage "(sp)" added to the "Program passed"
+    message.  This means one of two things:
+
+    1.  your program evaluates float expressions in float precision rather
+        than casting to doubles first.  In standard K&R C, all floats were
+        cast to doubles first, but ANSI C specified that arithmetic on float
+        operands may be done in single precision.  This can make some
+        expressions evaluate faster, but the result will be slightly
+        different.  In some cases your machine will come up with a different
+        result, and the program will return "Small float diff" which means
+        the result is off by a small amount which is most likely caused by
+        small differences in floating point evaluation.
+
+    2.  Your system is missing a function such as random(), and a
+        functionally equivalent function has been substituted.  The new
+        function may return different values for the same input, if that
+        is allowed by the function definition (e.g. random).
+
+
+Using IPW software
+------------------
+
+1.  Modify your shell initialization file to set the IPW environment variable,
+    and to include the IPW directory in your paths for commands and for
+    man pages.
+
+    For example, if the IPW directory is "/usr/local/ipw", then Bourne shell
+    users should add these lines to their ".profile" file in their HOME
+    directory:
+
+     #  This example assumes that PATH and MANPATH are already
+     #  set somewhere else in the file
+     #
+     IPW=/usr/local/ipw
+     export IPW
+     PATH=`$IPW/path user`:$PATH
+     MANPATH=`$IPW/path man`:$MANPATH
+
+    C shell users should add these lines to their ".cshrc" file in their
+    HOME directory:
+
+     #  This example assumes that "path" and MANPATH are already
+     #  set somewhere else in the file
+     #
+     setenv IPW /usr/local/ipw
+     set path=($path `$IPW/path -s user`)
+     setenv MANPATH ${MANPATH}:`$IPW/path man`
+
+    If a user is going to be programming IPW software, they should replace
+    the argument "user" with "system" in the calls to $IPW/path.
+
+
+2.  To view the HTML documentation for IPW software, open the following
+    file with a web browser (replacing $IPW with the full path to the IPW
+    directory):
+
+     $IPW/doc/html/intro.html
+
+    So, if the IPW directory is /usr/local/ipw, then the file URL would be:
+
+     /usr/local/ipw/doc/html/intro.html
+
+    Once you've opened this file in the browser, you can bookmark it for
+    future reference.

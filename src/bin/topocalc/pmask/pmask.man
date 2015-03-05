@@ -1,0 +1,110 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-t</B> <I>thresh</I> ] [ <B>-f</B> <I>flat</I> ] [ <B>-s</B> ] [ <I>image</I> ]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Given a seed point and 3-band elevation, slope, and exposure file,
+<B>%name</B> creates a mask image in which all nonzero values are pits.
+</P><P>
+Pit seed points are those points whose elevations are lower than
+all their neighbors.  The pit mask is the union of all the basins
+delineated starting with these seed points.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+
+<DT><B>-t</B> <I>thresh</I>
+<DD>
+threshold for determining if a cell is lower than a 
+neighbor (default: 0).
+</DD>
+
+<P>
+<DT><B>-f</B> <I>flat</I>
+<DD>
+specify the flatness threshold.  All slopes less 
+than <I>flat</I> are considered 0 (default: .001).
+</DD>
+
+<P>
+<DT><B>-s</B> 
+<DD>
+only output pit seed points.  (Don't try to mask the
+whole pit) 
+</DD>
+
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+
+<DT><I>image</I>
+<DD>
+3-band elevation, slope, and exposure image (default: standard input).
+</DD>
+
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To fill pits in a noisy DEM:
+<PRE>
+    mux elev gradient | %name -f 0.005 &gt;pit_mask
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>May 1995</DT>
+<DD>
+Written by Kevin L. Novins, ERL-C.  Based on Qdips program
+by D. Marks.
+</DD>
+
+<P>
+
+<DT>Jun 1998
+<DD>
+Separated source code shared with <B>bmask</B> command into
+a separate library.  J. Domingo, OSU.
+</DD>
+
+</DL>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+
+<DT>IPW:
+<DD>
+<A HREF="bmask.html"><B>bmask</B></A>,
+<A HREF="gradient.html"><B>gradient</B></A>
+</DD>
+
+</DL>
+
+<P>
+<A HREF="../bib.html#Marks 1984">Marks 1984</A>
+</P>

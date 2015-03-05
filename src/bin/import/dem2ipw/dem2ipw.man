@@ -1,0 +1,167 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-v</B> ] [ <B>-r</B> ] [ <B>-d</B> <I>USGS_DEM</I> ] [ <B>-h</B> <I>LQH</I> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads a USGS Digital Elevation Model from the standard
+input, or from a file, and writes an IPW image to the standard
+output.  A linear quantization header may be provided (see
+mklqh); otherwise the output LQH is determined from the input
+values.  Either the USGS DEM or the LQH may be read from the
+standard input.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-v</B> 
+<DD>
+Request extra informative output be printed to the
+standard error.
+</DD>
+
+<P>
+<DT><B>-r</B> 
+<DD>
+print raw pixel values, bypassing any conversion to
+floating-point.
+</DD>
+
+<P>
+<DT><B>-d</B> <I>USGS_DEM</I>
+<DD>
+input USGS DEM
+</DD>
+
+<P>
+<DT><B>-h</B> <I>LQH</I>
+<DD>
+input linear quantization header
+</DD>
+</DL>
+
+<P>At least one of <B>-d</b> and/or <B>-h</b> must be specified.
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>	None
+</P><P>
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To read a USGS DEM file, allowing the lqh to be based on the input data:
+</P><PRE>
+    %name -d usgs_dem_file
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT><B>-r</b> and <B>-h</b> (or LQH read from stdin) not compatible
+</DT>
+<DD><BR>	Using an LQH and the <B>-r</b> option together is not acceptable.
+</DD>
+
+<P>
+<DT>DEM level code = <I>demlevel</I>, out of range
+</DT>
+<DD><BR>	The DEM levels must be between 1 and 3.
+</DD>
+
+<P>
+<DT>elevation pattern code = <I>dempat</I>, out of range
+</DT>
+<DD><BR>	The DEM pattern code must be either 1 or 2.
+</DD>
+
+<P>
+<DT>DEM reference system code = <I>refsys</I>, out of range
+</DT>
+<DD><BR>	The DEM planimetric reference system code must be between
+	0 and 20.
+</DD>
+
+<P>
+<DT>reference units code = <I>refunits</I>, out of range
+</DT>
+<DD><BR>	The DEM units of measure for reference system code must 
+	be between 0 and 3.
+</DD>
+
+<P>
+<DT>elevation units code = <I>elevunits</I>, out of range
+</DT>
+<DD><BR>	The DEM units of measure for elevations code must be
+	either 1 or 2.
+</DD>
+
+<P>
+<DT># polygon sides = <I>polysides</I>, not supported
+</DT>
+<DD><BR>	<B>%name</B> does not support DEMS with other than 4 sides.
+</DD>
+
+<P>
+<DT>minimum elevation negative, (<I>zmin</I>), therefore can't use <B>-r</b> option
+</DT>
+<DD><BR>	Raw values are not supported when elevations can be negative.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Aug 1989</DT>
+<DD>
+	Written by Jeff Dozier, UCSB.
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+	Modifed reference system warning.  Dana Jacobsen, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+Seems to have problems with DEM level 2 files.
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="tmpt.html">tmpt</A></B>
+
+</DD>
+
+</DL>
+

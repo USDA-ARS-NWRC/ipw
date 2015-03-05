@@ -1,0 +1,36 @@
+.TH "horhmake" "3" "10 April 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBhorhmake\fP - make an IPW HORH header
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "horh.h"
+
+HORH_T *
+horhmake(
+	double          azm)	|* direction to horizon		 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Horhmake allocates a horizon header.  The header is initialized
+with the azimuth argument.
+.SH RETURN VALUE
+.PP
+pointer to new HORH header; NULL if error
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

@@ -1,0 +1,116 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>IPW Makefiles</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../images/usda.gif" alt="USDA">
+<IMG SRC="../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>IPW Makefiles</H1>
+
+ 
+<P>
+<B><CODE>include</CODE> files</B>
+
+<P>
+Over 400 Makefiles are used to manage IPW's source directory
+<CODE>"$IPW/src"</CODE>.  The maintenance of so many Makefiles
+is greatly simplified by the extensive use of the <CODE>include</CODE>
+feature of GNU's version of <CODE>"make"</CODE>.
+
+<P>
+This feature allows a set of Makefiles to share macro definitions
+and dependency rules via a single <CODE>include</CODE> file.
+The hundreds of Makefiles are quite small and simple because the
+macro definitions and dependency rules are all located in a small
+set of <CODE>include</CODE> files (i.e., less than 20 files).  Furthermore,
+the Makefiles are fairly stable since modifications are limited to
+the <CODE>include</CODE> files.
+
+<P>
+All the <CODE>include</CODE> files are located in
+<CODE>"$IPW/make"</CODE> directory.  There is one <CODE>include</CODE>
+file for each type of subdirectory in IPW's source directory.  For
+example, the <CODE>include</CODE> file for an IPW command's individual
+subdirectory is aptly named <CODE>"command"</CODE>, while the
+<CODE>include</CODE> file for an IPW library of C functions is
+named <CODE>"library"</CODE>.
+
+<P>
+<B>Common targets</B>
+
+<P>
+One advantage of using <CODE>include</CODE> files in the Makefiles is
+the standardization of targets for the <CODE>"make"</CODE> command.
+Some of the common targets are:
+
+<DL>
+
+<DT><CODE>help</CODE>
+<DD>
+This target displays a list of possible targets for the current directory.
+</DD>
+
+<p>
+
+<DT><CODE>install</CODE>
+<DD>
+This target builds commands, library functions, and their manual pages,
+and then installs them into their respective directories:
+<CODE>"$IPW/bin"</CODE>, 
+<CODE>"$IPW/lib"</CODE>, and
+<CODE>"$IPW/man"</CODE>.
+</DD>
+
+<p>
+
+<DT><CODE>clean</CODE>
+<DD>
+This target removes intermediate files that are generated as part of building
+commands, library functions, and manual pages, for example, the object
+files (<CODE>*.o</CODE>) from compiling C source code files.
+</DD>
+
+<p>
+
+<DT><CODE>install-clean</CODE>
+<DD>
+This target yields the same results as specifying the individual
+targets <CODE>"install"</CODE> and "clean"</CODE> together; however,
+this targets removes intermediate files as it installs thereby minimizing
+the disk space used during the installation process.
+</DD>
+
+<p>
+
+<DT><CODE>real-clean</CODE>
+<DD>
+This target removes every generated file, essentially restoring a
+directory to its original state, i.e., the way it was prior to
+building and installing the software.  NOTE:  this target also uninstalls
+IPW commands and libraries; therefore, it should only be used prior
+to rebuilding and installing part of or all of the IPW software.
+</DD>
+
+</DL>
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,3 @@
+%define(name,"bmask")
+%define(description,"create a basin-delineation mask")
+%define(category,"Topographic Calculations")

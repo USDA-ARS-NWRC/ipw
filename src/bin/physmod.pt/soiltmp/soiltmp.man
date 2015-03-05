@@ -1,0 +1,179 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates soil layer temperature using a sin-wave
+function where the amplitude of the wave is computed
+as a proportion of the difference between the maximum and minimum
+air temperature for the period, and the mean is the average
+soil layer temperature. Program was designed to compute
+soil layer temperatures at specified intervals
+based on daily, weekly, or annual temperature information readily
+available from surface meteorologic station info.
+Average layer temperature can be from infrequent spot measurements
+or estimated as and offset from average air temp ((Tmax + Tmin)/2);
+Period must be complete cycle (eg. 24 hrs, 52 weeks, 12 mo etc,);
+Amplitude damping is difference between air temp amplitude, and soil
+layer temp amplitude over period, and can be estimated from
+SD(soil_temp)/SD(air_temp) over the period.  (eg. 1.0 for surface
+layer, 0.8 for layer 15cm deep, 0.5 for layer 1m deep, 0 for layer
+2m deep, etc.)
+</P><P>
+Reads input file from stdin:
+</P><PRE>
+       Ta_max, Ta_min, Tg_avg, Period, Ta_lag, Tg_lag, damp
+</PRE><P>
+Where:
+<PRE>
+    Tmax    = maximum daily air temp. (C)
+    Tmin    = minimum daily air temp. (C)
+    Tg_avg  = average soil layer temp. (C)
+    Period  = wave period (24 hours, 52 weeks, 12 months, etc.)
+    Ta_lag  = time of maximum air temperature (in Period units)
+    Tg_lag  = time of maximum soil layer temperature (in Period units)
+    damp    = amplitude damping (1.0 for none to 0.0 for constant value)
+</PRE>
+</P><P>
+Outputs one record per interval over the period to stdout:
+</P><PRE>
+                 fn(Ta), Ta, fn(Tg), Tg
+</PRE>
+
+<H2>OPTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To estimate hourly air and soil temperature from max-min air temperature,
+and average soil temperature, where:
+<PRE>
+                   Tmax     = 12
+                   Tmin     = 3
+                   Tg_avg   = 4
+                   Period   = 24 hrs
+                   Ta_lag   = 16 hrs (4PM)
+                   Tg_lag   = 6 hrs (6pm)
+                   damp     = 0.8
+</PRE>
+</P><PRE>
+	soiltmp &lt; {12 3 4 24 16 18 0.8}
+</PRE><P>
+produces:
+</P>
+<PRE>
+	time	f(ta)		ta	f(tg)		tg
+	====================================================
+	1	-0.707107	4.32	-0.258819	3.07
+	2	-0.866025	3.60	-0.500000	2.20
+	3	-0.965926	3.15	-0.707107	1.45
+	4	-1.000000	3.00	-0.866025	0.88
+	5	-0.965926	3.15	-0.965926	0.52
+	6	-0.866025	3.60	-1.000000	0.40
+	7	-0.707107	4.32	-0.965926	0.52
+	8	-0.500000	5.25	-0.866025	0.88
+	9	-0.258819	6.34	-0.707107	1.45
+	10	0.000000	7.50	-0.500000	2.20
+	11	0.258819	8.66	-0.258819	3.07
+	12	0.500000	9.75	0.000000	4.00
+	13	0.707107	10.68	0.258819	4.93
+	14	0.866025	11.40	0.500000	5.80
+	15	0.965926	11.85	0.707107	6.55
+	16	1.000000	12.00	0.866025	7.12
+	17	0.965926	11.85	0.965926	7.48
+	18	0.866025	11.40	1.000000	7.60
+	19	0.707107	10.68	0.965926	7.48
+	20	0.500000	9.75	0.866025	7.12
+	21	0.258819	8.66	0.707107	6.55
+	22	0.000000	7.50	0.500000	5.80
+	23	-0.258819	6.34	0.258819	4.93
+	24	-0.500000	5.25	0.000000	4.00
+</PRE>
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+<H2>HISTORY</H2>
+
+<DL>
+<DT>May 1996</DT>
+<DD>
+Converted from IPW command <B>surftmp</B> to a more general form 
+to handle both diurnal and annual periods, output
+entire period, and deal with arbitrary soil depth,
+and layor thickness, by D. Marks, USGS, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>	<B><A href="albedo.html">albedo</A></B>,
+<B><A href="bowvap.html">bowvap</A></B>,
+<B><A href="dewpt.html">dewpt</A></B>,
+<B><A href="gsnow.html">gsnow</A></B>,
+<B><A href="mse.html">mse</A></B>,
+<B><A href="penmonx.html">penmonx</A></B>,
+<B><A href="pmx.html">pmx</A></B>,
+<B><A href="pott.html">pott</A></B>,
+<B><A href="ptaylorx.html">ptaylorx</A></B>,
+<B><A href="ptx.html">ptx</A></B>,
+<B><A href="rh2vp.html">rh2vp</A></B>,
+<B><A href="satvp.html">satvp</A></B>,
+<B><A href="sling.html">sling</A></B>,
+<B><A href="soilt.html">soilt</A></B>,
+<B><A href="srftmp.html">srftmp</A></B>,
+<B><A href="swe.html">swe</A></B>,
+<B><A href="swp.html">swp</A></B>,
+<B><A href="thermin.html">thermin</A></B>,
+<B><A href="trad.html">trad</A></B>,
+<B><A href="trb_Ri.html">trb_Ri</A></B>,
+<B><A href="trbxfr.html">trbxfr</A></B>,
+<B><A href="vptr.html">vptr</A></B>,
+<B><A href="zpr.html">zpr</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Jury, Gardner 1991">Jury, Gardner 1991</A>
+</P>
+

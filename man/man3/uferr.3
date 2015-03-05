@@ -1,0 +1,34 @@
+.TH "uferr" "3" "10 April 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBuferr\fP - note occurrence of UNIX file error
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+void uferr(fd)
+int fd;
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Uferr notes the occurrence of an error on the UNIX file descriptor
+fd.  The _error() error handler uses this information to print the
+name of the file involved.
+.SH RETURN VALUE
+.PP
+None.
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+_fderr
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

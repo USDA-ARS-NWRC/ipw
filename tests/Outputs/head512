@@ -1,0 +1,9 @@
+!<header> basic_image_i -1 $Revision: 1.11 $
+byteorder = 3210 
+nlines = 512 
+nsamps = 512 
+nbands = 1 
+!<header> basic_image 0 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+!<header> image -1 $Revision: 1.5 $

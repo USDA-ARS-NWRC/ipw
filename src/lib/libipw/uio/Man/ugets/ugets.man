@@ -1,0 +1,76 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+char *
+ugets(
+	int      fd,		|* input file descriptor	 *|
+	char    *buf,		|* -> input buffer		 *|
+	int      nbytes)	|* #bytes to read		 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads bytes from fd into buf, until any of the following are
+true:
+</P><P>
+-- nbytes-1 bytes have been read and transferred to buf
+-- a newline character ('\n') has been read and transferred to buf
+-- an end-of-file condition is encountered on fd
+</P><P>
+An EOS character ('\0') is placed after the last byte transferred to
+buf (i.e., on return, buf will be a null-terminated C string).
+</P><P>
+<B>%name</B> is analogous to the UNIX stdio routine fgets.
+</P><P>
+Use <B>%name</B> for efficient input of ASCII text (e.g., image headers)
+from IPW data files.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+buf	The read was successful.
+</P><P>
+NULL	An error occurred or end-of-file was encountered.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_uiocb
+</P>
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

@@ -1,0 +1,1 @@
+bihdup - duplicate an IPW basic image header

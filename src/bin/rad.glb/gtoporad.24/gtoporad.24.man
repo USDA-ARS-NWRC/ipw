@@ -1,0 +1,260 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-n</B> ] <B>-z</B> <I>elev</I> <B>-w</B> <I>omega</I> <B>-g</B> <I>gfact</I> [ <B>-s</B> <I>S0</I> ]
+      [ <B>-x</B> <I>w1</I>,<I>w2</I> ] <B>-d</B> <I>y</I>,<I>m</I>,<I>d</I>[,<I>h</I>,<I>m</I>,<I>s</I>] <B>-i</B> <I>delta_t</I> <B>-o</B> <I>out_prefix</I>
+      [ <B>-m</B> <I>mask</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Gtoporad.24 is part of a family of large area, or &quot;global&quot;, scale
+radiation transfer simulation, and solar/terrain geometry calculation
+tools, designed from the small-scale radiation transfer and terrain
+structure tools, developed at UCSB by Jeff Dozier, Jim Frew, and
+Ralph Dubayah.
+</P><P>
+All of the global-scale radiation transfer and terrain processing tools
+are designated by the &quot;g&quot; prefix in front of the small-scale tool's name.
+These tools assume that solar geometry, atmospheric properties, and sun
+rise and sun set vary over the grid.  They also correct for earth
+curvature when computing horizons, terrain and sky view factors,
+and illumantion angles.
+</P><P>
+These global-scale radiation and terrain processing tools can be applied
+to areas of any size, up to the entire earth.  They were originally
+developed by Kelly Longley, Oregon State University, at the Corvallis,
+Oregon, EPA lab, in the early 1990's.
+</P><P>
+Gtoporad.24 is the global-scale version of the program toporad.24.
+Gtoporad.24 is a shell script that sets up and calls gsunlight, gelevrad,
+ghorizon, gshade, and gtoporad n times over a 24hour period, to
+compute global-scale solar radiation over a topographic grid for a 
+full day, using a two-stream atmospheric radiation model.  The radiation
+is computed and output every delta_t hours for a total of 24 hours.
+The input image file has the following eight bands:
+</P><PRE>
+	elevation			(dem)
+	slope				(from ggradient)
+	azimuth				(from ggradient)
+	sky view factor			(from gviewf)
+	terrain configuration factor	(from gviewf)
+	surface albedo			(from data, or salbedo)
+	reflectance of substrate	(estimate or data)
+	optical depth			(estimate or data)
+</PRE><P>
+Band 0, 5, and 6 are estimated or from data, as in gtoporad, bands 1-4
+are from other ipw programs, and band 7 is a spatially distributed
+optical depth, as described in gelevrad.
+</P><P>
+The output images are called &lt;out_prefix&gt;.0 ...	&lt;out_prefix&gt;.n
+(where n is 24/delta_t).
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-n</B> 
+<DD>
+net radiation instead of incoming
+</DD>
+
+<P>
+<DT><B>-z</B> <I>elev</I>
+<DD>
+elevation of optical depth measurement (see gelevrad)
+</DD>
+
+<P>
+<DT><B>-w</B> <I>omega</I>
+<DD>
+single-scattering albedo (see gelevrad)
+</DD>
+
+<P>
+<DT><B>-g</B> <I>gfact</I>
+<DD>
+scattering asymmetry parameter (see gelevrad)
+</DD>
+
+<P>
+<DT><B>-s</B> <I>S0</I>
+<DD>
+exoatmospheric solar irradiance (see solar), or
+</DD>
+
+<P>
+<DT><B>-x</B> <I>w1</I>,<I>w2</I>
+<DD>
+wavelength range, micrometers
+</DD>
+
+<P>
+<DT><B>-d</B> <I>y</I>,<I>m</I>,<I>d</I>[,<I>h</I>,<I>m</I>,<I>s</I>]
+<DD>
+start date/time (year, month, day, hour, minute, second)
+</DD>
+
+<P>
+<DT><B>-i</B> <I>delta_t</I>
+<DD>
+time increment in hours
+</DD>
+
+<P>
+<DT><B>-o</B> <I>out_prefix</I>
+<DD>
+prefix for output image names
+</DD>
+
+<P>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+mask image
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>
+	image	input image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate net solar radiation from 0.58 to 0.68 um, every 3 hours
+over the Columbia River basin, on June 21, 1990:
+</P><P>
+<B>%name</B> <B>-n</b> <B>-z</b> 100 <B>-w</b> 0.85 <B>-g</b> 0.55 <B>-x</b> 0.58,0.68 <B>-d</b> 1990,06,21 \
+</P>
+<PRE>
+		-i 3.0 -o netrad -m col_mask input_image
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Oct 1990</DT>
+<DD>
+	Written by Kelly Longley, Oregon State University,
+Environmental Protection Agency Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<DL>
+<DT>May 1991</DT>
+<DD>
+	Working version with geodetic header in lat/long
+projection, by K. Longley, OSU, EPA ERL-C
+</DD>
+</DL>
+
+<DL>
+<DT>Dec 1993</DT>
+<DD>
+	Changed -le to -lt so only 24 hours are run.
+Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>Jul 1995</DT>
+<DD>
+	Added trap to remove temp files.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="elevrad.html">elevrad</A></B>,
+<B><A href="gelevrad.html">gelevrad</A></B>,
+<B><A href="ggradient.html">ggradient</A></B>,
+<B><A href="ghorizon.html">ghorizon</A></B>,
+<B><A href="gshade.html">gshade</A></B>,
+<B><A href="gsunlight.html">gsunlight</A></B>,
+	<B><A href="gviewf.html">gviewf</A></B>,
+<B><A href="horizon.html">horizon</A></B>,
+<B><A href="hor1d.html">hor1d</A></B>,
+<B><A href="salbedo.html">salbedo</A></B>,
+<B><A href="shade.html">shade</A></B>,
+<B><A href="solar.html">solar</A></B>,
+<B><A href="sunlight.html">sunlight</A></B>,
+<B><A href="viewf.html">viewf</A></B>
+</DD>
+</DL>
+<P>Dozier, J., 1980.  &quot;A clear-sky spectral solar radiation model for
+	snow-covered mountainous terrain&quot;.  Water Resources Research,
+	vol. 16, pp. 709-718.
+</P>
+<P>Dozier, J., and J. Frew, 1981.  &quot;Atmospheric corrections to satellite
+	radiometric data over rugged terrain&quot;.  Remote Sensing of
+	Environment, vol. 11, pp. 191-205.
+</P>
+<P>Dozier, J., J. Bruno, and P. Downey, &quot;A faster solution to the
+	horizon problem&quot;, Computers and Geosciences, volume 7,
+	number 2, pp. 145-151, 1981.
+</P>
+<P>Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain parameters
+	for radiation modeling from digital elevation data&quot;. IEEE
+	Transactions on Geoscience and Remote Sensing, vol. 28, no. 5,
+	pp. 963-969.
+</P>
+<P>Dubayah, R., J. Dozier, and F. Davis, 1990.  &quot;Topographic distribution
+	of clear-sky radiation over the Konza Prairie, Kansas&quot;.  Water
+	Resources Research, vol. 26, no. 4, pp. 679-691.
+</P>
+<P>Marks, D., R. Dubayah, and K. Longley, 1991.  &quot;Modeling the topographic
+	and spectral variability of clear-sky solar radiation at regional
+	to continental scales.  Proceedings 1991 IGARSS Symposium,
+	Remote Sensing:  Global Monitoring for Earth Management, Espoo,
+	Finland, Vol. 3, pp. 1711.
+</P>
+<P>Dubayah, R., and V. Van Katwijk, 1992.  &quot;The topographic distribution
+	of annual incoming solar radiation in the Rio Grande basin&quot;.
+	Geophysical Research Letters, vol. 19, pp. 2231-2234.
+</P>
+<P>Dubayah, R., 1994.  &quot;Modeling a solar radiation topoclimatology for the
+	Rio Grande River Basin&quot;.  Journal of Vegetation Science, vol. 5,
+	pp. 627-640.
+</P>
+

@@ -1,0 +1,66 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <I>pgm</I> <I>synopsis</I> <I>description</I>
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is a usage message generator that may be called by IPW shell
+scripts.  The usage messages are printed in a similar format to the
+IPW usage message standard for C programs.
+</P>
+
+<H2>OPTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+
+<DT><I>pgm</I>
+<DD>
+Name of program that generated the usage message.
+</DD>
+
+<p>
+
+<DT><I>sysnopsis</I>
+<DD>
+String explaining how the program is called.
+</DD>
+
+<p>
+
+<DT><I>description</I>
+<DD>
+Description of the program.
+</DD>
+
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<PRE>
+    <B>%name</B> $0 'foo -n integer [ file ]' 'frobnicates a file'
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+Always exits with nonzero status.
+</P>

@@ -1,0 +1,35 @@
+.TH "uwopen" "3" "10 April 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBuwopen\fP - open UNIX file for writing
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+int
+uwopen(
+	const char     *name)	|* file name			 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBuwopen\fP opens the file name for writing.  The file is truncated if it
+already exists.
+.PP
+Use \fBuwopen\fP wherever you would normally use the UNIX system call
+creat() to open a file for writing.
+.SH RETURN VALUE
+.PP
+>= 0	A writable UNIX file descriptor for successful open.
+.PP
+ERROR	Error occurred.
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

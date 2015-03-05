@@ -1,0 +1,137 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates LE flux using a simplified Priestly-Taylor
+approach. This method is designed to estimate the total 
+evaporative flux over a wet surface using only air temperature
+radiation, and the Priestly-Taylor coef.  The LE flux is
+representative of potential evaporation (PE).
+</P>
+<P>
+Assumptions:
+</P><P>
+G is 10% of Rn; Surface is saturated and le due to turbulent
+vapor flux is minimal and well correlated with Rn. This
+assumption works well over short canopies (grass) but
+not over forested canopies (<I>McNaughton and Black, 1973</I>;
+<I>Priestley and Taylor, 1972</I>).
+</P>
+The program is designed to
+be driven from daily data, and reads input from a file or from stdin:
+</P><PRE>
+        Rn, ta, PP
+</PRE><PRE>
+        Rn    = Net radiation (negative away from surface) 
+        ta    = Air temperature (C)
+        PP    = Priestly Taylor Parameter (approx 1.26)
+</PRE><P>
+PP can be set to the standard value (1.26), or calculated using the method
+described by <I>Pereira and Nova (1992)</I>.
+</P><P>
+Output is to stdout.
+</P>
+
+<H2>OPTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+none
+</P>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+none
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jun 1993</DT>
+<DD>
+updated from Danny Mark's trbxfr program by John
+Kimball OSU, EPA-ERL
+</DD>
+</DL>
+
+<DL>
+<DT>Oct 1994</DT>
+<DD>
+Updated and simplified from ptaylorx point
+model, John Kimball, SWR School of Forestry, University of Montana
+</DD>
+</DL>
+
+<DL>
+<DT>May 1995</DT>
+<DD>
+Converted to IPW by J. Domingo, OSU, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>    <B><A href="bowvap.html">bowvap</A></B>,
+<B><A href="penmanx.html">penmanx</A></B>,
+<B><A href="ipmx.html">ipmx</A></B>,
+<B><A href="pmx.html">pmx</A></B>,
+<B><A href="ptaylorx.html">ptaylorx</A></B>,
+<B><A href="iptx.html">iptx</A></B>,
+<B><A href="trb_Ri.html">trb_Ri</A></B>,
+<B><A href="itrbxfr.html">itrbxfr</A></B>,
+<B><A href="trbxfr.html">trbxfr</A></B>
+</DD>
+</DL>
+ 
+<P>
+<A HREF="../bib.html#Brutsaert 1982">Brutsaert 1982</A>,
+<A HREF="../bib.html#McNaughton, Black 1973">McNaughton, Black 1973</A>
+<A HREF="../bib.html#Monteith, Unsworth 1990">Monteith, Unsworth 1990</A>,
+<A HREF="../bib.html#Pereira, Nova 1992">Pereira, Nova 1992</A>,
+<A HREF="../bib.html#Priestley, Taylor, 1972">Priestley, Taylor, 1972</A>,
+<A HREF="../bib.html#Running, Coughlan 1988">Running, Coughlan 1988</A>,
+</P>
+

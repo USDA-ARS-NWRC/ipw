@@ -1,0 +1,127 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads Tmax, Tmin1, Tmin2, and deltaT_average where:
+</P><PRE>
+	Tmax		current days max air temp (C)
+	Tmin1		current days min air temp (C)
+	Tmin2		next days min air temp (C)
+	deltaT_average	average dirunal temperature range
+			(weekly or monthly) (C)
+</PRE><P>
+(default: standard input), and writes cloudiness coeficient (0.0-1.0)
+to the standard output.
+The daily diurnal temperature range (deltaT) is calculated from the
+daily maximum temperature (Tmax) and the average of today's minimum
+temperature and tomorrow's minimum temperature (Tmin2).
+</P><P>
+deltaT is compared to the weekly or monthly average diurnal temperature
+range (deltaT_average), using the formula of Bristow and Campbell (1984):
+The output image is calculated as Bristow and Campbell (1984):
+</P><PRE>
+	cloud_coef = 1 - exp(-B deltaT ^ C)
+</PRE><P>
+where:
+</P><PRE>
+	B = 0.036 exp (-0.154 deltaT_average)
+	C = 2.4 (constant)
+</PRE>
+<H2>OPTIONS</H2>
+
+<P>None
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>None
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate cloudiness for the following air temperature data:
+</P><P><PRE>
+
+	cloud
+
+	Input Tmax, Tmin1, Tmin2, deltaT_ave;
+	24 5 7 20
+
+	0.18 (output)
+</PRE>
+</P>
+
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+<P>
+<DT>
+Tmax < Tmin;
+</DT>
+<DD><BR>
+Tmax must exceed both Tmin1 and Tmin2
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Oct 1999</DT>
+<DD>
+Written by Danny Marks, ARS-NWRC, Boise, ID.
+</DD>
+</DL>
+
+<DL>
+<DT>Oct 1999</DT>
+<DD>
+Modified to calculate cloud cover factor rather than
+attenuation factor by Adam Winstral, ARS-NWRC, Boise, ID.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+
+<DD>
+<B><A href="standard/deltaT.html">deltaT</A></B>,
+<B><A href="standard/tcloud.html">tcloud</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Bristow 1984">Bristow and Campbell 1984</A>,
+<A HREF="../bib.html#Running 1987">Runnind, Nemani, Hungerford 1987</A>
+</P>

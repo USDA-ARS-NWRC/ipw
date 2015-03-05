@@ -1,0 +1,1212 @@
+Path: funic!news.funet.fi!sunic!seunet!mcsun!uunet!sparky!kent
+From: thewalt@canuck.ce.berkeley.edu (Chris Thewalt)
+Newsgroups: comp.sources.misc
+Subject: v28i072:  mvalloc - matrix/vector allocator in C, Part01/01
+Message-ID: <1992Feb24.045022.18270@sparky.imd.sterling.com>
+Date: 24 Feb 92 04:50:22 GMT
+Sender: kent@sparky.imd.sterling.com (Kent Landfield)
+Followup-To: comp.sources.d
+Organization: Sterling Software, IMD
+Lines: 1199
+Approved: kent@sparky.imd.sterling.com
+X-Md4-Signature: d86f4138ede62053d534c06bb584feb7
+
+Submitted-by: thewalt@canuck.ce.berkeley.edu (Chris Thewalt)
+Posting-number: Volume 28, Issue 72
+Archive-name: mvalloc/part01
+Environment: UNIX, MSDOS, MSC
+
+Well, I finally got fed up writing allocators to make an array of
+ints or a matrix of doubles, so I sat down and wrote a generic
+allocator.  The single function MValloc(), included in the shar file below,
+allocates n-dimensional arrays (1 for vector, 2 for matrix, 3 or more
+if you need them...) with different element types.  The supported
+element types are char, short, int, long, float, double, void *
+(the unsigned/signed variants of integral types are also supported). The
+returned object can be indexed like a normal array, using as many
+indices as necessary for the dimension requested. The MValloc function
+also hides information about the array that can be recovered later
+with MV query functions.  See the files README and Interface for more
+details. 
+
+Uses either ANSI or old C, and should work on any system. It has
+been run on DECstations, Sun Sparcs, Silicon Graphics Irises, and
+PC's using MSC.
+
+Chris Thewalt
+--------------
+#! /bin/sh
+# This is a shell archive.  Remove anything before this line, then feed it
+# into a shell via "sh file" or similar.  To overwrite existing files,
+# type "sh file -c".
+# The tool that generated this appeared in the comp.sources.unix newsgroup;
+# send mail to comp-sources-unix@uunet.uu.net if you want that tool.
+# Contents:  README Interface Makefile mvalloc.c mvalloc.h test1.c
+#   test2.c test3.c test4.c test5.c
+# Wrapped by kent@sparky on Sun Feb 23 22:46:30 1992
+PATH=/bin:/usr/bin:/usr/ucb ; export PATH
+echo If this archive is complete, you will see the following message:
+echo '          "shar: End of archive 1 (of 1)."'
+if test -f 'README' -a "${1}" != "-c" ; then 
+  echo shar: Will not clobber existing file \"'README'\"
+else
+  echo shar: Extracting \"'README'\" \(1686 characters\)
+  sed "s/^X//" >'README' <<'END_OF_FILE'
+X    The MValloc package is a set of C functions to allocate general
+Xn-dimensional matrices (n==1 gives an array).  The code is written to run
+Xunder ANSI or classic C compilers.  The vector/matrix elements
+Xcan be:
+X
+X char, short, int, long (or signed/unsigned variants)
+X float, double
+X void *
+X
+X    The function MValloc returns a void * that can be assigned directly to
+Xa  pointer of the desired type (eg. double *** for a 3-d double matrix).
+XThe resulting pointer can then be subscripted like a normal C matrix.
+XAll the edge pointer spaghetti is done by MValloc to make this work, and in
+Xthe larger dimensional cases there are a lot of pointers... 
+XIn addition to initiating the pointers, MValloc hides information about
+Xthe matrix that can be returned from other MV query functions, as shown
+Xint mvalloc.h and described in the file called Interface.
+X
+X    The MValloc package rigorously treats the base pointers to objects
+Xdifferently (eg. char * and double * may have different size and
+Xrepresentation), and makes no assumptions at all for 1, 2 and 3-d matrices.
+XHowever, in order to make n-dimensional allocation possible, I make the
+Xfairly portable assumption that for any given base object, say double, 
+Xthe deeper pointer levels (double **, double ***, ...) all have the same
+Xsize and representation.  This has proven to be valid on many systems,
+Xincluding DECstations, Sun Sparc,  Silicon Graphics Iris, PC with MSC
+Xcompiler.  If it doesn't work on your system I'd be interested to hear
+Xabout it, but remember, you get what you pay for :-).
+X
+X    The functions test1.c through test5.c are examples of how to use the
+Xpacakage for dimensions 1, 2, 3, 4 and 5.
+X
+XChris Thewalt (2/16/92)
+END_OF_FILE
+  if test 1686 -ne `wc -c <'README'`; then
+    echo shar: \"'README'\" unpacked with wrong size!
+  fi
+  # end of 'README'
+fi
+if test -f 'Interface' -a "${1}" != "-c" ; then 
+  echo shar: Will not clobber existing file \"'Interface'\"
+else
+  echo shar: Extracting \"'Interface'\" \(2955 characters\)
+  sed "s/^X//" >'Interface' <<'END_OF_FILE'
+XThis file describes the programming interface to the MValloc package. When
+Xusing non-ANSI compilers that don't use funcion prototypes pay special 
+Xattention to the DANGER note below.
+X
+X
+X*** The supported element types are:
+X
+XMV_CHAR, MV_SHORT, MV_INT, MV_LONG, MV_FLOAT, MV_DOUBLE, MV_VOIDP
+X
+XOne can get a signed/unsigned variant of the integral types my assigning the
+Xpointer returned from MValloc to the correct pointer type (see example
+Xbelow).
+X
+X*** The function call interface is:
+X
+Xvoid *MValloc(int eltype, int dimension, ...)
+X
+X      The MValloc function returns a void pointer that represents the
+X      starting location of the n-dimensional matrix requested (or NULL 
+X      on error). The first argument is one of the supported element types 
+X      (listed above), the second argument is the number of dimensions 
+X      for this object (1 for vector, 2 for matrix, 3 or larger for higher 
+X      dimensional objects).  The remaining arguments are the sizes of 
+X      each of the dimensions, supplied as long ints. For example:
+X
+X      short          *short_array  = MValloc(MV_SHORT, 1, 200L);
+X      unsigned short *ushort_array = MValloc(MV_SHORT, 1, 200L);
+X      double        **matrix       = MValloc(MV_DOUBLE, 2, 100L, 100L);
+X      int        *****hyper        = MValloc(MV_INT, 5, 3L, 3L, 3L, 3L, 3L);
+X
+Xvoid  MVfree(void *mvobj)
+X
+X      The MVfree function checks to make sure the pointer given represents
+X      an MVobject, and if so, MVfree free's all memory associated with the
+X      object. 
+X
+Xint   MVdimension(void *mvobj)
+X
+X      The MVdimension function checks to make sure the pointer given 
+X      represents an MVobject, and if so, MVdimension returns the number
+X      of dimensions in the specified object.  Returns -1 on error.
+X
+Xlong  MVsize(void *mvobj, int dimension)
+X
+X      The MVsize function checks to make sure the pointer given 
+X      represents an MVobject, and if so, MVsize returns the size of 
+X      the specified dimension (0 based), or -1 on error.  For example, 
+X      given the 2-dimensional double matrix allocated above we could say:
+X
+X      int rows = MVsize(matrix, 0);
+X      int cols = MVsize(matrix, 1);
+X
+Xint   MVtype(void *mvobj)
+X
+X      The MVtype function checks to make sure the pointer given 
+X      represents an MVobject, and if so, MVtype returns the number
+X      associated with the element type (eg. MV_CHAR).  Returns -1 on error.
+X
+X************************ DANGER *******************************************
+X
+XWhen on a non-ANSI compiler that does not use the function prototypes given
+Xin mvalloc.h, the programmer must be careful to cast the arguments of all
+Xmvalloc functions to the correct types.  In particular, the free and query
+Xfunctions require a void *mvobj and this should be explicity cast by the
+Xprogrammer (things like double * may have a different representation).
+XAlso, the sizes given in MValloc() should all be long ints, which was
+Xnecessary to make this package usefull in the 16 bit world.
+END_OF_FILE
+  if test 2955 -ne `wc -c <'Interface'`; then
+    echo shar: \"'Interface'\" unpacked with wrong size!
+  fi
+  # end of 'Interface'
+fi
+if test -f 'Makefile' -a "${1}" != "-c" ; then 
+  echo shar: Will not clobber existing file \"'Makefile'\"
+else
+  echo shar: Extracting \"'Makefile'\" \(588 characters\)
+  sed "s/^X//" >'Makefile' <<'END_OF_FILE'
+XCFLAGS  = 
+XLDFLAGS =
+X
+Xall: test1 test2 test3 test4 test5
+X
+Xtest1: test1.o mvalloc.o
+X	$(CC) $(LDFLAGS) -o test1  mvalloc.o test1.o
+X
+Xtest2: test2.o mvalloc.o
+X	$(CC) $(LDFLAGS) -o test2  mvalloc.o test2.o
+X
+Xtest3: test3.o mvalloc.o
+X	$(CC) $(LDFLAGS) -o test3  mvalloc.o test3.o
+X
+Xtest4: test4.o mvalloc.o
+X	$(CC) $(LDFLAGS) -o test4  mvalloc.o test4.o
+X
+Xtest5: test5.o mvalloc.o
+X	$(CC) $(LDFLAGS) -o test5  mvalloc.o test5.o
+X
+Xclean:
+X	/bin/rm -f *.o test1 test2 test3 test4 test5
+X
+Xtest1.o: mvalloc.h
+Xtest2.o: mvalloc.h
+Xtest3.o: mvalloc.h
+Xtest4.o: mvalloc.h
+Xtest5.o: mvalloc.h
+Xmvalloc.o: mvalloc.h
+END_OF_FILE
+  if test 588 -ne `wc -c <'Makefile'`; then
+    echo shar: \"'Makefile'\" unpacked with wrong size!
+  fi
+  # end of 'Makefile'
+fi
+if test -f 'mvalloc.c' -a "${1}" != "-c" ; then 
+  echo shar: Will not clobber existing file \"'mvalloc.c'\"
+else
+  echo shar: Extracting \"'mvalloc.c'\" \(16034 characters\)
+  sed "s/^X//" >'mvalloc.c' <<'END_OF_FILE'
+X#ifndef lint
+Xstatic char     rcsid[] =
+X"$Id: mvalloc.c,v 1.2 1992/02/16 19:23:04 thewalt Exp thewalt $";
+Xstatic char    *copyright = "Copyright (C) 1991, 1992, Chris Thewalt";
+X#endif
+X
+X/*
+X * Copyright (C) 1991, 1992 by Chris Thewalt (thewalt@ce.berkeley.edu)
+X *
+X * Permission to use, copy, modify, and distribute this software 
+X * for any purpose and without fee is hereby granted, provided
+X * that the above copyright notices appear in all copies and that both the
+X * copyright notice and this permission notice appear in supporting
+X * documentation.  This software is provided "as is" without express or
+X * implied warranty.
+X */
+X
+X#include <stdio.h>
+X#ifdef __STDC__
+X#include <stddef.h>
+X#include <stdlib.h>
+X#include <stdarg.h>
+X#else  /* not __STDC__ */
+X#include <varargs.h>
+Xextern void *malloc();
+Xextern void  free();
+Xextern void  exit();
+X#endif /* not __STDC__ */
+X#include "mvalloc.h"
+X
+Xtypedef double  Align;
+Xtypedef void   *VoidPtr;
+X
+Xtypedef struct {
+X    int             magic;
+X    int             eltype;
+X    int             dimension;
+X    long           *size;
+X    Align           start;
+X} MVobj;
+X
+X#define  MV_MAGIC 2099
+X
+Xstatic MVobj      offset_var;
+X#define MV_OFFSET ((char*)&offset_var.start-(char*)&offset_var)
+X
+Xstatic void *
+XMallocOrDie(size)
+Xlong size;
+X{
+X    void           *p;
+X    extern void    *malloc();
+X
+X    if ((p = malloc(size)) == NULL) {
+X	fprintf(stderr, "MallocOrDie: insufficient memory\n");
+X	exit(1);
+X    }
+X    return p;
+X}
+X
+X#ifdef __STDC__
+Xvoid *
+XMValloc(int eltype, int dimension, ...)
+X#else  /* not __STDC__ */
+Xvoid *
+XMValloc(va_alist)
+Xva_dcl
+X#endif /* not __STDC__ */
+X{
+X    va_list         ap;
+X    MVobj          *mvp;
+X    char	 ***c3, **c2;
+X    short        ***s3, **s2;
+X    int          ***i3, **i2;
+X    long         ***l3, **l2;
+X    float        ***f3, **f2;
+X    double       ***d3, **d2;
+X    VoidPtr      ***v3, **v2;
+X    void           *retval = 0;
+X    long            i, j, *size;
+X    long            pp_count, p_count, el_count;
+X    long            base, count;
+X#ifndef __STDC__
+X    int             eltype, dimension;
+X#endif
+X
+X#ifdef __STDC__
+X    va_start(ap, dimension);
+X#else  /* not __STDC__ */
+X    va_start(ap);
+X    eltype = va_arg(ap, int);
+X    dimension = va_arg(ap, int);
+X#endif /* not __STDC__ */
+X    el_count = 1;
+X    if (dimension > 0) {
+X        size = MallocOrDie((long) dimension * sizeof(long));
+X	for (i=0; i < dimension; i++) {
+X	    size[i] = va_arg(ap, long);
+X	    if (size[i] < 0) {
+X	        fprintf(stderr, "MValloc: negative size request\n");
+X		return 0;
+X	    }
+X	    el_count *= size[i];
+X	}
+X    } else {
+X	fprintf(stderr, "MValloc: non-positive dimension argument\n");
+X	return 0;
+X    }
+X    va_end(ap);
+X    if (dimension == 1) {
+X	p_count = pp_count = 0;
+X    } else if (dimension == 2) {
+X	p_count = el_count / size[dimension-1];
+X	pp_count = 0;
+X    } else {
+X	pp_count = 0;
+X	p_count = 1;
+X	for (i = 0; i < dimension - 2; i++) {
+X	    p_count *= size[i];
+X	    pp_count += p_count;
+X	}
+X	p_count = el_count / size[dimension-1];
+X    }
+X    base = 0;
+X    count = 1;
+X    switch (eltype) {
+X      case MV_CHAR:
+X	if (dimension > 2 ) {
+X	    mvp = MallocOrDie((long) MV_OFFSET + pp_count * sizeof(char **));
+X	    retval = c3 = (char ***)((char *)mvp + MV_OFFSET);
+X	    for (i = 0; i < dimension - 3; i++) {
+X	        count *= size[i];
+X	        for (j = 0; j < count; j++) {
+X		    c3[base+j] = (char **)(c3 + base + count + j * size[i+1]);
+X	        }
+X                base += count;
+X	    }
+X	    c3[base] = MallocOrDie((long) p_count * sizeof(char *));
+X	    count *= size[dimension-3];
+X	    for (i = 1; i < count; i++) 
+X		c3[base+i] = c3[base+i-1] + size[dimension-2];
+X	    c3[base][0] = MallocOrDie((long) el_count * sizeof(char));
+X	    for (i = 1; i < p_count; i++)
+X	        c3[base][i] = c3[base][i-1] + size[dimension-1];
+X	} else if (dimension == 2) {
+X	    mvp = MallocOrDie((long) MV_OFFSET + p_count * sizeof(char *));
+X	    retval = c2 = (char **)((char *)mvp + MV_OFFSET);
+X	    c2[0] = MallocOrDie((long) el_count * sizeof(char));
+X	    for (i = 1; i < p_count; i++)
+X	        c2[i] = c2[i-1] + size[1];
+X	} else {
+X	    mvp = MallocOrDie((long) MV_OFFSET + el_count * sizeof(char));
+X	    retval = (char *)((char *)mvp + MV_OFFSET);
+X	}
+X	break;
+X      case MV_SHORT:
+X	if (dimension > 2 ) {
+X	    mvp = MallocOrDie((long) MV_OFFSET + pp_count * sizeof(short **));
+X	    retval = s3 = (short ***)((char *)mvp + MV_OFFSET);
+X	    for (i = 0; i < dimension - 3; i++) {
+X	        count *= size[i];
+X	        for (j = 0; j < count; j++) {
+X		    s3[base+j] = (short **)(s3 + base + count + j * size[i+1]);
+X	        }
+X                base += count;
+X	    }
+X	    s3[base] = MallocOrDie((long) p_count * sizeof(short *));
+X	    count *= size[dimension-3];
+X	    for (i = 1; i < count; i++) 
+X		s3[base+i] = s3[base+i-1] + size[dimension-2];
+X	    s3[base][0] = MallocOrDie((long) el_count * sizeof(short));
+X	    for (i = 1; i < p_count; i++)
+X	        s3[base][i] = s3[base][i-1] + size[dimension-1];
+X	} else if (dimension == 2) {
+X	    mvp = MallocOrDie((long) MV_OFFSET + p_count * sizeof(short *));
+X	    retval = s2 = (short **)((char *)mvp + MV_OFFSET);
+X	    s2[0] = MallocOrDie((long) el_count * sizeof(short));
+X	    for (i = 1; i < p_count; i++)
+X	        s2[i] = s2[i-1] + size[1];
+X	} else {
+X	    mvp = MallocOrDie((long) MV_OFFSET + el_count * sizeof(short));
+X	    retval = (short *)((char *)mvp + MV_OFFSET);
+X	}
+X	break;
+X      case MV_INT:
+X	if (dimension > 2 ) {
+X	    mvp = MallocOrDie((long) MV_OFFSET + pp_count * sizeof(int **));
+X	    retval = i3 = (int ***)((char *)mvp + MV_OFFSET);
+X	    for (i = 0; i < dimension - 3; i++) {
+X	        count *= size[i];
+X	        for (j = 0; j < count; j++) {
+X		    i3[base+j] = (int **)(i3 + base + count + j * size[i+1]);
+X	        }
+X                base += count;
+X	    }
+X	    i3[base] = MallocOrDie((long) p_count * sizeof(int *));
+X	    count *= size[dimension-3];
+X	    for (i = 1; i < count; i++) 
+X		i3[base+i] = i3[base+i-1] + size[dimension-2];
+X	    i3[base][0] = MallocOrDie((long) el_count * sizeof(int));
+X	    for (i = 1; i < p_count; i++)
+X	        i3[base][i] = i3[base][i-1] + size[dimension-1];
+X	} else if (dimension == 2) {
+X	    mvp = MallocOrDie((long) MV_OFFSET + p_count * sizeof(int *));
+X	    retval = i2 = (int **)((char *)mvp + MV_OFFSET);
+X	    i2[0] = MallocOrDie((long) el_count * sizeof(int));
+X	    for (i = 1; i < p_count; i++)
+X	        i2[i] = i2[i-1] + size[1];
+X	} else {
+X	    mvp = MallocOrDie((long) MV_OFFSET + el_count * sizeof(int));
+X	    retval = (int *)((char *)mvp + MV_OFFSET);
+X	}
+X	break;
+X      case MV_LONG:
+X	if (dimension > 2 ) {
+X	    mvp = MallocOrDie((long) MV_OFFSET + pp_count * sizeof(long **));
+X	    retval = l3 = (long ***)((char *)mvp + MV_OFFSET);
+X	    for (i = 0; i < dimension - 3; i++) {
+X	        count *= size[i];
+X	        for (j = 0; j < count; j++) {
+X		    l3[base+j] = (long **)(l3 + base + count + j * size[i+1]);
+X	        }
+X                base += count;
+X	    }
+X	    l3[base] = MallocOrDie((long) p_count * sizeof(long *));
+X	    count *= size[dimension-3];
+X	    for (i = 1; i < count; i++) 
+X		l3[base+i] = l3[base+i-1] + size[dimension-2];
+X	    l3[base][0] = MallocOrDie((long) el_count * sizeof(long));
+X	    for (i = 1; i < p_count; i++)
+X	        l3[base][i] = l3[base][i-1] + size[dimension-1];
+X	} else if (dimension == 2) {
+X	    mvp = MallocOrDie((long) MV_OFFSET + p_count * sizeof(long *));
+X	    retval = l2 = (long **)((char *)mvp + MV_OFFSET);
+X	    l2[0] = MallocOrDie((long) el_count * sizeof(long));
+X	    for (i = 1; i < p_count; i++)
+X	        l2[i] = l2[i-1] + size[1];
+X	} else {
+X	    mvp = MallocOrDie((long) MV_OFFSET + el_count * sizeof(long));
+X	    retval = (long *)((char *)mvp + MV_OFFSET);
+X	}
+X	break;
+X      case MV_FLOAT:
+X	if (dimension > 2 ) {
+X	    mvp = MallocOrDie((long) MV_OFFSET + pp_count * sizeof(float **));
+X	    retval = f3 = (float ***)((char *)mvp + MV_OFFSET);
+X	    for (i = 0; i < dimension - 3; i++) {
+X	        count *= size[i];
+X	        for (j = 0; j < count; j++) {
+X		    f3[base+j] = (float **)(f3 + base + count + j * size[i+1]);
+X	        }
+X                base += count;
+X	    }
+X	    f3[base] = MallocOrDie((long) p_count * sizeof(float *));
+X	    count *= size[dimension-3];
+X	    for (i = 1; i < count; i++) 
+X		f3[base+i] = f3[base+i-1] + size[dimension-2];
+X	    f3[base][0] = MallocOrDie((long) el_count * sizeof(float));
+X	    for (i = 1; i < p_count; i++)
+X	        f3[base][i] = f3[base][i-1] + size[dimension-1];
+X	} else if (dimension == 2) {
+X	    mvp = MallocOrDie((long) MV_OFFSET + p_count * sizeof(float *));
+X	    retval = f2 = (float **)((char *)mvp + MV_OFFSET);
+X	    f2[0] = MallocOrDie((long) el_count * sizeof(float));
+X	    for (i = 1; i < p_count; i++)
+X	        f2[i] = f2[i-1] + size[1];
+X	} else {
+X	    mvp = MallocOrDie((long) MV_OFFSET + el_count * sizeof(float));
+X	    retval = (float *)((char *)mvp + MV_OFFSET);
+X	}
+X	break;
+X      case MV_DOUBLE:
+X	if (dimension > 2 ) {
+X	    mvp = MallocOrDie((long) MV_OFFSET + pp_count * sizeof(double **));
+X	    retval = d3 = (double ***)((char *)mvp + MV_OFFSET);
+X	    for (i = 0; i < dimension - 3; i++) {
+X	        count *= size[i];
+X	        for (j = 0; j < count; j++) {
+X		    d3[base+j] = (double **)(d3 + base + count + j * size[i+1]);
+X	        }
+X                base += count;
+X	    }
+X	    d3[base] = MallocOrDie((long) p_count * sizeof(double *));
+X	    count *= size[dimension-3];
+X	    for (i = 1; i < count; i++) 
+X		d3[base+i] = d3[base+i-1] + size[dimension-2];
+X	    d3[base][0] = MallocOrDie((long) el_count * sizeof(double));
+X	    for (i = 1; i < p_count; i++)
+X	        d3[base][i] = d3[base][i-1] + size[dimension-1];
+X	} else if (dimension == 2) {
+X	    mvp = MallocOrDie((long) MV_OFFSET + p_count * sizeof(double *));
+X	    retval = d2 = (double **)((char *)mvp + MV_OFFSET);
+X	    d2[0] = MallocOrDie((long) el_count * sizeof(double));
+X	    for (i = 1; i < p_count; i++)
+X	        d2[i] = d2[i-1] + size[1];
+X	} else {
+X	    mvp = MallocOrDie((long) MV_OFFSET + el_count * sizeof(double));
+X	    retval = (double *)((char *)mvp + MV_OFFSET);
+X	}
+X	break;
+X      case MV_VOIDP:
+X	if (dimension > 2 ) {
+X	    mvp = MallocOrDie((long)MV_OFFSET + pp_count * sizeof(VoidPtr **));
+X	    retval = v3 = (VoidPtr ***)((char *)mvp + MV_OFFSET);
+X	    for (i = 0; i < dimension - 3; i++) {
+X	        count *= size[i];
+X	        for (j = 0; j < count; j++) {
+X		    v3[base+j] = (VoidPtr **)(v3 + base + count + j*size[i+1]);
+X	        }
+X                base += count;
+X	    }
+X	    v3[base] = MallocOrDie((long) p_count * sizeof(VoidPtr *));
+X	    count *= size[dimension-3];
+X	    for (i = 1; i < count; i++) 
+X		v3[base+i] = v3[base+i-1] + size[dimension-2];
+X	    v3[base][0] = MallocOrDie((long) el_count * sizeof(VoidPtr));
+X	    for (i = 1; i < p_count; i++)
+X	        v3[base][i] = v3[base][i-1] + size[dimension-1];
+X	} else if (dimension == 2) {
+X	    mvp = MallocOrDie((long) MV_OFFSET + p_count * sizeof(VoidPtr *));
+X	    retval = v2 = (VoidPtr **)((char *)mvp + MV_OFFSET);
+X	    v2[0] = MallocOrDie((long) el_count * sizeof(VoidPtr));
+X	    for (i = 1; i < p_count; i++)
+X	        v2[i] = v2[i-1] + size[1];
+X	} else {
+X	    mvp = MallocOrDie((long) MV_OFFSET + el_count * sizeof(VoidPtr));
+X	    retval = (VoidPtr *)((char *)mvp + MV_OFFSET);
+X	}
+X	break;
+X      default:
+X	fprintf(stderr, "MValloc: illegal element type\n");
+X	free((void *) size);
+X	return 0;
+X    }
+X    if (retval) {
+X	mvp->magic = MV_MAGIC;
+X	mvp->eltype = eltype;
+X	mvp->dimension = dimension;
+X	mvp->size = size;
+X    }
+X    return retval;
+X}
+X
+Xvoid
+XMVfree(mvobj)
+Xvoid *mvobj;
+X{
+X    MVobj          *mvp = 0;
+X    char	 ***c3, **c2;
+X    short        ***s3, **s2;
+X    int          ***i3, **i2;
+X    long         ***l3, **l2;
+X    float        ***f3, **f2;
+X    double       ***d3, **d2;
+X    VoidPtr      ***v3, **v2;
+X    long            count, base;
+X    int             i;
+X
+X    if (mvobj) {
+X	mvp = (MVobj *) ((char *)mvobj - MV_OFFSET);
+X	if (mvp->magic != MV_MAGIC) {
+X            fprintf(stderr, "MVfree: argument isn't an MVobject\n");
+X	    return;
+X	}
+X	mvp->magic = 0;  /* in case we see this object again */
+X    } else  {
+X        fprintf(stderr, "MVfree: NULL argument\n");
+X	return;
+X    }
+X    base = 0;
+X    count = 1;
+X    switch (mvp->eltype) {
+X      case MV_CHAR:
+X	if (mvp->dimension > 2 ) {
+X	    c3 = (char ***) mvobj;
+X	    for (i = 0; i < mvp->dimension - 3; i++) {
+X	        count *= mvp->size[i];
+X                base += count;
+X	    }
+X	    free((void *) c3[base][0]);
+X	    free((void *) c3[base]);
+X	} else if (mvp->dimension == 2) {
+X	    c2 = (char **) mvobj;
+X	    free((void *) c2[0]);
+X	}
+X	break;
+X      case MV_SHORT:
+X	if (mvp->dimension > 2 ) {
+X	    s3 = (short ***) mvobj;
+X	    for (i = 0; i < mvp->dimension - 3; i++) {
+X	        count *= mvp->size[i];
+X                base += count;
+X	    }
+X	    free((void *) s3[base][0]);
+X	    free((void *) s3[base]);
+X	} else if (mvp->dimension == 2) {
+X	    s2 = (short **) mvobj;
+X	    free((void *) s2[0]);
+X	}
+X	break;
+X      case MV_INT:
+X	if (mvp->dimension > 2 ) {
+X	    i3 = (int ***) mvobj;
+X	    for (i = 0; i < mvp->dimension - 3; i++) {
+X	        count *= mvp->size[i];
+X                base += count;
+X	    }
+X	    free((void *) i3[base][0]);
+X	    free((void *) i3[base]);
+X	} else if (mvp->dimension == 2) {
+X	    i2 = (int **) mvobj;
+X	    free((void *) i2[0]);
+X	}
+X	break;
+X      case MV_LONG:
+X	if (mvp->dimension > 2 ) {
+X	    l3 = (long ***) mvobj;
+X	    for (i = 0; i < mvp->dimension - 3; i++) {
+X	        count *= mvp->size[i];
+X                base += count;
+X	    }
+X	    free((void *) l3[base][0]);
+X	    free((void *) l3[base]);
+X	} else if (mvp->dimension == 2) {
+X	    l2 = (long **) mvobj;
+X	    free((void *) l2[0]);
+X	}
+X	break;
+X      case MV_FLOAT:
+X	if (mvp->dimension > 2 ) {
+X	    f3 = (float ***) mvobj;
+X	    for (i = 0; i < mvp->dimension - 3; i++) {
+X	        count *= mvp->size[i];
+X                base += count;
+X	    }
+X	    free((void *) f3[base][0]);
+X	    free((void *) f3[base]);
+X	} else if (mvp->dimension == 2) {
+X	    f2 = (float **) mvobj;
+X	    free((void *) f2[0]);
+X	}
+X	break;
+X      case MV_DOUBLE:
+X	if (mvp->dimension > 2 ) {
+X	    d3 = (double ***) mvobj;
+X	    for (i = 0; i < mvp->dimension - 3; i++) {
+X	        count *= mvp->size[i];
+X                base += count;
+X	    }
+X	    free((void *) d3[base][0]);
+X	    free((void *) d3[base]);
+X	} else if (mvp->dimension == 2) {
+X	    d2 = (double **) mvobj;
+X	    free((void *) d2[0]);
+X	}
+X	break;
+X      case MV_VOIDP:
+X	if (mvp->dimension > 2 ) {
+X	    v3 = (VoidPtr ***) mvobj;
+X	    for (i = 0; i < mvp->dimension - 3; i++) {
+X	        count *= mvp->size[i];
+X                base += count;
+X	    }
+X	    free((void *) v3[base][0]);
+X	    free((void *) v3[base]);
+X	} else if (mvp->dimension == 2) {
+X	    v2 = (VoidPtr **) mvobj;
+X	    free((void *) v2[0]);
+X	}
+X	break;
+X      default:
+X	fprintf(stderr, "MVfree: illegal element type\n");
+X	break;
+X    }
+X    free((void *) mvp->size);
+X    free((void *) mvp);
+X}
+X
+Xint
+XMVdimension(mvobj)
+Xvoid *mvobj;
+X{
+X    MVobj         *mvp;
+X    int           dimension = -1;
+X
+X    if (mvobj) {
+X	mvp = (MVobj *) ((char *)mvobj - MV_OFFSET);
+X	if (mvp->magic == MV_MAGIC)
+X	    dimension = mvp->dimension;
+X	else 
+X            fprintf(stderr, "MVdimension: argument isn't an MVobject\n");
+X    } else
+X        fprintf(stderr, "MVdimension: NULL argument\n");
+X    return dimension;
+X}
+X
+Xlong
+XMVsize(mvobj, dimension)
+Xvoid *mvobj;
+Xint   dimension;
+X{
+X    MVobj         *mvp;
+X    long           size = -1;
+X
+X    if (mvobj) {
+X	mvp = (MVobj *) ((char *)mvobj - MV_OFFSET);
+X	if (mvp->magic == MV_MAGIC) {
+X	    if (mvp->dimension >= dimension)
+X	        size = mvp->size[dimension];
+X	    else
+X                fprintf(stderr,"MVsize: bad dimension for specified object\n");
+X	} else
+X            fprintf(stderr, "MVsize: first argument isn't an MVobject\n");
+X    } else
+X        fprintf(stderr, "MVsize: first argument is NULL\n");
+X    return size;
+X}
+X
+Xint
+XMVtype(mvobj)
+Xvoid *mvobj;
+X{
+X    MVobj         *mvp;
+X    int           type = -1;
+X
+X    if (mvobj) {
+X	mvp = (MVobj *) ((char *)mvobj - MV_OFFSET);
+X	if (mvp->magic == MV_MAGIC)
+X	    type = mvp->eltype;
+X	else 
+X            fprintf(stderr, "MVtype: argument isn't an MVobject\n");
+X    } else
+X        fprintf(stderr, "MVtype: NULL argument\n");
+X    return type;
+X}
+END_OF_FILE
+  if test 16034 -ne `wc -c <'mvalloc.c'`; then
+    echo shar: \"'mvalloc.c'\" unpacked with wrong size!
+  fi
+  # end of 'mvalloc.c'
+fi
+if test -f 'mvalloc.h' -a "${1}" != "-c" ; then 
+  echo shar: Will not clobber existing file \"'mvalloc.h'\"
+else
+  echo shar: Extracting \"'mvalloc.h'\" \(1111 characters\)
+  sed "s/^X//" >'mvalloc.h' <<'END_OF_FILE'
+X#ifndef MVALLOC_H
+X#define MVALLOC_H
+X
+X/*
+X * Copyright (C) 1991, 1992 by Chris Thewalt (thewalt@ce.berkeley.edu)
+X *
+X * Permission to use, copy, modify, and distribute this software 
+X * for any purpose and without fee is hereby granted, provided
+X * that the above copyright notices appear in all copies and that both the
+X * copyright notice and this permission notice appear in supporting
+X * documentation.  This software is provided "as is" without express or
+X * implied warranty.
+X */
+X
+X
+X#define MV_CHAR     123
+X#define MV_SHORT    124
+X#define MV_INT      125
+X#define MV_LONG     126
+X#define MV_FLOAT    127
+X#define MV_DOUBLE   128
+X#define MV_VOIDP    129
+X
+X#ifdef __STDC__
+Xvoid           *MValloc(int eltype, int dimension, ...);
+Xvoid            MVfree(void *mvobj);
+Xint             MVdimension(void *mvobj);
+Xlong            MVsize(void *mvobj, int dimension);
+Xint             MVtype(void *mvobj);
+X#else  /* not __STDC__ */
+Xvoid           *MValloc();
+Xvoid            MVfree();
+Xint             MVdimension();
+Xlong            MVsize();
+Xint             MVtype();
+X#endif /* not __STDC__ */
+X
+X#endif /* not MVALLOC_H */
+END_OF_FILE
+  if test 1111 -ne `wc -c <'mvalloc.h'`; then
+    echo shar: \"'mvalloc.h'\" unpacked with wrong size!
+  fi
+  # end of 'mvalloc.h'
+fi
+if test -f 'test1.c' -a "${1}" != "-c" ; then 
+  echo shar: Will not clobber existing file \"'test1.c'\"
+else
+  echo shar: Extracting \"'test1.c'\" \(868 characters\)
+  sed "s/^X//" >'test1.c' <<'END_OF_FILE'
+X#include <stdio.h>
+X#include "mvalloc.h"
+X
+Xvoid            m_init();
+Xdouble          m_sum();
+Xdouble          sum();
+X
+Xvoid
+Xmain()
+X{
+X    double         *x;
+X    long            numel;
+X
+X    x = MValloc(MV_DOUBLE, 1, 5L);
+X    numel = MVsize((void *)x, 0);
+X    m_init(x);
+X    printf("sum of elements is %.14g (should be %.14g)\n", 
+X	   m_sum(x), sum(numel-1));
+X    MVfree((void *)x);
+X}
+X
+Xvoid
+Xm_init(x)
+Xdouble *x;
+X{
+X    long             d1;
+X    long             i;
+X    double           val = 0.0;
+X
+X    d1 = MVsize((void *)x, 0);
+X    for (i = 0; i < d1; i++)
+X	x[i] = val++;
+X}
+X
+Xdouble
+Xm_sum(x)
+Xdouble *x;
+X{
+X    long             d1;
+X    long             i;
+X    double           val = 0.0;
+X
+X    d1 = MVsize((void *)x, 0);
+X    for (i = 0; i < d1; i++)
+X	val += x[i];
+X    return val;
+X}
+X
+Xdouble
+Xsum(i)
+Xlong i;
+X{
+X    double val = 0.0;
+X
+X    while (i > 0)
+X	val += i--;
+X    return val;
+X}
+END_OF_FILE
+  if test 868 -ne `wc -c <'test1.c'`; then
+    echo shar: \"'test1.c'\" unpacked with wrong size!
+  fi
+  # end of 'test1.c'
+fi
+if test -f 'test2.c' -a "${1}" != "-c" ; then 
+  echo shar: Will not clobber existing file \"'test2.c'\"
+else
+  echo shar: Extracting \"'test2.c'\" \(1041 characters\)
+  sed "s/^X//" >'test2.c' <<'END_OF_FILE'
+X#include <stdio.h>
+X#include "mvalloc.h"
+X
+Xvoid            m_init();
+Xdouble          m_sum();
+Xdouble          sum();
+X
+Xvoid
+Xmain()
+X{
+X    double         **x;
+X    long             numel;
+X
+X    x = MValloc(MV_DOUBLE, 2, 5L, 5L);
+X    numel = MVsize((void *)x, 0) * MVsize((void *)x, 1);
+X    m_init(x);
+X    printf("sum of elements is %.14g (should be %.14g)\n", 
+X	   m_sum(x), sum(numel-1));
+X    MVfree((void *)x);
+X}
+X
+Xvoid
+Xm_init(x)
+Xdouble **x;
+X{
+X    long             d1, d2;
+X    long             i, j;
+X    double           val = 0.0;
+X
+X    d1 = MVsize((void *)x, 0);
+X    d2 = MVsize((void *)x, 1);
+X    for (i = 0; i < d1; i++)
+X	for (j = 0; j < d2; j++)
+X	    x[i][j] = val++;
+X}
+X
+Xdouble
+Xm_sum(x)
+Xdouble **x;
+X{
+X    long             d1, d2;
+X    long             i, j;
+X    double           val = 0.0;
+X
+X    d1 = MVsize((void *)x, 0);
+X    d2 = MVsize((void *)x, 1);
+X    for (i = 0; i < d1; i++)
+X	for (j = 0; j < d2; j++)
+X	    val += x[i][j];
+X    return val;
+X}
+X
+Xdouble
+Xsum(i)
+Xlong i;
+X{
+X    double val = 0.0;
+X
+X    while (i > 0)
+X	val += i--;
+X    return val;
+X}
+END_OF_FILE
+  if test 1041 -ne `wc -c <'test2.c'`; then
+    echo shar: \"'test2.c'\" unpacked with wrong size!
+  fi
+  # end of 'test2.c'
+fi
+if test -f 'test3.c' -a "${1}" != "-c" ; then 
+  echo shar: Will not clobber existing file \"'test3.c'\"
+else
+  echo shar: Extracting \"'test3.c'\" \(1227 characters\)
+  sed "s/^X//" >'test3.c' <<'END_OF_FILE'
+X#include <stdio.h>
+X#include "mvalloc.h"
+X
+Xvoid            m_init();
+Xdouble          m_sum();
+Xdouble          sum();
+X
+Xvoid
+Xmain()
+X{
+X    double         ***x;
+X    long              numel;
+X
+X    x = MValloc(MV_DOUBLE, 3, 5L, 5L, 5L);
+X    numel = MVsize((void *)x, 0) * MVsize((void *)x, 1) *
+X	    MVsize((void *)x, 2);
+X    m_init(x);
+X    printf("sum of elements is %.14g (should be %.14g)\n", 
+X	   m_sum(x), sum(numel-1));
+X    MVfree((void *)x);
+X}
+X
+Xvoid
+Xm_init(x)
+Xdouble ***x;
+X{
+X    long             d1, d2, d3;
+X    long             i, j, k;
+X    double           val = 0.0;
+X
+X    d1 = MVsize((void *)x, 0);
+X    d2 = MVsize((void *)x, 1);
+X    d3 = MVsize((void *)x, 2);
+X    for (i = 0; i < d1; i++)
+X	for (j = 0; j < d2; j++)
+X	    for (k = 0; k < d3; k++)
+X	        x[i][j][k] = val++;
+X}
+X
+Xdouble
+Xm_sum(x)
+Xdouble ***x;
+X{
+X    long             d1, d2, d3;
+X    long             i, j, k;
+X    double           val = 0.0;
+X
+X    d1 = MVsize((void *)x, 0);
+X    d2 = MVsize((void *)x, 1);
+X    d3 = MVsize((void *)x, 2);
+X    for (i = 0; i < d1; i++)
+X	for (j = 0; j < d2; j++)
+X	    for (k = 0; k < d3; k++)
+X	        val += x[i][j][k];
+X    return val;
+X}
+X
+Xdouble
+Xsum(i)
+Xlong i;
+X{
+X    double val = 0.0;
+X
+X    while (i > 0)
+X	val += i--;
+X    return val;
+X}
+END_OF_FILE
+  if test 1227 -ne `wc -c <'test3.c'`; then
+    echo shar: \"'test3.c'\" unpacked with wrong size!
+  fi
+  # end of 'test3.c'
+fi
+if test -f 'test4.c' -a "${1}" != "-c" ; then 
+  echo shar: Will not clobber existing file \"'test4.c'\"
+else
+  echo shar: Extracting \"'test4.c'\" \(1416 characters\)
+  sed "s/^X//" >'test4.c' <<'END_OF_FILE'
+X#include <stdio.h>
+X#include "mvalloc.h"
+X
+Xvoid            m_init();
+Xdouble          m_sum();
+Xdouble          sum();
+X
+Xvoid
+Xmain()
+X{
+X    double         ****x;
+X    long               numel;
+X
+X    x = MValloc(MV_DOUBLE, 4, 5L, 5L, 5L, 5L);
+X    numel = MVsize((void *)x, 0) * MVsize((void *)x, 1) *
+X	    MVsize((void *)x, 2) * MVsize((void *)x, 3);
+X    m_init(x);
+X    printf("sum of elements is %.14g (should be %.14g)\n", 
+X	   m_sum(x), sum(numel-1));
+X    MVfree((void *)x);
+X}
+X
+Xvoid
+Xm_init(x)
+Xdouble ****x;
+X{
+X    long             d1, d2, d3, d4;
+X    long             i, j, k, l;
+X    double           val = 0.0;
+X
+X    d1 = MVsize((void *)x, 0);
+X    d2 = MVsize((void *)x, 1);
+X    d3 = MVsize((void *)x, 2);
+X    d4 = MVsize((void *)x, 3);
+X    for (i = 0; i < d1; i++)
+X	for (j = 0; j < d2; j++)
+X	    for (k = 0; k < d3; k++)
+X	        for (l = 0; l < d4; l++)
+X	            x[i][j][k][l] = val++;
+X}
+X
+Xdouble
+Xm_sum(x)
+Xdouble ****x;
+X{
+X    long             d1, d2, d3, d4;
+X    long             i, j, k, l;
+X    double           val = 0.0;
+X
+X    d1 = MVsize((void *)x, 0);
+X    d2 = MVsize((void *)x, 1);
+X    d3 = MVsize((void *)x, 2);
+X    d4 = MVsize((void *)x, 3);
+X    for (i = 0; i < d1; i++)
+X	for (j = 0; j < d2; j++)
+X	    for (k = 0; k < d3; k++)
+X	        for (l = 0; l < d4; l++)
+X	            val += x[i][j][k][l];
+X    return val;
+X}
+X
+Xdouble
+Xsum(i)
+Xlong i;
+X{
+X    double val = 0.0;
+X
+X    while (i > 0)
+X	val += i--;
+X    return val;
+X}
+END_OF_FILE
+  if test 1416 -ne `wc -c <'test4.c'`; then
+    echo shar: \"'test4.c'\" unpacked with wrong size!
+  fi
+  # end of 'test4.c'
+fi
+if test -f 'test5.c' -a "${1}" != "-c" ; then 
+  echo shar: Will not clobber existing file \"'test5.c'\"
+else
+  echo shar: Extracting \"'test5.c'\" \(1576 characters\)
+  sed "s/^X//" >'test5.c' <<'END_OF_FILE'
+X#include <stdio.h>
+X#include "mvalloc.h"
+X
+Xvoid            m_init();
+Xint          m_sum();
+Xint          sum();
+X
+Xvoid
+Xmain()
+X{
+X    int         *****x;
+X    long                numel;
+X
+X    x = MValloc(MV_DOUBLE, 5, 3L, 4L, 5L, 6L, 7L);
+X    numel = MVsize((void *)x, 0) * MVsize((void *)x, 1) *
+X	    MVsize((void *)x, 2) * MVsize((void *)x, 3) *
+X	    MVsize((void *)x, 4);
+X    m_init(x);
+X    printf("sum of elements is %d (should be %d)\n", 
+X	   m_sum(x), sum(numel-1));
+X    MVfree((void *)x);
+X}
+X
+Xvoid
+Xm_init(x)
+Xint *****x;
+X{
+X    long             d1, d2, d3, d4, d5;
+X    long             i, j, k, l, m;
+X    int           val = 0;
+X
+X    d1 = MVsize((void *)x, 0);
+X    d2 = MVsize((void *)x, 1);
+X    d3 = MVsize((void *)x, 2);
+X    d4 = MVsize((void *)x, 3);
+X    d5 = MVsize((void *)x, 4);
+X    for (i = 0; i < d1; i++)
+X	for (j = 0; j < d2; j++)
+X	    for (k = 0; k < d3; k++)
+X	        for (l = 0; l < d4; l++)
+X	            for (m = 0; m < d5; m++)
+X	                x[i][j][k][l][m] = val++;
+X}
+X
+Xint
+Xm_sum(x)
+Xint *****x;
+X{
+X    long             d1, d2, d3, d4, d5;
+X    long             i, j, k, l, m;
+X    int           val = 0;
+X
+X    d1 = MVsize((void *)x, 0);
+X    d2 = MVsize((void *)x, 1);
+X    d3 = MVsize((void *)x, 2);
+X    d4 = MVsize((void *)x, 3);
+X    d5 = MVsize((void *)x, 4);
+X    for (i = 0; i < d1; i++)
+X	for (j = 0; j < d2; j++)
+X	    for (k = 0; k < d3; k++)
+X	        for (l = 0; l < d4; l++)
+X	            for (m = 0; m < d5; m++)
+X	                val += x[i][j][k][l][m];
+X    return val;
+X}
+X
+Xint
+Xsum(i)
+Xlong i;
+X{
+X    int val = 0;
+X
+X    while (i > 0)
+X	val += i--;
+X    return val;
+X}
+END_OF_FILE
+  if test 1576 -ne `wc -c <'test5.c'`; then
+    echo shar: \"'test5.c'\" unpacked with wrong size!
+  fi
+  # end of 'test5.c'
+fi
+echo shar: End of archive 1 \(of 1\).
+cp /dev/null ark1isdone
+MISSING=""
+for I in 1 ; do
+    if test ! -f ark${I}isdone ; then
+	MISSING="${MISSING} ${I}"
+    fi
+done
+if test "${MISSING}" = "" ; then
+    echo You have the archive.
+    rm -f ark[1-9]isdone
+else
+    echo You still must unpack the following archives:
+    echo "        " ${MISSING}
+fi
+exit 0
+exit 0 # Just in case...

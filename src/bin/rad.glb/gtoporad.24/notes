@@ -1,0 +1,336 @@
+
+Notes on 24-hour global-scale solar radiation model gtoporad.24
+(with conversion to lat/lon projection):
+---------------------------------------------------------------------------------
+
+##
+## NAME
+##	gtoporad.24 -- global-scale topographic distribution of solar radiation
+##		     for 24 hours
+##
+## SYNOPSIS
+##	gtoporad.24 [-n] -z elev -w omega -g gfact [-s S0] [-x w1,w2] \
+##		-d y,m,d[,h,m,s] -i delta_t -l ll_image	-o out_prefix \
+##		[-m mask] [image]
+##
+## DESCRIPTION
+##	gtoporad.24 computes global-scale solar radiation over a topographic grid,
+##	using a two-stream atmospheric radiation model.  The radiation is
+##	computed and output every delta_t hours for a total of 24 hours.
+##	The input image file has the following eight bands:
+##		elevation
+##		slope
+##		azimuth
+##		sky view factor
+##		terrain configuration factor
+##		surface albedo
+##		reflectance of substrate
+##		optical depth
+##	The output images are called <out_prefix>.0 ...	<out_prefix>.n (where
+##	n is 24/delta_t).
+##
+## OPTIONS
+##	-n	net radiation instead of incoming
+##	-z	elevation of optical depth measurement
+##	-w	single-scattering albedo
+##	-g	scattering asymmetry parameter
+##	-s	exoatmospheric solar irradiance, or
+##	-x	wavelength range, micrometers
+##	-d	start date/time (year, month, day, hour, minute, second)
+##	-i	time increment in hours
+##	-l	latitude/longitude image: 2-band image containing latitude
+##		and longitude in decimal degrees
+##	-o	prefix for output image names
+##	-m	mask image
+##
+##
+## EXAMPLES
+##
+## FILES
+##
+## DIAGNOSTICS
+##
+## RESTRICTIONS
+##
+## FUTURE DIRECTIONS
+##
+## BUGS
+
+
+To run the model, image data is needed for elevation, surface albedo,
+reflectance of the substrate, and optical depth for each pixel.  Note that
+each of these images must be in the latitude/longitide geographic projection
+and have appropriate GEO headers.  The slope and azimuth bands of the input
+should be computed from elevation by the program ggradient.  Global-scale
+sky view factor and terrain configuration factor input data should be computed
+from elevation by the program gviewf.  R0, reflectance of the substrate, can
+be computed by convolving (averaging over 3x3 grid) the albedo image.
+
+Several programs are run for the model for each time step. 
+   1.  The program gsunlight is run to compute the solar zenith and azimuth
+angles for the time of day of the current step.
+   2.  The program gelevrad is run to compute beam and diffuse radiation from
+elevation, mu (cos zenith angle), reflectance of the substrate and optical
+depth images along with run-string constants for elevation of the optical
+depth measurements, single-scattering albedo, scattering asymmetry parameter and
+exoatmospheric solar irradiance.
+   3.  The program ghorizon is then run with the sun angles image (mu and
+solar azimuth output from sunweights) and the elevation to produce a
+mask image where pixels are 0 if the sun is below the horizon or 1 it is
+above the horizon.
+   4.  The program gshade is run with the sun angles image and the
+slope and exposure (gradient) image to produce an output image containing the
+cosine of the local illumination angle.
+   5.  The output from gshade is masked by the mask output from ghorizon
+and muxed with the output from gelevrad and the view factors for input to
+gtoporad to produce a radiation output image.
+
+   The five steps above are repeated for each of the N time steps (where N is
+24/delta_t) to produce N output images with the given name prefix and
+extensions .0 to .<N-1>.
+
+
+Changes to the old dtoporad model to produce global-scale gtoporad.24:
+----------------------------------------------------------------------
+
+sunlight => gsunlight
+----------------------
+
+sunlight -- sunrise and sunset times and Kronrod quadrature weights
+
+Usage: sunlight -d i,i,i -b lat[,lat,lat] -l lon[,lon,lon] [-r] [-z zone]
+                [-y] [-q npts] [-a]
+
+Options:
+	d	date (year, month, day)
+	b	latitude (deg, min, sec unless -r specified)
+	l	longitude (deg, min, sec unless -r specified)
+	r	lat/lon in radians
+	z	time zone, minutes west of Greenwich
+	y	daylight savings flag
+	q	# quadrature points
+	a	abbreviated output for shell scripts
+
+   The program sunlight calculates sunrise and sunset for the given date
+and lat/lon.  If the -a flag is specified, it calculates times, weights, and
+sun angles for 15 or 21 Kronrod quadrature points for numerical integration
+of solar radiation.  The output is 15 or 21 lines with Kronrod weight and
+corresponding mu and azimuth written in ASCII to the standard output.
+
+
+gsunlight -- Sun angles for global scale image
+
+Usage: gsunlight -t i,i,i,i[,i,i] [-m mask] [image]
+
+Options:
+	t	date/time: year, month, day, hour, [min, sec]
+	m	mask image
+
+Operands:
+	image	geodetic header (defaults to stdin)
+
+
+   For the global-scale program gsunlight, a single lat/lon could not work
+for the entire image.  An input geodetic header is required containing IPW
+geodedic and basic image headers to define the number of lines, samples and
+corresponding latitudes and longitudes.  A two-band output image is created
+containing the values of mu (cosine solar zenith angle) and azimuth at each
+pixel.
+
+
+
+elevrad => gelevrad
+-------------------
+
+elevrad -- beam and diffuse radiation (preprocessor for toporad)
+
+Usage: elevrad -z elev -u mu0 -t tau -w omega -g gfact -r R0 -s S0
+               [-n bits[,bits]] [image]
+
+Options:
+	z	elevation of optical depth measurement
+	u	cosine solar zenith angle
+	t	optical depth at z
+	w	single-scattering albedo
+	g	scattering asymmetry parameter
+	r	mean surface albedo
+	s	exoatmospheric solar irradiance
+	n	# output bits (default same as input)
+
+Operands:
+	image	input elevation image
+
+
+gelevrad -- global-scale beam and diffuse radiation (preprocessor for gtoporad)
+
+Usage: gelevrad -z elev -w omega -g gfact -s S0 [-m mask]
+		[-n bits[,bits]] [image]
+
+Options:
+	z	elevation of optical depth measurements
+	w	single-scattering albedo
+	g	scattering asymmetry parameter
+	s	exoatmospheric solar irradiance
+	m	mask image
+	n	# output bits (default same as input)
+
+Operands:
+	image	input image
+
+
+   The program elevrad assumes mu0, R0, and tau are constant over the image
+and takes their values as run-string arguments.  Gelevrad takes a four-band
+input image of elevation, mu0, R0, and tau.  The output image (beam and diffuse
+radiation) has the same form as elevrad.  An option to provide a mask image
+was also added.
+
+
+
+horizon/hor1d => ghorizon
+----------------------------
+
+horizon -- find horizon in direction "azimuth"
+
+Usage: horizon -a azimuth [-d delta] [-z zenith] [-u cos] [image]
+
+
+hor1d -- find angles to local horizon along rows of elevation file
+
+Usage: hor1d -a phi [-b] [-z zen] [-u cos] [-d delta] [image]
+
+Options:
+	a	direction of forward azimuth (degrees)
+	b	backward direction (default is forward)
+	z	mask option, arg is solar zenith angle (degrees) or
+	u	mask option, arg is cosZ
+	d	grid spacing (normally gotten from GEOH header)
+
+Operands:
+	image	input elevation image
+
+
+   The program hor1d calculates angles to the horizon in a single direction
+(forwards or backwards) along rows of an elevation file.  The projection
+assumes a flat-Earth and a conformal geographic projection.  If the -z or
+-u option is given, the output image is a mask image where 0 is output for
+a pixel if the computed horizon angle is greater than the specified zenith
+angle (the sun is down), and 1 is output if the sun is up.
+   hor1d is usually run from the scripts horizon or viewf which use programs
+skew and/or transpose on the elevation image to align the rows with the
+desired azimuth(s).
+
+
+ghorizon -- cosine horizon angles for global-scale elevation image
+
+Usage: ghorizon [-a phi] [-b] [-s solar_image] [-z] [-m mask] [-e max_elev] [image]
+
+Options:
+	a	azimuth for horizon (deg from S, +E/-W)
+	b	Sun-below-horizon mask output option
+	s	solar azimuth or zenith/azimuth (if -b) image
+	z	flag for solar zenith angle in solar_image
+	m	mask image
+	e	maximum elevation
+
+Operands:
+	image	input elevation file
+
+
+   ghorizon computes horizon angles for a global-scale elevation file.  The
+output is in the same form at hor1d, i.e. an image containing cosine of the
+horizon angle (measured from vertical) or a mask image if the mask option is
+specified.  The solar azimuth and zenith data are input via an input image
+rather than command line arguments.  ghorizon is not run from a script that
+skews or transposes the input image.  For each pixel, a radial of elevation
+data points are extracted along a great circle arc in the direction of the
+solar azimuth for that pixel.  A range step is calculated based on the
+distances between pixels in the input image.  The great circle arc is advanced
+by the range step, and the elevation at the resulting point is interpolated
+using bilinear interpolation.  The slope is calculated and compared with the
+maximum slope (or solar zenith angle for mask output).  This continues until
+the maximum range is exceeded:  the range where the Earth-curvature correction
+for maximum elevation in the row corrects it to zero elevation.  Inside this
+range no Earth-curvature corrections to elevation are done.  (An analysis
+was done on the 10K resolution elevation image of the continental US: while
+the program with Earth-curvature corrections took almost 7 times longer to
+run, the maximum difference in computed slope was less than 1 degree).
+   For the global-scale solar radiation model, ghorizon is run to compute horizons
+in 16 directions by the script gviewf to compute view factors for input to
+gtoporad.
+
+
+
+shade => gshade
+---------------
+
+shade -- cosine of illumination angle
+
+Usage: shade [-z zenith] [-u cos] -a azimuth [image]
+
+Options:
+	z	solar zenith angle, degrees or
+	u	cosine solar zenith angle
+	a	solar azimuth, degrees_ccw from south (+ E, - W)
+
+Operands:
+	image	input slope/azimuth file
+
+
+gshade -- cosine of illumination angle
+
+Usage: gshade [-m mask] [-s solar_image] [-z] [-i image]
+
+Options:
+	m	mask image
+	s	solar azimuth image
+	z	flag for solar zenith angle in solar_image
+	i	input slope/azimuth file
+
+
+   The program shade computes the cosine of the local illumination angle over
+the input slope/azimuth file.  It assumes that the solar azimuth and zenith
+angles are constant over the image.
+   Gshade takes an input image with solar azimuth and zenith angles along
+with the slope/azimuth input image.  An option to specify a mask image
+was also added.
+
+
+
+toporad => gtoporad
+-------------------
+
+toporad -- topographic distribution of solar radiation
+
+Usage: toporad [-n] [-r R0] [image]
+
+Options:
+	n	net radiation instead of incoming
+
+Operands:
+	image	beam & diffuse irrad, mu_s, Vf, Ct, albedo
+
+
+gtoporad -- global-scale topographic distribution of solar radiation
+
+Usage: gtoporad [-n] [-b #bits] [image]
+
+Options:
+	n	net radiation instead of incoming
+	b	# bits in output image (default: max of input image bands)
+
+Operands:
+	image	mu, beam & diffuse irrad, mu_s, Vf, Ct, albedo
+
+
+   The program toporad reads a 6-band input image.  Mu, the cosine of the solar
+zenith angle is assumed to be a constant and is read from the sun (SUNH) header
+of the input file.  Gtoporad expects a 7-band input image with mu as the
+first band instead of reading it from a header.  An option was added to specify
+the number of bits in the output image.
+
+NOTE:  Change to original toporad program:
+   The -r option was added to the original toporad program.  R0, the reflectance
+of the substrate, is used to calculate the reflectance of the adjacent terrain.
+The original toporad program used the surface albedo at each pixel for this
+calculation.  With the new version, the user can specify the mean surface
+albedo to be used in the calculation.

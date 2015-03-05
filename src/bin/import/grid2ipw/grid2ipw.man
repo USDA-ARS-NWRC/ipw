@@ -1,0 +1,107 @@
+<H2>NAME</H2>
+
+<P>
+<B>%name</B> - %description
+</P>
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <I>in_prefix</I> <I>out_image</I>
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> converts an image created by Arc/Info into an
+IPW image.  This command is invoked by the AML script "grid2ipw.aml".
+
+<H2>OPTIONS </H2>
+
+<P>
+None.
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+
+<DT><I>in_prefix</I>
+<DD>
+Use <I>in_prefix</I>.bip and <I>in_prefix</I>.info as input files;
+these files are created by the AML script "grid2ipw.aml".
+</DD>
+
+<P>
+
+<DT><I>out_image</I>
+<DD>
+The name of the output IPW image to create.
+</DD>
+
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+None, since this command is invoked from an AML script.
+</P>
+
+<H2>FILES</H2>
+
+<PRE>
+     $IPW/aux/%name/grid2ipw.aml     AML script
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT><SAMP>can't open <I>in_prefix</I>.bip</SAMP>
+<DD>
+This input file is missing.
+</DD>
+
+<P>
+
+<DT><SAMP>can't open <I>in_prefix</I>.info</SAMP>
+<DD>
+This input file is missing.
+</DD>
+
+</DL>
+
+<H2>NOTES</H2>
+
+<P>
+This command is not directly invoked by the user; rather it is
+called by the AML script "grid2ipw.aml".
+
+<H2>HISTORY </H2>
+
+<DL>
+
+<DT>Apr 1996
+<DD>
+Written by Rusty Dodson.
+</DD>
+
+<P>
+
+<DT>Jun 1998
+<DD>
+Added to IPW version 2.  J. Domingo, OSU
+</DD>
+
+</DL>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+
+<DT>IPW:
+<DD>
+<A HREF="ipw2grid.html">ipw2grid</A>
+</DD>
+
+</DL>

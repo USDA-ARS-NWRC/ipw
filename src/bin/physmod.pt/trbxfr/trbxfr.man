@@ -1,0 +1,202 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-z</B> <I>elev </I> ] [ <B>-K</B> ] [ <B>-m</B> ] [ <B>-d</B> ] 
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+</P><P>
+<B>%name</B> calculates turbulent transfer using Brutsaert's
+description of the Businger-Dyer model,
+with Obukhov length for stability determination;
+(see:  <I>Fleagle &amp; Businger, An Introduction to Atmospheric
+Physics, 1980, ch. 6; Brutsaert, Evaporation into the Atmosphere, 1982</I>).
+Air pressure is set from site elev.
+</P><P>
+<B>%name</B> does not currently support profile measurements;
+if you have profile data, try using <B>trb_Ri</B>, the IPW command that
+<B>%name</B> is based upon.
+</P><P>
+If measurements are available from only one height (as is usually the case),
+z0 is the roughness length, t0 and e0 are the temperature and humidity at the
+surface, and u0 is input as 0.0.
+Roughness lengths vary from a few mm over smooth surfaces to several meters
+over rough surfaces
+(see: <I>Brutsaert, Evaporation into the Atmosphere, 1982, pg. 114</I>).
+</P><P>
+If temp/vapor pressure are measured at a different height
+from wind speed, <B>-d</B> is set, again t0 and e0 are the temperature
+and humidity at the surface, and z0 is the roughness length.
+</P><P>
+Reads input file from stdin:
+</P><PRE>
+	z, z0, t, t0, e, e0, u, u0
+</PRE><P>
+or, if &quot;<B>-d</b>&quot; option is specified:
+</P><PRE>
+	zu, zt, z0, t, t0, e, e0, u
+</PRE><PRE>
+	z  = upper height (m)
+	z0 = roughness length (m)
+	zu = wind speed height (m)
+	zt = temp/humidity height (m)
+	t  = upper temperature (C)
+	t0 = surface temperature (C)
+	e  = upper vapor pressure (Pa)
+	e0 = surface vapor pressure (Pa)
+	u  = upper wind speed (m/sec)
+	u0 = wind speed (m/sec) at z0 (usually 0.0)
+</PRE><P>
+Outputs H and LE, and, if <B>-m</B> is set, water gain/loss (+/-mm m^-2 s^-1).
+Output is to stdout.
+</P>
+ 
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-z</B> <I>elev </I>
+<DD>
+site elevation (m) (default: 0.0m)
+</DD>
+
+<P>
+<DT><B>-K</B> 
+<DD>
+Input temperatures are in degrees K (default: C).
+</DD>
+
+<P>
+<DT><B>-m</B> 
+<DD>
+Output water gain/loss in mm/m^2 s^-1
+</DD>
+
+<P>
+<DT><B>-d</B> 
+<DD>
+Indicates that zu (wind speed height) is not the same as
+as zt (temp/humidity height).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None
+</P>
+
+<H2>EXAMPLES</H2>
+
+ 
+<P>
+For an open site in the mountains at 2500m, over snow:
+</P><P>
+With data from only one height, and a roughness length of 0.005m:
+</P><PRE>
+            trbxfr -z 2500 -m
+            Input z,  z0,   t,  t0, e,  e0,   u,  u0;
+                  3.0 0.005 3.0 0.0 300 610.7 3.0 0.0
+yields
+            H=18.30; LE=-44.29; EVAP=-1.562906e-05
+</PRE><P>
+If these fluxes were sustained for an hour or a day,
+the evaporation would be:
+</P><PRE>
+            0.0563 mm/hr, 1.350 mm/day
+</PRE><P>
+With wind measured at a different height from temperature and humidity:
+</P><PRE>
+           trbxfr -z 2500 -m -d
+           Input zu, zt, z0,   t,  t0, e,  e0,   u;
+                 4.0 3.0 0.005 3.0 0.0 300 610.7 3.25
+yields:
+           H=18.04; LE=-43.67; EVAP=-1.541021e-05
+</PRE><P>
+If these fluxes were sustained for an hour or a day,
+the evaporation would be:
+</P><PRE>
+           0.0555 mm/hr, 1.331 mm/day
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+currently only allows 2 measurement heights, though could
+support three (for wind speed, air temp, and humidity);
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jul 1984</DT>
+<DD>
+written by D. Marks, (GSFC) CSL, UCSB;
+</DD>
+</DL>
+
+<DL>
+<DT>Jun 1987</DT>
+<DD>
+Updated to use Brutsaert's method by
+J. Dozier, CRSEO, UCSB;
+</DD>
+</DL>
+
+<DL>
+<DT>Jun 1995</DT>
+<DD>
+Converted to IPW by J. Domingo, OSU, EPA NHEERL/WED
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="bowvap.html">bowvap</A></B>,
+<B><A href="penmanx.html">penmanx</A></B>,
+<B><A href="ipmx.html">ipmx</A></B>,
+<B><A href="pmx.html">pmx</A></B>,
+<B><A href="ptaylorx.html">ptaylorx</A></B>,
+<B><A href="iptx.html">iptx</A></B>,
+<B><A href="ptx.html">ptx</A></B>,
+<B><A href="itrbxfr.html">itrbxfr</A></B>,
+<B><A href="trb_Ri.html">trb_Ri</A></B>
+</DD>
+</DL>
+ 
+<P>
+<A HREF="../bib.html#Brutsaert 1982">Brutsaert 1982</A>,
+<A HREF="../bib.html#Fleagle, Businger 1980">Fleagle, Businger 1980</A>
+</P>
+ 

@@ -1,0 +1,255 @@
+#  This Makefile defines macros and rules for directories that represent
+#  IPW libraries.
+#
+#  This Makefile expects these macros to be defined:
+#
+#	NAME	    = name of the library
+#	DESCRIPTION = a brief description of the library
+#	DIRS        = list of directories representing the categories of
+#		        functions in the library (the order of the list
+#			is used in the documentation of categories)
+#
+#  These macros are optional:
+#
+#	INCLUDE_FILES	 = name of include files associated with the library
+#	NO_FUNCS_IN_LIST = its presence indicates that no functions should
+#			   be in the files with lists, and that only the
+#			   HTML version of the list should be made with
+#			   with just the description
+#
+#  Input files:
+#
+#	$(DESC_FILE_HTML) = "Description.html" (optional)
+#
+#		HTML text: more detailed description of the library.
+#		If this file exists, its contents are placed in the
+#		library's individual HTML document: $(FUNC_LIST_HTML)
+
+
+LIB_NAME := $(NAME)
+HELP_FILE := library
+
+TARGETS := funcs add-funcs delete-funcs man install-man uninstall-man \
+	   clean-objs clean-man debug
+
+include $(IPW)/make/_macros
+include $(IPW)/make/_libmacros
+
+ifndef IN_IPW_STD_SRC
+  name-desc := name-desc
+endif
+
+.PHONY : all all.DIRS
+  all : all.DIRS func-list $(name-desc)
+
+include $(IPW)/make/_directory
+include $(IPW)/make/_rules
+ 
+.PHONY : library
+library : add-funcs
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#  Target used by makefiles in directories of function categories to
+#  access the library's name.
+
+library-name :
+	@printf "$(NAME)\n";
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#  Text and HTML files with the library's name and description
+#	Text = NAME_DESC_TXT
+#	HTML = NAME_DESC_HTML
+
+ifdef name-desc
+  $(name-desc) : $(NAME_DESC_TXT) $(NAME_DESC_HTML)
+
+  $(NAME_DESC_TXT) : Makefile
+	@printf "Making file \"$@\"\n"
+	@printf "lib$(NAME) - $(DESCRIPTION)\n"	> $@
+
+  $(NAME_DESC_HTML) : Makefile
+	@printf "Making file \"$@\"\n"
+	@printf "  <LI><A HREF=\"lib$(NAME).html\"><TT>lib$(NAME)</TT></A>%s\n"\
+		" - $(DESCRIPTION)"	> $@
+endif
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#  Build the master list of functions by categories.
+#	Text file with list = FUNC_LIST_TXT
+#	HTML file with list = FUNC_LIST_HTML
+
+.PHONY : func-list
+ifdef NO_FUNCS_IN_LIST
+  func-list : $(FUNC_LIST_HTML)
+else
+  func-list : func-list.DIRS $(FUNC_LIST_TXT) $(FUNC_LIST_HTML)
+endif
+
+ifndef NO_FUNCS_IN_LIST
+  FUNC_TXT_FILES := $(foreach dir, $(DIRS), $(dir)/$(FUNC_LIST_TXT))
+  $(FUNC_LIST_TXT) : $(FUNC_TXT_FILES)
+	@printf "Making file \"$@\"\n"
+	@printf "lib$(NAME) - $(DESCRIPTION)\n"	> $@
+  ifneq ($(FUNC_TXT_FILES),)
+	@cat $^ 				>> $@
+  endif
+endif
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+IPWMACRO_OPTS := "-DMod_Date=$(shell date '+%e %B %Y')"
+ifdef IN_IPW_STD_SRC
+  IPWMACRO_OPTS += "-Dipw_href_path=../"
+else
+  ifdef IN_IPW_LOCAL_SRC
+    IPWMACRO_OPTS += "-Dipw_href_path=../../"
+  else
+    IPWMACRO_OPTS += "-Dipw_href_path=$(IPW_HREF_PATH)/"
+  endif
+endif
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#  The HTML file with the list of functions is installed into the
+#  appropriate documentation directory.
+
+ifdef IN_IPW_STD_SRC
+  LIST_INSTALL_DIR := $(PATH_TO_TOP)doc/html/pgmrGuide
+else
+  LIST_INSTALL_DIR := $(PATH_TO_TOP)doc/html/libs
+endif
+
+INSTALLED_LIST_HTML := $(LIST_INSTALL_DIR)/lib$(NAME).html
+
+.PHONY : install-list uninstall-list
+install-list : $(INSTALLED_LIST_HTML)
+
+$(INSTALLED_LIST_HTML) : $(FUNC_LIST_HTML)
+	$(INSTALL) -c $< $@
+
+uninstall-list :
+	rm -f $(INSTALLED_LIST_HTML)
+
+ifdef NO_FUNCS_IN_LIST
+  $(FUNC_LIST_HTML) :
+else
+  FUNC_HTML_FILES := $(foreach dir, $(DIRS), $(dir)/$(FUNC_LIST_HTML))
+  $(FUNC_LIST_HTML) : $(FUNC_HTML_FILES)
+endif
+	@printf "Making file \"$@\"\n"
+	@printf "%%Title(\"lib$(NAME) - $(DESCRIPTION)\")\n" | \
+		$(IPW_MACRO_DOC) - >$@
+	@if [ -r $(DESC_FILE_HTML) -a -f $(DESC_FILE_HTML) ] ; then \
+		cat $(DESC_FILE_HTML)   >> $@ ; \
+	fi
+ifneq ($(FUNC_HTML_FILES),)
+	@cat $^ 					    >> $@
+endif
+	@$(IPW_MACRO_DOC) $(DOC_SRC_DIR)/PageBottom2 >> $@
+
+ifneq ($(FUNC_HTML_FILES),)
+  $(FUNC_HTML_FILES) :
+	@$(MAKE) -C `dirname $@` func-list
+endif
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.PHONY : redo-func-list clean-func-list
+redo-func-list : clean-func-list redo-sub-lists func-list
+ 
+clean-func-list :
+ifdef NO_FUNCS_IN_LIST
+	rm -f $(FUNC_LIST_HTML)
+else
+	rm -f $(FUNC_LIST_TXT) $(FUNC_LIST_HTML)
+endif
+
+# recurse on category subdirectories to either clean or redo their
+# function lists
+redo-sub-lists :
+ifndef NO_FUNCS_IN_LIST
+  ifdef DIRS
+	@target=redo-func-list ; subdirs='$(DIRS)' ; \
+	    $(recurse-on-subdirs)
+  endif  # DIRS
+endif
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#  Include files (if there are any)
+
+INCLUDE_DIR := ../h
+include $(IPW)/make/_includeFile
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ 
+#  Targets for generating an archive file for exporting library
+#  (Only local libraries)
+ 
+ifndef IN_IPW_STD_SRC
+  ARCHIVE_EXCLUDE = exclude.lib
+  include $(IPW)/make/_archive
+endif
+ 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.PHONY : install install-lib install.DIRS install-include.DIRS
+install : install-lib install-list install.DIRS
+
+install-lib : $(INSTALLED_LIB) install-include
+
+install-include : install-include.DIRS
+
+$(INSTALLED_LIB) : $(LIB_PATH)
+	@$(INSTALL) -c $< $@
+
+#  If library does not exist, then build it
+$(LIB_PATH) :
+	@target=add-funcs ; subdirs='$(DIRS)' ; \
+	    $(recurse-on-subdirs)
+
+.PHONY : uninstall uninstall-lib uninstall.DIRS uninstall-include.DIRS \
+	 uninstall+clean uninstall+clean.DIRS
+
+uninstall uninstall+clean : % : uninstall-lib uninstall-list %.DIRS
+
+uninstall-lib : uninstall-include 
+	rm -f $(INSTALLED_LIB)
+
+uninstall-include : uninstall-include.DIRS
+
+install-include.DIRS uninstall-include.DIRS uninstall+clean.DIRS :
+	@target=$(@:.DIRS=) ; subdirs='$(DIRS)' ; \
+	    $(recurse-on-subdirs)
+
+.PHONY : install-debug uninstall-debug
+install-debug: $(INSTALLED_DEBUG_LIB)
+
+$(INSTALLED_DEBUG_LIB) : $(DEBUG_LIB_PATH)
+	@$(INSTALL) -c $< $@
+
+uninstall-debug :
+	rm -f $(INSTALLED_DEBUG_LIB)
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.PHONY : clean clean.DIRS clean-debug clean-debug.DIRS
+
+clean uninstall+clean : % : clean-func-list %.DIRS
+	rm -f $(LIB_PATH)
+ifdef name-desc
+	rm -f $(NAME_DESC_TXT) $(NAME_DESC_HTML)
+endif
+
+clean-debug : clean-debug.DIRS
+	rm -f $(DEBUG_LIB_PATH)
+
+func-list.DIRS all.DIRS install.DIRS uninstall.DIRS clean.DIRS \
+	clean-debug.DIRS :
+ifdef DIRS
+	@target=$(@:.DIRS=) ; subdirs='$(DIRS)' ; \
+	    $(recurse-on-subdirs)
+endif

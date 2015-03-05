@@ -1,0 +1,3 @@
+%define(name,"budyer")
+%define(description,"heat exchanges using Businger-Dyer model")
+%define(category,"envphys")

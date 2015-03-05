@@ -1,0 +1,71 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Debugging IPW Programs</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../images/usda.gif" alt="USDA">
+<IMG SRC="../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Debugging IPW Programs</H1>
+
+
+<P>
+To facilitate the development of IPW programs, a special target is provided
+to make a version of an IPW program for debugging purposes:
+
+<PRE>
+     make debug
+</PRE>
+
+When this target is used, a debugging version of the program is constructed
+using the C compiler's <CODE>"-g"</CODE> option.  This version is located
+in a subdirectory of the program's source directory called
+<CODE>"Debug"</CODE>.  Also located in this subdirectory are the debugging
+versions of the program's object files.
+
+<P>
+Because most debugging efforts are focused on the program's source code,
+the debugging version of the program is linked with non-debugging
+versions of the IPW libraries, i.e., those versions that are constructed
+as part of a standard installation of IPW.  However, if more comprehensive
+debugging is required, a second debugging version of the program can
+be built by linking with debugging versions of the IPW libraries:
+
+<PRE>
+     make debug.all
+</PRE>
+
+This target creates a debugging version of the program with the extension
+<CODE>".all"</CODE> in the <CODE>"Debug"</CODE> subdirectory.  For example,
+if the program is named <CODE>"foo"</CODE>, then the debugging version of
+the program linked with the debugging versions of the IPW libraries would
+be <CODE>"Debug/foo.all"</CODE>.
+
+<P>
+Note that the debugging versions of IPW libraries are not constructed
+as part of a standard installation.  Therefore, in order to be able to
+use the <CODE>"debug.all"</CODE> target, the debugging versions of
+the libraries used by a program must already exist.  Creating debugging
+versions of IPW libraries is described in the <A HREF="lib.html">libraries
+section of this guide</A>.
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

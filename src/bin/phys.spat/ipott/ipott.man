@@ -1,0 +1,176 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-i</B> ] [ <B>-m</B> <I>mask</I> ] [ <B>-l</B> <I>val</I> ] [ <B>-s</B> <I>val</I> ] [ <B>-L</B> ]
+      <B>-e</B> <I>elev_image</I> [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties over an area.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs to simulate the process at a point
+by D. Marks, during the 1980's at UCSB.
+<B>%name</B> is the spatial version of <B>pott</B>.
+</P><P>
+<B>%name</B> either:
+</P><P>
+1) calculates sea-level or potential temperature from air
+temperature at specified elevation,
+</P><P>
+2) or inverts sea-level or potential temperature to calculate
+air temperature at a specified elevation.
+</P><P>
+(<I>see General Meteorology, Byers, 1974;
+Dodson and Marks, 1997</I>)
+</P><P>
+The output image is written to stdout.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-i</B> 
+<DD>
+invert potential temperature to calculate air temp
+(default is to calculate potential temp from air temp)
+
+<DT><B>-m</B> <I>mask</I>
+<DD>
+mask image
+
+<DT><B>-e</B> <I>elev_image</I>
+<DD>
+input image containing elevation data (m)
+
+<DT><B>-l</B> <I>val</I>
+<DD>
+Standard Environmental lapse rate used in estimation of pressure (def: -6.5 C/km)
+
+<DT><B>-s</B> <I>val</I>
+<DD>
+Standard sea-level temperature used in estimation of pressure (def: 26.84 C)
+
+<DT><B>-L</B> 
+<DD>
+do simple linear adjustment based on lapse rate &amp; elevation
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+<DD>
+input image conatining air temperature (C)
+or potential temperature (C) if <B>-i</B> is set
+(defaults to stdin)
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To convert the area inside the mask of an air temperature image to
+potential temperature, using default lapse rate and sea-level
+temperatures:
+</P><PRE>
+	ipott -m mask_image -e dem_image ta_image &gt;pott_image
+</PRE><P>
+To interpolate air temperatures from met stations over complex terrain,
+using a simple linear lapse rate of -5.5C/km:
+</P><P>
+1. convert the station air temperatures to sea-level temperatures:
+</P><PRE>
+	pott -l -5.5 -L &lt;{ta elev} &gt;{sl_ta}
+</PRE><P>
+2. interpolate sea-level temperatures over grid:
+</P><PRE>
+	paste {easting northing sl_ta} | \
+	surface -d -h image_hdr -m mask_image | \
+	ipott -i -m mask_image -l -5.5 -L -e dem_image &gt;ta_image
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+input, mask, and elev images must have same deminsions,
+and be single band
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>May 1990</DT>
+<DD>
+Modified from QDIPS program <B>pott</B> written by D. Marks, UCSB, by
+Kelly Longly, Environmental Research Laboratory
+</DD>
+</DL>
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Added <B>-m</b> mask option, by K. Longley, OSU, EPA ERL-C
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1995</DT>
+<DD>
+Added <B>-l</B>, <B>-s</B>, and <B>-L</B> options, R. Dodson, MERSC, NHEERL-WED
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="pott.html">pott(1</A></B>),
+<B><A href="zpr.html">zpr(1</A></B>),
+<B><A href="surface.html">surface(1</A></B>),
+<B><A href="deltaT.html">deltaT(1</A></B>),
+<B><A href="deltaz.html">deltaz(1</A></B>),
+<B><A href="soiltmp.html">soiltmp(1</A></B>),
+<B><A href="srftmp.html">srftmp(1</A></B>)
+</DD>
+</DL>
+
+<DL>
+<DT>Unix</DT>
+<DD>
+paste
+</DD>
+</DL>
+ 
+<P>
+<A HREF="../bib.html#Byers 1974">Byers 1974</A>,
+<A HREF="../bib.html#Dodson 1997">Dodson 1997</A>
+</P>
+

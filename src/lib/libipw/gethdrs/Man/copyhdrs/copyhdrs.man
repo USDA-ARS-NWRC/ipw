@@ -1,0 +1,72 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "gethdrs.h"
+
+void
+copyhdrs(
+	int      fdi,		|* input image file descriptor	 *|
+	int      nbands,	|* # bands in output image	 *|
+	int      fdo)		|* output image file descriptor	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> copies all IPW image headers from file descriptor fdi to
+file descriptor fdo.  All per-image headers, and all per-band headers
+pertaining to band numbers less than nbands, are copied.
+</P><P>
+<B>%name</B> is a simple way to copy all remaining headers from an input
+to an output image, once any desired headers have been ingested.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>can't copy <I>header-name</I> header
+can't skip <I>header-name</I> header
+header read error
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

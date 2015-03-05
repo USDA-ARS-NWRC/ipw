@@ -1,0 +1,49 @@
+.TH "sathread" "3" "10 April 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBsathread\fP - read an IPW SATH header
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "sath.h"
+
+SATH_T **
+sathread(
+	int     fd)		|* image file descriptor	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBsathread\fP reads a SATH image header from file descriptor fd.  An array
+of SATH_T pointers is allocated, one per band.  If a band has a SATH
+header, then an SATH_T header is allocated and its address is placed
+in the corresponding array element; otherwise, the corresponding
+array element is NULL.
+.PP
+Before calling \fBsathread\fP, the caller must verify (by calling hrname())
+that a SATH header is available for ingesting.
+.SH RETURN VALUE
+.PP
+pointer to array of SATH_T pointers; else NULL if EOF or error
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.sp
+.TP
+can't allocate array of "sat" header pointers
+"sat" header: bad band "\fIband\fP"
+can't allocate "sat" header
+"sat" header: key "\fIkey\fP" has no value
+"sat" header: bad key "\fIkey\fP"
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

@@ -1,0 +1,56 @@
+#  This Makefile defines macros and rules for the manpages for IPW
+#  library categories of functions.
+#
+#  These macros may be defined:
+#
+#	NAME        = name of category's man page
+#			(default: category's name from its Makefile)
+#	DESCRIPTION = brief description of the man page
+#		 	(default: category's description from its Makefile)
+
+
+#  Fetch the category's name and description from grandparent directory
+#  if they're not defined
+
+ifndef NAME
+  NAME := $(shell $(MAKE) --no-print-directory -C ../.. -s category-name)
+endif
+
+ifndef DESCRIPTION
+  DESCRIPTION := $(shell $(MAKE) --no-print-directory -C ../.. -s category-desc)
+endif
+
+MAN_SECTION := 5
+HELP_FILE := funcCatManpg
+
+.PHONY : all
+all : man
+
+include $(IPW)/make/_macros
+include $(IPW)/make/_manpage
+include $(IPW)/make/_rules
+
+.PHONY : install clean uninstall uninstall+clean
+
+install : install-man
+
+clean : clean-man clean-ipwmacro
+
+uninstall : uninstall-man
+
+uninstall+clean : uninstall clean
+
+
+#  Target to print a list of funcs as HTML links (for filling in the
+#  SEE ALSO section)
+
+.PHONY : list-of-links
+list-of-links :
+	@$(MAKE) --no-print-directory -C ../.. -s $@
+
+
+#  Target for print the man's page name (for the category's Makefile)
+
+.PHONY : manpg-name
+manpg-name :
+	printf "$(NAME)\n"

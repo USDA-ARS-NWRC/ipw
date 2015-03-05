@@ -1,0 +1,3 @@
+%define(name,"lqh_max")
+%define(description,"get maximum of LQ header of an image's band")
+%define(category,"image")

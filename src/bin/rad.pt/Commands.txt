@@ -1,0 +1,12 @@
+
+Radiation Modeling: Point
+
+  solar     - exoatmospheric direct solar irradiance
+  sunang    - sun angles: azimuth and zenith angles of sun's position
+  sunlight  - sunrise and sunset times, and quadrature weights
+  twostream - two-stream radiative transfer model of a homogeneous layer
+  thermin   - incoming thermal radiation at different elevations
+  trad      - incoming thermal radiation at one elevation
+  cloud     - estimate cloudcover from tmax, tmin
+  solar_can - compute below canopy solar radiation (Mel's model)
+  trad_can  - compute below canopy thermal radiation (Mel's model)

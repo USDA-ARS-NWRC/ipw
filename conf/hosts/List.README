@@ -1,0 +1,5 @@
+The file "List" a list of host OS's and their associated header files.
+The first column specifies a particular OS explicitly.  If the current
+host's OS matches this OS, then the header file "../host.h" is linked
+to the file specified in the second column.  The first column is used
+as a pattern; therefore, it may contain the wildcard character "*".

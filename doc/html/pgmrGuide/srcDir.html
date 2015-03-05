@@ -1,0 +1,127 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>IPW Source Directory</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../images/usda.gif" alt="USDA">
+<IMG SRC="../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>IPW Source Directory</H1>
+
+ 
+<P>
+All the source code for the IPW commands and library functions, as well as
+their documentation (i.e., manual pages), resides in IPW's source directory.
+
+<PRE>
+    $IPW/
+     |
+     +- src/        <I>source directory</I>
+         |
+         +- bin/       <I>user commands</I>
+         |
+         +- lib/       <I>libraries and shell support commands</I>
+         |
+         +- sbin/      <I>system commands</I>
+</PRE>
+
+IPW commands are divided into two groups or types of commands: user
+commands and system commands.  System commands are those commands used by
+programmers to administer IPW software as well as develop new software.
+
+<P>
+<B>Source Directories for Commands</B>
+
+<P>
+The source directories for both types of IPW commands have the same
+structure.  Each command category has its own subdirectory which
+contains separate subdirectories for each command in that category.
+To illustrate this structure, here is a diagram of the source directory
+for user commands:
+
+<PRE>
+    $IPW/
+     |
+     +- src/               <I>source directory</I>
+         |
+         +- bin/              <I>user commands</I>
+             |
+             +- <I>cat</I>/             <I>command category</I>
+             |   |
+             |   +- <I>cmd</I>/            <I>command's source directory</I>
+             |   |
+             |   +- <I>cmd</I>/            <I>command's source directory</I>
+             |   |
+             |   ...
+             |
+             +- <I>cat</I>/             <I>command category</I>
+             |   |
+             |   +- <I>cmd</I>/            <I>command's source directory</I>
+             |   |
+             |   +- <I>cmd</I>/            <I>command's source directory</I>
+             |   |
+             |   ...
+             |
+             ...
+</PRE>
+
+<P>
+<B>Source Directories for Libraries</B>
+
+<P>
+The source directories for IPW libraries are similiar in structure
+to the source directories for commands.  The functions in a library
+are grouped into categories, with each category having its own
+subdirectory.
+
+<PRE>
+    $IPW/
+     |
+     +- src/               <I>source directory</I>
+         |
+         +- lib/              <I>libraries</I>
+             |
+             +- lib<I>X</I>/            <I>library</I> X
+             |   |
+             |   +- <I>cat</I>/            <I>function category</I>
+             |   |   |
+             |   |   +- Man/           <I>source directory for the</I>
+             |   |   |			 <I>functions' manual pages</I>
+             |   |   |
+             |   |   +- <I>func</I>.c         <I>library function</I>
+             |   |   |
+             |   |   +- <I>func</I>.c         <I>library function</I>
+             |   |   |
+             |   |   ...
+             |   |
+             |   +- <I>cat</I>/            <I>function category</I>
+             |   |   |
+             |   |   ...
+             |   |
+             |   ...
+             |
+             +- lib<I>Y</I>/             <I>library</I> Y
+             |
+             ...
+</PRE>
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

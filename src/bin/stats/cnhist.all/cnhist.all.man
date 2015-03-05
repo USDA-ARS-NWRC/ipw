@@ -1,0 +1,115 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-m</B> <I>mask</I> ] [<I>image1</I>[,<I>image2</I>,<I>...</I>]]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> calculates a cumulative normalized histogram of the
+pixels in one or more images and writes the results in ASCII to
+standard output in the following format:
+</P>
+<PRE>
+        floating-value  percentile
+</PRE>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+mask image
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image1</I>[,<I>image2</I>,...]</DT>
+
+<DD>input image(s) (if only one image, defaults to standard input)
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate normalized histograms of runoff from time-series images
+of snowmelt over a season:
+</P><PRE>
+	cnhist -m basin_mask melt.01,melt.02,...melt.99 &gt;cn.txt
+</PRE><P>
+To graph the cumulative normalized histogram for a single image:
+</P><PRE>
+	cnhist.all -m basin_mask melt.50 | graph -a | plot
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None.
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+Single-band input images only.
+If multiple images are given, they must have the same #lines, #samps,
+# bits, and the same floating-point quantization.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Dec 1990</DT>
+<DD>
+Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="cnhist.html">cnhist</A></B>,
+<B><A href="hist.html">hist</A></B>,
+<B><A href="histeq.html">histeq</A></B> 
+</DD>
+
+<P>
+
+<DT>UNIX:</DT>
+<DD>graph, plot
+</DD>
+
+<P>
+
+<DT>GNU:</DT>
+<DD>graph, xplot, gnuplot
+</DD>
+</DL>
+

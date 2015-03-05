@@ -1,0 +1,162 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-x</B> ] <I>image</I>
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads elevation data from <I>image</I> and writes the corresponding
+sky view and terrain configuration factors to the standard output.
+<B>%name</B> does not allow reading from the standard input.
+</P><P>
+<B>%name</B> first calculates the gradient using the IPW command gradient,
+then a 16-angle (32-angle with the <B>-x</b> option) horizon image using
+hor1d.  It then passes these to viewcalc.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-x</B> 
+<DD>
+calculate 32-angle horizon image (16-angle default)
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I></DT>
+
+<DD>	image	input elevation image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+The command:
+</P><PRE>
+	viewf image
+</PRE><P>
+is equivalent to:
+</P><PRE>
+	gradient image  &gt;{grad}
+	horizon -a {azm01} image  &gt;{horz01}
+	...
+	horizon -a {azm16} image  &gt;{horz16}
+	mux {horz??} | viewcalc -s {grad}
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     $TMPDIR/viewf.<I>NNNNN</I>/*
+     	Temporary directory containing intermediate gradient
+     	and horizon files.
+     $TMPDIR/mux<I>NNNNN</I>
+     $TMPDIR/skew<I>NNNNN</I>
+     	Temporary files used by mux and skew
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>See gradient, hor1d, mux, skew, transpose, viewcalc.
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+<B>%name</B> cannot read the elevation image from standard input.
+</P><P>
+The use of 16 horizon images was hard-coded in <B>%name</B>.  In practice
+this has proven to yield sufficient resolution even in very
+rugged terrain.  However, as the scale goes down (below 50 meters?),
+more angles are needed.  The <B>-x</b> option allows 32 angles.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1995</DT>
+<DD>
+	Added <B>-x</b> option to select 32 angles.
+Dana Jacobsen, ERLC.
+</DD>
+</DL>
+
+<DL>
+<DT>Sep 1995</DT>
+<DD>
+	Changed getopt to getopts.  Dana Jacobsen, ERLC.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="ggradient.html">ggradient</A></B>,
+<B><A href="ghorizon.html">ghorizon</A></B>,
+<B><A href="gradient.html">gradient</A></B>,
+<B><A href="gshade.html">gshade</A></B>,
+<B><A href="gviewf.html">gviewf</A></B>,
+<B><A href="gviewf-mp.html">gviewf-mp</A></B>,
+	<B><A href="hor1d.html">hor1d</A></B>,
+<B><A href="horizon.html">horizon</A></B>,
+<B><A href="mux.html">mux</A></B>,
+<B><A href="shade.html">shade</A></B>,
+<B><A href="skew.html">skew</A></B>,
+<B><A href="transpose.html">transpose</A></B>,
+<B><A href="viewcalc.html">viewcalc</A></B>
+</DD>
+</DL>
+<P>Dozier, J., 1980.  A clear-sky spectral solar radiation model for
+	snow-covered mountainous terrain.  Water Resources Research,
+	vol. 16, pp 709-718.
+</P>
+<P>Dozier, J., J. Bruno, and P. Downey, 1981.  A faster solution to
+	the horizon problem.  Computers and Geosciences, vol. 7,
+	no. 2, pp 145-151.
+</P>
+<P>Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain
+	parameters for radiation modeling from digital elevation
+	data.  IEEE Transactions on Geoscience and Remote Sensing,
+	vol. 28, no. 5, pp 963-969.
+</P>
+<P>Frew, J., 1990.  The Image Processing Workbench.  Ph.D. Thesis,
+	Department of Geography, University of California, Santa
+	Barbara, CA, 382pp.
+</P>
+<P>Marks, D., R. Dubayah, and K. Longley, 1991.  Modeling the
+	topographic and spectral variability of clear-sky solar
+	radiation at regional to continental scales.  Proceedings
+	1991 IGARSS Symposium, Remote Sensing: Global Monitoringr
+	for Earth Management, Espoo, Finland, vol. 3, pp 1711.
+</P>
+

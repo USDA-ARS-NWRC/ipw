@@ -1,0 +1,172 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-K</B> [<B>-v</B> <I>canopy emiss</I> ] [ <B>-s</B> <I>snow emiss</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<I>%name</I> is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+</P><P>
+<I>%name</I> calculates incoming longwave radiation below a canopy,
+acounting for multiple scattering, absorbtions, and re-emission
+contributions from the atmosphere and the canopy.
+on a horizontal surface from input of atmospheric longwave radiation,
+LAI, canopy temperature, and surface temperature.
+It is based on work done by M. Tribbeck's dissertation (University of
+Reading, UK, 2002).
+</P><P>
+Canopy thermal transmissivity and reflectivity coefs are calculated by
+a third order exponential integral function from Numerical Recipies in
+Fortran 90, converted to C by D. Marks.
+</P><P>
+Output is total below canopy longwave at the surface,
+total longwave from the surface, net longwave,
+and above canopy longwave to the atmosphere.
+</P><P>
+Input is to stdin; output to stdout.
+</P>
+<H2>OPTIONS</H2>
+
+<P>
+<DT><B>-K</B> 
+<DD>
+The input values for canopy and surface temperatures in degrees K
+(default: C).
+</DD>
+</DL>
+
+<DL>
+<DT><B>-v</B> <I>emiss_v</I>
+<DD>
+<I>emiss_v</I> is the canopy emissivity (0-1.0)
+(default: 0.99)
+</DD>
+</DL>
+
+<DL>
+<DT><B>-s</B> <I>emiss_s</I>
+<DD>
+<I>emiss_s</I> is the surface emissivity (0-1.0)
+(default: 0.99)
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate incoming thermal radiation below canopy
+densities varying from 0 (no canopy) to 7.5 (very dense)
+using the following input data set ("testfile"):
+</P><PRE>
+	lw_in  lai Tc  Ts
+	=====  === === ===
+	 250   0.0 270 273
+	 250   0.5 270 273
+	 250   1.0 270 273
+	 250   1.5 270 273
+	 250   2.0 270 273
+	 250   2.5 270 273
+	 250   3.0 270 273
+	 250   3.5 270 273
+	 250   4.0 270 273
+	 250   4.5 270 273
+	 250   5.0 270 273
+	 250   5.5 270 273
+	 250   6.0 270 273
+	 250   6.5 270 273
+	 250   7.0 270 273
+	 250   7.5 270 273
+</PRE>
+
+<P>
+The command "trad_can -K < testfile" yields:
+</P>
+
+<PRE>
+	lw_in   lw_out  lw_net  lw_can
+	======  ======  ======  ======
+	250.00  314.31  -64.31  314.31
+	267.94  314.49  -46.56  309.81
+	278.48  314.60  -36.12  307.11
+	285.32  314.67  -29.35  305.34
+	289.93  314.71  -24.78  304.13
+	293.12  314.74  -21.63  303.29
+	295.35  314.77  -19.42  302.70
+	296.94  314.78  -17.85  302.28
+	298.07  314.79  -16.72  301.98
+	298.89  314.80  -15.91  301.76
+	299.49  314.81  -15.32  301.60
+	299.92  314.81  -14.89  301.48
+	300.24  314.81  -14.57  301.40
+	300.48  314.82  -14.34  301.34
+	300.65  314.82  -14.17  301.29
+	300.78  314.82  -14.04  301.26
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jul 2002</DT>
+<DD>
+	Written by D. Marks and M. Tribbeck, ARS-NWRC, Boise, Id;
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B><A href="standard/albedo.html">albedo</A></B>,
+<B><A href="standard/thermin.html">thermin</A></B>,
+<B><A href="standard/trad.html">trad</A></B>,
+<B><A href="standard/vptr.html">vptr</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Tribbeck 2002">Tribbeck 2002</A>,
+<A HREF="../bib.html#Press 1999">Press, Vetterling, Teukolsky, Flannery 1999</A>
+</P>
+

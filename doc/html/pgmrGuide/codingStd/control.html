@@ -1,0 +1,176 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Control structures</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../../images/usda.gif" alt="USDA">
+<IMG SRC="../../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Control structures</H1>
+
+
+<P>
+The most fundamental C control structure is the <B>block</B>.  A nested block
+(i.e., other than the outermost block of a function) should be neither too
+long to fit on a single printed page, nor so deeply nested most of
+its statements are multi-line.
+
+<P>
+Excessive nesting can often be controlled by use of C's "disguised GOTOs"
+-- <CODE>continue</CODE>, <CODE>break</CODE>, and <CODE>return</CODE>.
+The clarity these provide by minimizing
+nesting should always be weighed against their disruption of a simple
+top-to-bottom flow of control.  <CODE>goto</CODE> itself should hardly ever
+be used,
+and then only to branch forwards, and never into a block at an equivalent
+or deeper nesting level.
+
+<P>
+Sequences of blocks at the same level (e.g., <CODE>if-else</CODE>) should be
+arranged so the
+shortest blocks appear first, if their ordering is otherwise unimportant.
+
+<P>
+The <CODE>switch</CODE> is a special case of <CODE>if-else</CODE>,
+and should only be used if:
+
+<UL>
+  <LI>the <CODE>"case"</CODE>s are mutually exclusive
+    <P>
+  <LI>the order in which the <CODE>"case"</CODE>s are considered is unimportant
+    <P>
+  <LI>a single integer expression, evaluated once, is being tested
+    <P>
+  <LI>the code is significantly more readable than the equivalent
+	<CODE>if-else</CODE>.
+</UL>
+
+<P>
+The <CODE>"case"</CODE>s in a <CODE>switch</CODE> should each be on a
+separate line. The <CODE>default</CODE> case
+should always be last, and should always be present; if there is no sensible
+default, then the <CODE>default</CODE> case should contain an appropriate
+call to the error function <CODE>"bug"</CODE>.  The code for each
+<CODE>case</CODE> (including <CODE>default</CODE>) should end with either
+<CODE>break</CODE>, <CODE>continue</CODE>, <CODE>return</CODE>,
+the comment <CODE>"/*&nbsp;FALL&nbsp;THROUGH&nbsp;*/"</CODE>, or a call to a
+function that never returns (e.g., <CODE>exit</CODE>, <CODE>error</CODE>, etc).
+
+<P>
+Loops should be designed so that there is minimal interaction between the
+control statements and the loop body. Control variables should be modified
+in either a control statement or the loop body, but NOT in both. Control
+variables should not be assumed to contain any particular value after the
+loop terminates, unless computing this value is the sole purpose of the loop.
+
+<P>
+Counters used to control loops should be able to handle the "off-by-one"
+value that they will usually contain when the loop terminates.
+
+<P>
+<CODE>do-while</CODE> loops should usually be rewritten as <CODE>while</CODE>
+or <CODE>for</CODE> loops, unless:
+
+<UL>
+  <LI>the control variable is explicitly set immediately before the loop
+	is entered.
+    <P>
+  <LI>you really do want the loop to always execute at least once.
+</UL>
+
+<P>
+Often there is a temptation to push all the work being done by a loop into
+its control statements, especially in a <CODE>for</CODE> loop. This should
+be avoided
+-- the loop control statements should be limited to controlling whether the
+loop is executed:
+
+<P>
+Example:  sum of all elements of array
+
+<PRE>
+/* BAD */
+for (i = 0, sum = 0; i < n; sum += array[i], ++i) {
+        continue;
+}
+
+/* GOOD */
+sum = 0;
+for (i = 0; i < n; ++i) {
+        sum += array[i];
+}
+</PRE>
+
+<P>
+If the desired outcome of a loop is still entirely a consequence of
+the execution of its control statements, then the loop body should
+contain a comment indicating that the loop body is empty:
+
+<P>
+Example: largest power of 2 less than n
+
+<PRE>
+for (i = 1; i < n; i *= 2) {
+        /* empty loop body */
+        ;
+}
+</PRE>
+
+<P>
+The way in which a loop terminates should be obvious from its syntax. In almost
+all cases, a straightforward <CODE>while</CODE>, <CODE>for</CODE>, or
+<CODE>do-while</CODE> will suffice. Occasionally
+loop termination is controlled by a condition tested within the loop body;
+this unusual construct should be clearly commented.
+
+<P>
+Example (based on [<A HREF="../../bib.html#Dromey 1982">Dromey 1982</A>]):
+
+<PRE>
+/*
+ * accumulate x**n (x^n) in product, for integer n > 0
+ */
+        product = 1.0;
+        for (; ; ) {
+/*
+ * extra multiplication if n is odd,
+ * before we divide away the low-order bit
+ */
+                if (n & 01) {
+                        product *= x;
+                }
+/*
+ * reduce number of multiplications
+ * by exploiting (x**2)**(n/2) == x**n
+ *
+ * terminate before unnecessary x = x**2,
+ * to avoid possible overflow
+ */
+                if ((n /= 2) == 0) {
+                        break;
+                }
+
+                x *= x;
+        }
+</PRE>
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

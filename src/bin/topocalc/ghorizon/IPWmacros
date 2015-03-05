@@ -1,0 +1,3 @@
+%define(name,"ghorizon")
+%define(description,"horizon for one direction (global-scale)")
+%define(category,"Topographic Calculations")

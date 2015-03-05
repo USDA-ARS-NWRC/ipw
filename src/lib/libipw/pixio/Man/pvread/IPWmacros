@@ -1,0 +1,3 @@
+%define(name,"pvread")
+%define(description,"read pixel vectors")
+%define(category,"pixio")

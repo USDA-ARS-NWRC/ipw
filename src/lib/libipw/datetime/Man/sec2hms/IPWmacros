@@ -1,0 +1,3 @@
+%define(name,"sec2hms")
+%define(description,"converts total seconds into hours, minutes, seconds")
+%define(category,"datetime")

@@ -1,0 +1,3 @@
+%define(name,"mwgamma")
+%define(description,"gamma values for twostream calculations")
+%define(category,"radiation")

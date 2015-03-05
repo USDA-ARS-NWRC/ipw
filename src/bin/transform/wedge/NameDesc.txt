@@ -1,0 +1,1 @@
+wedge - linear combination of line and sample coordinates

@@ -1,0 +1,41 @@
+#  This Makefile contains macros and rules associated with archive files
+#  used to export locally-derived software.
+#
+#  This macro must be defined:
+#
+#	ARCHIVE_EXCLUDE = name of file in archive subdirectory that is used
+#			    with the grep utility to exclude certain files
+#			    and directories from the archive
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#  Archive's name is the name of the current directory
+CURRENT_DIR := $(shell pwd | sed 's=^.*/==')
+ARCHIVE_NAME := $(CURRENT_DIR)
+
+.PHONY : tar.Z tar.gz tar cpio.Z cpio.gz cpio
+
+tar.Z cpio.Z : %.Z : %
+	compress $(ARCHIVE_NAME).$(@:.Z=)
+
+tar.gz cpio.gz : %.gz : %
+	gzip $(ARCHIVE_NAME).$(@:.gz=)
+
+tar cpio :
+	@for file in $(ARCHIVE_NAME).$@ $(ARCHIVE_NAME).$@.Z \
+					$(ARCHIVE_NAME).$@.gz ; do \
+	    if [ -f $$file ] ; then \
+		printf "The $@ file \"$$file\" already exists.\n" ; \
+		exit 1 ; \
+	    fi ; \
+	done
+	@printf "Making file \"$(ARCHIVE_NAME).$@\":\n"
+	@cd .. ; \
+	    if [ "$@" = "tar" ] ; then \
+		format=ustar ; \
+	    else \
+		format=cpio ; \
+	    fi ; \
+	    find $(CURRENT_DIR) '!' '(' -type f -perm -u+x ')' | \
+		grep -v -f $(IPW)/make/archive/$(ARCHIVE_EXCLUDE) | \
+		pax -w -v -d -x $$format -f $(CURRENT_DIR)/$(ARCHIVE_NAME).$@

@@ -1,0 +1,31 @@
+/*
+ *  The local configuration include file for IPW.
+ */
+
+
+/*
+ *  For backward compatability, make sure these unsigned typedefs are
+ *  defined either in system include files, or with default values.
+ */
+#undef uchar_t 
+#undef ushort_t 
+#undef ulong_t 
+
+/*
+ *  Big-endian or little-endian?
+ */
+#define WORDS_BIGENDIAN 0
+
+#undef SIZEOF_INT
+#undef SIZEOF_LONG
+#undef SIZEOF_SHORT
+
+/*
+ *  The header file specific to the type of host OS we're on.
+ */
+#include "host.h"
+
+/*
+ *  The header file specific to the local site
+ */
+#include "site.h"

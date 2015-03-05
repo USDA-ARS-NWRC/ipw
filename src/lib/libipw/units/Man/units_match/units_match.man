@@ -1,0 +1,74 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "units.h"
+
+int
+units_match(
+	char	  *string,	|* string to test 		*|
+	UNITS_T    id)		|* units id 			*|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> determines if a given <I>string</I> matches a units <I>id</I>.
+The string matches if it is the same string that the function
+&quot;units_as_str&quot; returns for the given id.  <B>%name</B> also
+accepts variations for the string depending upon the id.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+1 is returned if the string matches the id.  Otherwise, 0 is returned.
+</P>
+<H2>EXAMPLES</H2>
+
+<PRE>
+	units_match(&quot;mm&quot;, U_METERS)		returns 0
+	units_match(&quot;m&quot;, U_METERS)		returns 1
+	units_match(&quot;meters&quot;, U_METERS)		returns 1
+	units_match(&quot;Meters&quot;, U_METERS)		returns 1
+	units_match(&quot;METERS&quot;, U_METERS)		returns 1
+</PRE>
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_unitStrings
+</P>
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Nov 1995</DT>
+<DD>
+	Written by J. Domingo, OSU
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

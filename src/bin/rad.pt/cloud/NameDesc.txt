@@ -1,0 +1,1 @@
+cloud - estimate cloudcover from tmax, tmin

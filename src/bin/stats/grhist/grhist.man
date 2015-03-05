@@ -1,0 +1,142 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [<I>graph-options</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads an IPW histogram from the standard input, and writes a
+graphic rendition of the histogram (using graph(1)) to the standard
+output.
+</P>
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><I>graph-options</I></DT>
+<DD>Any command-line arguments are passed to graph(1).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To compute and plot a histogram on the LaserWriter:
+</P>
+<PRE>
+	hist image | grhist | lpr -g
+</PRE><P>
+To plot a (precomputed) histogram on a Tektronix 4014:
+</P>
+<PRE>
+	grhist &lt;histogram | plot -T4014
+</PRE><P>
+To compute a histogram and display on an X Windows display:
+</P>
+<PRE>
+	hist image | grhist | xplot
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<DT>%name uses the graph command, but that command can't be found
+</DT>
+<DD>The graph command is not available.  If it is installed, make sure your
+PATH environment variable is set properly.  A free version of the command is
+available in the GNU plotting package (http://www.gnu.org/software/plotutils/).
+</DD>
+
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The output of <B>%name</B> is constrained by the output options of the
+graph(1) program.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+
+<P>
+<DT>Apr 1993</DT>
+<DD>
+Removed non standard empty quotes passed to graph. This
+broke some graph programs.  Dana Jacobsen, CSC, ERL-C.
+</DD>
+
+<P>
+<DT>Jun 2008</DT>
+<DD>
+The command now checks for the availability of the graph command, and if it's
+the Unix graph command or GNU graph command.  James Domingo, Green Code LLC.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="btoa.html">btoa</A></B>,
+<B><A href="hist.html">hist</A></B>,
+<B><A href="histeq.html">histeq</A></B>,
+<B><A href="primg.html">primg</A></B>,
+<B><A href="rmhdr.html">rmhdr</A></B>
+</DD>
+
+<P>
+
+<DT>UNIX:</DT>
+<DD>awk, graph, plot
+</DD>
+
+<P>
+
+<DT>GNU:</DT>
+<DD>plotutils, xplot, graph, graphics, gnuplot
+</DD>
+
+<P>
+<DT>Image:</DT>
+<DD>pgmhist, ppmhist
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A><BR>
+</P>
+

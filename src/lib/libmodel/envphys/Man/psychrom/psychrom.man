@@ -1,0 +1,59 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "envphys.h"
+
+double
+psychrom(
+     double  tdry,    /* dry bulb temperature (K) */
+     double  twet,    /* wet bulb temperature (K) */
+     double  press)   /* total air pressure (Pa)  */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> solves the psycrometric equation using wet/dry bulb
+temperatures, and air pressure data.  It
+calculates vapor pressure as function of wet &amp; dry bulb temps;
+works at all temperatures (accounts for both fusion and vaporization).
+
+
+<H2>RETURN VALUE</H2>
+
+<P>
+vapor pressure	(Pa)
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>1983</DT>
+<DD>
+written by J. Dozier, CSL;
+</DD>
+
+<P>
+
+<DT>1986</DT>
+<DD>
+modified by D. Marks, CSL;
+</DD>
+
+<P>
+
+<DT>May 1995</DT>
+<DD>
+Converted from QDIPS to IPW by J. Domingo, OSU.
+</DD>
+</DL>
+
+

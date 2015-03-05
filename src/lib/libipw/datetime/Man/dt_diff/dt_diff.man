@@ -1,0 +1,46 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+void
+dt_diff(
+     datetime_t  *dt1,       /* first date-time                  */
+     datetime_t  *dt2,       /* second date-time                 */
+
+  /* output variables */
+
+     int         *days,      /* # of days between dt1 and dt2    */
+     int         *seconds)   /* # of seconds between dt1 and dt2 */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> determines the difference between two date-times.
+It computes
+the number of days and seconds from <I>dt2</I> to <I>dt1</I>.  If the second
+date-time follows the first date-time, then the outputs will be negative.
+
+<H2>RETURN VALUE</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Oct 1997</DT>
+<DD>
+Written by J. Domingo, OSU.
+</DD>
+</DL>
+
+

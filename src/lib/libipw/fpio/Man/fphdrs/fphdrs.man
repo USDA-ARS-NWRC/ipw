@@ -1,0 +1,75 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "fpio.h"
+
+void
+fphdrs(
+	int     fdi,		|* input image file descriptor	*|
+	int	nbands,		|* # image bands		*|
+	int     fdo)		|* output image file descriptor	*|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> copies all (remaining) image headers from filw descriptor fdi
+to file descriptor fdo.  Any floating-point headers encountered that
+are known to <B>%name</B> (currently: LQ) are also ingested, and thus become
+accessible to the fpio initialization routine.
+</P><P>
+Only the LQ header is recognized by this version of <B>%name</B>.
+</P><P>
+<B>%name</B> calls gethdrs; therefore, no further headers may be ingested
+after <B>%name</B> is called.  See gethdrs() for more info.
+</P><P>
+Call <B>%name</B> if your program doesn't need to ingest any more headers,
+but you want the floating-point headers read in order to initialize
+the fpio package.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

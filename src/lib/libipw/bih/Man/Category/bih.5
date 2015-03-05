@@ -1,0 +1,86 @@
+.TH "bih" "5" "7 May 1998" "IPW v2" "IPW Header Files"
+.SH NAME
+.PP
+\fBbih\fP - basic image headers
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+#include "bih.h"
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Basic image headers for IPW images describe the images'
+basic properties, e.g., the number of lines in the image,
+the number of samples per line, the number of pixels (bands)
+per sample, the number of bits per pixel, etc.
+.PP
+There are two typedefs for processing the basic image headers.
+The first typedef defines the \fBper-image\fP component of the
+basic image header:
+.sp
+.nf
+.ft CR
+    typedef \fBBIHI_T\fP has these fields:
+
+        char * byteorder;   /* byte order         */
+        int    nlines;      /* # of lines         */
+        int    nsamps;      /* # samples per line */
+        int    nbands;      /* # of bands         */
+.ft R
+.fi
+.PP
+The second typedef defines the \fBper-band\fP information
+in the basic image header:
+.sp
+.nf
+.ft CR
+    typedef \fBBIH_T\fP has these fields:
+
+        BIHI_T   * img;       /* -> per-image component        */
+        int        nbytes;    /* # bytes per pixel             */
+        int        nbits;     /* # bits per pixel              */
+        STRVEC_T * history;   /* -> processing history strings */
+        STRVEC_T * annot;     /* -> annotation strings         */
+.ft R
+.fi
+.PP
+\fBMacros\fP
+.PP
+The following macros are defined for accessing the fields in the
+BIH_T structure:
+.sp
+.nf
+.ft CR
+    BIH_T * p;
+
+    bih_byteorder(p)
+    bih_nlines(p)
+    bih_nsamps(p)
+    bih_nbands(p)
+    bih_nbytes(p)
+    bih_nbits(p)
+    bih_history(p)
+    bih_annot(p)
+.ft R
+.fi
+.SH SEE ALSO
+.TP
+IPW:
+bihmake(),
+bihdup(),
+bihread(),
+bihwrite(),
+bih(),
+hbyteorder(),
+hnlines(),
+hnsamps(),
+hnbands(),
+hnbits(),
+hnbytes(),
+hostorder(),
+imgsize(),
+sampsize(),
+no_history()

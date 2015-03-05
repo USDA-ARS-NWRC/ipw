@@ -1,0 +1,90 @@
+   <HTML>
+
+<HEAD>
+ <TITLE>Types</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080"
+ALINK="#F00000">
+
+
+<IMG SRC="../../images/usda.gif" alt="USDA">
+<IMG SRC="../../images/ars.gif" alt="ARS">
+<HR>
+
+
+<H1>Types</H1>
+
+
+<P>
+<CODE>"typedef"</CODE>s in IPW are used mainly as a portability tool.
+Where portable
+uses exist for the standard C data types, those types are used directly:
+loop counters, file descriptors, and function return codes are all
+<CODE>"int"</CODE>s;
+character strings are stored in arrays of, or manipulated by pointers to,
+<CODE>"char"</CODE>s; etc.
+This is intended to help make IPW code more readable to
+programmers with previous C experience. However, there are some
+circumstances where <CODE>"typedef"</CODE>s contribute significantly
+to readability.
+
+<P>
+Boolean variables should always have the type <CODE>"bool_t"</CODE>,
+even though C by
+definition treats boolean expressions as having type <CODE>"int"</CODE>.
+
+<P>
+If standard C types are being used in an especially restricted context,
+then the comment at the end of the corresponding declaration should mention
+the restriction.  One standard way of doing this is to indicate the subrange
+of permissible values
+[<A HREF="../../bib.html#Plum 1984">Plum 1984</A>].
+
+<P>
+Example:
+
+<PRE>
+float   azimuth;        /* radians: -pi .. pi */
+</PRE>
+
+<P>
+Default typing (allowing function values and formal arguments to default to
+<CODE>"int"</CODE>) should NEVER be used; this is one of the most common
+sources of bugs in C code.
+
+<P>
+The <CODE>"void"</CODE> type should always be used to cast the result of
+function whose
+value is ignored; this forces the programmer to acknowledge that a return
+value is being deliberately discarded.
+
+<P>
+All structures should be <CODE>"typedef"</CODE>d, and thereafter only
+referred to using the <CODE>"typedef"</CODE> type. IPW image headers
+are typical examples of this; see any of
+the <CODE>"$IPW/h/<I>xxx</I>h.h"</CODE> header files. Note that in a
+<CODE>"typedef"</CODE>d structure the tag is superfluous
+and should be omitted, unless the structure is self-referential, in which
+case the tag will be needed in one or more member declarations. 
+
+<P>
+IPW programmers are encouraged to create their own types if doing so contributes
+to the readability of the program. They should first familiarize
+themselves with the default types provided in the header file
+<CODE>"$IPW/h/_types.h"</CODE>, and in
+any other specialized header files they are using.
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../../intro.html">IPW documentation</A>  /
+Last revised 20 May 2009  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>
+

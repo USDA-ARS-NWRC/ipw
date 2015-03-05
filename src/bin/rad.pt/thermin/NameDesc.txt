@@ -1,0 +1,1 @@
+thermin - incoming thermal radiation at different elevations

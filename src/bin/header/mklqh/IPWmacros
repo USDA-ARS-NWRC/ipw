@@ -1,0 +1,3 @@
+%define(name,"mklqh")
+%define(description,"add a linear quantization (LQ) header to an image")
+%define(category,"Image Header Manipulation")

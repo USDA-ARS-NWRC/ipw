@@ -1,0 +1,64 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "pixio.h"
+
+int
+pvread(
+	int             fd,	  |* input file descriptor	 *|
+	REG_4 pixel_t  *buf,	  |* -> pixel buffer		 *|
+	int             npixv)	  |* # pixel vectors to read	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> reads npixv pixel vectors from file descriptor fd into buf.
+</P><P>
+<B>%name</B> is the lowest level of IPW input that represents pixel values
+in a single format (unsigned integers).
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+number of pixel vectors read; else ERROR for failure
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_piocb
+</P>
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

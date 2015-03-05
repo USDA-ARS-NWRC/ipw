@@ -1,0 +1,68 @@
+:
+#  A shell script displays various IPW paths, i.e., lists of directories.
+#  The script is invoked as
+#
+#	{script} [ -s ] ( user | system | man )
+#
+#  The argument specifies which path to display:
+#
+#	user	= directories with IPW user commands
+#	system	= directories with IPW system commands
+#		    (for software administration and development)
+#	man	= directories with IPW man pages
+#
+#  The directories in the list are separated by colons.  If the -s option
+#  is specified, the directories are separated by spaces.
+#
+#  Note:  This script requires that the environment variable IPW be set.
+#
+#  This script is usually invoked in a user's .cshrc or .profile file to
+#  establish IPW paths.  For example, suppose a person is using the C shell.
+#  If her .cshrc file has these two lines:
+#
+#	set path=($path -s `$IPW/path user`)
+#	setenv MANPATH /usr/man:`$IPW/path man`
+#
+#  then the directories with IPW user commands are added to the shell's
+#  search path for executables, and the IPW "man" directories will be
+#  searched by the "man" command.
+
+
+if [ -z "$IPW" ] ; then
+    printf "$0: ERROR:  The environment variable IPW is not set\n" >&2
+    exit 1
+fi
+
+usage="Usage: $0 [ -s ] ( user | system | man )\n"
+
+while getopts ":s" opt
+    do
+    case $opt in
+	s)  useSpaces=1
+	    shift
+	    ;;
+	?)  printf "$usage" >&2
+	    exit 1
+	    ;;
+    esac
+    done
+
+case $1 in
+    user)	paths="$IPW/local/bin:$IPW/bin"
+		;;
+    system)	paths="$IPW/local/sbin:$IPW/local/bin:$IPW/sbin:$IPW/bin"
+		;;
+    man)	paths="$IPW/local/man:$IPW/man"
+		;;
+    *)		printf "$usage" >&2
+		exit 1
+		;;
+esac
+
+if [ -n "$useSpaces" ] ; then
+	printf "$paths\n" | sed "s/:/ /g"
+else
+	printf "$paths\n"
+fi
+
+exit 0

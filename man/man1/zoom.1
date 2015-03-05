@@ -1,0 +1,142 @@
+.TH "zoom" "1" "10 April 1998" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBzoom\fP - enlarge or reduce an IPW image by replication or subsampling
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBzoom\fP [ \fB-l\fP \fIlfactor\fP ] [ \fB-s\fP \fIsfactor\fP ] [ \fB-f\fP ] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBzoom\fP reads \fIimage\fP (default: standard input) and writes a copy to
+the standard output, with lines and/or samples either replicated
+or skipped.
+.PP
+Positive factors specify enlargement, negative factors specify
+reduction.
+.PP
+When skipping lines or samples, counting begins at (0,0); i.e., the
+first sample in the input image is always present in the output image.
+.SH OPTIONS
+.TP
+\fB-l\fP \fIlfactor\fP
+Replicate each line \fIlfactor\fP times.  If \fIlfactor\fP is
+negative, then select every \fIlfactor\fP'th line, beginning
+with line 0.
+.sp
+.TP
+\fB-s\fP \fIsfactor\fP
+Replicate each sample \fIsfactor\fP times.  If \fIsfactor\fP is
+negative, then select every \fIsfactor\fP'th sample,
+beginning with sample 0, from each selected line.
+.sp
+.TP
+\fB-f\fP
+When replicating, force the edges of the output image
+to coincide exactly with those of the input image.
+This only makes sense on images with geodetic headers.
+If the \fB-f option is not used, the output image will be
+offset in geodetic space.
+.sp
+NOTE: when using the \fB-f option, the \fBzoom\fP procedure is not
+reversible.  For example,
+.sp
+\fBzoom\fP \fB-f \fB-l 10 \fB-s 10 foo | \fBzoom\fP \fB-l -10 \fB-s -10
+.sp
+will output pixel values identical to those of foo, but
+the geodetic extent of the output image will be
+different from that of foo.
+.PP
+At least one of \fB-l and/or \fB-s must be specified.
+.SH OPERANDS
+.TP
+[\fIimage\fP]
+	image
+.sp
+.SH EXAMPLES
+.PP
+To \fBzoom\fP an image by a factor of 2 in both directions:
+.sp
+.nf
+.ft CR
+	zoom -s 2 -l 2
+.ft R
+.fi
+
+.PP
+To histogram every 10th pixel of a large image:
+.sp
+.nf
+.ft CR
+	zoom -s -10 -l -10 | hist
+.ft R
+.fi
+
+.PP
+Zooming by non-integer factors in accomplished by expressing the
+desired \fBzoom\fP factor as a fraction, and then using the pipeline:
+.sp
+.nf
+.ft CR
+	zoom -{dir} {numerator} | zoom -{dir} -{denominator}
+.ft R
+.fi
+
+.PP
+For example, to shrink an image by 3/4 horizontally (perhaps to
+accommodate a display with a 4:3 aspect ratio):
+.sp
+.nf
+.ft CR
+	zoom -s 3 | zoom -s 4
+.ft R
+.fi
+
+.PP
+The fractional \fBzoom\fP pipeline should be specified in the order
+shown (replication BEFORE subsampling).  Reversing the order
+(subsampling before replication) may be faster, but results in
+much greater loss of spatial resolution.
+.SH FILES
+.sp
+.nf
+.ft CR
+     None
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+line zoom factor must be non-zero
+sample zoom factor must be non-zero
+.br
+	Zoom factors must be non-zero integers.
+.SH RESTRICTIONS
+.PP
+None
+.SH HISTORY
+.TP
+Jul 1990
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+.TP
+Aug 1994
+	Added \fB-f option; Rusty Dodson, ERL-C.
+.SH BUGS
+.PP
+None that we know of
+.SH SEE ALSO
+.TP
+IPW
+	\fBwindow\fP,
+\fBresamp\fP
+.TP
+Image
+	pbmscale, rlezoom, xli, xloadimage, xv
+.PP
+Frew, J., 1990.  The Image Processing Workbench.  Ph.D. Thesis,
+	Department of Geography, University of California, Santa
+	Barbara, CA, 382pp.

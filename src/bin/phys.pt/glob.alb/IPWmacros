@@ -1,0 +1,3 @@
+%define(name,"glob.alb")
+%define(description,"global (broadband) solar albedo over snow")
+%define(category,"Environmental Physics and Properties: Point")

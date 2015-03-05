@@ -1,0 +1,3 @@
+%define(name,"ufilename")
+%define(description,"get UNIX file name associated with file descriptor")
+%define(category,"uio")

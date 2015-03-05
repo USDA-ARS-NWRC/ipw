@@ -1,0 +1,1 @@
+primg - print pixel specified by line,sample coordinates as text

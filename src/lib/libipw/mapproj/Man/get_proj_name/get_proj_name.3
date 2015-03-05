@@ -1,0 +1,38 @@
+.TH "get_proj_name" "3" "10 April 1998" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBget_proj_name\fP - get name of projection for given ID
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "mapproj.h"
+
+char *
+get_proj_name(
+	int	proj_id)	|* projection ID		 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBget_proj_name\fP returns the name of the geographic projection that
+corresponds to the given projection ID.  If the ID is not valid,
+the name "(unknown)" is returned.
+.SH RETURN VALUE
+.PP
+pointer to character string containing projection name
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+The returned character string is in static memory, so do NOT
+attempt to "free" it.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

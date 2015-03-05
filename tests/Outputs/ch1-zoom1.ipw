@@ -1,0 +1,33 @@
+!<header> basic_image_i -1 $Revision: 1.11 $
+byteorder = 3210 
+nlines = 24 
+nsamps = 15 
+nbands = 1 
+!<header> basic_image 0 $Revision: 1.11 $
+bytes = 1 
+bits = 8 
+annot = Channel 1 Reflectance .58 - .68 Period 03/02 thru 03/15/1990 
+history = mkgeoh -c Lambert -u meters -o 752000,-2050000 -d -1000,1000 -f 
+history = mklqh -m 0,0,254,.635,255,1.0 -f 
+history = las2ipw -i p01ch1.img -r -h /files/data/crystal/data1/danny/columbia/avhrr/header.p01ch1 -g 
+history = reproj -i /files/data/crystal/data1/danny/columbia/avhrr/lambert.defs -o /files/data/crystal/data1/danny/columbia/avhrr/albers.defs -b 3550000,-2230000 -d -1000,1000 -l 1400 -s 1200 
+history = window -b 355,550 -e 450,830 ch1 
+history = zoom -s -20 -l -4 Data/ch1.ipw 
+!<header> lq 0 $Revision: 1.4 $
+map = 0 0 
+map = 254 0.6349999905 
+map = 255 1 
+!<header> geo 0 $Revision: 1.7 $
+bline = 3195000 
+bsamp = -1680000 
+dline = -4000 
+dsamp = 20000 
+units = meters 
+coord_sys_ID = Albers Conical Equal Area 
+!<header> win 0 $Revision: 1.7 $
+bline = 355 
+bsamp = 550 
+dline = 4 
+dsamp = 20 
+!<header> image -1 $Revision: 1.5 $
+¦7AA6«ó¬C^¶Tpy"•N;vŒ”ºTÿ…z<”'C-œœ5 <TÞ@AŠS5&,ŽLiNÿÿgf^»&A§d-ì¥:ÿæ..În*t–8-ãZ[LÎÄ75a’@d.Ët2!ÿIU#QÐ˜'*&CÿØ„vÿfë,r~p! "<Ø–Q»ê’hI‡òs @¤5w+ÜÿØzWc8'lŒw,J#àÿY?_  &S¿*å~˜û¯0GLi/7U>"G»Eÿÿw2GRc$ilefOï0ÿög-r´*<n`7%Û5²†N,ZY%A2-d=/ž/¿ÿX)s&G=|4/i4%zŽg/ƒd2m@)/(_%|6©;´q.#5/9'g8Ro&![ cAHX+ubh22?!$`&+5$+2Eg5S!'?@%@"bD6}K-„›¹G5¿‰=0?A-J*#-¦›C±µT)…G

@@ -1,0 +1,118 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-K</B> ] [ <B>-i</B> ]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> converts vapor pressure to specific humidity
+or the inverse;
+Reads input vapor pressure (Pa) (or specific humidity (gm/kg))
+and air pressure (Pa) from stdin;
+</P><P>
+(see <I>eq. 6-9, pg. 109, General Meterology, Byers, 1974</I>)
+</P>
+
+<P>
+If <B>-i</b> is set, input specific humidity is converted to vapor pressure.
+Calculates specific humidity in <I>gm/kg</I>, or vapor pressure in <I>Pa</I>.
+</P><P>
+(Note that the more general equation (6-8, pg 109) is used for the inverse,
+so some precision is lost.)
+</P><P>
+Output is to standard output;
+</P>
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-i</B> 
+<DD>
+perform inverse operation converting specific humidity to vapor pressure
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+none
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To convert vapor pressure (Pa) and air pressure (Pa) to specific humidity (gm/kg)
+</P><PRE>
+	paste ea pa | <B>%name</B>
+</PRE><P>
+To convert specific humidity (gm/kg) and air pressure (Pa) to vapor pressure (Pa)
+</P><PRE>
+	paste sph pa | <B>%name</B> -i
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+none
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+checks for vp or sp_hum &lt; 0.0, and dies on error.
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+none
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Dec 2004</DT>
+<DD>
+Written by D. Marks, NWRC, Boise, Idaho.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+none
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<DD> <B><A href="standard/satvp.html">satvp</A></B>,
+<B><A href="standard/isatvp.html">isatvp</A></B>,
+<B><A href="standard/rh2vp.html">rh2vp</A></B>,
+<B><A href="standard/irh2vp.html">irh2vp</A></B>,
+<B><A href="standard/dewpt.html">dewpt</A></B>,
+<B><A href="standard/idewpt.html">idewpt</A></B>,
+<B><A href="standard/sling.html">sling</A></B>,
+<B><A href="standard/vptr.html">vptr</A></B>
+<B><A href="local/ah2vp.html">ah2vp</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Unix</DT>
+<DD>
+paste
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Byers 1974">Byers 1974</A>
+</P>
+ 

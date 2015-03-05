@@ -1,0 +1,171 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-t</B> <I>start</I> <B>-i</B> <I>interval</I> [ <B>-n</B> <I>count</I> ] [ <B>-a</B> ] [ <B>-h</B> ] [ <B>-s</B> ]
+      
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Ezint performs time integration or averaging of data logger values.
+It reads pairs of data (time and y values) from standard input.
+The time can be in decimal days, hours or seconds.  Ezint was
+designed to align data files from different data loggers.
+</P><P>
+Ezint integrates y from t(ime)[0] to t[n], by assuming a constant
+value for y over each time interval (= t[i+1] - t[i]).
+Adjustments are made to set t[0], t[n], and to correct for
+variations in time interval over the data set, by splitting the
+interval and using a weighted average value for y over the segments.
+</P><P>
+If a time interval is greater than a certain threshold, then
+the weighted averages are used to compute y over that interval.
+The threshold is computed by:
+</P><PRE>
+	threshold = 1.25 * ((last time value - first time value) /
+			     # of time values)
+</PRE><P>
+Output is written to standard output.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-t</B> <I>start</I>
+<DD>
+<I>start</I> is the start time for integration or averaging.
+</DD>
+
+<P>
+<DT><B>-i</B> <I>interval</I>
+<DD>
+<I>interval</I> is the desired integration or averaging interval.
+</DD>
+
+<P>
+<DT><B>-n</B> <I>count</I>
+<DD>
+<I>count</I> is the estimate of the number of input pairs.
+(Used to set the array sizes (default: 40960)).
+</DD>
+
+<P>
+<DT><B>-a</B> 
+<DD>
+Output the average y values; an average y value =
+integrated y value / integration interval
+(default: output integrated y values).
+</DD>
+
+<P>
+<DT><B>-h</B> 
+<DD>
+Input times (and values for <B>-s</b> and <B>-i</b> options) are in
+decimal hours (default: decimal days).
+</DD>
+
+<P>
+<DT><B>-s</B> 
+<DD>
+Input times (and values for <B>-s</b> and <B>-i</b> options) are in
+decimal seconds (default: decimal days).
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<P>
+None
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To integrate dischage data into hourly totals, starting at midnight
+(hr=0.0, day=day.0) from 15 (0.01041667 day) minute data starting at
+day 86.2326:
+</P><PRE>
+	paste time q | ezint -t 87.0 -i 0.0416667 
+</PRE><P>
+To calculate average hourly temperatures, also starting at midnight,
+from the same data set:
+</P><PRE>
+	paste time ta | ezint -t 87.0 -i 0.041666 -a
+</PRE>
+<H2>FILES</H2>
+
+<P>
+None
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Sep 1986</DT>
+<DD>
+	Written by D. Marks, CSL, UCSB;
+</DD>
+</DL>
+
+<DL>
+<DT>Jun 1996</DT>
+<DD>
+	Ported to IPW by J. Domingo, OSU
+</DD>
+</DL>
+
+<DL>
+<DT>Aug 1997</DT>
+<DD>
+	Converted to IPW Version 2.0, by D. Marks, USGS, ERL-C
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="akintrp.html">akintrp</A></B>,
+<B><A href="interp.html">interp</A></B>,
+<B><A href="qdint.html">qdint</A></B>,
+<B><A href="smooth.html">smooth</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Unix</DT>
+<DD>	paste
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Davis 1975">Davis and Rabinowitz 1975</A><BR>
+</P>
+ 

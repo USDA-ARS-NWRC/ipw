@@ -1,0 +1,3 @@
+%define(name,"tcloud")
+%define(description,"cloudiness attenuation of solar radiation")
+%define(category,"Radiation Modeling: Basin-Scale")

@@ -1,0 +1,142 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-i</B> <I>inproj</I> <B>-o</B> <I>outproj</I> [<I>infile</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Transcoord is part of an extensive suite of projection transformation
+tools coded into IPW by Kelly Longley (OSU) at the EPA Laboratory
+in Corvallis, Oregon.  All are based on the libraries from the
+General Cartographic Transformation Package (GCTP), which were converted
+to C from fortran during early 1990 by Ms. Longley.
+</P><P>
+Transcoord translates a file of geographic projection coordinates
+to another map projection using the USGS General Cartographic
+Transformation Package (GCTP) software.
+</P><P>
+The input file is an ASCII file with one easting, northing pair per
+line, followed by any other data.
+</P><P>
+The output file, written to stdout, is an ASCII file with the input
+map coordinates replaced by the translated coordinates, and the
+remainder of the data line copied.
+</P><P>
+The input and output projection definition parameters can be created
+from the program &quot;mkproj&quot;.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-i</B> <I>inproj</I>
+<DD>
+input projection definition file
+</DD>
+
+<P>
+<DT><B>-o</B> <I>outproj</I>
+<DD>
+output projection definition file
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>infile</I>]</DT>
+
+<DD>	infile	input file (default:stdin)
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To convert a list of station elevations from geodetic coordinates
+(lat, long) to U.S. Albers:
+</P><PRE>
+	mux long lat staID elev | transcoord -i geo.defs -o albers.defs
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     The projection definition files are ASCII files with the following
+     format:
+     	projection ID
+     	units code
+     	zone code
+     	datum code
+     	projection parameters (15 values)
+     The files may be created using program mkproj, or with programs mkgeo,
+     mkalbers, etc.  See the man pages for these programs, or USGS
+     documentation for the General Cartographic Transformation Package
+     for details on the parameters.
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>None
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1991</DT>
+<DD>
+	Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>	<B><A href="mkalbers.html">mkalbers</A></B>,
+<B><A href="mkgeo.html">mkgeo</A></B>,
+<B><A href="mklambert.html">mklambert</A></B>,
+<B><A href="mklamcc.html">mklamcc</A></B>,
+<B><A href="mkproj.html">mkproj</A></B>,
+<B><A href="reproj.html">reproj</A></B>,
+<B><A href="reproj_area.html">reproj_area</A></B>
+</DD>
+</DL>
+<P>Evenden, G.I., 1983.  &quot;Forward and inverse cartographic projection
+	procedures&quot;, USGS Open-File Report 83-623, 85 p.
+</P>
+<P>Elassal, A.A., 1987.  &quot;General Cartographic Transformation Package
+	(GCTP), Version II&quot;, NOAA Technical Report NOS 124 CGS 9,
+	24p.
+</P>
+<P>Snyder, J.P., 1987.  &quot;Map projections - A working manual&quot;, USGS
+	Professional Paper 1395, 383 p.
+</P>
+<P>Snyder, J.P., and R.M. Voxland, 1989.  &quot;An album of map projections&quot;,
+	USGS Professional Paper 1453, 249 p.
+</P>
+

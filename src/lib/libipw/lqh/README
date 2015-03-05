@@ -1,0 +1,13 @@
+
+  lqhinterp.c has a problem with reverse maps (i.e. a linear map where the
+first number is greater than the second, such as pix 0->255 maps 1.0->0.0).
+This shows up one the IBM RS/6000 as all the pixels being assigned values
+of 0.  hor1d will show this problem.
+
+  One solution is to use a (signed) long for a map in fpvwrite.c, just like
+is used on suns.  This works, but I don't think it's a clean solution.
+
+  Another is to fix lqhinterp.c.  This is being worked on.
+--
+Dana Jacobsen, 7/20/95
+

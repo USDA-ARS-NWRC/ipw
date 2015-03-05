@@ -1,0 +1,127 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-z</B> <I>cosz</I> <B>-a</B> <I>azimuth</I> [ <B>-f</B> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> constructs an IPW solar position header (SUNH) and inserts it
+into the headers of <I>image</I> (default: standard input).  If the
+specified bands already have SUN headers, they are overridden, and a
+warning message is generated.
+<P>
+If the <B>-f</b> option is specified, then only the headers are written to
+the standard output, and any input image data is ignored.
+<P>
+The &quot;sun&quot; header will always be applied to all bands of the image.
+
+<H2>OPTIONS</H2>
+
+<DL>
+<DT><B>-z</B> <I>cosz</I>
+<DD>
+The cosine of the solar zenith angle is <I>cosz</I>.
+</DD>
+
+<P>
+<DT><B>-a</B> <I>azimuth</I>
+<DD>
+The solar azimuth is <I>azimuth</I>, in radians from south,
+positive east.
+</DD>
+
+<P>
+
+<DT><B>-f</B> 
+<DD>
+Force header output only.  Do not attempt to copy pixel
+data from <I>image</I> to the standard output.  Note that there
+must still be at least an input BIH, and any input headers
+(except superseded &quot;sun&quot; headers) will still be copied to
+the standard output.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I></DT>
+
+<DD>input satellite image (default: standard input)
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To create a &quot;sun&quot; header for a Landsat image acquired with a solar
+elevation of 57 degrees and a solar compass bearing of 119 degrees:
+</P><PRE>
+	mksunh -z 0.838671 -a 1.064651 image
+</PRE><P>
+where  0.838671 = cos(90-57)  and  1.064651 = (180-119) * (PI/180)
+</P>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None.
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+</DD>
+
+<P>
+<DT>Apr 1993</DT>
+<DD>
+Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="mkbih.html">mkbih</A></B>,
+<B><A href="mk*h.html">mk*h</A></B>,
+<B><A href="prhdr.html">prhdr</A></B>,
+<B><A href="rmhdr.html">rmhdr</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A><BR>
+</P>
+

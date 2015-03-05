@@ -1,0 +1,12 @@
+PGM := sample
+DESCRIPTION := a sample IPW program
+
+#  This required macro defines all the source files
+SRCS := main.c globals.c headers.c sample.c
+
+#  This optional macro lists an additional libraries to link with besides
+#  the standard C library, the standard math library, and the standard
+#  IPW library.
+#EXTRA_LIBS := snobal
+
+include $(IPW)/make/command

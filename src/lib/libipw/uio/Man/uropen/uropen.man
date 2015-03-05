@@ -1,0 +1,63 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+int
+uropen(
+	const char      *name)	|* file name			 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> opens the file name for reading.  The name &quot;-&quot; is understood to
+mean the standard input.
+</P><P>
+Use <B>%name</B> wherever you would normally use the UNIX system call open()
+to open a file for reading.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+&gt;= 0	A readable UNIX file descriptor for successful open.
+</P><P>
+ERROR	An error occurred.
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+

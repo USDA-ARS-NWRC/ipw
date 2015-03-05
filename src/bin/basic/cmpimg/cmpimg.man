@@ -1,0 +1,111 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <I>image1 image2</I>
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> compares the pixel data from <I>image1</I> and <I>image2</I>, ignoring
+any headers.  A &quot;-&quot; in place of an image represents the standard
+input.  The output of <B>%name</B> is a message printed to the standard
+output indicating whether the two input images differ or are
+identical.
+</P>
+<H2>OPTIONS</H2>
+
+
+<P>None
+</P>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image1 image2</I></DT>
+
+<DD>input images to be compared
+</DD>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+The following sequence might be used to test a command, such as
+transpose, that should be its own inverse:
+</P><PRE>
+	transpose image | transpose | cmpimg - image
+</PRE>
+
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<P>
+None.
+</P>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+<B>%name</B> is implemented as a shell script that invokes the UNIX 
+<B>cmp</B> command.  Since <B>cmp</B> has no notion of image structure,
+<B>%name</B> gives no
+indication of the logical image locations (line, sample, band)
+where differences occur.
+<P>
+The exit status of <B>%name</B> does NOT indicate the result.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB
+</DD>
+
+<P>
+<DT>Apr 1993</DT>
+<DD>
+Use second temporary file to avoid a spurious newline.
+Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW:</DT>
+<DD>
+<B><A href="rmhdr.html">rmhdr</A></B>,
+<B><A href="transpose.html">transpose</A></B>
+</DD>
+
+<P>
+
+<DT>UNIX:</DT>
+<DD>cmp
+</DD>
+
+</DL>
+
+<P>
+<A HREF="../bib.html#Frew 1990">Frew 1990</A><BR>
+</P>
+
