@@ -1,4 +1,4 @@
-Possible targets for "make" command:
+Possible targets for "/Applications/Xcode.app/Contents/Developer/usr/bin/make" command:
 
 all		Make all the commands, their man pages and the lists of
 		  of commands (default).

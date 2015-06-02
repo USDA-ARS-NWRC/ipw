@@ -5,7 +5,7 @@
 SH=/bin/sh
 AWK=/usr/bin/awk
 SED=/usr/bin/sed
-PERL=/usr/bin/perl
+PERL=/opt/local/bin/perl
 
 #  This needs to be a standard C compiler
 CC=gcc

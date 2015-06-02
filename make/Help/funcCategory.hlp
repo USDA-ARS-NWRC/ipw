@@ -1,4 +1,4 @@
-Possible targets for "make" command:
+Possible targets for "/Applications/Xcode.app/Contents/Developer/usr/bin/make" command:
 
 all		Compile all the functions, add them to the library, and
 		  make their man pages and the lists of of functions

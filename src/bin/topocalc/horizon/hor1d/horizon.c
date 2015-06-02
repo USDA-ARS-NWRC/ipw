@@ -1,6 +1,6 @@
 /*
-** orchestrate computation of horizon
-**/
+ ** orchestrate computation of horizon
+ **/
 
 #include <math.h>
 #include "ipw.h"
@@ -23,68 +23,68 @@ horizon(void)
 	pixel_t        *hmask = NULL;	/* output mask			 */
 
 
-/*
- *	routine for forward or backward horz calculation
- */
+	/*
+	 *	routine for forward or backward horz calculation
+	 */
 	int  (*horfun)(int n, fpixel_t *z, int *h);
 
- /*
-  * initialize buffers for i/o and horizon computation
-  */
+	/*
+	 * initialize buffers for i/o and horizon computation
+	 */
 	npix = hnsamps(parm.i_fd);
- /* NOSTRICT */
+	/* NOSTRICT */
 	hbuf = (int *) ecalloc(npix, sizeof(int));
- /* NOSTRICT */
+	/* NOSTRICT */
 	zbuf = (fpixel_t *) ecalloc(npix, sizeof(fpixel_t));
 	if (hbuf == NULL || zbuf == NULL)
 		bug("buffer allocation");
- /*
-  * if horizon cosines to be computed, need to allocate storage vector
-  */
+	/*
+	 * if horizon cosines to be computed, need to allocate storage vector
+	 */
 	if (parm.nbits > 1) {
- /* NOSTRICT */
+		/* NOSTRICT */
 		hcos = (fpixel_t *) ecalloc(npix, sizeof(fpixel_t));
 		if (hcos == NULL)
 			bug("buffer allocation");
 	}
- /*
-  * otherwise if mask to be computed, need to allocate integer storage
-  * vector and set threshold
-  */
+	/*
+	 * otherwise if mask to be computed, need to allocate integer storage
+	 * vector and set threshold
+	 */
 	else {
- /* NOSTRICT */
+		/* NOSTRICT */
 		hmask = (pixel_t *) ecalloc(npix, sizeof(pixel_t));
 		if (hmask == NULL)
 			bug("buffer allocation");
 		thresh = tan(M_PI_2 - parm.zenith);
 	}
- /*
-  * forward or backward horizon function
-  */
+	/*
+	 * forward or backward horizon function
+	 */
 	horfun = (parm.backward) ? hor1b : hor1f;
- /*
-  * main loop
-  */
+	/*
+	 * main loop
+	 */
 	fspace = parm.spacing;
 	while ((ngot = fpvread(parm.i_fd, zbuf, npix)) > 0) {
 		if (ngot != npix)
 			error("premature end of row");
- /*
-  * find points that form horizons
-  */
+		/*
+		 * find points that form horizons
+		 */
 		(void) (*horfun) (ngot, zbuf, hbuf);
- /*
-  * if not mask output, compute and write horizons along each row
-  */
+		/*
+		 * if not mask output, compute and write horizons along each row
+		 */
 		if (parm.nbits > 1) {
 			horval(ngot, zbuf, fspace, hbuf, hcos);
 			if (fpvwrite(parm.o_fd, hcos, ngot) != ngot) {
 				error("fpvwrite error");
 			}
 		}
- /*
-  * if mask output, set mask and write
-  */
+		/*
+		 * if mask output, set mask and write
+		 */
 		else {
 			hormask(ngot, zbuf, fspace, hbuf, thresh, hmask);
 			if (pvwrite(parm.o_fd, hmask, ngot) != ngot) {

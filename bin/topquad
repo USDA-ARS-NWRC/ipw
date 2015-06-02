@@ -218,7 +218,7 @@ demux -b 3,4,5 $image > $tdir/iVF
 
 # 1st awk script writes weights and solar angles to temporary file
 
-echo $date $lat $lon | /usr/local/bin/mawk '
+echo $date $lat $lon | /usr/bin/awk '
 	{
 		print "sunlight -d", $1, "-b", $2, "-l", $3, "-q 21 -a"
 	}' | sh > $tdir/aQ
@@ -230,7 +230,7 @@ echo $net $elev $tau $omega $gfact $R0 $S0 \
 	$tdir/iZ $tdir/iGR $tdir/iVF $tdir/ \
 	> $tdir/aS
 
-cat $tdir/aS $tdir/aQ | /usr/local/bin/mawk '
+cat $tdir/aS $tdir/aQ | /usr/bin/awk '
 BEGIN {
 	already = 0
 	j = 0

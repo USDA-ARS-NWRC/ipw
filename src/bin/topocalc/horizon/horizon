@@ -85,7 +85,7 @@ trap 'exit 0' 1 2 3 15
 
 # awk script creates output command string and puts in temporary file
 
-echo $phi $delta $zen $cosZ $image | /usr/local/bin/mawk '
+echo $phi $delta $zen $cosZ $image | /usr/bin/awk '
 	{
 		phi = $1
 		delta = $2
@@ -114,8 +114,8 @@ echo $phi $delta $zen $cosZ $image | /usr/local/bin/mawk '
 		else {
 			dc = sprintf(" -u %g", cosZ);
 		}
-		hf = "/Users/ipw/ipw-2.1.0/aux/horizon/hor1d" ds dz dc " -a"
-		hb = "/Users/ipw/ipw-2.1.0/aux/horizon/hor1d -b" ds dz dc " -a"
+		hf = "/Users/scott/ipw-2.1.0/aux/horizon/hor1d" ds dz dc " -a"
+		hb = "/Users/scott/ipw-2.1.0/aux/horizon/hor1d -b" ds dz dc " -a"
 		xp = "transpose"
 		if (phi == 90)
 			print hf, phi, image

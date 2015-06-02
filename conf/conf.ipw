@@ -1,5 +1,5 @@
 %define(SH,/bin/sh)
 %define(AWK,/usr/bin/awk)
 %define(SED,/usr/bin/sed)
-%define(PERL,/usr/bin/perl)
+%define(PERL,/opt/local/bin/perl)
 %define(GRAPH,)

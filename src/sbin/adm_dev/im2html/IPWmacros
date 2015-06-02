@@ -1,4 +1,4 @@
 %define(name,"im2html")
 %define(description,"convert IPW man page into new (HTML) man page")
 %define(category,"Software Administration and Development")
-%define(auxDir,"/Users/ipw/ipw-2.1.0/aux/im2html")
+%define(auxDir,"/Users/scott/ipw-2.1.0/aux/im2html")

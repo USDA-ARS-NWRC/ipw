@@ -81,7 +81,7 @@ esac
 # derived parameters
 
 nbits=`echo $ceil |
-	/usr/local/bin/mawk '{
+	/usr/bin/awk '{
 		nbits = 0;
 		
 		for (ceil = $1; ceil >= 1; ceil /= 2) {
@@ -97,7 +97,7 @@ case $nbits in
 esac
 
 nbytes=`echo $nbits |
-	/usr/local/bin/mawk '{
+	/usr/bin/awk '{
 		nbytes = 1
 
 		for (nbits = 8; $1 > nbits; nbits *= 2) {
@@ -126,7 +126,7 @@ mkbih -l 1 -s $size  -i $nbits -f
 	echo $in_lo $in_hi $out_lo $out_hi $floor $ceil
 	cnhist $in_lo $in_hi
 } | 
-	/usr/local/bin/mawk '
+	/usr/bin/awk '
 		NR == 1 {
 			in_lo = $1
 			in_hi = $2

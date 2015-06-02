@@ -29,17 +29,28 @@ Kernel configured for up to 24 processors.
 24 processors are logically available.
 Processor type: i486 (Intel 80486)
 Processors active: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
-Primary memory available: 56.00 gigabytes
-Default processor set: 207 tasks, 919 threads, 24 processors
-Load average: 2.31, Mach factor: 21.68
+Primary memory available: 48.00 gigabytes
+Default processor set: 293 tasks, 1215 threads, 24 processors
+Load average: 2.67, Mach factor: 21.32
 /bin/machine           = unknown
 /usr/bin/oslevel       = unknown
 /bin/universe          = unknown
 
+PATH: /opt/local/bin
+PATH: /opt/local/sbin
+PATH: /usr/local/ncl-6.2.1/bin
+PATH: /Users/scott/bin
+PATH: /usr/local/mysql/bin
+PATH: /Users/scott/ipw-2.1.0/local/bin
+PATH: /Users/scott/ipw-2.1.0/bin
+PATH: /usr/local/bin
 PATH: /usr/bin
 PATH: /bin
 PATH: /usr/sbin
 PATH: /sbin
+PATH: /opt/X11/bin
+PATH: /usr/local/git/bin
+PATH: /usr/texbin
 
 
 ## ----------- ##
@@ -66,27 +77,32 @@ configure:1470: checking for sed
 configure:1488: found /usr/bin/sed
 configure:1500: result: /usr/bin/sed
 configure:1509: checking for perl
-configure:1527: found /usr/bin/perl
-configure:1539: result: /usr/bin/perl
+configure:1527: found /opt/local/bin/perl
+configure:1539: result: /opt/local/bin/perl
 configure:1592: checking for gcc
-configure:1608: found /usr/bin/gcc
+configure:1608: found /usr/local/bin/gcc
 configure:1618: result: gcc
 configure:1862: checking for C compiler version
 configure:1865: gcc --version </dev/null >&5
-Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/usr/include/c++/4.2.1
-Apple LLVM version 6.0 (clang-600.0.54) (based on LLVM 3.5svn)
-Target: x86_64-apple-darwin14.0.0
-Thread model: posix
+gcc (GCC) 4.9.2 20141029 (prerelease)
+Copyright (C) 2014 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
 configure:1868: $? = 0
 configure:1870: gcc -v </dev/null >&5
-Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/usr/include/c++/4.2.1
-Apple LLVM version 6.0 (clang-600.0.54) (based on LLVM 3.5svn)
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/local/libexec/gcc/x86_64-apple-darwin14.0.0/4.9.2/lto-wrapper
 Target: x86_64-apple-darwin14.0.0
+Configured with: ../gcc-4.9-20141029/configure --enable-languages=c++,fortran
 Thread model: posix
+gcc version 4.9.2 20141029 (prerelease) (GCC) 
 configure:1873: $? = 0
 configure:1875: gcc -V </dev/null >&5
-clang: error: argument to '-V' is missing (expected 1 value)
-clang: error: no input files
+gcc: error: unrecognized command line option '-V'
+gcc: fatal error: no input files
+compilation terminated.
 configure:1878: $? = 1
 configure:1901: checking for C compiler default output file name
 configure:1904: gcc    conftest.c  >&5
@@ -135,13 +151,9 @@ configure:2301: $? = 0
 configure:2319: result: none needed
 configure:2337: gcc -c -g -O2  conftest.c >&5
 conftest.c:2:3: error: unknown type name 'choke'
-  choke me
-  ^
-conftest.c:2:11: error: expected ';' after top level declarator
-  choke me
-          ^
-          ;
-2 errors generated.
+   choke me
+   ^
+conftest.c:2:3: error: expected '=', ',', ';', 'asm' or '__attribute__' at end of input
 configure:2343: $? = 1
 configure: failed program was:
 | #ifndef __cplusplus
@@ -153,10 +165,10 @@ configure:2524: checking how to run the C preprocessor
 configure:2559: gcc -E  conftest.c
 configure:2565: $? = 0
 configure:2597: gcc -E  conftest.c
-conftest.c:9:10: fatal error: 'ac_nonexistent.h' file not found
-#include <ac_nonexistent.h>
-         ^
-1 error generated.
+conftest.c:9:28: fatal error: ac_nonexistent.h: No such file or directory
+ #include <ac_nonexistent.h>
+                            ^
+compilation terminated.
 configure:2603: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -172,10 +184,10 @@ configure:2642: result: gcc -E
 configure:2666: gcc -E  conftest.c
 configure:2672: $? = 0
 configure:2704: gcc -E  conftest.c
-conftest.c:9:10: fatal error: 'ac_nonexistent.h' file not found
-#include <ac_nonexistent.h>
-         ^
-1 error generated.
+conftest.c:9:28: fatal error: ac_nonexistent.h: No such file or directory
+ #include <ac_nonexistent.h>
+                            ^
+compilation terminated.
 configure:2710: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -198,11 +210,10 @@ configure:2828: $? = 0
 configure:2831: test -s conftest.o
 configure:2834: $? = 0
 configure:2923: gcc -o conftest -g -O2   conftest.c  >&5
-conftest.c:26:7: warning: implicitly declaring library function 'exit' with type 'void (int) __attribute__((noreturn))'
-      exit(2);
-      ^
-conftest.c:26:7: note: please include the header <stdlib.h> or explicitly provide a declaration for 'exit'
-1 warning generated.
+conftest.c: In function 'main':
+conftest.c:26:7: warning: incompatible implicit declaration of built-in function 'exit'
+       exit(2);
+       ^
 configure:2926: $? = 0
 configure:2928: ./conftest
 configure:2931: $? = 0
@@ -290,22 +301,14 @@ configure:3005: $? = 0
 configure:3016: result: yes
 configure:3028: checking for uchar_t
 configure:3052: gcc -c -g -O2  conftest.c >&5
-conftest.c:56:6: error: use of undeclared identifier 'uchar_t'; did you mean 'wchar_t'?
-if ((uchar_t *) 0)
-     ^
-/usr/include/sys/_types/_wchar_t.h:33:26: note: 'wchar_t' declared here
-typedef __darwin_wchar_t wchar_t;
-                         ^
-conftest.c:56:15: error: expected expression
-if ((uchar_t *) 0)
-              ^
-conftest.c:58:13: error: use of undeclared identifier 'uchar_t'; did you mean 'wchar_t'?
-if (sizeof (uchar_t))
-            ^
-/usr/include/sys/_types/_wchar_t.h:33:26: note: 'wchar_t' declared here
-typedef __darwin_wchar_t wchar_t;
-                         ^
-3 errors generated.
+conftest.c: In function 'main':
+conftest.c:56:6: error: 'uchar_t' undeclared (first use in this function)
+ if ((uchar_t *) 0)
+      ^
+conftest.c:56:6: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:56:15: error: expected expression before ')' token
+ if ((uchar_t *) 0)
+               ^
 configure:3058: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -373,22 +376,14 @@ configure: failed program was:
 configure:3082: result: no
 configure:3094: checking for ushort_t
 configure:3118: gcc -c -g -O2  conftest.c >&5
-conftest.c:57:6: error: use of undeclared identifier 'ushort_t'; did you mean 'ushort'?
-if ((ushort_t *) 0)
-     ^
-/usr/include/sys/types.h:91:25: note: 'ushort' declared here
-typedef unsigned short          ushort;         /* Sys V compatibility */
-                                ^
-conftest.c:57:16: error: expected expression
-if ((ushort_t *) 0)
-               ^
-conftest.c:59:13: error: use of undeclared identifier 'ushort_t'; did you mean 'ushort'?
-if (sizeof (ushort_t))
-            ^
-/usr/include/sys/types.h:91:25: note: 'ushort' declared here
-typedef unsigned short          ushort;         /* Sys V compatibility */
-                                ^
-3 errors generated.
+conftest.c: In function 'main':
+conftest.c:57:6: error: 'ushort_t' undeclared (first use in this function)
+ if ((ushort_t *) 0)
+      ^
+conftest.c:57:6: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:57:16: error: expected expression before ')' token
+ if ((ushort_t *) 0)
+                ^
 configure:3124: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -457,16 +452,14 @@ configure: failed program was:
 configure:3148: result: no
 configure:3160: checking for ulong_t
 configure:3184: gcc -c -g -O2  conftest.c >&5
-conftest.c:58:6: error: use of undeclared identifier 'ulong_t'
-if ((ulong_t *) 0)
-     ^
-conftest.c:58:15: error: expected expression
-if ((ulong_t *) 0)
-              ^
-conftest.c:60:13: error: use of undeclared identifier 'ulong_t'
-if (sizeof (ulong_t))
-            ^
-3 errors generated.
+conftest.c: In function 'main':
+conftest.c:58:6: error: 'ulong_t' undeclared (first use in this function)
+ if ((ulong_t *) 0)
+      ^
+conftest.c:58:6: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:58:15: error: expected expression before ')' token
+ if ((ulong_t *) 0)
+               ^
 configure:3190: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -543,10 +536,13 @@ configure:3266: $? = 0
 configure:3269: test -s conftest.o
 configure:3272: $? = 0
 configure:3296: gcc -c -g -O2  conftest.c >&5
-conftest.c:29:2: error: use of undeclared identifier 'not'
- not big endian
- ^
-1 error generated.
+conftest.c: In function 'main':
+conftest.c:29:2: error: unknown type name 'not'
+  not big endian
+  ^
+conftest.c:29:10: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'endian'
+  not big endian
+          ^
 configure:3302: $? = 1
 configure: failed program was:
 | /* confdefs.h.  */
@@ -690,7 +686,7 @@ ac_cv_host=i386-apple-darwin14.0.0
 ac_cv_host_alias=i386-apple-darwin14.0.0
 ac_cv_objext=o
 ac_cv_path_AWK_PATH=/usr/bin/awk
-ac_cv_path_PERL_PATH=/usr/bin/perl
+ac_cv_path_PERL_PATH=/opt/local/bin/perl
 ac_cv_path_SED_PATH=/usr/bin/sed
 ac_cv_path_SH_PATH=/bin/sh
 ac_cv_prog_CPP='gcc -E'
@@ -734,7 +730,7 @@ PACKAGE_STRING=''
 PACKAGE_TARNAME=''
 PACKAGE_VERSION=''
 PATH_SEPARATOR=':'
-PERL_PATH='/usr/bin/perl'
+PERL_PATH='/opt/local/bin/perl'
 SED_PATH='/usr/bin/sed'
 SHELL='/bin/sh'
 SH_PATH='/bin/sh'

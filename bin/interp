@@ -21,7 +21,7 @@ while :; do
 	shift
 done
 
-/usr/local/bin/mawk '
+/usr/bin/awk '
 	BEGIN {
 		stderr = "cat 1>&2"
 	}

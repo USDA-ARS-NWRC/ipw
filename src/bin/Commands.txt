@@ -171,6 +171,7 @@ Environmental Physics and Properties: Point
   ah2vp     - convert between absolute humidity and vapor pressure
   vp2sph    - convert between vapor pressure and specific humidity
   svp_slope - slope of saturation vapor pressure with temperature
+  wbt       - wet or ice bulb temperature from air temperature, RH and air pressure
 
 Environmental Physics and Properties: Spatial
 

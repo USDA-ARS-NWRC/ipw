@@ -1,4 +1,4 @@
-Possible targets for "make" command:
+Possible targets for "/Applications/Xcode.app/Contents/Developer/usr/bin/make" command:
 
 pgm		Make the auxiliary program (default).
 install		Install the program in the auxiliary directory.
