@@ -27,7 +27,7 @@ if test -t 0; then
 fi
 
 primg -r -a |
-	/usr/bin/awk '$1 != 0 {
+	/opt/local/bin/mawk '$1 != 0 {
 		print NR - 1, 0
 		print NR - 1, $1
 	}' |

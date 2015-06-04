@@ -1,4 +1,4 @@
-#! /usr/bin/perl
+#! /opt/local/bin/perl
 # Create necessary files for converting IPW image data 
 # to Arc/Info via IMAGEGRID.
 #   Output files:  

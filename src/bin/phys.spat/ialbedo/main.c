@@ -45,6 +45,12 @@ main (
 			'r', "output ir band only"
 	};
 
+	static OPTION_T opt_i = {
+			'i', "distributed time since last storm (decimal days) image",
+			STR_OPERANDS, "image",
+			OPTIONAL, 1, 1
+	};
+
 	static OPTION_T operand = {
 			OPERAND, "mu input image (defaults to stdin)",
 			STR_OPERANDS, "image",
@@ -59,11 +65,13 @@ main (
 			&opt_c,
 			&opt_v,
 			&opt_r,
+			&opt_i,
 			&operand,
 			0
 	};
 
 	int		fdi;		/* input image file desc	 */
+	int		fds;		/* input image storm file desc	 */
 	int		fdo;		/* output image file desc	 */
 	int		obands;		/* # output bands		 */
 	double		day;		/* decimal days since last storm */
@@ -76,11 +84,9 @@ main (
 
 
 	/* begin */
-
 	ipwenter (argc, argv, optv, IPW_DESCRIPTION);
 
 	/* get/check runstring args */
-
 	start = real_arg (opt_s, 0);
 	day = real_arg (opt_d, 0);
 	if (day < start)
@@ -110,7 +116,7 @@ main (
 		obands = 2;
 
 	/* access input image */
-
+	printf("%s\n", operand);
 	if (got_opt (operand)) {
 		fdi = uropen (str_arg (operand, 0));
 		if (fdi == ERROR)
@@ -121,18 +127,27 @@ main (
 
 	no_tty (fdi);
 
-	/* access output image */
+	/* access storm file */
+	if (!got_opt(opt_i)) {
+		fds = ERROR;
+	} else {
+		fds = uropen (str_arg(opt_i, 0));
+		if (fds == ERROR) {
+			error ("can't open \"%s\"", str_arg(opt_i, 0));
+		}
+		no_tty(fds);
+	}
 
+	/* access output image */
 	fdo = ustdout();
 	no_tty (fdo);
 
 	/* process input/output headers */
-
-	headers (fdi, fdo, obands);
+	headers (fdi, fdo, fds, obands);
 
 	/* read input image; calculate albedo; write output image */
-
-	ialbedo (fdi, fdo, start, day, gsize, maxgsz, dirt, vis_only, ir_only);
+//	ialbedo (fdi, fdo, start, day, gsize, maxgsz, dirt, vis_only, ir_only);
+		ialbedo (fdi, fdo, fds, start, day, gsize, maxgsz, dirt, vis_only, ir_only);
 
 	/* all done */
 

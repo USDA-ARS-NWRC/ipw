@@ -85,7 +85,7 @@ trap 'exit 0' 1 2 3 15
 
 # awk script creates output command string and puts in temporary file
 
-echo $phi $delta $zen $cosZ $image | /usr/bin/awk '
+echo $phi $delta $zen $cosZ $image | /opt/local/bin/mawk '
 	{
 		phi = $1
 		delta = $2

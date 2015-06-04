@@ -57,10 +57,10 @@ test -t 1 && {
 }
 
 pi=3.141592653589793
-angleR=`printf "$angle $pi\n" | /usr/bin/awk '{printf "%.14f", $1 * ($2/180)}'`
-angled2=`printf "$angle\n" | /usr/bin/awk '{printf "%.14f", $1 / 2}'`
-angletsR=`printf "$angleR\n" | /usr/bin/awk '{printf "%.14f", atan2(sin($1),1)}'`
-anglets=`printf "$angletsR $pi\n" | /usr/bin/awk '{printf "%.14f", $1 * (180/$2)}'`
+angleR=`printf "$angle $pi\n" | /opt/local/bin/mawk '{printf "%.14f", $1 * ($2/180)}'`
+angled2=`printf "$angle\n" | /opt/local/bin/mawk '{printf "%.14f", $1 / 2}'`
+angletsR=`printf "$angleR\n" | /opt/local/bin/mawk '{printf "%.14f", atan2(sin($1),1)}'`
+anglets=`printf "$angletsR $pi\n" | /opt/local/bin/mawk '{printf "%.14f", $1 * (180/$2)}'`
 
 skew -h -a $angled2 $image | flip -l | transpose | \
 skew -h -a $anglets | flip -s | transpose | \

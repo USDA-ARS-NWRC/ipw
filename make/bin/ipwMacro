@@ -1,4 +1,4 @@
-#! /usr/bin/perl
+#! /opt/local/bin/perl
 #  NAME
 #	ipwMacro - simple macro processor for text files
 #

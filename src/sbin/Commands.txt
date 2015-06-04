@@ -1,6 +1,0 @@
-Standard IPW System Commands
-
-Software Administration and Development
-
-  mkipwdir - make a private IPW directory structure
-  im2html  - convert IPW man page into new (HTML) man page

@@ -1,6 +1,0 @@
-libsnobal - library for energy-balance snowmelt model
-
-snobal - energy-balance snowmelt model
-
-  init_snow     - initialize the properties for the snowcover
-  do_data_tstep - run model for 1 data timestep between 2 input records

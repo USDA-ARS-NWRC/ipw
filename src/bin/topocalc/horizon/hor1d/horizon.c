@@ -38,6 +38,7 @@ horizon(void)
 	zbuf = (fpixel_t *) ecalloc(npix, sizeof(fpixel_t));
 	if (hbuf == NULL || zbuf == NULL)
 		bug("buffer allocation");
+
 	/*
 	 * if horizon cosines to be computed, need to allocate storage vector
 	 */
@@ -58,10 +59,12 @@ horizon(void)
 			bug("buffer allocation");
 		thresh = tan(M_PI_2 - parm.zenith);
 	}
+
 	/*
 	 * forward or backward horizon function
 	 */
 	horfun = (parm.backward) ? hor1b : hor1f;
+
 	/*
 	 * main loop
 	 */
@@ -69,10 +72,12 @@ horizon(void)
 	while ((ngot = fpvread(parm.i_fd, zbuf, npix)) > 0) {
 		if (ngot != npix)
 			error("premature end of row");
+
 		/*
 		 * find points that form horizons
 		 */
 		(void) (*horfun) (ngot, zbuf, hbuf);
+
 		/*
 		 * if not mask output, compute and write horizons along each row
 		 */
@@ -82,6 +87,7 @@ horizon(void)
 				error("fpvwrite error");
 			}
 		}
+
 		/*
 		 * if mask output, set mask and write
 		 */

@@ -69,7 +69,7 @@ prhdr $image | sed '$s/$//'
 # write mask image
 
 rmhdr $image | bin2text -$bytes | \
-  /usr/bin/awk '{if ($1 == '$class') print $1
+  /opt/local/bin/mawk '{if ($1 == '$class') print $1
        else print 0}' | \
   text2bin -$bytes
 

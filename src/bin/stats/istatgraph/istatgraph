@@ -1,4 +1,4 @@
-#! /usr/bin/perl
+#! /opt/local/bin/perl
 $SIG{'INT'}  = 'sighandler';
 $SIG{'QUIT'} = 'sighandler';
 

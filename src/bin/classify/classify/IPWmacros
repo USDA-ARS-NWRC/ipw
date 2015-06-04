@@ -1,3 +1,5 @@
+%define(description,"separate pixels into classes using ranges of values")
 %define(name,"classify")
+%define(category,"Image Classification")
 %define(description,"separate pixels into classes using ranges of values")
 %define(category,"Image Classification")

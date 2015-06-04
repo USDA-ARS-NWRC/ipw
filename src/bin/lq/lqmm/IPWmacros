@@ -1,3 +1,5 @@
+%define(description,"find minimum and maximum in LQ headers for set of IPW images")
 %define(name,"lqmm")
+%define(category,"Linear Quantization")
 %define(description,"find minimum and maximum in LQ headers for set of IPW images")
 %define(category,"Linear Quantization")

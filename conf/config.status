@@ -479,7 +479,7 @@ s,@host_cpu@,i386,;t t
 s,@host_vendor@,apple,;t t
 s,@host_os@,darwin14.0.0,;t t
 s,@SH_PATH@,/bin/sh,;t t
-s,@AWK_PATH@,/usr/bin/awk,;t t
+s,@AWK_PATH@,/opt/local/bin/mawk,;t t
 s,@SED_PATH@,/usr/bin/sed,;t t
 s,@PERL_PATH@,/opt/local/bin/perl,;t t
 s,@CC@,gcc,;t t

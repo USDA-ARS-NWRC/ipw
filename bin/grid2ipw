@@ -1,4 +1,4 @@
-#! /usr/bin/perl
+#! /opt/local/bin/perl
 # grid2ipw - Convert an image created by arc/info into an ipw image.
 #	This script is usually called by GRID2IPW.AML.
 #       "prefix.bip" has image data, "prefix.info" has parameters.
