@@ -1,0 +1,19 @@
+
+Physical Modeling: Point
+
+  advec    - advected energy for a snowcover
+  bowvap   - evaporation rate using Bowen ratio
+  penmanx  - latent heat flux (LE) using Penman-Monteith method
+  pmx      - latent heat flux (LE) using simplified Penman-Monteith method
+  ptaylorx - potential evaporation (PE) using Priestly-Taylor method
+  ptx      - potential evaporation (PE) using simplified Priestly-Taylor method
+  trb_Ri   - turbulent transfer (H and LE) using Businger-Dyer model
+  trbxfr   - turbulent transfer (H and LE) using Brutsaert's method
+  gsnow    - heat flow between snow and soil
+  snobal   - energy balance snowmelt model with 2 snow layers
+  snowmass - simple snowmelt model based on daily radiation
+  humidx   - mean daily vapor pressure from min & max air temperatures
+  soiltmp  - soil layer temperature from min & max air temperatures
+  srftmp   - soil surface temperature from min & max air temperatures
+  mkpcp    - make precipitation files for 'snobal' command
+  mkpcp_a  - make precip files for 'snobal' command with adj for Ta

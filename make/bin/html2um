@@ -1,4 +1,4 @@
-#! /usr/bin/perl
+#! /opt/local/bin/perl
 #  NAME
 #	html2um - convert IPW HTML man page to Unix man page
 #

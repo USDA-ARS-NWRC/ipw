@@ -87,7 +87,7 @@ wavelength range, micrometers (.28,.7 for vis; .7,2.8 for IR)
 <P>
 <DT><B>-s</B> <I>start</I>
 <DD>
-day of last snow storm (water year day)
+scalar day of last snow storm or IPW image containing distributed day of last snow storm (water year day)
 </DD>
 
 <P>

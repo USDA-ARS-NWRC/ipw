@@ -1,0 +1,37 @@
+libimage - high-level library for accessing IPW images
+
+error - error codes and their messages
+
+  ipw_strerr - get message for IPW error code
+
+image - high-level image access functions
+
+  open_image     - open an image for reading
+  nlines         - get # of lines in an image
+  nsamples       - fetch # of samples per line in an image
+  nbands         - get # of bands in an image
+  history        - get history of an image's band
+  annotation     - get annotation of an image's band
+  access         - get pixel-access level of an image
+  image_name     - get name of an image
+  new_pbuf       - make an unsigned-integer pixel buffer
+  read_pbuf      - read unsigned-integer pixels from image into buffer
+  has_lqh        - does an image's band have an LQ header?
+  lqh_min        - get minimum of LQ header of an image's band
+  lqh_max        - get maximum of LQ header of an image's band
+  read_fpbuf     - read floating-point pixels from image into buffer
+  new_fpbuf      - make a floating-point pixel buffer
+  get_geoh       - get GEO header for an image's band
+  new_image      - create a new image for writing
+  set_history    - set history of an image's band
+  set_annotation - set annotation of an image's band
+  write_pbuf     - write unsigned-integer pixels from buffer to image
+  set_lqh        - set LQ headers for all bands of image
+  write_fpbuf    - write floating-point pixels from buffer to image
+  set_geoh       - set GEO header for an image's band
+  close_image    - close an image
+  not_a_tty      - make sure that an image file is not a terminal
+
+mask - mask images
+
+  open_mask - open an image as a mask

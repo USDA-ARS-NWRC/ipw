@@ -1,4 +1,4 @@
-#! /usr/bin/perl
+#! /opt/local/bin/perl
 #  This is a Perl script to format the names and descriptions in a command
 #  or library function category.  The script reads from standard input,
 #  and assumes that each input line is of the form:

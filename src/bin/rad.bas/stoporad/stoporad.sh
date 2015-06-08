@@ -357,8 +357,12 @@ else
 			bitcom -m -a > $sfile
 
 # Run ialbedo to get albedo
-
-	ialbedo -s $start -d $wyd -g $gsize -m $maxgsz -c $dirt $wflag $sfile > $afile
+	if [ -e $start ];
+	then
+		ialbedo -d $wyd -g $gsize -m $maxgsz -c $dirt -i $start $wflag $sfile > $afile
+	else
+		ialbedo -s $start -d $wyd -g $gsize -m $maxgsz -c $dirt $wflag $sfile > $afile
+	fi
 
 # Run imgstat to get R0: mean albedo
 

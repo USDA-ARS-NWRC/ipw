@@ -26,7 +26,6 @@ void
 ialbedo (
 		int		fdi,		/* input image file desc	 */
 		int		fdo,		/* output image file desc	 */
-		int		fds,		/* input image storm file desc	 */
 		double		start,		/* day of last storm 		 */
 		double		day,		/* current day			 */
 		double		gsize,		/* initial grain radius 	 */
@@ -43,7 +42,6 @@ ialbedo (
 	int		maplen;		/* length of input image F.P map */
 	int	       *fmaplen;	/* -> lengths of F.P maps	 */
 	float		cosz;		/* cosine of zenith angle 	 */
-	float		sd;		/* storm day	 */
 	double		alb_ir_1;	/* IR albedo for cosz = 1	 */
 	double		alb_v_1;	/* Visible albedo for cosz = 1	 */
 	double		dzir;		/* ir diurnal increase range 	 */
@@ -56,7 +54,6 @@ ialbedo (
 	double		range_ir;	/* rng of sqrt eff ir grain rad  */
 	double		range_v;	/* rng of sqrt eff vis grain rad */
 	pixel_t        *ibuf;		/* input line buffer		 */
-	pixel_t        *sbuf;		/* input line storm buffer		 */
 	pixel_t        *ibufp;		/* -> in input line buffer	 */
 	pixel_t		pixel;		/* input pixel value		 */
 	fpixel_t	vmin =0.0;	/* min alb(vis) in output image */
@@ -67,8 +64,6 @@ ialbedo (
 	fpixel_t       *obufp;		/* -> in output line buffer	 */
 	fpixel_t      **fmap;		/* -> input img F.P. maps	 */
 	fpixel_t       *map;		/* input image floating point map*/
-	fpixel_t      **sfmap;		/* -> input storm img F.P. maps	 */
-	fpixel_t       *smap;		/* input storm image floating point map*/
 	fpixel_t       *alb_ir;		/* IR albedo 			 */
 	fpixel_t       *alb_v;		/* Visible albedo 		 */
 
@@ -81,37 +76,28 @@ ialbedo (
 		obands = 2;
 
 	/* Allocate input line buffer */
+
 	ibuf = (pixel_t *) ecalloc (nsamps, sizeof(pixel_t));
 	if (ibuf == NULL) {
 		error ("can't allocate input buffer");
 	}
 
-	if (fds != ERROR) {
-		sbuf = (pixel_t *) ecalloc (nsamps, sizeof(pixel_t));
-		if (sbuf == NULL) {
-			error ("Unable to allocate storm line buffer");
-		}
-	}
-
 	/* Allocate output line buffer */
+
 	obuf = (fpixel_t *) ecalloc (nsamps * obands, sizeof(fpixel_t));
 	if (obuf == NULL) {
 		error ("can't allocate output buffer");
 	}
 
 	/* Access input image floating point maps */
+
 	fmap = fpmap (fdi);
 	map = fmap[0];
-//	smap = fmap[1];
 	fmaplen = fpmaplen (fdi);
 	maplen = fmaplen[0];
 
-	/* Access input image floating point maps */
-	/* Assumes map is the same size as other input image */
-	sfmap = fpmap (fds);
-	smap = sfmap[0];
-
 	/* Allocate alb(vis) and alb(ir) lookup table */
+
 	alb_v = (fpixel_t *) ecalloc (maplen, sizeof(fpixel_t));
 	if (alb_v == NULL) {
 		error ("can't allocate albedo lookup table");
@@ -122,39 +108,43 @@ ialbedo (
 	}
 
 	/* set initial grain radii for vis and ir */
+
 	radius_ir = sqrt (gsize);
 	range_ir = sqrt (maxgsz) - radius_ir;
 	radius_v = sqrt (dirt * gsize);
 	range_v = sqrt (dirt * maxgsz) -radius_v;
 
+	/* calc grain growth decay factor */
+
+	growth_factor = growth ((day - start) + 1.0);
+
+	/* calc effective gsizes for vis & ir */
+
+	gv = radius_v + (range_v * growth_factor);
+	gir = radius_ir + (range_ir * growth_factor);
+
+	/* adjust diurnal increase range */
+
+	dzv = gv * VZRG;
+	dzir = (gir * IRZRG) + IRZ0;
+
+	/* calc albedos for cos(z)=1 */
+
+	alb_v_1 = MAXV - (gv / VFAC);
+	alb_ir_1 = MAXIR * exp(IRFAC * gir);
+
 	/* build lookup tables for albedo indexed on input image pixel value */
+
 	for (pixel = 0; pixel < maplen; pixel++) {
 
-		/* Input image of cosine angles */
 		cosz = map[pixel];
 
-		/* Input image of storm days */
-		sd = smap[pixel];
-
-		/* calc grain growth decay factor */
-		growth_factor = growth ((day - sd) + 1.0);
-
-		/* calc effective gsizes for vis & ir */
-		gv = radius_v + (range_v * growth_factor);
-		gir = radius_ir + (range_ir * growth_factor);
-
-		/* adjust diurnal increase range */
-		dzv = gv * VZRG;
-		dzir = (gir * IRZRG) + IRZ0;
-
-		/* calc albedos for cos(z)=1 */
-		alb_v_1 = MAXV - (gv / VFAC);
-		alb_ir_1 = MAXIR * exp(IRFAC * gir);
-
 		/* check to see if sun is up */
+
 		if (cosz > 0.0) {
 
 			/* calculate albedo */
+
 			alb_v[pixel] = alb_v_1 + dzv * (1.0 - cosz);
 			alb_ir[pixel] = alb_ir_1 + dzir * (1.0 - cosz);
 
@@ -180,9 +170,11 @@ ialbedo (
 	}
 
 	/* create/write LQH for output image */
+
 	newlqh (fdo, vmin, vmax, irmin, irmax, vis_only, ir_only);
 
 	/* loop on image lines */
+
 	for (line = 0; line < nlines; line++) {
 
 		/* read input image line */

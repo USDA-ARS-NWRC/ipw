@@ -1,5 +1,3 @@
-%define(description,"extract daily climate data from Historical Climate Network")
 %define(name,"hcnx")
-%define(category,"Climate Data in Text Files")
 %define(description,"extract daily climate data from Historical Climate Network")
 %define(category,"Climate Data in Text Files")

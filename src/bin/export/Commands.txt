@@ -1,0 +1,13 @@
+
+Exporting IPW Image Data
+
+  ipw2bin  - convert IPW image to binary file
+  ipw2ps   - convert IPW image to PostScript
+  ipw2sun  - convert IPW image to Sun rasterfile
+  ipw2grid - convert IPW image to Arc/Info image
+  ipw2pbm  - convert IPW image to PGM or PPM formats
+  ipw2pgm  - convert IPW image to Portable Gray Map (PGM) image
+  ipw2ppm  - convert IPW image to Portable Pixel Map (PPM) image
+  ipw2hds  - convert IPW image to HDS sixel format
+  ipw2xim  - convert IPW image to xim format
+  bin2text - convert binary file of integers to text file
