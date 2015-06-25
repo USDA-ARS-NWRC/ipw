@@ -1,1 +1,0 @@
-write_pbuf - write unsigned-integer pixels from buffer to image

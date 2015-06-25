@@ -1,3 +1,0 @@
-%define(name,"seval")
-%define(description,"evaluation of spline at m points")
-%define(category,"math")

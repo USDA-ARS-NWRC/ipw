@@ -1,3 +1,0 @@
-%define(name,"wbt")
-%define(description,"wet or ice bulb temperature from air temperature, RH and air pressure")
-%define(category,"Environmental Physics and Properties: Point")

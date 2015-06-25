@@ -1,1 +1,0 @@
-fpmap - access fpio fpixel[pixel] map arrays

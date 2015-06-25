@@ -1,1 +1,0 @@
-zerobr - finds zero of a function by Brent's algorithm

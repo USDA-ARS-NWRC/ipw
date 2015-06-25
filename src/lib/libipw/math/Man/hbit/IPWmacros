@@ -1,3 +1,0 @@
-%define(name,"hbit")
-%define(description,"find highest-order bit in integer")
-%define(category,"math")

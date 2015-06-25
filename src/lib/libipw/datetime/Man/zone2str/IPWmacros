@@ -1,3 +1,0 @@
-%define(name,"zone2str")
-%define(description,"convert time zone (in minutes) to string")
-%define(category,"datetime")

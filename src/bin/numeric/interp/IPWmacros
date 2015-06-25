@@ -1,3 +1,0 @@
-%define(name,"interp")
-%define(description,"interpolate linearly between x,y data pairs")
-%define(category,"Numeric Data in Text Files")

@@ -1,1 +1,0 @@
-mkgeoh - add a geodetic (GEO) header to an image

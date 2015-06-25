@@ -1,1 +1,0 @@
-weekday - returns the day of the week for a given date

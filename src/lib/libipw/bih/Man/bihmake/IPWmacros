@@ -1,3 +1,0 @@
-%define(name,"bihmake")
-%define(description,"make an IPW basic image header")
-%define(category,"bih")

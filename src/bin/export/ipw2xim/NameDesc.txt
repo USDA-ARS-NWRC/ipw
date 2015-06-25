@@ -1,1 +1,0 @@
-ipw2xim - convert IPW image to xim format

@@ -1,3 +1,0 @@
-%define(name,"selevrad")
-%define(description,"beam and diffuse radiation from elevation over snow")
-%define(category,"Radiation Modeling: Basin-Scale")

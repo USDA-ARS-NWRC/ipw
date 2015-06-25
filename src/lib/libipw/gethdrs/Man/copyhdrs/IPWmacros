@@ -1,3 +1,0 @@
-%define(name,"copyhdrs")
-%define(description,"copy IPW image headers")
-%define(category,"gethdrs")

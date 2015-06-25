@@ -1,1 +1,0 @@
-im2html - convert IPW man page into new (HTML) man page

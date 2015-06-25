@@ -1,3 +1,0 @@
-%define(name,"sathmake")
-%define(description,"make an IPW SATH header")
-%define(category,"sath")

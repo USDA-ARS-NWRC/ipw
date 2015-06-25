@@ -1,3 +1,0 @@
-%define(name,"winhread")
-%define(description,"read an IPW WINH header")
-%define(category,"winh")

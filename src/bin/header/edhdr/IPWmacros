@@ -1,3 +1,0 @@
-%define(name,"edhdr")
-%define(description,"edit headers of an IPW image")
-%define(category,"Image Header Manipulation")

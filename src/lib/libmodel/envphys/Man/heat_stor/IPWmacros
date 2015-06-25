@@ -1,3 +1,0 @@
-%define(name,"heat_stor")
-%define(description,"calculates change in heat storage in a layer")
-%define(category,"envphys")

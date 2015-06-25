@@ -1,1 +1,0 @@
-seq - generate sequence of numbers

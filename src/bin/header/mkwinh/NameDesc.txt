@@ -1,1 +1,0 @@
-mkwinh - add a window (WIN) header to an image

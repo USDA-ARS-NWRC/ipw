@@ -1,3 +1,0 @@
-%define(name,"ipwinterp")
-%define(description,"interpolate IPW image using parameters from 'istatrel' command")
-%define(category,"Image Statistics")

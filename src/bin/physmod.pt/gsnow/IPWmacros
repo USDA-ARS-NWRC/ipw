@@ -1,3 +1,0 @@
-%define(name,"gsnow")
-%define(description,"heat flow between snow and soil")
-%define(category,"Physical Modeling: Point")

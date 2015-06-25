@@ -1,3 +1,0 @@
-%define(name,"rmhdr")
-%define(description,"remove headers from an IPW image")
-%define(category,"Image Header Manipulation")

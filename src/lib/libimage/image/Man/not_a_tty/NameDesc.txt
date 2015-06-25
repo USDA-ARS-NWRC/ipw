@@ -1,1 +1,0 @@
-not_a_tty - make sure that an image file is not a terminal

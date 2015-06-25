@@ -1,3 +1,0 @@
-%define(name,"fpvwrite")
-%define(description,"write floating-point vectors")
-%define(category,"fpio")

@@ -1,3 +1,0 @@
-%define(name,"now_dt")
-%define(description,"(now_dt's description)")
-%define(category,"datetime")

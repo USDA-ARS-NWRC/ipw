@@ -1,3 +1,0 @@
-%define(name,"hdralloc")
-%define(description,"allocate an IPW image header")
-%define(category,"hdrio")

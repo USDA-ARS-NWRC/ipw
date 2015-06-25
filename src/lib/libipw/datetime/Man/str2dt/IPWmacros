@@ -1,3 +1,0 @@
-%define(name,"str2dt")
-%define(description,"(str2dt's description)")
-%define(category,"datetime")

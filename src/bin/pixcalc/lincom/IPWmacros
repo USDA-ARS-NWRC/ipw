@@ -1,3 +1,0 @@
-%define(name,"lincom")
-%define(description,"linear combination of pixels (DEPRECIATED)")
-%define(category,"Pixel Calculations")

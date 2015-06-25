@@ -1,3 +1,0 @@
-%define(name,"dt_in_order")
-%define(description,"are two date-times in chronological order?")
-%define(category,"datetime")

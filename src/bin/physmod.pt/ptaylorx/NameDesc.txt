@@ -1,1 +1,0 @@
-ptaylorx - potential evaporation (PE) using Priestly-Taylor method

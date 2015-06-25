@@ -1,3 +1,0 @@
-%define(name,"lqhread")
-%define(description,"read an IPW LQH header")
-%define(category,"lqh")

@@ -1,4 +1,0 @@
-%define(name,"horizon")
-%define(description,"horizon in one direction")
-%define(category,"Topographic Calculations")
-%define(auxDir,"/Users/scott/ipw-2.1.0/aux/horizon")

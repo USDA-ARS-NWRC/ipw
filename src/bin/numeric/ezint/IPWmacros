@@ -1,3 +1,0 @@
-%define(name,"ezint")
-%define(description,"time integration or averaging of time,y data pairs")
-%define(category,"Numeric Data in Text Files")

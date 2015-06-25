@@ -1,3 +1,0 @@
-%define(name,"hnbands")
-%define(description,"number of bands in image")
-%define(category,"bih")

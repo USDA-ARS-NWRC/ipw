@@ -1,2 +1,0 @@
-%define(name,"sherror")
-%define(description,"standard IPW error message for shell scripts")

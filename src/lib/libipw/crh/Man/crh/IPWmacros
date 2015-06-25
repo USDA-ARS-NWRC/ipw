@@ -1,3 +1,0 @@
-%define(name,"crh")
-%define(description,"get CR header associated with file descriptor")
-%define(category,"crh")

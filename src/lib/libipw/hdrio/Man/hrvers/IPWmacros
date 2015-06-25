@@ -1,3 +1,0 @@
-%define(name,"hrvers")
-%define(description,"get current header version string")
-%define(category,"hdrio")

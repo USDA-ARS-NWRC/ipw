@@ -1,1 +1,0 @@
-istatgraph - plot two images and the interpolations from 'istatrel' command

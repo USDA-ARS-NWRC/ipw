@@ -1,3 +1,0 @@
-%define(name,"ltoi")
-%define(description,"convert long int to int")
-%define(category,"math")

@@ -1,3 +1,0 @@
-%define(name,"mkpcp")
-%define(description,"make precipitation files for 'snobal' command")
-%define(category,"Physical Modeling: Point")

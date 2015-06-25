@@ -1,9 +1,0 @@
-
-Physical Modeling: Spatial
-
-  ipmx     - latent heat flux (LE) using Penman-Monteith method
-  iptx     - potential evaporation (PE) using Priestly-Taylor method
-  itrbxfr  - turbulent transfer (H and LE) using Brutsaert's method
-  isnobal  - energy-balance snowmelt model with 2 snow layers
-  mkprecip - make precipitation images for 'isnobal' command
-  wbal     - simple water balance model

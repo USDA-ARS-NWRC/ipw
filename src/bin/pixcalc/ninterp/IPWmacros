@@ -1,3 +1,0 @@
-%define(name,"ninterp")
-%define(description,"linearly interpolate multi-band image over n-dimensional table")
-%define(category,"Pixel Calculations")

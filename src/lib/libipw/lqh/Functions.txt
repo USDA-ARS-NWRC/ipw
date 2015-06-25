@@ -1,8 +1,0 @@
-
-lqh - linear quantization headers
-
-  lqh      - get LQ header associated with file descriptor
-  lqhdup   - duplicate an IPW LQH header
-  lqhmake  - make an IPW LQH header
-  lqhread  - read an IPW LQH header
-  lqhwrite - write an IPW LQH header

@@ -1,3 +1,0 @@
-%define(name,"irh2vp")
-%define(description,"convert between relative humidity and vapor pressure")
-%define(category,"Environmental Physics and Properties: Spatial")

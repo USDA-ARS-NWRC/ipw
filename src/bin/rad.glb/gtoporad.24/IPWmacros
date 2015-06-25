@@ -1,3 +1,0 @@
-%define(name,"gtoporad.24")
-%define(description,"topographically-corrected solar radiation for 24-hour period")
-%define(category,"Radiation Modeling: Global-Scale")

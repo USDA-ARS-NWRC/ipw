@@ -1,3 +1,0 @@
-%define(name,"itrim")
-%define(description,"trim image values based on min/max threshold (DEPRECIATED)")
-%define(category,"Pixel Calculations")

@@ -1,3 +1,0 @@
-%define(name,"imgcopy")
-%define(description,"copy all image data")
-%define(category,"util")

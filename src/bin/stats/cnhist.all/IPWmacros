@@ -1,3 +1,0 @@
-%define(name,"cnhist.all")
-%define(description,"cumulative normalized histogram of set of IPW images")
-%define(category,"Image Statistics")

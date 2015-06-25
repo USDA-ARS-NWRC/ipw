@@ -1,1 +1,0 @@
-gtopquad - daily integrated radiation over a topographic grid

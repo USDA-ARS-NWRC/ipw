@@ -1,1 +1,0 @@
-pbm2ipw - convert PGM or PPM images to IPW image

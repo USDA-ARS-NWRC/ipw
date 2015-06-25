@@ -1,1 +1,0 @@
-splint - integral of spline function

@@ -1,3 +1,0 @@
-%define(name,"geohspace")
-%define(description,"get spacing from geodetic header")
-%define(category,"geoh")

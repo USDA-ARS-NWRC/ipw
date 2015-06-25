@@ -1,1 +1,0 @@
-beta_0 - compute beta_0 for Henyey-Greenstein function

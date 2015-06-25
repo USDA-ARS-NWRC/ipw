@@ -1,1 +1,0 @@
-lqh_max - get maximum of LQ header of an image's band

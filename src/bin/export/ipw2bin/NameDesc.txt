@@ -1,1 +1,0 @@
-ipw2bin - convert IPW image to binary file

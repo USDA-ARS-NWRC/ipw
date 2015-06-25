@@ -1,1 +1,0 @@
-proport - compute monthly proportions from daily precipitation data

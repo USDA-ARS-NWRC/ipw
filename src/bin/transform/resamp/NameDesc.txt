@@ -1,1 +1,0 @@
-resamp - resample an IPW image (decrease resolution) by averaging pixels

@@ -1,8 +1,0 @@
-
-winh - window headers
-
-  winhdup   - duplicate an IPW WINH header
-  winhfree  - free all left over parts of a WIN header
-  winhmake  - make an IPW WINH header
-  winhread  - read an IPW WINH header
-  winhwrite - write an IPW WINH header

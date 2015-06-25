@@ -1,1 +1,0 @@
-humidx - mean daily vapor pressure from min & max air temperatures
