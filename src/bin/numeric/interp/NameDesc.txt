@@ -1,1 +1,0 @@
-interp - interpolate linearly between x,y data pairs

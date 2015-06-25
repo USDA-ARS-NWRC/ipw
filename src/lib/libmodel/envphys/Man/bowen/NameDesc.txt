@@ -1,1 +1,0 @@
-bowen - calculates Bowen ratio (H/LE)

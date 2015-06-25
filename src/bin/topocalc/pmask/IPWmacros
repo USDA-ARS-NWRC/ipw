@@ -1,3 +1,0 @@
-%define(name,"pmask")
-%define(description,"create a pit mask")
-%define(category,"Topographic Calculations")

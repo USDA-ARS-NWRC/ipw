@@ -1,6 +1,0 @@
-
-pixio - integer pixel I/O
-
-  pvread  - read pixel vectors
-  pvwrite - write pixel vectors
-  pxclose - close pixel I/O file descriptor

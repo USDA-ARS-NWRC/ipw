@@ -1,3 +1,0 @@
-%define(name,"akintrp")
-%define(description,"interpolate irregular x,y data pairs using Akima's spline method")
-%define(category,"Numeric Data in Text Files")

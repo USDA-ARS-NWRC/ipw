@@ -20,7 +20,10 @@
 
 extern void	newlqh(int fdo, double vmin, double vmax, double irmin,
 		       double irmax, bool_t vis_only, bool_t ir_only);
-extern void	headers(int fdi, int fdo, int obands);
+extern void	headers(int fdi, int fdo, int fds, int obands);
+extern void	ialbedo_map(int fdi, int fdo, int fds, double day,
+			double gsize, double maxgsz, double dirt,
+			bool_t vis_only, bool_t ir_only);
 extern void	ialbedo(int fdi, int fdo, double start, double day,
 			double gsize, double maxgsz, double dirt,
 			bool_t vis_only, bool_t ir_only);

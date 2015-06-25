@@ -1,1 +1,0 @@
-ssxfr - steady state heat transfer between 2 layers

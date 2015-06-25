@@ -1,3 +1,0 @@
-%define(name,"lqhx")
-%define(description,"modify an IPW image's linear quantization wth new LQ header")
-%define(category,"Linear Quantization")

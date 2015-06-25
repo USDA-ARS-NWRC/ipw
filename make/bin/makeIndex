@@ -1,4 +1,4 @@
-#! /usr/bin/perl
+#! /opt/local/bin/perl
 #  A perl script to generate the index for IPW user commands.
 #
 #  Synopsis

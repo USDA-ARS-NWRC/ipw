@@ -7,18 +7,18 @@
 
 int
 twostream(
-	double  *gamma,   /* vector of gamma coefficients    */
-	double   omega,   /* single-scattering albedo        */
-	double   mu0,     /* cosine of incidence angle       */
-	double   tau,     /* optical depth of layer          */
-	double   r0,      /* reflectance of substrate        */
+		double  *gamma,   /* vector of gamma coefficients    */
+		double   omega,   /* single-scattering albedo        */
+		double   mu0,     /* cosine of incidence angle       */
+		double   tau,     /* optical depth of layer          */
+		double   r0,      /* reflectance of substrate        */
 
-   /* output variables */
+		/* output variables */
 
-	double  *refl,    /* reflectance of layer            */
-	double  *trans,   /* total transmittance of layer
+		double  *refl,    /* reflectance of layer            */
+		double  *trans,   /* total transmittance of layer
 				       (compensated for mu0) */
-	double  *btrans)  /* direct transmittance of layer
+		double  *btrans)  /* direct transmittance of layer
 				       (compensated for mu0) */
 {
 	double          alph1;
@@ -39,9 +39,9 @@ twostream(
 	double          rp;
 	double          xi;
 
- /*
-  * intermediate variables
-  */
+	/*
+	 * intermediate variables
+	 */
 	gam1 = gamma[0];
 	gam2 = gamma[1];
 	gam3 = gamma[2];
@@ -52,10 +52,10 @@ twostream(
 		usrerr("gam1 (%g) < gam2 (%g)", gam1, gam2);
 		return (ERROR);
 	}
- /*
-  * (Hack - gam1 = gam2 with conservative scattering.  Need to fix
-  * this.
-  */
+	/*
+	 * (Hack - gam1 = gam2 with conservative scattering.  Need to fix
+	 * this.
+	 */
 	if (gam1 == gam2) {
 		gam1 += DBL_EPSILON;
 	}
@@ -66,9 +66,9 @@ twostream(
 	gpx = xi + gam1;
 	opx = mu0 * xi + 1;
 
- /*
-  * semi-infinite?
-  */
+	/*
+	 * semi-infinite?
+	 */
 	if ((em == 0 && et == 0) || (ep == HUGE_VAL)) {
 		*refl = omega * (gam3 * xi + alph2) / (gpx * opx);
 		*btrans = *trans = 0;
@@ -76,40 +76,40 @@ twostream(
 	}
 	else {
 
- /*
-  * more intermediate variables, needed only for finite case
-  */
+		/*
+		 * more intermediate variables, needed only for finite case
+		 */
 		omx = 1 - mu0 * xi;
 		gmx = gam1 - xi;
 		rm = gam2 - gmx * r0;
 		rp = gam2 - gpx * r0;
 
- /*
-  * denominator for reflectance and transmittance
-  */
+		/*
+		 * denominator for reflectance and transmittance
+		 */
 		denrt = ep * gpx * rm - em * gmx * rp;
 
- /*
-  * reflectance
-  */
+		/*
+		 * reflectance
+		 */
 		*refl = (omega * (ep * rm * (gam3 * xi + alph2) / opx
 				- em * rp * (alph2 - gam3 * xi) / omx)
-			 + 2 * et * gam2
-			 * (r0 - ((alph1 * r0 - alph2) * mu0 + gam4
-		    * r0 + gam3) * omega / (omx * opx)) * xi) / denrt;
+				+ 2 * et * gam2
+				* (r0 - ((alph1 * r0 - alph2) * mu0 + gam4
+						* r0 + gam3) * omega / (omx * opx)) * xi) / denrt;
 
- /*
-  * transmittance
-  */
+		/*
+		 * transmittance
+		 */
 		*trans = (et * (ep * gpx * (gam2 - omega * (alph2
-						   - gam3 * xi) / omx)
+				- gam3 * xi) / omx)
 				- em * gmx * (gam2 - omega * (gam3 * xi + alph2) / opx))
-		      + 2 * gam2 * (alph1 * mu0 + gam4) * omega * xi /
-			  (omx * opx)) / denrt;
+				+ 2 * gam2 * (alph1 * mu0 + gam4) * omega * xi /
+				(omx * opx)) / denrt;
 
- /*
-  * direct transmittance
-  */
+		/*
+		 * direct transmittance
+		 */
 		*btrans = et;
 
 		assert(*refl >= 0);

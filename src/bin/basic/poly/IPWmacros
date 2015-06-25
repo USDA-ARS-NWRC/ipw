@@ -1,3 +1,0 @@
-%define(name,"poly")
-%define(description,"print coordinates of pixels for in a polygon")
-%define(category,"Basic Image Commands")

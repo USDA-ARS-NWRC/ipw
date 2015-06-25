@@ -1,1 +1,0 @@
-close_image - close an image

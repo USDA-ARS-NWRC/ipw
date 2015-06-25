@@ -1,4 +1,4 @@
-Possible targets for "make" command:
+Possible targets for "/Applications/Xcode.app/Contents/Developer/usr/bin/make" command:
 
 all		Same as "man" target (default).
 install		Same as "install-man" target.

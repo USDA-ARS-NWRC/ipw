@@ -1,5 +1,5 @@
 # Possible targets:
-#- 
+#  
 # all             Build all the libraries and commands, as well as their
 #                   man pages.  (default target)
 # install         Install all the commands, libraries, header files, and

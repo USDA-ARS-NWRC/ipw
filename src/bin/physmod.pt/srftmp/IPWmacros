@@ -1,3 +1,0 @@
-%define(name,"srftmp")
-%define(description,"soil surface temperature from min & max air temperatures")
-%define(category,"Physical Modeling: Point")

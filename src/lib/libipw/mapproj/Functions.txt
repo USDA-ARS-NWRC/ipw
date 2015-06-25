@@ -1,9 +1,0 @@
-
-mapproj - map projections
-
-  get_proj_id    - get ID for projection's short name
-  get_proj_name  - get name of projection for given ID
-  get_proj_units - get name for projection units ID
-  pack_dms       - convert decimal degrees to packed DMS
-  read_proj      - read projection definition file
-  unpack_dms     - convert packed DMS to decimal degrees

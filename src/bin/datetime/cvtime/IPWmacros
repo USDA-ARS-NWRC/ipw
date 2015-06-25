@@ -1,3 +1,0 @@
-%define(name,"cvtime")
-%define(description,"convert dates and times between different formats")
-%define(category,"Dates and Times")

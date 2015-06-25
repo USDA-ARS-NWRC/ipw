@@ -1,3 +1,0 @@
-%define(name,"gelevrad")
-%define(description,"beam and diffuse irradiance from elevation")
-%define(category,"Radiation Modeling: Global-Scale")

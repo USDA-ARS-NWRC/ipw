@@ -1,1 +1,0 @@
-fpmaplen - access fpio fpixel[pixel] map array lengths

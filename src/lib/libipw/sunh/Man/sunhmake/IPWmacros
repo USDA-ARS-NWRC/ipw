@@ -1,3 +1,0 @@
-%define(name,"sunhmake")
-%define(description,"make an IPW SUNH header")
-%define(category,"sunh")

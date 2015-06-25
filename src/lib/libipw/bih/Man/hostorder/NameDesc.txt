@@ -1,1 +1,0 @@
-hostorder - get host byte order

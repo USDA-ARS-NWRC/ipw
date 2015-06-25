@@ -1,3 +1,0 @@
-%define(name,"sathread")
-%define(description,"read an IPW SATH header")
-%define(category,"sath")

@@ -1,1 +1,0 @@
-ialbedo - solar albedo for visible and infrared over snow

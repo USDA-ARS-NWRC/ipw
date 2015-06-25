@@ -1,3 +1,0 @@
-%define(name,"msolve")
-%define(description,"solve a linear system using matrices")
-%define(category,"math")

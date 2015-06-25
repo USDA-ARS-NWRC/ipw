@@ -1,3 +1,0 @@
-%define(name,"new_fpbuf")
-%define(description,"make a floating-point pixel buffer")
-%define(category,"image")

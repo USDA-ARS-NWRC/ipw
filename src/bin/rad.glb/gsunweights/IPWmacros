@@ -1,3 +1,0 @@
-%define(name,"gsunweights")
-%define(description,"Kronrod quadrature weights and sun angles")
-%define(category,"Radiation Modeling: Global-Scale")

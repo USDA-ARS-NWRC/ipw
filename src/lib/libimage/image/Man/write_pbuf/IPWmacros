@@ -1,3 +1,0 @@
-%define(name,"write_pbuf")
-%define(description,"write unsigned-integer pixels from buffer to image")
-%define(category,"image")

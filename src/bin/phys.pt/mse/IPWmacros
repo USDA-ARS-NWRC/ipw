@@ -1,3 +1,0 @@
-%define(name,"mse")
-%define(description,"moist static energy (MSE)")
-%define(category,"Environmental Physics and Properties: Point")

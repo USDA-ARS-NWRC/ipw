@@ -1,1 +1,0 @@
-bihwrite - write an IPW BIH header

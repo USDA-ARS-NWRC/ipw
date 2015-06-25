@@ -1,1 +1,0 @@
-svp_slope - slope of saturation vapor pressure with temperature

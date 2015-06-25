@@ -1,3 +1,0 @@
-%define(name,"evap")
-%define(description,"calculates evaporation rate ")
-%define(category,"envphys")

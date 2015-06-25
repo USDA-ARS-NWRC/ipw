@@ -1,6 +1,0 @@
-
-horh - horizon headers
-
-  horhmake  - make an IPW HORH header
-  horhread  - read an IPW HORH header
-  horhwrite - write an IPW HORH header

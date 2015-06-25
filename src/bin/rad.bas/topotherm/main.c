@@ -8,39 +8,39 @@
 
 int
 main (
-	int	argc,
-	char	**argv)
+		int	argc,
+		char	**argv)
 {
 	static OPTION_T opt_m = {
-		'm', "mask image",
-		STR_OPTARGS, "mask",
-		OPTIONAL, 1, 1
+			'm', "mask image",
+			STR_OPTARGS, "mask",
+			OPTIONAL, 1, 1
 	};
 
 	static OPTION_T opt_v = {
-		'v', "veg attenuation image",
-		STR_OPTARGS, "veg atten image",
-		OPTIONAL, 1, 1
+			'v', "veg attenuation image",
+			STR_OPTARGS, "veg atten image",
+			OPTIONAL, 1, 1
 	};
 
 	static OPTION_T opt_c = {
-		'c', "cloud attenuation image",
-		STR_OPTARGS, "cloud atten image",
-		OPTIONAL, 1, 1
+			'c', "cloud attenuation image",
+			STR_OPTARGS, "cloud atten image",
+			OPTIONAL, 1, 1
 	};
 
 	static OPTION_T operand = {
-		OPERAND, "input image (defaults to stdin)",
-		STR_OPERANDS, "image",
-		OPTIONAL, 1, 1
+			OPERAND, "input image (defaults to stdin)",
+			STR_OPERANDS, "image",
+			OPTIONAL, 1, 1
 	};
 
 	static OPTION_T *optv[] = {
-		&opt_m,
-		&opt_v,
-		&opt_c,
-		&operand,
-		0
+			&opt_m,
+			&opt_v,
+			&opt_c,
+			&operand,
+			0
 	};
 
 	int	fdi;		/* input image file descriptor		*/
@@ -50,11 +50,11 @@ main (
 	int	fdo;		/* output image file descriptor 	*/
 
 
-   /* get args */
+	/* get args */
 
 	ipwenter (argc, argv, optv, IPW_DESCRIPTION);
 
-   /* access mask image if specified */
+	/* access mask image if specified */
 
 	if (got_opt (opt_m)) {
 		fdm = uropen (str_opnd(opt_m, 0));
@@ -63,8 +63,8 @@ main (
 	} else {
 		fdm = ERROR;
 	}
-  
-   /* access veg atten image if specified */
+
+	/* access veg atten image if specified */
 
 	if (got_opt (opt_v)) {
 		fdv = uropen (str_opnd(opt_v, 0));
@@ -73,8 +73,8 @@ main (
 	} else {
 		fdv = ERROR;
 	}
-  
-   /* access cloud atten image if specified */
+
+	/* access cloud atten image if specified */
 
 	if (got_opt (opt_c)) {
 		fdc = uropen (str_opnd(opt_c, 0));
@@ -83,8 +83,8 @@ main (
 	} else {
 		fdc = ERROR;
 	}
-  
-   /* access input image */
+
+	/* access input image */
 
 	if (got_opt (operand)) {
 		fdi = uropen (str_opnd(operand, 0));
@@ -94,21 +94,21 @@ main (
 		fdi = ustdin();
 	}
 
-    /* can't read or write tty */
+	/* can't read or write tty */
 
 	no_tty (fdi);
 	fdo = ustdout ();
 	no_tty (fdo);
 
-   /* read/write headers */
+	/* read/write headers */
 
 	headers (fdi, fdm, fdv, fdc, fdo, IBANDS, OBANDS);
 
-   /* read input image, perform calculations and write output image */
+	/* read input image, perform calculations and write output image */
 
 	topotherm (fdi, fdm, fdv, fdc, fdo);
 
-   /* all done */
+	/* all done */
 
 	ipwexit (EXIT_SUCCESS);
 }

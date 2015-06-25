@@ -3,31 +3,31 @@
 
 int
 main(
-	int             argc,
-	char          **argv)
+		int             argc,
+		char          **argv)
 {
 	static OPTION_T operands = {
-		OPERAND, "global & diffuse irrad, cloud factor",
-		STR_OPERANDS, "image",
-		OPTIONAL, 1, 1
+			OPERAND, "global & diffuse irrad, cloud factor",
+			STR_OPERANDS, "image",
+			OPTIONAL, 1, 1
 	};
 
 	static OPTION_T *optv[] = {
-		&operands,
-		0
+			&operands,
+			0
 	};
 
 	int             fdi;		/* input file descriptor	 */
 	int             fdo;		/* output file descriptor	 */
- /*
-  * begin
-  */
+	/*
+	 * begin
+	 */
 
 	ipwenter(argc, argv, optv, IPW_DESCRIPTION);
 
- /*
-  * access input files
-  */
+	/*
+	 * access input files
+	 */
 	if (!got_opt(operands)) {
 		fdi = ustdin();
 	}
@@ -39,21 +39,21 @@ main(
 	}
 	no_tty(fdi);
 
- /*
-  * access output file
-  */
+	/*
+	 * access output file
+	 */
 	fdo = ustdout();
 	no_tty(fdo);
 
- /*
-  * read input data, calculate, and write
-  */
+	/*
+	 * read input data, calculate, and write
+	 */
 
 	cf_cloud (fdi, fdo);
 
- /*
-  * all done
-  */
+	/*
+	 * all done
+	 */
 
 	ipwexit(EXIT_SUCCESS);
 }

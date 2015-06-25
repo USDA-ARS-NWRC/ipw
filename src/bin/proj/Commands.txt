@@ -1,7 +1,0 @@
-
-Geographic (Map) Projections
-
-  mkproj      - make a projection definition file
-  reproj      - reproject an IPW image to a new geographic projection
-  reproj_area - minimum bounding rectangle in a reprojected area
-  transcoord  - translate coordinates between geographic projections

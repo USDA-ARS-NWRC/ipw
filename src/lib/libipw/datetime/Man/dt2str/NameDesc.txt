@@ -1,1 +1,0 @@
-dt2str - convert a local date-time into a string

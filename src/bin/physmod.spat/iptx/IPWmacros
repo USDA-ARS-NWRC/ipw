@@ -1,3 +1,0 @@
-%define(name,"iptx")
-%define(description,"potential evaporation (PE) using Priestly-Taylor method")
-%define(category,"Physical Modeling: Spatial")

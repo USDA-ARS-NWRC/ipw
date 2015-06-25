@@ -1,1 +1,0 @@
-isnobal - energy-balance snowmelt model with 2 snow layers

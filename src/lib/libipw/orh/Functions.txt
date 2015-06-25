@@ -1,8 +1,0 @@
-
-orh - orientation headers
-
-  orhdup   - duplicate an IPW ORH header
-  orhfree  - free all left over parts of a OR header
-  orhmake  - make an IPW ORH header
-  orhread  - read an IPW ORH header
-  orhwrite - write an IPW ORH header

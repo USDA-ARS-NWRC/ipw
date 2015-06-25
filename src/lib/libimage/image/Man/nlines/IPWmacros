@@ -1,3 +1,0 @@
-%define(name,"nlines")
-%define(description,"get # of lines in an image")
-%define(category,"image")

@@ -1,3 +1,0 @@
-%define(name,"error")
-%define(description,"print error message and exit")
-%define(category,"error")

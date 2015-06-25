@@ -1,1 +1,0 @@
-apfit - least-squares polynomial fit

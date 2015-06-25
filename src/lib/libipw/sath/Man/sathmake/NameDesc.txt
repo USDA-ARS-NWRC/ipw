@@ -1,1 +1,0 @@
-sathmake - make an IPW SATH header

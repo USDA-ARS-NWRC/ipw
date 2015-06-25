@@ -1,3 +1,0 @@
-%define(name,"uread")
-%define(description,"UNIX read")
-%define(category,"uio")

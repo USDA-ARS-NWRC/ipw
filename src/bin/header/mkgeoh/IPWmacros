@@ -1,3 +1,0 @@
-%define(name,"mkgeoh")
-%define(description,"add a geodetic (GEO) header to an image")
-%define(category,"Image Header Manipulation")

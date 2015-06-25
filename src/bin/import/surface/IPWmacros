@@ -1,3 +1,0 @@
-%define(name,"surface")
-%define(description,"make IPW image by spatially interpolating irregular point data")
-%define(category,"Importing Image Data")

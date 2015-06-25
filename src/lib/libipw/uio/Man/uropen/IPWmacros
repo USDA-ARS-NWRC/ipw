@@ -1,3 +1,0 @@
-%define(name,"uropen")
-%define(description,"open UNIX file for reading")
-%define(category,"uio")

@@ -1,3 +1,0 @@
-%define(name,"edimg")
-%define(description,"edit the pixels of an IPW image")
-%define(category,"Image Transformation")

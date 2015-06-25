@@ -1,1 +1,0 @@
-get_geoh - get GEO header for an image's band

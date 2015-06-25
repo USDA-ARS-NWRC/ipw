@@ -1,1 +1,0 @@
-sunangle - calculate sun angle from position and date-time

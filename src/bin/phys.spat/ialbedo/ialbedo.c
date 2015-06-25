@@ -1,19 +1,19 @@
 /*
-** NAME
-** 	ialbedo -- read cosz input image and calculate albedo
-** 
-** SYNOPSIS
-**	ialbedo (fdi, fdo, start, day, gsize, maxgsz, dirt, vis_only, ir_only);
-**	int fdi, fdo;
-**	double start, day;
-**	double gsize, maxgsz, dirt;
-**	bool_t vis_only, ir_only;
-** 
-** DESCRIPTION
-**	ialbedo reads the input image, calculates solar albedo over snow
-**	and writes the output image for the ialbedo program.
-** 
-*/
+ ** NAME
+ ** 	ialbedo -- read cosz input image and calculate albedo
+ **
+ ** SYNOPSIS
+ **	ialbedo (fdi, fdo, start, day, gsize, maxgsz, dirt, vis_only, ir_only);
+ **	int fdi, fdo;
+ **	double start, day;
+ **	double gsize, maxgsz, dirt;
+ **	bool_t vis_only, ir_only;
+ **
+ ** DESCRIPTION
+ **	ialbedo reads the input image, calculates solar albedo over snow
+ **	and writes the output image for the ialbedo program.
+ **
+ */
 
 #include <math.h>
 #include "ipw.h"
@@ -24,15 +24,15 @@
 
 void
 ialbedo (
-	int		fdi,		/* input image file desc	 */
-	int		fdo,		/* output image file desc	 */
-	double		start,		/* day of last storm 		 */
-	double		day,		/* current day			 */
-	double		gsize,		/* initial grain radius 	 */
-	double		maxgsz,		/* grain radius growth limit 	 */
-	double		dirt,		/* visible contamination factor  */
-	bool_t		vis_only,	/* output visible band only	 */
-	bool_t		ir_only)	/* output IR band only		 */
+		int		fdi,		/* input image file desc	 */
+		int		fdo,		/* output image file desc	 */
+		double		start,		/* day of last storm 		 */
+		double		day,		/* current day			 */
+		double		gsize,		/* initial grain radius 	 */
+		double		maxgsz,		/* grain radius growth limit 	 */
+		double		dirt,		/* visible contamination factor  */
+		bool_t		vis_only,	/* output visible band only	 */
+		bool_t		ir_only)	/* output IR band only		 */
 {
 	int		nsamps;		/* # samples in input image	 */
 	int		nlines;		/* # lines in output image	 */
@@ -75,28 +75,28 @@ ialbedo (
 	else
 		obands = 2;
 
-   /* Allocate input line buffer */
+	/* Allocate input line buffer */
 
 	ibuf = (pixel_t *) ecalloc (nsamps, sizeof(pixel_t));
 	if (ibuf == NULL) {
 		error ("can't allocate input buffer");
 	}
 
-   /* Allocate output line buffer */
+	/* Allocate output line buffer */
 
 	obuf = (fpixel_t *) ecalloc (nsamps * obands, sizeof(fpixel_t));
 	if (obuf == NULL) {
 		error ("can't allocate output buffer");
 	}
 
-   /* Access input image floating point maps */
+	/* Access input image floating point maps */
 
 	fmap = fpmap (fdi);
 	map = fmap[0];
 	fmaplen = fpmaplen (fdi);
 	maplen = fmaplen[0];
 
-   /* Allocate alb(vis) and alb(ir) lookup table */
+	/* Allocate alb(vis) and alb(ir) lookup table */
 
 	alb_v = (fpixel_t *) ecalloc (maplen, sizeof(fpixel_t));
 	if (alb_v == NULL) {
@@ -107,33 +107,33 @@ ialbedo (
 		error ("can't allocate albedo lookup table");
 	}
 
-   /* set initial grain radii for vis and ir */
+	/* set initial grain radii for vis and ir */
 
 	radius_ir = sqrt (gsize);
 	range_ir = sqrt (maxgsz) - radius_ir;
 	radius_v = sqrt (dirt * gsize);
 	range_v = sqrt (dirt * maxgsz) -radius_v;
 
-   /* calc grain growth decay factor */
+	/* calc grain growth decay factor */
 
 	growth_factor = growth ((day - start) + 1.0);
 
-   /* calc effective gsizes for vis & ir */
+	/* calc effective gsizes for vis & ir */
 
 	gv = radius_v + (range_v * growth_factor);
 	gir = radius_ir + (range_ir * growth_factor);
 
-   /* adjust diurnal increase range */
+	/* adjust diurnal increase range */
 
 	dzv = gv * VZRG;
 	dzir = (gir * IRZRG) + IRZ0;
 
-   /* calc albedos for cos(z)=1 */
+	/* calc albedos for cos(z)=1 */
 
 	alb_v_1 = MAXV - (gv / VFAC);
 	alb_ir_1 = MAXIR * exp(IRFAC * gir);
 
-   /* build lookup tables for albedo indexed on input image pixel value */
+	/* build lookup tables for albedo indexed on input image pixel value */
 
 	for (pixel = 0; pixel < maplen; pixel++) {
 
@@ -169,11 +169,11 @@ ialbedo (
 
 	}
 
-   /* create/write LQH for output image */
+	/* create/write LQH for output image */
 
 	newlqh (fdo, vmin, vmax, irmin, irmax, vis_only, ir_only);
 
-   /* loop on image lines */
+	/* loop on image lines */
 
 	for (line = 0; line < nlines; line++) {
 

@@ -1,1 +1,0 @@
-bihmake - make an IPW basic image header

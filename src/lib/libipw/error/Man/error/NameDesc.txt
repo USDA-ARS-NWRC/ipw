@@ -1,1 +1,0 @@
-error - print error message and exit

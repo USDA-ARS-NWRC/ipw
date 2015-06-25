@@ -1,8 +1,0 @@
-
-solar - solar geometry and radiation
-
-  ephemeris - calculates ephemeris data
-  sunpath   - sun angle from solar declination and longtitude
-  sunangle  - calculate sun angle from position and date-time
-  sunrise   - sunrise time (GMT) for a given place and date
-  sunset    - sunset time (GMT) for a given place and date

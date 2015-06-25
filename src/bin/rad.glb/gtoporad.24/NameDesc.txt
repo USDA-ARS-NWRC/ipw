@@ -1,1 +1,0 @@
-gtoporad.24 - topographically-corrected solar radiation for 24-hour period

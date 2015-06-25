@@ -7,32 +7,32 @@
 #include "pgm.h"
 
 /*
-** NAME
-**	elevrad -- look up and write out values of beam and diffuse
-**
-** SYNOPSIS
-**	#include "file.h"
-**
-**	elevrad(fdi, fdo)
-**	int fdi, fdo;
-**
-** DESCRIPTION
-**	Elevrad reads RAW pixel_t elevation values, applies the look-up
-**	tables beam and diffuse, and writes the fpixel_t output image.
-**
-** GLOBALS ACCESSED
-**	beam and diffuse look-up tables
-**
-** FUTURE DIRECTIONS
-**	Possibly write a look-up table instead and pipe output through
-**	lutx.
-**
-*/
+ ** NAME
+ **	elevrad -- look up and write out values of beam and diffuse
+ **
+ ** SYNOPSIS
+ **	#include "file.h"
+ **
+ **	elevrad(fdi, fdo)
+ **	int fdi, fdo;
+ **
+ ** DESCRIPTION
+ **	Elevrad reads RAW pixel_t elevation values, applies the look-up
+ **	tables beam and diffuse, and writes the fpixel_t output image.
+ **
+ ** GLOBALS ACCESSED
+ **	beam and diffuse look-up tables
+ **
+ ** FUTURE DIRECTIONS
+ **	Possibly write a look-up table instead and pipe output through
+ **	lutx.
+ **
+ */
 
 void
 elevrad(
-	int             fdi,		/* input file descriptor	 */
-	int             fdo)		/* output file descriptor	 */
+		int             fdi,		/* input file descriptor	 */
+		int             fdo)		/* output file descriptor	 */
 {
 	REG_1 pixel_t  *ip;		/* -> ibuf			 */
 	REG_2 fpixel_t *op;		/* -> obuf			 */
@@ -44,30 +44,30 @@ elevrad(
 	int             nwrite;		/* # pixels to write		 */
 	pixel_t        *ibuf;		/* input buffer			 */
 
- /*
-  * allocate buffers
-  */
+	/*
+	 * allocate buffers
+	 */
 	assert(hnbands(fdi) == 1);
 	assert(hnbands(fdo) == 2);
 	nget = hnsamps(fdi);
- /* NOSTRICT */
+	/* NOSTRICT */
 	ibuf = (pixel_t *) ecalloc(nget, sizeof(pixel_t));
 	assert(ibuf != NULL);
- /* NOSTRICT */
+	/* NOSTRICT */
 	obuf = (fpixel_t *) ecalloc(nget * 2, sizeof(pixel_t));
 	assert(obuf != NULL);
- /*
-  * read/write till done
-  */
+	/*
+	 * read/write till done
+	 */
 	pb = beam;
 	pd = diffuse;
 	while ((nwrite = pvread(fdi, ibuf, nget)) > 0) {
 		ip = ibuf;
 		op = obuf;
 		for (j = nwrite; --j >= 0;) {
- /*
-  * first band is beam, second diffuse
-  */
+			/*
+			 * first band is beam, second diffuse
+			 */
 			*op++ = pb[*ip];
 			*op++ = pd[*ip++];
 		}

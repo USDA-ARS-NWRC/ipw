@@ -3,9 +3,9 @@
 #  The full paths to the various shells and interpreters
 
 SH=/bin/sh
-AWK=/usr/bin/awk
+AWK=/opt/local/bin/mawk
 SED=/usr/bin/sed
-PERL=/usr/bin/perl
+PERL=/opt/local/bin/perl
 
 #  This needs to be a standard C compiler
 CC=gcc

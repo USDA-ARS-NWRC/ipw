@@ -1,8 +1,0 @@
-
-strvec - string vectors
-
-  addsv  - add a string to a strvec
-  delsv  - delete i'th string from strvec
-  dupsv  - duplicate a strvec
-  freesv - free an entire strvec
-  walksv - step through strings in strvec

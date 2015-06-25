@@ -1,3 +1,0 @@
-%define(name,"hrskip")
-%define(description,"skip input header records")
-%define(category,"hdrio")

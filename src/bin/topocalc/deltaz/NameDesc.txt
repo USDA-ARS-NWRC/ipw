@@ -1,1 +1,0 @@
-deltaz - differences from mean-weighted station elevations

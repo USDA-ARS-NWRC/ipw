@@ -1,1 +1,0 @@
-open_mask - open an image as a mask

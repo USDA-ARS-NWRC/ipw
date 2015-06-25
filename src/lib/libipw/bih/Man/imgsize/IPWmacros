@@ -1,3 +1,0 @@
-%define(name,"imgsize")
-%define(description,"compute total number of bytes in image")
-%define(category,"bih")

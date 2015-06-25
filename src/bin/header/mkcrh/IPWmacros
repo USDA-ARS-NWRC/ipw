@@ -1,3 +1,0 @@
-%define(name,"mkcrh")
-%define(description,"add a class range (CR) header to an image")
-%define(category,"Image Header Manipulation")

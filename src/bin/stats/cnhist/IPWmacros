@@ -1,3 +1,0 @@
-%define(name,"cnhist")
-%define(description,"convert IPW histogram to cumulative normalized text file")
-%define(category,"Image Statistics")

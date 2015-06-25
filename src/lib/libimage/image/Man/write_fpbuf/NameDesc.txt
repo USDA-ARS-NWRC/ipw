@@ -1,1 +1,0 @@
-write_fpbuf - write floating-point pixels from buffer to image

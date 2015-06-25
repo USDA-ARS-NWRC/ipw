@@ -1,1 +1,0 @@
-sunlight - sunrise and sunset times, and quadrature weights

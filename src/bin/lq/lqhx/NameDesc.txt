@@ -1,1 +1,0 @@
-lqhx - modify an IPW image's linear quantization wth new LQ header

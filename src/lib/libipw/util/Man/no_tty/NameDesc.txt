@@ -1,1 +1,0 @@
-no_tty - exit if file descriptor is a terminal

@@ -1,3 +1,0 @@
-%define(name,"uwopen_temp")
-%define(description,"create a temporary UNIX file and open it for writing")
-%define(category,"uio")

@@ -1,3 +1,0 @@
-%define(name,"sunangle")
-%define(description,"calculate sun angle from position and date-time")
-%define(category,"solar")

@@ -1,3 +1,0 @@
-%define(name,"mkpptime")
-%define(description,"computes time since last precipitation event for albedo decay computation")
-%define(category,"Dates and Times")

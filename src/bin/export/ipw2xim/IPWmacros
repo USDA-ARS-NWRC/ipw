@@ -1,3 +1,0 @@
-%define(name,"ipw2xim")
-%define(description,"convert IPW image to xim format")
-%define(category,"Exporting IPW Image Data")

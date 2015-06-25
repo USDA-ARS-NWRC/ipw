@@ -1,3 +1,0 @@
-%define(name,"ndig")
-%define(description,"number of digits in an integer")
-%define(category,"math")

@@ -1,3 +1,0 @@
-%define(name,"akcoef")
-%define(description,"computes coefficients for Akima-type spline interpolation")
-%define(category,"math")

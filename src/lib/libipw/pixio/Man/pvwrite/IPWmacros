@@ -1,3 +1,0 @@
-%define(name,"pvwrite")
-%define(description,"write pixel vectors")
-%define(category,"pixio")
