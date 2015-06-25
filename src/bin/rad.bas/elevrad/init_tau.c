@@ -64,7 +64,7 @@ init_tau(
 	 */
 	/* NOSTRICT */
 	o_bih = (BIH_T **)
-				hdralloc(OBANDS, sizeof(BIH_T *), fdo, BIH_HNAME);
+						hdralloc(OBANDS, sizeof(BIH_T *), fdo, BIH_HNAME);
 	assert(o_bih != NULL);
 	o_bih[0] = bihmake(0, nbits[0],
 			bih_history(i_bih[0]), bih_annot(i_bih[0]),

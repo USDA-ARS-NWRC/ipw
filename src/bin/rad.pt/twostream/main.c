@@ -4,55 +4,55 @@
 
 int
 main(
-	int             argc,
-	char          **argv)
+		int             argc,
+		char          **argv)
 {
 	static OPTION_T opt_u = {
-		'u', "cosine of incidence angle",
-		REAL_OPTARGS, "cos",
-		OPTIONAL, 1, 1
+			'u', "cosine of incidence angle",
+			REAL_OPTARGS, "cos",
+			OPTIONAL, 1, 1
 	};
 	static OPTION_T opt_0 = {
-		'0', "ignore cosine <= 0.0",
+			'0', "ignore cosine <= 0.0",
 	};
 	static OPTION_T opt_o = {
-		'w', "single-scattering albedo",
-		REAL_OPTARGS, "omega",
-		OPTIONAL, 1, 1
+			'w', "single-scattering albedo",
+			REAL_OPTARGS, "omega",
+			OPTIONAL, 1, 1
 	};
 	static OPTION_T opt_t = {
-		't', "optical depth (0 -> infinite)",
-		REAL_OPTARGS, "tau",
-		OPTIONAL, 1, 1
+			't', "optical depth (0 -> infinite)",
+			REAL_OPTARGS, "tau",
+			OPTIONAL, 1, 1
 	};
 	static OPTION_T opt_g = {
-		'g', "asymmetry factor",
-		REAL_OPTARGS, "g",
-		OPTIONAL, 1, 1
+			'g', "asymmetry factor",
+			REAL_OPTARGS, "g",
+			OPTIONAL, 1, 1
 	};
 	static OPTION_T opt_r = {
-		'r', "reflectance of substrate (if <= 0, set to 0)",
-		REAL_OPTARGS, "R0",
-		OPTIONAL, 1, 1
+			'r', "reflectance of substrate (if <= 0, set to 0)",
+			REAL_OPTARGS, "R0",
+			OPTIONAL, 1, 1
 	};
 	static OPTION_T opt_s = {
-		's', "direct beam irradiance (if <= 0, set to mu_0 * S0 = 1)",
-		REAL_OPTARGS, "S0",
-		OPTIONAL, 1, 1
+			's', "direct beam irradiance (if <= 0, set to mu_0 * S0 = 1)",
+			REAL_OPTARGS, "S0",
+			OPTIONAL, 1, 1
 	};
 	static OPTION_T opt_m = {
-		'd', "delta-Eddington method (Meador-Weaver hybrid is default)"
+			'd', "delta-Eddington method (Meador-Weaver hybrid is default)"
 	};
 	static OPTION_T *optv[] = {
-		&opt_u,
-		&opt_0,
-		&opt_t,
-		&opt_o,
-		&opt_g,
-		&opt_r,
-		&opt_s,
-		&opt_m,
-		0
+			&opt_u,
+			&opt_0,
+			&opt_t,
+			&opt_o,
+			&opt_g,
+			&opt_r,
+			&opt_s,
+			&opt_m,
+			0
 	};
 	double          g;		/* asymmetry parameter		 */
 	double          ga;		/* asymmetry parameter		 */
@@ -78,9 +78,9 @@ main(
 
 	ipwenter(argc, argv, optv, IPW_DESCRIPTION);
 
-/*
- * which arguments on command line?
- */
+	/*
+	 * which arguments on command line?
+	 */
 	got_omega = got_opt(opt_o);
 	got_asymm = got_opt(opt_g);
 	got_tau0 = got_opt(opt_t);
@@ -89,9 +89,9 @@ main(
 	got_s0 = got_opt(opt_s);
 	mw = !got_opt(opt_m);
 	cz0 = got_opt(opt_0);
-/*
-* get arguments from command line
-*/
+	/*
+	 * get arguments from command line
+	 */
 	if (got_mu0) {
 		u0 = real_arg(opt_u, 0);
 		if (!cz0) {
@@ -120,9 +120,9 @@ main(
 			s0 = (got_mu0 && u0 != 0) ? 1 / u0 : 1;
 	}
 
- /*
-  * delta-Eddington scaling
-  */
+	/*
+	 * delta-Eddington scaling
+	 */
 	if (got_omega && got_asymm && got_tau0) {
 		wa = omega;
 		ga = g;
@@ -131,11 +131,11 @@ main(
 			delta_edd(&wa, &ga, &t0);
 	}
 
- /*
-  * gamma's for phase function for all input; 0 = delta-Edd option; 1 =
-  * M-W hybrid
-  */
-	
+	/*
+	 * gamma's for phase function for all input; 0 = delta-Edd option; 1 =
+	 * M-W hybrid
+	 */
+
 	if (got_omega && got_mu0 && got_asymm && got_tau0)
 		if (!cz0) {
 			mwgamma(u0, wa, ga, gam, mw);
@@ -145,35 +145,35 @@ main(
 			}
 		}
 
-/*
-* just one problem if all input from command line
-*/
+	/*
+	 * just one problem if all input from command line
+	 */
 	if (got_omega && got_asymm && got_tau0 && got_mu0 && got_r0 && got_s0) {
 
- /*
-  * solution to twostream
-  */
+		/*
+		 * solution to twostream
+		 */
 		if (cz0) {
-		/* ignore mu0 <= 0.0 */
+			/* ignore mu0 <= 0.0 */
 			if (u0 <= 0.0) {
 				refl = trans = btrans = 0.0;
 			} else {
 				if (twostream(gam, wa, u0, t0, rho0,
-			   		&refl, &trans, &btrans) == ERROR) {
+						&refl, &trans, &btrans) == ERROR) {
 					error("twostream error");
 				}
 			}
 		} else {
-		/* error on mu0 <= 0.0 */
+			/* error on mu0 <= 0.0 */
 
 			if (twostream(gam, wa, u0, t0, rho0, &refl, &trans, &btrans)
-		    	== ERROR) {
+					== ERROR) {
 				error("twostream error");
 			}
 		}
- /*
-  * output
-  */
+		/*
+		 * output
+		 */
 		if (u0<= 0.0) {
 			printf("reflectance %g\n", 0.0);
 			printf("transmittance %g\n", 0.0);
@@ -191,13 +191,13 @@ main(
 		}
 	}
 
- /*
-  * otherwise some input from stdin
-  */
+	/*
+	 * otherwise some input from stdin
+	 */
 	else {
- /*
-  * output order
-  */
+		/*
+		 * output order
+		 */
 		if (isatty(fileno(stdout))) {
 			printf("mu_0, tau_0, omega_0, g, rho_0, S_0");
 			printf(", refl, trans, btrans");
@@ -205,9 +205,9 @@ main(
 		}
 
 		for (;;) {
- /*
-  * read values from stdin
-  */
+			/*
+			 * read values from stdin
+			 */
 			if (!got_mu0) {
 				if (scanf("%lf", &u0) == EOF)
 					break;
@@ -232,14 +232,14 @@ main(
 				if (scanf("%lf", &s0) == EOF)
 					break;
 			}
- /*
-  * echo input
-  */
+			/*
+			 * echo input
+			 */
 			printf("%g %g %g %g %g %g",
-			       u0, tau0, omega, g, rho0, s0);
- /*
-  * delta-Eddington scaling
-  */
+					u0, tau0, omega, g, rho0, s0);
+			/*
+			 * delta-Eddington scaling
+			 */
 			if (!got_omega || !got_asymm || !got_tau0) {
 				t0 = tau0;
 				wa = omega;
@@ -247,9 +247,9 @@ main(
 				if (!mw)
 					delta_edd(&wa, &ga, &t0);
 			}
- /*
-  * gamma's for phase function
-  */
+			/*
+			 * gamma's for phase function
+			 */
 			if (!got_omega || !got_mu0 || !got_asymm || !got_tau0)
 				if (!cz0) {
 					mwgamma(u0, wa, ga, gam, mw ? 1 : 0);
@@ -258,41 +258,41 @@ main(
 						mwgamma(u0, wa, ga, gam, mw ? 1 : 0);
 					}
 				}
- /*
-  * solution to twostream
-  */
+			/*
+			 * solution to twostream
+			 */
 			if (cz0) {
-			/* ignore mu0 <= 0.0 */
+				/* ignore mu0 <= 0.0 */
 				if (u0 <= 0.0) {
 					refl = trans = btrans = 0.0;
 				} else {
 					if (twostream(gam, wa, u0, t0, rho0,
-				   		&refl, &trans, &btrans) == ERROR) {
+							&refl, &trans, &btrans) == ERROR) {
 						error("twostream error");
 					}
 				}
 			} else {
-			/* error on mu0 <= 0.0 */
+				/* error on mu0 <= 0.0 */
 				if (twostream(gam, wa, u0, t0, rho0,
-				   	&refl, &trans, &btrans) == ERROR) {
+						&refl, &trans, &btrans) == ERROR) {
 					error("twostream error");
 				}
 			}
- /*
-  * print output
-  */
+			/*
+			 * print output
+			 */
 			if (u0<= 0.0) {
 				printf(" %g %g %g %g %g %g\n",
-			       		refl, trans, btrans,
-			       		0.0,
-			       		0.0,
-			       		0.0);
+						refl, trans, btrans,
+						0.0,
+						0.0,
+						0.0);
 			} else {
 				printf(" %g %g %g %g %g %g\n",
-			       		refl, trans, btrans,
-			       		refl * u0 * s0,
-			       		trans * u0 * s0,
-			       		btrans * s0);
+						refl, trans, btrans,
+						refl * u0 * s0,
+						trans * u0 * s0,
+						btrans * s0);
 			}
 		}
 	}

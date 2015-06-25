@@ -1,37 +1,37 @@
 /*
-** NAME
-**      topotherm - calculate thermal radiation from the atmosphere
-**
-** SYNOPSIS
-**	void topotherm (fdi, fdm, fdv, fdc, fdo)
-**	int fdi;
-**	int fdm;
-**	int fdv;
-**	int fdo;
-** 
-** DESCRIPTION
-**	topotherm calculates thermal radiation from the atmosphere corrected
-**	for topographic effects, from near surface air temperature Ta,
-**	dew point temperature DPT, and elevation.
-**	Based on a model by Marks and Dozier, "A clear-sky longwave radiation
-**	model for remote alpine areas" (in: Archiv fur Meteorologie,
-**	Geophysik und Bioklimatologie, Series B vol 27, no 23, pp 159-187, 1979).
-**	Contribution from canopy is estimated from canopy shading using Beers'
-**	Law (Monteith and Unsworth, 1990), after Wigmosta, Vail, and Lettenmaier,
-**	"A distributed hydrology-vegetation model for complex terrain", Water
-**	Resources Research, vol 30, no 6, pp 1665-1679, 1994.
-** 
-** HISTORY
-**	19/10/92 Written by Danny Marks, US Geological Survey,
-**		 EPA Environmental Research Laboratory, Corvallis OR
-**	13/09/95 Corrections for terrain view factory and vegetation view
-**		 factor added by D. Marks, US Geological Survey,
-**		 EPA Environmental Research Laboratory, Corvallis OR
-**	17/02/00 Corrections for cloud attenuation factor added, and
-**		 vegetation view factor changed to vegetation attenuation
-**		 factor by D. Marks, USDA-ARS, NWRC, Boise ID
-** 
-*/
+ ** NAME
+ **      topotherm - calculate thermal radiation from the atmosphere
+ **
+ ** SYNOPSIS
+ **	void topotherm (fdi, fdm, fdv, fdc, fdo)
+ **	int fdi;
+ **	int fdm;
+ **	int fdv;
+ **	int fdo;
+ **
+ ** DESCRIPTION
+ **	topotherm calculates thermal radiation from the atmosphere corrected
+ **	for topographic effects, from near surface air temperature Ta,
+ **	dew point temperature DPT, and elevation.
+ **	Based on a model by Marks and Dozier, "A clear-sky longwave radiation
+ **	model for remote alpine areas" (in: Archiv fur Meteorologie,
+ **	Geophysik und Bioklimatologie, Series B vol 27, no 23, pp 159-187, 1979).
+ **	Contribution from canopy is estimated from canopy shading using Beers'
+ **	Law (Monteith and Unsworth, 1990), after Wigmosta, Vail, and Lettenmaier,
+ **	"A distributed hydrology-vegetation model for complex terrain", Water
+ **	Resources Research, vol 30, no 6, pp 1665-1679, 1994.
+ **
+ ** HISTORY
+ **	19/10/92 Written by Danny Marks, US Geological Survey,
+ **		 EPA Environmental Research Laboratory, Corvallis OR
+ **	13/09/95 Corrections for terrain view factory and vegetation view
+ **		 factor added by D. Marks, US Geological Survey,
+ **		 EPA Environmental Research Laboratory, Corvallis OR
+ **	17/02/00 Corrections for cloud attenuation factor added, and
+ **		 vegetation view factor changed to vegetation attenuation
+ **		 factor by D. Marks, USDA-ARS, NWRC, Boise ID
+ **
+ */
 
 #include        <math.h>
 #include        "ipw.h"
@@ -44,25 +44,25 @@
 
 void
 topotherm (
-	int	fdi,		/* input image file descriptor		 */
-	int	fdm,		/* mask image file descriptor		 */
-	int	fdv,		/* veg atten image file descriptor	 */
-	int	fdc,		/* cloud atten image file descriptor	 */
-	int	fdo)		/* output image file descriptor		 */
+		int	fdi,		/* input image file descriptor		 */
+		int	fdm,		/* mask image file descriptor		 */
+		int	fdv,		/* veg atten image file descriptor	 */
+		int	fdc,		/* cloud atten image file descriptor	 */
+		int	fdo)		/* output image file descriptor		 */
 {
 	float	ta;		/*	air temp		*/
 	float	tw;		/*	dew point		*/
 	float	z;		/*	ref. elev		*/
-        double	ea;		/*	vapor pressure		*/
+	double	ea;		/*	vapor pressure		*/
 	float	skvfac;		/*	sky view factor		*/
 	float	vegfac;		/*	veg view factor		*/
 	float	cloudfac;	/*	cloud view factor	*/
-        float	emiss;		/*	atmos. emiss.		*/
-        float	lw_in;		/*	lw irradiance		*/
-        float	press;		/*	air pressure		*/
-        float	T0;		/*	Sea Level ta		*/
-        float	lw_min;         /* min lw_in in output image    */
-        float	lw_max;         /* max lw_in in output image    */
+	float	emiss;		/*	atmos. emiss.		*/
+	float	lw_in;		/*	lw irradiance		*/
+	float	press;		/*	air pressure		*/
+	float	T0;		/*	Sea Level ta		*/
+	float	lw_min;         /* min lw_in in output image    */
+	float	lw_max;         /* max lw_in in output image    */
 
 	fpixel_t       *ibuf;		/* pointer to input buffer	 */
 	fpixel_t       *ibufp;		/* pointer in input buffer	 */
@@ -89,7 +89,7 @@ topotherm (
 	nbytes = nsamps * sizeof(fpixel_t) * OBANDS;
 
 
-   /* open temporary output file */
+	/* open temporary output file */
 
 	tempfile = mktemplate("topotherm");
 	if (tempfile == NULL) {
@@ -100,14 +100,14 @@ topotherm (
 		error ("Can't open temporary file");
 	}
 
-   /* Allocate input buffer */
+	/* Allocate input buffer */
 
 	ibuf = (fpixel_t *) ecalloc (nsamps * IBANDS, sizeof(fpixel_t));
 	if (ibuf == NULL) {
 		error ("can't allocate input buffer");
 	}
 
-   /* Allocate mask buffer */
+	/* Allocate mask buffer */
 
 	if (fdm != ERROR) {
 		mbuf = (pixel_t *) ecalloc (nsamps, sizeof(pixel_t));
@@ -118,7 +118,7 @@ topotherm (
 		mbuf = NULL;
 	}
 
-   /* Allocate veg fact buffer */
+	/* Allocate veg fact buffer */
 
 	if (fdv != ERROR) {
 		vbuf = (fpixel_t *) ecalloc (nsamps, sizeof(fpixel_t));
@@ -129,7 +129,7 @@ topotherm (
 		vbuf = NULL;
 	}
 
-   /* Allocate cloud fact buffer */
+	/* Allocate cloud fact buffer */
 
 	if (fdc != ERROR) {
 		cbuf = (fpixel_t *) ecalloc (nsamps, sizeof(fpixel_t));
@@ -140,7 +140,7 @@ topotherm (
 		cbuf = NULL;
 	}
 
-   /* Allocate output buffer */
+	/* Allocate output buffer */
 
 	obuf = (fpixel_t *) ecalloc (nsamps * OBANDS, sizeof(fpixel_t));
 	if (obuf == NULL) {
@@ -149,8 +149,8 @@ topotherm (
 
 	first_pixel = TRUE;
 
-	
-   /* read input data and do calculations */
+
+	/* read input data and do calculations */
 
 	for (line=0; line < nlines; line++) {
 
@@ -211,16 +211,16 @@ topotherm (
 				/* convert ta and tw from C to K */
 				ta += FREEZE;
 				tw += FREEZE;
-	
+
 				if(tw<0.0 || ta<0.0) {
 					error ("bad input temps: ta= %g, dpt=%g",
-						ta, tw);
+							ta, tw);
 				}
 
 				/*	calculate theoretical sea level	*/
 				/*	atmospheric emissivity  */
 				/*	from reference level ta, tw, and z */
-	
+
 				if(tw > ta) {
 					if ((tw - ta) > 1.0) {
 						warn ("dpt=%g > ta; tw set to ta",tw);
@@ -230,9 +230,9 @@ topotherm (
 
 				ea = sati((double) tw);
 				emiss = (float) brutsaert((double)ta,
-							STD_LAPSE_M, ea,
-							(double)z, SEA_LEVEL);
-			
+						STD_LAPSE_M, ea,
+						(double)z, SEA_LEVEL);
+
 				/*	calculate sea level air temp	*/
 
 				T0 = ta - (z * STD_LAPSE_M);
@@ -240,31 +240,31 @@ topotherm (
 				/*	adjust emiss for elev, terrain	*/
 				/*	     veg, and cloud shading	*/
 
-					press = HYSTAT(SEA_LEVEL, T0,
+				press = HYSTAT(SEA_LEVEL, T0,
 						STD_LAPSE, (z/1000.),
 						GRAVITY, MOL_AIR);
 
-					/* elevation correction */
-					emiss *= press/SEA_LEVEL;
+				/* elevation correction */
+				emiss *= press/SEA_LEVEL;
 
-					/* terrain factor correction */
-					emiss = (emiss * skvfac)+(1.0 - skvfac);
+				/* terrain factor correction */
+				emiss = (emiss * skvfac)+(1.0 - skvfac);
 
-					/* veg factor correction */
-					if (fdv != ERROR)
-					       emiss = (emiss * vegfac)+(1.0 - vegfac);
+				/* veg factor correction */
+				if (fdv != ERROR)
+					emiss = (emiss * vegfac)+(1.0 - vegfac);
 
-					/* cloud factor correction */
-					if (fdc != ERROR)
-					       emiss = (emiss * cloudfac)+(1.0 - cloudfac);
+				/* cloud factor correction */
+				if (fdc != ERROR)
+					emiss = (emiss * cloudfac)+(1.0 - cloudfac);
 
-					/* check for emissivity > 1.0 */
-					if (emiss > 1.0)
-							emiss = 1.0;
+				/* check for emissivity > 1.0 */
+				if (emiss > 1.0)
+					emiss = 1.0;
 
 				/*	calculate incoming lw rad	*/
 
-					lw_in = emiss * STEF_BOLTZ *ta*ta*ta*ta;
+				lw_in = emiss * STEF_BOLTZ *ta*ta*ta*ta;
 
 				/* set output band */
 
@@ -294,11 +294,11 @@ topotherm (
 		}
 	}
 
-   /* create/write LQH for output image */
+	/* create/write LQH for output image */
 
 	newlqh (fdo, lw_min, lw_max);
 
-   /* copy temp file to output image */
+	/* copy temp file to output image */
 
 	uclose (fdt);
 	output (tempfile, fdo);

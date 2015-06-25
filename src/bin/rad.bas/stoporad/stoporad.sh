@@ -357,7 +357,7 @@ else
 			bitcom -m -a > $sfile
 
 # Run ialbedo to get albedo
-	if [ -e $start ];
+	if [ -f $start ];
 	then
 		ialbedo -d $wyd -g $gsize -m $maxgsz -c $dirt -i $start $wflag $sfile > $afile
 	else
