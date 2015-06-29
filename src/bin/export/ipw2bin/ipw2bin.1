@@ -1,0 +1,78 @@
+.TH "ipw2bin" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBipw2bin\fP - convert IPW image to binary file
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBipw2bin\fP [ \fB-m\fP \fImask\fP ] [ \fB-n\fP \fInodata\fP ] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBipw2bin\fP reads values from \fIimage\fP (default: standard input) and
+writes binary data in float format to the standard output.  The
+image data may be masked with \fImask\fP.  The data is written in line
+by sample order with no packing ( record length = #samples;
+#records = #lines).
+.SH OPTIONS
+.TP
+\fB-m\fP \fImask\fP
+Use \fImask\fP as a mask image.  Any points in \fImask\fP that are
+0 will have the corresponding points in \fIimage\fP set to the
+\fInodata\fP value.
+.sp
+.TP
+\fB-n\fP \fInodata\fP
+Points that are masked will be printed as the value \fInodata\fP
+(default: 0.0).
+.SH OPERANDS
+.PP
+None.
+.SH EXAMPLES
+.PP
+To export data to some packages such as PV-Wave, the line order must
+be reversed since the origin is at the lower-left instead of the
+upper left:
+.sp
+.nf
+.ft CR
+	flip -l image | binexp > image.dat
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     None
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+nodata value ignored without mask
+.br
+	The \fB-n option is only valid with a mask image.
+.SH RESTRICTIONS
+.PP
+Binary floating point output may not be portable to other systems.
+.PP
+\fIimage\fP must have only one band.
+.SH HISTORY
+.TP
+Jun 1991
+  Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+.TP
+Apr 1993
+  Ran through Purify.  Dana Jacobsen, ERL-C.
+.SH BUGS
+.PP
+None that we know of
+.SH SEE ALSO
+.TP
+IPW
+	\fBrmhdr\fP,
+\fBprimg\fP,
+\fBatob\fP

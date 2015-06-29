@@ -1,0 +1,3 @@
+%define(name,"stoporad")
+%define(description,"topographically-corrected solar radiation over snow")
+%define(category,"Radiation Modeling: Basin-Scale")

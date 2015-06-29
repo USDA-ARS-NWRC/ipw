@@ -1,0 +1,3 @@
+%define(name,"dew_point")
+%define(description,"dew point temperature")
+%define(category,"envphys")

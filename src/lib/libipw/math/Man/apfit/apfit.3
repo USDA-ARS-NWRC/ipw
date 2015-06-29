@@ -1,0 +1,41 @@
+.TH "apfit" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBapfit\fP - least-squares polynomial fit
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+void
+apfit(
+     double     *arx,      /* array of x values                        */
+     double     *ary,      /* array of y values                        */
+     long        n,        /* length of arrays                         */
+     long        d,        /* length of output array c                 */
+     double     *c,        /* output: array of polynomial coefficients */
+     const int   savemem)  /* use less memory and run slower?          */
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBapfit\fP determines a polynomial function to fit an array of observed
+values.  It performs a least-squares polynomial fit to yield
+the coefficients of the desired fitting function:
+.sp
+.nf
+.ft CR
+     fity(n) = c[0] + c[1]*n + c[2]*n^2 + c[3]*n^3 + ... + c[d]*n^d
+.ft R
+.fi
+If argument \fIsavemem\fP is true, the routine will take up a significantly
+smaller chunk of memory, but also run significantly slower.
+.SH RETURN VALUE
+.PP
+None.
+.SH HISTORY
+.TP
+1992
+Written by Dana Jacobsen, EPA ERL-C

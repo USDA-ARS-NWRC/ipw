@@ -1,0 +1,46 @@
+.TH "sunangle" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBsunangle\fP - calculate sun angle from position and date-time
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+#include "solar.h"
+
+int
+sunangle(
+     double       latitude,    /* radians, southern lats < 0     */
+     double       longitude,   /* radians, western hemi. < 0     */
+     datetime_t  *datetime,    /* date-time (GMT)                */
+
+  /* output parameters */
+
+     double      *mu,          /* cosine of solar zenith angle   */
+     double      *azmSun,      /* solar azimuth angle, radians
+                                    (west of south < 0)          */
+     double      *radVec)      /* Earth-Sun radius vector
+                                    (can be NULL if not desired) */
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBsunangle\fP calculates the sun angle (the azimuth and zenith angles
+of the sun's position) for a given geodetic location (specified
+by \fIlatitude\fP and \fIlongitude\fP) and a given date and time (specified
+by \fIdatetime\fP.
+.SH RETURN VALUE
+.PP
+0	calculations completed successfully
+.PP
+1	sun below horizon and azmSun is negative
+.PP
+ERROR   error in one or more arguments (an explaining message has
+stored via the usrerr function)
+.SH HISTORY
+.TP
+Oct 1997
+Extracted function from IPW program \fBsunang\fP.  J. Domingo, OSU
+.SH SEE ALSO

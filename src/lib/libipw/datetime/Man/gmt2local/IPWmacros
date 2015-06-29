@@ -1,0 +1,3 @@
+%define(name,"gmt2local")
+%define(description,"convert a gmt (UTC) date-time into local date-time")
+%define(category,"datetime")

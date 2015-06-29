@@ -1,0 +1,120 @@
+.TH "im2html" "1" "5 March 2015" "IPW v2" "IPW System Commands"
+.SH NAME
+.PP
+\fBim2html\fP - convert IPW man page into new (HTML) man page
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBim2html\fP [ \fB-f\fP ] [ \fIname\fP ]
+
+\fBim2html\fP [ \fB-f\fP ] \fB-c\fP \fIfile\fP
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBim2html\fP converts the IPW man page for an IPW command or
+library function to the
+new HTML version of an IPW man page.  The new man page is written to
+standard output.  The conversion is generally not 100% complete, so
+the new IPW man page will require some minor editing.  This editing
+can be done with a text editor if the user is familiar with HTML, or
+it can be done with a HTML editor such as Netscape Navigator Gold.
+.SH OPTIONS
+.TP
+\fB-f\fP
+The man page is for an IPW library function (default: IPW command).
+There are some differences in the section headings for these two types
+of man pages.
+.sp
+.TP
+\fB-c\fP \fIfile\fP
+The source code file \fIfile\fP contains the man page to be converted
+in its comments.  Before converting, first extract the man page from the
+file.  Those lines starting with "**" are assumed to be part of the man
+page.
+.SH OPERANDS
+.TP
+\fIname\fP
+The name of the IPW command whose man page should be converted.
+If no name is specified, im2html reads a man page from standard input.
+.SH EXAMPLES
+.PP
+To convert the man page of the IPW command "foo", enter this
+command:
+.sp
+.nf
+.ft CR
+     im2html foo > foo.man
+.ft R
+.fi
+.PP
+The same conversion can be done this way too:
+.sp
+.nf
+.ft CR
+     ipwman foo | im2html > foo.man
+.ft R
+.fi
+.PP
+If the file xyz.c contains the source code for the library routine xyz
+as well as its man page in the file's comments, then to extract and convert
+the man page, enter:
+.sp
+.nf
+.ft CR
+   im2html -f -c xyz.c > xyz.man
+.ft R
+.fi
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.TP
+No information for:
+.br
+   \fIname\fP
+.br
+\fIname\fP does not refer to an existing IPW command.
+.sp
+.TP
+Warning: skipping unknown section: \fIsection\fP
+The man page for the specified command contained a section that this
+utility does not recognize, and therefore, skipped.  The user may wish
+to examine the original man page to determine what to do about the
+skipped section (e.g., include its information in another section).
+.sp
+.TP
+Error: Cannot access file "\fIfile\fP"
+The file specified by the \fB-c\fP option is not really a file, or
+is not readable.
+.sp
+.TP
+Error:  Cannot access "ipwman" command
+\fBim2html\fP could not invoke the \fBipwman\fP command on the given
+name.  A possible cause is that the user's path does not include the
+directory where \fBipwman\fP is located.
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.TP
+Feb 1997
+Written by J. Domingo, OSU.  Based on the imtoum converter written by
+Dana Jacobsen, ERL-C.
+.sp
+.TP
+Apr 1997
+Modified so this command would invoke "ipwman" instead of
+having to pipe the output of "ipwman" into this command.
+J. Domingo, OSU
+.sp
+.TP
+Sep 1997
+Added \fB-f\fP and \fB-c\fP options.  J. Domingo, OSU
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO
+.PP
+None.

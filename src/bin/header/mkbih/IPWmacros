@@ -1,0 +1,3 @@
+%define(name,"mkbih")
+%define(description,"make a basic image (BI) header")
+%define(category,"Image Header Manipulation")

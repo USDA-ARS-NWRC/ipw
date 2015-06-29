@@ -1,0 +1,3 @@
+%define(name,"ecalloc")
+%define(description,"memory allocator (interface to UNIX calloc)")
+%define(category,"util")

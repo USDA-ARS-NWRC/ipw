@@ -1,0 +1,3 @@
+%define(name,"brutsaert")
+%define(description,"calculates atmospheric emissivity")
+%define(category,"radiation")

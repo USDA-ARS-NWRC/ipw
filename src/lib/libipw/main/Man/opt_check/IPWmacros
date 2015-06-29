@@ -1,0 +1,3 @@
+%define(name,"opt_check")
+%define(description,"check for conflicting command-line options")
+%define(category,"main")

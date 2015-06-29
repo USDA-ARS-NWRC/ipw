@@ -1,0 +1,3 @@
+%define(name,"toporad.24")
+%define(description,"topographically-corrected solar radiation for 24-hour period")
+%define(category,"Radiation Modeling: Basin-Scale")

@@ -1,0 +1,40 @@
+.TH "sathmake" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBsathmake\fP - make an IPW SATH header
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "sath.h"
+
+SATH_T *
+sathmake(
+	char    *platform,	|* e.g. "Landsat", "ER2", ...	 *|
+	char    *sensor,	|* e.g. "TM", "AVIRIS", ...	 *|
+	char    *location,	|* e.g. Landsat path, row, quad	 *|
+	char    *gmdate,	|* YYYYMMDD			 *|
+	char    *gmtime)	|* hhmmss.sss...		 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBsathmake\fP allocates an IPW SAT header.  The header is initialized with
+the remaining arguments.
+.SH RETURN VALUE
+.PP
+pointer to new SAT header; NULL if error
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

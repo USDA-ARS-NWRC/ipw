@@ -1,0 +1,49 @@
+.TH "skewhread" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBskewhread\fP - read an IPW SKEWH header
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "skewh.h"
+
+SKEWH_T **
+skewhread(
+	int     fd)		|* image file descriptor	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBskewhread\fP reads a SKEWH image header from file descriptor fd.  An array
+of SKEWH_T pointers is allocated, one per band.  If a band has a SKEWH
+header, then an SKEWH_T header is allocated and its address is placed
+in the corresponding array element; otherwise, the corresponding
+array element is NULL.
+.PP
+Before calling \fBskewhread\fP, the caller must verify (by calling hrname())
+that a SKEWH header is available for ingesting.
+.SH RETURN VALUE
+.PP
+pointer to array of SKEWH_T pointers; else NULL if EOF or error
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.sp
+.TP
+can't allocate array of "skew" header pointers
+"skew" header: bad band "\fIband\fP"
+can't allocate "skew" header
+"skew" header: key "\fIkey\fP" has no value
+"skew" header: bad key "\fIkey\fP"
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

@@ -1,0 +1,1 @@
+hgetrec - read and decode header record

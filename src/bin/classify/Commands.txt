@@ -1,0 +1,7 @@
+
+Image Classification
+
+  classify - separate pixels into classes using ranges of values
+  classeq  - separate pixels into classess defined by equal area histogram
+  clmask   - make class mask image from an IPW image
+  declass  - replace pixel classes with their representative values

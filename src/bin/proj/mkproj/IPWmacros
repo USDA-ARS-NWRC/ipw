@@ -1,0 +1,3 @@
+%define(name,"mkproj")
+%define(description,"make a projection definition file")
+%define(category,"Geographic (Map) Projections")

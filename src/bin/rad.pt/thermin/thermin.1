@@ -1,0 +1,137 @@
+.TH "thermin" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBthermin\fP - incoming thermal radiation at different elevations
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBthermin\fP \fB-a\fP \fIair-temp\fP \fB-d\fP \fIdewpoint-temp\fP \fB-z\fP \fIelev\fP
+      [ \fB-s\fP \fIelev-step \fP ] [ \fB-m\fP \fIelev-min \fP ] [ \fB-x\fP \fIelev-max \fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Thermin is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as "qdips" (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+.PP
+Thermin calculates incoming longwave radiation from the atmosphere
+on a horizontal surface for a set of specified elevation
+levels from a reference measurement of air temperature
+and dew point temperature made at elevation z.
+(After Marks and Dozier, 1979).
+.PP
+Output is file of pairs of elev and incoming lw.
+Output to stdout.
+.SH OPTIONS
+.TP
+\fB-a\fP \fIair-temp\fP
+\fIair-temp\fP is the reference air temperature in degrees K.
+.sp
+.TP
+\fB-d\fP \fIdewpoint-temp\fP
+\fIdewpoint-temp\fP is the reference dew point temperature in
+degrees K.
+.sp
+.TP
+\fB-z\fP \fIelev\fP
+\fIelev\fP is the reference elevation in meters.
+.sp
+.TP
+\fB-s\fP \fIelev-step \fP
+\fIelev-step\fP is the optional elevation step (default: 500 m)
+.sp
+.TP
+\fB-m\fP \fIelev-min \fP
+\fIelev-min\fP is the optional minimum elevation (default: 0 m)
+.sp
+.TP
+\fB-x\fP \fIelev-max \fP
+\fIelev-max\fP is the optional maximum elevation (default: 5000 m)
+.SH OPERANDS
+.PP
+	None
+.PP
+.SH EXAMPLES
+.PP
+To estimate thermal radiation at 250m intervals over an elevation band
+from 1500m to 3000m from data taken at a sight at 2000m:
+.sp
+.nf
+.ft CR
+	thermin -a 280 -d 275 -z 2000 -s 250 -m 1500 -x 3000
+.ft R
+.fi
+.PP
+yields:
+.sp
+.nf
+.ft CR
+		1500   250.75
+		1750   237.75
+		2000   225.35
+		2250   213.53
+		2500   202.26
+		2750   191.53
+		3000   181.32
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     None
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+None
+.SH RESTRICTIONS
+.PP
+None
+.SH HISTORY
+.TP
+Dec 1982
+	Written by D. Marks, UCSB;
+.TP
+Apr 1984
+	Modified by D. Marks, UCSB;
+.TP
+Jun 1995
+	Converted to IPW by J. Domingo, OSU, EPA NHEERL/WED
+.SH BUGS
+.PP
+None that we know of
+.SH SEE ALSO
+.TP
+IPW
+	\fBalbedo\fP,
+\fBbowvap\fP,
+\fBdewpt\fP,
+\fBgsnow\fP,
+\fBmse\fP,
+\fBpenmonx\fP,
+\fBpmx\fP,
+\fBpott\fP,
+\fBptaylorx\fP,
+	\fBptx\fP,
+\fBrh2vp\fP,
+\fBsatvp\fP,
+\fBsling\fP,
+\fBsoilt\fP,
+\fBsoiltmp\fP,
+\fBsrftmp\fP,
+\fBswe\fP,
+\fBswp\fP,
+	\fBtrad\fP,
+\fBtrb_Ri\fP,
+\fBtrbxfr\fP,
+\fBvptr\fP,
+\fBzpr\fP
+.PP
+Marks, D., and J. Dozier, 1979.  "A clear-sky longwave radiation model
+	for remote alpine areas", Archiv fur Meteorologie, Geophysik
+	und Bioklimatologie, Series B, vol. 27, no. 23, pp. 159-187.

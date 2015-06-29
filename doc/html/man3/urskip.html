@@ -1,0 +1,93 @@
+<HTML>
+
+<HEAD>
+ <TITLE>IPW function: urskip</TITLE>
+</HEAD>
+
+<BODY>
+
+<H1 ALIGN=CENTER>urskip</H1>
+
+<P ALIGN=CENTER>IPW Library Function<BR>
+Library - libipw<BR>
+Category - uio</P>
+
+<HR WIDTH="100%">
+
+<H2>NAME</H2>
+
+<P><B>urskip</B> - skip input on UNIX file descriptor</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+
+long
+urskip(
+	int      fd,		|* input file descriptor	 *|
+	long     nbytes)	|* #bytes to skip		 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>urskip</B> causes nbytes bytes of input on fd to be skipped.
+nbytes must be &gt; 0 (i.e., only forward skips are allowed).
+</P><P>
+Use <B>urskip</B> instead of the UNIX system call lseek to skip input data.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+&gt;= 0	number of bytes skipped
+</P><P>
+ERROR	for failure
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+_uiocb
+</P>
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 5 March 2015  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>

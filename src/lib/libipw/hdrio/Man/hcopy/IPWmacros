@@ -1,0 +1,3 @@
+%define(name,"hcopy")
+%define(description,"copy headers")
+%define(category,"hdrio")

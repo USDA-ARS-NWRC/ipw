@@ -1,0 +1,1 @@
+ipw2pgm - convert IPW image to Portable Gray Map (PGM) image

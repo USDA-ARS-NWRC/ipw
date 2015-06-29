@@ -1,0 +1,1 @@
+akcoef - computes coefficients for Akima-type spline interpolation

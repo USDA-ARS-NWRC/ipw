@@ -1,0 +1,1 @@
+tcloud - cloudiness attenuation of solar radiation

@@ -1,0 +1,1 @@
+urskip - skip input on UNIX file descriptor

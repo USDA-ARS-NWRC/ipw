@@ -1,0 +1,1 @@
+iadd - perform addition or subtraction on pixels (DEPRECIATED)

@@ -1,0 +1,3 @@
+%define(name,"bowvap")
+%define(description,"evaporation rate using Bowen ratio")
+%define(category,"Physical Modeling: Point")

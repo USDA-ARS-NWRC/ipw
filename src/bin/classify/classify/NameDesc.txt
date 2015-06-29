@@ -1,0 +1,1 @@
+classify - separate pixels into classes using ranges of values

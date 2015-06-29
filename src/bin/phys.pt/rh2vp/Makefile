@@ -5,6 +5,8 @@ SRCS := main.c
 
 EXTRA_LIBS := model
 
+EXTRA_CFLAGS := -fopenmp
+
 include $(IPW)/make/command
 
 $(OBJS) : pgm.h

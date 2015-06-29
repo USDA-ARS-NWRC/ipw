@@ -1,0 +1,41 @@
+.TH "no_history" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBno_history\fP - turn off history mechanism in bihwrite
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "bih.h"
+
+void
+no_history(
+	int             fd)	|* image file descriptor	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBno_history\fP turns off the history mechanism.  If called for file
+descriptor "fd" BEFORE bihwrite is called for the same file
+descriptor, the normal printing of the history by bihwrite will
+be suppressed.
+.PP
+\fBno_history\fP is normally called by programs (e.g. mux) that would
+otherwise produce voluminous history records
+.SH RETURN VALUE
+.PP
+None.
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+_no_hist
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

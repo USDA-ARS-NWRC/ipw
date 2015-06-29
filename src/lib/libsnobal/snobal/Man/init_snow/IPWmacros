@@ -1,0 +1,3 @@
+%define(name,"init_snow")
+%define(description,"initialize the properties for the snowcover")
+%define(category,"snobal")

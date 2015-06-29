@@ -1,0 +1,3 @@
+%define(name,"set_geoh")
+%define(description,"set GEO header for an image's band")
+%define(category,"image")

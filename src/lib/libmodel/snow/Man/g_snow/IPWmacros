@@ -1,0 +1,3 @@
+%define(name,"g_snow")
+%define(description,"conduction heat flow between two snow layers")
+%define(category,"snow")

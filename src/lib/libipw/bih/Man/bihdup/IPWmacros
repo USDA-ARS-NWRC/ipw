@@ -1,0 +1,3 @@
+%define(name,"bihdup")
+%define(description,"duplicate an IPW basic image header")
+%define(category,"bih")

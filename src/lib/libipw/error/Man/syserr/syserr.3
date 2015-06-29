@@ -1,0 +1,32 @@
+.TH "syserr" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBsyserr\fP - note occurrence of UNIX system error
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+void syserr()
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Syserr notes the occurrence of a UNIX system error.  The current value
+of "errno" is made accessible to the _error() error handler.
+.SH RETURN VALUE
+.PP
+None.
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+_errno
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

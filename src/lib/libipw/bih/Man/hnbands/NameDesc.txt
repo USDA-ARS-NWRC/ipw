@@ -1,0 +1,1 @@
+hnbands - number of bands in image

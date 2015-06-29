@@ -1,0 +1,3 @@
+%define(name,"classeq")
+%define(description,"separate pixels into classess defined by equal area histogram")
+%define(category,"Image Classification")

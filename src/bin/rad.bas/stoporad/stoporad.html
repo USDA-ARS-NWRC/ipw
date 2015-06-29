@@ -1,0 +1,320 @@
+<HTML>
+
+<HEAD>
+ <TITLE>IPW command: stoporad</TITLE>
+</HEAD>
+
+<BODY>
+
+<H1 ALIGN=CENTER>stoporad</H1>
+
+<P ALIGN=CENTER>IPW User Command<BR>
+Category - Radiation Modeling: Basin-Scale</P>
+
+<HR WIDTH="100%">
+
+<H2>NAME</H2>
+
+<P><B>stoporad</B> - topographically-corrected solar radiation over snow</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>stoporad</B> [ <B>-n</B> ] [ <B>-z</B> <I>elev</I> ] [ <B>-t</B> <I>tau</I> ] [ <B>-w</B> <I>omega</I> ] [ <B>-g</B> <I>gfact</I> ]
+     <B>-x</B> <I>w1,w2</I> <B>-s</B> <I>start</I> <B>-d</B> <I>day</I> <B>-f</B> <I>zone</I> <B>-y</B> <I>year</I>
+     [ <B>-b</B> <I>d,m,s</I> <B>-l</B> <I>d,m,s</I> ] [ <B>-A</B> <I>mu,azm</I> ]
+     <B>-a</B> <I>gsize</I> <B>-m</B> <I>maxgsz</I> <B>-c</B> <I>dirt</I>
+     [ <B>-r</B> <I>erad_image</I> ] [ <B>-k</B> <I>alb_image</I> ] [ <B>-D</B> ]  [ <I>image</I> ]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>stoporad</B> is part of a family of radiation transfer simulation,
+and solar/terrain geometry calculation tools, derived from the
+programs and tools developed at UCSB by Jeff Dozier, Jim Frew, and
+Ralph Dubayah.  Most of the modified programs were originally built
+Kelly Longley, OSU, ERL-C
+</P><P>
+<B>stoporad</B> is a script that calls salbedo and toporad, to simulate 
+topographic radiation over snow-covered terrain. All of the snowcover
+radiation transfer tools are designated by the &quot;s&quot; prefix in front of
+the standard tool's name. 
+</P><P>
+<B>stoporad</B> is the snow cover version of the program toporad.
+<B>stoporad</B> computes solar radiation over a topographic grid over snow,
+using a two-stream atmospheric radiation model.
+If the sun is below the horizon at the specified time, a message is 
+printed to the screen and no output image is generated.
+</P><P>
+Surface albedo is calculated by program salbedo for input to toporad.
+If the -k option is specified, the intermediate calculation of albedo
+is saved in the specified image file.
+R0, reflectance of the substrate is set as the mean surface albedo.
+</P><P>
+If a beam &amp; diffuse radiation image is specified with the -r option
+then salbedo is not called, and elev, tau, omega, and gfact parameters
+are not required.
+</P><P>
+Input water year days are assumed to be in GMT unless the -f (time
+zone conversion: minutes west of Greenwich) option is specified.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-n</B> 
+<DD>
+net radiation instead of incoming
+</DD>
+
+<P>
+<DT><B>-z</B> <I>elev</I>
+<DD>
+elevation of optical depth measurement
+</DD>
+
+<P>
+<DT><B>-t</B> <I>tau</I>
+<DD>
+optical depth at z
+</DD>
+
+<P>
+<DT><B>-w</B> <I>omega</I>
+<DD>
+single-scattering albedo
+</DD>
+
+<P>
+<DT><B>-g</B> <I>gfact</I>
+<DD>
+scattering asymmetry parameter
+</DD>
+
+<P>
+<DT><B>-x</B> <I>w1</I>,<I>w2</I>
+<DD>
+wavelength range, micrometers (.28,.7 for vis; .7,2.8 for IR)
+</DD>
+
+<P>
+<DT><B>-s</B> <I>start</I>
+<DD>
+scalar day of last snow storm or IPW image containing distributed day of last snow storm (water year day)
+</DD>
+
+<P>
+<DT><B>-d</B> <I>day</I>
+<DD>
+current day (water year day)
+</DD>
+
+<P>
+<DT><B>-f</B> <I>zone</I>
+<DD>
+time zone conversion (minutes west of Greenwich)
+</DD>
+
+<P>
+<DT><B>-y</B> <I>year</I>
+<DD>
+water year
+</DD>
+
+<P>
+<DT><B>-b</B> <I>d,m,s</I>
+<DD>
+latitude (degrees, minutes, seconds)
+</DD>
+
+<P>
+<DT><B>-l</B> <I>d,m,s</I>
+<DD>
+longitude (degrees, minutes, seconds)
+</DD>
+
+<P>
+<DT><B>-A</B> <I>mu,azm</I>
+<DD>
+sun angles, i.e., zenith and azimuth angles of the sun's position as
+outputed by <B>sunang</B>.  <I>mu</I> is cosine of the zenith angle, and
+<I>azm</I> is the azimuth angle in degrees.
+</DD>
+
+</DL>
+
+<P>If the latitude and longitude is not specified with the <B>-b</B> and
+<B>-l</B> options, then the sun angle must be specified with the <B>-A</B>
+option.
+
+<DL>
+
+<DT><B>-a</B> <I>gsize</I>
+<DD>
+grain size for albedo calculation
+</DD>
+
+<P>
+<DT><B>-m</B> <I>maxgsz</I>
+<DD>
+maximum grain size
+</DD>
+
+<P>
+<DT><B>-c</B> <I>dirt</I>
+<DD>
+contaimination factor for visible albedo
+</DD>
+
+<P>
+<DT><B>-r</B> <I>erad_image</I>
+<DD>
+2-band image containing beam &amp; diffuse radiation (output from elevrad)
+</DD>
+
+<P>
+<DT><B>-k</B> <I>alb_image</I>
+<DD>
+keep albedo calculation in specified file
+</DD>
+
+<P>
+<DT><B>-D</B>
+<DD>
+output diffuse radiation along with the global radiation
+</DD>
+
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT><I>image</I>
+<DD>The input image file has five bands in this order:
+<PRE>
+     band 0 : elevation
+      "   1 : slope
+      "   2 : azimuth
+      "   3 : sky view factor
+      "   4 : terrain configuration factor
+</PRE><P>
+(default: standard input).
+</P>
+</DD>
+
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate visible, topographically distributed radiation, over
+the Park City, Utah, area, for noon, March 1, 1995, saving
+the albedo file:
+</P><PRE>
+     stoporad -z 100 -t 0.2 -w 0.85 -g 0.3 -x .28,.7 -s 139 \
+          -d 150.500 -f 420 -y 1995 -b 40,37,12.6 \
+          -l -111,31,58.2 -a 75 -m 1000 -c 1 \
+          -k albedo.150.5 infile.150.5 &gt; outfile.150.5
+</PRE>
+<H2>FILES</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Oct 1990</DT>
+<DD>
+Written by Kelly Longley, Oregon State University,
+Environmental Protection Agency Laboratory, Corvallis OR
+</DD>
+
+<P>
+
+<DT>Dec 1990</DT>
+<DD>
+Added option for running elevrad separately,
+by K. Longley, OSU, EPA ERL-C
+</DD>
+
+<P>
+
+<DT>May 1991</DT>
+<DD>
+Added option to keep albedo images,
+by K. Longley, OSU EPA ERL-C
+</DD>
+
+<P>
+
+<DT>Nov 1998
+<DD>
+Added the options to specify solar angles and to output diffuse
+radiation.  J. Domingo, OSU
+</DD>
+
+</DL>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+
+<DT>IPW</DT>
+<DD>	<B><A href="standard/stoporad.html">standard stoporad</A></B>,
+<B><A href="toporad.html">locally modified toporad</A></B>,
+<B><A href="standard/albedo.html">albedo</A></B>,
+<B><A href="standard/elevrad.html">elevrad</A></B>,
+<B><A href="standard/ialbedo.html">ialbedo</A></B>,
+<B><A href="standard/selevrad.html">selevrad</A></B>,
+<B><A href="standard/toporad.html">toporad</A></B>
+</DD>
+
+</DL>
+<P>Dozier, J., 1980.  &quot;A clear-sky spectral solar radiation model for
+	snow-covered mountainous terrain&quot;.  Water Resources Research,
+	vol. 16, pp. 709-718.
+</P>
+<P>Dozier, J., and J. Frew, 1981.  &quot;Atmospheric corrections to satellite
+	radiometric data over rugged terrain&quot;.  Remote Sensing of
+	Environment, vol. 11, pp. 191-205.
+</P>
+<P>Dozier, J., J. Bruno, and P. Downey, 1991.  &quot;A faster solution to the
+	horizon problem&quot;, Computers and Geosciences, volume 7,
+	number 2, pp. 145-151.
+</P>
+<P>Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain parameters
+	for radiation modeling from digital elevation data&quot;. IEEE
+	Transactions on Geoscience and Remote Sensing, vol. 28, no. 5,
+	pp. 963-969.
+</P>
+<P>Dubayah, R., 1994.  &quot;Modeling a solar radiation topoclimatology for the
+	Rio Grande River Basin&quot;.  Journal of Vegetation Science, vol. 5,
+	pp. 627-640.
+</P>
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 25 June 2015  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>

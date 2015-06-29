@@ -1,0 +1,29 @@
+.TH "write_pbuf" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBwrite_pbuf\fP - write unsigned-integer pixels from buffer to image
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "image.h"
+
+bool_t
+write_pbuf(
+     IMAGE_T  *image,     /* output image              */
+     PIXEL    *buffer,    /* buffer of pixels to write */
+     int       nsamples)  /* # of samples in buffer    */
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBwrite_pbuf\fP() writes the unsigned-integer pixels in a
+given buffer to an image.
+.SH RETURN VALUE
+.TP
+TRUE
+Pixels were written to the image.
+.sp
+.TP
+FALSE
+An error occurred while writing.

@@ -1,0 +1,3 @@
+%define(name,"allocnd")
+%define(description,"allocate a dynamic, dope-vectored array")
+%define(category,"util")

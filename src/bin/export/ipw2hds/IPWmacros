@@ -1,0 +1,3 @@
+%define(name,"ipw2hds")
+%define(description,"convert IPW image to HDS sixel format")
+%define(category,"Exporting IPW Image Data")

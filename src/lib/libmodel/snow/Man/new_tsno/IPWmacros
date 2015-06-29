@@ -1,0 +1,3 @@
+%define(name,"new_tsno")
+%define(description,"calculates snow layer's new temperature")
+%define(category,"snow")

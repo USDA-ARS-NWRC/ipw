@@ -1,0 +1,104 @@
+.TH "allocnd" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBallocnd\fP - allocate a dynamic, dope-vectored array
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+addr_t allocnd(int elsize, int ndim, ...)
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Allocnd dynamically allocates an ndim-dimensional array, where
+sizeof(each element) is elsize.  The particular dimensions are given
+by the dim1, ..., dimn arguments.  The resulting address should be
+cast into a pointer to the proper type of object.
+.PP
+The dynamically allocated array is indexed via dope vectors (i.e., all
+but the rightmost dimension are implemented by arrays of pointers).
+.PP
+All space allocated by \fBallocnd\fP is initialized to 0.
+.PP
+This routine depends on the sizeof operator including all padding to
+the correct boundary, and since ecalloc() ensures that the pointer
+returned falls on a correct boundary, everything should work out.
+The one possible problem that I could think of was if character
+pointers are not the same as other types of pointers (true on some
+machines).  If this is the case, you're on your own.  Let me know
+how you fixed this to work in the general case on your machine.
+.PP
+Because of the extra space required for the dope vectors, arrays
+allocated by \fBallocnd\fP() will consume more memory than
+equivalently-dimensioned arrays allocated statically.
+.PP
+The code for \fBallocnd\fP() has been copied, with minor modifications, from
+the function dope(), which was posted to USENET with the following
+copyright notice:
+.sp
+.nf
+.ft CR
+	(c) Copyright 1985 by Jeff Lee and Georgia Institute of
+	Technology
+.ft R
+.fi
+
+.sp
+.nf
+.ft CR
+	Explicit permission is given to use, distribute, copy, and do
+	strange things with a fork to this software, but you may not
+	sell it because Georgia Tech's name is on it and I believe in
+	free software.
+.ft R
+.fi
+
+.sp
+.nf
+.ft CR
+	Jeff Lee
+	School of ICS, Georgia Institute of Technology, Atlanta
+	gatech!jeff
+.ft R
+.fi
+.SH RETURN VALUE
+.PP
+A pointer to the array is returned, or NULL in case of error.
+.SH EXAMPLES
+.PP
+Use \fBallocnd\fP() as a general-purpose multidimensional array allocator.
+For example:
+.sp
+.nf
+.ft CR
+	double	a[3][4];
+	double	**b;
+.ft R
+.fi
+
+.sp
+.nf
+.ft CR
+	b = (double **)allocnd(sizeof(double), 2, 3, 4);
+.ft R
+.fi
+
+.PP
+References of the form b[i][j] will behave equivalently to a[i][j].
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.sp
+.TP
+size overflow during allocation
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.SH SEE ALSO

@@ -1,0 +1,42 @@
+.TH "sunhread" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBsunhread\fP - read an IPW SUNH header
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "sunh.h"
+
+SUNH_T **
+sunhread(
+	int             fd)	|* image file descriptor	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Sunhread reads a SUNH image header from file descriptor fd.  An
+array of SUNH_T pointers is allocated, one per band.  If a band
+has a SUNH header, then an SUNH_T header is allocated and its
+address is placed in the corresponding array element;
+otherwise, the corresponding array element is NULL.
+.PP
+Before calling \fBsunhread\fP, the caller must verify (by calling
+hrname()) that a SUNH header is available for ingesting.
+.SH RETURN VALUE
+.PP
+pointer to array of SUNH_T pointers; else NULL if EOF or error
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

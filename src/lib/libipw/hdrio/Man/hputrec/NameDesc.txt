@@ -1,0 +1,1 @@
+hputrec - encode and write a header record

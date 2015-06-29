@@ -1,0 +1,3 @@
+%define(name,"penmanx")
+%define(description,"latent heat flux (LE) using Penman-Monteith method")
+%define(category,"Physical Modeling: Point")

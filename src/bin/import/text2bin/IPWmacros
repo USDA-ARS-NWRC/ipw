@@ -1,0 +1,3 @@
+%define(name,"text2bin")
+%define(description,"convert text file with integers to binary file")
+%define(category,"Importing Image Data")

@@ -1,0 +1,3 @@
+%define(name,"hpass")
+%define(description,"copy header records")
+%define(category,"hdrio")

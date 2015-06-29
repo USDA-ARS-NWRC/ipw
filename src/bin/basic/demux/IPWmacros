@@ -1,0 +1,3 @@
+%define(name,"demux")
+%define(description,"demultiplex (extract) bands from IPW image")
+%define(category,"Basic Image Commands")

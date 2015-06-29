@@ -1,0 +1,16 @@
+
+Image Transformation
+
+  flip      - flip an IPW image
+  rotate    - rotate an IPW image
+  skew      - skew the lines of an IPW image
+  transpose - transpose the lines and samples of an IPW image
+  resamp    - resample an IPW image (decrease resolution) by averaging pixels
+  window    - extract a region (window) of an IPW image
+  zoom      - enlarge or reduce an IPW image by replication or subsampling
+  randomize - randomly shuffle lines of an IPW image
+  convolve  - perform spatial convolution on an IPW image
+  fillbands - create bands between two bands using linear interpolation
+  dither    - convert IPW image into bilevel image using ordered dithering
+  wedge     - linear combination of line and sample coordinates
+  edimg     - edit the pixels of an IPW image

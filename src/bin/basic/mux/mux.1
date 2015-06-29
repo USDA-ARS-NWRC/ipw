@@ -1,0 +1,100 @@
+.TH "mux" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBmux\fP - multiplex (combine) images into one multi-band image
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBmux\fP \fIimage1 image2 ...\fP
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Mux band-interleaves the operand images into a single output image
+that contains all of the input bands and writes the result to the
+standard output.
+.SH OPTIONS
+.PP
+None.
+.SH OPERANDS
+.TP
+\fIimage1 image2 ...\fP
+input images; the operand "-" means the standard input.
+.SH EXAMPLES
+.PP
+To combine "red", "green", and "blue" images into a single
+"color" image:
+.sp
+.nf
+.ft CR
+	mux red green blue  >color
+.ft R
+.fi
+.PP
+To multiply "image1" by "image2":
+.sp
+.nf
+.ft CR
+	mux image1 image2  |  mult
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+None.
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+image size differs from 1st image
+All input images must have the same number of lines and
+samples.
+.SH RESTRICTIONS
+.PP
+The input images must agree in every dimension except number of
+bands.
+.PP
+The maximum number of input images is limited by the number of
+files that a program may have open simultaneously.  This limit is
+set in the C shell by the "limit" command.  Try a command like:
+.sp
+.nf
+.ft CR
+	limit descriptors 256
+.ft R
+.fi
+
+.PP
+to get more.  This limit can be worked around by piping one \fBmux\fP
+into another:
+.sp
+.nf
+.ft CR
+	mux image1 ... imageN | mux - imageN+1 ...
+.ft R
+.fi
+.SH HISTORY
+.TP
+Jul 1990
+Written by James Frew, UCSB.
+.sp
+.TP
+Apr 1993
+Ran through Purify.  Dana Jacobsen, ERL-C.
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO
+.TP
+IPW:
+\fBdemux\fP
+.sp
+.TP
+UNIX:
+limit
+.PP
+Frew 1990
+.br

@@ -1,0 +1,3 @@
+%define(name,"declass")
+%define(description,"replace pixel classes with their representative values")
+%define(category,"Image Classification")

@@ -1,0 +1,3 @@
+%define(name,"crossval")
+%define(description,"cross validation of interpolation by 'surface' and 'msurface'")
+%define(category,"Importing Image Data")

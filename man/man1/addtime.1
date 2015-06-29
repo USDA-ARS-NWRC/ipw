@@ -1,0 +1,147 @@
+.TH "addtime" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBaddtime\fP - add time to a given date and time
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBaddtime\fP [ \fB-d\fP \fIyear,month,day,hour,min,sec\fP ] [ \fB-h\fP \fIhours\fP ]
+     [ \fB-m\fP \fIminutes\fP ] [ \fB-s\fP \fIseconds\fP ] [ \fB-v\fP ]  [ \fIdate-time\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBaddtime\fP adds a time interval to a specified date-time.  The date-time is
+specified either with the \fB-d\fP option or as a single operand.  The time
+interval is specified as a combination of hours, minutes, and seconds using
+the \fB-h\fP, \fB-m\fP, and \fB-s\fP options, respectively.  The interval
+may be negative, to effect subtraction as well.
+.PP
+The resulting date-time is printed to standard output in the same format
+as the input date-time.
+.SH OPTIONS
+.TP
+\fB-d\fP \fIyear,month,day,hour,min,sec\fP
+The date-time to add the time interval to.  All the arguments, i.e.,
+\fIyear\fP through \fIsec\fP, are integer values.  If the date-time is
+not specified with this option, it must be specified as an operand.
+.sp
+.TP
+\fB-h\fP \fIhours\fP
+The number of hours in the time interval to add to the date-time.  \fIhours\fP
+may be negative, and may be a decimal number to indicate a portion of
+an hour, for example, 1.5 for one and a half hours. (default: 0)
+.sp
+.TP
+\fB-m\fP \fIminutes\fP
+The number of minutes in the time interval to add to the date-time.
+\fIminutes\fP may be negative, and may be a decimal number to indicate a
+portion of an minute, for example, 2.5 for two minutes and 30 seconds.
+(default: 0)
+.sp
+.TP
+\fB-s\fP \fIseconds\fP
+The number of seconds in the time interval to add to the date-time.
+\fIseconds\fP may be negative; however, unlike the hours and minutes, it
+must be an integer. (default: 0)
+.PP
+At least one of the \fB-h\fP, \fB-m\fP and \fB-s\fP options must be
+specified.  If two or more of these options are given, then the time
+interval consists of their sum.
+.TP
+\fB-v\fP
+Verbose mode.  This option causes the given date-time, the time interval,
+and the resulting date-time to be printed in an English format on
+standard error.  For example,
+.sp
+.nf
+.ft CR
+    Thu Oct  1 12:00:00 1998
+     + 3.000000 hours    ===> Thu Oct  1 15:00:00 1998
+.ft R
+.fi
+.SH OPERANDS
+.TP
+\fIdate-time\fP
+The date-time to add the time interval to.  The format of \fIdate-time\fP
+is the same as the default format for
+\fBcvtime\fP: "%Y_%m_%d+%H:%M:%S",
+e.g., "1963_12_04+12:34:56".  If the date-time is not specified as an
+operand, then it must be specified with the \fB-d\fP option.
+.SH EXAMPLES
+.PP
+To add 4.6 hours to June 22nd, 1990, 9:00 am:
+.sp
+.nf
+.ft CR
+     addtime -d 1990,6,22,9,0,0 -h 4.6
+.ft R
+.fi
+
+.PP
+The following example has a fragment of a sh shell script that produces a
+series of 100 date-times starting at midnight on October 1, 1997 with an
+interval of an hour and half:
+.sp
+.nf
+.ft CR
+    interval="-h 1.5"
+    dt="1997_10_01+00:00:00"
+    i=1
+    while [ $i -le 100 ] ; do
+        printf "$dt\\n"
+        dt=`addtime $interval $dt`
+        i=`expr $i + 1`
+    done
+.ft R
+.fi
+
+.PP
+In the example above, the interval could have been also specified in
+one of these alternative ways:
+.sp
+.nf
+.ft CR
+    interval="-h 1 -m 30"
+    interval="-m 90"
+.ft R
+.fi
+
+.PP
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.PP
+.SH HISTORY
+.TP
+Sep 1990
+Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+.sp
+.TP
+Sep 1992
+Changed to use mktime instead of timegm and not do
+arithmetic on time_t's.  Dana Jacobsen, ERL-C.
+.sp
+.TP
+Aug 1993
+Changed to split time in two parts to avoid integer
+overflow and round answer.  Dana Jacobsen, ERL-C.
+.sp
+.TP
+Aug 1997
+Converted to Version 2.0; eliminated the \fB-c\fP option
+(output UNIX clock time (seconds since 1/1/1970)).
+Danny Marks, USGS, ERL-C.
+.sp
+.TP
+Nov 1998
+Allow the date-time to specified as an operand using the
+same format as \fBcvtime\fP's operand.  Also added the
+\fB-m\fP and \fB-s\fP options.  J. Domingo, OSU
+.SH SEE ALSO
+.TP
+IPW
+\fBcvtime\fP,

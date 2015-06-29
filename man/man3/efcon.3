@@ -1,0 +1,40 @@
+.TH "efcon" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBefcon\fP - calculates equivalent thermal conductivity
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include	"ipw.h"
+#include	"envphys.h"
+
+double
+efcon(
+     double  k,     /* layer thermal conductivity (J/(m K sec)) */
+     double  t,     /* layer temperature (K)                    */
+     double  p)     /* air pressure (Pa)                        */
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBefcon\fP calculates the effective thermal conductivity for a layer
+accounting for both conduction and vapor diffusion.
+Saturation within the layer is assumed.
+See page 46 of reference below.
+.SH RETURN VALUE
+.PP
+effective thermal conductivity (J/(m K sec))
+.SH HISTORY
+.TP
+Jul 1984
+written by D. Marks, CSL (GSFC), UCSB;
+.sp
+.TP
+May 1995
+Ported from QDIPS to IPW.  J. Domingo, OSU.
+.SH SEE ALSO
+.PP
+Anderson 1976
+.br

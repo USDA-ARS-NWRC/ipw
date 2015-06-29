@@ -1,0 +1,3 @@
+%define(name,"set_history")
+%define(description,"set history of an image's band")
+%define(category,"image")

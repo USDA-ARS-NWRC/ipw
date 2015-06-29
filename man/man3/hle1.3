@@ -1,0 +1,59 @@
+.TH "hle1" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBhle1\fP - sensible and latent heat from data at 1 height
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+#include "envphys.h"
+
+int
+hle1(
+      double   press,   /* air pressure (Pa)   		        */
+      double   ta,      /* air temperature (K) at height za     */
+      double   ts,      /* surface temperature (K)   	        */
+      double   za,      /* height of air temp measurement (m)   */
+      double   ea,      /* vapor pressure (Pa) at height zq     */
+      double   es,      /* vapor pressure (Pa) at surface       */
+      double   zq,      /* height of spec hum measurement (m)   */
+      double   u,       /* wind speed (m/s) at height zu        */
+      double   zu,      /* height of wind speed measurement (m) */
+      double   z0,      /* roughness length (m)   		*/
+
+   /* output variables */
+
+      double  *h,       /* sens heat flux (+ to surf) (W/m^2)   */
+      double  *le,      /* latent heat flux (+ to surf) (W/m^2) */
+      double  *e)       /* mass flux (+ to surf) (kg/m^2/s)     */
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBhle1\fP computes sensible and latent heat flux and mass flux given
+measurements of temperature and specific humidity at surface
+and one height, wind speed at one height, and roughness
+length.  The temperature, humidity, and wind speed measurements
+need not all be at the same height.
+.SH RETURN VALUE
+.sp
+.nf
+.ft CR
+     0      successful calculation
+    -1      no convergence
+    -2      bad input
+.ft R
+.fi
+.SH HISTORY
+.TP
+Jun 1987
+Written as a Qdips program by J. Dozier, CRSEO, UCSB;
+.sp
+.TP
+Oct 1990
+Translated into IPW by K. Longley, OSU, ERLC;
+.SH SEE ALSO
+.PP
+Brutsaert 1982
+.br

@@ -1,0 +1,47 @@
+.TH "sherror" "1" "5 March 2015" "IPW v2" "IPW Shell-Library Commands"
+.SH NAME
+.PP
+\fBsherror\fP - standard IPW error message for shell scripts
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBsherror\fP \fIpgm\fP \fImessage\fP [ \fIfile\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBsherror\fP is an error message generator that may be called by IPW shell
+scripts.  The error messages are printed in a similar format to the
+IPW error message standard for C programs.
+.SH OPTIONS
+.PP
+None.
+.SH OPERANDS
+.TP
+\fIpgm\fP
+Name of the script that generated the error.
+.TP
+\fImessage\fP
+Message explaining the error.
+.TP
+\fIfile\fP
+Name of file that error is associated with.
+.SH EXAMPLES
+.sp
+.nf
+.ft CR
+\fBsherror\fP $0 "$1: unsupported option"
+
+\fBsherror\fP $0 "can't access file" $filename
+.ft R
+.fi
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.PP
+Always exits with nonzero status.
+.SH RESTRICTIONS
+.PP
+None.

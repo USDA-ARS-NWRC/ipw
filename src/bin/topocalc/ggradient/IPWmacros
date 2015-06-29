@@ -1,0 +1,3 @@
+%define(name,"ggradient")
+%define(description,"slope and aspect from elevation (global-scale)")
+%define(category,"Topographic Calculations")

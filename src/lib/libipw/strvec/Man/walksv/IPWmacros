@@ -1,0 +1,3 @@
+%define(name,"walksv")
+%define(description,"step through strings in strvec")
+%define(category,"strvec")

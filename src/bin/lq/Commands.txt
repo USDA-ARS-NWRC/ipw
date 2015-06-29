@@ -1,0 +1,7 @@
+
+Linear Quantization
+
+  lqmm    - find minimum and maximum in LQ headers for set of IPW images
+  requant - modify the linear quantization of an IPW image
+  lqhx    - modify an IPW image's linear quantization wth new LQ header
+  pix2fp  - map pixel values to floating-point values using image's LQ header

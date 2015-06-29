@@ -1,0 +1,87 @@
+.TH "mkwinh" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBmkwinh\fP - add a window (WIN) header to an image
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBmkwinh\fP [ \fB-b\fP \fIline\fP,\fIsample\fP ] [ \fB-d\fP \fIdline\fP,\fIdsamp\fP ] [ \fB-f\fP ] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBmkwinh\fP constructs an IPW window header (WINH) and inserts it into
+the headers of \fIimage\fP (default: standard input).  If the specified
+bands already have WIN headers, they are overridden, and a warning
+message is generated.
+.PP
+If the \fB-f option is specified, then only the headers are written to
+the standard output, and any input image data is ignored.
+.PP
+The "win" header will always be applied to all bands of the image.
+.SH OPTIONS
+.TP
+\fB-b\fP \fIline\fP,\fIsample\fP
+\fIline\fP,\fIsample\fP are the window coordinates of line 0 and
+sample 0 in the input image (default: 0,0).
+.sp
+.TP
+\fB-d\fP \fIdline\fP,\fIdsamp\fP
+\fIdline\fP,\fIdsamp\fP are the window line and sample spacings in
+the input image (default: 1,1).
+.sp
+.TP
+\fB-f\fP
+Force header output only.  Do not attempt to copy pixel
+data from \fIimage\fP to the standard output.  Note that there
+must still be at least an input BIH, and any input headers
+(except superseded "win" headers) will still be copied to
+the standard output.
+.SH OPERANDS
+.TP
+\fIimage\fP
+input image (default: standard input)
+.SH EXAMPLES
+.PP
+To add a window header indicating that the window coordinates of
+the image origin are line 7, sample 5:
+.sp
+.nf
+.ft CR
+	mkwinh -b 7,5
+.ft R
+.fi
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.PP
+None.
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.TP
+Jul 1990
+Written by James Frew, UCSB.
+.sp
+.TP
+Apr 1993
+Ran through Purify.  Dana Jacobsen, ERL-C.
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO
+.TP
+IPW:
+\fBflip\fP,
+\fBmkbih\fP,
+\fBprhdr\fP,
+\fBrmhdr\fP,
+\fBtranspose\fP,
+\fBwindow\fP,
+\fBzoom\fP
+.PP
+Frew 1990
+.br

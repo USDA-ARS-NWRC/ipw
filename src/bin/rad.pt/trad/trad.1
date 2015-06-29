@@ -1,0 +1,153 @@
+.TH "trad" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBtrad\fP - incoming thermal radiation at one elevation
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBtrad\fP \fB-z\fP \fIelev\fP [ \fB-m\fP ] [ \fB-c\fP ] [ \fB-K\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Trad is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as "qdips" (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+.PP
+Trad calculates incoming longwave radiation from the atmosphere
+on a horizontal surface for a specified elevation for a clear atmosphere
+from input pairs of air temperature and vapor pressure.
+(After Marks and Dozier, 1979).
+.PP
+Input is to stdin; output to stdout.
+.SH OPTIONS
+.TP
+\fB-z\fP \fIelev\fP
+\fIelev\fP is the specified elevation in meters.
+.sp
+.TP
+\fB-m\fP
+The input values for vapor pressure are in millibars.
+(default: Pa).
+.sp
+.TP
+\fB-c\fP
+Also output thermal rad for very cloudy atmosphere.
+(cloud emissivity: 0.998).
+.sp
+.TP
+\fB-K\fP
+The input values for air temperatures is in degrees K
+(default: C).
+.SH OPERANDS
+.PP
+None.
+.SH EXAMPLES
+.PP
+To calculate incoming thermal radiation at the Park City weather station,
+using the following input data set:
+.sp
+.nf
+.ft CR
+	ta	vp
+	8	540
+	10	560
+	6	520
+	3	490
+	0	495
+.ft R
+.fi
+
+.sp
+.nf
+.ft CR
+	trad -z 2940
+.ft R
+.fi
+.PP
+yields:
+.sp
+.nf
+.ft CR
+	208.15
+	214.98
+	201.46
+	191.69
+	184.16
+.ft R
+.fi
+
+.sp
+.nf
+.ft CR
+	trad -z 2940 -c
+.ft R
+.fi
+.PP
+yields:
+.sp
+.nf
+.ft CR
+	208.15	350.5
+	214.98	360.12
+	201.46	340.20
+	191.69	325.81
+	184.16	311.88
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     None
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+None
+.SH RESTRICTIONS
+.PP
+None
+.SH HISTORY
+.TP
+May 1986
+	Written by D. Marks, CSL, UCSB;
+.TP
+Jun 1995
+	Converted to IPW by J. Domingo, OSU, EPA NHEERL/WED
+.SH BUGS
+.PP
+None that we know of
+.SH SEE ALSO
+.TP
+IPW
+\fBstandard cvtime\fP,
+\fBalbedo\fP,
+\fBbowvap\fP,
+\fBdewpt\fP,
+\fBgsnow\fP,
+\fBmse\fP,
+\fBpenmonx\fP,
+\fBpmx\fP,
+\fBpott\fP,
+\fBptaylorx\fP,
+\fBptx\fP,
+\fBrh2vp\fP,
+\fBsatvp\fP,
+\fBsling\fP,
+\fBsoilt\fP,
+\fBsoiltmp\fP,
+\fBsrftmp\fP,
+\fBswe\fP,
+\fBswp\fP,
+\fBthermin\fP,
+\fBtrb_Ri\fP,
+\fBtrbxfr\fP,
+\fBvptr\fP,
+\fBzpr\fP
+.PP
+Marks & Dozier 1979,
+Brutsaert 1975

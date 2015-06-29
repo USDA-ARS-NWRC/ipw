@@ -1,0 +1,3 @@
+%define(name,"gviewf-mp")
+%define(description,"multi-processor version of 'gviewf' command")
+%define(category,"Topographic Calculations")

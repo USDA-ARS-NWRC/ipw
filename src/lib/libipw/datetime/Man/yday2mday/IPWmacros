@@ -1,0 +1,3 @@
+%define(name,"yday2mday")
+%define(description,"convert yearday into month and day")
+%define(category,"datetime")

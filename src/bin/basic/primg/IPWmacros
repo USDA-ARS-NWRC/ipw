@@ -1,0 +1,3 @@
+%define(name,"primg")
+%define(description,"print pixel specified by line,sample coordinates as text")
+%define(category,"Basic Image Commands")

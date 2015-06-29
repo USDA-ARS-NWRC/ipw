@@ -1,0 +1,136 @@
+.TH "trad_can" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBtrad_can\fP - compute below canopy thermal radiation (Mel's model)
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBtrad_can\fP \fB-K\fP [\fB-v\fP \fIcanopy emiss\fP ] [ \fB-s\fP \fIsnow emiss\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fItrad_can\fP is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as "qdips" (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+.PP
+\fItrad_can\fP calculates incoming longwave radiation below a canopy,
+acounting for multiple scattering, absorbtions, and re-emission
+contributions from the atmosphere and the canopy.
+on a horizontal surface from input of atmospheric longwave radiation,
+LAI, canopy temperature, and surface temperature.
+It is based on work done by M. Tribbeck's dissertation (University of
+Reading, UK, 2002).
+.PP
+Canopy thermal transmissivity and reflectivity coefs are calculated by
+a third order exponential integral function from Numerical Recipies in
+Fortran 90, converted to C by D. Marks.
+.PP
+Output is total below canopy longwave at the surface,
+total longwave from the surface, net longwave,
+and above canopy longwave to the atmosphere.
+.PP
+Input is to stdin; output to stdout.
+.SH OPTIONS
+.PP
+.TP
+\fB-K\fP
+The input values for canopy and surface temperatures in degrees K
+(default: C).
+.TP
+\fB-v\fP \fIemiss_v\fP
+\fIemiss_v\fP is the canopy emissivity (0-1.0)
+(default: 0.99)
+.TP
+\fB-s\fP \fIemiss_s\fP
+\fIemiss_s\fP is the surface emissivity (0-1.0)
+(default: 0.99)
+.SH OPERANDS
+.PP
+None.
+.SH EXAMPLES
+.PP
+To calculate incoming thermal radiation below canopy
+densities varying from 0 (no canopy) to 7.5 (very dense)
+using the following input data set ("testfile"):
+.sp
+.nf
+.ft CR
+	lw_in  lai Tc  Ts
+	=====  === === ===
+	 250   0.0 270 273
+	 250   0.5 270 273
+	 250   1.0 270 273
+	 250   1.5 270 273
+	 250   2.0 270 273
+	 250   2.5 270 273
+	 250   3.0 270 273
+	 250   3.5 270 273
+	 250   4.0 270 273
+	 250   4.5 270 273
+	 250   5.0 270 273
+	 250   5.5 270 273
+	 250   6.0 270 273
+	 250   6.5 270 273
+	 250   7.0 270 273
+	 250   7.5 270 273
+.ft R
+.fi
+.PP
+The command "trad_can -K < testfile" yields:
+.sp
+.nf
+.ft CR
+	lw_in   lw_out  lw_net  lw_can
+	======  ======  ======  ======
+	250.00  314.31  -64.31  314.31
+	267.94  314.49  -46.56  309.81
+	278.48  314.60  -36.12  307.11
+	285.32  314.67  -29.35  305.34
+	289.93  314.71  -24.78  304.13
+	293.12  314.74  -21.63  303.29
+	295.35  314.77  -19.42  302.70
+	296.94  314.78  -17.85  302.28
+	298.07  314.79  -16.72  301.98
+	298.89  314.80  -15.91  301.76
+	299.49  314.81  -15.32  301.60
+	299.92  314.81  -14.89  301.48
+	300.24  314.81  -14.57  301.40
+	300.48  314.82  -14.34  301.34
+	300.65  314.82  -14.17  301.29
+	300.78  314.82  -14.04  301.26
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     None
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+None
+.SH RESTRICTIONS
+.PP
+None
+.SH HISTORY
+.TP
+Jul 2002
+	Written by D. Marks and M. Tribbeck, ARS-NWRC, Boise, Id;
+.SH BUGS
+.PP
+None that we know of
+.SH SEE ALSO
+.TP
+IPW
+\fBalbedo\fP,
+\fBthermin\fP,
+\fBtrad\fP,
+\fBvptr\fP
+.PP
+Tribbeck 2002,
+Press, Vetterling, Teukolsky, Flannery 1999

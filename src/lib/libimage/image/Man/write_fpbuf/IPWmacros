@@ -1,0 +1,3 @@
+%define(name,"write_fpbuf")
+%define(description,"write floating-point pixels from buffer to image")
+%define(category,"image")

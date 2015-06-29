@@ -1,0 +1,92 @@
+.TH "humidx" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBhumidx\fP - mean daily vapor pressure from min & max air temperatures
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBhumidx\fP [\fI <infile \fP]\fI \fP[\fI >outfile \fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBhumidx\fP calculates mean daily vapor pressure using minimum daily air
+temperature as a surrogate for mean daily dew point.
+Estimated vapor pressure is adjusted using an aridity index
+derived from \fIPriestley-Taylor (1972)\fP, daily ET estimates and
+annual precipitation.
+The program reads input from a file or from stdin:
+.sp
+.nf
+.ft CR
+	Rn, tx, tn, daylen, pcp, PcpYR,
+.ft R
+.fi
+
+.sp
+.nf
+.ft CR
+	Rn	= Net radiation (W/m2)
+	tx	= Maximum 24hr air temperature (C)
+	tn	= Minimum 24hr air temperature (C)
+	daylen	= length of daylight (s)
+	pcp	= daily precipitation (mm)
+	PcpYR	= Annual precipitation for site (mm)
+.ft R
+.fi
+
+.PP
+Output is to stdout.
+Use Daily data
+.PP
+Assumptions:
+.PP
+G is 10% of Rn; Priestley-Taylor parameter=1.26
+(Priestley and Taylor 1972). If daily pcp>0.0
+tn=dewpoint.
+.PP
+recommended for arid and semi-arid areas where differences
+between dewpoint and Tn are generally large
+(see \fIKimball et al. 1997\fP).
+.SH OPTIONS
+.PP
+none
+.SH OPERANDS
+.PP
+none
+.SH EXAMPLES
+.PP
+none
+.SH FILES
+.PP
+none
+.SH DIAGNOSTICS
+.sp
+.TP
+terminates with error message;
+.SH RESTRICTIONS
+.PP
+none
+.SH HISTORY
+.TP
+Feb 1996
+written by John Kimball, NTSG Forestry,
+University of Montana
+.TP
+Jun 1997
+added daily precipitation as an input
+to filter data, John Kimball, NTSG, U of M
+.SH BUGS
+.PP
+none
+.SH SEE ALSO
+.TP
+IPW:
+\fBdeltaT\fP,
+\fBvptr\fP
+.PP
+Campbell 1977,
+Kimball, Running, Nemani 1997,
+Priestley, Taylor 1972,
+Running, Coughlan 1988

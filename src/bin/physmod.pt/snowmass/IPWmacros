@@ -1,0 +1,3 @@
+%define(name,"snowmass")
+%define(description,"simple snowmelt model based on daily radiation")
+%define(category,"Physical Modeling: Point")

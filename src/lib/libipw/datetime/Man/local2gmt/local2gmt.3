@@ -1,0 +1,42 @@
+.TH "local2gmt" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBlocal2gmt\fP - convert a local date-time into GMT (UTC)
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+void
+local2gmt(
+	datetime_t     *dt,	|* local date-time		 *|
+	int		zone,	|* local time zone (minutes of
+				   time west of Greenwich)       *|
+	bool_t		isDST)	|* daylight savings time?	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBlocal2gmt\fP converts a local date-time into Greenwich Mean Time (GMT)
+which is also known as Coordinated Universal Time (UTC).  The
+local time zone is specified by the number of minutes of time
+west of Greenwich.  isDST indicates where or not daylight savings
+time is in effect for the local time zone.
+.SH RETURN VALUE
+.PP
+None.
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

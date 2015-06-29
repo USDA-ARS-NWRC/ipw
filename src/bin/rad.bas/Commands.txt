@@ -1,0 +1,13 @@
+
+Radiation Modeling: Basin-Scale
+
+  elevrad    - beam and diffuse radiation from elevation
+  selevrad   - beam and diffuse radiation from elevation over snow
+  toporad    - topographically-corrected solar radiation
+  stoporad   - topographically-corrected solar radiation over snow
+  toporad.24 - topographically-corrected solar radiation for 24-hour period
+  topotherm  - atmospheric thermal radiation over a topographic grid
+  topquad    - daily integrated radiation over a topographic grid
+  tcloud     - cloudiness attenuation of solar radiation
+  cf_cloud   - cloud attenuation of beam and diffuse solar radiation
+  th_adj     - thermal radiation adjustment for veg, clouds or both

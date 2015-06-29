@@ -1,0 +1,1 @@
+classeq - separate pixels into classess defined by equal area histogram

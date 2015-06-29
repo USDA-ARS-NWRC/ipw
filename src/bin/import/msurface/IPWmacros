@@ -1,0 +1,3 @@
+%define(name,"msurface")
+%define(description,"version of 'surface' command optimized for multiple images")
+%define(category,"Importing Image Data")

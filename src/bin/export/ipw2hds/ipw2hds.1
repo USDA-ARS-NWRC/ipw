@@ -1,0 +1,78 @@
+.TH "ipw2hds" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBipw2hds\fP - convert IPW image to HDS sixel format
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBipw2hds\fP [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBipw2hds\fP reads an IPW image (default: standard input) and writes an
+equivalent image in HDS sixel format to the standard output.  The
+output is suitable for display on an HDS 3200 series terminal
+without further processing.
+.SH OPTIONS
+.PP
+Nonw
+.SH OPERANDS
+.TP
+[\fIimage\fP]
+	image
+.sp
+.SH EXAMPLES
+.PP
+To display "image" on an HDS 3200 terminal:
+.sp
+.nf
+.ft CR
+	dither image | ipw2hds
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     None
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+input image must be single-band
+.sp
+.TP
+input image must have 1-bit pixels
+.SH RESTRICTIONS
+.PP
+The input image must have 1 band and 1 bit per pixel.
+.PP
+\fBipw2hds\fP may be usable with other sixel-oriented devices such as
+DEC printers, but this has not been tested.
+.SH HISTORY
+.TP
+Jul 1990
+	Written by James Frew, UCSB.
+.SH BUGS
+.PP
+None that we know of
+.SH SEE ALSO
+.TP
+IPW
+	\fBdemux\fP,
+\fBdither\fP,
+\fBipw2pbm\fP,
+\fBipw2pgm\fP,
+\fBipw2ppm\fP,
+\fBipw2ps\fP,
+\fBipw2sun\fP,
+	\fBipw2xim\fP
+.TP
+Image
+	ppmtosixel xli, xloadimage, xv
+.PP
+"HDS3200 Programmer's Reference Manual", Human Designed Systems,
+Philadelphia, 1988, # DN-13C4-8802-1

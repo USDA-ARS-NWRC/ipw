@@ -1,0 +1,3 @@
+%define(name,"trad")
+%define(description,"incoming thermal radiation at one elevation")
+%define(category,"Radiation Modeling: Point")

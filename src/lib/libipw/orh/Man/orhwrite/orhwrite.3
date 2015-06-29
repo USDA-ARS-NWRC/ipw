@@ -1,0 +1,37 @@
+.TH "orhwrite" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBorhwrite\fP - write an IPW ORH header
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "file.h"
+
+int
+orhwrite(
+	int       fd,		|* output file descriptor	 *|
+	ORH_T   **orhpp)	|* -> array of ORH pointers	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBorhwrite\fP writes the array of ORH headers pointed to by orhpp to file
+descriptor fd.
+.SH RETURN VALUE
+.PP
+OK for success, ERROR for failure
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

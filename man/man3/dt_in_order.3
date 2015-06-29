@@ -1,0 +1,32 @@
+.TH "dt_in_order" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBdt_in_order\fP - are two date-times in chronological order?
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+bool_t
+dt_in_order(
+     datetime_t  *dt1,       /* first date-time                  */
+     datetime_t  *dt2)       /* second date-time                 */
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBdt_in_order\fP determines if the two given date-times are in
+chronological order.
+.SH RETURN VALUE
+.PP
+TRUE
+The first date-time is either before or the same as the second
+date-time.
+.PP
+FALSE  The first date-time is after the second date-time.
+.SH HISTORY
+.TP
+Oct 1997
+Written by J. Domingo, OSU.

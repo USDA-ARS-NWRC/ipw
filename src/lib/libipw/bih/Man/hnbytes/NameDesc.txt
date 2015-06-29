@@ -1,0 +1,1 @@
+hnbytes - number of bytes in image band

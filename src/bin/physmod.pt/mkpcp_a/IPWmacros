@@ -1,0 +1,3 @@
+%define(name,"mkpcp_a")
+%define(description,"make precip files for 'snobal' command with adj for Ta")
+%define(category,"Physical Modeling: Point")

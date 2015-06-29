@@ -1,0 +1,3 @@
+%define(name,"gethdrs")
+%define(description,"process IPW image headers")
+%define(category,"gethdrs")

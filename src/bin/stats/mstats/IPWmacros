@@ -1,0 +1,3 @@
+%define(name,"mstats")
+%define(description,"multivariate statistics for an IPW image")
+%define(category,"Image Statistics")

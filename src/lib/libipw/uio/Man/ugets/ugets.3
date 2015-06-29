@@ -1,0 +1,52 @@
+.TH "ugets" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBugets\fP - read a line from a UNIX file descriptor
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+char *
+ugets(
+	int      fd,		|* input file descriptor	 *|
+	char    *buf,		|* -> input buffer		 *|
+	int      nbytes)	|* #bytes to read		 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBugets\fP reads bytes from fd into buf, until any of the following are
+true:
+.PP
+-- nbytes-1 bytes have been read and transferred to buf
+-- a newline character ('\\n') has been read and transferred to buf
+-- an end-of-file condition is encountered on fd
+.PP
+An EOS character ('\\0') is placed after the last byte transferred to
+buf (i.e., on return, buf will be a null-terminated C string).
+.PP
+\fBugets\fP is analogous to the UNIX stdio routine fgets.
+.PP
+Use \fBugets\fP for efficient input of ASCII text (e.g., image headers)
+from IPW data files.
+.SH RETURN VALUE
+.PP
+buf	The read was successful.
+.PP
+NULL	An error occurred or end-of-file was encountered.
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+_uiocb
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

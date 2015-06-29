@@ -1,0 +1,1 @@
+swp - soil water potential (SWP) and hydaulic conductivities

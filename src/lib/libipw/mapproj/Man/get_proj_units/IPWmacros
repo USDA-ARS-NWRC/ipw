@@ -1,0 +1,3 @@
+%define(name,"get_proj_units")
+%define(description,"get name for projection units ID")
+%define(category,"mapproj")

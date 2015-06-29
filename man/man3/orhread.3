@@ -1,0 +1,51 @@
+.TH "orhread" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBorhread\fP - read an IPW ORH header
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "orh.h"
+
+ORH_T **
+orhread(
+	int     fd)		|* image file descriptor	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBorhread\fP reads a ORH image header from file descriptor fd.  An array
+of ORH_T pointers is allocated, one per band.  If a band has a ORH
+header, then an ORH_T header is allocated and its address is placed
+in the corresponding array element; otherwise, the corresponding
+array element is NULL.
+.PP
+Before calling \fBorhread\fP, the caller must verify (by calling hrname())
+that a ORH header is available for ingesting.
+.PP
+\fBorhread\fP is called by application programs to ingest ORH headers.
+.SH RETURN VALUE
+.PP
+pointer to array of ORH_T pointers; else NULL if EOF or error
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.sp
+.TP
+can't allocate array of "or" header pointers
+"or" header: bad band "\fIband\fP"
+can't allocate "or" header
+"or" header: key "\fIkey\fP" has no value
+"or" header: bad key "\fIkey\fP"
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

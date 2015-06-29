@@ -1,0 +1,1 @@
+ezint - time integration or averaging of time,y data pairs

@@ -1,0 +1,3 @@
+%define(name,"ipow2")
+%define(description,"compute integral powers of 2")
+%define(category,"math")

@@ -1,0 +1,42 @@
+.TH "tmpt" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBtmpt\fP - make IPW image from Thematic Mapper (TM) image on tape
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBtmpt\fP [ \fB-b\fP \fIband\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBtmpt\fP reads a TM image off of tape and writes an IPW file.
+.SH OPTIONS
+.TP
+\fB-b\fP \fIband\fP
+Which band to read (default: 1).
+.SH OPERANDS
+.PP
+None.
+.SH EXAMPLES
+.SH FILES
+.sp
+.nf
+.ft CR
+     The output file will be 2983 lines by 4220 samples.  It will have
+     "lq" (linear quantization), "sun", and "sat" headers.
+.ft R
+.fi
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+The tape device read is /dev/nrmt0.
+.SH HISTORY
+.TP
+Nov 1990
+	Written by James Frew, UCSB.
+.SH SEE ALSO
+.TP
+UNIX
+	dd

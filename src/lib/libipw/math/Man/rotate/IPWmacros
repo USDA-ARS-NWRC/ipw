@@ -1,0 +1,3 @@
+%define(name,"rotate")
+%define(description,"rotation of spherical coordinates")
+%define(category,"math")

@@ -1,0 +1,3 @@
+%define(name,"access")
+%define(description,"get pixel-access level of an image")
+%define(category,"image")

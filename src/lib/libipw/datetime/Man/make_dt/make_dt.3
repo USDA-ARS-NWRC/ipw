@@ -1,0 +1,44 @@
+.TH "make_dt" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBmake_dt\fP - create a new date-time structure
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+datetime_t *
+make_dt(
+	int             year,		|* e.g., 1997		*|
+	int             month,		|* [1 - 12]		*|
+	int             day,		|* [1 - 31]		*|
+	int             hour,		|* [0 - 23]		*|
+	int             min,		|* [0 - 59]		*|
+	int             sec)		|* [0 - 59]		*|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBmake_dt\fP creates a new date-time structure, and fills its fields
+in with the given date and time values.  It also checks to see
+if the given values are valid.
+.SH RETURN VALUE
+.PP
+non-NULL	pointer to new date-time structure
+.PP
+NULL		error occurred, and message stored via 'usrerr'
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

@@ -1,0 +1,3 @@
+%define(name,"snobal")
+%define(description,"energy balance snowmelt model with 2 snow layers")
+%define(category,"Physical Modeling: Point")

@@ -1,0 +1,3 @@
+%define(name,"imath")
+%define(description,"calculate an arithmetic expression over each sample's pixels")
+%define(category,"(test)")

@@ -1,0 +1,3 @@
+%define(name,"orhread")
+%define(description,"read an IPW ORH header")
+%define(category,"orh")

@@ -1,0 +1,38 @@
+.TH "fpvwrite" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBfpvwrite\fP - write floating-point vectors
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "fpio.h"
+
+int
+fpvwrite(
+	int             fd,	  |* input file descriptor	 *|
+	fpixel_t       *buf,	  |* -> pixel buffer		 *|
+	int             npixv)	  |* # pixel vectors to write	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBfpvwrite\fP writes npixv floating-point vectors from buf into file
+descriptor fd.
+.SH RETURN VALUE
+.PP
+number of floating-point vectors written; else ERROR for failure
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+_fpiocb
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

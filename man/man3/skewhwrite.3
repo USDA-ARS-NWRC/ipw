@@ -1,0 +1,37 @@
+.TH "skewhwrite" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBskewhwrite\fP - write an IPW SKEWH header
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "file.h"
+
+int
+skewhwrite(
+	int             fd,	   |* output file descriptor	 *|
+	SKEWH_T       **skewhpp)   |* -> array of SKEWH pointers *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBskewhwrite\fP writes the array of SKEWH headers pointed to by skewhpp
+to file descriptor fd.
+.SH RETURN VALUE
+.PP
+OK for success, ERROR for failure
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

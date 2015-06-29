@@ -1,0 +1,3 @@
+%define(name,"basin")
+%define(description,"delineate a basin")
+%define(category,"topo")

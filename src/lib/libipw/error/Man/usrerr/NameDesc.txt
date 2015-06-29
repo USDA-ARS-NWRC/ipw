@@ -1,0 +1,1 @@
+usrerr - log user's error message string

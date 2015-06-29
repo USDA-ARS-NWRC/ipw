@@ -1,0 +1,3 @@
+%define(name,"ugets")
+%define(description,"read a line from a UNIX file descriptor")
+%define(category,"uio")

@@ -1,0 +1,22 @@
+
+datetime - dates and times
+
+  add_to_dt   - add given 
+  dt2fmtstr   - (dt2fmtstr's description)
+  dt2str      - convert a local date-time into a string
+  dt_diff     - compute difference between two date-times
+  dt_in_order - are two date-times in chronological order?
+  gmt2local   - convert a gmt (UTC) date-time into local date-time
+  leapyear    - is a given year a leap year?
+  local2gmt   - convert a local date-time into GMT (UTC)
+  make_dt     - create a new date-time structure
+  now_dt      - (now_dt's description)
+  numdays     - return number of days in a month
+  sec2hms     - converts total seconds into hours, minutes, seconds
+  str2dt      - (str2dt's description)
+  waterday    - returns day of water year for a given date
+  wday2mday   - converts a waterday into a month and day
+  weekday     - returns the day of the week for a given date
+  yday2mday   - convert yearday into month and day
+  yearday     - returns the yearday (day of year) for a given date
+  zone2str    - convert time zone (in minutes) to string

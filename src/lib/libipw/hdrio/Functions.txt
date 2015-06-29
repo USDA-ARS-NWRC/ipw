@@ -1,0 +1,13 @@
+
+hdrio - image header I/O
+
+  hcopy    - copy headers
+  hdralloc - allocate an IPW image header
+  hgetrec  - read and decode header record
+  hpass    - copy header records
+  hputrec  - encode and write a header record
+  hrband   - get current header band number
+  hrname   - get name of current input image header
+  hrskip   - skip input header records
+  hrvers   - get current header version string
+  hwprmb   - write preamble record

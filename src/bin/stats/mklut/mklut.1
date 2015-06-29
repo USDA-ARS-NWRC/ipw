@@ -1,0 +1,110 @@
+.TH "mklut" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBmklut\fP - make an IPW look-up table
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBmklut\fP [ \fB-i\fP \fIin_nbits\fP ] [ \fB-o\fP \fIout_nbits\fP ] [ \fB-k\fP \fIbkgd\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBmklut\fP creates an IPW lookup table and writes it to the standard
+output.  The lookup table is filled in with text values read from
+the standard input in the form:
+.sp
+.nf
+.ft CR
+	in	out
+.ft R
+.fi
+
+.PP
+\fBmklut\fP sets the \fIin\fPth element (relative to 0) of the lookup table
+to \fIout\fP.  The input lines must be sorted so that the \fIin\fP values
+are in numerically ascending order.
+.PP
+Unreferenced LUT locations are set to a default value.
+.SH OPTIONS
+.TP
+\fB-i\fP \fIin_nbits\fP
+number of bits per input image pixel (default: 8).  The
+output lookup table will contain 2^\fIin_nbits\fP entries.
+.sp
+.TP
+\fB-o\fP \fIout_nbits\fP
+number of bits per output image pixel (default: 8).  The
+output lookup table will contain \fIout_nbits\fP-bit pixels.
+.sp
+.TP
+\fB-k\fP \fIbkgd\fP
+default output value (default: 0).
+.PP
+\fB-i, \fB-o, and \fB-k must all have positive non-zero integer arguments.
+.SH OPERANDS
+.PP
+None
+.SH EXAMPLES
+.PP
+To convert "image" with 12-bit pixels to 8-bit pixels with linear
+scaling:
+.sp
+.nf
+.ft CR
+	interp | mklut -i 12 | lutx -i image
+	0 0
+	4095 255
+.ft R
+.fi
+.SH FILES
+.PP
+None
+.SH DIAGNOSTICS
+.sp
+.TP
+can't write lookup table to a terminal
+.br
+	\fBmklut\fP will not write a lookup table to a terminal device.
+.sp
+.TP
+\fIarg\fP: not a positive integer
+.br
+	All arguments must be positive non-zero integers.
+.sp
+.TP
+\fIin_nbits\fP: too many bits per input pixel
+.br
+	A 2^\fIin_nbits\fP-entry lookup table won't fit in memory.
+.sp
+.TP
+mkbih: WARNING: input image larger than header indicates
+.br
+	\fBmklut\fP was given an image with more values than would fit
+	in the input number of bits.
+.SH RESTRICTIONS
+.PP
+Only single-band LUTs may be created.
+.SH HISTORY
+.TP
+Jul 1990
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+.TP
+Aug 1997
+	Converted to IPW Version 2.0 by D. Marks, USGS, ERL-C
+.SH BUGS
+.PP
+None
+.SH SEE ALSO
+.TP
+IPW
+	\fBinterp\fP,
+\fBlutx\fP
+.TP
+UNIX
+	sort
+.PP
+Frew 1990
+.br

@@ -1,0 +1,10 @@
+
+Environmental Physics and Properties: Spatial
+
+  idewpt  - dew point temperature from vapor pressure
+  irh2vp  - convert between relative humidity and vapor pressure
+  isatvp  - saturation vapor pressure from dew point temperature
+  indvi   - normalized difference vegetation index (NDVI)
+  ipott   - sea-level or potential temperature
+  ialbedo - solar albedo for visible and infrared over snow
+  deltaT  - adjusted diurnal temperature range

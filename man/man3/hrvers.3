@@ -1,0 +1,40 @@
+.TH "hrvers" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBhrvers\fP - get current header version string
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "hdrio.h"
+
+char *
+hrvers(
+	int     fd)		|* input file descriptor	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Hrvers returns the version string of the image header currently being
+read from file descriptor fd, or NULL if there is no current image
+header.
+.PP
+Call \fBhrvers\fP after you call hrname, if you need to know the header's
+RCS revision level.
+.SH RETURN VALUE
+.PP
+Current header version string, or NULL.
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+_hdriocb
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

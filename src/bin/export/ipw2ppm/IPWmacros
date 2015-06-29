@@ -1,0 +1,3 @@
+%define(name,"ipw2ppm")
+%define(description,"convert IPW image to Portable Pixel Map (PPM) image")
+%define(category,"Exporting IPW Image Data")

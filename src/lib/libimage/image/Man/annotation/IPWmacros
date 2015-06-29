@@ -1,0 +1,3 @@
+%define(name,"annotation")
+%define(description,"get annotation of an image's band")
+%define(category,"image")

@@ -1,0 +1,3 @@
+%define(name,"mklut")
+%define(description,"make an IPW look-up table")
+%define(category,"Image Statistics")

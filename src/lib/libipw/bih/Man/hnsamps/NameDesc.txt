@@ -1,0 +1,1 @@
+hnsamps - number of samples in image line

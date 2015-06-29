@@ -1,0 +1,3 @@
+%define(name,"prhdr")
+%define(description,"print headers of an IPW image")
+%define(category,"Image Header Manipulation")

@@ -1,0 +1,3 @@
+%define(name,"hrband")
+%define(description,"get current header band number")
+%define(category,"hdrio")

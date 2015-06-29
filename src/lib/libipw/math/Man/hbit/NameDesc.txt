@@ -1,0 +1,1 @@
+hbit - find highest-order bit in integer

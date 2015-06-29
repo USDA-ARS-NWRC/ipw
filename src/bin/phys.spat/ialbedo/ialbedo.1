@@ -1,0 +1,215 @@
+.TH "ialbedo" "1" "25 June 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBialbedo\fP - solar albedo for visible and infrared over snow
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBialbedo\fP [\fB-s\fP \fIstart\fP] \fB-d\fP \fIday\fP \fB-g\fP \fIgsize\fP \fB-m\fP \fImaxgsz\fP \fB-c\fP \fIdirt\fP [ \fB-v\fP ]
+      [ \fB-r\fP ] [\fB-i\fP \fIstorm image\fI] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBialbedo\fP is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties over an area.
+Most were originally written as "qdips" (Quick and Dirty Image
+Processing System) programs to simulate the process at a point
+by D. Marks, during the 1980's at UCSB.
+\fBialbedo\fP is the spatial version of \fBalbedo\fP.
+.PP
+\fBialbedo\fP is designed
+to estimate albedo of snow in either the visible (280-700nm), or solar
+IR (700-2800nm) spectral bands, over an image of cosine solar zenith.
+It is based on work by \fIWarren and Wiscombe (1980), Wiscombe and Warren (1980),
+Marshall and Warren (1986), Marks (1988), and Marks and Dozier (1992)\fP.
+.PP
+Snow albedo is modeled as a function of grain growth, and sun angle;
+Albedo decay is estimated as a function of grain growth by approximating a
+set of theoretical values presented in \fIMarshall and Warren (1986)\fP.
+Reasonable grain growth rates and contamination values are
+based on two years of snow albedo measurements from the Mammoth Mt. snow
+study plot in the eastern Sierra Nevada, California.
+.PP
+Grain growth rate approximated by a second order Chebyshev
+polynomial (see routine \fBgrowth()\fP), as this function fit the
+Mammoth data.  Albedo increase with low solar incidence angles
+are approximated with as a function of cos(z); which also fit
+the Mammoth data.  Both functions give results that approximate
+measured values, and agree with results in \fIChoudhury (1981)\fP,
+and \fIMcGuffie and Henderson-Sellers (1985)\fP, both of which
+present an analysis of the broad band albedo of snow.
+.PP
+\fIMarshall and Warren (1986)\fP show that albedo, when the solar zenith
+is 0, is related to the square root of the grain radius by:
+.sp
+.nf
+.ft CR
+	alb(vis0) = 1.0 - sqrt(gsize)/500;
+	alb(ir0)  = 0.85447 * exp(-0.02123 * sqrt(gsize));
+.ft R
+.fi
+.PP
+This allows a linear alb(vis) decay from about .98 to .90,
+and a non-linear alb(ir) decay from .70 to .40, when given
+reasonable inputs;
+The effect of zenith angle is also related to the sqrt(gsize):
+.sp
+.nf
+.ft CR
+	dzv = (sqrt(gsize) * 1.375e-3) * (1 - cos(z));
+	alb(visz) = alb(vis0) + dzv;
+	dzir = (sqrt(gsize) * 2.0e-3 + 0.1) * (1 - cos(z));
+	alb(irz) = alb(ir0) + dzir;
+.ft R
+.fi
+.PP
+This allows alb(vis) increases from .014 to .068 with zenith
+angle, and alb(ir) increases from .12 to .20 with zenith angle;
+.PP
+The Mammoth data show new snow "gsize" values tend to be around
+100-200 in spring, with larger or smaller values later or
+earlier in the season; "maxgsz" tends to be 500-700 mu m in mid
+season, with values seldom reaching 1000;
+"dirt" is a factor relating the "effective grain size" in the
+visible to that in the IR, as the visible is strongly effected
+by contamination while the IR is not;
+Contamination is site specific but the Mammoth data show
+that the "effective grain size" in the visible is usually
+between 1.5 and 3.0 times what it is in the IR;
+Lower values may be used in early season, and higher in late
+season conditions;
+.PP
+Input image contains cosine local illumination angle.
+.PP
+Output image is written to stdout contains two bands:
+.sp
+.nf
+.ft CR
+	alb(vis) and alb(ir) at each pixel location.
+.ft R
+.fi
+.PP
+If the \fB-v (vis only) or \fB-r (ir only) flag is specified then the
+output image will contain only the specified band.
+If cosz <= 0.0 (sun below horizon), resulting output albedo is set to
+the minimum value (as if cosz = 1.0 - sun directly overhead).
+.SH OPTIONS
+.TP
+\fB-s\fP \fIstart\fP
+time of last snow storm (decimal days)
+.sp
+.TP
+\fB-d\fP \fIday\fP
+current day (decimal days)
+.sp
+.TP
+\fB-g\fP \fIgsize\fP
+effective grain radius of snow after last storm (mu m)
+.sp
+.TP
+\fB-m\fP \fImaxgsz\fP
+maximum grain radius expected from grain growth (mu m)
+.sp
+.TP
+\fB-c\fP \fIdirt\fP
+effective contamination for adjustment to visible albedo
+(usually between 1 and 5 (integer values only))
+.sp
+.TP
+\fB-v\fP
+output visible band only
+.sp
+.TP
+\fB-r\fP
+output IR band only
+.PP
+.TP
+\fB-i\fP \fIstorm image\fP
+IPW image of time of last snow storm (decimal days). If -s and -i are specified, -i will be used.
+.SH OPERANDS
+.TP
+[\fIimage\fP]
+input image containing mu (cosine local solar illumination angle)
+at each pixel location
+.sp
+.SH EXAMPLES
+.PP
+To calculate visible (280-700nm) albedo over snow for 9AM, February 15,
+1995, over a DEM grid of the Park City, UT area:
+.PP
+To get sun angles (zenith and azimuth):
+.sp
+.nf
+.ft CR
+	sunang -i 1995,02,15,09 -b 40,37,12 -l -111,31,58 -z 420 >angles
+.ft R
+.fi
+
+.PP
+To get image of illumnination angles (mu):
+.sp
+.nf
+.ft CR
+	gradient elev_image | shade -z zenith -a azimuth >mu_image
+.ft R
+.fi
+
+.PP
+Then:
+.sp
+.nf
+.ft CR
+	salbedo -s 124.0 -d 137.375 -g 150 -m 600 -c 1 -v mu_image
+.ft R
+.fi
+.SH FILES
+.PP
+None
+.SH DIAGNOSTICS
+.PP
+None
+.SH RESTRICTIONS
+.PP
+None
+.SH HISTORY
+.TP
+Oct 1990
+Adapded from D. Marks point model (QDIPS program \fBalbedo\fP),
+to run over an IPW image, by Kelly Longley, Oregon State
+University, Environmental Research Laboratory, Corvallis
+.TP
+Dec 1990
+Changed output albedo(cosz=0) to minimum (as if cosz=1.0)
+Kelly Longley, OSU, ERL-C
+.TP
+Jun 2015
+Added a distributed storm image to calculate the albedo
+at each pixel which can take into account if the storm didn't precip
+over the entire basin.
+Scott Havens, USDA-ARS
+.SH BUGS
+.PP
+None
+.SH SEE ALSO
+.TP
+IPW
+\fBalbedo\fP,
+\fBglob.alb\fP,
+\fBgradient\fP,
+\fBshade\fP,
+\fBsunang\fP,
+\fBcvtime\fP,
+\fBelevrad\fP,
+\fBselevrad\fP,
+\fBtoporad\fP,
+\fBstoporad\fP
+.PP
+Choudhury 1981,
+Marks 1988,
+Marks 1992b,
+Marshall, Warren 1987,
+McGuffie, Henderson-Sellers 1985,
+Warren 1980,
+Wiscombe 1980

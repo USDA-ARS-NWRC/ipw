@@ -1,0 +1,218 @@
+.TH "imgstat" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBimgstat\fP - statistics for an IPW image
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBimgstat\fP [ \fB-m\fP \fImask\fP ] [ \fB-c\fP ] [ \fB-h\fP \fIhist_file\fP ] [ \fB-a\fP ]
+      [ \fB-u\fP ] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBimgstat\fP reads an \fIimage\fP and computes the
+the minimum, maximum, median, mean, and standard deviation for all
+unmasked pixels.  These are then printed to the standard output in
+the following format:
+.sp
+.nf
+.ft CR
+     npixels:      {# of pixels}
+     min:          {min pixel value}
+     max:          {max pixel value}
+     median:       {median pixel value}
+     mean:         {mean pixel value}
+     stdev:        {standard deviation}
+.ft R
+.fi
+
+.PP
+If the \fB-u\fP option is specified, then the following line is also
+printed:
+.sp
+.nf
+.ft CR
+     units:        {units from LQ header}
+.ft R
+.fi
+
+.PP
+If the \fB-a (abbreviated output) option is specified, the statistics
+are written on one line to the standard output with no titles.  If
+the \fB-u\fP option is specified with the \fB-a option, then the units in
+quotes is also printed at the end of the output line.
+.PP
+\fIimage\fP must have exactly one band unless the \fB-c option
+is specified, in which case a two band image is expected, the first band
+being a class identifier, and the second band being the data.  In addition
+to the image statistics, per class information is printed to the
+standard output in the following format:
+.sp
+.nf
+.ft CR
+     nclasses:  {#classes}
+     class       #pixels    min     max     median     mean     stdev
+     {class0}  {#npixels}  {min}   {max}   {median}   {mean}   {stdev}
+     ...
+     {classN}  {#npixels}  {min}   {max}   {median}   {mean}   {stdev}
+.ft R
+.fi
+
+.PP
+If the \fB-a option is specified, the statistics are written without
+column headings.
+.PP
+If class statistics are being calculated, a histogram file with a
+count of the number of pixels in each class / data value combination
+can be written to a file by using the \fB-h option.  This histogram
+file is a text file formatted like this:
+.sp
+.nf
+.ft CR
+     {class}   {data_value}   {count}
+.ft R
+.fi
+.SH OPTIONS
+.TP
+\fB-m\fP \fImask\fP
+Use \fImask\fP as a mask image.  Any points in \fImask\fP that are 0
+will not be used when calculating statistics.
+.sp
+.TP
+\fB-c\fP
+A 2 band image is expected, with the first band being a class
+identifier image, and the second being the data.  In addition
+to the statistics for the entire image, statistics for each
+class are also output.
+.sp
+.TP
+\fB-h\fP \fIhist_file\fP
+Histogram information for each class / data value combination
+will be written to the file \fIhist_file\fP.  One line will be
+written for each class / data value combination.  This option
+is only valid with the \fB-c option.
+.sp
+.TP
+\fB-a\fP
+The statistics will be printed in an abbreviated form with no
+header information.
+.sp
+.TP
+\fB-u\fP
+Print the units.
+.SH OPERANDS
+.TP
+\fIimage\fP
+input image (default: standard input)
+.SH EXAMPLES
+.PP
+To calculate basic image statistics for the Columbia River basin given
+a DEM "northwest" and a basin mask "columbia.mask":
+.sp
+.nf
+.ft CR
+	imgstat  -m columbia.mask  northwest
+.ft R
+.fi
+
+.PP
+Given a class image "veg" and a soil moisture image "soilm", statistics
+can be calculated for soil moisture within each vegetation class with:
+.sp
+.nf
+.ft CR
+	mux veg soilm | imgstat -c
+.ft R
+.fi
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.TP
+can't read class-range header
+The class identifier image (band 0) does not have a class-range
+header.  This header contains the number of classes.  Without
+this information, the program will use 2^nbits for the number
+of classes, which will usually be too many.  The program \fBmkcrh\fP
+can be used to add a class-range header.
+.sp
+.TP
+-h option ignored; -c must also be specified
+Since the \fB-h option prints out histogram information by class,
+the \fB-c option must be specified to compute the class statistics.
+.sp
+.TP
+-f is now obsolete
+The old \fBimgstat\fP used a slow algorithm that had to read the
+entire image into memory then sort it to find the median.
+Using Sun qsort, this could take hours or days for large
+images.  While GNU _quicksort reduced this to minutes, it still
+took far too long to be usable.  The new algorithm does not
+read the entire image, nor does it sort any data.  Large images
+can be processed in seconds, with no penalty for computing the
+median.  Therefore this option has been removed.
+.sp
+.TP
+image has \fIbands\fP bands; image must have 2 bands
+The \fB-c option was specified, so the input image must have
+two bands.  The first band is the class identifier, and the
+second band is the data.
+.sp
+.TP
+image has \fIbands\fP bands; single band images only
+The \fB-c option was not specified, so the input image must have
+only one band.
+.SH RESTRICTIONS
+.PP
+None
+.SH HISTORY
+.TP
+Jun 1990
+Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR.
+.sp
+.TP
+Jul 1990
+Added class statistics (\fB-c option) and class histogram;
+Added \fB-f\fP option for "fast" computation - no median.
+Kelly Longley, Oregon State University.
+.sp
+.TP
+Apr 1991
+Modified "fast" version to not read in entire file,
+Kelly Longley, Oregon State University.
+.sp
+.TP
+Feb 1993
+Modified to use _quicksort instead of qsort for a huge
+increase in performance, Dana Jacobsen, ERL-C.
+.sp
+.TP
+Aug 1993
+Completely rewrote program, using a histogramming
+algorithm.  We do not need to load in the entire image,
+so much less memory is taken.  No sorting is done, so it
+is much faster and has no penalty for computing the
+median.  The class and histogram output is formatted
+slightly differently.  Dana Jacobsen, ERL-C.
+.sp
+.TP
+Jul 1995
+Check for reversed lq maps.  Dana Jacobsen, ERL-C.
+.sp
+.TP
+Nov 1995
+Added -u option.  J. Domingo, OSU, EPA NHEERL/WED.
+.SH BUGS
+.PP
+Susceptible to rounding error.
+.SH SEE ALSO
+.TP
+IPW:
+\fBclassify\fP,
+\fBhist\fP,
+\fBipwfile\fP,
+\fBimgsum\fP,
+\fBmkcrh\fP

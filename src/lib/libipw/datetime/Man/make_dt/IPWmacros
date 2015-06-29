@@ -1,0 +1,3 @@
+%define(name,"make_dt")
+%define(description,"create a new date-time structure")
+%define(category,"datetime")

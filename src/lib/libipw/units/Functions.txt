@@ -1,0 +1,5 @@
+
+units - units of measurement
+
+  units_as_str - convert units id into a string
+  units_match  - check if a string matches a units id

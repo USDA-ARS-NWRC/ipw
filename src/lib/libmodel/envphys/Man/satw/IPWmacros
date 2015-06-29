@@ -1,0 +1,3 @@
+%define(name,"satw")
+%define(description,"saturation vapor pressure over water")
+%define(category,"envphys")

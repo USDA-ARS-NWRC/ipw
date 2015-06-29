@@ -1,0 +1,123 @@
+.TH "srftmp" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBsrftmp\fP - soil surface temperature from min & max air temperatures
+.SH SYNOPSIS
+.PP
+\fBsrftmp\fP
+.SH DESCRIPTION
+.PP
+\fBsrftmp\fP calculates surface temperature using a sin-wave
+function where the amplitude of the wave is computed
+as the difference between the maximum and minimum
+daily air temperature and the mean is the average
+surface temperature. Program was designed to compute
+surface temperatures at 1,3, or 6 hour intervals
+based on daily temperature information readily
+available from surface climate station data.
+See \fIJury et al.; Soil Physics, p. 185; 1991\fP.
+.PP
+Reads input file from stdin:
+.sp
+.nf
+.ft CR
+             Tmax, Tmin, Tavg, P, lag, t
+.ft R
+.fi
+
+.PP
+where:
+.sp
+.nf
+.ft CR
+          Tmax    = maximum daily air temp. (C)
+          Tmin    = minimum daily air temp. (C)
+          Tavg    = average surface temp. (C)
+          P       = wave period (hrs; should be =24 for daily cycle)
+          lag     = time of maximum temperature
+          t       = time period of interest (hrs)
+.ft R
+.fi
+.PP
+Outputs to stdout.
+.SH OPTIONS
+.PP
+none
+.SH OPERANDS
+.PP
+none
+.SH EXAMPLES
+.PP
+To estimate temperature at 10PM (22.00 hrs), when:
+.sp
+.nf
+.ft CR
+           Tmax    = 12,
+           Tmin    = 3,
+           Tave    = 6,
+           P       = 24,
+           lag     = 16 (4PM),
+           t       = 22 (10PM):
+.ft R
+.fi
+.sp
+.nf
+.ft CR
+	srftmp <{12 3 6 24 16 22}
+.ft R
+.fi
+.PP
+yields:
+.sp
+.nf
+.ft CR
+		3.75
+.ft R
+.fi
+.SH FILES
+.PP
+none
+.SH DIAGNOSTICS
+.PP
+none
+.SH RESTRICTIONS
+.PP
+none
+.SH HISTORY
+.TP
+Apr 1993
+Written by John Kimball OSU-EPA
+.TP
+Jun 1995
+Converted to IPW by J. Domingo, OSU, EPA NHEERL/WED
+.SH BUGS
+.PP
+none
+.SH SEE ALSO
+.TP
+IPW
+	\fBalbedo\fP,
+\fBbowvap\fP,
+\fBdewpt\fP,
+\fBgsnow\fP,
+\fBmse\fP,
+\fBpenmonx\fP,
+\fBpmx\fP,
+\fBpott\fP,
+\fBptaylorx\fP,
+\fBptx\fP,
+\fBrh2vp\fP,
+\fBsatvp\fP,
+\fBsling\fP,
+\fBsoilt\fP,
+\fBsoiltmp\fP,
+\fBswe\fP,
+\fBswp\fP,
+\fBthermin\fP,
+\fBtrad\fP,
+\fBtrb_Ri\fP,
+\fBtrbxfr\fP,
+\fBvptr\fP,
+\fBzpr\fP
+.PP
+Jury, Gardner 1991

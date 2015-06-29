@@ -1,0 +1,44 @@
+.TH "seval" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBseval\fP - evaluation of spline at m points
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+int
+seval(
+	double	x[],
+	double	y[],
+	int	nx,
+	double	c[],
+	double	*u,
+	double	*s,
+	int	m)
+
+.ft R
+.fi
+.SH DESCRIPTION
+.SH RETURN VALUE
+.PP
+OK	coefficients computed
+.PP
+ERROR	error occurred, and message stored via 'usrerr' routine
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.TP
+Jun 1996
+	Converted from QDIPS to IPW by J. Domingo, OSU
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

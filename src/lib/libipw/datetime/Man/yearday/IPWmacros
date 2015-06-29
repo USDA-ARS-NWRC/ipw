@@ -1,0 +1,3 @@
+%define(name,"yearday")
+%define(description,"returns the yearday (day of year) for a given date")
+%define(category,"datetime")

@@ -1,0 +1,3 @@
+%define(name,"winhmake")
+%define(description,"make an IPW WINH header")
+%define(category,"winh")

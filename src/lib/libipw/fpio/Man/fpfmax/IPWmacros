@@ -1,0 +1,3 @@
+%define(name,"fpfmax")
+%define(description,"access fpio maximum fpixel values")
+%define(category,"fpio")

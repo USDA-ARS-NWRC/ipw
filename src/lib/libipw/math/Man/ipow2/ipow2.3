@@ -1,0 +1,60 @@
+.TH "ipow2" "3" "5 March 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBipow2\fP - compute integral powers of 2
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+int
+ipow2(
+	int		expo)		|* exponent		*|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Ipow2 computes 2 to the power "i", checking for out-of-range
+results.
+.PP
+Ipow2 is typically called to determine the range of values which may
+be assumed by a certain number of bits; e.g.:
+.sp
+.nf
+.ft CR
+	int	nelem;
+	BIH_T	*bihp;
+	...
+	nelem = ipow2(ltoi(bih_nbands(bihp)));
+	if (nelem == 0) {
+		error ...
+.ft R
+.fi
+.SH RETURN VALUE
+.PP
+2**i is returned, or 0 if 2**i is out-of-range or undefined.
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.sp
+.TP
+2**<i> is not an integer
+.br
+	if i is negative
+.sp
+.TP
+2**<i> won't fit in an "int"
+.br
+	if i is too large
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

@@ -1,0 +1,3 @@
+%define(name,"ipw2pgm")
+%define(description,"convert IPW image to Portable Gray Map (PGM) image")
+%define(category,"Exporting IPW Image Data")
