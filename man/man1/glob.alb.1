@@ -1,0 +1,106 @@
+.TH "glob.alb" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBglob.alb\fP - global (broadband) solar albedo over snow
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBglob.alb\fP \fB-s\fP \fIstart\fP [ \fB-n\fP \fImax-albeldo\fP ] [ \fB-d\fP \fIdecay-range\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBglob.alb\fP is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as "qdips" (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+.PP
+First cut at estimating albedo changes with time and sun angle;
+Estimates decay with time by approximating a a set of measured
+values from two years of data from the Mammoth Mt. site;
+Time decay curve approximated by a second order Chebyshev
+polynomial (see routine decay());
+Increase with zenith angle approximated with a simple
+function of (1-cos(z)) in function diurnal();
+Both give results that approximate measured values, and agree
+with results in \fIChoudhury (1981)\fP, and \fIMcGuffie
+and Henderson-Sellers (1985)\fP, both of which present an analysis
+of the broad band albedo of snow in some detail;
+.PP
+Default n_alb is reasonable for new snow in mid season;
+Higher values may be used in early season, and lower in melting
+conditions; Default dkr is also a reasonable value for
+mid season; smaller values may be used in early season, and
+larger during melting conditions;
+Input, to stdin, is:
+.sp
+.nf
+.ft CR
+	time	cosz
+.ft R
+.fi
+
+.PP
+where time is in decimal days; When cosz is 0.0 (sun below
+horizon) the albedo is set to 0.0;
+.PP
+Output to stdout.
+.SH OPTIONS
+.TP
+\fB-s\fP \fIstart\fP
+\fIstart\fP is time of last snow storm (decimal days)
+.sp
+.TP
+\fB-n\fP \fImax-albeldo\fP
+\fImax-albedo\fP is maximum normal albedo when cosz = 1.0
+at that time (default: 0.82).
+.sp
+.TP
+\fB-d\fP \fIdecay-range\fP
+\fIdecay-range\fP is albedo decay range (default=0.18)
+.SH OPERANDS
+.PP
+none
+.SH EXAMPLES
+.PP
+To estimate albedo over snow starting on water year day 120:
+.sp
+.nf
+.ft CR
+	paste time cosz | \fBglob.alb\fP -s 105.5
+.ft R
+.fi
+.SH FILES
+.PP
+none
+.SH DIAGNOSTICS
+.PP
+none
+.SH RESTRICTIONS
+.PP
+none
+.SH HISTORY
+.TP
+Jun 1987
+Written by D. Marks, CSL, UCSB;
+.TP
+May 1995
+Converted to IPW by J. Domingo, OSU, ERL-C
+.SH BUGS
+.PP
+none
+.SH SEE ALSO
+.TP
+IPW:
+\fBalbedo\fP,
+\fBsalbedo\fP,
+\fBcvtime\fP,
+\fBsunang\fP
+.TP
+Unix
+paste
+.PP
+Choudhury 1981,
+McGuffie, Henderson-Seller
+s 1985,

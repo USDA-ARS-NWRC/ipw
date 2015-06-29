@@ -1,0 +1,90 @@
+.TH "snowmass" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBsnowmass\fP - simple snowmelt model based on daily radiation
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBsnowmass\fP
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBsnowmass\fP is a simple radiation based daily snowmelt model.  It
+reads from standard input; each line should have:
+.PP
+
+.sp
+.nf
+.ft CR
+	solar thermal Tmax Tmin dpt pcp lai elev u dt intrcpt
+.ft R
+.fi
+
+.PP
+where:
+.sp
+.nf
+.ft CR
+	solar   = total daily solar incidence at top of canopy (J)
+	thermal = total daily thermal irradiance at forest floor (J)
+	Tmax    = daily maximum air temperature (C)
+	Tmin    = minimum daily air temperature (C)
+	dpt     = dewpoint temperature (C)
+	lai     = leaf area index (1 sided)
+	elev    = site elevation (m)
+	u       = mean daily wind speed (m/s)
+	dt      = time period of Solin data (hrs)
+	intrcpt = pcp intercept. coeff. (m/lai)
+	          (default: -1=0.001m lai^-1)
+.ft R
+.fi
+
+.PP
+Output is to stdout.
+.sp
+.nf
+.ft CR
+ 	assumptions:
+.ft R
+.fi
+
+.PP
+sublimation and melt only occurs during the day; if wind speed is zero
+then wind is parameterized between 0.1m for full forest cover and 1.5m/s
+for open areas. Penman-Monteith method used to sublimate snow.
+.SH OPTIONS
+.PP
+none
+.SH OPERANDS
+.PP
+none
+.SH EXAMPLES
+.PP
+.SH FILES
+.PP
+none
+.SH DIAGNOSTICS
+.PP
+none
+.SH RESTRICTIONS
+.PP
+none
+.SH HISTORY
+.TP
+Mar 1995
+Written by John Kimball; SWR School of Forestry, University
+of Montana. Modified from Coughlan's snow model for coniferous
+forests (Coughlan PhD Dissertation, ch. 2).
+.TP
+Jun 1995
+Converted to IPW by J. Domingo, OSU, EPA NHEERL/WED
+.SH BUGS
+.PP
+none
+.SH SEE ALSO
+.TP
+IPW:
+\fBsnobal\fP,
+\fBisnobal\fP

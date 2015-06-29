@@ -1,0 +1,135 @@
+.TH "wbal" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBwbal\fP - simple water balance model
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBwbal\fP [ \fB-m\fP \fImask\fP ] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Simple water balance model:
+.PP
+Calculates runoff, soil storage, and actual
+evapotranspiration, given precipitation, PET (potential
+evapotranspiration), initial soil storage, maximum soil
+storage capacity, and a runoff base flow threshold.
+Usually run at a mounthly time-step, to match model
+asumptions with results.
+A weekly or daily time-step could be used, but some of the
+because no time lag is coded into the model, it may deplete
+soil moisture to quickly.
+.br
+Model based on the following algorithm:
+.PP
+.sp
+.nf
+.ft CR
+	AvW	= max (Stor + P, 0)
+	Sat	= AvW / Smax
+	ET	= aet (PET, Sat)
+   if (AvW + ET < 0)	{note that ET is negative if
+			flux is away from the surface}
+	ET	= -AvW
+	AvW	+= ET
+	Sat	= AvW / Smax
+	BF	= baseflow(Bthresh, Sat)
+	BF	= min (AvW, min (BF, Smax))
+	Ovf	= max (Avw - BF - Smax, 0)
+	RO	= Ovf + BF
+	Sat	= AvW / Smax
+	Stor	= max (AvW - RO, 0)
+.ft R
+.fi
+.PP
+where:
+.sp
+.nf
+.ft CR
+	AvW	= available water
+	Stor	= soil water storage
+	P	= total precipitation
+	Sat	= % soil saturation
+	Smax	= max soil water storage
+	ET	= actual evapotranspiration
+	PET	= potential evapotranspiration
+	BF	= runoff base flow
+	Bthresh	= threshold runoff base flow
+	Ovf	= storage overflow
+	RO	= runoff
+.ft R
+.fi
+.PP
+All water units are (mm H2O)/(unit area).
+A three-band output image containing runoff, storage, and et
+is written to stdout.
+.SH OPTIONS
+.TP
+\fB-m\fP \fImask\fP
+mask image
+.SH OPERANDS
+.TP
+[\fIimage\fP]
+.sp
+.nf
+.ft CR
+input image	five-band input image (defaults to stdin)
+		containing the following bands:
+
+		Band 0	P	= precipitation
+		Band 1	PET	= potential evapotranspiration
+		Band 2	Stor	= soil storage
+		Band 3	Smax	= maximum soil storage
+		Band 4	Bthresh = base flow threshold factor
+				  (note: currently this is the runoff
+			  	   for Sept. of the previous year;
+.ft R
+.fi
+.SH EXAMPLES
+.PP
+To compute the water balance over a basin:
+mux pcp pet stor, smax bflow | wbal -m basin_mask
+.SH FILES
+.PP
+None
+.SH DIAGNOSTICS
+.TP
+terminates with error message;
+.SH RESTRICTIONS
+.PP
+None
+.SH HISTORY
+.TP
+May 1990
+Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+.br
+Water balance algorithm by Jayne Dolph and Danny Marks,
+EPA ERL-C
+.TP
+Feb 1991
+Modified to compute actual ET and to compute runoff base
+flow as a function of a threshold value and percent
+saturation, by Danny Marks, EPA ERL-C
+.SH BUGS
+.PP
+None
+.SH SEE ALSO
+.TP
+IPW
+\fBipmx\fP,
+\fBiptx\fP,
+\fBisnobal\fP,
+\fBitrbxfr\fP,
+\fBpenmonx\fP,
+\fBpmx\fP,
+\fBptaylorx\fP,
+\fBptx\fP,
+\fBsnobal\fP,
+\fBtrb_Ri\fP,
+\fBtrbxfr\fP
+.PP
+Marks, King, & Dolph, 1993

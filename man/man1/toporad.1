@@ -1,0 +1,121 @@
+.TH "toporad" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBtoporad\fP - topographically-corrected solar radiation
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBtoporad\fP [ \fB-n\fP ] [ \fB-r\fP \fIR0\fP ] [ \fB-d\fP ] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBtoporad\fP calculates the topographic distribution of solar radiation
+at a single time, using input beam and diffuse radiation calculations
+supplied by elevrad.  The input image has the following bands:
+.sp
+.nf
+.ft CR
+    band 0 : beam irradiance
+     "   1 : diffuse irradiance
+     "   2 : local illumination angle
+     "   3 : sky view factor
+     "   4 : terrain configuration factor
+     "   5 : surface albedo
+.ft R
+.fi
+
+.PP
+The input image should also have a "sun" header specifying the
+cosine of the solar zenith angle.
+.PP
+The first five bands are usually calculated using other programs.
+elevrad calculates beam and diffuse radiation, shade calculates
+the local illumination angle (with input from gradient), and viewf
+calculates the sky view and terrain configuration factors.
+.PP
+The sixth band (surface albedo) can be derived from (satellite) data,
+or, for snow, calculated using programs albedo, salbedo, or glob.alb.
+.SH OPTIONS
+.TP
+\fB-n\fP
+Radiation output will be net, rather than incoming.
+.sp
+.TP
+\fB-r\fP \fIR0\fP
+reflectance of the substrate (if not specified, albedo at
+the point will be used to calculate reflectance of the
+adjacent terrain)
+.sp
+.TP
+\fB-d\fP
+Add the diffuse irradiance as a second band in the output image.
+.SH OPERANDS
+.TP
+\fIimage\fP
+six-band input image (default: standard input).
+.SH EXAMPLES
+.PP
+Running \fBtoporad\fP over a section of the Columbia Basin on June 22, 1990,
+with input files muxed together:
+.sp
+.nf
+.ft CR
+	mux beam-diffuse illcos skyview-terrain albedo | toporad
+.ft R
+.fi
+.SH FILES
+.PP
+None
+.SH DIAGNOSTICS
+.sp
+.TP
+input image has no LQH
+.TP
+input image has no SUNH, mu0 set to 0.5
+.TP
+input band \fIband\fP has no SUNH, mu0 set to 0.5
+.SH RESTRICTIONS
+.PP
+None
+.SH HISTORY
+.TP
+Jul 1989
+Written by Jeff Dozier, UCSB.
+.TP
+Nov 1998
+Added -d option.  J. Domingo, OSU
+.SH BUGS
+.PP
+None
+.SH SEE ALSO
+.TP
+IPW
+\fBstandard toporad\fP,
+\fBlocally modified stoporad\fP,
+\fBelevrad\fP,
+\fBgtoporad\fP,
+\fBgtoporad.24\fP,
+\fBgtopquad\fP,
+\fBgviewf\fP,
+\fBgviewf-mp\fP,
+\fBgelevrad\fP,
+\fBgshade\fP,
+\fBggradient\fP,
+\fBgradient\fP,
+\fBghorizon\fP,
+\fBhorizon\fP,
+\fBhor1d\fP,
+\fBtoporad.24\fP,
+\fBtopquad\fP,
+\fBtwostream\fP
+.PP
+Dozier 1980,
+Dozier & Frew 1981,
+Dozier, Bruno, & Downey 1991,
+Dozier & Frew 1990,
+Dubayah, Dozier, & Davis 1990,
+Dubayah & Van Katwijk 1992,
+Dubayah 1994,
+Marks, Dubayah, & Longley 1991,

@@ -1,0 +1,61 @@
+.TH "grid2ipw" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBgrid2ipw\fP - convert an Arc/Info image to an IPW image
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBgrid2ipw\fP \fIin_prefix\fP \fIout_image\fP
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBgrid2ipw\fP converts an image created by Arc/Info into an
+IPW image.  This command is invoked by the AML script "grid2ipw.aml".
+.SH OPTIONS
+.PP
+None.
+.SH OPERANDS
+.TP
+\fIin_prefix\fP
+Use \fIin_prefix\fP.bip and \fIin_prefix\fP.info as input files;
+these files are created by the AML script "grid2ipw.aml".
+.sp
+.TP
+\fIout_image\fP
+The name of the output IPW image to create.
+.SH EXAMPLES
+.PP
+None, since this command is invoked from an AML script.
+.SH FILES
+.sp
+.nf
+.ft CR
+     $IPW/aux/grid2ipw/grid2ipw.aml     AML script
+.ft R
+.fi
+.SH DIAGNOSTICS
+.TP
+\f(CRcan't open \fIin_prefix\fP.bip\fP
+This input file is missing.
+.sp
+.TP
+\f(CRcan't open \fIin_prefix\fP.info\fP
+This input file is missing.
+.SH NOTES
+.PP
+This command is not directly invoked by the user; rather it is
+called by the AML script "grid2ipw.aml".
+.SH HISTORY
+.TP
+Apr 1996
+Written by Rusty Dodson.
+.sp
+.TP
+Jun 1998
+Added to IPW version 2.  J. Domingo, OSU
+.SH SEE ALSO
+.TP
+IPW:
+ipw2grid

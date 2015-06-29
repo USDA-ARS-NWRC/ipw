@@ -1,0 +1,78 @@
+.TH "iptx" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBiptx\fP - potential evaporation (PE) using Priestly-Taylor method
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBiptx\fP [ \fB-m\fP \fImask\fP ] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBiptx\fP calculates potential evaporation (PE) using the
+Priestley-Taylor (1972) approach.
+This method is designed to estimate the
+total evaporative flux over a wet surface. The PE flux is thus
+representative of potential evaporation (PE). The program reads
+a 3-band image file containing the following daily data:
+.sp
+.nf
+.ft CR
+	band	contents
+	----    --------
+	0	net radiation (negative away from surface)
+	1	air temperature (C)
+	2	Priestly Taylor Parameter (approximately 1.26)
+.ft R
+.fi
+.PP
+If no input file is specified, the programs reads from the input
+image from standard input.  The program outputs a single-band image
+of PE samples to standard output.
+.SH OPTIONS
+.TP
+\fB-m\fP \fImask\fP
+Use the 1-band image \fImask\fP to mask the input image.
+.SH OPERANDS
+.TP
+[\fIimage\fP]
+input image:	3-band input image
+.SH EXAMPLES
+.PP
+mux rn ta pt_parm | \fBiptx\fP \fB-m basin_mask
+.SH FILES
+.sp
+.nf
+.ft CR
+     $TMPDIR/iptx*	temporary file
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+None
+.SH RESTRICTIONS
+.PP
+Assumptions:
+G is 10% of Rn; Surface is saturated and le due to turbulent
+vapor flux is minimal and well correlated with Rn. This
+assumption works well over short canopies (grass) but
+not over forested canopies (McNaughton and Black 1973;
+Priestley and Taylor 1972).
+.SH HISTORY
+.TP
+Aug 1995
+Converted the point-model program ptx to work over
+an IPW image.  J. Domingo, OSU, EPA NHEERL/WED
+.SH BUGS
+.PP
+None
+.SH SEE ALSO
+.PP
+ipmx, itrbxfr, mux, penmanx, pmx, ptx, ptaylorx, trb_Ri, trbxfr
+.PP
+McNaughton & Black, 1973,
+Monteith & Unsworth, 1990,
+Priestley & Taylor, 1972

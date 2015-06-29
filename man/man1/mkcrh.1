@@ -1,0 +1,110 @@
+.TH "mkcrh" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBmkcrh\fP - add a class range (CR) header to an image
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBmkcrh\fP [ \fB-c\fP \fIclass_file\fP ] [ \fB-l\fP \fIfloor\fP ] [ \fB-h\fP \fIceil\fP ]
+      [ \fB-a\fP \fIannot\fP ] [ \fB-u\fP \fIunits\fP ] [ \fB-b\fP \fIband\fP[,\fI...\fP] ] [ \fB-f\fP ]
+      [ \fB-i\fP \fIimage\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBmkcrh\fP constructs a class range (CR) header and appends it to
+the input image.  If the specified bands already have CR headers,
+they are overridden, and a warning message is generated.
+.PP
+If the \fB-f option is specified, then only the headers are written to
+the standard output, and any input image data is ignored.
+.SH OPTIONS
+.TP
+\fB-c\fP \fIclass_file\fP
+The file containing lo, hi, representative value triples
+for each class.  At least two triples must be supplied.
+(default: stdin)
+.sp
+.TP
+\fB-l\fP \fIfloor\fP
+class for all values less than lo of lowest triple (floor)
+.sp
+.TP
+\fB-h\fP \fIceil\fP
+class for all values greater than hi of lowest triple (ceil)
+.sp
+.TP
+\fB-a\fP \fIannot\fP
+annotation string
+.sp
+.TP
+\fB-u\fP \fIunits\fP
+units string
+.sp
+.TP
+\fB-b\fP \fIband\fP[,\fI...\fP]
+bands to which these classes will be applied.  (default: all bands)
+.sp
+.TP
+\fB-f\fP
+force header output; don't copy input image
+.sp
+.TP
+\fB-i\fP \fIimage\fP
+input image (default: stdin).
+.PP
+At least one of the \fB-i\fP or \fB-c\fP option must be specified.
+.SH OPERANDS
+.PP
+None.
+.SH EXAMPLES
+.PP
+To classify an elevation image into three classes between 100m and 3000m,
+setting everything below 100m to 0, and everything above 3000m to 3000:
+.sp
+.nf
+.ft CR
+     class_file =  100 1000  500
+                  1000 2000 1500
+                  2000 3000 2500
+
+     cat class_file | mkcrh -l 0 -h 3000 -i elev_image
+.ft R
+.fi
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.PP
+None.
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.TP
+May 1990
+Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+.sp
+.TP
+Jun 1990
+Added \fB-l floor, \fB-h ceil and \fB-u units options,
+by K. Longley, OSU, EPA ERL-C
+.sp
+.TP
+Jul 1990
+No longer required classes to be sorted, by K. Longley, OSU, EPA ERL-C
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO
+.TP
+IPW:
+\fBclasseq\fP,
+\fBclassify\fP,
+\fBclmask\fP,
+\fBcnhist\fP,
+\fBhist\fP,
+\fBhisteq\fP,
+\fBdeclass\fP

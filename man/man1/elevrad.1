@@ -1,0 +1,156 @@
+.TH "elevrad" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBelevrad\fP - beam and diffuse radiation from elevation
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBelevrad\fP \fB-z\fP \fIelev\fP \fB-t\fP \fItau\fP \fB-w\fP \fIomega\fP \fB-g\fP \fIgfact\fP \fB-r\fP \fIR0\fP \fB-s\fP \fIS0\fP \fB-u\fP \fIcos\fP
+      [ \fB-n\fP \fIbits0\fP[,\fIbits1\fP] ] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Elevrad reads elevations from \fIimage\fP (default: standard input)
+and writes a 2-band image containing beam radiation (normal to
+sun) and diffuse radiation (on a horizontal surface) to the
+standard output.
+.PP
+Elevrad is essentially the spatial or grid version of the twostream
+command.  It is used mainly as a preproccessor for the toporad
+command.  Stoporad is set up for use over snowcovered regions, and
+gelevrad is set up for use over large spatial extents, where solar
+geometry cannot be assumed constant over the grid (approx 100km or
+larger).
+.SH OPTIONS
+.TP
+\fB-z\fP \fIelev\fP
+The elevation of optical depth measurement is \fIelev\fP meters.
+.sp
+.TP
+\fB-t\fP \fItau\fP
+The optical depth at \fIelev\fP is \fItau\fP.
+.sp
+.TP
+\fB-w\fP \fIomega\fP
+The single-scattering albedo is \fIomega\fP.
+.sp
+.TP
+\fB-g\fP \fIgfact\fP
+The scattering asymmetry factor is \fIgfact\fP.
+.sp
+.TP
+\fB-r\fP \fIR0\fP
+The mean surface albedo is \fIR0\fP.
+.sp
+.TP
+\fB-s\fP \fIS0\fP
+The exoatmospheric solar irradiance is \fIS0\fP.  This can be
+calculated with the IPW command "solar".
+.sp
+.TP
+\fB-u\fP \fIcos\fP
+The cosine of the solar zenith angle is \fIcos\fP.  This can be
+calculated with the IPW command "sunang".
+.sp
+.TP
+\fB-n\fP \fIbits0\fP[,\fIbits1\fP]
+The number of bits in the output band(s) is \fIbits0\fP
+and \fIbits1\fP (default: same number as in the input image).
+.SH OPERANDS
+.PP
+None.
+.SH EXAMPLES
+.PP
+To calculate beam and diffuse radiation with specified parameters
+on a section of the Columbia basin in June of 1990:
+.sp
+.nf
+.ft CR
+	elevrad -z 100 -t .2 -w .85 -g .55 -r .155 -s 150.214 \\
+		-u 0.816876  image
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     None
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+None
+.SH RESTRICTIONS
+.PP
+None
+.SH HISTORY
+.TP
+Apr 1988
+	Written by Jeff Dozier, UCSB.
+.SH BUGS
+.PP
+None that we know of
+.SH SEE ALSO
+.TP
+IPW
+	\fBggradient\fP,
+\fBghorizon\fP,
+\fBgradient\fP,
+\fBgshade\fP,
+\fBgsunlight\fP,
+	\fBgtoporad\fP,
+\fBgtopquad.24\fP,
+\fBgtopquad\fP,
+\fBgviewf\fP,
+\fBgviewf-mp\fP,
+\fBhor1d\fP,
+	\fBhorizon\fP,
+\fBsalbedo\fP,
+\fBselevrad\fP,
+\fBsolar\fP,
+\fBstoporad\fP,
+\fBsunang\fP,
+\fBsunlight\fP,
+	\fBsunweights\fP,
+\fBtoporad\fP,
+\fBtoporad.24\fP,
+\fBtopquad\fP,
+\fBviewf\fP
+.PP
+Dozier, J., 1980.  "A clear-sky spectral solar radiation model for
+	snow-covered mountainous terrain".  Water Resources Research,
+	vol. 16, pp. 709-718.
+.PP
+Dozier, J., and J. Frew, 1981.  "Atmospheric corrections to satellite
+	radiometric data over rugged terrain".  Remote Sensing of
+	Environment, vol. 11, pp. 191-205.
+.PP
+Dozier, J., J. Bruno, and P. Downey, 1991.  "A faster solution to the
+	horizon problem", Computers and Geosciences, volume 7,
+	number 2, pp. 145-151.
+.PP
+Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain parameters
+	for radiation modeling from digital elevation data". IEEE
+	Transactions on Geoscience and Remote Sensing, vol. 28, no. 5,
+	pp. 963-969.
+.PP
+Dubayah, R., J. Dozier, and F. Davis, 1990.  "Topographic distribution
+	of clear-sky radiation over the Konza Prairie, Kansas".  Water
+	Resources Research, vol. 26, no. 4, pp. 679-691.
+.PP
+Marks, D., R. Dubayah, and K. Longley, 1991.  "Modeling the topographic
+	and spectral variability of clear-sky solar radiation at regional
+	to continental scales.  Proceedings 1991 IGARSS Symposium,
+	Remote Sensing:  Global Monitoring for Earth Management, Espoo,
+	Finland, Vol. 3, pp. 1711.
+.PP
+Dubayah, R., and V. Van Katwijk, 1992.  "The topographic distribution
+	of annual incoming solar radiation in the Rio Grande basin".
+	Geophysical Research Letters, vol. 19, pp. 2231-2234.
+.PP
+Dubayah, R., 1994.  "Modeling a solar radiation topoclimatology for the
+	Rio Grande River Basin".  Journal of Vegetation Science, vol. 5,
+	pp. 627-640.

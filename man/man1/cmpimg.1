@@ -1,0 +1,74 @@
+.TH "cmpimg" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBcmpimg\fP - compare two IPW images
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBcmpimg\fP \fIimage1 image2\fP
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBcmpimg\fP compares the pixel data from \fIimage1\fP and \fIimage2\fP, ignoring
+any headers.  A "-" in place of an image represents the standard
+input.  The output of \fBcmpimg\fP is a message printed to the standard
+output indicating whether the two input images differ or are
+identical.
+.SH OPTIONS
+.PP
+None
+.SH OPERANDS
+.TP
+\fIimage1 image2\fP
+input images to be compared
+.SH EXAMPLES
+.PP
+The following sequence might be used to test a command, such as
+transpose, that should be its own inverse:
+.sp
+.nf
+.ft CR
+	transpose image | transpose | cmpimg - image
+.ft R
+.fi
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.PP
+None.
+.SH RESTRICTIONS
+.PP
+\fBcmpimg\fP is implemented as a shell script that invokes the UNIX
+\fBcmp\fP command.  Since \fBcmp\fP has no notion of image structure,
+\fBcmpimg\fP gives no
+indication of the logical image locations (line, sample, band)
+where differences occur.
+.PP
+The exit status of \fBcmpimg\fP does NOT indicate the result.
+.SH HISTORY
+.TP
+Jul 1990
+Written by James Frew, UCSB
+.sp
+.TP
+Apr 1993
+Use second temporary file to avoid a spurious newline.
+Dana Jacobsen, ERL-C.
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO
+.TP
+IPW:
+\fBrmhdr\fP,
+\fBtranspose\fP
+.sp
+.TP
+UNIX:
+cmp
+.PP
+Frew 1990
+.br

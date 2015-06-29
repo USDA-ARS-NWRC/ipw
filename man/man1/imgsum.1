@@ -1,0 +1,71 @@
+.TH "imgsum" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBimgsum\fP - sum all pixels in an image
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBimgsum\fP [ \fB-m\fP \fImask\fP ] [ \fIimage\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBimgsum\fP reads a single band image and
+writes the sum of all unmasked pixels to the standard output.
+.SH OPTIONS
+.TP
+\fB-m\fP \fImask\fP
+Use \fImask\fP as a mask image.  Any points in \fImask\fP that
+are 0 will not contribute to the sum.
+.SH OPERANDS
+.TP
+\fIimage\fP
+input image (default: standard input)
+.SH EXAMPLES
+.PP
+If the file "precip" contains yearly precipitation volume for an
+area, and "basin" is a mask of a watershed, then the following
+command will give the total precipitation influx into the basin:
+.sp
+.nf
+.ft CR
+        imgsum -m basin  precip
+.ft R
+.fi
+
+.PP
+Note that this works only for volume data.  If your data is a
+depth, then you must first multiply each point by the area of
+the pixel.  This only works for Equal-Area projections however.
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.TP
+image has \fIbands\fP bands; single band images only
+Only single band images are supported.  To sum multiple
+images, use \fBiadd\fP to add the bands together first.
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.TP
+Nov 1990
+Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+.sp
+.TP
+Apr 1993
+Corrected "too many bands" message.
+Dana Jacobsen, ERL-C.
+.SH BUGS
+.PP
+Susceptible to overflow error.
+.SH SEE ALSO
+.TP
+IPW:
+\fBiadd\fP,
+\fBimgstat\fP,
+\fBmult\fP,
+\fBscale\fP

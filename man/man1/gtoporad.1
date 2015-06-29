@@ -1,0 +1,162 @@
+.TH "gtoporad" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBgtoporad\fP - topographically-corrected solar radiation
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBgtoporad\fP [ \fB-n\fP ] [ \fB-b\fP \fI#bits\fP ] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Gtoporad is part of a family of large area, or "global", scale radiation
+transfer simulation, and solar/terrain geometry calculation tools,
+designed from the small-scale radiation transfer and terrain structure
+tools, developed at UCSB by Jeff Dozier, Jim Frew, and Ralph Dubayah.
+.PP
+All of the global-scale radiation transfer and terrain processing tools
+are designated by the "g" prefix in front of the small-scale tool's name.
+These tools assume that solar geometry, atmospheric properties, and sun
+rise and sun set vary over the grid.  They also correct for earth
+curvature when computing horizons, terrain and sky view factors,
+and illumantion angles.
+.PP
+These global-scale radiation and terrain processing tools can be applied
+to areas of any size, up to the entire earth.  They were originally
+developed by Kelly Longley, Oregon State University, at the Corvallis,
+Oregon, EPA lab, in the early 1990's.
+.PP
+Gtoporad is the global-scale version of the program toporad.
+Gtoporad calculates the topographic distribution of solar
+radiation at a single time, using input beam and diffuse
+radiation calculations supplied by gelevrad.
+The input image contains 8 bands in the following order:
+.sp
+.nf
+.ft CR
+	cos solar zenith angle		(from gsunlight)
+	beam irradiance			(from gelevrad)
+	diffuse irradiance		(from gelevrad)
+	cos local illumination angle	(from gshade)
+	sky view factor			(from gviewf)
+	terrain configuration factor	(from gviewf)
+	surface albedo			(from data, or salbedo)
+	reflectance of the substrate	(data)
+.ft R
+.fi
+
+.PP
+The first 6 (0-5) bands of the input image are output from other IPW
+commands.  The spectral region, date, time, and location of the
+calculation is controlled by gsunlight, gelevrad, and gshade, and are
+inherent in the cos solar zenith, beam and diffuse irradiance, and cos
+local illumination angle.
+.PP
+Band 6, surface albedo, is used only when the \fB-n parameter is set.
+It can be estimated as an average over the grid, derived from a
+satellite image, or, for snow, calculated using the program salbedo,
+which accounts for angular effects on snow-surface reflectance.
+.PP
+Band 7, reflectance of the substrate, is used for reflection from
+adjacent terrain, and should not include angular effects.  It can be
+estimated seperately from surface albedo (band 6), or be the same
+as surface albedo.
+.SH OPTIONS
+.TP
+\fB-n\fP
+flag for net radiation
+.sp
+.TP
+\fB-b\fP \fI#bits\fP
+# bits in output image (default: max of input)
+.SH OPERANDS
+.TP
+[\fIimage\fP]
+	image	input image
+.sp
+.SH EXAMPLES
+.PP
+To calculate topographic distribution of net solar radiation:
+.sp
+.nf
+.ft CR
+	gtoporad -n input_image
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     None
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+None
+.SH RESTRICTIONS
+.PP
+None
+.SH HISTORY
+.TP
+Aug 1990
+	Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+(modified version of IPW toporad program written by
+J. Dozier, UCSB)
+.TP
+May 1991
+	Added R0 (mean albedo) as input image band, by
+K. Longley, OSU, EPA ERL-C
+.SH BUGS
+.PP
+None that we know of
+.SH SEE ALSO
+.TP
+IPW
+	\fBelevrad\fP,
+\fBgelevrad\fP,
+\fBgshade\fP,
+\fBgsunlight\fP,
+\fBgviewf\fP,
+\fBsalbedo\fP,
+\fBshade\fP,
+	\fBsunlight\fP,
+\fBviewf\fP
+.PP
+Dozier, J., 1980.  "A clear-sky spectral solar radiation model for
+	snow-covered mountainous terrain".  Water Resources Research,
+	vol. 16, pp. 709-718.
+.PP
+Dozier, J., and J. Frew, 1981.  "Atmospheric corrections to satellite
+	radiometric data over rugged terrain".  Remote Sensing of
+	Environment, vol. 11, pp. 191-205.
+.PP
+Dozier, J., J. Bruno, and P. Downey, "A faster solution to the
+	horizon problem", Computers and Geosciences, volume 7,
+	number 2, pp. 145-151, 1981.
+.PP
+Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain parameters
+	for radiation modeling from digital elevation data". IEEE
+	Transactions on Geoscience and Remote Sensing, vol. 28, no. 5,
+	pp. 963-969.
+.PP
+Dubayah, R., J. Dozier, and F. Davis, 1990.  "Topographic distribution
+	of clear-sky radiation over the Konza Prairie, Kansas".  Water
+	Resources Research, vol. 26, no. 4, pp. 679-691.
+.PP
+Marks, D., R. Dubayah, and K. Longley, 1991.  "Modeling the topographic
+	and spectral variability of clear-sky solar radiation at regional
+	to continental scales.  Proceedings 1991 IGARSS Symposium,
+	Remote Sensing:  Global Monitoring for Earth Management, Espoo,
+	Finland, Vol. 3, pp. 1711.
+.PP
+Dubayah, R., and V. Van Katwijk, 1992.  "The topographic distribution
+	of annual incoming solar radiation in the Rio Grande basin".
+	Geophysical Research Letters, vol. 19, pp. 2231-2234.
+.PP
+Dubayah, R., 1994.  "Modeling a solar radiation topoclimatology for the
+	Rio Grande River Basin".  Journal of Vegetation Science, vol. 5,
+	pp. 627-640.

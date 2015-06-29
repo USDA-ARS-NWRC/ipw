@@ -1,0 +1,85 @@
+.TH "bitcom" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBbitcom\fP - bitwise combination of pixels (AND, OR, exclusive-OR)
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBbitcom\fP [ \fB-a\fP ] [ \fB-o\fP ] [ \fB-x\fP ] [ \fB-m\fP ] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBbitcom\fP writes a bitwise combination of the input image bands on the
+standard output.
+.SH OPTIONS
+.TP
+\fB-a\fP
+output image is bitwise AND of input bands.  The output
+image will have a non-0 value only if the matching pixel
+from all input images have a non-0 value.
+.sp
+.TP
+\fB-o\fP
+output image is bitwise inclusive-OR of input bands.  The
+output image will have a non-0 value if any of the matching
+pixels from the input images have a non-0 value.
+.sp
+.TP
+\fB-x\fP
+output image is bitwise exclusive-OR of input bands.  The
+output image will have a 0 value if all inputs are 0 or if
+the input images match exactly.
+.PP
+Exactly one of \fB-a, \fB-o, \fB-x must be specified.
+.TP
+\fB-m\fP
+the last (highest-numbered) input band is assumed to be a
+mask.  All non-0 pixels are set to ~0 before the bit
+operations are performed.
+.SH OPERANDS
+.TP
+\fIimage\fP
+input image with at least 2 bands (default: standard input).
+.SH EXAMPLES
+.PP
+To mask a DEM "elev" such that pixels outside the drainage basin
+"basin" are set to 0:
+.sp
+.nf
+.ft CR
+	mux elev basin | bitcom -a -m
+.ft R
+.fi
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.TP
+single-band input image
+The input image must have at least 2 bands
+.sp
+.TP
+different # bits / pixel: bands 0, \fIband\fP
+All input bands must have the same number of bits per
+pixel (except the last band, if \fB-m is specified).
+.SH RESTRICTIONS
+.PP
+All input bands must have the same number of bits per pixel
+(if \fB-m is specified, then the last band is exempt from this
+restriction).
+.SH HISTORY
+.TP
+Jul 1990
+Written by James Frew, UCSB.
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO
+.TP
+IPW:
+\fBmux\fP
+.PP
+Frew 1990
+.br
