@@ -24,7 +24,7 @@ Category - Physical Modeling: Spatial</P>
 <B>isnobal</B> <B>-t</B> <I>data-tstep</I>[,<I>norm-tstep</I>[,<I>med-tstep</I>[,<I>sm-tstep</I>]]]
       [ <B>-r</B> <I>restart-index </I> ] [ <B>-n</B> <I>#steps </I> ]
       [ <B>-I</B> <I>init-image </I> ] [ <B>-i</B> <I>input-prefix </I> ] [ <B>-p</B> <I>prfile </I> ]
-      [ <B>-m</B> <I>mask </I> ] [ <B>-O</B> <I>output-frequency </I> ]
+      [ <B>-m</B> <I>mask </I> ] [ <B>-O</B> <I>output-frequency </I> ] [ <B>-d</B> <I>max-active </I> ]
       [ <B>-e</B> <I>em_prefix </I> ] [ <B>-s</B> <I>snow_prefix </I> ] [ <B>-U</B> ] [ <B>-K</B> ]
       [ <B>-M</B> <I>max-h2o </I> ] [ <B>-C</B> [<I>compress_cmd</I>] ]
       [ <B>-T</B> <I>norm-threshold</I>[,<I>med-threshold</I>[,<I>sm-threshold</I>]]<I> </I> ] 
@@ -348,6 +348,13 @@ Number of time steps for the model to run (default: 1).
 </DD>
 
 <P>
+<DT><B>-d</B> <I>max-active</I>
+<DD>
+<I>max-active</I> is maximum depth for active snow layer (m)
+(default: 0.25 m).
+</DD>
+
+<P>
 <DT><B>-I</B> <I>init-image </I>
 <DD>
 Initial conditions image.  If the <B>-r</b> option is not
@@ -542,6 +549,10 @@ Isnobal now checks to make sure prefixes for both types of output
 images are different (<B>-e</b> and <B>-s</b> options).  J. Domingo, OSU
 </DD>
 
+<DT>July 2015</DT>
+<DD>Created option to change surface layer thickness (<B>-d</b> option).  Scott Havens, ARS
+</DD>
+
 </DL>
 
 <H2>BUGS</H2>
@@ -614,7 +625,7 @@ None.
 <ADDRESS>
 
 <A HREF="../intro.html">IPW documentation</A>  /
-Last revised 5 March 2015  /
+Last revised 1 July 2015  /
 <A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
 
 </ADDRESS>

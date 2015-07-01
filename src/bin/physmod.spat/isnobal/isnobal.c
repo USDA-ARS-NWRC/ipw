@@ -1,23 +1,23 @@
 /*
-** NAME
-** 	isnobal -- run snowmelt model over a set of images
-** 
-** SYNOPSIS
-**	#include "pgm.h"
-**
-**	void
-**	isnobal(
-**	   int		out_step)	|* # of data tsteps per output img   *|
-** 
-** DESCRIPTION
-** 	isnobal reads all input files, performs calculations and writes output
-**	images for 2-layer energy-balanced snomelt model.
-** 
-** RETURN VALUE
-** 
-** GLOBALS ACCESSED
-** 
-*/
+ ** NAME
+ ** 	isnobal -- run snowmelt model over a set of images
+ **
+ ** SYNOPSIS
+ **	#include "pgm.h"
+ **
+ **	void
+ **	isnobal(
+ **	   int		out_step)	|* # of data tsteps per output img   *|
+ **
+ ** DESCRIPTION
+ ** 	isnobal reads all input files, performs calculations and writes output
+ **	images for 2-layer energy-balanced snomelt model.
+ **
+ ** RETURN VALUE
+ **
+ ** GLOBALS ACCESSED
+ **
+ */
 
 #include <math.h>
 #include <string.h>
@@ -29,8 +29,8 @@
 
 void
 isnobal(
-	int		out_step,	/* # of data tsteps per output img   */
-	int		got_opt_F)	/* got option F?		     */
+		int		out_step,	/* # of data tsteps per output img   */
+		int		got_opt_F)	/* got option F?		     */
 {
 	double	data_tstep;		/* data timestep		     */
 	double	step_time;		/* start time of current data tstep  */
@@ -61,47 +61,47 @@ isnobal(
 
 	tempout = 0;
 
-   /*
-    * Since no output required by 'snobal' library, don't give it an output
-    * function.
-    */
+	/*
+	 * Since no output required by 'snobal' library, don't give it an output
+	 * function.
+	 */
 	out_func = NULL;
- 
-   /* Allocate I/O buffers for image files */
+
+	/* Allocate I/O buffers for image files */
 
 	buffers();
 
-   /* open temporary files for output images */
+	/* open temporary files for output images */
 
 	temp_filename("isnobal", emfile);
 	temp_filename("isnobal", snowfile);
 
-   /*
-    * if more than 1 time step, create two temporary results files: one for
-    * input, another for output.  For now, they're empty; we're just reserving
-    * the names.
-    */
+	/*
+	 * if more than 1 time step, create two temporary results files: one for
+	 * input, another for output.  For now, they're empty; we're just reserving
+	 * the names.
+	 */
 	if (nstep > 1) {
-if (got_opt_F) {
-  strcpy(tempfiles[0], "isnobal.tmp1");
-  strcpy(tempfiles[1], "isnobal.tmp2");
-}
-else {
-		temp_filename("isnobal", tempfiles[0]);
-		temp_filename("isnobal", tempfiles[1]);
-}
+		if (got_opt_F) {
+			strcpy(tempfiles[0], "isnobal.tmp1");
+			strcpy(tempfiles[1], "isnobal.tmp2");
+		}
+		else {
+			temp_filename("isnobal", tempfiles[0]);
+			temp_filename("isnobal", tempfiles[1]);
+		}
 	}
 
-   /* initialize time of starting step */
+	/* initialize time of starting step */
 
 	step_time = start_step * data_tstep;
 
-   /* determine # of digits for the suffixes of input and output images */
+	/* determine # of digits for the suffixes of input and output images */
 
 	end_step = start_step + nstep - 1;
 	nDigits = (int) (log10((double) end_step)) + 1;
 
-   /* loop on data timesteps */
+	/* loop on data timesteps */
 
 	out_counter = 0;
 	timeSinceOut = 0.0;
@@ -123,7 +123,7 @@ else {
 				fdp = uropen(pre_img);
 				if (fdp == ERROR) {
 					error("can't open image \"%s\"",
-					      pre_img);
+							pre_img);
 				}
 				precip_hdrs(pre_img);
 			} else {
@@ -152,13 +152,13 @@ else {
 		if (output) {
 			fdem = uwopen(emfile);
 			if (fdem == ERROR) {
-			    error("Can't open temporary file '%s' for output",
-				  emfile);
+				error("Can't open temporary file '%s' for output",
+						emfile);
 			}
 			fds = uwopen(snowfile);
 			if (fds == ERROR) {
-			    error("Can't open temporary file '%s' for output",
-				  snowfile);
+				error("Can't open temporary file '%s' for output",
+						snowfile);
 			}
 		}
 
@@ -172,8 +172,8 @@ else {
 			tempout = 1 - tempin;	/* toggle between 0 and 1 */
 			fdti = uropen(tempfiles[tempin]);
 			if (fdti == ERROR) {
-			    error("Can't re-open temporary file '%s' for input",
-				  tempfiles[tempin]);
+				error("Can't re-open temporary file '%s' for input",
+						tempfiles[tempin]);
 			}
 		}
 
@@ -184,12 +184,12 @@ else {
 		if (nstep > 1) {
 			fdto = uwopen(tempfiles[tempout]);
 			if (fdto == ERROR) {
-			   error("Can't re-open temporary file '%s' for output",
-				 tempfiles[tempout]);
+				error("Can't re-open temporary file '%s' for output",
+						tempfiles[tempout]);
 			}
 		}
 
-   		/* read input data and do calculations */
+		/* read input data and do calculations */
 
 		for (line = 0; line < nlines; line++) {
 
@@ -224,8 +224,8 @@ else {
 					/* run model on data for this pixel */
 
 					if (! do_data_tstep())
-					    error("During step %d, at line %d, sample %d",
-						  step, line, samp);
+						error("During step %d, at line %d, sample %d",
+								step, line, samp);
 
 					/* assign data to output buffers */
 
@@ -281,7 +281,7 @@ else {
 			uclose(fdto);
 	}  /* for loop on timesteps */
 
-   /* remove temp files */
+	/* remove temp files */
 
 	uremove(emfile);
 	uremove(snowfile);

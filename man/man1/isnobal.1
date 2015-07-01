@@ -1,4 +1,4 @@
-.TH "isnobal" "1" "5 March 2015" "IPW v2" "IPW User Commands"
+.TH "isnobal" "1" "1 July 2015" "IPW v2" "IPW User Commands"
 .SH NAME
 .PP
 \fBisnobal\fP - energy-balance snowmelt model with 2 snow layers
@@ -9,7 +9,7 @@
 \fBisnobal\fP \fB-t\fP \fIdata-tstep\fP[,\fInorm-tstep\fP[,\fImed-tstep\fP[,\fIsm-tstep\fP]]]
       [ \fB-r\fP \fIrestart-index \fP ] [ \fB-n\fP \fI#steps \fP ]
       [ \fB-I\fP \fIinit-image \fP ] [ \fB-i\fP \fIinput-prefix \fP ] [ \fB-p\fP \fIprfile \fP ]
-      [ \fB-m\fP \fImask \fP ] [ \fB-O\fP \fIoutput-frequency \fP ]
+      [ \fB-m\fP \fImask \fP ] [ \fB-O\fP \fIoutput-frequency \fP ] [ \fB-d\fP \fImax-active \fP ]
       [ \fB-e\fP \fIem_prefix \fP ] [ \fB-s\fP \fIsnow_prefix \fP ] [ \fB-U\fP ] [ \fB-K\fP ]
       [ \fB-M\fP \fImax-h2o \fP ] [ \fB-C\fP [\fIcompress_cmd\fP] ]
       [ \fB-T\fP \fInorm-threshold\fP[,\fImed-threshold\fP[,\fIsm-threshold\fP]]\fI \fP ]
@@ -370,6 +370,11 @@ step index of the first time-step.  This index must be
 Number of time steps for the model to run (default: 1).
 .sp
 .TP
+\fB-d\fP \fImax-active\fP
+\fImax-active\fP is maximum depth for active snow layer (m)
+(default: 0.25 m).
+.sp
+.TP
 \fB-I\fP \fIinit-image \fP
 Initial conditions image.  If the \fB-r option is not
 present, this image has 7 bands.  If the \fB-r option is
@@ -506,6 +511,9 @@ tossed away); and, fixed bug so that turbulent transfer calculations
 use difference between snowcover height and measurement heights.
 Isnobal now checks to make sure prefixes for both types of output
 images are different (\fB-e and \fB-s options).  J. Domingo, OSU
+.TP
+July 2015
+Created option to change surface layer thickness (\fB-d option).  Scott Havens, ARS
 .SH BUGS
 .PP
 None.
