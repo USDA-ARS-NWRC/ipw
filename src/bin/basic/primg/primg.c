@@ -14,13 +14,13 @@ static int      nbands;			/* # bands / image sample	 */
 
 static void
 dprint(
-	int             samp)
+		int             samp)
 {
 	REG_2 int       band;
 	REG_1 pixel_t  *pixel;
 	REG_3 int       lastband;
 
- /* NOSTRICT */
+	/* NOSTRICT */
 	pixel = (pixel_t *) buf;
 	pixel += samp * nbands;
 
@@ -33,13 +33,13 @@ dprint(
 
 static void
 gprint(
-	int             samp)
+		int             samp)
 {
 	REG_2 int       band;
 	REG_1 fpixel_t *fpixel;
 	REG_3 int       lastband;
 
- /* NOSTRICT */
+	/* NOSTRICT */
 	fpixel = (fpixel_t *) buf;
 	fpixel += samp * nbands;
 
@@ -47,7 +47,7 @@ gprint(
 
 	for (band = 0; band < nbands; ++band) {
 		(void) printf("%.*g%c", FLT_DIG,
-			      *fpixel++, band == lastband ? '\n' : ' ');
+				*fpixel++, band == lastband ? '\n' : ' ');
 	}
 }
 
@@ -70,9 +70,9 @@ naprint(void)
 
 void
 primg(
-	int             fdi,		/* input image file descriptor	 */
-	int             fdc,		/* coordinate file descriptor	 */
-	bool_t          raw)		/* ? print raw values		 */
+		int             fdi,		/* input image file descriptor	 */
+		int             fdc,		/* coordinate file descriptor	 */
+		bool_t          raw)		/* ? print raw values		 */
 {
 	BIH_T         **bihpp;		/* -> BI header array		 */
 	int             cline;		/* line # of next pixel to print */
@@ -92,9 +92,9 @@ primg(
 	static GETHDR_T h_lq  = {LQH_HNAME,  (ingest_t) lqhread};
 	static GETHDR_T *request[] = {&h_geo, &h_lq, 0};
 
- /*
-  * read BIH
-  */
+	/*
+	 * read BIH
+	 */
 	bihpp = bihread(fdi);
 	if (bihpp == NULL) {
 		error("can't read basic image header");
@@ -104,13 +104,13 @@ primg(
 	nlines = hnlines(fdi);
 	nsamps = hnsamps(fdi);
 
- /* read geo and lq headers */
+	/* read geo and lq headers */
 
 	gethdrs (fdi, request, NO_COPY, ERROR);
 
- /*
-  * if requested, do stuff with geo header and values  
-  */
+	/*
+	 * if requested, do stuff with geo header and values
+	 */
 	if (parm.geoband >= 0) {
 		if (parm.geoband > (nbands - 1)) {
 			error("requested geo band > nbands");
@@ -122,10 +122,10 @@ primg(
 		if (geohpp[parm.geoband] == NULL) {
 			error("requested band has a missing geo header");
 		}
-                parm.bline = geoh_bline (geohpp[parm.geoband]);
-                parm.bsamp = geoh_bsamp (geohpp[parm.geoband]);
-                parm.dline = geoh_dline (geohpp[parm.geoband]);
-                parm.dsamp = geoh_dsamp (geohpp[parm.geoband]);
+		parm.bline = geoh_bline (geohpp[parm.geoband]);
+		parm.bsamp = geoh_bsamp (geohpp[parm.geoband]);
+		parm.dline = geoh_dline (geohpp[parm.geoband]);
+		parm.dsamp = geoh_dsamp (geohpp[parm.geoband]);
 
 		/* compute bounding box */
 		temp1 = parm.bsamp - (parm.dsamp / 2.0);
@@ -139,9 +139,9 @@ primg(
 		parm.ymax = MAX(temp1, temp2);
 	}
 
- /*
-  * initialize for raw or floating-point pixels
-  */
+	/*
+	 * initialize for raw or floating-point pixels
+	 */
 	if (raw) {
 		skiphdrs(fdi);
 		pixsize = sizeof(pixel_t);
@@ -163,30 +163,30 @@ primg(
 		error("can't allocate image input buffer");
 	}
 
- /*
-  * read 1st coordinate pair  
-  */
+	/*
+	 * read 1st coordinate pair
+	 */
 	if (fdc != ERROR) {
 		status = getcoords(fdc, nlines, nsamps, &cline, &csamp);
 
 		if (status == EOF)  { 
 			return; 
 		}
-	 	else if (status == ERROR) {
+		else if (status == ERROR) {
 			csamp = -1;
 			cline = 0;  /* this prevents premature return */
 		}
 	}
- /*
-  * read image lines
-  */
+	/*
+	 * read image lines
+	 */
 	for (line = 0; line < nlines; ++line) {
 		if ((*in) (fdi, buf, nsamps) != nsamps) {
 			error("image read error, line %d", line);
 		}
- 		
+
 		/* fdc == ERROR means print everything */
-	
+
 		if (fdc == ERROR) {
 			int             samp;	/* current image sample # */
 
@@ -206,15 +206,15 @@ primg(
 				/* use naprint if point is off image */
 
 				if (cline >= nlines || cline < 0 ||
-				    csamp >= nsamps || csamp < 0 ||
-				    status == ERROR)  { 
+						csamp >= nsamps || csamp < 0 ||
+						status == ERROR)  {
 					naprint();
 				} else {
 					(*out) (csamp);
 				}
 
 				status = getcoords(fdc, nlines, nsamps,
-					      &cline, &csamp);
+						&cline, &csamp);
 
 				if (status == EOF)  { return; }
 			}

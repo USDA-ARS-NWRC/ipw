@@ -43,7 +43,7 @@ ialbedo_map (
 	int		maplen;		/* length of input image F.P map */
 	int	       *fmaplen;	/* -> lengths of F.P maps	 */
 	float		cosz;		/* cosine of zenith angle 	 */
-	float		sd;		/* storm day	 */
+	double		sd;			/* storm day value	 */
 	double		alb_ir_1;	/* IR albedo for cosz = 1	 */
 	double		alb_v_1;	/* Visible albedo for cosz = 1	 */
 	double		dzir;		/* ir diurnal increase range 	 */
@@ -102,7 +102,6 @@ ialbedo_map (
 	/* Access input image floating point maps */
 	fmap = fpmap (fdi);
 	map = fmap[0];
-//	smap = fmap[1];
 	fmaplen = fpmaplen (fdi);
 	maplen = fmaplen[0];
 
