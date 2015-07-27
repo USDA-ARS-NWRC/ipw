@@ -50,30 +50,6 @@ headers (
 		error ("input image has > 1 band");
 	}
 
-	/* read BIH of storm image */
-	if (fds != ERROR) {
-		if ((s_bih = bihread (fds)) == NULL) {
-			error ("can't read mask BIH");
-		}
-
-		if (bih_nlines(i_bih[0]) != bih_nlines(s_bih[0]) ||
-				bih_nsamps(i_bih[0]) != bih_nsamps(s_bih[0]))
-			error ("storm and input images are incompatible");
-
-		if (bih_nbands(s_bih[0]) != 1)
-			error ("storm image has > 1 bands");
-
-		//skiphdrs (fds);
-
-		/* ingest storm LQH, other headers are skipped */
-
-		gethdrs(fds, request, NO_COPY, ERROR);
-
-		if (hdr_addr(h_lqh) == NULL)
-			warn("storm input file has no LQH; raw values used");
-
-	}
-
 	/* create output BIH, # bytes will be set by bihmake */
 
 	o_bih = (BIH_T **) hdralloc (obands, sizeof(BIH_T *), fdo, BIH_HNAME);
@@ -97,5 +73,29 @@ headers (
 
 	if (hdr_addr (h_lqh) == NULL)
 		warn ("input file has no LQH; raw values used");
+
+	/* read BIH of storm image */
+	if (fds != ERROR) {
+		if ((s_bih = bihread (fds)) == NULL) {
+			error ("can't read storm BIH");
+		}
+
+		if (bih_nlines(i_bih[0]) != bih_nlines(s_bih[0]) ||
+				bih_nsamps(i_bih[0]) != bih_nsamps(s_bih[0]))
+			error ("storm and input images are incompatible");
+
+		if (bih_nbands(s_bih[0]) != 1)
+			error ("storm image has > 1 bands");
+
+		//		skiphdrs (fds);
+
+		/* ingest storm LQH, other headers are skipped */
+
+		gethdrs(fds, request, NO_COPY, ERROR);
+
+		if (hdr_addr(h_lqh) == NULL)
+			warn("storm input file has no LQH; raw values used");
+
+	}
 
 }
