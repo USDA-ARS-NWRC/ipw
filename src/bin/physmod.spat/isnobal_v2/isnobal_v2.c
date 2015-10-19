@@ -29,32 +29,33 @@
 
 void
 isnobal_v2(
-		int		out_step,	/* # of data tsteps per output img   */
-		int		got_opt_F)	/* got option F?		     */
+		int		out_step,		/* # of data tsteps per output img   */
+		int		got_opt_F)		/* got option F?		     */
 {
-	double	data_tstep;		/* data timestep		     */
-	double	step_time;		/* start time of current data tstep  */
-	int	step;			/* step loop counter		     */
-	int	end_step;		/* end step index		     */
-	bool_t	first_step;		/* is first step? 		     */
-	bool_t	last_step;		/* is last step? 		     */
-	int	out_counter;		/* counter for data tsteps per output*/
-	bool_t	output;			/* output images this step? 	     */
+	double	data_tstep;			/* data timestep		     */
+	double	step_time;			/* start time of current data tstep  */
+	int	step;					/* step loop counter		     */
+	int	end_step;				/* end step index		     */
+	bool_t	first_step;			/* is first step? 		     */
+	bool_t	last_step;			/* is last step? 		     */
+	int	out_counter;			/* counter for data tsteps per output*/
+	bool_t	output;				/* output images this step? 	     */
 	char	emfile[255];		/* name for temp e/m output file     */
 	char	snowfile[255];		/* name for temp snow output file    */
-	char	tempfiles[2][255];	/* names for temporary results files:
-					   one for input; another for output */
-	int	tempin;			/* index of temp filename for input  */
-	int	tempout;		/* index of temp filename for output */
+	int	tempin;					/* index of temp filename for input  */
+	int	tempout;				/* index of temp filename for output */
 	double	timeSinceOut;		/* local copy of 'time_since_out'    */
-	bool_t	sun_up[2];		/* is S_n band in input images?      */
+	bool_t	sun_up[2];			/* is S_n band in input images?      */
 	char	pre_img[255];		/* file name for precip image	     */
+	int N;						/* number of grid point */
+	int n;						/* loop iteration */
 
 
 	data_tstep = tstep_info[DATA_TSTEP].time_step;
 
 	nsamps = hnsamps(fdic);
 	nlines = hnlines(fdic);
+	N = nsamps*nlines;
 
 	first_em_pix = TRUE;
 	first_snow_pix = TRUE;
@@ -76,21 +77,6 @@ isnobal_v2(
 	temp_filename("isnobal", emfile);
 	temp_filename("isnobal", snowfile);
 
-	/*
-	 * if more than 1 time step, create two temporary results files: one for
-	 * input, another for output.  For now, they're empty; we're just reserving
-	 * the names.
-	 */
-//	if (nstep > 1) {
-//		if (got_opt_F) {
-//			strcpy(tempfiles[0], "isnobal.tmp1");
-//			strcpy(tempfiles[1], "isnobal.tmp2");
-//		}
-//		else {
-//			temp_filename("isnobal", tempfiles[0]);
-//			temp_filename("isnobal", tempfiles[1]);
-//		}
-//	}
 
 	/* initialize time of starting step */
 
@@ -166,36 +152,7 @@ isnobal_v2(
 			}
 		}
 
-		/*
-		 *  If not first timestep, open the temporary-results file
-		 *  from previous timestep for input.
-		 */
-
-		//		if (! first_step) {
-		//			tempin = tempout;
-		//			tempout = 1 - tempin;	/* toggle between 0 and 1 */
-		//			fdti = uropen(tempfiles[tempin]);
-		//			if (fdti == ERROR) {
-		//				error("Can't re-open temporary file '%s' for input",
-		//						tempfiles[tempin]);
-		//			}
-		//		}
-
-		/*
-		 *  Open temporary results file for writing if more than 1
-		 *  time step.
-		 */
-		//		if (nstep > 1) {
-		//			fdto = uwopen(tempfiles[tempout]);
-		//			if (fdto == ERROR) {
-		//				error("Can't re-open temporary file '%s' for output",
-		//						tempfiles[tempout]);
-		//			}
-		//		}
-
 		/* read input data and do calculations */
-
-		/* read next line from all input files */
 
 		read_data(first_step);
 
@@ -206,57 +163,36 @@ isnobal_v2(
 		otbuf_p = otbuf;
 		ot_nbytes = 0;
 
+		for (n = 0; n < N; n++) {
 
-		for (line = 0; line < nlines; line++) {
+			/* initialize some global variables for
+			   'snobal' library for each pass since
+			   the routine 'do_data_tstep' modifies them */
 
-			//			/* read next line from all input files */
-			//
-			//			read_data(first_step);
-			//
-			//			/* reset pointers for output buffers */
-			//
-			//			embuf_p = embuf;
-			//			sbuf_p  = sbuf;
-			//			otbuf_p = otbuf;
-			//			ot_nbytes = 0;
+			current_time = step_time;
+			time_since_out = timeSinceOut;
 
-			/* Do calculations on each sample of line */
+			precip_now = (fdp != ERROR);
 
-			for (samp=0; samp < nsamps; samp++) {
+			/* extract data from I/O buffers */
 
-				/* initialize some global variables for
-				   'snobal' library for each pass since
-				   the routine 'do_data_tstep' modifies them */
+			if (extract_data(first_step, sun_up)) {
 
-				current_time = step_time;
-				time_since_out = timeSinceOut;
+				/* run model on data for this pixel */
 
-				precip_now = (fdp != ERROR);
+				if (! do_data_tstep())
+					error("During step %d, at line %d, sample %d",
+							step, line, samp);
 
-				/* extract data from I/O buffers */
+				/* assign data to output buffers */
 
-				if (extract_data(first_step, sun_up)) {
+				assign_buffers(FALSE, output);
 
-					/* run model on data for this pixel */
+			} else { /* masked point */
+				assign_buffers(TRUE, output);
+			}
 
-					if (! do_data_tstep())
-						error("During step %d, at line %d, sample %d",
-								step, line, samp);
-
-					/* assign data to output buffers */
-
-					assign_buffers(FALSE, output);
-
-				} else { /* masked point */
-					assign_buffers(TRUE, output);
-				}
-			}  /* for loop on samples */
-
-			//			/* write output buffers to output files */
-			//
-			//			write_data(output, last_step);
-
-		}  /* for loop on lines */
+		}  /* for loop on grid */
 
 		/* write output buffers to output files */
 
@@ -294,12 +230,6 @@ isnobal_v2(
 			first_snow_pix = TRUE;
 		}
 
-		/* close any open temporary results files */
-
-//		if (fdti != ERROR)
-//			uclose(fdti);
-//		if (fdto != ERROR)
-//			uclose(fdto);
 	}  /* for loop on timesteps */
 
 	/* remove temp files */
@@ -307,8 +237,4 @@ isnobal_v2(
 	uremove(emfile);
 	uremove(snowfile);
 
-	//	if ((nstep > 1) && (! got_opt_F)) {
-	//		uremove(tempfiles[0]);
-	//		uremove(tempfiles[1]);
-	//	}
 }

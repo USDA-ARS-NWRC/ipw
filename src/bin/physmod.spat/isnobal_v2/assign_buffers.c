@@ -59,11 +59,11 @@
 
 void
 assign_buffers (
-		int		masked,		/* is point masked?		   */
-		int	        output)		/* writing output image this step? */
+		int	masked,		/* is point masked?		   */
+		int	output)		/* writing output image this step? */
 {
-	fpixel_t       *bufp;		/* -> in line buffers		 */
-	int		i;		/* band loop counter		 */
+	fpixel_t *bufp;		/* -> in line buffers		 */
+	int i;				/* band loop counter		 */
 
 
 	/* if output this time step, set output buffer bands */
