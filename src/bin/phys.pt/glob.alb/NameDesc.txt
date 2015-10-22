@@ -1,1 +1,0 @@
-glob.alb - global (broadband) solar albedo over snow

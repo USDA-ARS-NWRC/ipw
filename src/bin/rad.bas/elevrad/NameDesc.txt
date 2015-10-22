@@ -1,1 +1,0 @@
-elevrad - beam and diffuse radiation from elevation

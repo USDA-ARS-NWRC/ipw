@@ -1,3 +1,0 @@
-%define(name,"unpack_dms")
-%define(description,"convert packed DMS to decimal degrees")
-%define(category,"mapproj")

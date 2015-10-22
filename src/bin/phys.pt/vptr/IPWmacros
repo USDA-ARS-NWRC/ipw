@@ -1,3 +1,0 @@
-%define(name,"vptr")
-%define(description,"vapor pressure from thermal radiation")
-%define(category,"Environmental Physics and Properties: Point")

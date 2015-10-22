@@ -1,3 +1,0 @@
-%define(name,"sathdup")
-%define(description,"duplicate an IPW SATH header")
-%define(category,"sath")

@@ -1,9 +1,0 @@
-
-geoh - geodetic headers
-
-  geohdup   - duplicate an IPW GEOH header
-  geohfree  - free all left over parts of a GEO header
-  geohmake  - make an IPW GEOH header
-  geohread  - read an IPW GEOH header
-  geohspace - get spacing from geodetic header
-  geohwrite - write an IPW GEOH header

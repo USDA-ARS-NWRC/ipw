@@ -1,3 +1,0 @@
-%define(name,"read_proj")
-%define(description,"read projection definition file")
-%define(category,"mapproj")

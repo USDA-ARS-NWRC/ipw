@@ -1,1 +1,0 @@
-viewf - sky view and terrain configuration factors

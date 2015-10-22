@@ -1,1 +1,0 @@
-imgcopy - copy all image data

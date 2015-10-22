@@ -1,3 +1,0 @@
-%define(name,"mkprecip")
-%define(description,"make precipitation images for 'isnobal' command")
-%define(category,"Physical Modeling: Spatial")

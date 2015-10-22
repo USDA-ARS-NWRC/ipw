@@ -1,3 +1,0 @@
-%define(name,"tmpt")
-%define(description,"make IPW image from Thematic Mapper (TM) image on tape")
-%define(category,"Importing Image Data")

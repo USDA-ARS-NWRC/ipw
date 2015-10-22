@@ -1,3 +1,0 @@
-%define(name,"ipw_strerr")
-%define(description,"get message for IPW error code")
-%define(category,"error")

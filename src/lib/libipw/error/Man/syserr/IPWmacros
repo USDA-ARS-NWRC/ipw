@@ -1,3 +1,0 @@
-%define(name,"syserr")
-%define(description,"note occurrence of UNIX system error")
-%define(category,"error")

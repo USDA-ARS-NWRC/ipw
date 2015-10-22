@@ -1,3 +1,0 @@
-%define(name,"new_image")
-%define(description,"create a new image for writing")
-%define(category,"image")

@@ -1,3 +1,0 @@
-%define(name,"solar_can")
-%define(description,"compute below canopy solar radiation (Mel's model)")
-%define(category,"Radiation Modeling: Point")

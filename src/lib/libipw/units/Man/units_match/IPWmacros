@@ -1,3 +1,0 @@
-%define(name,"units_match")
-%define(description,"check if a string matches a units id")
-%define(category,"units")

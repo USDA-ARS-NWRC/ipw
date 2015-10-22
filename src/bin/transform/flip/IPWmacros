@@ -1,3 +1,0 @@
-%define(name,"flip")
-%define(description,"flip an IPW image")
-%define(category,"Image Transformation")

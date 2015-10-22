@@ -1,1 +1,0 @@
-rmtrail - remove trailing white space from string

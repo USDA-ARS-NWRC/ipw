@@ -1,1 +1,0 @@
-stoporad - topographically-corrected solar radiation over snow

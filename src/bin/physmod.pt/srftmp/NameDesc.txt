@@ -1,1 +1,0 @@
-srftmp - soil surface temperature from min & max air temperatures

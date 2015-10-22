@@ -1,3 +1,0 @@
-%define(name,"lutx")
-%define(description,"transform an IPW image using an IPW lookup table")
-%define(category,"Image Statistics")

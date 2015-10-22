@@ -1,3 +1,0 @@
-%define(name,"orhwrite")
-%define(description,"write an IPW ORH header")
-%define(category,"orh")

@@ -1,3 +1,0 @@
-%define(name,"psychrom")
-%define(description,"solve psycrometric equation")
-%define(category,"envphys")

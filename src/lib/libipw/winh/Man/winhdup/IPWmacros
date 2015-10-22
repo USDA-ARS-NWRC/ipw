@@ -1,3 +1,0 @@
-%define(name,"winhdup")
-%define(description,"duplicate an IPW WINH header")
-%define(category,"winh")

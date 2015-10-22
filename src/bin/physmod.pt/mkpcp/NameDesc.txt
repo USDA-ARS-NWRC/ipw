@@ -1,1 +1,0 @@
-mkpcp - make precipitation files for 'snobal' command

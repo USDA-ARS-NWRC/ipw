@@ -1,3 +1,0 @@
-%define(name,"hnbytes")
-%define(description,"number of bytes in image band")
-%define(category,"bih")

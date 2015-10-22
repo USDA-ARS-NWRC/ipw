@@ -1,3 +1,0 @@
-%define(name,"get_proj_id")
-%define(description,"get ID for projection's short name")
-%define(category,"mapproj")

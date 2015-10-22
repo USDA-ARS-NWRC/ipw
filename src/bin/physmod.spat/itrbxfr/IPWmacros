@@ -1,3 +1,0 @@
-%define(name,"itrbxfr")
-%define(description,"turbulent transfer (H and LE) using Brutsaert's method")
-%define(category,"Physical Modeling: Spatial")

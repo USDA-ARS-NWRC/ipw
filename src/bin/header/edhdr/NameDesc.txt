@@ -1,1 +1,0 @@
-edhdr - edit headers of an IPW image

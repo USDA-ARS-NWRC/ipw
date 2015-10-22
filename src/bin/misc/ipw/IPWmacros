@@ -1,3 +1,0 @@
-%define(name,"ipw")
-%define(description,"list IPW commands by category")
-%define(category,"Miscellaneous")

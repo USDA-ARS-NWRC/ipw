@@ -1,3 +1,0 @@
-%define(name,"iadd")
-%define(description,"perform addition or subtraction on pixels (DEPRECIATED)")
-%define(category,"Pixel Calculations")

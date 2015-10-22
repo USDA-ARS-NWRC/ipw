@@ -1,1 +1,0 @@
-hrname - get name of current input image header

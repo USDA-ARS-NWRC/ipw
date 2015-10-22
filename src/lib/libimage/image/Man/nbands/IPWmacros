@@ -1,3 +1,0 @@
-%define(name,"nbands")
-%define(description,"get # of bands in an image")
-%define(category,"image")

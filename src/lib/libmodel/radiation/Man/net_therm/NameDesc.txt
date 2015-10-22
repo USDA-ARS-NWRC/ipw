@@ -1,1 +1,0 @@
-net_therm - calculates net thermal radiation

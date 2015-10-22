@@ -1,73 +1,73 @@
 /*
-** NAME
-**      snobal.h
-**
-** DESCRIPTION
-**      Include file for the snobal library.
-*/
+ ** NAME
+ **      snobal.h
+ **
+ ** DESCRIPTION
+ **      Include file for the snobal library.
+ */
 
 #ifndef _SNOBAL_H_
 #define _SNOBAL_H_
 
-    	/*
-	 *  default for snowcover's maximum liquid h2o content as volume
-	 *  ratio: V_water/(V_snow - V_ice)
-	 */
+/*
+ *  default for snowcover's maximum liquid h2o content as volume
+ *  ratio: V_water/(V_snow - V_ice)
+ */
 #define DEFAULT_MAX_H2O_VOL  0.01
 
-	/*
-	 *  default for maximum active (surface) layer depth (m)
-	 */
+/*
+ *  default for maximum active (surface) layer depth (m)
+ */
 #define DEFAULT_MAX_Z_S_0  0.25
 
-	/*
-	 *  default for depth of soil temperature measurement (m)
-	 */
+/*
+ *  default for depth of soil temperature measurement (m)
+ */
 #define DEFAULT_Z_G      0.5
 
-	/*
-	 *  Minimum valid snow temperature (C).  This is also what temperatures
-	 *  are set to when there's no snow (instead of 0 K).  This yields a
-	 *  smaller quantization range in the output image: -75 C to 0 C
-	 *  (instead of -273.16 C to 0 C).
-	 */
+/*
+ *  Minimum valid snow temperature (C).  This is also what temperatures
+ *  are set to when there's no snow (instead of 0 K).  This yields a
+ *  smaller quantization range in the output image: -75 C to 0 C
+ *  (instead of -273.16 C to 0 C).
+ */
 #define MIN_SNOW_TEMP	-75
 
 
-	/*
-	 *  default for medium run timestep (minutes)
-	 */
+/*
+ *  default for medium run timestep (minutes)
+ */
 #define	DEFAULT_MEDIUM_TSTEP  15
 
-	/*
-	 *  default for small run timestep (minutes)
-	 */
+/*
+ *  default for small run timestep (minutes)
+ */
 #define	DEFAULT_SMALL_TSTEP  1
 
-	/*
-	 *  default for normal run timestep's threshold for a layer's mass
-	 *  (kg/m^2)
-	 */
+/*
+ *  default for normal run timestep's threshold for a layer's mass
+ *  (kg/m^2)
+ */
 #define	DEFAULT_NORMAL_THRESHOLD  60.0
 
-	/*
-	 *  default for medium run timestep's threshold for a layer's mass
-	 *  (kg/m^2)
-	 */
+/*
+ *  default for medium run timestep's threshold for a layer's mass
+ *  (kg/m^2)
+ */
 #define	DEFAULT_MEDIUM_THRESHOLD  10.0
 
-	/*
-	 *  default for small run timestep's threshold for a layer's mass
-	 *  (kg/m^2)
-	 */
+/*
+ *  default for small run timestep's threshold for a layer's mass
+ *  (kg/m^2)
+ */
 #define	DEFAULT_SMALL_THRESHOLD  1.0
 
-	/*
-	 *  Does a time fall within the current input data timestep? 
-	 */
+/*
+ *  Does a time fall within the current input data timestep?
+ */
 #define IN_CURR_DATA_TSTEP(time)	\
 		((current_time <= (time)) && \
-		 ((time) < current_time + tstep_info[DATA_TSTEP].time_step))
+				((time) < current_time + tstep_info[DATA_TSTEP].time_step))
 
 /* ------------------------------------------------------------------------ */
 
@@ -103,32 +103,32 @@ extern  double  max_h2o_vol;    /* max liquid h2o content as volume ratio:
 /*   time step information */
 
 typedef struct {
-		int 	  level;	/* timestep's level */
+	int 	  level;	/* timestep's level */
 #define	DATA_TSTEP	   0
 #define	NORMAL_TSTEP	   1
 #define	MEDIUM_TSTEP	   2
 #define	SMALL_TSTEP	   3
 
-		double    time_step;	/* length of timestep (seconds) */
-		int	  intervals;	/* # of these timestep that are in
+	double    time_step;	/* length of timestep (seconds) */
+	int	  intervals;	/* # of these timestep that are in
 					   the previous-level's timestep
 					   (not used for level 0: data tstep) */
-		double	  threshold;	/* mass threshold for a layer to use
+	double	  threshold;	/* mass threshold for a layer to use
 					   this timestep
 					   (not used for level 0: data tstep) */
-		int	  output;	/* flags whether or not to call output
+	int	  output;	/* flags whether or not to call output
 					   function for timestep */
 #define WHOLE_TSTEP	  0x1		/* output when tstep is not divided */
 #define DIVIDED_TSTEP	  0x2		/* output when timestep is divided */
 
-	} TSTEP_REC;
+} TSTEP_REC;
 
-extern  TSTEP_REC  tstep_info[]; 	/* array of info for each timestep:
+extern  TSTEP_REC  tstep_info[4]; 	/* array of info for each timestep:
 						   0 : data timestep
 						   1 : normal run timestep
 						   2 : medium  "     "
 						   3 : small   "     "
-					 */
+ */
 
 extern	double	time_step;	/* length current timestep (sec) */
 extern  double  current_time;   /* start time of current time step (sec) */
@@ -170,21 +170,21 @@ extern  double  h2o_total;      /* total liquid h2o: includes h2o in snowcover,
 extern  int     ro_data;        /* runoff data? */
 
 typedef struct {
-		double S_n;	/* net solar radiation (W/m^2) */
-		double I_lw;	/* incoming longwave (thermal) rad (W/m^2) */
-		double T_a;	/* air temp (C) */
-		double e_a;	/* vapor pressure (Pa) */
-		double u;	/* wind speed (m/sec) */
-		double T_g;	/* soil temp at depth z_g (C) */
-		double ro;	/* measured runoff (m/sec) */
-	} INPUT_REC;
+	double S_n;	/* net solar radiation (W/m^2) */
+	double I_lw;	/* incoming longwave (thermal) rad (W/m^2) */
+	double T_a;	/* air temp (C) */
+	double e_a;	/* vapor pressure (Pa) */
+	double u;	/* wind speed (m/sec) */
+	double T_g;	/* soil temp at depth z_g (C) */
+	double ro;	/* measured runoff (m/sec) */
+} INPUT_REC;
 
 extern	INPUT_REC  input_rec1;	/* input data for start of data timestep */
 extern	INPUT_REC  input_rec2;	/*   "     "   "  end   "   "      "     */
 
 /*   climate-data input values for the current run timestep */
 
-extern  double  S_n;		/* net solar radiation (W/m^2) */
+extern  double  S_n;			/* net solar radiation (W/m^2) */
 extern  double  I_lw;           /* incoming longwave (thermal) rad (W/m^2) */
 extern  double  T_a;            /* air temp (C) */
 extern  double  e_a;            /* vapor pressure (Pa) */
@@ -269,5 +269,25 @@ extern  double  ro_predict;     /* predicted specific runoff (m/sec) */
 extern	double	melt_sum;
 extern	double	E_s_sum;
 extern	double	ro_pred_sum;
+
+
+
+#pragma omp threadprivate(run_no_snow, stop_no_snow, max_z_s_0, max_h2o_vol, tstep_info, time_step, current_time, time_since_out, \
+		layer_count, z_s, z_s_0, z_s_l, rho, m_s, m_s_0, m_s_l, T_s, T_s_0, T_s_l, cc_s, cc_s_0, cc_s_l, h2o_sat, \
+		h2o_vol, h2o, h2o_max, h2o_total, ro_data, input_rec1, input_rec2, S_n, I_lw, T_a, e_a, u, T_g, ro, \
+		P_a, relative_hts, z_g, z_u, z_T, z_0, precip_now, m_pp, percent_snow, rho_snow, T_pp, T_rain, T_snow, \
+		h2o_sat_snow, m_precip, m_rain, m_snow, z_snow, R_n, H, L_v_E, G, G_0, M, delta_Q, delta_Q_0, R_n_bar, \
+		H_bar, L_v_E_bar, G_bar, G_0_bar, M_bar, delta_Q_bar, delta_Q_0_bar, melt, E, E_s, ro_predict, \
+		melt_sum, E_s_sum, ro_pred_sum)
+
+
+//#pragma omp threadprivate(rho_snow, T_pp, layer_count,run_no_snow,stop_no_snow,max_h2o_vol, \
+//		time_step,current_time,time_since_out,z_s,z_s_0,z_s_l,rho,m_s,m_s_0,m_s_l, \
+//		T_s,T_s_0,T_s_l,cc_s,cc_s_0,cc_s_l,h2o_sat,h2o_vol,h2o,h2o_max,h2o_total,ro_data,input_rec1, \
+//		input_rec2,S_n,I_lw,T_a,e_a,u,T_g,ro,P_a,z_0,precip_now,m_pp, \
+//		percent_snow,T_rain,T_snow,h2o_sat_snow,m_precip,m_rain,m_snow,z_snow, \
+//		R_n,H,L_v_E,G,G_0,M,delta_Q,delta_Q_0,R_n_bar,H_bar,L_v_E_bar,G_bar,G_0_bar,M_bar,\
+//		delta_Q_bar,delta_Q_0_bar,melt,E,E_s,ro_predict,melt_sum,E_s_sum,ro_pred_sum,tstep_info,\
+//		z_u,z_T,z_g,relative_hts,max_z_s_0)
 
 #endif /* _SNOBAL_H_ */

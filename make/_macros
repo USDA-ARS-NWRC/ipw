@@ -217,7 +217,7 @@ endef
 #	 The -iquote option was added in GCC v4.
 
 ifeq ($(CC) $(GCC_HAS_IQUOTE),gcc yes)
-  CFLAGS := $(foreach dir, $(INCLUDE_DIRS), -iquote $(dir))
+  CFLAGS := $(foreach dir, $(INCLUDE_DIRS), -iquote $(dir) $(EXTRA_CFLAGS))
 else
   CFLAGS := $(foreach dir, $(INCLUDE_DIRS), -I$(dir))
 endif

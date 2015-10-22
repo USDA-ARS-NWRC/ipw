@@ -1,3 +1,0 @@
-%define(name,"swp")
-%define(description,"soil water potential (SWP) and hydaulic conductivities")
-%define(category,"Environmental Physics and Properties: Point")

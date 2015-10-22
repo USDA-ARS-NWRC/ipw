@@ -1,3 +1,0 @@
-%define(name,"topquad")
-%define(description,"daily integrated radiation over a topographic grid")
-%define(category,"Radiation Modeling: Basin-Scale")

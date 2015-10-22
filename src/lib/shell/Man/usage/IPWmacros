@@ -1,2 +1,0 @@
-%define(name,"usage")
-%define(description,"standard IPW usage message for shell scripts")

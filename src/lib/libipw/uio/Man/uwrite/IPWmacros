@@ -1,3 +1,0 @@
-%define(name,"uwrite")
-%define(description,"UNIX write")
-%define(category,"uio")

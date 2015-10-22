@@ -1,3 +1,0 @@
-%define(name,"skewhwrite")
-%define(description,"write an IPW SKEWH header")
-%define(category,"skewh")

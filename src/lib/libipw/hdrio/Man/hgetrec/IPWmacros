@@ -1,3 +1,0 @@
-%define(name,"hgetrec")
-%define(description,"read and decode header record")
-%define(category,"hdrio")

@@ -1,6 +1,0 @@
-
-skewh - image skew headers
-
-  skewhmake  - make an IPW SKEWH header
-  skewhread  - read an IPW SKEWH header
-  skewhwrite - write an IPW SKEWH header

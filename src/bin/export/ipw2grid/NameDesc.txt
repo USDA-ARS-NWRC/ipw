@@ -1,1 +1,0 @@
-ipw2grid - convert IPW image to Arc/Info image

@@ -1,1 +1,0 @@
-ipwinterp - interpolate IPW image using parameters from 'istatrel' command

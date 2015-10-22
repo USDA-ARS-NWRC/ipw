@@ -1,3 +1,0 @@
-%define(name,"svp_slope")
-%define(description,"slope of saturation vapor pressure with temperature")
-%define(category,"Environmental Physics and Properties: Point")

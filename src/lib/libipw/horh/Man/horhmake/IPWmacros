@@ -1,3 +1,0 @@
-%define(name,"horhmake")
-%define(description,"make an IPW HORH header")
-%define(category,"horh")

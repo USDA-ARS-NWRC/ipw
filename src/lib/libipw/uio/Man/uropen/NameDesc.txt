@@ -1,1 +1,0 @@
-uropen - open UNIX file for reading

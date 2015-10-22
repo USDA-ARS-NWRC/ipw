@@ -1,8 +1,0 @@
-
-error - error handling
-
-  error  - print error message and exit
-  syserr - note occurrence of UNIX system error
-  uferr  - note occurrence of UNIX file error
-  usrerr - log user's error message string
-  warn   - print warning message

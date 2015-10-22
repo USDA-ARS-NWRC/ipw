@@ -1,3 +1,0 @@
-%define(name,"albedo")
-%define(description,"solar albedo for visible and infrared over snow")
-%define(category,"Environmental Physics and Properties: Point")

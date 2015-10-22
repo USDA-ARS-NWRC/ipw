@@ -1,3 +1,0 @@
-%define(name,"delsv")
-%define(description,"delete i'th string from strvec")
-%define(category,"strvec")

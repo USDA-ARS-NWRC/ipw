@@ -1,3 +1,0 @@
-%define(name,"mktemplate")
-%define(description,"create a template for the name of a temporary file")
-%define(category,"uio")

@@ -1,3 +1,0 @@
-%define(name,"freesv")
-%define(description,"free an entire strvec")
-%define(category,"strvec")

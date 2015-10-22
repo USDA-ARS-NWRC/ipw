@@ -1,9 +1,0 @@
-
-Radiation Modeling: Global-Scale
-
-  gelevrad    - beam and diffuse irradiance from elevation
-  gsunlight   - sun angles: azimuth and zenith angles of sun's position
-  gsunweights - Kronrod quadrature weights and sun angles
-  gtoporad    - topographically-corrected solar radiation
-  gtoporad.24 - topographically-corrected solar radiation for 24-hour period
-  gtopquad    - daily integrated radiation over a topographic grid

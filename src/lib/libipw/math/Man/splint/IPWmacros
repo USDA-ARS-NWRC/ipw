@@ -1,3 +1,0 @@
-%define(name,"splint")
-%define(description,"integral of spline function")
-%define(category,"math")

@@ -1,3 +1,4 @@
+#include <omp.h>
 #include "ipw.h"
 #include "pgm.h"
 #include "snobal.h"
@@ -48,6 +49,12 @@ main (
 			STR_OPTARGS, "precip",
 			OPTIONAL, 1, 1
 	};
+
+	static OPTION_T opt_P = {
+				'P', "Number of threads",
+				REAL_OPTARGS, "threads",
+				OPTIONAL, 1, 1
+		};
 
 	static OPTION_T opt_m = {
 			'm', "mask image",
@@ -107,6 +114,7 @@ main (
 			&opt_I,
 			&opt_i,
 			&opt_p,
+			&opt_P,
 			&opt_m,
 			&opt_d,
 			&opt_O,
@@ -126,6 +134,7 @@ main (
 	int		small_tstep_min; /* small run timestep as minutes */
 	double		threshold;	 /* timestep's threshold for 
 					    layer's mass */
+	int nthreads;
 
 
 	/* Some initialization first */
@@ -135,8 +144,8 @@ main (
 		tstep_info[level].output = 0;
 	}
 
-//	max_z_s_0    = DEFAULT_MAX_Z_S_0;
-//	max_z_s_0 = 0.15;
+	//	max_z_s_0    = DEFAULT_MAX_Z_S_0;
+	//	max_z_s_0 = 0.15;
 	/*	z_u          = 5.0;	*/
 	z_u	     = DEFAULT_Z_U;
 	/*	z_T          = 5.0;	*/
@@ -161,6 +170,18 @@ main (
 	}
 	else {
 		max_z_s_0 = DEFAULT_MAX_Z_S_0;
+	}
+
+	/* check number of threads to use */
+	if (got_opt(opt_P)) {
+		nthreads = real_arg(opt_P, 0);
+		if (nthreads > omp_get_max_threads()){
+			nthreads = omp_get_max_threads();
+			printf("WARNING - maximum number of threads is %i, using %i\n", omp_get_max_threads(), nthreads);
+		}
+	}
+	else {
+		nthreads = 1;
 	}
 
 	/*
@@ -376,7 +397,7 @@ main (
 	/* do all the work */
 
 	/*	isnobal(out_step);	*/
-	isnobal_v2(out_step, got_opt(opt_F));
+	isnobal_v2(out_step, nthreads, got_opt(opt_F));
 
 	/* all done */
 

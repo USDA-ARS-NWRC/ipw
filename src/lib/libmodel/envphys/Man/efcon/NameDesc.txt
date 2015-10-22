@@ -1,1 +1,0 @@
-efcon - calculates equivalent thermal conductivity

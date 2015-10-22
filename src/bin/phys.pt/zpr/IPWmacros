@@ -1,3 +1,0 @@
-%define(name,"zpr")
-%define(description,"air pressure from elevation")
-%define(category,"Environmental Physics and Properties: Point")

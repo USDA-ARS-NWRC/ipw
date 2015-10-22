@@ -1,3 +1,0 @@
-%define(name,"humidx")
-%define(description,"mean daily vapor pressure from min & max air temperatures")
-%define(category,"Physical Modeling: Point")

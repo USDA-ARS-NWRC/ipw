@@ -1,3 +1,0 @@
-%define(name,"msurfprep")
-%define(description,"make nearest-neighbor information for 'msurface' command")
-%define(category,"Importing Image Data")

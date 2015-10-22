@@ -1,3 +1,0 @@
-%define(name,"indvi")
-%define(description,"normalized difference vegetation index (NDVI)")
-%define(category,"Environmental Physics and Properties: Spatial")

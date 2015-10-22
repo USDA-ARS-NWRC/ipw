@@ -1,3 +1,0 @@
-%define(name,"geohfree")
-%define(description,"free all left over parts of a GEO header")
-%define(category,"geoh")

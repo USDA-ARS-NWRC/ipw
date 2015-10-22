@@ -1,3 +1,0 @@
-%define(name,"clmask")
-%define(description,"make class mask image from an IPW image")
-%define(category,"Image Classification")

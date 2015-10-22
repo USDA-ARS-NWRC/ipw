@@ -1,3 +1,0 @@
-%define(name,"leapyear")
-%define(description,"is a given year a leap year?")
-%define(category,"datetime")

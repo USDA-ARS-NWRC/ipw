@@ -1,1 +1,0 @@
-ipow2 - compute integral powers of 2

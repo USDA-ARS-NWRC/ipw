@@ -8,4 +8,6 @@ SRCS := assign_buffers.c buffers.c check_range.c check_units.c copy_image.c \
 
 EXTRA_LIBS := snobal model
 
+#EXTRA_CFLAGS := -fopenmp
+
 include $(IPW)/make/command

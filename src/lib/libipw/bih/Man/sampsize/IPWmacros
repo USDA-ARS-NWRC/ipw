@@ -1,3 +1,0 @@
-%define(name,"sampsize")
-%define(description,"compute total ")
-%define(category,"bih")

@@ -1,1 +1,0 @@
-read_pbuf - read unsigned-integer pixels from image into buffer

@@ -1,3 +1,0 @@
-%define(name,"net_therm")
-%define(description,"calculates net thermal radiation")
-%define(category,"radiation")

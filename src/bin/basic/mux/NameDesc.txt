@@ -1,1 +1,0 @@
-mux - multiplex (combine) images into one multi-band image

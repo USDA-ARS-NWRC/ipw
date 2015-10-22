@@ -1,1 +1,0 @@
-hbyteorder - image byte order

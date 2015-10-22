@@ -1,1 +1,0 @@
-geohspace - get spacing from geodetic header

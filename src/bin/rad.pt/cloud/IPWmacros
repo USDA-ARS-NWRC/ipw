@@ -1,3 +1,0 @@
-%define(name,"cloud")
-%define(description,"estimate cloudcover from tmax, tmin")
-%define(category,"Radiation Modeling: Point")

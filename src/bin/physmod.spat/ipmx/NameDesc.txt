@@ -1,1 +1,0 @@
-ipmx - latent heat flux (LE) using Penman-Monteith method

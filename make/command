@@ -121,7 +121,7 @@ endif
 
 cmd : $(PGM)
 $(PGM) : $(OBJS)
-	$(CC) $(CFLAGS) $(EXTRA_CFLAGS) -o $(PGM) $(LDFLAGS) $^ $(OTHER_LIBS) -lipw -lm
+	$(CC) $(CFLAGS) $(CFLAGS) -o $(PGM) $(LDFLAGS) $^ $(OTHER_LIBS) -lipw -lm
 
 INSTALLED_CMD = $(BIN_DIR)/$(PGM)
 install-cmd : $(INSTALLED_CMD)

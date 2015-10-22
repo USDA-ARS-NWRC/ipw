@@ -1,1 +1,0 @@
-trad_can - compute below canopy thermal radiation (Mel's model)

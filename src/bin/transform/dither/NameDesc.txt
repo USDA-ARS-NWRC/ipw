@@ -1,1 +1,0 @@
-dither - convert IPW image into bilevel image using ordered dithering

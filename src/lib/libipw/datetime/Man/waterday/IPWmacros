@@ -1,3 +1,0 @@
-%define(name,"waterday")
-%define(description,"returns day of water year for a given date")
-%define(category,"datetime")

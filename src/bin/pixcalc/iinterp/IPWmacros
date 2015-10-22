@@ -1,3 +1,0 @@
-%define(name,"iinterp")
-%define(description,"linearly interpolate single-band image using set of data pairs")
-%define(category,"Pixel Calculations")
