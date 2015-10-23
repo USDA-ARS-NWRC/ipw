@@ -27,6 +27,12 @@
 #include "pgm.h"
 #include "snobal.h"
 
+
+
+//OUTPUT_REC *create_output( int num) {
+//
+//}
+
 void
 isnobal_v2(
 		int	out_step,		/* # of data tsteps per output img   */
@@ -61,9 +67,15 @@ isnobal_v2(
 	N = nsamps*nlines;
 
 	// array of pointers to OUTPUT_REC
-	OUTPUT_REC *output_rec[N];
+	printf("Allocating memory for model outputs...\n");
+	OUTPUT_REC ** output_rec = (OUTPUT_REC **) calloc(N, sizeof(OUTPUT_REC *));
 	for(n = 0; n < N; ++n)
-		output_rec[n] = (OUTPUT_REC *)malloc(sizeof(OUTPUT_REC));	// initialize the memory at that pointer
+		output_rec[n] = malloc(sizeof(OUTPUT_REC));	// initialize the memory (in heap) at that pointer
+
+
+	//	OUTPUT_REC *output_rec[N];
+	//	for(n = 0; n < N; ++n)
+	//		output_rec[n] = (OUTPUT_REC *) malloc(sizeof(OUTPUT_REC));	// initialize the memory (in heap) at that pointer
 
 	//	first_em_pix = TRUE;
 	//	first_snow_pix = TRUE;
@@ -71,8 +83,10 @@ isnobal_v2(
 	//	tempout = 0;
 
 	/* set threads */
-	omp_set_dynamic(0);     		// Explicitly disable dynamic teams
-	omp_set_num_threads(nthreads); 	// Use N threads for all consecutive parallel regions
+	if (nthreads != 1) {
+		omp_set_dynamic(0);     		// Explicitly disable dynamic teams
+		omp_set_num_threads(nthreads); 	// Use N threads for all consecutive parallel regions
+	}
 
 	/*
 	 * Since no output required by 'snobal' library, don't give it an output
@@ -109,7 +123,7 @@ isnobal_v2(
 		first_step = (step == start_step);
 		last_step =  (step == end_step);
 
-		//		printf("Time step -- %i\n", step);
+		printf("Time step -- %i\n", step);
 
 		/* open input image files */
 
@@ -175,38 +189,49 @@ isnobal_v2(
 		//		ot_nbytes = 0;
 
 
-		//				#pragma omp threadprivate(elevation, m_ppm, \
-		//					rho_snow, T_pp, layer_count,run_no_snow,stop_no_snow,max_z_s_0,max_h2o_vol,tstep_info, \
-		//					time_step,current_time,time_since_out,layer_count,z_s,z_s_0,z_s_l,rho,m_s,m_s_0,m_s_l, \
-		//					T_s,T_s_0,T_s_l,cc_s,cc_s_0,cc_s_l,h2o_sat,h2o_vol,h2o,h2o_max,h2o_total,ro_data,input_rec1, \
-		//					input_rec2,S_n,I_lw,T_a,e_a,u,T_g,ro,P_a,relative_hts,z_g,z_u,z_T,z_0,precip_now,m_pp, \
-		//					percent_snow,rho_snow,T_pp,T_rain,T_snow,h2o_sat_snow,m_precip,m_rain,m_snow,z_snow, \
-		//					R_n,H,L_v_E,G,G_0,M,delta_Q,delta_Q_0,R_n_bar,H_bar,L_v_E_bar,G_bar,G_0_bar,M_bar,\
-		//					delta_Q_bar,delta_Q_0_bar,melt,E,E_s,ro_predict,melt_sum,E_s_sum,ro_pred_sum)
-		//#pragma omp parallel shared(output_rec, fdp, ibuf1, ibuf2, icbuf, pbuf, mbuf, embuf, sbuf, step) private(nsamps,nlines)
-		//		,z_u,z_T,z_g,\relative_hts,z_0,T_s_0,T_a)
-		//			private(n,nsamps,nlines,elevation,z_0,z_s,rho,T_s_0,T_s,T_s_l,h2o_sat,T_a,T_g,\
-		//					R_n_bar, H_bar, L_v_E_bar, G_bar, M_bar, delta_Q_bar, E_s_sum, melt_sum, ro_pred_sum)
-		//private(rho_snow, T_pp, layer_count,run_no_snow,stop_no_snow,max_z_s_0,max_h2o_vol, \
-		//		time_step,current_time,time_since_out,z_s,z_s_0,z_s_l,rho,m_s,m_s_0,m_s_l, \
-		//		T_s,T_s_0,T_s_l,cc_s,cc_s_0,cc_s_l,h2o_sat,h2o_vol,h2o,h2o_max,h2o_total,ro_data,input_rec1, \
-		//		input_rec2,S_n,I_lw,T_a,e_a,u,T_g,ro,P_a,z_0,precip_now,m_pp, \
-		//		percent_snow,T_rain,T_snow,h2o_sat_snow,m_precip,m_rain,m_snow,z_snow, \
-		//		R_n,H,L_v_E,G,G_0,M,delta_Q,delta_Q_0,R_n_bar,H_bar,L_v_E_bar,G_bar,G_0_bar,M_bar,\
-		//		delta_Q_bar,delta_Q_0_bar,melt,E,E_s,ro_predict,melt_sum,E_s_sum,ro_pred_sum)
-
+		if (nthreads != 1) {
 
 #pragma omp parallel shared(output_rec, ibuf1, ibuf2, icbuf, pbuf, mbuf, sbuf, embuf, fdp, fdm, restart, output, first_step)\
 		private(n) \
 		copyin(tstep_info, z_u, z_T, z_g, relative_hts, max_z_s_0, max_h2o_vol)
-		{
-
+			{
 #pragma omp for
+				for (n = 0; n < N; n++) {
+
+					/* initialize some global variables for
+			   'snobal' library for each pass since
+			   the routine 'do_data_tstep' modifies them */
+
+					current_time = step_time;
+					time_since_out = timeSinceOut;
+
+					precip_now = (fdp != ERROR);
+
+					/* extract data from I/O buffers */
+
+					if (extract_data(first_step, n, sun_up, output_rec)) {
+
+						/* run model on data for this pixel */
+
+						if (! do_data_tstep())
+							error("During step %d, at pixel %i", step, n);
+
+						/* assign data to output buffers */
+
+						assign_buffers(FALSE, n, output, output_rec);
+
+					} else { /* masked point */
+						assign_buffers(TRUE, n, output, output_rec);
+					}
+
+				}  /* for loop on grid */
+			} /* end of parallel region */
+		} else {
 			for (n = 0; n < N; n++) {
 
 				/* initialize some global variables for
-			   'snobal' library for each pass since
-			   the routine 'do_data_tstep' modifies them */
+						   'snobal' library for each pass since
+						   the routine 'do_data_tstep' modifies them */
 
 				current_time = step_time;
 				time_since_out = timeSinceOut;
@@ -231,7 +256,7 @@ isnobal_v2(
 				}
 
 			}  /* for loop on grid */
-		} /* end of parallel region */
+		}
 
 		/* write output buffers to output files */
 
@@ -275,5 +300,14 @@ isnobal_v2(
 
 	uremove(emfile);
 	uremove(snowfile);
+
+	//	for(n = 0; n < N; ++n)
+	//		free(output_rec);
+	for(n=0;n<N;n++){
+		if (output_rec[n] != NULL){ //don't want to free(NULL), cause coredump
+			free(output_rec[n]); //free allocated memory within array
+		}
+	}
+	free(output_rec); //free array
 
 }

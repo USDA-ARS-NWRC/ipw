@@ -71,7 +71,7 @@
 //	double	       *itbuf_p;	/* -> into temp input line buffer    */
 //	double	       *otbuf_p;	/* -> into temp output line buffer   */
 //	int		ot_nbytes;	/* # of bytes in temp out line buff  */
-	OUTPUT_REC output_rec[100];	/* output data structure */
+	OUTPUT_REC output_rec[1];	/* output data structure */
 
     /* model variables */
 

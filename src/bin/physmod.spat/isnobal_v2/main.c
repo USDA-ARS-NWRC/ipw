@@ -8,6 +8,7 @@ main (
 		int             argc,
 		char          **argv)
 {
+
 	static OPTION_T opt_t = {
 			't', "time steps: data [normal, [,medium [,small]]] (minutes)",
 			INT_OPTARGS, "timestep",
@@ -51,10 +52,10 @@ main (
 	};
 
 	static OPTION_T opt_P = {
-				'P', "Number of threads",
-				REAL_OPTARGS, "threads",
-				OPTIONAL, 1, 1
-		};
+			'P', "Number of threads",
+			REAL_OPTARGS, "threads",
+			OPTIONAL, 1, 1
+	};
 
 	static OPTION_T opt_m = {
 			'm', "mask image",

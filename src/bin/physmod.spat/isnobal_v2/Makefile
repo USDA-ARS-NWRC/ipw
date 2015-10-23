@@ -1,5 +1,5 @@
 PGM := isnobal_v2
-DESCRIPTION := energy-balance snowmelt model with 2 snow layers
+DESCRIPTION := energy-balance snowmelt model with 2 snow layers - optimized
 
 SRCS := assign_buffers.c buffers.c check_range.c check_units.c copy_image.c \
 	e_m_image.c extract_data.c headers.c isnobal_v2.c main.c newlqh.c \

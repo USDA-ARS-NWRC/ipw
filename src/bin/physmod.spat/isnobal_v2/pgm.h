@@ -72,7 +72,7 @@ extern	void	copy_image     (char *tempfile, int nbands, fpixel_t * buf,
 extern	void 	e_m_image      (int step, OUTPUT_REC **output_rec);
 extern	bool_t	extract_data   (bool_t first_step, int n, bool_t sun_up[], OUTPUT_REC **output_rec);
 extern	void	headers        (void);
-extern	void	isnoba_v2      (int out_step, int nthreads, int got_opt_F);
+extern	void	isnobal_v2      (int out_step, int nthreads, int got_opt_F);
 /*extern	void	isnobal        (int out_step);*/
 extern	void	newlqh         (int fdo, int nbands, fpixel_t *mins,
 		fpixel_t *maxs, char **units);
