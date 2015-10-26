@@ -1,7 +1,7 @@
 PGM := idewptp
 DESCRIPTION := dew point temperature from vapor pressure - parallel
 
-SRCS := headers.c idewptp.c main.c newlqh.c output.c
+SRCS := headers.c idewptp.c main.c newlqh.c
 
 EXTRA_LIBS := model
 
