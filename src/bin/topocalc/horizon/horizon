@@ -114,8 +114,8 @@ echo $phi $delta $zen $cosZ $image | /opt/local/bin/mawk '
 		else {
 			dc = sprintf(" -u %g", cosZ);
 		}
-		hf = "/Users/scott/ipw-2.1.0/aux/horizon/hor1d" ds dz dc " -a"
-		hb = "/Users/scott/ipw-2.1.0/aux/horizon/hor1d -b" ds dz dc " -a"
+		hf = "/Users/scott/ipw/aux/horizon/hor1d" ds dz dc " -a"
+		hb = "/Users/scott/ipw/aux/horizon/hor1d -b" ds dz dc " -a"
 		xp = "transpose"
 		if (phi == 90)
 			print hf, phi, image

@@ -30,17 +30,14 @@ Kernel configured for up to 24 processors.
 Processor type: i486 (Intel 80486)
 Processors active: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
 Primary memory available: 48.00 gigabytes
-Default processor set: 197 tasks, 1111 threads, 24 processors
-Load average: 1.36, Mach factor: 22.62
+Default processor set: 187 tasks, 1023 threads, 24 processors
+Load average: 1.23, Mach factor: 22.75
 /bin/machine           = unknown
 /usr/bin/oslevel       = unknown
 /bin/universe          = unknown
 
 PATH: /opt/local/bin
 PATH: /opt/local/sbin
-PATH: /opt/local/bin
-PATH: /opt/local/sbin
-PATH: /Library/Frameworks/GDAL.framework/Programs
 PATH: /usr/local/ncl-6.2.1/bin
 PATH: /Users/scott/bin
 PATH: /usr/local/mysql/bin
@@ -524,6 +521,7 @@ on Ice
 config.status:818: creating conf.mk
 config.status:818: creating conf.ipw
 config.status:818: creating conf.h
+config.status:988: conf.h is unchanged
 
 ## ---------------- ##
 ## Cache variables. ##

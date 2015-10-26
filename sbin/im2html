@@ -111,7 +111,7 @@ if ($name ne "") {
 	    exit 1;
 	}
     } else {
-	if (! open STDIN, "/Users/scott/ipw-2.1.0/aux/im2html/ipwman.v1 $name |") {
+	if (! open STDIN, "/Users/scott/ipw/aux/im2html/ipwman.v1 $name |") {
 	    printf STDERR "$0: Error:  Cannot access \"ipwman.v1\" command\n";
 	    exit 1;
 	}

@@ -377,6 +377,7 @@ extern int	budyer2(double zu, double zt, double z0, double t, double t0,
 			double e, double e0, double u, double p,
 			double *h, double *le);
 extern double	dew_point(double e);
+extern double	dew_pointp(double e, double tol);
 extern double	efcon(double k, double t, double p);
 extern double	evap(double le, double ts);
 extern double	heat_stor(double cp, double spm, double tdif);
