@@ -4,112 +4,119 @@
 
 int
 main (
-	int             argc,
-	char          **argv)
+		int             argc,
+		char          **argv)
 {
 	static OPTION_T opt_t = {
-		't', "time steps: data [normal, [,medium [,small]]] (minutes)",
-		INT_OPTARGS, "timestep",
-		REQUIRED, 1, 4
+			't', "time steps: data [normal, [,medium [,small]]] (minutes)",
+			INT_OPTARGS, "timestep",
+			REQUIRED, 1, 4
 	};
 
 	static OPTION_T opt_T = {
-		'T', "run timesteps' thresholds for a layer's mass (kg/m^2)",
-		REAL_OPTARGS, "mass threshold",
-		OPTIONAL, 1, 3
+			'T', "run timesteps' thresholds for a layer's mass (kg/m^2)",
+			REAL_OPTARGS, "mass threshold",
+			OPTIONAL, 1, 3
 	};
 
 	static OPTION_T opt_r = {
-		'r', "restart model with given index for first timestep",
-		INT_OPTARGS, "restart-index",
-		OPTIONAL, 1, 1
+			'r', "restart model with given index for first timestep",
+			INT_OPTARGS, "restart-index",
+			OPTIONAL, 1, 1
 	};
 
 	static OPTION_T opt_n = {
-		'n', "# time steps",
-		INT_OPTARGS, "#steps",
-		OPTIONAL, 1, 1
+			'n', "# time steps",
+			INT_OPTARGS, "#steps",
+			OPTIONAL, 1, 1
 	};
 
 	static OPTION_T opt_I = {
-		'I', "initial conditions image",
-		STR_OPTARGS, "image",
-		REQUIRED, 1, 1
+			'I', "initial conditions image",
+			STR_OPTARGS, "image",
+			REQUIRED, 1, 1
 	};
 
 	static OPTION_T opt_i = {
-		'i', "filename prefix for input images",
-		STR_OPTARGS, "image_prefix",
-		REQUIRED, 1, 1
+			'i', "filename prefix for input images",
+			STR_OPTARGS, "image_prefix",
+			REQUIRED, 1, 1
 	};
 
 	static OPTION_T opt_p = {
-		'p', "precip file",
-		STR_OPTARGS, "precip",
-		OPTIONAL, 1, 1
+			'p', "precip file",
+			STR_OPTARGS, "precip",
+			OPTIONAL, 1, 1
 	};
 
 	static OPTION_T opt_m = {
-		'm', "mask image",
-		STR_OPTARGS, "mask",
-		OPTIONAL, 1, 1
+			'm', "mask image",
+			STR_OPTARGS, "mask",
+			OPTIONAL, 1, 1
+	};
+
+	static OPTION_T opt_d = {
+			'd', "maximum depth for active layer (m)",
+			REAL_OPTARGS, "max-active",
+			OPTIONAL, 1, 1
 	};
 
 	static OPTION_T opt_O = {
-		'O', "frequency of output images (1 per how many input images)",
-		INT_OPTARGS, "out-frequency",
-		OPTIONAL, 1, 1
+			'O', "frequency of output images (1 per how many input images)",
+			INT_OPTARGS, "out-frequency",
+			OPTIONAL, 1, 1
 	};
 
 	static OPTION_T opt_e = {
-		'e', "prefix for energy/mass output images",
-		STR_OPTARGS, "em_prefix",
-		REQUIRED, 1, 1
+			'e', "prefix for energy/mass output images",
+			STR_OPTARGS, "em_prefix",
+			REQUIRED, 1, 1
 	};
 
 	static OPTION_T opt_s = {
-		's', "prefix for snow-conditions output images",
-		STR_OPTARGS, "snow_prefix",
-		REQUIRED, 1, 1
+			's', "prefix for snow-conditions output images",
+			STR_OPTARGS, "snow_prefix",
+			REQUIRED, 1, 1
 	};
 
 	static OPTION_T opt_U = {
-		'U', "check units in input images"
+			'U', "check units in input images"
 	};
 
 	static OPTION_T opt_M = {
-                'M', "snowcover's maximum h2o content as volume ratio",
-                REAL_OPTARGS, "max-h2o",
-                OPTIONAL, 1, 1
+			'M', "snowcover's maximum h2o content as volume ratio",
+			REAL_OPTARGS, "max-h2o",
+			OPTIONAL, 1, 1
 	};
 
 	static OPTION_T opt_C = {
-		'C', "shell command to compress output images",
-		STR_OPTARGS, "compress_cmd",
-		OPTIONAL, 0, 1
+			'C', "shell command to compress output images",
+			STR_OPTARGS, "compress_cmd",
+			OPTIONAL, 0, 1
 	};
 
-static OPTION_T opt_F = {
-	'F', "use temp filenames: isnobal.tmp1 isnobal.tmp2 and don't remove them"
-};
+	static OPTION_T opt_F = {
+			'F', "use temp filenames: isnobal.tmp1 isnobal.tmp2 and don't remove them"
+	};
 
 	static OPTION_T *optv[] = {
-		&opt_t,
-		&opt_T,
-		&opt_r,
-		&opt_n,
-		&opt_I,
-		&opt_i,
-		&opt_p,
-		&opt_m,
-		&opt_O,
-		&opt_e,
-		&opt_s,
-		&opt_U,
-		&opt_M,
-		&opt_C,
-&opt_F,
-		0
+			&opt_t,
+			&opt_T,
+			&opt_r,
+			&opt_n,
+			&opt_I,
+			&opt_i,
+			&opt_p,
+			&opt_m,
+			&opt_d,
+			&opt_O,
+			&opt_e,
+			&opt_s,
+			&opt_U,
+			&opt_M,
+			&opt_C,
+			&opt_F,
+			0
 	};
 
 	int		level;		 /* loop counter */
@@ -121,28 +128,40 @@ static OPTION_T opt_F = {
 					    layer's mass */
 
 
-   /* Some initialization first */
+	/* Some initialization first */
 
 	for (level = DATA_TSTEP; level <= SMALL_TSTEP; level++) {
 		tstep_info[level].level = level;
 		tstep_info[level].output = 0;
 	}
 
-	max_z_s_0    = DEFAULT_MAX_Z_S_0;
-/*	z_u          = 5.0;	*/
+//	max_z_s_0    = DEFAULT_MAX_Z_S_0;
+//	max_z_s_0 = 0.15;
+	/*	z_u          = 5.0;	*/
 	z_u	     = DEFAULT_Z_U;
-/*	z_T          = 5.0;	*/
+	/*	z_T          = 5.0;	*/
 	z_T	     = DEFAULT_Z_T;
 	relative_hts = TRUE;
 	z_g          = DEFAULT_Z_G;
 
-   /* begin */
+	/* begin */
 
 	ipwenter(argc, argv, optv, IPW_DESCRIPTION);
 
-   /* get/check runstring args */
+	/* get/check runstring args */
 
-        /*      get input data's time step  */
+	/*      get input data's time step  */
+
+	/*      check option for maximum active-surface depth */
+
+	if (got_opt(opt_d)) {
+		max_z_s_0 = real_arg(opt_d, 0);
+		check_range (max_z_s_0, .001, 0.5,
+				"max active layer depth", FALSE);
+	}
+	else {
+		max_z_s_0 = DEFAULT_MAX_Z_S_0;
+	}
 
 	/*
 	 *  The input data's time step must be between 1 minute and 6 hours.
@@ -151,7 +170,7 @@ static OPTION_T opt_F = {
 	 */
 	data_tstep_min = int_arg(opt_t, 0);
 	check_range (data_tstep_min, 1.0, HR_TO_MIN(6.0),
-		     "input data's timestep", FALSE);
+			"input data's timestep", FALSE);
 	if ((data_tstep_min > 60) && (data_tstep_min % 60 != 0))
 		error("Data timestep > 60 min must be multiple of 60 min (whole hrs)");
 	tstep_info[DATA_TSTEP].time_step = MIN_TO_SEC(data_tstep_min);
@@ -165,8 +184,8 @@ static OPTION_T opt_F = {
 	if (n_args(opt_t) > 1) {
 		norm_tstep_min = int_arg(opt_t, 1);
 		check_range (norm_tstep_min, 1.0,
-			     (data_tstep_min > 60 ? 60 : data_tstep_min),
-			     "normal run timestep", FALSE);
+				(data_tstep_min > 60 ? 60 : data_tstep_min),
+				"normal run timestep", FALSE);
 	}
 	else if (data_tstep_min > 60)
 		norm_tstep_min = 60;
@@ -185,7 +204,7 @@ static OPTION_T opt_F = {
 	if (n_args(opt_t) > 2) {
 		med_tstep_min = int_arg(opt_t, 2);
 		check_range (med_tstep_min, 1.0, (float) norm_tstep_min,
-			     "medium run timestep", FALSE);
+				"medium run timestep", FALSE);
 	}
 	else if (norm_tstep_min < DEFAULT_MEDIUM_TSTEP)
 		med_tstep_min = norm_tstep_min;
@@ -204,7 +223,7 @@ static OPTION_T opt_F = {
 	if (n_args(opt_t) > 3) {
 		small_tstep_min = int_arg(opt_t, 3);
 		check_range (small_tstep_min, 1.0, (float) med_tstep_min,
-			     "small run timestep", FALSE);
+				"small run timestep", FALSE);
 	}
 	else if (med_tstep_min < DEFAULT_SMALL_TSTEP)
 		small_tstep_min = med_tstep_min;
@@ -217,13 +236,13 @@ static OPTION_T opt_F = {
 	tstep_info[SMALL_TSTEP].intervals = med_tstep_min / small_tstep_min;
 
 
-   /* Mass thresholds for run timesteps */
+	/* Mass thresholds for run timesteps */
 
 	if (got_opt(opt_T)) {
 		threshold = real_arg(opt_T, 0);
 		check_range(threshold, 0.0, 1000.0,
-			    "normal run timestep's threshold for layer's mass",
-			    FALSE);
+				"normal run timestep's threshold for layer's mass",
+				FALSE);
 	}
 	else
 		threshold = DEFAULT_NORMAL_THRESHOLD;
@@ -232,8 +251,8 @@ static OPTION_T opt_F = {
 	if (n_args(opt_T) > 1) {
 		threshold = real_arg(opt_T, 1);
 		check_range(threshold, 0.0, 1000.0,
-			    "medium run timestep's threshold for layer's mass",
-			    FALSE);
+				"medium run timestep's threshold for layer's mass",
+				FALSE);
 	}
 	else
 		threshold = DEFAULT_MEDIUM_THRESHOLD;
@@ -244,8 +263,8 @@ static OPTION_T opt_F = {
 	if (n_args(opt_T) > 2) {
 		threshold = real_arg(opt_T, 2);
 		check_range(threshold, 0.0, 1000.0,
-			    "small run timestep's threshold for layer's mass",
-			    FALSE);
+				"small run timestep's threshold for layer's mass",
+				FALSE);
 	}
 	else
 		threshold = DEFAULT_SMALL_THRESHOLD;
@@ -253,7 +272,7 @@ static OPTION_T opt_F = {
 		error("Threshold for small timestep > threshold for medium timestep");
 	tstep_info[SMALL_TSTEP].threshold = threshold;
 
-   /* Restarting? */
+	/* Restarting? */
 
 	restart = got_opt(opt_r);
 	if (restart) {
@@ -272,14 +291,14 @@ static OPTION_T opt_F = {
 	else
 		nstep = 1;
 
-   /* access init conditions file */
+	/* access init conditions file */
 
 	fdic = uropen(str_arg(opt_I, 0));
 	if (fdic == ERROR) {
 		error("can't open \"%s\"", str_arg(opt_I, 0));
 	}
 
-   /* access mask image, if specified */
+	/* access mask image, if specified */
 
 	if (got_opt (opt_m)) {
 		fdm = uropen (str_arg(opt_m, 0));
@@ -290,7 +309,7 @@ static OPTION_T opt_F = {
 		fdm = ERROR;
 	}
 
-   /* access precip file, if specified */
+	/* access precip file, if specified */
 
 	if (got_opt (opt_p)) {
 		pfp = fopen(str_arg(opt_p, 0), "r");
@@ -301,7 +320,7 @@ static OPTION_T opt_F = {
 		pfp = NULL;
 	}
 
-   /* check for intermediate outputs request */
+	/* check for intermediate outputs request */
 
 	if (got_opt(opt_O)) {
 		out_step = int_arg(opt_O, 0);
@@ -313,7 +332,7 @@ static OPTION_T opt_F = {
 		out_step = nstep;
 	}
 
-    /* input & output image prefixes */
+	/* input & output image prefixes */
 
 	in_prefix = str_arg(opt_i, 0);
 	em_prefix = str_arg(opt_e, 0);
@@ -322,22 +341,22 @@ static OPTION_T opt_F = {
 	if (STREQ(em_prefix, snow_prefix))
 		error("Prefix for energy/mass output images is the same as prefix for snow conditions output images");
 
-   /* do we check for units ? */
+	/* do we check for units ? */
 
 	units_warn = got_opt(opt_U);
-  
-   /* check option for maximum liquid h2o */
 
-        if (got_opt(opt_M)) {
-                max_h2o_vol = real_arg(opt_M, 0);
+	/* check option for maximum liquid h2o */
+
+	if (got_opt(opt_M)) {
+		max_h2o_vol = real_arg(opt_M, 0);
 		check_range(max_h2o_vol, .001, 1.0,
-		            "max liquid h2o content as vol ratio", FALSE);
-        }
-        else {
+				"max liquid h2o content as vol ratio", FALSE);
+	}
+	else {
 		max_h2o_vol = DEFAULT_MAX_H2O_VOL;
-        }
+	}
 
-   /* do we compress output images ? */
+	/* do we compress output images ? */
 	if (got_opt(opt_C)) {
 		if (n_args(opt_C) == 1) {
 			compress_cmd = str_arg(opt_C, 0);
@@ -350,16 +369,16 @@ static OPTION_T opt_F = {
 		compress_cmd = NULL;
 	}
 
-   /* process headers */
+	/* process headers */
 
 	headers();
 
-   /* do all the work */
+	/* do all the work */
 
-/*	isnobal(out_step);	*/
+	/*	isnobal(out_step);	*/
 	isnobal(out_step, got_opt(opt_F));
 
-   /* all done */
+	/* all done */
 
-        ipwexit (EXIT_SUCCESS);
+	ipwexit (EXIT_SUCCESS);
 }

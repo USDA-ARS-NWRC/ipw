@@ -1,26 +1,26 @@
 /*
-** NAME
-**	fpvwrite -- write floating-point vectors
-**
-** SYNOPSIS
-**	#include "fpio.h"
-**
-**	int
-**	fpvwrite(
-**		int             fd,	  |* input file descriptor	 *|
-**		fpixel_t       *buf,	  |* -> pixel buffer		 *|
-**		int             npixv)	  |* # pixel vectors to write	 *|
-**
-** DESCRIPTION
-**	fpvwrite writes npixv floating-point vectors from buf into file
-**	descriptor fd.
-**
-** RETURN VALUE
-**	number of floating-point vectors written; else ERROR for failure
-**
-** GLOBALS ACCESSED
-**	_fpiocb
-*/
+ ** NAME
+ **	fpvwrite -- write floating-point vectors
+ **
+ ** SYNOPSIS
+ **	#include "fpio.h"
+ **
+ **	int
+ **	fpvwrite(
+ **		int             fd,	  |* input file descriptor	 *|
+ **		fpixel_t       *buf,	  |* -> pixel buffer		 *|
+ **		int             npixv)	  |* # pixel vectors to write	 *|
+ **
+ ** DESCRIPTION
+ **	fpvwrite writes npixv floating-point vectors from buf into file
+ **	descriptor fd.
+ **
+ ** RETURN VALUE
+ **	number of floating-point vectors written; else ERROR for failure
+ **
+ ** GLOBALS ACCESSED
+ **	_fpiocb
+ */
 
 #include "ipw.h"
 #include "_fpio.h"
@@ -28,16 +28,16 @@
 #include "pixio.h"
 
 #define	CLAMP(xp, xmin, xmax)	if (*(xp) < (xmin))		\
-					*(xp) = (xmin);		\
-				else if (*(xp) > (xmax))	\
-					*(xp) = (xmax)
+		*(xp) = (xmin);		\
+		else if (*(xp) > (xmax))	\
+		*(xp) = (xmax)
 
 #if sun
- /*
-  * HACK: Sun calls a FUNCTION to do float->unsigned conversion, so we cheat
-  * and map through a long.  Suggestions for a cleaner way around this will
-  * be gratefully accepted.
-  */
+/*
+ * HACK: Sun calls a FUNCTION to do float->unsigned conversion, so we cheat
+ * and map through a long.  Suggestions for a cleaner way around this will
+ * be gratefully accepted.
+ */
 typedef long    pixp_t;
 
 #else
@@ -49,9 +49,9 @@ typedef pixel_t pixp_t;
 
 int
 fpvwrite(
-	int             fd,		/* input file descriptor	 */
-	fpixel_t       *buf,		/* -> pixel buffer		 */
-	int             npixv)		/* # pixel vectors to write	 */
+		int             fd,		/* input file descriptor	 */
+		fpixel_t       *buf,		/* -> pixel buffer		 */
+		int             npixv)		/* # pixel vectors to write	 */
 {
 	REG_6 int       band;		/* current band #		 */
 	REG_3 int       nbands;		/* # image bands		 */
@@ -63,11 +63,11 @@ fpvwrite(
 	}
 
 	nbands = p->nbands;
- /*
-  * loop through bands (we expect npixv > nbands)
-  */
+	/*
+	 * loop through bands (we expect npixv > nbands)
+	 */
 #if sun
- /* CONSTCOND */
+	/* CONSTCOND */
 	assert(sizeof(pixel_t) == sizeof(long));
 #endif
 	for (band = 0; band < nbands; ++band) {
@@ -79,9 +79,9 @@ fpvwrite(
 		REG_4 int       npixels;/* # pixels / band		 */
 		REG_2 pixp_t   *pixp;	/* -> current pixel		 */
 
- /*
-  * clamp fpixels to min,max values
-  */
+		/*
+		 * clamp fpixels to min,max values
+		 */
 		bufp = &buf[band];
 		npixels = npixv;
 
@@ -101,17 +101,17 @@ fpvwrite(
 			} while (--npixels > 0);
 		}
 
- /*
-  * convert fpixels -> pixels
-  */
+		/*
+		 * convert fpixels -> pixels
+		 */
 		bufp = &buf[band];
- /* NOSTRICT */
+		/* NOSTRICT */
 		pixp = (pixp_t *) & p->pixbuf[band];
 		npixels = npixv;
 
- /*
-  * if this band is unmapped then just copy the pixels directly
-  */
+		/*
+		 * if this band is unmapped then just copy the pixels directly
+		 */
 		if (p->bflags[band] & FPIO_NOMAP) {
 			if (nbands == 1) {
 				do {
@@ -128,9 +128,9 @@ fpvwrite(
 			}
 		}
 
- /*
-  * if there are linear inverse coefficients then use them
-  */
+		/*
+		 * if there are linear inverse coefficients then use them
+		 */
 		else if (p->lininv[band] != NULL) {
 			kd0 = p->lininv[band][0];
 			kd1 = p->lininv[band][1];
@@ -164,11 +164,11 @@ fpvwrite(
 			}
 		}
 
- /*
-  * otherwise, do a binary search to find the correct pixel
-  *
-  *  Added 8/17/93, Dana Jacobsen, ERL-C.
-  */
+		/*
+		 * otherwise, do a binary search to find the correct pixel
+		 *
+		 *  Added 8/17/93, Dana Jacobsen, ERL-C.
+		 */
 		else {
 			int left;
 			int right;
@@ -191,7 +191,7 @@ fpvwrite(
 					if (x < 0)
 						x = 0;
 					if (*bufp > ( p->map[band][x] +
-				    (p->map[band][x+1] - p->map[band][x]) / 2 ))
+							(p->map[band][x+1] - p->map[band][x]) / 2 ))
 						*pixp = (pixp_t) x+1;
 					else
 						*pixp = (pixp_t) x;
@@ -200,42 +200,42 @@ fpvwrite(
 					if ( x >= p->maplen[band])
 						x = (p->maplen[band] - 1);
 					if (*bufp > ( p->map[band][x-1] +
-				    (p->map[band][x] - p->map[band][x-1]) / 2 ))
+							(p->map[band][x] - p->map[band][x-1]) / 2 ))
 						*pixp = (pixp_t) x;
 					else
 						*pixp = (pixp_t) x-1;
 				}
 				else if ( (*bufp > ( p->map[band][x] +
-                                   (p->map[band][x+1] - p->map[band][x]) / 2 )))
+						(p->map[band][x+1] - p->map[band][x]) / 2 )))
 					*pixp = (pixp_t) x+1;
 				else if (*bufp > ( p->map[band][x-1] +
-                                   (p->map[band][x] - p->map[band][x-1]) / 2 ))
+						(p->map[band][x] - p->map[band][x-1]) / 2 ))
 					*pixp = (pixp_t) x;
 				else
 					*pixp = (pixp_t) x-1;
 
-/*
+				/*
 				if (ABS(*bufp - p->map[band][*pixp]) > 0.5) {
 				  warn("binary search warning: %d (%d) %f -> %f\n", *pixp, x, *bufp, p->map[band][*pixp]);
 				}
-*/
+				 */
 
 				bufp += nbands;
 				pixp += nbands;
 			} while (--npixels > 0);
 		}
-	/* end replacement */
+		/* end replacement */
 	}
 
- /*
-  * write pixel vectors
-  */
+	/*
+	 * write pixel vectors
+	 */
 	if (pvwrite(fd, p->pixbuf, npixv) != npixv) {
 		return (ERROR);
 	}
 
- /*
-  * return # pixel vectors written
-  */
+	/*
+	 * return # pixel vectors written
+	 */
 	return (npixv);
 }

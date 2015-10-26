@@ -43,7 +43,7 @@ ialbedo_map (
 	int		maplen;		/* length of input image F.P map */
 	int	       *fmaplen;	/* -> lengths of F.P maps	 */
 	float		cosz;		/* cosine of zenith angle 	 */
-	float		sd;		/* storm day	 */
+	float		sd;			/* storm day value	 */
 	double		alb_ir_1;	/* IR albedo for cosz = 1	 */
 	double		alb_v_1;	/* Visible albedo for cosz = 1	 */
 	double		dzir;		/* ir diurnal increase range 	 */
@@ -102,12 +102,10 @@ ialbedo_map (
 	/* Access input image floating point maps */
 	fmap = fpmap (fdi);
 	map = fmap[0];
-//	smap = fmap[1];
 	fmaplen = fpmaplen (fdi);
 	maplen = fmaplen[0];
 
 	/* Access input image floating point maps */
-	/* Assumes map is the same size as other input image */
 	sfmap = fpmap (fds);
 	smap = sfmap[0];
 
@@ -125,7 +123,7 @@ ialbedo_map (
 	radius_ir = sqrt (gsize);
 	range_ir = sqrt (maxgsz) - radius_ir;
 	radius_v = sqrt (dirt * gsize);
-	range_v = sqrt (dirt * maxgsz) -radius_v;
+	range_v = sqrt (dirt * maxgsz) - radius_v;
 
 	/* build lookup tables for albedo indexed on input image pixel value */
 	for (pixel = 0; pixel < maplen; pixel++) {
@@ -163,6 +161,9 @@ ialbedo_map (
 			alb_ir[pixel] = alb_ir_1;
 		}
 
+//		alb_v[pixel] = sd;
+//		alb_ir[pixel] = sd;
+
 		/* keep min and max of each output band */
 
 		if (pixel > 0) {
@@ -176,7 +177,6 @@ ialbedo_map (
 			irmin = alb_ir[pixel];
 			irmax = alb_ir[pixel];
 		}
-
 	}
 
 	/* create/write LQH for output image */

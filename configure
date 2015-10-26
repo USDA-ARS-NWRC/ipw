@@ -1,4 +1,4 @@
 #! /bin/sh
 
 cd_conf='cd conf'
-echo $cd_conf ; $cd_conf ; ./configure CFLAGS="-Wall -fopenmp"
+echo $cd_conf ; $cd_conf ; ./configure

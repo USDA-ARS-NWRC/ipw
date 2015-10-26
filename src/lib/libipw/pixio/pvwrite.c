@@ -21,30 +21,30 @@
  */
 
 /*
-** NAME
-**	pvwrite -- write pixel vectors
-**
-** SYNOPSIS
-**	#include "pixio.h"
-**
-**	int
-**	pvwrite(
-**		int             fd,	  |* input file descriptor	 *|
-**		pixel_t        *buf,	  |* -> pixel buffer		 *|
-**		int             npixv)	  |* # pixel vectors to write	 *|
-**
-** DESCRIPTION
-**	pvwrite writes npixv pixel vectors from buf into file descriptor fd.
-**
-**	pvwrite is the lowest level of IPW output that represents pixel values
-**	in a single format (unsigned integers).
-**
-** RETURN VALUE
-**	number of pixel vectors written; else ERROR for failure
-**
-** GLOBALS ACCESSED
-**	_piocb
-*/
+ ** NAME
+ **	pvwrite -- write pixel vectors
+ **
+ ** SYNOPSIS
+ **	#include "pixio.h"
+ **
+ **	int
+ **	pvwrite(
+ **		int             fd,	  |* input file descriptor	 *|
+ **		pixel_t        *buf,	  |* -> pixel buffer		 *|
+ **		int             npixv)	  |* # pixel vectors to write	 *|
+ **
+ ** DESCRIPTION
+ **	pvwrite writes npixv pixel vectors from buf into file descriptor fd.
+ **
+ **	pvwrite is the lowest level of IPW output that represents pixel values
+ **	in a single format (unsigned integers).
+ **
+ ** RETURN VALUE
+ **	number of pixel vectors written; else ERROR for failure
+ **
+ ** GLOBALS ACCESSED
+ **	_piocb
+ */
 
 #include "ipw.h"
 #include "pixio.h"
@@ -52,9 +52,9 @@
 
 int
 pvwrite(
-	int             fd,		/* input file descriptor	 */
-	pixel_t        *buf,		/* -> pixel buffer		 */
-	int             npixv)		/* # pixel vectors to write	 */
+		int             fd,		/* input file descriptor	 */
+		pixel_t        *buf,		/* -> pixel buffer		 */
+		int             npixv)		/* # pixel vectors to write	 */
 {
 	REG_4 pixel_t  *bufp;		/* fast -> buf			 */
 	REG_3 int      *ip;		/* fast -> pix{mask,size}	 */
@@ -77,9 +77,9 @@ pvwrite(
 
 	npixels = npixv * p->nbands;
 
- /*
-  * mask off unused bits in buf
-  */
+	/*
+	 * mask off unused bits in buf
+	 */
 	ip = p->pixmask;
 	bufp = buf;
 
@@ -88,12 +88,12 @@ pvwrite(
 		*bufp++ &= *ip++;
 	} while (--n > 0);
 
- /*
-  * convert pixel_t -> raw pixels
-  */
+	/*
+	 * convert pixel_t -> raw pixels
+	 */
 	ip = p->pixsiz;
 	rawp = p->rawbuf;
- /* NOSTRICT */
+	/* NOSTRICT */
 	pixp = (char *) buf;
 
 	n = npixels;
@@ -113,15 +113,15 @@ pvwrite(
 		pixp -= xnbytes;
 #endif
 	} while (--n > 0);
- /*
-  * write raw pixels
-  */
+	/*
+	 * write raw pixels
+	 */
 	if (uwrite(fd, p->rawbuf, p->nbytes) != p->nbytes) {
 		return (ERROR);
 	}
 
- /*
-  * return # pixel vectors
-  */
+	/*
+	 * return # pixel vectors
+	 */
 	return (npixv);
 }

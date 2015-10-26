@@ -1,0 +1,82 @@
+/* IPW2GRID - converts an IPW image to a GRID (via IMAGEGRID)
+/* -Rusty Dodson, 5/96.
+
+&args ipwname outgrid type 
+
+&if [null %ipwname%] or [null %outgrid%] &then &do
+  &type Usage: IPW2GRID <ipw_img> <grid> {f|i|r} 
+  &type 
+  &type        {f|i|r} - output type: float, integer, or raw pixel values
+  &type                     (default: f)
+  &type        - pathnames to <ipw_img> are ok, but may not have
+  &type            any capital letters    
+  &return
+&end
+
+&set this = IPW2GRID
+
+&if [show program] ne GRID &then &return ERROR:%this%: must be run from GRID
+
+&if [exist %outgrid% -grid] or [exists %outgrid% -cover] ~
+      or [exists %outgrid% -file] or [exists %outgrid% -dir] &then
+  &return ERROR:%this%:  %outgrid% already exists as a grid|cover|file|dir.
+
+&if not [exist %ipwname% -file] &then
+    &return ERROR:%this%:  ipw file %ipwname% not found.
+
+&if [null %type%] &then &set type = f
+&if %type% ne i and %type% ne f and %type% ne r ~ 
+  &then &return ERROR:%this%: output type must be f, i, or r.
+
+&set tmpgrid = [scratchname -prefix tmpgrd -directory]
+&set tmppre =  [scratchname -prefix tmpfil -file]
+&if [exists %tmpgrid% -grid] &then kill %tmpgrid%
+
+/* call PERL script to make input for IMAGEGRID (.bip .hdr and .lq files)
+&sys ipw2grid %ipwname% %tmppre%
+&if ^ [exist %tmppre%.hdr -file] &then &do
+    &type ERROR:%this%: PERL script failed--no %tmppre%.hdr file written.
+    &call cleanup
+&end
+
+/* read image data
+&type 'calling IMAGEGRID ...'
+arc imagegrid %tmppre% %tmpgrid%
+
+/* read lq data from file (format:  lqmin,lqmax,bits)
+&set lqfile = [open %tmppre%.lq status -read]
+&set lqstring = [read %lqfile% status]
+&if %status% ne 0 &then &type ERROR:%this%: couldn't read LQ file %tmppre%.lq
+&set lqmin = [extract 1 %lqstring%]
+&set lqmax = [extract 2 %lqstring%]
+&set bits  = [extract 3 %lqstring%]
+&if [close %lqfile%] ne 0 &then ~
+  &type ERROR:%this%: couldn't close LQ file %tmppre%.lq
+
+/* compute int, float ranges
+&set newrange = %lqmax% - %lqmin%
+&set oldmax   = ( 2 ** %bits% ) - 1
+&set oldrange = %oldmax%
+
+/* if not raw, rescale image to actual range
+&if %type% eq r &then rename %tmpgrid% %outgrid%
+&else &do
+    %outgrid% = ( ( %tmpgrid% / float(%oldrange%) ) ~
+                     * float(%newrange%) ) + %lqmin%
+&end
+
+/* if integer, round
+&if %type% eq i &then &do
+    kill %tmpgrid%
+    rename %outgrid% %tmpgrid%
+    %outgrid% = int(con(%tmpgrid% >= 0.0, %tmpgrid% + 0.5, %tmpgrid% - 0.5))
+&end
+
+&call cleanup
+&return
+    
+&routine cleanup
+&set out = [delete  %tmppre%.bip -file]
+&set out = [delete  %tmppre%.hdr -file]
+&set out = [delete  %tmppre%.lq  -file]
+&if [exists %tmpgrid% -grid] &then kill %tmpgrid%

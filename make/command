@@ -20,6 +20,7 @@
 #	AUX_PGMS    = list of auxiliary programs
 #	AUX_FILES   = list of auxiliary files
 #	EXTRA_LIBS  = list of additional libraries to link with
+#   EXTRA_CFLAGS = list of additional cflags to use
 
 include $(IPW)/make/_macros
 
@@ -114,9 +115,13 @@ ifdef STRING_OPTIONS
   OTHER_LIBS += -lstropts
 endif
 
+ifdef EXTRA_CFLAGS
+  OTHER_CFLAGS := $(foreach cflg, $(EXTRA_CFLAGS), $(cflg))
+endif
+
 cmd : $(PGM)
 $(PGM) : $(OBJS)
-	$(CC) $(CFLAGS) -o $(PGM) $(LDFLAGS) $^ $(OTHER_LIBS) -lipw -lm
+	$(CC) $(CFLAGS) $(CFLAGS) -o $(PGM) $(LDFLAGS) $^ $(OTHER_LIBS) -lipw -lm
 
 INSTALLED_CMD = $(BIN_DIR)/$(PGM)
 install-cmd : $(INSTALLED_CMD)
@@ -160,11 +165,11 @@ endif
 .PHONY : debug debug-all
 debug : $(DEBUG_DIR) $(DEBUG_DIR)/$(PGM)
 $(DEBUG_DIR)/$(PGM) : $(DEBUG_OBJS)
-	$(CC) $(CFLAGS) -g -o $@ $(LDFLAGS) $^ $(OTHER_LIBS) -lipw -lm
+	$(CC) $(CFLAGS) $(OTHER_CFLAGS) -g -o $@ $(LDFLAGS) $^ $(OTHER_LIBS) -lipw -lm
 
 debug-all : $(DEBUG_DIR) $(DEBUG_DIR)/$(PGM).all
 $(DEBUG_DIR)/$(PGM).all : $(DEBUG_OBJS)
-	$(CC) $(CFLAGS) -g -o $@ $(LDFLAGS) $^ $(OTHER_LIBS_DBG) -lipw$(DEBUG_LIB_SUFFIX) -lm
+	$(CC) $(CFLAGS) $(OTHER_CFLAGS) -g -o $@ $(LDFLAGS) $^ $(OTHER_LIBS_DBG) -lipw$(DEBUG_LIB_SUFFIX) -lm
 
 .PHONY : clean-debug clean-debug-cmd clean-debug-obj
 clean-debug : clean-debug-cmd clean-debug-obj

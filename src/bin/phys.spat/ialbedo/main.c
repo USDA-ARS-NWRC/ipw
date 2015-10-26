@@ -157,7 +157,7 @@ main (
 	headers (fdi, fdo, fds, obands);
 
 	/* read input image; calculate albedo; write output image */
-	if (mflag)
+	if (mflag == 1)
 		ialbedo_map (fdi, fdo, fds, day, gsize, maxgsz, dirt, vis_only, ir_only);
 	else
 		ialbedo (fdi, fdo, start, day, gsize, maxgsz, dirt, vis_only, ir_only);

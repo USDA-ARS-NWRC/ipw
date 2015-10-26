@@ -3,11 +3,11 @@
 
 /* ------------------------------------------------------------------------ */
 
-static	double	e_pass;
+static double e_pass;
+#pragma omp threadprivate(e_pass)
 
 static double
-satm(
-	double    t)
+satm(double t)
 {
 	return(e_pass - sati(t));
 }
@@ -16,7 +16,7 @@ satm(
 
 double
 dew_point(
-	double    e) 	/* vapor pressure (Pa) */
+		double    e) 	/* vapor pressure (Pa) */
 {
 	double	a;
 	double	b;

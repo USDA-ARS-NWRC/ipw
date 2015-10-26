@@ -1,0 +1,3 @@
+%define(name,"do_data_tstep")
+%define(description,"run model for 1 data timestep between 2 input records")
+%define(category,"snobal")
