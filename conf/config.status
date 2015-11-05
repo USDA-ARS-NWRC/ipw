@@ -433,7 +433,7 @@ Copyright (C) 2012 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/Users/ahedrick/ipw/conf'
+ac_pwd='/Users/scott/ipw/conf'
 srcdir='.'
 test -n "$AWK" || AWK=awk
 # The default lists apply if the user does not specify any file.
@@ -619,14 +619,14 @@ S["PERL_PATH"]="/opt/local/bin/perl"
 S["SED_PATH"]="/usr/bin/sed"
 S["AWK_PATH"]="/opt/local/bin/mawk"
 S["SH_PATH"]="/bin/sh"
-S["host_os"]="darwin15.0.0"
+S["host_os"]="darwin14.5.0"
 S["host_vendor"]="apple"
 S["host_cpu"]="i386"
-S["host"]="i386-apple-darwin15.0.0"
-S["build_os"]="darwin15.0.0"
+S["host"]="i386-apple-darwin14.5.0"
+S["build_os"]="darwin14.5.0"
 S["build_vendor"]="apple"
 S["build_cpu"]="i386"
-S["build"]="i386-apple-darwin15.0.0"
+S["build"]="i386-apple-darwin14.5.0"
 S["target_alias"]=""
 S["host_alias"]=""
 S["build_alias"]=""
