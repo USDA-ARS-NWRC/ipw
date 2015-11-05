@@ -1,0 +1,3 @@
+%define(name,"text2ipw")
+%define(description,"convert text file with data to IPW image")
+%define(category,"Importing Image Data")

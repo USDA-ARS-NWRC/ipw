@@ -1,0 +1,68 @@
+.TH "indvi" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBindvi\fP - normalized difference vegetation index (NDVI)
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBindvi\fP \fI(image)\fP
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBindvi\fP calculates normalized difference vegetation index (ndvi)
+from visible and IR satellite data such as AVHRR channels 1 & 2
+(\fIsee: Tucker, et al., 1986; Fung, et al., 1987\fP):
+.sp
+.nf
+.ft CR
+	{IR - VIS} / {IR + VIS}
+.ft R
+.fi
+
+.PP
+Output is a 1-byte image between -1 and 1.
+Input image band 0 is Visible, and band 1 is IR.
+.SH OPTIONS
+.PP
+None
+.SH OPERANDS
+.TP
+\fI(image)\fP
+2-band visible and IR input image
+.SH EXAMPLES
+.sp
+.nf
+.ft CR
+	mux vis ir | \fBindvi\fP
+.ft R
+.fi
+.SH FILES
+.PP
+None
+.SH DIAGNOSTICS
+.PP
+None
+.SH RESTRICTIONS
+.PP
+Input image must have more than one band.
+.SH HISTORY
+.TP
+Apr 1992
+Written by D. Marks, USEPA, Corvallis, OR
+.SH BUGS
+.PP
+None that we know of.
+.SH SEE ALSO
+.TP
+IPW
+\fBimath\fP,
+\fBiadd\fP,
+\fBmult\fP
+.TP
+Unix
+mux
+.PP
+Tucker 1986,
+Fung 1987,

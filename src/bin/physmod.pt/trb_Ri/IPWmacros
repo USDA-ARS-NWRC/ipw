@@ -1,0 +1,3 @@
+%define(name,"trb_Ri")
+%define(description,"turbulent transfer (H and LE) using Businger-Dyer model")
+%define(category,"Physical Modeling: Point")

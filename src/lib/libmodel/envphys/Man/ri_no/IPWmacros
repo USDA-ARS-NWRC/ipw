@@ -1,0 +1,3 @@
+%define(name,"ri_no")
+%define(description,"bulk Richardson number at geometric mean height")
+%define(category,"envphys")

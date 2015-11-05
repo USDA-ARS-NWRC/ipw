@@ -1,0 +1,99 @@
+<HTML>
+
+<HEAD>
+ <TITLE>IPW function: skiphdrs</TITLE>
+</HEAD>
+
+<BODY>
+
+<H1 ALIGN=CENTER>skiphdrs</H1>
+
+<P ALIGN=CENTER>IPW Library Function<BR>
+Library - libipw<BR>
+Category - gethdrs</P>
+
+<HR WIDTH="100%">
+
+<H2>NAME</H2>
+
+<P><B>skiphdrs</B> - skip IPW image headers</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "gethdrs.h"
+
+void
+skiphdrs(
+	int      fd)		|* input image file descriptor	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>skiphdrs</B> skips (i.e. reads and discards) all IPW image headers on
+file descriptor fd.
+</P><P>
+<B>skiphdrs</B> is a simple way to skip all remaining headers on an input
+image, once any desired headers have been ingested.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>can't skip <I>header-name</I> header
+header read error
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 5 November 2015  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>

@@ -1,0 +1,1 @@
+get_proj_id - get ID for projection's short name

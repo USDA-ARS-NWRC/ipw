@@ -1,0 +1,1 @@
+pxclose - close pixel I/O file descriptor

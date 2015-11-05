@@ -1,0 +1,85 @@
+.TH "ah2vp" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBah2vp\fP - convert between absolute humidity and vapor pressure
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBah2vp\fP [ \fB-K\fP ] [ \fB-i\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBah2vp\fP converts absolute humidity to vapor pressure,
+or the inverse;
+Reads input absolute humidity (gm/m^3) (or vapor pressure (Pa))
+and air temperature (C or K) from stdin;
+.PP
+(see \fIGeneral Meterology, Byers, 1974\fP)
+.PP
+If \fB-i is set, input vapor pressure is converted to absolute humidity.
+Calculates absolute humidity in \fIgm/m^3\fP, or vapor pressure in \fIPa\fP.
+.PP
+Output is to standard output;
+.SH OPTIONS
+.TP
+\fB-K\fP
+The input air temperatures are in K
+(default: C).
+.TP
+\fB-i\fP
+perform inverse operation converting vapor pressure to absolute humidity
+.SH OPERANDS
+.PP
+none
+.SH EXAMPLES
+.PP
+To convert absolute humidity and air temperature (C) to vapor pressure (Pa):
+.sp
+.nf
+.ft CR
+	paste ah ta | \fBah2vp\fP
+.ft R
+.fi
+
+.PP
+To convert vapor pressure and air temperature (K) to absolute humidity:
+.sp
+.nf
+.ft CR
+	paste vp ta_k | \fBah2vp\fP -K -i
+.ft R
+.fi
+.SH FILES
+.PP
+none
+.SH DIAGNOSTICS
+.PP
+checks for vp or abs_hum < 0.0, and dies on error.
+.SH RESTRICTIONS
+.PP
+none
+.SH HISTORY
+.TP
+May 2003
+Written by D. Marks, NWRC, Boise, Idaho.
+.SH BUGS
+.PP
+none
+.SH SEE ALSO
+.TP
+IPW
+ \fBsatvp\fP,
+\fBisatvp\fP,
+\fBrh2vp\fP,
+\fBirh2vp\fP,
+\fBdewpt\fP,
+\fBidewpt\fP,
+\fBsling\fP,
+\fBvptr\fP
+.TP
+Unix
+paste
+.PP
+Byers 1974

@@ -1,0 +1,7 @@
+
+sath - satellite headers
+
+  sathdup   - duplicate an IPW SATH header
+  sathmake  - make an IPW SATH header
+  sathread  - read an IPW SATH header
+  sathwrite - write an IPW SATH header

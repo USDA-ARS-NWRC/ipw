@@ -1,0 +1,1 @@
+ipwfile - print basic info about an IPW image

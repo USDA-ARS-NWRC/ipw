@@ -1,0 +1,3 @@
+%define(name,"sunang")
+%define(description,"sun angles: azimuth and zenith angles of sun's position")
+%define(category,"Radiation Modeling: Point")

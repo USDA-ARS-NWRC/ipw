@@ -1,0 +1,3 @@
+%define(name,"gtrnz0_")
+%define(description,"transform coordinates between two reference systems")
+%define(category,"gctp")

@@ -1,0 +1,3 @@
+%define(name,"ipwenter")
+%define(description,"initialize an IPW main program")
+%define(category,"main")

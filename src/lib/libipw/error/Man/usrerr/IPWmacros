@@ -1,0 +1,3 @@
+%define(name,"usrerr")
+%define(description,"log user's error message string")
+%define(category,"error")

@@ -1,0 +1,3 @@
+%define(name,"fpmaplen")
+%define(description,"access fpio fpixel[pixel] map array lengths")
+%define(category,"fpio")

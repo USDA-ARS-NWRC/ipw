@@ -1,0 +1,38 @@
+.TH "hbyteorder" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBhbyteorder\fP - image byte order
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "bih.h"
+
+char *
+hbyteorder(
+	int             fd)	|* image file descriptor	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBhbyteorder\fP determines the byte order of the image data currently being
+read/written on file descriptor fd.
+.PP
+\fBhbyteorder\fP may not be called before a BIH is read/written from/to fd.
+.SH RETURN VALUE
+.PP
+string indicating image's byteorder
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+_bih
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

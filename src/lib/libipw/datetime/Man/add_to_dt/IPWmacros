@@ -1,0 +1,3 @@
+%define(name,"add_to_dt")
+%define(description,"add given ")
+%define(category,"datetime")

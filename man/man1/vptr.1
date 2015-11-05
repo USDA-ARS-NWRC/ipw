@@ -1,0 +1,95 @@
+.TH "vptr" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBvptr\fP - vapor pressure from thermal radiation
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBvptr\fP \fB-z\fP \fIelev\fP [ \fB-K\fP ] [ \fB-m\fP ] [ \fB-r\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBvptr\fP is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as "qdips" (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+.PP
+\fBvptr\fP calculates vapor pressure as a function of measured thermal
+radiation and air temperature by inverting the equations in
+\fIMarks and Dozier, 1979\fP.
+Expects input of air temperature and incoming thermal
+radiation (W/m**2) from stdin.
+Output is vapor pressure and relative humidity if RH flag is set,
+or just vapor pressure.
+.PP
+Input is from stdin; output to stdout.
+.SH OPTIONS
+.TP
+\fB-z\fP \fIelev\fP
+\fIelev\fP is the reference elevation in meters.
+.sp
+.TP
+\fB-K\fP
+Air temperatures are in degrees K (default: C).
+.sp
+.TP
+\fB-m\fP
+The output values for vapor pressure are in millibars.
+(default: Pa).
+.sp
+.TP
+\fB-r\fP
+Relative humidity is also outputed with vapor pressure.
+.SH OPERANDS
+.PP
+none
+.SH EXAMPLES
+.PP
+To estimate vapor pressure and relative humidity from a thermal
+radiation value of 250 (W/m^2) and an air temperature of 4C:
+.sp
+.nf
+.ft CR
+	\fBvptr\fP -z 2940 -r <{3 180}
+.ft R
+.fi
+
+.PP
+results in: ea=315.44,   rh=0.42
+.SH FILES
+.PP
+none
+.SH DIAGNOSTICS
+.PP
+none
+.SH RESTRICTIONS
+.PP
+none
+.SH HISTORY
+.TP
+Jul 1986
+Written by D. Marks, CSL, UCSB;
+.TP
+Jun 1995
+Converted to IPW by J. Domingo, OSU, EPA NHEERL/WED
+.SH BUGS
+.PP
+none
+.SH SEE ALSO
+.TP
+IPW:
+\fBdewpt\fP,
+\fBidewpt\fP,
+\fBirh2vp\fP,
+\fBrh2vp\fP,
+\fBisatvp\fP,
+\fBsatvp\fP,
+\fBsling\fP,
+\fBthermin\fP,
+\fBtrad\fP,
+\fBzpr\fP
+.PP
+Brutsaert 1975,
+Marks 1979

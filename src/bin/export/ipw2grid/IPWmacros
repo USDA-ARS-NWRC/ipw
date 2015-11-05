@@ -1,0 +1,4 @@
+%define(name,"ipw2grid")
+%define(description,"convert IPW image to Arc/Info image")
+%define(category,"Exporting IPW Image Data")
+%define(auxDir,"/Users/ahedrick/ipw/aux/ipw2grid")

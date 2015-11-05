@@ -1,0 +1,1 @@
+image_name - get name of an image

@@ -1,0 +1,3 @@
+%define(name,"shade")
+%define(description,"cosine of local illumination angle")
+%define(category,"Topographic Calculations")

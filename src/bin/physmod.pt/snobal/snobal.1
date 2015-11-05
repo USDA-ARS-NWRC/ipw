@@ -1,0 +1,497 @@
+.TH "snobal" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBsnobal\fP - energy balance snowmelt model with 2 snow layers
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBsnobal\fP \fB-z\fP \fIelev\fP \fB-t\fP \fIdata-tstep\fP[,\fInorm-tstep\fP[,\fImed-tstep\fP[,\fIsm-tstep\fP]]]
+      [ \fB-m\fP \fImax-h2o \fP ] [ \fB-d\fP \fImax-active \fP ] [ \fB-s\fP \fIsnfile \fP ]
+      [ \fB-h\fP \fImhfile \fP ] [ \fB-p\fP \fIprfile \fP ] [ \fB-i\fP \fIinfile \fP ]
+      [ \fB-o\fP \fIoutfile \fP ] [ \fB-O\fP \fIoutput-mode \fP ] [ \fB-c\fP ] [ \fB-K\fP ]
+      [ \fB-T\fP \fInorm-threshold\fP[,\fImed-threshold\fP[,\fIsm-threshold\fP]]\fI \fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBsnobal\fP is an
+interactive point model using the energy balance to calculate
+snowmelt, and to predict runoff, from input data on
+snow properties, measurement heights & depths, and energy
+exchanges.  Similar to the approach used by \fIAnderson (1976)\fP,
+and \fIMorris (1982)\fP, but designed to run on simpler,
+more generalizable inputs.
+The model was first presented by \fIMarks (1988)\fP,
+described conceptually by \fIMarks, et. al (1992)\fP and
+\fIMarks and Dozier (1992)\fP, and then described in great detail
+by \fIMarks, et. al (1997)\fP.
+.PP
+The model approximates the snow cover as being composed of
+two layers, a surface fixed-thickness active layer and a
+lower layer, solving for the temperature (C) and specific
+mass (kg/m^2) or mass per unit area (from density * depth
+(kg/m^3 * m)) for each, and computing total snowcover temperature
+and specific mass from these.
+.PP
+Melt is computed in either layer when the accumulated energy
+exceeds the "cold content" or when the "cold content"
+is > 0.0.  Cold content is the energy required to bring the snow
+cover temperature up to freezing (0 C).  Runoff is estimated
+when the accumulated melt and liquid H2O content exceed a
+specified threshold.
+Model assumes a soil thermal conductivity that was derived from
+heat flux data collected at the ARS Reynolds Creek RMSP site, which
+approximates a moist sandy soil.
+.PP
+This version of the model was designed for detailed point
+simulations to test conditions and data for setting up the
+spatial, topographically distributed version of the model:
+isnobal.
+.PP
+Inputs:
+.PP
+Input data are specified for the snow properties and the
+measurement heights and depths.  Each set of data must have
+at least one record; this required record defines the initial
+conditions for the model run.  Any subsequent optional
+records are treated as update/verification data, and are
+used to reset the snow properties and measurement heights
+and depths.  These records are also used to determine the
+model error for the snow properties.  These inputs can all
+come from input text files, or the model will prompt the
+user for them at the start of and during the model run.  The
+records must be specified in chronological order.
+.PP
+snow properties record format:
+.sp
+.nf
+.ft CR
+     time_s    =   time since start (decimal hrs) (first
+                   entry is model run's start time)
+     z_s       =   total snowcover depth (m)
+     rho       =   average snowcover density (kg/m^3)
+     T_s_0     =   active snow layer temperature (C)
+     T_s       =   average snowcover temperature (C)
+     h2o_sat   =   % of liquid H2O saturation (relative
+                   water content, i.e., ratio of water in
+                   snowcover to water that snowcover could
+                   hold at saturation)
+.ft R
+.fi
+
+.PP
+measurement heights & depths record format:
+.sp
+.nf
+.ft CR
+     time_z   =   time since start (decimal hrs) (first entry must
+                  match time_s in first entry of snow properties)
+     z_u      =   height above the ground of wind speed measurement (m)
+     z_T      =   height above the ground of air temperature and vapor
+                  pressure measurement (m) (z_u can equal z_T)
+     z_0      =   roughness length (m) (for snow: 0.01 to 0.0001)
+     z_g      =   depth of soil-temperature measurement (m) (0 to 1.0)
+.ft R
+.fi
+
+.PP
+Optional precipitation data can be provided as input to the
+model.  These data are used to calculate advected heat from
+the precipitation (snow or rain or both) and to update the
+specific mass of the snow cover.  Rain either becomes runoff
+(if there is little or no snow) or is added to the liquid
+water content.
+.PP
+Like the records for the snow properties and measurement
+heights, the precipitation records must be in chronological
+order.
+.PP
+precipitation record format:
+.sp
+.nf
+.ft CR
+     time_pp    =   time since start (decimal hrs) (first
+                    entry must be >= start time)
+     m_pp       =   total precip. mass (kg/m^2)
+     %_snow     =   % of precip. mass that was snow (0 to 1.0)
+     rho_snow   =   density of snowfall (kg/m^3)
+     T_pp       =   average precip. temperature (C) (from dew
+                    point temperature if available, or can be
+                    estimated from air temperature during
+                    storm, or minimum daily temperature)
+.ft R
+.fi
+
+.PP
+The model will parse mixed rain/snow events.  It is designed
+to accept inputs that could be derived from typical NRCS
+Snotel data such as total precipitation, snow mass increase,
+and temperature.  The user must estimate average density and
+percent snow if depth data are unavailable.  The model makes
+the following assumptions about the snow temperature, rain
+temperature, and liquid water saturation of the snow:
+.sp
+.nf
+.ft CR
+     when 0.0 < %_snow < 1.0, (a mixed rain/snow event)
+          snow temperature = 0.0
+          rain temperature = T_pp
+          liquid H2O sat.  = 100%
+
+     when %_snow = 1.0 and T_pp => 0.0, (a warm snow-only event)
+          snow temperature = 0.0
+          liquid H2O sat.  = 100%
+
+     when %_snow = 1.0 and T_pp < 0.0, (a cold snow event)
+          snow temperature = T_pp
+          liquid H2O sat.  = 0%
+.ft R
+.fi
+
+.PP
+Input records of certain climate parameters are required to
+drive the model.  These records are read from either an
+input file or standard input.
+.PP
+input data record format:
+.sp
+.nf
+.ft CR
+     S_n    =   net solar radiation (W/m^2)
+     I_lw   =   incoming thermal (longwave) radiation (W/m^2)
+     T_a    =   air temperature (C)
+     e_a    =   vapor pressure (Pa)
+     u      =   wind speed (m/sec)
+     T_g    =   soil temperature (C)
+     [ro]   =   specific discharge/runoff (m/sec) (may be omitted)
+.ft R
+.fi
+
+.PP
+Time Steps (data timestep and run timesteps):
+.PP
+The "data timestep" is the time interval between the input
+records of climate data.  The model assumes that this interval
+is constant.  Because the snowcover energy balance is
+very sensitive to diurnal variations in climate (radiation,
+temperature, etc.), the "data timestep" must be 360 minutes
+(6 hours) or less.  Best results are achieved with a data
+timestep of 180 minutes (3 hours) or less.  Data timesteps
+greater than 60 minutes must be multiples of whole hours
+(e.g., 120 minutes, or 180 minutes).
+.PP
+A "run timestep" is the internal timestep that the model
+actually runs at.  Because input values are assumed to be
+averages over a run timestep, it is always 60 minutes (1
+hour) or less to insure a stable model solution.  Solution
+instabilities occur when the run timestep is too long to
+account for rapid changes in the EB (eg.  sun rise or sunset),
+or when a layer's mass is too small to accommodate the
+assumption of an average flux over the run timestep.
+.PP
+There are 3 lengths of run timesteps: "normal, medium, and
+small".  By default, the model uses the normal run timestep
+which is the longest of the three run timesteps.  The normal
+timestep must divide evenly into the data timestep (i.e.,
+the data timestep is an integer multiple of the normal run
+timestep).  The input data for a normal run timestep (climate
+data and some precipitation values) are computed from
+the input records by linear interpolation.
+.PP
+The shorter run timesteps (medium and small) are only used
+as a layer's mass diminishes to further insure solution stability.
+When either layer's mass drops below a specified
+threshold, the model divides a larger run timestep into
+shorter run timesteps (e.g., divides a normal run timestep
+into medium run timesteps).  There are three mass thresholds;
+one for each run timestep: normal, medium, and small.
+When a layer's mass falls below the threshold for the the
+small run timestep, the model removes the layer.
+.PP
+Just as the normal run timestep divides evenly into the data
+timestep, each of the two shorter run timesteps must divide
+evenly into the next larger run timestep (medium into normal,
+small into medium).  And like the normal timesteps, the
+input data for medium and small timesteps are linearly
+interpolated from the input records.
+.PP
+Outputs:
+.PP
+The model writes output records to either an output file or
+standard output.
+.PP
+output record format:
+.sp
+.nf
+.ft CR
+     time_s       =   elapsed time since start of model run (hours)
+     R_n          =   net allwave rad (W/m^2)
+     H            =   sensible heat transfer (W/m^2)
+     L_v_E        =   latent heat exchange (W/m^2)
+     G            =   snow/soil heat exchange (W/m^2)
+     M            =   advected heat from precip. (W/m^2)
+     delta_Q      =   sum of e.b. terms for snowcover (W/m^2)
+     G_0          =   heat exchange between snow layers (W/m^2)
+     delta_Q_0    =   sum of e.b. terms for surface layer (W/m^2)
+     cc_s_0       =   surface layer cold content (J/m^2)
+     cc_s_l       =   lower layer cold content (J/m^2)
+     cc_s         =   snowcover cold content (J/m^2)
+     E_s          =   evaporation (kg/m^2)
+     melt         =   melt (kg/m^2)
+     ro_predict   =   predicted runoff (kg, or mm/m^2)
+     [ro_error]   =   runoff error (kg, or mm/m^2)
+     z_s_0        =   predicted depth of surface layer (m)
+     z_s_l        =   predicted   "   of lower layer (m)
+     z_s          =   predicted   "   of snowcover (m)
+     rho          =   predicted average snow density (kg/m^3)
+     m_s_0        =   predicted specific mass of surface layer (kg/m^2)
+     m_s_l        =   predicted    "      "   of lower layer (kg/m^2)
+     m_s          =   predicted    "      "   of snowcover (kg/m^2)
+     h2o          =   predicted liquid H2O in snowcover (kg/m^2)
+     T_s_0        =   predicted temperature of surface layer (C)
+     T_s_l        =   predicted      "      of lower layer (C)
+     T_s          =   predicted average temp of snowcover (C)
+.ft R
+.fi
+
+.PP
+For each update/verification record with snow properties,
+the model outputs an error record to standard output.
+.PP
+error record format for each update record:
+.sp
+.nf
+.ft CR
+     time_diff    =   time of update
+     diff_z_s     =   predicted - measured z_s
+     diff_rho     =   predicted - measured rho
+     diff_m_s     =   predicted - computed m_s
+     diff_T_s_0   =   predicted - measured T_s_0
+     diff_T_s     =   predicted - measured T_s
+     diff_h2o     =   predicted - measured H2O present in snowcover
+.ft R
+.fi
+.SH OPTIONS
+.TP
+\fB-z\fP \fIelev\fP
+\fIelev\fP is site elevation (m); used to compute air pressure.
+.sp
+.TP
+\fB-t\fP \fIdata-tstep\fP[,\fInorm-tstep\fP[,\fImed-tstep\fP[,\fIsm-tstep\fP]]]
+\fIdata-tstep\fP is time step for the input climate data
+(minutes).  If more than 60 minutes (1 hour), than it
+must a multiple of 60 minutes, e.g., 120 minutes (2
+hrs), 180 min (3 hrs), etc.  Maximum is 360 minutes (6
+hours).
+.sp
+\fInorm-tstep\fP is the normal run timestep.  It must divide
+the data timestep evenly (default: 60 min or the data
+timestep, whichever is smaller).
+.sp
+\fImed-tstep\fP is the medium run timestep.  It must divide
+the normal run timestep evenly (default: 15 min or the
+normal timestep, whichever is smaller).
+.sp
+\fIsm-tstep\fP is the small run timestep.  It must divide the
+medium run timestep evenly (default: 1 min).
+.sp
+.TP
+\fB-m\fP \fImax-h2o\fP
+\fImax-h2o\fP is snowcover maximum liquid H2O content as
+volume ratio: V_water/(V_snow-V_ice) ; used to predict
+runoff (default: 0.01).
+.sp
+.TP
+\fB-d\fP \fImax-active\fP
+\fImax-active\fP is maximum depth for active snow layer (m)
+(default: 0.25 m).
+.sp
+.TP
+\fB-s\fP \fIsnfile\fP
+\fIsnfile\fP is optional input file with snow properties
+.sp
+.TP
+\fB-h\fP \fImhfile \fP
+\fImhfile\fP is optional input file with measurement heights
+& depths
+.sp
+.TP
+\fB-p\fP \fIprfile \fP
+\fIprfile\fP is optional input file with precipitation data
+.sp
+.TP
+\fB-i\fP \fIinfile \fP
+\fIinfile\fP is optional input file with climate data
+.sp
+.TP
+\fB-o\fP \fIoutfile \fP
+\fIoutfile\fP is optional output data file
+.sp
+.TP
+\fB-O\fP \fIoutput-mode \fP
+\fIoutput-mode\fP controls the rate at which output records
+are written.  The 3 modes are:
+.sp
+.nf
+.ft CR
+     data     1 output record for each climate data record
+     normal   1 output record for each normal run timestep
+     all      1 output record for each run timestep: normal,
+                   medium and small
+.ft R
+.fi
+.sp
+.TP
+\fB-c\fP
+Continue the model run if there's no snowcover on
+ground (a subsequent snowfall may reestablish the snowcover).
+(default:  the model stops when the snowcover
+is gone)
+.sp
+.TP
+\fB-K\fP
+Accept/output temperatures in degrees K (default:
+degrees C).
+.sp
+.TP
+\fB-T\fP \fInorm-threshold\fP[,\fImed-threshold\fP[,\fIsm-threshold\fP]]\fI \fP
+If a layer's mass is below \fInorm-threshold\fP, the model
+divides each normal run timestep into medium run
+timesteps (default 60 kg/m^2).
+.sp
+If a layer's mass is below \fImed-threshold\fP, the model
+divides each medium run timestep into small run
+timesteps (default 10 kg/m^2).
+.sp
+If a layer's mass is below \fIsm-threshold\fP, the model considers
+the layer non-existent, i.e., it removes the
+layer (default 1 kg/m^2).
+.SH OPERANDS
+.PP
+none
+.SH EXAMPLES
+.PP
+none
+.SH FILES
+.PP
+none
+.SH DIAGNOSTICS
+.PP
+none
+.SH RESTRICTIONS
+.PP
+none
+.SH HISTORY
+.TP
+Aug 1984
+written by D. Marks, (GSFC) CSL, UCSB;
+.sp
+.TP
+Sep 1984
+broken into subroutines by D. Marks, CSL, UCSB;
+.TP
+Jul 1985
+handling of var. defs, and externals improved by D. Marks, CSL, UCSB;
+.sp
+.TP
+Apr 1986
+2-layer update by D. Marks, CSL, UCSB;
+.sp
+.TP
+Jun 1987
+Brutsaert H&LE method added, D. Marks, CRSEO, UCSB;
+.sp
+.TP
+Jan 1990
+made less interactive with new input files
+specified on run-string by Kelly Longley, OSU;
+.sp
+.TP
+May 1995
+Converted to IPW by J. Domingo, OSU, US EPA;
+.sp
+.TP
+Feb 1996
+Renamed some options.  Added \fB-c, \fB-K
+options.  Integrated man page into source
+code so "ipwman" now works with \fBsnobal\fP (i.e.,
+"help.\fBsnobal\fP" now obsolete).  Renamed variables
+to coincide with notation in related
+articles, e.g., \fIMarks and Dozier (1992)\fP.  Major internal restructuring
+of routines to simplify later modifications.  J. Domingo, OSU;
+.sp
+.TP
+Mar 1996
+Added run timesteps and thresholds.  Added related options
+\fB-O and \fB-T.  J. Domingo, OSU;
+.sp
+.TP
+Apr 1996
+Added feature for accepting mixed rain/snow precipitation events;
+changed format of precip update files, J. Domingo, OSU; D. Marks, USGS;
+.sp
+.TP
+Jul 1996
+Internal structure modified so that actual model routines are now
+in a library that's shared with \fBisnobal\fP, J. Domingo, OSU;
+.sp
+.TP
+Sep 2003
+Soil conductivity in routine \fIg_soil.c\fP
+changed to that of a moist sandy soil
+from a wet or saturated sandy soil, D. Marks, NWRC;
+.SH BUGS
+.PP
+none
+.SH SEE ALSO
+.TP
+IPW:
+\fBadvec\fP,
+\fBalbedo\fP,
+\fBelevrad\fP,
+\fBglob.alb\fP,
+\fBgsnow\fP,
+\fBgradient\fP,
+\fBhorizon\fP,
+\fBrefdx\fP,
+\fBshade\fP,
+\fBstoporad\fP,
+\fBsolar\fP,
+\fBselevrad\fP,
+\fBsunlight\fP,
+\fBthermin\fP,
+\fBtcloud\fP,
+\fBtoporad\fP,
+\fBtoporad.24\fP,
+\fBtopquad\fP,
+\fBtopotherm\fP,
+\fBtrad\fP,
+\fBviewf\fP,
+\fBtopotherm\fP,
+\fBisnobal\fP,
+\fBsnowmass\fP,
+\fBswe\fP,
+\fBwbal\fP,
+\fBdewpt\fP,
+\fBdeltaT\fP,
+\fBdeltaz\fP,
+\fBpott\fP,
+\fBrh2vp\fP,
+\fBsatvp\fP,
+\fBsling\fP,
+\fBsurface\fP,
+\fBsurftmp\fP,
+\fBvptr\fP,
+\fBzpr\fP
+.PP
+Anderson 1976,
+Morris 1982,
+Marks 1988,
+Marks 1992a,
+Marks 1992b,
+Garen 1996,
+Van Heeswijk 1996,
+Marks 1998,
+Marks 1999a,
+Susong 1999

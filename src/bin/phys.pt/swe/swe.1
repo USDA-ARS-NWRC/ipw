@@ -1,0 +1,122 @@
+.TH "swe" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBswe\fP - snow water equivalent (SWE)
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBswe\fP \fB-p\fP \fIdensity-profile\fP [ \fB-s\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBswe\fP computes snow-water-equivalent (swe) for a specified layer
+from detailed density profile data;
+Input density profile, prof,  must be a pair of vectors:
+.sp
+.nf
+.ft CR
+	z(1)	rho(1)
+	z(2)	rho(2)
+	etc...
+.ft R
+.fi
+.PP
+where z = height of the upper bound of the density sample
+above the ground, and rho = snow denisty (kg/m*3);
+the units of z will determine the units of output swe;
+the first input should be the total snow depth;
+rho is assumed to be the average snow density of the layer
+between z(i) and z(i+1);
+Optional paramater '\fB-s' will cause a summary of the density
+profile to output;
+.PP
+Input, to stdin, is upper and lower bound of layer for which
+swe is to be calculated;
+(must be in same units as z in prof);
+Output to stdout;
+.SH OPTIONS
+.TP
+\fB-p\fP \fIdensity-profile\fP
+\fIdensity-profile\fP is the file with a pair of vectors:
+z(1)	rho(1)
+z(2)	rho(2)
+...
+z(n)	rho(n)
+where z = height of the upper bound of the density sample
+above the ground, and rho = snow density (kg/m^3).
+.sp
+.TP
+\fB-s\fP
+A summary of the density profile will be also be outputed.
+.SH OPERANDS
+.PP
+none
+.SH EXAMPLES
+.PP
+To calculate the SWE from 0.25-0.35m above ground level, using the
+following density profile:
+.sp
+.nf
+.ft CR
+		1.00    100
+		0.75    250
+		0.50    350
+		0.25    400
+.ft R
+.fi
+
+.PP
+and input file <0.35 0.25>:
+.PP
+the command "\fBswe\fP \fB-p profile \fB-s < infile"
+.PP
+results in:
+.sp
+.nf
+.ft CR
+	depth   density SWE
+	1.000   100.0   0.025
+	0.750   250.0   0.063
+	0.500   350.0   0.088
+	0.250   400.0   0.100
+.ft R
+.fi
+
+.sp
+.nf
+.ft CR
+	1.000   322.7   0.275
+.ft R
+.fi
+
+.sp
+.nf
+.ft CR
+	Layer Calculations
+	 top    bottom   SWE
+	0.350   0.250   0.035
+	Density Profile Summary
+.ft R
+.fi
+.SH FILES
+.PP
+none
+.SH DIAGNOSTICS
+.PP
+none
+.SH RESTRICTIONS
+.PP
+none
+.SH HISTORY
+.TP
+Dec 1987
+Written by D. Marks, CSL UCSB;
+.TP
+June 1995
+Converted to IPW by J. Domingo, OSU, EPA NHEERL/WED
+.SH BUGS
+.PP
+Will work with input form keyboard, but format is kind of ugly
+.SH SEE ALSO

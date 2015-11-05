@@ -1,0 +1,3 @@
+%define(name,"dupsv")
+%define(description,"duplicate a strvec")
+%define(category,"strvec")

@@ -1,0 +1,39 @@
+.TH "sec2hms" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBsec2hms\fP - converts total seconds into hours, minutes, seconds
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+void
+sec2hms(
+    int      total_secs,	|* total time as seconds	*|
+    int    * hrs,		|* output: [0 - ...		*|
+    int    * mins,		|* output: [1 - 59]		*|
+    int    * secs)		|* output: [1 - 59]		*|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBsec2hms\fP converts a time expressed as total number of seconds
+as hours, minutes, and seconds.
+.SH RETURN VALUE
+.PP
+None.
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

@@ -1,0 +1,42 @@
+.TH "horhwrite" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBhorhwrite\fP - write an IPW HORH header
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "file.h"
+
+int
+horhwrite(
+	int             fd,	|* output file descriptor	 *|
+	HORH_T        **horhpp)	|* -> array of HORH pointers	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.sp
+.nf
+.ft CR
+     horhwrite writes the array of HORH headers pointed to by horhpp
+.ft R
+.fi
+.PP
+to file descriptor fd.
+.SH RETURN VALUE
+.PP
+OK for success, ERROR for failure
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

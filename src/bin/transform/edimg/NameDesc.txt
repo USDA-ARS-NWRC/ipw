@@ -1,0 +1,1 @@
+edimg - edit the pixels of an IPW image

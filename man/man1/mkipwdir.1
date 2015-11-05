@@ -1,0 +1,105 @@
+.TH "mkipwdir" "1" "5 November 2015" "IPW v2" "IPW System Commands"
+.SH NAME
+.PP
+\fBmkipwdir\fP - make a private IPW directory structure
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBmkipwdir\fP [ \fIpath\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBmkipwdir\fP creates a private IPW directory structure for
+use in developing new IPW software.  This structure is:
+.sp
+.nf
+.ft CR
+    \fIpath\fP            top of IPW directory structure
+      |
+      +- aux/          auxiliary commands and files
+      |
+      +- bin/          user commands
+      |
+      +- h/            C header files
+      |
+      +- lib/          libraries
+      |
+      +- man/          manual pages (troff versions)
+      |   |
+      |   +- man1/        commands
+      |   |
+      |   +- man3/        library functions
+      |   |
+      |   +- man5/        header files, file formats
+      |
+      +- sbin/         system commands
+      |
+      +- src/          source directory
+      |   |
+      |   +- bin/         commands
+      |   |
+      |   +- lib/         libraries
+      |   |
+      |   +- sbin/        header files, file formats
+      |
+      +- tests/        tests
+      |
+      +- www/          Web documentation including manual pages
+          |            (HTML versions)
+          |
+          +- man1/        commands
+          |
+          +- man3/        library functions
+          |
+          +- man5/        header files, file formats
+.ft R
+.fi
+.PP
+If \fIpath\fP refers to an existing directory, then \fBmkipwdir\fP
+scans this directory for the subdirectories listed above (i.e., bin,
+h, lib, etc).  Any missing subdirectories are created; any existing
+subdirectories are left untouched.
+.SH OPTIONS
+.PP
+None.
+.SH OPERANDS
+.TP
+\fIpath\fP
+Create the IPW directory structure in the subdirectory specified by
+\fIpath\fP.  If  does not exist, it will be created first.
+(Default: current directory)
+.SH EXAMPLES
+.PP
+This example creates a subdirectory in the current directory called
+"ipw" which has the IPW directory structure noted above:
+.sp
+.nf
+.ft CR
+     mkipwdir ipw
+.ft R
+.fi
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.TP
+\f(CR\fIdir\fP already exists, but is not a directory\fP
+The command was attempting to make the directory \fIdir\fP, but it
+found that \fIdir\fP already exists and is \fBnot\fP a directory.
+.SH NOTES
+.PP
+None.
+.SH HISTORY
+.TP
+May 1998
+Written by J. Domingo, OSU
+.TP
+Oct 1999
+Added the "aux" subdirectory.  Fixed bug when checking for existence
+of a directory.  J. Domingo, OSU
+.SH SEE ALSO
+.TP
+Unix:
+mkdir

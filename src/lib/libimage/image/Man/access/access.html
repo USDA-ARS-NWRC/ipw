@@ -1,0 +1,66 @@
+<HTML>
+
+<HEAD>
+ <TITLE>IPW function: access</TITLE>
+</HEAD>
+
+<BODY>
+
+<H1 ALIGN=CENTER>access</H1>
+
+<P ALIGN=CENTER>IPW Library Function<BR>
+Library - libimage<BR>
+Category - image</P>
+
+<HR WIDTH="100%">
+
+<H2>NAME</H2>
+
+<P><B>access</B> - get pixel-access level of an image</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "image.h"
+
+int
+access(
+     IMAGE_T *image)   /* image file descriptor */
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+access returns the pixel-access level of an image.
+
+<H2>RETURN VALUE</H2>
+
+<DL>
+
+<DT><TT>PIXEL_ACCESS</TT>
+<DD>
+Image's pixels are accessed as unsigned integers.
+</DD>
+
+<P>
+
+<DT><TT>FPIXEL_ACCESS</TT>
+<DD>
+Image's pixels are accessed as floating-point values.
+</DD>
+
+</DL>
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 5 November 2015  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>

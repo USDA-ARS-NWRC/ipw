@@ -1,0 +1,1 @@
+window - extract a region (window) of an IPW image

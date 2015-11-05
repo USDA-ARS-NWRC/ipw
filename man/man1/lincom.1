@@ -1,0 +1,113 @@
+.TH "lincom" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBlincom\fP - linear combination of pixels (DEPRECIATED)
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBlincom\fP [ \fB-c\fP \fIcoef\fP,\fI...\fP ] [ \fB-n\fP \fInbits\fP ] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBlincom\fP reads a multi-band image (default: standard input) and
+writes a linear combination of its bands to the standard output.
+For each input sample, the corresponding output sample is:
+.sp
+.nf
+.ft CR
+	p[0] * k[0] + ... + p[nbands-1] * k[nbands-1]
+.ft R
+.fi
+
+.PP
+where p is the input pixel value, k is a user-specified
+coefficient, and nbands is the number of input bands.
+.SH OPTIONS
+.TP
+\fB-c\fP \fIcoef\fP,\fI...\fP
+per-band coefficients (default: 1/nbands).  If only one
+coefficient is specified, the same coefficient is used for
+all bands.  Otherwise, the number of coefficients must be a
+multiple of nbands.  If the number of coefficients is larger
+than nbands, each successive group of coefficients will be
+used to create a new output band.
+.sp
+.TP
+\fB-n\fP \fInbits\fP
+Use \fInbits\fP bits per output pixel (default: maximum number
+of bits per input pixel).
+.SH OPERANDS
+.TP
+\fIimage\fP
+input image (default: standard input)
+.SH EXAMPLES
+.PP
+To create an average of all the input bands:
+.sp
+.nf
+.ft CR
+	lincom
+.ft R
+.fi
+
+.PP
+To subtract band 1 from band 0 of a 2-band image:
+.sp
+.nf
+.ft CR
+	lincom -c 1,-1
+.ft R
+.fi
+
+.PP
+To create a 2-band output image from a 2-band input image, in
+which the first output band is a sum and the second output band
+is a difference:
+.sp
+.nf
+.ft CR
+	lincom -c .5,.5,1,-1
+.ft R
+.fi
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.TP
+# coefficients specified = \fIncoef\fP; must be 0, 1, or modulo nbands
+The number of coefficients specified must be 0, 1, or a
+multiple of the number of bands in the input image.
+.SH NOTES
+.PP
+This command has been DEPRECIATED because its functionality
+is provided by the command \fBimath\fP.
+This command may be removed in future versions of IPW.
+.SH HISTORY
+.TP
+Jul 1990
+Written by James Frew, UCSB.
+.sp
+.TP
+Aug 1992
+Use obands instead of nbands in gethdrs.  Kelly Longley, ERL-C.
+.sp
+.TP
+Apr 1993
+Resolve minval == maxval problem.  Dana Jacobsen, ERL-C.
+.sp
+.TP
+May 1993
+Ran through Purify.  Dana Jacobsen, ERL-C.
+.SH SEE ALSO
+.TP
+IPW:
+\fBbitcom\fP,
+\fBbitcom\fP,
+\fBiadd\fP,
+\fBmult\fP,
+\fBscale\fP
+.PP
+Frew 1990
+.br

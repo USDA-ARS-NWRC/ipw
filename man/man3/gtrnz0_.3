@@ -1,0 +1,159 @@
+.TH "gtrnz0_" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBgtrnz0_\fP - transform coordinates between two reference systems
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "gctp.h"
+
+int
+gtrnz0_(
+     double *crdin,    /* coordinates in input system         */
+     int    *indef,    /* info about input coordinate system  */
+     double *tparin,   /* input projection parameters         */
+
+  /* output variable */
+
+     double *crdio,    /* coordinates in output system        */
+
+  /* input variables */
+
+     int    *iodef,    /* info about output coordinate system */
+     double *tpario,   /* output projection parameters        */
+     FILE   *ipfile,   /* file to print projection infor to
+                            (may be NULL)                     */
+
+  /* output variable */
+
+     int    *iflg)     /* return code: = 0 if transformation
+                            succeeded; <> 0 if error occurred */
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBgtrnz0_\fP is the top-level routine in the General Cartographic
+Transformation Package (GCTP) library.  It converts a pair of coordinates
+in one reference system to another.  The input and output coordinates
+(\fIcrdin\fP and \fIcrdio\fP, respectively) are stored in 2-element arrays:
+.sp
+.nf
+.ft CR
+     Coordinates (2-element array):
+
+         element 0 = east-west dimension (e.g., X, longitude, easting)
+                     (west longitudes are negative)
+         element 1 = norst-south dimension (e.g., Y, latitude, northing)
+                     (south latitudes are negative)
+.ft R
+.fi
+.PP
+Information about the input and output reference systems (\fIindef\fP
+and \fIiodef\fP, respectively) are specified by 3-element arrays:
+.sp
+.nf
+.ft CR
+     Info about reference coordinate system: (3-element array):
+
+         element 0 = code for coordinate system
+                         0 = GEOGRAPHIC
+                         1 = U T M
+                         2 = STATE PLANE
+                         3 = ALBERS CONICAL EQUAL-AREA
+                         4 = LAMBERT CONFORMAL CONIC
+                         5 = MERCATOR
+                         6 = POLAR STEREOGRAPHIC
+                         7 = POLYCONIC
+                         8 = EQUIDISTANT CONIC
+                         9 = TRANSVERSE MERCATOR
+                        10 = STEREOGRAPHIC
+                        11 = LAMBERT AZIMUTHAL EQUAL-AREA
+                        12 = AZIMUTHAL EQUIDISTANT
+                        13 = GNOMONIC
+                        14 = ORTHOGRAPHIC
+                        15 = GENERAL VERTICAL NEAR-SIDE PERSPECTIVE
+                        16 = SINUSOIDAL
+                        17 = EQUIRECTANGULAR
+                        18 = MILLER CYLINDRICAL
+                        19 = VAN DER GRINTEN I
+                        20 = OBLIQUE MERCATOR (HOTINE)
+         element 1 = code for zone of coordinate system
+                       (for UTM and STATE PLANE systems only; see
+                        Appendix A and B of reference below)
+         element 2 = code for units of measure
+                         0 = RADIANS
+                         1 = FEET
+                         2 = METERS
+                         3 = SECONDS OF ARC
+                         4 = DEGREES OF ARC
+                         5 = PACKED DMS
+.ft R
+.fi
+.PP
+Projection parameters for the input and output reference systems
+(\fItparin\fP and \fItpario\fP, respectively) are specified by
+15-element arrays.  See Appendix C of the reference below for
+a description of these arrays.
+.SH RETURN VALUE
+.PP
+Always returns 0.  If \fIiflg\fP is non-zero, then a diagnostic message
+was stored via the "usrerr" routine.
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.TP
+... : Angle greater than 360 degrees = \fIangle\fP
+.TP
+... : Didn't find state zone \fIzone\fP
+.TP
+... : Equal latitudes for st. parallels on opposite sides of equator
+.TP
+... : Illegal packed dms field = \fIDMS field\fP
+.TP
+... : Illegal source or target unit code = \fIsource code\fP \fItarget code\fP
+.TP
+... : Illegal source reference system code = \fIcode\fP
+.TP
+... : Illegal source unit code = \fIcode\fP
+.TP
+... : Illegal source zone number = \fIcode\fP
+.TP
+... : Illegal target reference system code = \fIcode\fP
+.TP
+... : Illegal target unit code = \fIcode\fP
+.TP
+... : Illegal target zone number = \fIzone\fP
+.TP
+... : Illegal zone no. = \fIzone\fP
+.TP
+... : Improper parameter
+.TP
+... : Inconsistant unit codes = \fIsource code\fP \fItarget code\fP
+.TP
+... : Latitude failed to converge
+.TP
+... : Point cannot be projected
+.TP
+... : Point projects into a circle
+.TP
+... : Point projects into infinity
+.TP
+... : Transformation cannot be computed at the poles
+.TP
+... : Uninitialized transformation
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.TP
+Sep 1991
+Ported MIT's modified version of GCTP that was distributed with GRASS.
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO
+USGS 1994

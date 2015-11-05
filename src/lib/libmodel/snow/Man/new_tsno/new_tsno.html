@@ -1,0 +1,81 @@
+<HTML>
+
+<HEAD>
+ <TITLE>IPW function: new_tsno</TITLE>
+</HEAD>
+
+<BODY>
+
+<H1 ALIGN=CENTER>new_tsno</H1>
+
+<P ALIGN=CENTER>IPW Library Function<BR>
+Library - libmodel<BR>
+Category - snow</P>
+
+<HR WIDTH="100%">
+
+<H2>NAME</H2>
+
+<P><B>new_tsno</B> - calculates snow layer's new temperature</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "snow.h"
+
+double
+new_tsno(
+     double  spm,    /* layer's specific mass (kg/m^2)        */
+     double  t0,     /* layer's last temperature (K)          */
+     double  ccon)   /* layer's adjusted cold content (J/m^2) */
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>new_tsno</B> calculates a new temperature for a snow layer from its
+adjusted cold content, and the layer's last (previous) temperature.
+<P>
+The layer's specific mass (the argument <I>spm</I>) can be computed by
+multiplying the layer's thickness (m) by its density (kg/m^3).
+
+<H2>RETURN VALUE</H2>
+
+<P>
+snow layer's new temperature (K)
+</P>
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Aug 1984</DT>
+<DD>
+written by D. Marks, CSL (GSFC), UCSB;
+</DD>
+
+<P>
+
+<DT>May 1995</DT>
+<DD>
+Converted from QDIPS to IPW by J. Domingo, OSU
+</DD>
+
+</DL>
+
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 5 November 2015  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>

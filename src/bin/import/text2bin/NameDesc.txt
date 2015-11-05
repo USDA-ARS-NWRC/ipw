@@ -1,0 +1,1 @@
+text2bin - convert text file with integers to binary file

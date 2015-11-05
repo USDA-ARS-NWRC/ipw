@@ -1,0 +1,48 @@
+.TH "dt2str" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBdt2str\fP - convert a local date-time into a string
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+char *
+dt2str(
+	datetime_t     *dt)		|* date-time		 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBdt2str\fP converts a date-time value into a 25-character string
+formatted as follows:
+.sp
+.nf
+.ft CR
+	Sun Sep 16 01:03:52 1973\\n
+.ft R
+.fi
+
+.PP
+This is the same format that the system call 'asctime' yields
+for a tm structure.  Like asctime, this function returns a
+pointer to static memory which is overwritten each time this
+this function is called.
+.SH RETURN VALUE
+.PP
+None.
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

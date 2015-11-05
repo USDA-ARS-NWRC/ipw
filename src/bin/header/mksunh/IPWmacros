@@ -1,0 +1,3 @@
+%define(name,"mksunh")
+%define(description,"add a solar position (SUN) header to an image")
+%define(category,"Image Header Manipulation")

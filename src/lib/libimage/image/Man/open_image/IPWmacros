@@ -1,0 +1,3 @@
+%define(name,"open_image")
+%define(description,"open an image for reading")
+%define(category,"image")

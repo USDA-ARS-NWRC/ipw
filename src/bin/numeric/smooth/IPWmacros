@@ -1,0 +1,3 @@
+%define(name,"smooth")
+%define(description,"smooths a vector using a running average")
+%define(category,"Numeric Data in Text Files")

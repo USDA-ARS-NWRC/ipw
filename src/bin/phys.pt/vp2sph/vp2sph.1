@@ -1,0 +1,85 @@
+.TH "vp2sph" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBvp2sph\fP - convert between vapor pressure and specific humidity
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBvp2sph\fP [ \fB-K\fP ] [ \fB-i\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBvp2sph\fP converts vapor pressure to specific humidity
+or the inverse;
+Reads input vapor pressure (Pa) (or specific humidity (gm/kg))
+and air pressure (Pa) from stdin;
+.PP
+(see \fIeq. 6-9, pg. 109, General Meterology, Byers, 1974\fP)
+.PP
+If \fB-i is set, input specific humidity is converted to vapor pressure.
+Calculates specific humidity in \fIgm/kg\fP, or vapor pressure in \fIPa\fP.
+.PP
+(Note that the more general equation (6-8, pg 109) is used for the inverse,
+so some precision is lost.)
+.PP
+Output is to standard output;
+.SH OPTIONS
+.TP
+\fB-i\fP
+perform inverse operation converting specific humidity to vapor pressure
+.SH OPERANDS
+.PP
+none
+.SH EXAMPLES
+.PP
+To convert vapor pressure (Pa) and air pressure (Pa) to specific humidity (gm/kg)
+.sp
+.nf
+.ft CR
+	paste ea pa | \fBvp2sph\fP
+.ft R
+.fi
+
+.PP
+To convert specific humidity (gm/kg) and air pressure (Pa) to vapor pressure (Pa)
+.sp
+.nf
+.ft CR
+	paste sph pa | \fBvp2sph\fP -i
+.ft R
+.fi
+.SH FILES
+.PP
+none
+.SH DIAGNOSTICS
+.PP
+checks for vp or sp_hum < 0.0, and dies on error.
+.SH RESTRICTIONS
+.PP
+none
+.SH HISTORY
+.TP
+Dec 2004
+Written by D. Marks, NWRC, Boise, Idaho.
+.SH BUGS
+.PP
+none
+.SH SEE ALSO
+.TP
+IPW
+ \fBsatvp\fP,
+\fBisatvp\fP,
+\fBrh2vp\fP,
+\fBirh2vp\fP,
+\fBdewpt\fP,
+\fBidewpt\fP,
+\fBsling\fP,
+\fBvptr\fP
+\fBah2vp\fP
+.TP
+Unix
+paste
+.PP
+Byers 1974

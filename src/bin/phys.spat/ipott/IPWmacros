@@ -1,0 +1,3 @@
+%define(name,"ipott")
+%define(description,"sea-level or potential temperature")
+%define(category,"Environmental Physics and Properties: Spatial")

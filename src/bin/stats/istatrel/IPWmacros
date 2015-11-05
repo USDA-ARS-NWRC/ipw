@@ -1,0 +1,3 @@
+%define(name,"istatrel")
+%define(description,"statistical relation (best fit polynomial) between images")
+%define(category,"Image Statistics")

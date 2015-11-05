@@ -1,0 +1,3 @@
+%define(name,"geohread")
+%define(description,"read an IPW GEOH header")
+%define(category,"geoh")

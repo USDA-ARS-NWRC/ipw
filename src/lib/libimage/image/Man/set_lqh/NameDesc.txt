@@ -1,0 +1,1 @@
+set_lqh - set LQ headers for all bands of image

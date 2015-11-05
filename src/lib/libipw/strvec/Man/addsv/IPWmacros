@@ -1,0 +1,3 @@
+%define(name,"addsv")
+%define(description,"add a string to a strvec")
+%define(category,"strvec")

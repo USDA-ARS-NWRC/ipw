@@ -1,0 +1,37 @@
+.TH "ipwexit" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBipwexit\fP - terminate an IPW program
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+void
+ipwexit(
+	int  status)		|* exit status			 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBipwexit\fP terminates the execution of an IPW program.  Open IPW files
+are flushed and closed.  Status is passed to the operating system via
+the system call "exit".
+.PP
+All IPW applications programs should call \fBipwexit\fP as their last
+executable statement.
+.SH RETURN VALUE
+.PP
+This function does not return; it terminates the program by invoking
+the system call "exit".
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.SH SEE ALSO

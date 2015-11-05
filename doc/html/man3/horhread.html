@@ -1,0 +1,95 @@
+<HTML>
+
+<HEAD>
+ <TITLE>IPW function: horhread</TITLE>
+</HEAD>
+
+<BODY>
+
+<H1 ALIGN=CENTER>horhread</H1>
+
+<P ALIGN=CENTER>IPW Library Function<BR>
+Library - libipw<BR>
+Category - horh</P>
+
+<HR WIDTH="100%">
+
+<H2>NAME</H2>
+
+<P><B>horhread</B> - read an IPW HORH header</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "horh.h"
+
+HORH_T **
+horhread(
+	int             fd)	|* image file descriptor	 *|
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Horhread reads a HORH image header from file descriptor fd.  An
+array of HORH_T pointers is allocated, one per band.  If a band
+has a HORH header, then a HORH_T header is allocated and its
+address is placed in the corresponding array element;
+otherwise, the corresponding array element is NULL.
+</P><P>
+Before calling <B>horhread</B>, the caller must verify (by calling
+hrname()) that a HORH header is available for ingesting.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+pointer to array of HORH_T pointers; else NULL if EOF or error
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+<P>
+None.
+</P>
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 5 November 2015  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>

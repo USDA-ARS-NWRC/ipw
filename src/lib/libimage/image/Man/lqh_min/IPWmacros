@@ -1,0 +1,3 @@
+%define(name,"lqh_min")
+%define(description,"get minimum of LQ header of an image's band")
+%define(category,"image")

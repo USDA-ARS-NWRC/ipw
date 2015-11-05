@@ -1,0 +1,48 @@
+.TH "hgetrec" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBhgetrec\fP - read and decode header record
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "hdrio.h"
+
+int
+hgetrec(
+	int     fd,		|* input file descriptor	 *|
+	char   *comment,	|* -> comment string		 *|
+	char   *key,		|* -> keyword string		 *|
+	char   *value)		|* -> value string		 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBhgetrec\fP reads a header record from file descriptor fd.  The comment,
+key, and value fields of the record are copied into the arrays pointed
+to by comment, key, and value, respectively.
+.PP
+All extracted fields have trailing blanks stripped and are
+EOS-terminated.
+.SH RETURN VALUE
+.PP
+HGOT_DATA	success
+HGOT_PRMB	a header preamble was encountered
+ERROR		bad header record; error/EOF on fd; etc.
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.SH DIAGNOSTICS
+.sp
+.TP
+header record field 1 is neither key nor comment
+header record has key without value
+.SH RESTRICTIONS
+.PP
+The arrays pointed to by comment, key, and value must each have
+enough space for (HREC_MAX + 1) characters.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

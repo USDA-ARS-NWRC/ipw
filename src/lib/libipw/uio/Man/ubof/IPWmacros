@@ -1,0 +1,3 @@
+%define(name,"ubof")
+%define(description,"check for UIO beginning-of-file")
+%define(category,"uio")

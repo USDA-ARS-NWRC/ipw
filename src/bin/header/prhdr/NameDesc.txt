@@ -1,0 +1,1 @@
+prhdr - print headers of an IPW image

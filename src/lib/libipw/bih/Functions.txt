@@ -1,0 +1,18 @@
+
+bih - basic image headers
+
+  bihmake    - make an IPW basic image header
+  bihdup     - duplicate an IPW basic image header
+  bihread    - read an IPW BIH header
+  bihwrite   - write an IPW BIH header
+  bih        - get BIH header associated with file descriptor
+  hbyteorder - image byte order
+  hnlines    - number of lines in image
+  hnsamps    - number of samples in image line
+  hnbands    - number of bands in image
+  hnbits     - number of bits in image band
+  hnbytes    - number of bytes in image band
+  hostorder  - get host byte order
+  imgsize    - compute total number of bytes in image
+  sampsize   - compute total 
+  no_history - turn off history mechanism in bihwrite

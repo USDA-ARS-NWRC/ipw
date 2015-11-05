@@ -1,0 +1,3 @@
+%define(name,"addtime")
+%define(description,"add time to a given date and time")
+%define(category,"Dates and Times")

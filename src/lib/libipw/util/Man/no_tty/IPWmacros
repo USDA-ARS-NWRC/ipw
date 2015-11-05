@@ -1,0 +1,3 @@
+%define(name,"no_tty")
+%define(description,"exit if file descriptor is a terminal")
+%define(category,"util")

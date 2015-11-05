@@ -1,0 +1,73 @@
+.TH "rotate" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBrotate\fP - rotate an IPW image
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBrotate\fP \fB-a\fP \fIangle\fP [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBrotate\fP uses Paeth rotation to reorient an images scan lines to
+an arbitrary angle.
+.SH OPTIONS
+.TP
+\fB-a\fP \fIangle\fP
+\fIimage\fP will be rotated by \fIangle\fP degrees, clockwise from
+the upper left corner, in degrees.
+angle must be between -45 and 45.
+.SH OPERANDS
+.TP
+[\fIimage\fP]
+	image
+.sp
+.SH EXAMPLES
+.PP
+To \fBrotate\fP a dem image 16.5 degrees to the right (clockwise):
+.sp
+.nf
+.ft CR
+	rotate -a 16.5 dem_image
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     None
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+None
+.SH RESTRICTIONS
+.PP
+The angle of rotation must be between -45 and 45.
+.PP
+The resulting image shows very noticible aliasing.
+.SH HISTORY
+.TP
+Apr 1993
+	Written by Dana Jacobsen, ERL-C.
+.SH BUGS
+.PP
+The image does not have a minimal size -- the intermediate steps
+often create a large image than is necessary to hold all the pixel
+data.
+.SH SEE ALSO
+.TP
+IPW
+	\fBflip\fP,
+\fBskew\fP,
+\fBtranspose\fP
+.TP
+Image
+	pnmrotate, imrotate
+.PP
+A. Paeth, "A fast algorithm for general raster rotation," in
+	Proceedings, Graphics Interface '86, pp. 77-81,
+	Vancouver, BC, 1986.

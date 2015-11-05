@@ -1,0 +1,3 @@
+%define(name,"new_pbuf")
+%define(description,"make an unsigned-integer pixel buffer")
+%define(category,"image")

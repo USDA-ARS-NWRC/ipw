@@ -1,0 +1,37 @@
+.TH "ustdin" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBustdin\fP - initialize UIO on standard input
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+int
+ustdin(void)
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBustdin\fP initializes the UIO package for reading the program's standard
+input.
+.PP
+\fBustdin\fP should be called by an IPW main() if the program will be
+reading image data from the standard input.  \fBustdin\fP should NOT be
+called if the program uses UNIX stdio input functions (e.g., scanf).
+.PP
+\fBustdin\fP causes program termination if any errors are encountered.
+.SH RETURN VALUE
+.PP
+readable UNIX file descriptor
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

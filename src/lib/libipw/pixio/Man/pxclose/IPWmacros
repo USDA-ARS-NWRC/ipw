@@ -1,0 +1,3 @@
+%define(name,"pxclose")
+%define(description,"close pixel I/O file descriptor")
+%define(category,"pixio")

@@ -1,0 +1,3 @@
+%define(name,"has_lqh")
+%define(description,"does an image's band have an LQ header?")
+%define(category,"image")

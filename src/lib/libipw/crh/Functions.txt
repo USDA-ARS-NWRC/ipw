@@ -1,0 +1,9 @@
+
+crh - class range headers
+
+  crh      - get CR header associated with file descriptor
+  crhdup   - duplicate an IPW CRH header
+  crhmake  - make an IPW CRH header
+  crhread  - read an IPW CRH header
+  crhsort  - return a copy of classes sorted by class number
+  crhwrite - write an IPW CRH header

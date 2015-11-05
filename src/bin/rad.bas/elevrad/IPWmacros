@@ -1,0 +1,3 @@
+%define(name,"elevrad")
+%define(description,"beam and diffuse radiation from elevation")
+%define(category,"Radiation Modeling: Basin-Scale")

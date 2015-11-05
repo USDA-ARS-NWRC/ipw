@@ -1,0 +1,136 @@
+.TH "gradient" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBgradient\fP - slope and aspect from elevation
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBgradient\fP [ \fB-s\fP ] [ \fB-a\fP ] [ \fB-d\fP \fIdeltaL\fP[,\fIdeltaS\fP] ]
+      [ \fB-i\fP \fISbits\fP[,\fIAbits\fP] ] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBgradient\fP reads elevations from \fIimage\fP (default: standard input)
+and writes a 2-band image of the slope and aspect (the magnitude
+and direction of the \fBgradient\fP) to the standard output.
+.PP
+The 2-band output image has slope as its first band and
+aspect as its second.  Slope is stored as sin(S) with range
+from 0 to 1.  Aspect is stored as radians from south (aspect 0
+is toward the south) with range from -pi to pi, with negative
+values to the west and positive values to the east.
+.SH OPTIONS
+.TP
+\fB-s\fP
+compute slope image only (default: compute both slope and
+aspect images).
+.sp
+.TP
+\fB-a\fP
+compute aspect image only (default: compute both slope and
+aspect images).
+.sp
+.TP
+\fB-d\fP \fIdeltaL\fP[,\fIdeltaS\fP]
+grid spacing (default: get grid spacing from the "geo"
+header or set to 1 if no "geo" header).  If \fIdeltaS\fP is
+also specified, use \fIdeltaL\fP for the input line spacing
+and \fIdeltaS\fP for the input sample spacing.
+.sp
+.TP
+\fB-i\fP \fISbits\fP[,\fIAbits\fP]
+Use \fISbits\fP per output pixel (default: 8).  If \fIAbits\fP is
+also specified, use \fISbits\fP bits per slope pixel and
+\fIAbits\fP bits per aspect pixel.
+.SH OPERANDS
+.TP
+[\fIimage\fP]
+	image
+		elevation image
+.sp
+.SH EXAMPLES
+.PP
+To produce a nice-looking shaded-relief map from the DEM "elev.utah"
+we can use the program shade, which needs slopes and aspects:
+.sp
+.nf
+.ft CR
+	gradient elev.utah | shade -z 45 -a -135
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     None
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+# bits must be >= 1
+\fB-d \fIdelta\fP,\fIdelta\fP : must be positive
+.br
+	The arguments to the \fB-d and \fB-i options must be positive
+	nonzero integers.
+.sp
+.TP
+input file has \fInbands\fP bands
+.br
+	The input image must have only 1 band.
+.sp
+.TP
+Elevation file has no GEOH, spacing set to 1.0
+input file has no LQH; raw values used
+input units "\fIunits\fP", should be "m"
+.br
+	These deficiencies in the input image will introduce
+	linear errors into the slope calculations.
+.sp
+.TP
+Elevation file should be standard orientation
+.br
+	The output azimuth values will have a systematic bias
+	corresponding to the non-standard orientation of the
+	input image.
+.sp
+.TP
+spacing in geodetic header ignored
+.br
+	The \fB-d option overrides any pixel spacing information
+	in the input image.
+.SH RESTRICTIONS
+.PP
+\fBgradient\fP is optimized for terrain calculations (e.g., storing
+slopes as sines offers increased precision for shallow slopes,
+which are more common in nature), and may therefore be less
+than ideal as a generic image derivative program.
+.SH HISTORY
+.TP
+Jul 1990
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+.TP
+Apr 1993
+	Ran through Purify.  Dana Jacobsen, ERL-C.
+.TP
+May 1993
+	Changed aspect calculation to explicitly handle cases
+of dx or dy being zero.  Dana Jacobsen, ERL-C.
+.SH BUGS
+.PP
+\fB-i should not be used for bits in output!  Use -n or -b, but that
+would break all the scripts that depend on \fBgradient\fP as it is.
+.SH SEE ALSO
+.TP
+IPW
+	\fBdemux\fP,
+\fBggradient\fP,
+\fBmkgeoh\fP,
+\fBmklqh\fP,
+\fBshade\fP
+.PP
+Frew, J., 1990. The Image Processing Workbench. PhD Thesis, Department
+	if Geography, University of California, Santa Barbara, 382p.

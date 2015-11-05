@@ -1,0 +1,1 @@
+imgsum - sum all pixels in an image

@@ -1,0 +1,1 @@
+wday2mday - converts a waterday into a month and day

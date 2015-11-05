@@ -1,0 +1,1 @@
+zoom - enlarge or reduce an IPW image by replication or subsampling

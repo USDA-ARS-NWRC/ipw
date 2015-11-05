@@ -1,0 +1,120 @@
+.TH "convolve" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBconvolve\fP - perform spatial convolution on an IPW image
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBconvolve\fP [ \fB-i\fP \fIimage\fP ] [ \fB-c\fP \fIcoefs\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Convolve performs spatial convolution on an IPW image, using an
+arbitrary kernel read from a file or from the standard input.
+.SH OPTIONS
+.TP
+\fB-i\fP \fIimage\fP
+Use \fIimage\fP as the input image file (default: standard input).
+.sp
+.TP
+\fB-c\fP \fIcoefs\fP
+Use \fIcoefs\fP as the kernel coefficient file (default: standard
+input).  This file is described in the FILES section below.
+.PP
+At least one of \fB-i and/or \fB-c must be specified.
+.SH OPERANDS
+.PP
+	image (stdin)
+		if the -i option is not specified
+.PP
+.SH EXAMPLES
+.PP
+To sharpen an image by adding it's Laplacian, reading the kernel
+from the standard input:
+.sp
+.nf
+.ft CR
+	convolve -i image
+	3 3
+	0 -1 0
+	-1 5 -1
+	0 -1 0
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     \fIcoefs\fP
+     	This is the kernel coefficient file and is given as input
+     	to the program.  It is an ASCII file formatted:
+     		value		description
+     		-----		-----------
+     		1		#rows in kernel
+     		2		#columns in kernel
+     		3		coefficient[0][0]
+     		...		...
+     		#cols+2		coefficient[0][#cols-1]
+     		#cols+3		coefficient[1][0]
+     		...		...
+     	Values may be separated by any sequence of blanks, tabs,
+     	and newlines.  If the kernel does not sum to zero, it is
+     	normalized to sum to 1.0.
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+\fIrows\fPx\fIcols\fP kernel is bigger than \fInlines\fPx\fInsamps\fP image
+.br
+	The kernel cannot be bigger than the image
+.sp
+.TP
+Sorry, only single-band input images accepted
+.br
+	The input image may not have more than 1 band
+.sp
+.TP
+bad kernel size: \fIrows\fPx\fIcols\fP
+.br
+	The kernel dimensions must be nonzero positive integers
+.sp
+.TP
+both kernel dimensions must be odd
+.SH RESTRICTIONS
+.PP
+#rows and #columns must both be odd.
+.PP
+There must be enough virtual memory to accommodate #rows output lines.
+.PP
+The normalization process can cause kernels that differ only
+slightly to produce radically different results
+.SH HISTORY
+.TP
+Jul 1990
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+.TP
+Apr 1993
+	Converted to ANSI prototypes, Dana Jacobsen, ERL-C.
+.TP
+May 1993
+	Ran through Purify.  Dana Jacobsen, ERL-C.
+.SH BUGS
+.PP
+\fBconvolve\fP.c: kmap has a morass of pointers to allocated space that has
+no way of being cleanly freed.
+.SH SEE ALSO
+.TP
+IPW
+	\fBresamp\fP,
+\fBsmooth\fP,
+\fBzoom\fP
+.TP
+Image
+	pnm, pnmconvol, pnmsmooth
+.PP
+Frew, J., 1990. The Image Processing Workbench. PhD Thesis, Department
+	if Geography, University of California, Santa Barbara, 382p.

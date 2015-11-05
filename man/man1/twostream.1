@@ -1,0 +1,316 @@
+.TH "twostream" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBtwostream\fP - two-stream radiative transfer model of a homogeneous layer
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBtwostream\fP [ \fB-u\fP \fImu0\fP] [ \fB-0\fP ] [ \fB-t\fP \fItau\fP] [ \fB-w\fP \fIomega\fP] [ \fB-g\fP \fIg\fP] [ \fB-r\fP \fIR0\fP] [ \fB-s\fP \fIS0\fP] [ \fB-d\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Provides \fBtwostream\fP solution for single-layer atmosphere over
+horizontal surface, using solution method in:
+\fITwo-stream approximations to radiative transfer in planetary
+atmospheres: a unified
+description of existing methods and a new improvement\fP,
+Meador & Weaver, 1980,
+or will use the delta-Eddington method, if the \fB-d\fP flag
+is set
+(see:
+Wiscombe & Joseph 1977).
+.PP
+Basically, \fBtwostream\fP is the "point" version of \fBtoporad\fP,
+without the topographic and horizon corrections.
+.PP
+Input variables
+.sp
+.nf
+.ft CR
+	mu0		cosine of incidence angle
+	tau		optical depth of layer
+	omega		single-scattering albedo
+	g		asymmetry factor
+	R0		reflectance of substrate
+	S0		direct beam irradiance at top of layer
+.ft R
+.fi
+.PP
+Output variables
+.sp
+.nf
+.ft CR
+	refl		reflectance of layer
+	trans		total transmittance of layer
+			(compensated for mu0)
+	btrans		direct transmittance of layer
+			(not compensated for mu0)
+	up_irr		upwelling irradiance
+	tot_irr		total irradiance at layer bottom
+	birrad		direct irradiance normal to beam
+.ft R
+.fi
+.PP
+Program is designed as either a diagnostic (with all inputs from
+command line) or to read some or all inputs from stdin.
+If inputs are from stdin, then order must be as above, omitting
+those inputs from command line.
+If inputs are from stdin, \fBtwostream\fP can be driven by inputs from a data stream defined in
+an input file.
+If any of the inputs are from stdin, outputs are combined with inputs,
+one record per line.
+.br
+That is, if tau, omega, g, and R0 are defined on the command line:
+.sp
+.nf
+.ft CR
+	twostream -t 0.2 -w 0.85 -g 0.3 -r 0.5
+.ft R
+.fi
+
+.PP
+then mu0 and S0 can either be input from the keyboard, or from a file:
+.sp
+.nf
+.ft CR
+	0.68 159
+	0.75 159
+	0.80 159
+.ft R
+.fi
+
+.PP
+and output will be:
+.sp
+.nf
+.ft CR
+mu0   tau0 omega  g   rho0 S0     refl     trans   btrans  up_flux dn_flux dir bot
+0.68  0.2  0.85  0.3  0.5  159  0.472814 0.912634 0.745189 51.1207 98.674  118.485
+0.75  0.2  0.85  0.3  0.5  159  0.47005  0.925142 0.765928 56.0534 110.323 121.783
+0.8   0.2  0.85  0.3  0.5  159  0.468397 0.932817 0.778801 59.5801 118.654 123.829
+.ft R
+.fi
+
+.PP
+If inputs are from command line, outputs are tagged with definitions.
+Using the example above:
+.sp
+.nf
+.ft CR
+	twostream -u 0.68 -t 0.2 -w 0.85 -g 0.3 -r 0.5 -s 159
+.ft R
+.fi
+
+.PP
+the output will be:
+.sp
+.nf
+.ft CR
+	reflectance 0.472814
+	transmittance 0.912634
+	direct transmittance 0.745189
+	upwelling irradiance 51.1207
+	total irradiance at bottom 98.674
+	direct irradiance normal to beam 118.485
+.ft R
+.fi
+.SH OPTIONS
+.TP
+\fB-u\fP \fImu0\fP
+The cosine of the incidence angle is \fIcos\fP (from program sunang;
+default: read value from the standard input).
+.sp
+.TP
+\fB-0\fP
+Do not force an error if \fImu0\fP is <= 0.0; set all outputs to 0.0 and go on.
+.br
+Program will fail if incidence angle is <= 0.0, unless \fB-0\fP has
+been set.
+.sp
+.TP
+\fB-t\fP \fItau\fP
+The optical depth is \fItau\fP (default: read value from the
+standard input).  0 implies an infinite optical depth.
+.sp
+.TP
+\fB-w\fP \fIomega\fP
+The single-scattering albedo is \fIomega\fP (default: read value
+from the standard input).
+.sp
+.TP
+\fB-g\fP \fIg\fP
+The asymmetry factor is \fIg\fP (default: read value from the
+standard input).
+.sp
+.TP
+\fB-r\fP \fIR0\fP
+The reflectance of the substrate is \fIR0\fP (default: read value
+from the standard input).  If \fIR0\fP is negative, it will be
+set to zero.
+.sp
+.TP
+\fB-s\fP \fIS0\fP
+The direct beam irradiance is \fIS0\fP This is usually the solar
+constant for the specified wavelength band, on the specified
+date, at the top of the atmosphere, from program solar.
+(default: read value from the standard input).  If \fIS0\fP is
+negative, it will be set to 1/\fIcos\fP, or 1 if \fIcos\fP is not
+specified.
+.sp
+.TP
+\fB-d\fP
+The delta-Eddington method will be used (default: use the
+Meador-Weaver hybrid method).
+.SH OPERANDS
+.PP
+	None
+.PP
+.SH EXAMPLES
+.PP
+To calculate transmission through the atmosphere on February 15, 1990,
+in Santa Barbara, CA, at 12:30PM, in the spectral window 0.58 to 0.68
+microns, using the Meador-Weaver method:
+.PP
+To get the cosine of the incidence angle (for the \fB-u option):
+.sp
+.nf
+.ft CR
+	sunang -b 34,25 -l -119,54 -t 1990,2,15,12,30 -z 480
+.ft R
+.fi
+
+.PP
+which yields:	-z 47.122 \fB-u 0.680436 -a -5.413
+.PP
+To get the direct beam at the top of the atmosphere (for the \fB-s option):
+.sp
+.nf
+.ft CR
+	solar -d 1990,2,15 -w .58,.68
+.ft R
+.fi
+
+.PP
+which yields: 	159.019 W m^-2
+.sp
+.nf
+.ft CR
+	twostream -u 0.68 -t 0.2 -w 0.85 -g 0.3 -r 0.5 -s 159
+.ft R
+.fi
+
+.sp
+.nf
+.ft CR
+	This yields:
+	reflectance				=	0.472814
+	transmittance				=	0.912634
+	direct transmittance			=	0.745189
+	upwelling irradiance			=	51.1207
+	total irradiance at bottom		=	98.674
+	direct irradiance normal to beam	=	118.485
+.ft R
+.fi
+
+.PP
+To do the same thing, using the delta-Eddington method:
+.sp
+.nf
+.ft CR
+	twostream -u 0.68 -t 0.2 -w 0.85 -g 0.3 -r 0.5 -s 159 -d
+.ft R
+.fi
+
+.PP
+which yields:
+.sp
+.nf
+.ft CR
+	reflectance				=	0.472836
+	transmittance				=	0.911853
+	direct transmittance			=	0.762146
+	upwelling irradiance			=	51.123
+	total irradiance at bottom		=	98.5896
+	direct irradiance normal to beam	=	121.181
+.ft R
+.fi
+.SH FILES
+.PP
+None
+.SH DIAGNOSTICS
+.sp
+.TP
+u0 must be > 0 and <= 1
+.br
+	\fIcos\fP must be greater than 0, and less than or equal to 1, unless \fB-0\fP flag is set.
+.sp
+.TP
+betanaught: no convergence - u0=1 g=1 sum= {. . .}
+.br
+	The betanaught procedure was unable to get the Legendre
+	polynomial to converge.
+.SH RESTRICTIONS
+.PP
+None
+.SH HISTORY
+.TP
+Jan 1989
+Written by Jeff Dozier, UCSB.
+.sp
+.TP
+Jul 1998
+Converted to IPW, Version 2.0, J. Domingo, OSU.
+.sp
+.TP
+May 1999
+Cleaned up man page, D. Marks, ARS.
+.sp
+.TP
+May 1999
+Added \fB-0\fP flag to allow mu0 to be <= 0.0,
+D. Marks, ARS.
+.SH BUGS
+.PP
+None
+.SH SEE ALSO
+.TP
+IPW
+\fBelevrad\fP,
+\fBggradient\fP,
+\fBghorizon\fP,
+\fBgradient\fP,
+\fBgshade\fP,
+\fBgsunlight\fP,
+\fBgtoporad\fP,
+\fBgtopquad.24\fP,
+\fBgtopquad\fP,
+\fBgviewf\fP,
+\fBgviewf-mp\fP,
+\fBhor1d\fP,
+\fBhorizon\fP,
+\fBsalbedo\fP,
+\fBselevrad\fP,
+\fBsolar\fP,
+\fBstoporad\fP,
+\fBsunang\fP,
+\fBsunlight\fP,
+\fBsunweights\fP,
+\fBtoporad\fP,
+\fBtoporad.24\fP,
+\fBtopquad\fP,
+\fBviewf\fP
+.PP
+Cogley 1980,
+Dozier 1980,
+Dozier 1981,
+Dubayah 1990,
+Dubayah 1992,
+Dubayah 1994,
+Kneizys 198,
+Marks 1991,
+Meador 1980,
+Shettle 1970,
+Wiscombe 1977,
+Wiscombe & Joseph 1977.

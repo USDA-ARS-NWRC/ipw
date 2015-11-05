@@ -1,0 +1,3 @@
+%define(name,"uputs")
+%define(description,"write a string to a UNIX file descriptor")
+%define(category,"uio")

@@ -1,0 +1,1 @@
+soiltmp - soil layer temperature from min & max air temperatures

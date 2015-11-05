@@ -1,0 +1,3 @@
+%define(name,"reproj_area")
+%define(description,"minimum bounding rectangle in a reprojected area")
+%define(category,"Geographic (Map) Projections")

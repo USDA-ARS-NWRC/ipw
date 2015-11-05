@@ -1,0 +1,3 @@
+%define(name,"vp2sph")
+%define(description,"convert between vapor pressure and specific humidity")
+%define(category,"Environmental Physics and Properties: Point")

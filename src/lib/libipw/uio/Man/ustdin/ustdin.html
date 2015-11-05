@@ -1,0 +1,89 @@
+<HTML>
+
+<HEAD>
+ <TITLE>IPW function: ustdin</TITLE>
+</HEAD>
+
+<BODY>
+
+<H1 ALIGN=CENTER>ustdin</H1>
+
+<P ALIGN=CENTER>IPW Library Function<BR>
+Library - libipw<BR>
+Category - uio</P>
+
+<HR WIDTH="100%">
+
+<H2>NAME</H2>
+
+<P><B>ustdin</B> - initialize UIO on standard input</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+int
+ustdin(void)
+
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>ustdin</B> initializes the UIO package for reading the program's standard
+input.
+</P><P>
+<B>ustdin</B> should be called by an IPW main() if the program will be
+reading image data from the standard input.  <B>ustdin</B> should NOT be
+called if the program uses UNIX stdio input functions (e.g., scanf).
+</P><P>
+<B>ustdin</B> causes program termination if any errors are encountered.
+</P>
+<H2>RETURN VALUE</H2>
+
+<P>
+readable UNIX file descriptor
+</P>
+<H2>EXAMPLES</H2>
+
+
+
+<H2>GLOBALS ACCESSED</H2>
+
+
+<H2>DIAGNOSTICS</H2>
+
+
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None.
+</P>
+
+<H2>HISTORY</H2>
+
+
+
+<H2>BUGS</H2>
+
+<P>
+None.
+</P>
+
+<H2>SEE ALSO</H2>
+
+
+
+<P><HR></P>
+
+<ADDRESS>
+
+<A HREF="../intro.html">IPW documentation</A>  /
+Last revised 5 November 2015  /
+<A HREF="https://www.nmepscor.org/trac/IPW/">IPW web site</A>
+
+</ADDRESS>
+
+</BODY>
+</HTML>

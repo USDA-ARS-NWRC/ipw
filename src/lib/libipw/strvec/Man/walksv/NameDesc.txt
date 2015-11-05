@@ -1,0 +1,1 @@
+walksv - step through strings in strvec

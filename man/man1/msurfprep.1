@@ -1,0 +1,177 @@
+.TH "msurfprep" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBmsurfprep\fP - make nearest-neighbor information for 'msurface' command
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBmsurfprep\fP [ \fB-n\fP \fIneighbors\fP ] [ \fB-h\fP \fIheader\fP ] [ \fB-g\fP ]  \fB-p\fP \fIpoints\fP \fIfile\fP
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBmsurfprep\fP works in conjunction with the msurface program to
+provide a much faster means of interpolating multiple surfaces from
+the same set of input data points.
+.PP
+\fBmsurfprep\fP reads an ASCII file of point locations and produces an output
+image which stores nearest neighbor information.  Each pixel in
+the output image contains the index (from zero to npoints-1) of
+the n'th nearest point in {points file}.  Band 0 of the
+output image contains the index value of the closest neighbor,
+band 1 contains the index value of the next-closest neighbor, etc.
+.PP
+The output image made by \fBmsurfprep\fP is used by msurface as the means
+of obtaining nearest-neighbor information for an inverse-distance-
+weighting interpolation.  \fBmsurfprep\fP builds an image of nearest-
+neighbor information based on easting/northing values from a
+points file, and msurface interpolates a surface for a variable
+z based on easting/northing/z values from a points file.  The
+easting/northing values from all points files must correspond
+exactly.
+.PP
+NOTE:  the output image created by \fBmsurfprep\fP will contain N
+annotation strings in its band 0 basic image header, where N is
+the number of lines in {points file}.  These annotation strings
+contain easting/northing values, so that the msurface command may
+check that its input points are compatible (see the warning below).
+.PP
+WARNING:  The stored index values contained in the \fBmsurfprep\fP
+.sp
+.nf
+.ft CR
+	  output image are simply the positions of each
+	  point within {points file}.  When the msurface
+	  program is run, it must be given an input {points file}
+	  that corresponds EXACTLY with the easting/northing
+	  values used by msurfprep.  This means that the points
+	  files used by msurfprep and msurface must not be sorted
+	  differently.  The msurface program will fail if its
+	  input points file doesn't match up with the points file
+	  used by msurfprep.
+.ft R
+.fi
+.SH OPTIONS
+.TP
+\fB-n\fP \fIneighbors\fP
+The number of nearest neighbors to be stored will
+be \fIneighbors\fP (default: 12).  This number will be the
+number of bands in the output image.  If the data sets
+which will be used by msurface contain nodata
+values, then \fIneighbors\fP should be larger than the number
+of interpolation points \fIn_interp\fP you intend to use
+with msurface.  If the datasets have no missing values,
+then \fIneighbors\fP can be equal to your intended \fIn_interp\fP.
+.sp
+.TP
+\fB-h\fP \fIheader\fP
+The IPW header file \fIheader\fP (default: standard input) will
+be used to determine the number of lines, samples,
+and geodetic information (from the "geo" header).
+.sp
+.TP
+\fB-g\fP
+Use spherical great-circle-distance computation.
+If the \fB-g\fP is not set, use default Euclidean distance computation.
+.sp
+.TP
+\fB-p\fP \fIpoints\fP
+Points will be read in from {points file}.
+The {points file} contains at least two values per line, viz:
+.sp
+easting  northing  {optional additional fields ignored}
+.sp
+where the easting and northing are specified in the same
+coordinate system as given in the "geo" header.
+Any additional information on each line is ignored.
+.SH OPERANDS
+.PP
+None.
+.SH EXAMPLES
+.PP
+     To create an input nearest-neighbor image:
+.sp
+.nf
+.ft CR
+             msurfprep -h hdr.file -p pt.file1 > neibs.img
+.ft R
+.fi
+.PP
+     To interpolate a surface with msurface:
+PRE>
+             msurface -p pt.file2 neibs.img > outsurf.img
+.ft R
+.fi
+.PP
+To check that pt.file1 and pt.file2 refer to the same set of
+eastings/northings:
+.sp
+.nf
+.ft CR
+             awk '{print $1,$2}' pt.file1 > foo1
+             awk '{print $1,$2}' pt.file2 > foo2
+             diff foo1 foo2
+.ft R
+.fi
+.SH FILES
+.PP
+None
+.SH DIAGNOSTICS
+.sp
+.TP
+error reading point \fInpoint\fP from input file
+.sp
+.TP
+input header has no geodetic header
+.br
+	The input header file must have a GEO header.
+.sp
+.TP
+WARNING: Using Euclidean distance with 'deg' units
+.br
+	If units are degrees, one usually wants to use the \fB-g\fP
+	option for spherical distance computation.
+.sp
+.TP
+WARNING: Using geo distance with seemingly non-geo units
+.br
+	\fB-g\fP was invoked, but coordinates are beyond the range
+	of valid latitudes/longitudes.
+.SH RESTRICTIONS
+.PP
+The mask and header file must be single band.
+.PP
+Map projection distortions can introduce significant
+error in distance computations as the spatial extent of
+the image increases, or if an improper map projection is used.
+For example, interpolating a surface over an Arctic region while
+using a US Albers projection would produce unusual (and incorrect)
+results.
+.SH HISTORY
+.TP
+Jul 1994
+	Written by Rusty Dodson, Mantech Environmental Inc.,
+ERL-C.
+.TP
+Apr 1995
+	Changed bihmake call, Dana Jacobsen, ERL-C.
+.TP
+Jun 1995
+	Added \fB-g\fP option, Rusty Dodson, Mantech Environmental Inc.,
+ERL-C.
+.SH BUGS
+.PP
+None
+.SH SEE ALSO
+.TP
+IPW
+	\fBmsurface\fP,
+\fBsurface\fP,
+\fBmkproj\fP,
+\fBreproj\fP,
+\fBmkgeoh\fP,
+\fBmkbih\fP
+.TP
+Unix
+	awk, diff

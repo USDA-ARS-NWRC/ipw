@@ -1,0 +1,180 @@
+.TH "ipwinterp" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBipwinterp\fP - interpolate IPW image using parameters from 'istatrel' command
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBipwinterp\fP [ \fB-v\fP ] [ \fB-a\fP ] [ \fB-b\fP \fIbits\fP ] [ \fB-m\fP \fImask\fP ] \fIimage\fP
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBipwinterp\fP reads parameters from the standard input (supplied by
+the IPW program istatrel) and a single-band IPW image, and
+calculates an estimated image which is written to the standard
+output.
+.PP
+The output image is calculated by applying the polynomial
+interpolating function received from the standard input to each
+point in the independent image specified on the command line.
+.SH OPTIONS
+.TP
+\fB-v\fP
+\fBipwinterp\fP will print extra information on the standard
+error.  This includes the number of points read, the
+number of points interpolated (points inside the range of
+the original data) and the number of point extrapolated
+(points outside the range of the original data).  Verbose
+output also includes a quick data fit analysis.
+.sp
+.TP
+\fB-a\fP
+A quick data fit analysis only is requested.  No output
+image is generated, and no input image is required.
+.sp
+.TP
+\fB-b\fP \fIbits\fP
+The number of bits in the output image is \fIbits\fP
+(default: 8).
+.sp
+.TP
+\fB-m\fP \fImask\fP
+Use \fImask\fP as a mask image.  Any points in \fImask\fP that are
+0 will have the corresponding points in \fIimage\fP ignored.
+.SH OPERANDS
+.TP
+\fIimage\fP
+	image
+.sp
+.SH EXAMPLES
+.PP
+Given USA and Canada elevation images, and USA AVHRR channel 5
+data, make an estimated channel 5 surface for Canada:
+.sp
+.nf
+.ft CR
+	istatrel usa-elev.ipw usa-ch5.ipw | ipwinterp can-elev.ipw
+.ft R
+.fi
+
+.PP
+To give some information on how two NDVI and LAI images are related:
+.sp
+.nf
+.ft CR
+	istatrel ndvi.ipw lai.ipw | ipwinterp -a
+.ft R
+.fi
+.SH FILES
+.PP
+None
+.SH DIAGNOSTICS
+.sp
+.TP
+Good: Very high linear correlation in original data.
+.br
+	The coefficient of determination (r^2) of the original
+	data is above 0.9.
+.sp
+.TP
+Good: Very low coeff of variation in original data.
+.br
+	The coefficient of variation (s/Xbar), also known as the
+	coefficient of dispersion, of the original data is
+	below 0.1.
+.sp
+.TP
+Bad:  Very low coeff of multiple determination.
+.br
+	The coefficient of multiple determination (r^2) between
+	the original image and the interpolated polynomial is
+	below 0.5.
+.sp
+.TP
+Bad:  Very high coeff of contingency.
+.br
+	The coefficient of contingency (a measure of the degree
+	of relationship, association, or dependence of the
+	classifications) is above 0.9.
+.sp
+.TP
+Ave:  High coeff of contingency.
+.br
+	The coefficient of contingency is above 0.5.
+.sp
+.TP
+Good: Very low coeff of contingency.
+.br
+	The coefficient of contingency is below 0.1.
+.sp
+.TP
+Bad:  High error percentage.  Can't establish relation.
+.br
+	The error percentage ( (the standard error of estimate of
+	Y on X) / (the standard deviation) ) is above 0.9.
+.sp
+.TP
+Ave:  Relation has high error percentage.
+.br
+	The error percentage is above 0.5.
+.sp
+.TP
+Good: Relation is very strong.
+.br
+	The error percentage is below 0.1.
+.sp
+.TP
+Bad:  High cofv percentage.  Can't establish relation.
+.br
+	The interpolated to original coefficient of variation
+	ratio ( (the coefficient of variation between the
+	original image and the interpolated polynomial) / (the
+	coefficient of variation of the original data) ) is
+	below 0.1.
+.sp
+.TP
+Good: Relation established.
+.br
+	The interpolated to original coefficient of variation
+	ratio is above 0.5.
+.sp
+.TP
+Good: Relation is very strong.
+.br
+	The interpolated to original coefficient of variation
+	ratio is above 0.9.
+.SH RESTRICTIONS
+.PP
+If too many points are extrapolated (use the \fB-v option to see this)
+rather than interpolated, the results are likely to not be accurate.
+.PP
+The quick data fit analysis has been put together by empirical
+evidence.  It is not too hard to get a data set that gives
+contradictory remarks.  If it gives more than one bad remark, it
+would be best to view the data and relationships established using
+istatgraph.
+.SH HISTORY
+.TP
+Mar 1992
+	Written by Dana Jacobsen, ERL-C.
+.TP
+Apr 1993
+	Ran through Purify.  Dana Jacobsen, ERL-C.
+.TP
+Aug 1997
+	Converted to IPW Version 2.0, D. Marks, USGS, ERL-C
+.SH BUGS
+.PP
+None
+.SH SEE ALSO
+.TP
+IPW
+	\fBistatrel\fP,
+\fBistatgraph\fP
+.PP
+Jobson 1991,
+Neter 1989,
+Spiegel 1961
+.br

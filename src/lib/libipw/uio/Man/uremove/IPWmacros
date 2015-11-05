@@ -1,0 +1,3 @@
+%define(name,"uremove")
+%define(description,"remove file")
+%define(category,"uio")

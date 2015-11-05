@@ -1,0 +1,3 @@
+%define(name,"convolve")
+%define(description,"perform spatial convolution on an IPW image")
+%define(category,"Image Transformation")

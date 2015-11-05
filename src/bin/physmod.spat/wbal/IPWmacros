@@ -1,0 +1,3 @@
+%define(name,"wbal")
+%define(description,"simple water balance model")
+%define(category,"Physical Modeling: Spatial")

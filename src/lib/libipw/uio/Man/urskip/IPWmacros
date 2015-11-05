@@ -1,0 +1,3 @@
+%define(name,"urskip")
+%define(description,"skip input on UNIX file descriptor")
+%define(category,"uio")

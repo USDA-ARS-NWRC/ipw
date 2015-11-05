@@ -1,0 +1,40 @@
+.TH "ufilename" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBufilename\fP - get UNIX file name associated with file descriptor
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+char *
+ufilename(
+	int             fd)	|* file descriptor	*|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBufilename\fP obtains the UNIX filename previously associated with file
+descriptor fd by uropen or uwopen.
+.PP
+\fBufilename\fP may be called by error handlers outside the UIO package, but
+is not intended for use by IPW application programs.
+.SH RETURN VALUE
+.PP
+pointer to string containing UNIX file name, or NULL if there is no
+associated filename
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+_uiocb
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

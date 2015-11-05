@@ -1,0 +1,1 @@
+uputs - write a string to a UNIX file descriptor

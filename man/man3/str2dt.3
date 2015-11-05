@@ -1,0 +1,108 @@
+.TH "str2dt" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBstr2dt\fP - (str2dt's description)
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+#include "snow.h"
+
+double
+str2dt(
+     double  rho,    /* snow layer's density (kg/m^3)             */
+     double  tsno,   /* snow layer's temperature (K)              */
+     double  tg,     /* soil temperature (K)                      */
+     double  ds,     /* snow layer's thickness (m)                */
+     double  dg,     /* dpeth of soil temperature measurement (m) */
+     double  pa)     /* air pressure (Pa)                         */
+.ft R
+.fi
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+#include "bih.h"
+
+char *
+str2dt(void)
+.ft R
+.fi
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+void
+str2dt(
+     int    total_secs,   /* total time as seconds */
+
+  /* outputs */
+
+     int  * hrs,          /* 0 - ...               */
+     int  * mins,         /* 1 - 59                */
+     int  * secs)         /* 1 - 59                */
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBstr2dt\fP calculates the sun angle (the azimuth and zenith
+angles of the sun's position) for a given geodetic location
+(specified by \fIlatitude\fP and \fIlongitude\fP) and a given
+date and time (specified by \fIdatetime\fP).
+.PP
+\fBstr2dt\fP reads the given projection definition file, writes the
+contents into a projdef struct, and returns a pointer to the
+struct. The projection definition files are ASCII files with
+the following format:
+.sp
+.nf
+.ft CR
+    projection ID
+    units code
+    zone code
+    datum code
+    projection parameters (15 values)
+.ft R
+.fi
+.SH RETURN VALUE
+.PP
+Number of days in the month.
+.TP
+!= NULL
+Pointer to new header structure.
+.sp
+.TP
+NULL
+Error occurred; a message explaining it was stored with the
+"usrerr" function.
+.SH HISTORY
+.TP
+Dec 1983
+Written by D. Marks, CSL/UCSB.
+.sp
+.TP
+Oct 1992
+Converted from QDIPS to IPW by D. Marks, USGS, EPA ERL/C.
+.SH SEE ALSO
+.TP
+IPW:
+mwgamma(),
+twostream()
+.sp
+.TP
+Unix:
+fread(), fwrite()
+.PP
+Brutsaert, W., 1975. On a derivable formula for long-wave
+radiation from clear skies.  \fIWater Resources Research\fP,
+vol. 11, no. 5, pp 742-744.
+.PP
+Marks, D., and J. Dozier, and R.E. Davis, 1979. A clear-sky
+longwave radiation model for remote alpine areas. \fIArchiv
+fur Meteorologie, Geophysik und Bioklimatologie, Series B\fP,
+vol. 27, no. 23, pp. 159-187.
+.PP
+Brutsaert 1975,
+Marks 1979

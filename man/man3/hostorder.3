@@ -1,0 +1,38 @@
+.TH "hostorder" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBhostorder\fP - get host byte order
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "bih.h"
+
+char *
+hostorder(void)
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+hostorder returns a string indicating the byte order (endianness) of the host
+system.
+.SH RETURN VALUE
+.PP
+.TP
+"3210"
+Big-endian
+.TP
+"0123"
+Little-endian
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+The return value points to static data which is overwritten by each call.
+.SH HISTORY
+.SH BUGS
+.SH SEE ALSO

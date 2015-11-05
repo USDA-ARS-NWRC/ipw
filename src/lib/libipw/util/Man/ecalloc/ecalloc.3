@@ -1,0 +1,38 @@
+.TH "ecalloc" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBecalloc\fP - memory allocator (interface to UNIX calloc)
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+addr_t
+ecalloc(
+	int    nelem,	|* # of elements in array	*|
+	int    elsize)	|* size of each element		*|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBecalloc\fP() is the IPW interface to the UNIX function calloc().
+It allocates an array of nelem elements, each of which is
+elsize in size.
+\fBecalloc\fP checks that its arguments are positive nonzero values and
+sets an IPW error condition if the allocation fails.
+.SH RETURN VALUE
+.PP
+pointer to allocated memory; else NULL if allocation failed
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

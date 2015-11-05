@@ -1,0 +1,3 @@
+%define(name,"set_lqh")
+%define(description,"set LQ headers for all bands of image")
+%define(category,"image")

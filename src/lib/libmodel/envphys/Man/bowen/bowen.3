@@ -1,0 +1,32 @@
+.TH "bowen" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBbowen\fP - calculates Bowen ratio (H/LE)
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include	"ipw.h"
+#include	"envphys.h"
+
+double
+bowen(
+     double  p,   /* air pressure (same units as ea and es)  */
+     double  ta,  /* potential air temperature (K)           */
+     double  ts,  /* potential surface temperature (K)       */
+     double  ea,  /* vapor pressure (same units as p and es) */
+     double  es)  /* vapor pressure at surface (same units
+                       as p and es)                          */
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBbowen\fP calculates the Bowen ratio (H/LE).
+.SH RETURN VALUE
+.PP
+Bowen ratio (H/LE)
+.SH HISTORY
+.TP
+Jun 1995
+Converted from QDIPS to IPW by J. Domingo, OSU.

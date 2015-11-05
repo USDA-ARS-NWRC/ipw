@@ -1,0 +1,82 @@
+.TH "interp" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBinterp\fP - interpolate linearly between x,y data pairs
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBinterp\fP
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBinterp\fP copies ASCII X-Y pairs of integers from the standard input
+to the standard output. If successive Xs differ by more than +- 1,
+then the intervening X values are also printed, along with linearly
+interpolated integer Ys.
+.SH OPTIONS
+.PP
+None
+.SH OPERANDS
+.PP
+None.
+.SH EXAMPLES
+.PP
+The following input:
+.sp
+.nf
+.ft CR
+	0 0
+	8 4
+.ft R
+.fi
+
+.PP
+produces the following output:
+.sp
+.nf
+.ft CR
+	0 0
+	1 1
+	2 1
+	3 2
+	4 2
+	5 3
+	6 3
+	7 4
+	8 4
+.ft R
+.fi
+.SH FILES
+.PP
+None
+.SH DIAGNOSTICS
+.sp
+.TP
+input line must have exactly 2 fields
+.SH RESTRICTIONS
+.PP
+All Xs and Ys must be integers.
+.SH HISTORY
+.TP
+Jul 1990
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+.TP
+Aug 1997
+	Converted to IPW Version 2.0 by D. Marks, USGS, ERL-C
+.SH BUGS
+.PP
+None
+.SH SEE ALSO
+.TP
+IPW
+	\fBiinterp\fP,
+\fBmklut\fP
+.TP
+UNIX
+	awk
+.PP
+Frew 1990
+.br

@@ -1,0 +1,1 @@
+hnbits - number of bits in image band

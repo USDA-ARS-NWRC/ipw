@@ -1,0 +1,3 @@
+%define(name,"uwopen")
+%define(description,"open UNIX file for writing")
+%define(category,"uio")

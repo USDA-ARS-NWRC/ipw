@@ -1,0 +1,53 @@
+.TH "crhwrite" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBcrhwrite\fP - write an IPW CRH header
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "crh.h"
+
+int
+crhwrite(
+	int     fd,		|* output file descriptor	 *|
+	CRH_T **crhpp)		|* -> array of CRH pointers	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.sp
+.nf
+.ft CR
+     crhwrite writes the array of CRH headers pointed to by crhpp
+.ft R
+.fi
+.PP
+to file descriptor fd.
+.PP
+\fBcrhwrite\fP is called by IPW application programs to write
+CRH headers.
+.SH RETURN VALUE
+.PP
+OK for success, ERROR for failure
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.TP
+Written by Kelly Longley, ERL-C.
+ritten by Kelly Longley, ERL-C.
+.SH BUGS
+.PP
+crhsort expects a *CRH_T, while we pass in a *CLASS.  This is wrong,
+but I'm not sure I want to fix it.  It should blow up, but it seems
+to work, so I won't muck with it now.  Dana Jacobsen, ERL-C.
+.PP
+Well, I've decided to muck with it.  Hopefully, the fix won't blow
+up.  J. Domingo, OSU, 29 May 1996
+.SH SEE ALSO

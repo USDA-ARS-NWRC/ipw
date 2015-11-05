@@ -1,0 +1,87 @@
+.TH "isposint" "1" "5 November 2015" "IPW v2" "IPW Shell-Library Commands"
+.SH NAME
+.PP
+\fBisposint\fP - is argument a positive nonzero integer?
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBisposint\fP \fIargument\fP
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBisposint\fP tests whether its single argument is a postive nonzero
+decimal integer.  This command
+is used mainly as an argument checker by IPW shell scripts.
+.SH OPTIONS
+.PP
+None.
+.SH OPERANDS
+.TP
+\fIargument\fP
+Argument to test.
+.SH EXAMPLES
+.PP
+Here's a segment of a shell script that check for certain options that
+require positive integers for arguments:
+.sp
+.nf
+.ft CR
+     optstring='i:o:k:'
+     synopsis='[-i in_nbits] [-o out_nbits] [-k bkgd]'
+
+     # get command-line arguments
+
+     set -- `getopt "$optstring" $* 2>/dev/null` ||
+             exec usage $0 "$synopsis" 'make look-up table'
+
+     while :; do
+        case $1 in
+        --)  shift
+             break
+             ;;
+        -i)  ibits=$2
+             isposint $ibits ||
+                  exec sherror $0 "$ibits: not a positive integer"
+             shift
+             ;;
+        -o)  obits=$2
+             isposint $obits ||
+                  exec sherror $0 "$obits: not a positive integer"
+             shift
+             ;;
+        -k)  const=$2
+             isposint $const ||
+                  exec sherror $0 "$const: not a positive integer"
+             shift
+             ;;
+        *)   exec sherror $pgm '"getopt" failed'
+             ;;
+        esac
+        shift
+     done
+.ft R
+.fi
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.PP
+\fBisposint\fP returns an exit status that indicates whether or
+not the argument is a positive integer.
+.TP
+0
+\fIargument\fP is a positive nonzero integer.
+.TP
+1
+\fIargument\fP is not a positive nonzero integer.
+.SH RESTRICTIONS
+.SH HISTORY
+.TP
+Nov 1990
+Written by J. Frew, UCSB.
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

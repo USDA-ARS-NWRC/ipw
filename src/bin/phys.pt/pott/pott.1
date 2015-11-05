@@ -1,0 +1,118 @@
+.TH "pott" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBpott\fP - sea-level or potential temperature
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBpott\fP [ \fB-i\fP ] [ \fB-l\fP \fIval\fP ] [ \fB-s\fP \fIval\fP ] [ \fB-L\fP ] \fI<{ta elev}\fP
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBpott\fP is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as "qdips" (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+.PP
+\fBpott\fP does the following:
+.sp
+.nf
+.ft CR
+    1) calculates sea-level or potential temperature from air
+       temperature at specified elevation,
+    2) or inverts sea-level or potential temperature to calculate
+       air temperature at a specified elevation.
+.ft R
+.fi
+.PP
+(see \fIGeneral Meteorology, Byers, 1974\fP)
+.PP
+The input is from stdin, output is written to stdout.
+.SH OPTIONS
+.TP
+\fB-i\fP
+invert sea-level or potential temperature to calculate air temp
+(default is to calculate sea-level or potential temp from air temp)
+.sp
+.TP
+\fB-l\fP \fIval\fP
+lapse rate used in estimation of pressure or linear adjustment
+(default: -6.5 C/km)
+.sp
+.TP
+\fB-s\fP \fIval\fP
+sea-level temp. used in estimation of pressure (default: 26.84 C)
+.sp
+.TP
+\fB-L\fP
+do simple linear adjustment based on lapse rate & elevation
+.PP
+input conatins values of air temperature (C) and elevation (m) or
+.PP
+sea-level or potential temperature (C) and elevation (m) if \fB-i is set
+.PP
+(defaults to stdin)
+.SH OPERANDS
+.PP
+none
+.SH EXAMPLES
+.PP
+To convert air temperature to potential temperature,
+using default lapse rate and sea-level temperatures:
+.sp
+.nf
+.ft CR
+	paste ta elev | \fBpott\fP
+.ft R
+.fi
+
+.PP
+To convert air temperatures from met stations to sea-level temperatures
+using a simple linear lapse rate of -5.5C/km:
+.sp
+.nf
+.ft CR
+	paste ta elev | \fBpott\fP -l -5.5 -L
+.ft R
+.fi
+.SH FILES
+.PP
+none
+.SH DIAGNOSTICS
+.PP
+none
+.SH RESTRICTIONS
+.PP
+none
+.SH HISTORY
+.TP
+May 1986
+Written by D. Marks, CSL, UCSB;
+.TP
+May 1995
+Converted to IPW by J. Domingo, OSU, ERL-C;
+.TP
+Sep 1996
+Added lapse rate adjustment, and linear option,
+D. Marks, USGS;
+.SH BUGS
+.PP
+none
+.SH SEE ALSO
+.TP
+IPW:
+\fBipott\fP,
+\fBmse\fP,
+\fBzpr\fP,
+\fBsoiltmp\fP,
+\fBsrftmp\fP,
+\fBdeltaT\fP,
+\fBdeltaz\fP
+.TP
+Unix
+    paste
+.PP
+Byers 1974,
+Dodson, Marks 1997

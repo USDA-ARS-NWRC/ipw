@@ -1,0 +1,156 @@
+.TH "albedo" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBalbedo\fP - solar albedo for visible and infrared over snow
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBalbedo\fP \fB-s\fP \fIstart\fP \fB-g\fP \fIgsize\fP \fB-m\fP \fImaxgsz\fP \fB-d\fP \fIdirt\fP
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBalbedo\fP estimates solar albedo over snow for 2 band widths --
+visible (280-700nm) and IR (700-2800nm) -- from the time since
+the last snow storm, and the solar zenith angle.
+.PP
+Based on work by \fIWarren & Wiscombe (1980)\fP, \fIWiscombe and Warren
+(1980)\fP, and \fIMarshall and Warren (1987)\fP characterizing the
+spectral and broad band solar albedo of snow;
+\fBalbedo\fP models albedo as a function of grain growth and sun angle;
+Estimates decay of albedo with grain growth by approximating a
+set theoretical values presented in \fIMarshall and Warren (1987)\fP;
+Reasonable grain growth rates and contamination values are
+based on two years of albedo data from the Mammoth Mt. experimental
+snow study site.
+.PP
+Grain growth rate approximated by a second order Chebyshev
+polynomial (see routine growth()), as this function fit the
+Mammoth data; Albedo increases with low solar incidence angles
+are approximated with as a function of cos(z) which also fit
+the Mammoth data; Both functions give results that approximate
+measured values, and agree with results in \fIChoudhury (1981)\fP,
+and \fIMcGuffie and Henderson-Sellers (1985)\fP, both of which
+present an analysis of the broad band albedo of snow;
+.PP
+Marshall and Warren show that albedo, when the solar zenith
+is 0, is related to the square root of the grain radius by:
+.sp
+.nf
+.ft CR
+	alb(vis0) = 1.0 - sqrt(gsize)/500;
+	alb(ir0)  = 0.85447 * exp(-0.02123 * sqrt(gsize));
+.ft R
+.fi
+.PP
+This allows a linear alb(vis) decay from about .98 to .90,
+and a non-linear alb(ir) decay from .70 to .40, when given
+reasonable inputs;
+The effect of zenith angle is also related to the sqrt(gsize):
+.sp
+.nf
+.ft CR
+	dzv       = (sqrt(gsize) * 1.375e-3) * (1 - cos(z))
+	alb(visz) = alb(vis0) + dzv
+	dzir      = (sqrt(gsize) * 2.0e-3 + 0.1) * (1 - cos(z))
+	alb(irz)  = alb(ir0) + dzir
+.ft R
+.fi
+.PP
+This allows alb(vis) increases from .014 to .068 with zenith
+angle, and alb(ir) increases from .12 to .20 with zenith angle;
+.PP
+The Mammoth data show new snow "gsize" values tend to be around
+100-200 in spring, with larger or smaller values later or
+earlier in the season; "maxgsz" tends to be 500-700 mu m in mid
+season, with values seldom reaching 1000;
+"dirt" is a factor relating the "effective grain size" in the
+visible to that in the IR, as the visible is strongly effected
+by contamination while the IR is not;
+Contamination is site specific but the Mammoth data show
+that the "effective grain size" in the visible is usually
+between 1.5 and 3.0 times what it is in the IR;
+Lower values may be used in early season, and higher in late
+season conditions;
+.PP
+Input, to stdin, is:
+.sp
+.nf
+.ft CR
+	time	cosz
+.ft R
+.fi
+.PP
+where time is in decimal days; When cosz is 0.0 (sun below
+horizon) the albedo is set to 0.0;
+.PP
+Output to stdout.
+.SH OPTIONS
+.TP
+\fB-s\fP \fIstart\fP
+\fIstart\fP is the time of last snow storm (decimal days)
+.sp
+.TP
+\fB-g\fP \fIgsize\fP
+\fIgsize\fP is effective grain radius of snow after last
+storm (mu m)
+.sp
+.TP
+\fB-m\fP \fImaxgsz\fP
+\fImaxgsz\fP is maximum grain radius expected from grain
+growth (mu m)
+.sp
+.TP
+\fB-d\fP \fIdirt\fP
+\fIdirt\fP is effective contamination for adjustment to
+visible albedo (usually between 1.5-3.0)
+.SH OPERANDS
+.PP
+none
+.SH EXAMPLES
+.PP
+To calculate albedo over new snow from a data set containing <time cosz)
+(time in digital days from program cvtime, cosz from program sunang):
+.sp
+.nf
+.ft CR
+	paste time cosz | albedo -s 135.0 -g 150 -m 500 -d 1.0
+.ft R
+.fi
+.SH FILES
+.PP
+none
+.SH DIAGNOSTICS
+.PP
+none
+.SH RESTRICTIONS
+.PP
+none
+.SH HISTORY
+.TP
+Jul 1987
+Written by D. Marks, CSL, UCSB;
+.TP
+May 1995
+Converted to IPW by J. Domingo, OSU, ERL-C
+.SH BUGS
+.PP
+None
+.SH SEE ALSO
+.TP
+IPW:
+	\fBcvtime\fP,
+\fBglob.alb\fP,
+\fBsalbedo\fP,
+\fBsunang\fP
+.TP
+Unix
+	paste
+.PP
+Choudhury 1981,
+Marks 1988,
+Marshall, Warren 1987,
+McGuffie, Henderson-Sellers 1985,
+Warren 1980,
+Wiscombe 1980

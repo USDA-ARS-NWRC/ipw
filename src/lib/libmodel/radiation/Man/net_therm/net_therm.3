@@ -1,0 +1,33 @@
+.TH "net_therm" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBnet_therm\fP - calculates net thermal radiation
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+#include "radiation.h"
+
+double
+net_therm(
+     double  ta,          /* air temperature (K)                     */
+     double  ts,          /* surface temperature (K)                 */
+     double  pa,          /* air pressure (Pa)                       */
+     double  ea,          /* vapor pressure (Pa)                     */
+     double  surfemiss,   /* surface emissivity (0.0 - 1.0)          */
+     double  skyfac,      /* terrain skyfactor (0.0 - 1.0)           */
+     double  lapse,       /* temp. lapse rate (deg/m) (negative up!) */
+     double  z)           /* elevation (m)                           */
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBnet_therm\fP calculates net thermal radiation.
+.SH RETURN VALUE
+.PP
+net thermal radiation (W/m^2)
+.SH SEE ALSO
+.PP
+Marks 1979

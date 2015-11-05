@@ -1,0 +1,1 @@
+smooth - smooths a vector using a running average

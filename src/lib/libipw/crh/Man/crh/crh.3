@@ -1,0 +1,34 @@
+.TH "crh" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBcrh\fP - get CR header associated with file descriptor
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "crh.h"
+
+CRH_T **
+crh(
+	int		fd)	|* image file descriptor	*|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.SH RETURN VALUE
+.PP
+pointer to the CR header array associated with file descriptor fd; or
+NULL if there are no CR headers associated with file descriptor fd.
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+_crh
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

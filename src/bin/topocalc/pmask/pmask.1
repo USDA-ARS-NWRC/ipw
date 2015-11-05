@@ -1,0 +1,68 @@
+.TH "pmask" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBpmask\fP - create a pit mask
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBpmask\fP [ \fB-t\fP \fIthresh\fP ] [ \fB-f\fP \fIflat\fP ] [ \fB-s\fP ] [ \fIimage\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Given a seed point and 3-band elevation, slope, and exposure file,
+\fBpmask\fP creates a mask image in which all nonzero values are pits.
+.PP
+Pit seed points are those points whose elevations are lower than
+all their neighbors.  The pit mask is the union of all the basins
+delineated starting with these seed points.
+.SH OPTIONS
+.TP
+\fB-t\fP \fIthresh\fP
+threshold for determining if a cell is lower than a
+neighbor (default: 0).
+.sp
+.TP
+\fB-f\fP \fIflat\fP
+specify the flatness threshold.  All slopes less
+than \fIflat\fP are considered 0 (default: .001).
+.sp
+.TP
+\fB-s\fP
+only output pit seed points.  (Don't try to mask the
+whole pit)
+.SH OPERANDS
+.TP
+\fIimage\fP
+3-band elevation, slope, and exposure image (default: standard input).
+.SH EXAMPLES
+.PP
+To fill pits in a noisy DEM:
+.sp
+.nf
+.ft CR
+    mux elev gradient | pmask -f 0.005 >pit_mask
+.ft R
+.fi
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.SH HISTORY
+.TP
+May 1995
+Written by Kevin L. Novins, ERL-C.  Based on Qdips program
+by D. Marks.
+.sp
+.TP
+Jun 1998
+Separated source code shared with \fBbmask\fP command into
+a separate library.  J. Domingo, OSU.
+.SH SEE ALSO
+.TP
+IPW:
+\fBbmask\fP,
+\fBgradient\fP
+.PP
+Marks 1984

@@ -1,0 +1,110 @@
+.TH "rmhdr" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBrmhdr\fP - remove headers from an IPW image
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBrmhdr\fP [ \fB-d\fP \fIheader\fP[,\fI...\fP] ] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBrmhdr\fP reads an IPW image \fIimage\fP and
+writes only the image data to the standard output.
+.SH OPTIONS
+.TP
+\fB-d\fP \fIheader\fP[,\fI...\fP]
+Delete only the specified \fIheader\fPs (default: all).
+\fIheader\fP should be the name of the header exactly as
+it appears in the header itself (ie: "lq" for a linear
+quantization header).  Recognized headers are:
+.sp
+.nf
+.ft CR
+     bi       Basic Image
+     cr       Class Range
+     geo      Geodetic
+     lq       Linear Quantization
+     or       Orientation
+     sat      Satellite
+     skew     Skew
+     sun      Sun Position
+     win      Window
+.ft R
+.fi
+.sp
+Nonspecified headers are copied to the standard output.
+.SH OPERANDS
+.TP
+\fIimage\fP
+input image (default: standard input).
+.sp
+.SH EXAMPLES
+.PP
+For a single-band image with \fInbytes\fP bytes per pixel,
+.sp
+.nf
+.ft CR
+	rmhdr | btoa -{nbytes}
+.ft R
+.fi
+
+.PP
+would be equivalent to
+.sp
+.nf
+.ft CR
+	primg -r -a
+.ft R
+.fi
+
+.PP
+To delete the "lq" header from an image before running mstats
+(so the statistics will be computed for the quantized pixel values):
+.sp
+.nf
+.ft CR
+	rmhdr -d lq | mstats
+.ft R
+.fi
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.PP
+None.
+.SH RESTRICTIONS
+.PP
+The default output of \fBrmhdr\fP is not a valid IPW image, since it has
+no basic image header (nor any other header).  However, if \fB-d is
+specified and its arguments do NOT include "bi", then
+\fBrmhdr\fP's output is a valid IPW image.
+.SH HISTORY
+.TP
+Jul 1990
+Written by James Frew, UCSB.
+.sp
+.TP
+Oct 1997
+Fixed bug so that "bi" argument to \fB-d\fP option works correctly.
+J. Domingo, OSU
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO
+.TP
+IPW:
+\fBbtoa\fP,
+\fBedhdr\fP,
+\fBmkbih\fP,
+\fBmkcrh\fP,
+\fBmkgeoh\fP,
+\fBmklqh\fP,
+\fBmksath\fP,
+\fBmksunh\fP,
+\fBmkwinh\fP,
+\fBprhdr\fP
+.PP
+Frew 1990

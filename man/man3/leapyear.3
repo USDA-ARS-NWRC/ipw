@@ -1,0 +1,39 @@
+.TH "leapyear" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBleapyear\fP - is a given year a leap year?
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+
+bool_t
+leapyear(
+	int 	year)
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBleapyear\fP determines if the given year is a leap year or not.
+year must be positive, and must not be abbreviated; i.e.
+89 is 89 A.D. not 1989.
+.SH RETURN VALUE
+.PP
+TRUE	if a leap year
+.PP
+FALSE	if not a leap year
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

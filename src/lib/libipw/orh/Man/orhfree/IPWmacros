@@ -1,0 +1,3 @@
+%define(name,"orhfree")
+%define(description,"free all left over parts of a OR header")
+%define(category,"orh")

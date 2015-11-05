@@ -1,0 +1,3 @@
+%define(name,"normalize")
+%define(description,"normalize image bands")
+%define(category,"Pixel Calculations")

@@ -1,0 +1,37 @@
+.TH "hrskip" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBhrskip\fP - skip input header records
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "hdrio.h"
+
+int
+hrskip(
+	int       fdi)		|* input file descriptor	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBhrskip\fP skips header records on file descriptor fdi, stopping after a
+preamble record has been read.
+.PP
+Call \fBhrskip\fP if you want to skip the (remainder of the) current input
+header without ingesting it or passing it to another image.
+.SH RETURN VALUE
+.PP
+OK for success, ERROR for failure
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

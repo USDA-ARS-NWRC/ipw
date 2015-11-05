@@ -1,0 +1,3 @@
+%define(name,"uferr")
+%define(description,"note occurrence of UNIX file error")
+%define(category,"error")

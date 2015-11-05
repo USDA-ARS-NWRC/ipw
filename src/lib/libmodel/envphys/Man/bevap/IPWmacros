@@ -1,0 +1,3 @@
+%define(name,"bevap")
+%define(description,"evaporation rate from Bowen ratio")
+%define(category,"envphys")

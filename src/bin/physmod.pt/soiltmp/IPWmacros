@@ -1,0 +1,3 @@
+%define(name,"soiltmp")
+%define(description,"soil layer temperature from min & max air temperatures")
+%define(category,"Physical Modeling: Point")

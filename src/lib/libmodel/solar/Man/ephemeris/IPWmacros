@@ -1,0 +1,3 @@
+%define(name,"ephemeris")
+%define(description,"calculates ephemeris data")
+%define(category,"solar")

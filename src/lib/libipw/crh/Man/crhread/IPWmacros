@@ -1,0 +1,3 @@
+%define(name,"crhread")
+%define(description,"read an IPW CRH header")
+%define(category,"crh")

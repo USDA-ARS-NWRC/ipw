@@ -1,0 +1,6 @@
+
+snow - snow modeling
+
+  g_snow   - conduction heat flow between two snow layers
+  g_soil   - conduction heat flow between snow and soil
+  new_tsno - calculates snow layer's new temperature

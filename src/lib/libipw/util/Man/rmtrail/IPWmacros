@@ -1,0 +1,3 @@
+%define(name,"rmtrail")
+%define(description,"remove trailing white space from string")
+%define(category,"util")

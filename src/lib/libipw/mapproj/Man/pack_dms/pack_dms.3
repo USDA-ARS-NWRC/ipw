@@ -1,0 +1,35 @@
+.TH "pack_dms" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBpack_dms\fP - convert decimal degrees to packed DMS
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "mapproj.h"
+
+double
+pack_dms(
+	double	ddeg)		|* input value as decimal degrees *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBpack_dms\fP converts the given value in decimal degrees to packed
+degrees/minutes/seconds in the format +/-DDDMMSS.SSS where
+DDD is the degrees, MM is minutes and SS.SSS is seconds.
+.SH RETURN VALUE
+.PP
+packed DMS value in double precision.
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

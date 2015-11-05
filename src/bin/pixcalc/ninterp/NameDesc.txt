@@ -1,0 +1,1 @@
+ninterp - linearly interpolate multi-band image over n-dimensional table

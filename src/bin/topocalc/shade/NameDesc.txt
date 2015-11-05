@@ -1,0 +1,1 @@
+shade - cosine of local illumination angle

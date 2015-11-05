@@ -1,0 +1,3 @@
+%define(name,"wetbulb")
+%define(description,"wet or ice bulb from air and dew point temperatures and air pressure")
+%define(category,"envphys")

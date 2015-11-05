@@ -1,0 +1,3 @@
+%define(name,"cmpimg")
+%define(description,"compare two IPW images")
+%define(category,"Basic Image Commands")

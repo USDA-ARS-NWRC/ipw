@@ -1,0 +1,3 @@
+%define(name,"weights")
+%define(description,"calculates x-interval weights for selected x-y integration segment")
+%define(category,"Numeric Data in Text Files")

@@ -1,0 +1,3 @@
+%define(name,"not_a_tty")
+%define(description,"make sure that an image file is not a terminal")
+%define(category,"image")

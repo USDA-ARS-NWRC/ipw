@@ -1,0 +1,40 @@
+.TH "hpass" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBhpass\fP - copy header records
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "hdrio.h"
+
+int
+hpass(
+	int     fdi,		|* input file descriptor	 *|
+	int     fdo)		|* output file descriptor	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBhpass\fP copies header records from file descriptor fdi to file
+descriptor fdo, stopping after a preamble record has been read from
+fdi.
+.PP
+Call \fBhpass\fP if you need to copy header records AFTER explicitly writing
+header records.  If you just want to copy the entire header unaltered,
+or add records at the END, then call hcopy instead.
+.SH RETURN VALUE
+.PP
+OK for success, ERROR for failure
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

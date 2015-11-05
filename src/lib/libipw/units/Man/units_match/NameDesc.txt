@@ -1,0 +1,1 @@
+units_match - check if a string matches a units id

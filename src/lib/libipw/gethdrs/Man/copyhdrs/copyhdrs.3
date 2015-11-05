@@ -1,0 +1,45 @@
+.TH "copyhdrs" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBcopyhdrs\fP - copy IPW image headers
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "gethdrs.h"
+
+void
+copyhdrs(
+	int      fdi,		|* input image file descriptor	 *|
+	int      nbands,	|* # bands in output image	 *|
+	int      fdo)		|* output image file descriptor	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBcopyhdrs\fP copies all IPW image headers from file descriptor fdi to
+file descriptor fdo.  All per-image headers, and all per-band headers
+pertaining to band numbers less than nbands, are copied.
+.PP
+\fBcopyhdrs\fP is a simple way to copy all remaining headers from an input
+to an output image, once any desired headers have been ingested.
+.SH RETURN VALUE
+.PP
+None.
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.SH DIAGNOSTICS
+.sp
+.TP
+can't copy \fIheader-name\fP header
+can't skip \fIheader-name\fP header
+header read error
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

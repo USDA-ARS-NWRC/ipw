@@ -172,7 +172,7 @@ gradient $image > $tdir/gradient
 
 # mux horizon together and pipe into view factor calculations
 mux $tdir/horz.* | \
-	/Users/scott/ipw/aux/viewf/viewcalc -s $tdir/gradient
+	/Users/ahedrick/ipw/aux/viewf/viewcalc -s $tdir/gradient
 
 
 exit 0

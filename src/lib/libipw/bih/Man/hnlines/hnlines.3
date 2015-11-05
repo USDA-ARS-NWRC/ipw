@@ -1,0 +1,38 @@
+.TH "hnlines" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBhnlines\fP - number of lines in image
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "bih.h"
+
+int
+hnlines(
+	int             fd)	|* image file descriptor	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBhnlines\fP determines the number of lines in the image currently being
+read/written on file descriptor fd.
+.PP
+\fBhnlines\fP may not be called before a BIH is read/written from/to fd.
+.SH RETURN VALUE
+.PP
+number of lines in image
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+_bih
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

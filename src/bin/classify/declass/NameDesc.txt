@@ -1,0 +1,1 @@
+declass - replace pixel classes with their representative values

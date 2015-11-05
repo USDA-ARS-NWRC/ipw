@@ -1,0 +1,3 @@
+%define(name,"hnsamps")
+%define(description,"number of samples in image line")
+%define(category,"bih")

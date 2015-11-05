@@ -1,0 +1,3 @@
+%define(name,"hnlines")
+%define(description,"number of lines in image")
+%define(category,"bih")

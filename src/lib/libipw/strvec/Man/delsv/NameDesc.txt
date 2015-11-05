@@ -1,0 +1,1 @@
+delsv - delete i'th string from strvec

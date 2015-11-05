@@ -1,0 +1,89 @@
+.TH "svp_slope" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBsvp_slope\fP - slope of saturation vapor pressure with temperature
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBsvp_slope\fP
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBsvp_slope\fP is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties at a point.
+Most were originally written as "qdips" (Quick and Dirty Image
+Processing System) programs by D. Marks, during the 1980's at UCSB.
+.PP
+\fBsvp_slope\fP computes the slope of the saturation vapor pressure
+curve, used in the psychromentric equation, and in the Penman, Penman-Montieth,
+and Priestly-Taylor methods of estimating evaporation and evapo-transpiration.
+Uses both the gradient method (pg.215, eq 10.11, Brutsaert [1982]),
+and the Clausius-Clapeyron equation (pg. 41, eq 3.22, Brutsaert [1982])
+to compute the slope of the SVP curve as a function of temperature.
+Output is in Pa/K.
+.PP
+(see \fIGeneral Meterology, Byers, 1974\fP, and
+\fIEvaporation into the Atmosphere, Brutsaert, 1982\fP)
+.SH OPERANDS
+.PP
+none
+.SH EXAMPLES
+.PP
+Using the file \fIdata\fP, containing air temperatures from
+-20 to +40C, compute SVP curve slope:
+.sp
+.nf
+.ft CR
+\fBsvp_slope\fP <data
+.ft R
+.fi
+.PP
+resulting in:
+.sp
+.nf
+.ft CR
+     Ta      grad    C-C
+    -20.0     9.91   10.10
+    -10.0    23.06   23.28
+      0.0    47.64   50.25
+      5.0    60.86   60.72
+     10.0    82.27   81.98
+     15.0   109.83  109.27
+     20.0   144.85  143.91
+     25.0   188.89  187.37
+     30.0   243.67  241.33
+     35.0   311.15  307.67
+     40.0   393.50  388.43
+.ft R
+.fi
+.SH FILES
+.PP
+none
+.SH DIAGNOSTICS
+.PP
+none
+.SH RESTRICTIONS
+.PP
+none
+.SH HISTORY
+.TP
+Mar 2005
+Written by D. Marks, NWRC, USDA-ARS;
+.SH BUGS
+.PP
+none
+.SH SEE ALSO
+.TP
+IPW:
+\fBdewpt\fP,
+\fBidewpt\fP,
+\fBirh2vp\fP,
+\fBrh2vp\fP,
+\fBisatvp\fP,
+\fBsatvp\fP,
+\fBvptr\fP
+.PP
+Byers 1974,
+Brutsaert 1982,

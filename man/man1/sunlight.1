@@ -1,0 +1,163 @@
+.TH "sunlight" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBsunlight\fP - sunrise and sunset times, and quadrature weights
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBsunlight\fP \fB-d\fP \fIyear\fP,\fImonth\fP,\fIday\fP \fB-b\fP \fIlat\fP[,\fIlat\fP,\fIlat\fP] \fB-l\fP \fIlon\fP[,\fIlon\fP,\fIlon\fP]
+       [ \fB-r\fP ] [ \fB-z\fP \fIzone\fP ] [ \fB-y\fP ] [ \fB-q\fP \fInpts\fP ] [ \fB-a\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Sunlight calculates times of sunrise and sunset, given a date,
+latitude, and longitude.  It can optionally also calculate times,
+weights, and sun angles for numerical integration of solar
+radiation over the day, currently with either 15 or 21 Kronrod
+quadrature points.  Time returned is in GMT, unless a zone (with
+optional daylight savings flag) is specified.
+.SH OPTIONS
+.TP
+\fB-d\fP \fIyear\fP,\fImonth\fP,\fIday\fP
+The date is \fIyear\fP, \fImonth\fP, \fIday\fP.
+.sp
+.TP
+\fB-b\fP \fIlat\fP[,\fIlat\fP,\fIlat\fP]
+The latitude is \fIlat\fP, specified in degress, minutes, seconds
+unless \fB-r is specified, in which case it is in radians.
+.sp
+.TP
+\fB-l\fP \fIlon\fP[,\fIlon\fP,\fIlon\fP]
+The longitude is \fIlon\fP, specified in degress, minutes, seconds
+unless \fB-r is specified, in which case it is in radians.
+.sp
+.TP
+\fB-r\fP
+The latitude and longitude options are taken to be radians
+rather than degrees, minutes, seconds.
+.sp
+.TP
+\fB-z\fP \fIzone\fP
+The time zone is \fIzone\fP minutes west of Greenwich (UTC).
+.sp
+.TP
+\fB-y\fP
+Daylight Savings time is in effect.
+.sp
+.TP
+\fB-q\fP \fInpts\fP
+Quadrature points will also be printed.  The number of points
+used will be \fInpts\fP.
+.sp
+.TP
+\fB-a\fP
+The output will be abbreviated for use in shell scripts.  If
+the "\fB-q" option is not specified, this will result
+in output of:
+.sp
+.nf
+.ft CR
+
+	daylength sunrise solar_noon sunset
+
+.ft R
+.fi
+in decimal hours.
+If the "\fB-q" option is specified, daylength and
+solar times will not be printed, and this will result in output of
+only the quadrature points.
+.SH OPERANDS
+.PP
+None.
+.SH EXAMPLES
+.PP
+To calculate the day length, radian lat/lon, and sunrise/sunset times
+for a site in the Columbia Basin on June 22, 1990:
+.sp
+.nf
+.ft CR
+	sunlight -d 1990,6,22 -b 37 -l -112,30 -z 480
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     None
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+\fB-q: only 15 or 21 pts supported
+.br
+	The only supported values for number of quadrature points is
+15 and 21.
+.SH RESTRICTIONS
+.PP
+Using the \fB-a option inhibits printing of sunrise and sunset times only
+when combined with the \fB-q option.
+.SH HISTORY
+.TP
+Apr 1988
+	Written by Jeff Dozier, UCSB.
+.TP
+May 1993
+	Use new zonetime function instead of Sun-specific
+timezone function.  Dana Jacobsen, ERL-C.
+.TP
+Aug 2006
+	Added output of decimal daylength, sunrise, solar noon and sunset
+times for \fB-a option in the absence of the \fB-q option.
+Danny Marks, ARS-NWRC.
+.SH BUGS
+.PP
+None that we know of
+.SH SEE ALSO
+.TP
+IPW
+\fBelevrad\fP,
+\fBgelevrad\fP,
+\fBgsunlight\fP,
+\fBgtoporad\fP,
+\fBsolar\fP,
+\fBsunang\fP,
+\fBsunweights\fP,
+\fBtoporad\fP
+.PP
+Dozier, J., 1980.  "A clear-sky spectral solar radiation model for
+snow-covered mountainous terrain".  Water Resources Research,
+vol. 16, pp. 709-718.
+.PP
+Dozier, J., and J. Frew, 1981.  "Atmospheric corrections to satellite
+radiometric data over rugged terrain".  Remote Sensing of
+Environment, vol. 11, pp. 191-205.
+.PP
+Dozier, J., J. Bruno, and P. Downey, 1991.  "A faster solution to the
+horizon problem", Computers and Geosciences, volume 7,
+number 2, pp. 145-151.
+.PP
+Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain parameters
+for radiation modeling from digital elevation data". IEEE
+Transactions on Geoscience and Remote Sensing, vol. 28, no. 5,
+pp. 963-969.
+.PP
+Dubayah, R., J. Dozier, and F. Davis, 1990.  "Topographic distribution
+of clear-sky radiation over the Konza Prairie, Kansas".  Water
+Resources Research, vol. 26, no. 4, pp. 679-691.
+.PP
+Marks, D., R. Dubayah, and K. Longley, 1991.  "Modeling the topographic
+and spectral variability of clear-sky solar radiation at regional
+to continental scales.  Proceedings 1991 IGARSS Symposium,
+Remote Sensing:  Global Monitoring for Earth Management, Espoo,
+Finland, Vol. 3, pp. 1711.
+.PP
+Dubayah, R., and V. Van Katwijk, 1992.  "The topographic distribution
+of annual incoming solar radiation in the Rio Grande basin".
+Geophysical Research Letters, vol. 19, pp. 2231-2234.
+.PP
+Dubayah, R., 1994.  "Modeling a solar radiation topoclimatology for the
+Rio Grande River Basin".  Journal of Vegetation Science, vol. 5,
+pp. 627-640.

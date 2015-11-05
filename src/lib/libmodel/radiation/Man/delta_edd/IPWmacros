@@ -1,0 +1,3 @@
+%define(name,"delta_edd")
+%define(description,"delta-Eddington transformation")
+%define(category,"radiation")

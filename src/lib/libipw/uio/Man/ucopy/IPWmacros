@@ -1,0 +1,3 @@
+%define(name,"ucopy")
+%define(description,"copy between open files")
+%define(category,"uio")

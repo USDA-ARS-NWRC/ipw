@@ -1,0 +1,3 @@
+%define(name,"thermin")
+%define(description,"incoming thermal radiation at different elevations")
+%define(category,"Radiation Modeling: Point")

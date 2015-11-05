@@ -1,0 +1,3 @@
+%define(name,"ueof")
+%define(description,"check for UIO end-of-file")
+%define(category,"uio")

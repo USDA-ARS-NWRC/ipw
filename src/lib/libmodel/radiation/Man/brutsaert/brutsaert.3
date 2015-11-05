@@ -1,0 +1,41 @@
+.TH "brutsaert" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBbrutsaert\fP - calculates atmospheric emissivity
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+#include "radiation.h"
+
+double
+brutsaert(
+     double  ta,       /* air temp (K)                   */
+     double  lambda,   /* temperature lapse rate (deg/m) */
+     double  ea,       /* vapor pressure (Pa)            */
+     double  z,        /* elevation (z)                  */
+     double  pa)       /* air pressure (Pa)              */
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBbrutsaert\fP calculates atmospheric emissivity
+using a modified form of the equations by W. Brutsaert (see
+the reference below).
+.SH RETURN VALUE
+.PP
+atmospheric emissivity
+.SH HISTORY
+.TP
+Dec 1983
+Written by D. Marks, CSL/UCSB;
+.sp
+.TP
+Oct 1992
+Converted from QDIPS to IPW by D. Marks, USGS, EPA ERL/C;
+.SH SEE ALSO
+.PP
+Brutsaert 1975,
+Marks 1979

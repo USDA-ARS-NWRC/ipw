@@ -1,0 +1,90 @@
+.TH "iadd" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBiadd\fP - perform addition or subtraction on pixels (DEPRECIATED)
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBiadd\fP [ \fB-n\fP \fInbits\fP ] [ \fB-s\fP \fIbands\fP,\fI...\fP ] [ \fIimage\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBiadd\fP reads a multi-band \fIimage\fP and
+writes the sum of its bands on the standard output.  For each
+input sample, the corresponding output sample is:
+.sp
+.nf
+.ft CR
+	p[0] + p[1] + ... + p[nbands-1]
+.ft R
+.fi
+.PP
+where \fIp\fP is the input pixel value and \fInbands\fP is the number of
+input bands.
+.PP
+To effect subtraction, specified bands are converted to negatives
+before addition.
+.SH OPTIONS
+.TP
+\fB-n\fP \fInbits\fP
+Use \fInbits\fP bits per output pixel (default: maximum number of
+bits per input pixel).
+.sp
+.TP
+\fB-s\fP \fIbands\fP,\fI...\fP
+Use the negative of the pixel value in the specified bands.
+.SH OPERANDS
+.TP
+\fIimage\fP
+multi-band input image (default: standard input)
+.SH EXAMPLES
+.PP
+To add two single-band images together:
+.sp
+.nf
+.ft CR
+     mux image1 image2 | iadd
+.ft R
+.fi
+.PP
+To subtract band 1 from band 0 of a 2-band image:
+.sp
+.nf
+.ft CR
+     iadd -s 1
+.ft R
+.fi
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.TP
+\fB-s \fIband\fP: not that many bands
+A nonexistent input band was specified with \fB-s.
+.SH NOTES
+.PP
+This command has been DEPRECIATED because its functionality
+is provided by the command \fBimath\fP.
+This command may be removed in future versions of IPW.
+.SH HISTORY
+.TP
+Jul 1990
+Written by Danny Marks, ERL-C.
+.sp
+.TP
+Apr 1993
+Doesn't blow up on result-0 images.  Ran through Purify.
+Dana Jacobsen, ERL-C.
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO
+.TP
+IPW:
+\fBimath\fP,
+\fBlincom\fP,
+\fBmult\fP,
+\fBmux\fP,
+\fBscale\fP

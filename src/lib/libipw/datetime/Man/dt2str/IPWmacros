@@ -1,0 +1,3 @@
+%define(name,"dt2str")
+%define(description,"convert a local date-time into a string")
+%define(category,"datetime")

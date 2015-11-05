@@ -1,0 +1,105 @@
+.TH "shade" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBshade\fP - cosine of local illumination angle
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBshade\fP [ \fB-z\fP \fIzenith\fP ] [ \fB-u\fP \fIcos\fP ] \fB-a\fP \fIazimuth\fP [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBshade\fP reads a 2-band slope and aspect image (the output from
+the IPW gradient command) from \fIimage\fP (default: standard input),
+and writes an image of local illumination cosines (relative to
+a specified solar position) to the standard output.
+.SH OPTIONS
+.TP
+\fB-z\fP \fIzenith\fP
+The solar zenith angle is \fIzenith\fP (0 .. 90) degrees.
+.sp
+.TP
+\fB-u\fP \fIcos\fP
+The cosine of the solar zenith angle is \fIcos\fP (0 .. 1).
+.PP
+At least on of \fB-z or \fB-u must be specified.  If both are specified,
+.PP
+then \fB-z is ignored.
+.TP
+\fB-a\fP \fIazimuth\fP
+The solar azimuth is \fIazimuth\fP degrees (-180 .. 180) counter-
+clockwise from south (positive east, negative west).
+.SH OPERANDS
+.TP
+[\fIimage\fP]
+	image	input 2-band gradient (slope, aspect) image
+.sp
+.SH EXAMPLES
+.PP
+To produce a nice-looking shaded-relief map from a DEM (i.e.,
+one with the sun in the cartographically traditional, but, for
+the northern hemisphere, physically impossible position of 45
+degrees above the northwest horizon):
+.sp
+.nf
+.ft CR
+	gradient elev_image | shade -z 45 -a -135
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     None
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+input file has no LQH
+.br
+	An "lq" header is necessary to convert the quantized
+	slopes and aspects to their actual values.
+.sp
+.TP
+band 0 of input not slope
+.br
+	The range of floating-point values in band 0 is
+	inappropriate for quantized slopes.  \fBshade\fP will continue
+	executing, but the output values will almost certainly
+	be incorrect.
+.SH RESTRICTIONS
+.PP
+None
+.SH HISTORY
+.TP
+Jul 1990
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+.TP
+Aug 1990
+	Changed \fBshade\fP[s][a] calculation to prevent rounding.
+Kelly Longley, ERL-C.
+.TP
+Apr 1993
+	Ran through Purify.  Dana Jacobsen, ERL-C.
+.SH BUGS
+.PP
+None that we know of
+.SH SEE ALSO
+.TP
+IPW
+	\fBgradient\fP,
+\fBggradient\fP,
+\fBgshade\fP
+.PP
+Frew, J., 1990.  The Image Processing Workbench.  Ph.D. Thesis,
+	Department of Geography, University of California, Santa
+	Barbara, CA, 382pp.
+.PP
+Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain
+	parameters for radiation modeling from digital elevation
+	data.  IEEE Transactions on Geoscience and Remote Sensing,
+	vol. 28, no. 5, pp 963-969.

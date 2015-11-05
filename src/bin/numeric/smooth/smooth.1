@@ -1,0 +1,64 @@
+.TH "smooth" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBsmooth\fP - smooths a vector using a running average
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBsmooth\fP \fB-n\fP \fIorder\fP
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+smooths a vector using a running average of specified order, specified
+by the "\fB-n" field.  The output value is the running average of the last
+"order" values of input;  The output vector will always have (order - 1)
+fewer values than the input vector.
+.PP
+Inputs:	vector of values;
+Input is to stdin; output to stdout.
+.SH OPTIONS
+.TP
+\fB-n\fP \fIorder\fP
+smoothing order (must be an integer)
+.SH OPERANDS
+.PP
+None.
+.SH EXAMPLES
+.PP
+\fBsmooth\fP \fB-n 14 <v1
+.sp
+.nf
+.ft CR
+	computes a 14-value running average for the vector "v1",
+	outputting a smoothed vector that is 13 values shorter than "v1"
+.ft R
+.fi
+.SH FILES
+.PP
+None
+.SH DIAGNOSTICS
+.PP
+None
+.SH RESTRICTIONS
+.PP
+None
+.SH HISTORY
+.TP
+Mar 1997
+	Written by D. Marks, USGS, EPA NHEERL/WED
+.TP
+Aug 1997
+	Converted to IPW Version 2.0, D. Marks, USGS, ERL-C
+.SH BUGS
+.PP
+None
+.SH SEE ALSO
+.TP
+IPW
+	\fBconvolve\fP,
+\fBinterp\fP
+.PP
+Newton 1988
+.br

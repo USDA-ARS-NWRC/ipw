@@ -1,0 +1,44 @@
+.TH "sunpath" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBsunpath\fP - sun angle from solar declination and longtitude
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "ipw.h"
+#include "solar.h"
+
+int
+sunpath(
+     double   lat,      /* latitude (radians)          */
+     double   lon,      /* longitude (radians)         */
+     double   declin,   /* solar declination (radians) */
+     double   omega,    /* solar longitude (radians)   */
+
+  /* output parameters */
+
+     double  *cosZ,     /* cosine of solar zenith      */
+     double  *azm)      /* solar azimuth (radians)
+                             (0 = south, > 0 = east)   */
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBsunpath\fP calculates the sun angle (the azimuth and zenith angles
+of the sun's position) on a horizontal surface for a given geodetic
+location on Earth (specified by \fIlatitude\fP and \fIlongitude\fP) and the
+given position of the sun (specified by its declination and longitude).
+.SH RETURN VALUE
+.PP
+0	calculations succeeded, output parameters assigned.
+.PP
+1	if sun below horizon and cosZ is negative
+.PP
+ERROR	if error in arguments (writes message via usrerr)
+.SH HISTORY
+.TP
+May 1989
+Written by J. Dozier
+.SH SEE ALSO

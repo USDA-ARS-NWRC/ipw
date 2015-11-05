@@ -1,0 +1,3 @@
+%define(name,"toporad")
+%define(description,"topographically-corrected solar radiation")
+%define(category,"Radiation Modeling: Basin-Scale")

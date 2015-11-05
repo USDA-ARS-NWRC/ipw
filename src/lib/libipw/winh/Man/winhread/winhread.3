@@ -1,0 +1,49 @@
+.TH "winhread" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBwinhread\fP - read an IPW WINH header
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "winh.h"
+
+WINH_T **
+winhread(
+	int             fd)	|* image file descriptor	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBwinhread\fP reads a WINH image header from file descriptor fd.  An array
+of WINH_T pointers is allocated, one per band.  If a band has a WINH
+header, then an WINH_T header is allocated and its address is placed
+in the corresponding array element; otherwise, the corresponding
+array element is NULL.
+.PP
+Before calling \fBwinhread\fP, the caller must verify (by calling hrname())
+that a WINH header is available for ingesting.
+.SH RETURN VALUE
+.PP
+pointer to array of WINH_T pointers; else NULL if EOF or error
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.sp
+.TP
+can't allocate array of "win" header pointers
+"win" header: bad band "\fIband\fP"
+can't allocate "win" header
+"win" header: key "\fIkey\fP" has no value
+"win" header: bad key "\fIkey\fP"
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

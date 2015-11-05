@@ -1,0 +1,88 @@
+.TH "declass" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBdeclass\fP - replace pixel classes with their representative values
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBdeclass\fP [ \fB-h\fP \fIlqh\fP ] [ \fB-b\fP \fI#bits\fP,\fI...\fP ] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBdeclass\fP reads an IPW image and creates an image whose pixel values
+contain the representative value for the class of the corresponding
+input pixel.  For bands that are not classified (no CRH header), the
+input pixel values are simply copied.
+.SH OPTIONS
+.TP
+\fB-h\fP \fIlqh\fP
+specify linear quantization header for output image
+.sp
+.TP
+\fB-b\fP \fI#bits\fP,\fI...\fP
+specify #bits in output image (defaults to 8 bits)
+(ignored if \fB-h specified)
+.SH OPERANDS
+.TP
+[\fIimage\fP]
+	image	input image (defaults to stdin)
+.sp
+.SH EXAMPLES
+.PP
+If a classifed elevation image was created from this class range file:
+.sp
+.nf
+.ft CR
+	1500 3000 2000
+	3000 5000 3500
+.ft R
+.fi
+
+.PP
+using the command:
+.sp
+.nf
+.ft CR
+	classify -i cf -c 2 dem >dem.class
+.ft R
+.fi
+
+.PP
+then we can use \fBdeclass\fP to create an image of 2000's and 3500's, with
+0's in all the unclassified pixels:
+.sp
+.nf
+.ft CR
+	declass dem.class >dem.rep_val
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     None
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+None
+.SH RESTRICTIONS
+.PP
+None
+.SH HISTORY
+.TP
+Jun 1990
+   Written by Kelly Longley, Oregon State University,
+Environmental Research Laboratory, Corvallis OR
+.SH BUGS
+.PP
+None that we know of
+.SH SEE ALSO
+.TP
+IPW
+	\fBclasseq\fP,
+\fBclassify\fP,
+\fBmkcrh\fP

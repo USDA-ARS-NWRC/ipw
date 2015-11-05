@@ -1,0 +1,49 @@
+.TH "bihread" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBbihread\fP - read an IPW BIH header
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "bih.h"
+
+BIH_T **
+bihread(
+	int     fd)		|* image file descriptor	 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBbihread\fP reads a BIH image header from file descriptor fd.  An array
+of BIH_T pointers is allocated, one per band.  If a band has a BIH
+header, then an BIH_T header is allocated and its address is placed
+in the corresponding array element; otherwise, the corresponding
+array element is NULL.
+.PP
+Before calling \fBbihread\fP, the caller must verify (by calling hrname())
+that a BIH header is available for ingesting.
+.PP
+\fBbihread\fP is called by application programs to ingest BIH headers.
+.SH RETURN VALUE
+.PP
+pointer to array of BIH_T pointers; else NULL if EOF or error
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.SH DIAGNOSTICS
+.sp
+.TP
+can't allocate array of "\fIname\fP" header pointers
+"\fIname\fP" header: bad band "\fIband\fP"
+can't allocate "\fIname\fP" header
+"\fIname\fP" header: key "\fIkey\fP" has no value
+"\fIname\fP" header: bad key "\fIkey\fP"
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

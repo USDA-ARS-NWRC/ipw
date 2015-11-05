@@ -1,0 +1,1 @@
+lqh_min - get minimum of LQ header of an image's band

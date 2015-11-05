@@ -1,0 +1,9 @@
+
+Basic Image Commands
+
+  ipwfile - print basic info about an IPW image
+  primg   - print pixel specified by line,sample coordinates as text
+  mux     - multiplex (combine) images into one multi-band image
+  demux   - demultiplex (extract) bands from IPW image
+  cmpimg  - compare two IPW images
+  poly    - print coordinates of pixels for in a polygon

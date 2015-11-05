@@ -1,0 +1,179 @@
+.TH "toporad.24" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBtoporad.24\fP - topographically-corrected solar radiation for 24-hour period
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBtoporad.24\fP [ \fB-n\fP ] \fB-z\fP \fIelev\fP \fB-t\fP \fItau\fP \fB-w\fP \fIomega\fP \fB-g\fP \fIg\fP \fB-r\fP \fIR0\fP
+      [ \fB-s\fP \fIS0\fP ] [ \fB-x\fP \fIw1\fP,\fIw2\fP ] \fB-d\fP \fIy\fP,\fIm\fP,\fId\fP[,\fIh\fP,\fIm\fP,\fIs\fP] \fB-i\fP \fIdelta_t\fP
+      \fB-b\fP \fId\fP,\fIm\fP,\fIs\fP \fB-l\fP \fId\fP,\fIm\fP,\fIs\fP \fB-o\fP \fIout_prefix\fP [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.sp
+.nf
+.ft CR
+     Toporad.24 is a script that makes repeated calles to the program
+.ft R
+.fi
+.PP
+toporad to calculate the topographic distribution of solar radiation
+in a specified wave-length band at regular (delta_t) intervals over a
+24 hour period.
+.PP
+Toporad.24 computes solar radiation over a topographic grid,
+using a two-stream atmospheric radiation model.  The radiation is
+computed and output every delta_t hours for a total of 24 hours.
+.PP
+The input image file has six bands in this order:  elevation,
+slope, azimuth, sky view factor, terrain configuration factor,
+surface albedo.
+.PP
+The output images are called <out_prefix>.0 ... <out_prefix>.n
+(where n is 24/delta_t).  For times when the sun below the horizon
+a message is printed to the screen and no output image is generated.
+.SH OPTIONS
+.TP
+\fB-n\fP
+net radiation instead of incoming
+.sp
+.TP
+\fB-z\fP \fIelev\fP
+elevation of optical depth measurement
+.sp
+.TP
+\fB-t\fP \fItau\fP
+optical depth at z
+.sp
+.TP
+\fB-w\fP \fIomega\fP
+single-scattering albedo
+.sp
+.TP
+\fB-g\fP \fIg\fP
+scattering asymmetry parameter
+.sp
+.TP
+\fB-r\fP \fIR0\fP
+reflectance of substrate (use average albedo; if <= 0, set to 0)
+.sp
+.TP
+\fB-s\fP \fIS0\fP
+exoatmospheric solar irradiance, or
+.sp
+.TP
+\fB-x\fP \fIw1\fP,\fIw2\fP
+wavelength range, micrometers
+.sp
+.TP
+\fB-d\fP \fIy\fP,\fIm\fP,\fId\fP[,\fIh\fP,\fIm\fP,\fIs\fP]
+start date/time (year, month, day, hour, minute, second)
+.sp
+.TP
+\fB-i\fP \fIdelta_t\fP
+time increment in hours
+.sp
+.TP
+\fB-b\fP \fId\fP,\fIm\fP,\fIs\fP
+latitude (degrees, minutes, seconds)
+.sp
+.TP
+\fB-l\fP \fId\fP,\fIm\fP,\fIs\fP
+longitude (degrees, minutes, seconds)
+.sp
+.TP
+\fB-o\fP \fIout_prefix\fP
+prefix for output image names
+.SH OPERANDS
+.TP
+[\fIimage\fP]
+	image	six-band input image
+.sp
+.SH EXAMPLES
+.PP
+To calculate visible, topographically distributed radiation, over
+the Park City, Utah, area, at a 1 hr time-step, for March 1, 1995:
+.sp
+.nf
+.ft CR
+	mux elev slope azim skvf tcf alb > input_image
+.ft R
+.fi
+
+.sp
+.nf
+.ft CR
+	toporad.24 -z 100 -t 0.2 -w 0.85 -g 0.3 -r 0.55 -x .28,.7 \\
+		-d 1995,03,01,00,00,00 -i 1.0 -b 40,37,12.6 \\
+		-l -111,31,58.2 -o pcity input_image
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     None
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+None
+.SH RESTRICTIONS
+.PP
+None
+.SH HISTORY
+.TP
+Sep 1990
+	Written by Kelly Longley, Oregon State University,
+Environmental Protection Agency Laboratory, Corvallis OR
+.SH BUGS
+.PP
+None that we know of
+.SH SEE ALSO
+.TP
+IPW
+	\fBalbedo\fP,
+\fBgtoporad.24\fP,
+\fBelevrad\fP,
+\fBmux\fP,
+\fBsalbedo\fP,
+\fBselevrad\fP,
+\fBtoporad\fP
+.PP
+Dozier, J., 1980.  "A clear-sky spectral solar radiation model for
+	snow-covered mountainous terrain".  Water Resources Research,
+	vol. 16, pp. 709-718.
+.PP
+Dozier, J., and J. Frew, 1981.  "Atmospheric corrections to satellite
+	radiometric data over rugged terrain".  Remote Sensing of
+	Environment, vol. 11, pp. 191-205.
+.PP
+Dozier, J., J. Bruno, and P. Downey, 1991.  "A faster solution to the
+	horizon problem", Computers and Geosciences, volume 7,
+	number 2, pp. 145-151.
+.PP
+Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain parameters
+	for radiation modeling from digital elevation data". IEEE
+	Transactions on Geoscience and Remote Sensing, vol. 28, no. 5,
+	pp. 963-969.
+.PP
+Dubayah, R., J. Dozier, and F. Davis, 1990.  "Topographic distribution
+	of clear-sky radiation over the Konza Prairie, Kansas".  Water
+	Resources Research, vol. 26, no. 4, pp. 679-691.
+.PP
+Marks, D., R. Dubayah, and K. Longley, 1991.  "Modeling the topographic
+	and spectral variability of clear-sky solar radiation at regional
+	to continental scales.  Proceedings 1991 IGARSS Symposium,
+	Remote Sensing:  Global Monitoring for Earth Management, Espoo,
+	Finland, Vol. 3, pp. 1711.
+.PP
+Dubayah, R., and V. Van Katwijk, 1992.  "The topographic distribution
+	of annual incoming solar radiation in the Rio Grande basin".
+	Geophysical Research Letters, vol. 19, pp. 2231-2234.
+.PP
+Dubayah, R., 1994.  "Modeling a solar radiation topoclimatology for the
+	Rio Grande River Basin".  Journal of Vegetation Science, vol. 5,
+	pp. 627-640.

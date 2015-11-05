@@ -1,0 +1,3 @@
+%define(name,"fpvread")
+%define(description,"read floating-point vectors")
+%define(category,"fpio")

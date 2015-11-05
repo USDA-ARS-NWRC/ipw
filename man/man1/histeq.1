@@ -1,0 +1,130 @@
+.TH "histeq" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBhisteq\fP - make histogram-equalization look-up table for IPW histogram
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBhisteq\fP [ \fB-n\fP \fIsize\fP ] [ \fB-o\fP \fImin\fP,\fImax\fP ] [ \fB-i\fP \fImin\fP,\fImax\fP ]
+      [ \fB-f\fP \fIfloor\fP ] [ \fB-c\fP \fIceil\fP ]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBhisteq\fP reads an IPW histogram from the standard input and writes
+an IPW lookup table to the standard output.
+.PP
+The lookup table may be applied to the original image (with the
+IPW command \fBlutx\fP) to produce a "histogram equalized" image
+(i.e. an image with a nearly-flat histogram).
+.SH OPTIONS
+.TP
+\fB-n\fP \fIsize\fP
+number of elements in the histogram (default: 256)
+.sp
+.TP
+\fB-i\fP \fImin\fP,\fImax\fP
+minimum and maximum values to use from the input histogram
+(default: 0, \fIsize\fP-1)
+.sp
+.TP
+\fB-o\fP \fImin\fP,\fImax\fP
+minimum and maximum values to appear in the output look-up
+table (default: 0, \fIsize\fP-1)
+.sp
+.TP
+\fB-f\fP \fIfloor\fP
+Have the output lookup table map input values less than the
+specified minimum to \fIfloor\fP (default: output minimum)
+.sp
+.TP
+\fB-c\fP \fIceil\fP
+Have the output lookup table map input values greater than the
+specified maximum to \fIceil\fP (default: output maximum)
+.SH OPERANDS
+.PP
+None.
+.SH EXAMPLES
+.PP
+To produce a histogram-equalized version of "image":
+.sp
+.nf
+.ft CR
+	hist image | histeq | lutx -i image
+.ft R
+.fi
+
+.PP
+If "image" has 12-bit pixels, and the output image should have 8-bit
+pixels, then replace the \fBhisteq\fP command above with:
+.sp
+.nf
+.ft CR
+	histeq -n 4096 -o 0,255
+.ft R
+.fi
+
+.PP
+To avoid having extreme values overwhelm the output mapping, they
+could be excluded by specifying an input range:
+.sp
+.nf
+.ft CR
+	histeq -n 4096 -o 0,255 -i 1,4094
+.ft R
+.fi
+.SH FILES
+.PP
+None.
+.SH DIAGNOSTICS
+.sp
+.TP
+can't read histogram from a terminal
+.TP
+can't write lut to a terminal
+\fBhisteq\fP will not read from or write to a terminal.
+.sp
+.TP
+bad option causes 0-bit output values
+.TP
+bad option causes \fInbytes\fP-byte output values
+One or more of the options would have resulted in a lookup
+table with pixels outside the permissable size range of
+1 .. 32 bits.
+.SH RESTRICTIONS
+.PP
+The \fB-n option exists only because \fBhisteq\fP is implemented as a
+shell script and does not read the histogram's header.
+.SH HISTORY
+.TP
+Mar 1990
+Written by James Frew, UCSB.
+.sp
+.TP
+Nov 1990
+Changed input syntax, James Frew, UCSB.
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO
+.TP
+IPW:
+\fBclasseq\fP,
+\fBcnhist\fP,
+\fBcnhist.all\fP,
+\fBgrhist\fP,
+\fBhist\fP,
+\fBlutx\fP
+.sp
+.TP
+UNIX:
+awk
+.sp
+.TP
+Image:
+ppmhist, xv
+.PP
+Pratt 1991 (pp 275-284),
+Frew 1990
+.br

@@ -1,0 +1,48 @@
+.TH "bihmake" "3" "5 November 2015" "IPW v2" "IPW Library Functions"
+.SH NAME
+.PP
+\fBbihmake\fP - make an IPW basic image header
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+#include "bih.h"
+
+BIH_T *
+bihmake(
+	int        nbytes,	|* # bytes / pixel		 *|
+	int        nbits,	|* # bits / pixel		 *|
+	STRVEC_T   *history,	|* -> history strings	 	 *|
+	STRVEC_T   *annot,	|* -> annotation strings	 *|
+	BIH_T      *oldp,	|* ? get per-img stuff here	 *|
+	int         nlines,	|* # lines			 *|
+	int         nsamps,	|* # samples / line		 *|
+	int         nbands)	|* # bands			 *|
+
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+Bihmake allocates a single BI header.  The header is
+initialized with the remaining arguments.  If nbytes is zero,
+it will be made large enough to contain nbits.  If nbits is
+zero, it will be set to CHAR_BIT * nbytes.  If bihp is null,
+then the per-image portion of the header is initialized from
+nlines, nsamps, and nbands.  Otherwise (bihp not NULL), a link
+is made to the per-image portion of *bihp.
+.SH RETURN VALUE
+.PP
+pointer to new BI header; NULL if error
+.SH EXAMPLES
+.SH GLOBALS ACCESSED
+.PP
+None.
+.SH DIAGNOSTICS
+.SH RESTRICTIONS
+.PP
+None.
+.SH HISTORY
+.SH BUGS
+.PP
+None.
+.SH SEE ALSO

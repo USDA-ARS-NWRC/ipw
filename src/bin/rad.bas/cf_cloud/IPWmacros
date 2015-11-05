@@ -1,0 +1,3 @@
+%define(name,"cf_cloud")
+%define(description,"cloud attenuation of beam and diffuse solar radiation")
+%define(category,"Radiation Modeling: Basin-Scale")

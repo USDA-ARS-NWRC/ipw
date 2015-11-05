@@ -1,0 +1,3 @@
+%define(name,"crhsort")
+%define(description,"return a copy of classes sorted by class number")
+%define(category,"crh")
