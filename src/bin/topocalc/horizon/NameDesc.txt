@@ -1,1 +1,1 @@
-horizon - horizon in one direction
+horizon - find angles to local horizon along rows of elevation file

@@ -1,6 +1,11 @@
 /*
- **	Calculate whether tan(angle to horizon) is >= thresh.
- **	If it is, sun is hidden and mask is zero, otherwise mask is non-zero
+ **	Calculate values of cosines of angles to horizons, measured
+ **	from zenith, from elevation difference and distance.  Let
+ **	G be the horizon angle from horizontal and note that:
+ **
+ **		sin G = z / sqrt( z^2 + dis^2);
+ **
+ **	This result is the same as cos H, where H measured from zenith.
  */
 
 #include <math.h>
@@ -9,13 +14,12 @@
 #include "pgm.h"
 
 void
-hormask(
+horval(
 		int             n,		/* length of horizon vector	 */
 		fpixel_t       *z,		/* elevations			 */
 		fpixel_t        delta,		/* spacing			 */
 		int            *h,		/* horizon function		 */
-		fpixel_t        thresh,		/* threshold			 */
-		fpixel_t        *hmask)		/* output mask			 */
+		fpixel_t       *hcos)		/* cosines of angles to horizon	 */
 {
 	int             d;		/* difference in indices	 */
 	int             i;		/* index of point		 */
@@ -30,15 +34,15 @@ hormask(
 
 		/* point is its own horizon */
 		if (d == 0) {
-			*hmask++ = 1;
+			*hcos++ = 0;
 		}
 
-		/* else need to compare with threshold */
+		/* else need to calculate sine */
 		else {
 			if (d < 0)
 				d = -d;
 			diff = z[j] - z[i];
-			*hmask++ = (diff / (d * delta) > thresh) ? 0 : 1;
+			*hcos++ = diff / (fpixel_t) hypot(diff, d * delta);
 		}
 	}
 }

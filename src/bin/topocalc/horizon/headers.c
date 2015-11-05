@@ -37,10 +37,10 @@ headers(void)
 	static GETHDR_T *request[] = {&h_lqh, &h_geo, &h_skew, 0};
 
 	o_geoh = NULL;
+
 	/*
 	 * read BIH
 	 */
-
 	if ((i_bih = bihread(parm.i_fd)) == NULL) {
 		error("can't read BIH");
 	}

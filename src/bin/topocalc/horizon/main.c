@@ -1,8 +1,7 @@
 #include <math.h>
-#include "ipw.h"
-
-#include "bih.h"
 #include <errno.h>
+#include "ipw.h"
+#include "bih.h"
 #include "pgm.h"
 
 int
@@ -62,8 +61,11 @@ main(
 	};
 
 	fpixel_t	*zbuf;		/* elevation buffer		 */
-	int			npix;		/* # pixels in row		 */
-	fpixel_t	*hval;		/* return from hor1d */
+	int			N;			/* # pixels in row		 */
+//	fpixel_t	*hval;		/* return from hor1d */
+	int 		i;			/* loop index */
+	int 		nsamps;		/* number of samples */
+	int 		nlines;		/* number of lines */
 
 	/*
 	 * begin
@@ -110,7 +112,6 @@ main(
 	 */
 	switch (n_args(efile)) {
 	case 0:			/* no operand, open std input	 */
-
 		parm.i_fd = ustdin();
 		break;
 	case 1:			/* open named file	 	 */
@@ -122,7 +123,6 @@ main(
 		usage();
 
 	}
-
 
 	/*
 	 * can't read or write tty
@@ -144,6 +144,7 @@ main(
 	 * backward flag; default is forward
 	 */
 	parm.backward = got_opt(opt_b);
+
 	/*
 	 * process azimuth direction
 	 */
@@ -155,34 +156,46 @@ main(
 	}
 
 	/*
-	 * Read the input files
-	 */
-	npix = hnsamps(parm.i_fd);
-	zbuf = (fpixel_t *) ecalloc(npix, sizeof(fpixel_t));
-
-	if (fpvread (parm.i_fd, zbuf, npix) != npix) {
-		error ("input image read error");
-	}
-
-	/*
 	 * read/write headers
 	 */
 	headers();
 
 	/*
+	 * Read the input files, create  output buffer
+	 */
+	nsamps = hnsamps(parm.i_fd);
+	nlines = hnlines(parm.i_fd);
+	N =  nsamps * nlines;
+
+	zbuf = (fpixel_t *) ecalloc(N, sizeof(fpixel_t));
+	if (fpvread (parm.i_fd, zbuf, N) != N) {
+		error ("input image read error");
+	}
+
+	//	create output buffer
+	fpixel_t *hval[nlines];
+	for(i = 0; i < nlines; i++) {
+		hval[i] = (fpixel_t *) ecalloc(nsamps, sizeof(fpixel_t));
+	}
+
+	/*
 	 * compute horizon
 	 */
-	hval = hor1d(parm, zbuf);
+	hor1d(parm, zbuf, hval);
 
 	/*
 	 * Wrtie to output file
 	 */
-	if (fpvwrite(parm.o_fd, hval, npix) != npix) {
-		error("error writing output file");
+	for (i = 0; i < nlines; i++ ) {
+		if (fpvwrite(parm.o_fd, hval[i], nsamps) != nsamps) {
+			error("error writing output file");
+		}
 	}
 
 	/*
 	 * all done
 	 */
+	(void) fpclose(parm.i_fd);
+	(void) fpclose(parm.o_fd);
 	ipwexit(EXIT_SUCCESS);
 }

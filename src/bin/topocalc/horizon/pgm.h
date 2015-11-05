@@ -1,8 +1,8 @@
 #ifndef	PGM_H
 #define	PGM_H
 
-#include "IPWmacros.h"
 #include <errno.h>
+#include "IPWmacros.h"
 #include "bih.h"
 #include "lqh.h"
 
@@ -32,7 +32,7 @@ extern void	hormask (int n, fpixel_t *z, fpixel_t delta, int *h,
 extern void	horval (int n, fpixel_t *z, fpixel_t delta, int *h,
 			fpixel_t *hcos);
 extern void     headers (void);
-extern fpixel_t *hor1d (PARM_T parm, fpixel_t *zbuf);
+extern void hor1d (PARM_T parm, fpixel_t *zbuf, fpixel_t **hval);
 extern LQH_T  **newlqh (int fdo);
 
 #define NBANDS	1

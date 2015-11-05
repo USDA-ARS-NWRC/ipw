@@ -10,17 +10,20 @@
 
 #include "pgm.h"
 
-void
-horizon(void)
+fpixel_t *hor1d(
+		PARM_T parm,		/* parameter structure */
+		fpixel_t *zbuf		/* elevation buffer		 */
+)
 {
 	fpixel_t        fspace;		/* (fpixel_t)spacing		 */
 	fpixel_t        thresh = 0;	/* threshold for mask		 */
 	fpixel_t       *hcos = NULL;	/* horizon cosines 		 */
-	fpixel_t       *zbuf;		/* elevation buffer		 */
-	int             ngot;		/* # pixels read		 */
-	int             npix;		/* # pixels in row		 */
+//	fpixel_t       *zbuf;		/* elevation buffer		 */
+//	int             ngot;		/* # pixels read		 */
+	int             N;		/* # pixels in row		 */
 	int            *hbuf;		/* horizon index		 */
-	pixel_t        *hmask = NULL;	/* output mask			 */
+	fpixel_t        *hmask = NULL;	/* output mask			 */
+	int 			i;			/* loop index */
 
 
 	/*
@@ -31,30 +34,31 @@ horizon(void)
 	/*
 	 * initialize buffers for i/o and horizon computation
 	 */
-	npix = hnsamps(parm.i_fd);
+	N = hnsamps(parm.i_fd) * hnlines(parm.i_fd);
+
 	/* NOSTRICT */
-	hbuf = (int *) ecalloc(npix, sizeof(int));
-	/* NOSTRICT */
-	zbuf = (fpixel_t *) ecalloc(npix, sizeof(fpixel_t));
-	if (hbuf == NULL || zbuf == NULL)
+	hbuf = (int *) ecalloc(N, sizeof(int));
+	if (hbuf == NULL || zbuf == NULL) {
 		bug("buffer allocation");
+	}
 
 	/*
 	 * if horizon cosines to be computed, need to allocate storage vector
 	 */
 	if (parm.nbits > 1) {
 		/* NOSTRICT */
-		hcos = (fpixel_t *) ecalloc(npix, sizeof(fpixel_t));
+		hcos = (fpixel_t *) ecalloc(N, sizeof(fpixel_t));
 		if (hcos == NULL)
 			bug("buffer allocation");
 	}
+
 	/*
 	 * otherwise if mask to be computed, need to allocate integer storage
 	 * vector and set threshold
 	 */
 	else {
 		/* NOSTRICT */
-		hmask = (pixel_t *) ecalloc(npix, sizeof(pixel_t));
+		hmask = (fpixel_t *) ecalloc(N, sizeof(fpixel_t));
 		if (hmask == NULL)
 			bug("buffer allocation");
 		thresh = tan(M_PI_2 - parm.zenith);
@@ -69,41 +73,36 @@ horizon(void)
 	 * main loop
 	 */
 	fspace = parm.spacing;
-	while ((ngot = fpvread(parm.i_fd, zbuf, npix)) > 0) {
-		if (ngot != npix)
-			error("premature end of row");
+	for (i = 0; i < N; i++) {
 
 		/*
 		 * find points that form horizons
 		 */
-		(void) (*horfun) (ngot, zbuf, hbuf);
+		(void) (*horfun) (i, zbuf, hbuf);
 
 		/*
 		 * if not mask output, compute and write horizons along each row
 		 */
 		if (parm.nbits > 1) {
-			horval(ngot, zbuf, fspace, hbuf, hcos);
-			if (fpvwrite(parm.o_fd, hcos, ngot) != ngot) {
-				error("fpvwrite error");
-			}
+			horval(i, zbuf, fspace, hbuf, hcos);
 		}
 
 		/*
 		 * if mask output, set mask and write
 		 */
 		else {
-			hormask(ngot, zbuf, fspace, hbuf, thresh, hmask);
-			if (pvwrite(parm.o_fd, hmask, ngot) != ngot) {
-				error("pvwrite error");
-			}
+			hormask(i, zbuf, fspace, hbuf, thresh, hmask);
 		}
 	}
 
-	SAFE_FREE(zbuf);
+
+//	SAFE_FREE(zbuf);
 	SAFE_FREE(hbuf);
 	if (parm.nbits > 1) {
-		SAFE_FREE(hcos);
+//		SAFE_FREE(hcos);
+		return hcos;
 	} else {
-		SAFE_FREE(hmask);
+//		SAFE_FREE(hmask);
+		return hmask;
 	}
 }

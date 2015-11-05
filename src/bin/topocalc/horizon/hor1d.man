@@ -1,0 +1,203 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-a</B> <I>phi</I> [ <B>-b</B> ] [ <B>-z</B> <I>zen</I> ] [ <B>-u</B> <I>cos</I> ] [ <B>-d</B> <I>delta</I> ]
+      [ <B>-n</B> <I>nbits</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Hor1d is part of a suite of radiation, solar, and topographic 
+geometry tools that are part of the IPW system
+</P><P>
+Hor1d reads elevations from <I>image</I> (default: standard input)
+and writes an image of along-line horizons to the standard
+output.
+</P><P>
+<B>%name</B> is almost always invoked indirectly by the horizon command,
+which allows horizons to be computed along arbitrary azimuths.
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-a</B> <I>phi</I>
+<DD>
+direction of forward azimuth (degrees east of south).
+</DD>
+
+<P>
+<DT><B>-b</B> 
+<DD>
+compute backward horizons (default: forward).
+</DD>
+
+<P>
+<DT><B>-d</B> <I>delta</I>
+<DD>
+grid spacing (default: get grid spacing from the &quot;geo&quot;
+header or set to 1 if no &quot;geo&quot; header).
+</DD>
+
+<P>
+<DT><B>-z</B> <I>zen</I>
+<DD>
+mask horizon angles with solar zenith angles greater than
+<I>zen</I> degrees (0..90).
+</DD>
+
+<P>
+<DT><B>-u</B> <I>cos</I>
+<DD>
+mask horizon angles with cosines greater than <I>cos</I>.
+</DD>
+</DL>
+
+<P>Only one of <B>-z</b> or <B>-u</b> should be specified.
+</P>
+
+<DL>
+<DT><B>-n</B> <I>nbits</I>
+<DD>
+Use <I>nbits</I> bits per output pixel (default: 8).
+</DD>
+</DL>
+
+<P>All of the options but <B>-b</b> are the same as horizon, where they are
+
+<P>described in more detail.
+</P>
+
+<H2>OPERANDS</H2>
+
+<P>
+None.
+</P>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To compute northwest horizons:
+</P>
+<PRE>
+	hor1d -a -135 elev
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>Diagnostics are described in the manual for horizon.
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+The value of the &quot;<B>-a</b>&quot; option is not used by <B>%name</B>, but it is
+essential for interpreting <B>%name</B>'s output, so it is stored in
+the header of the output image.
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)	
+</DD>
+</DL>
+
+<DL>
+<DT>Apr 1993</DT>
+<DD>
+	Converted to ANSI C and removed cpp hack.
+Fixed failure when passing float as double.
+Added prototype for hypot that is necessary on AIX
+and Solaris 2.x.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>May 1993</DT>
+<DD>
+	Ran through Purify.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<DL>
+<DT>Jul 1995</DT>
+<DD>
+	Added <B>-n</b> option.  Dana Jacobsen, ERL-C.
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+<P>IPW (radiation modeling):
+	solar geometry:		solar, sunang, sunlight, sunweights
+	terrain processing:	gradient, hor1d, horizon, shade,
+				viewcalc, viewf
+	solar radiation:	elevrad, toporad, toporad.24, topquad,
+				twostream
+	thermal radiation:	tcloud, thermin, topotherm, trad, vptr
+	radiation over snow:	albedo, glob.alb, salbedo, selevrad,
+				stoporad
+</P>
+<P>IPW (global scale modeling):
+	solar geometry:		gsunlight
+	radiation modeling:	gelevrad, gtoporad, gtoporad.24, gtopquad
+	terrain processing:	ggradient, ghorizon, gshade, gviewf,
+				gviewf-mp
+</P>
+<P>Marks, D., and J. Dozier, 1979.  A clear-sky longwave radiation
+	model for remote alpine areas.  Archiv fur Meteorologie,
+	Geophysik und Bioklimatologie, Series B, vol. 27, no. 23,
+	pp 159-187.
+</P>
+<P>Dozier, J., 1980.  A clear-sky spectral solar radiation model for
+	snow-covered mountainous terrain.  Water Resources Research,
+	vol. 16, pp 709-718.
+</P>
+<P>Dozier, J., J. Bruno, and P. Downey, 1981.  A faster solution to
+	the horizon problem.  Computers and Geosciences, vol. 7,
+	no. 2, pp 145-151.
+</P>
+<P>Dozier, J., and J. Frew, 1990.  Rapid calculation of terrain
+	parameters for radiation modeling from digital elevation
+	data.  IEEE Transactions on Geoscience and Remote Sensing,
+	vol. 28, no. 5, pp 963-969.
+</P>
+<P>Dubayah, R., J. Dozier, and F. Davis, 1990.  Topographic distribution
+	of clear-sky radiation over the Konza Prairie, Kansas.
+	Water Resources Research, vol. 26, no. 4, pp 679-691.
+</P>
+<P>Frew, J., 1990.  The Image Processing Workbench.  Ph.D. Thesis,
+	Department of Geography, University of California, Santa
+	Barbara, CA, 382pp.
+</P>
+<P>Marks, D., R. Dubayah, and K. Longley, 1991.  Modeling the
+	topographic and spectral variability of clear-sky solar
+	radiation at regional to continental scales.  Proceedings
+	1991 IGARSS Symposium, Remote Sensing: Global Monitoringr
+	for Earth Management, Espoo, Finland, vol. 3, pp 1711.
+</P>
+
