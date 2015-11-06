@@ -85,6 +85,13 @@ Base IPW routine (Frew, 1990)
 </DD>
 </DL>
 
+<DL>
+<DT>Nov 2015</DT>
+<DD>
+	Read in full image before transpose, allow ximg.c (transpose) to be called as a stand alone function. Scott Havens. USDA-ARS. 
+</DD>
+</DL>
+
 <H2>BUGS</H2>
 
 <P>

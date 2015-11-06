@@ -5,7 +5,8 @@
 
 #define	SCR_PREFIX	"skew"		/* scratch file name prefix	*/
 
-extern void     skew(int i_fd, bool_t fwd, double angle,
+extern void run_skew(int i_fd, bool_t fwd, double angle,
                               bool_t skip_skewh, int o_fd);
+extern double *skew();
 
 #endif

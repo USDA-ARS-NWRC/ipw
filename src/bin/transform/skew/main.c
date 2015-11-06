@@ -75,7 +75,7 @@ main(
  /*
   * do it
   */
-	skew(fdi, got_opt(opt_a), angle, got_opt(opt_h), fdo);
+	run_skew(fdi, got_opt(opt_a), angle, got_opt(opt_h), fdo);
  /*
   * end
   */
