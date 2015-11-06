@@ -32,7 +32,9 @@ extern void	hormask (int n, fpixel_t *z, fpixel_t delta, int *h,
 extern void	horval (int n, fpixel_t *z, fpixel_t delta, int *h,
 			fpixel_t *hcos);
 extern void     headers (void);
-extern void hor1d (PARM_T parm, fpixel_t *zbuf, fpixel_t **hval);
+extern void hor1d (PARM_T parm, fpixel_t *zbuf, fpixel_t *hval);
+extern void horizon (PARM_T parm, fpixel_t *zbuf, fpixel_t *hval,
+		REG_6 int samp_nbytes, int nlines, int nsamps);
 extern LQH_T  **newlqh (int fdo);
 
 #define NBANDS	1

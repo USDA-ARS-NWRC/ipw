@@ -15,14 +15,14 @@
 
 void
 transpose(
-	int             i_fd,		/* input image file descriptor	 */
-	int             o_fd)		/* output image file descriptor	 */
+		int             i_fd,		/* input image file descriptor	 */
+		int             o_fd)		/* output image file descriptor	 */
 {
- /* NOSTRICT */
+	/* NOSTRICT */
 	static GETHDR_T h_or = {ORH_HNAME, (ingest_t) orhread};
- /* NOSTRICT */
+	/* NOSTRICT */
 	static GETHDR_T h_win = {WINH_HNAME, (ingest_t) winhread};
- /* NOSTRICT */
+	/* NOSTRICT */
 	static GETHDR_T h_geo = {GEOH_HNAME, (ingest_t) geohread};
 	static GETHDR_T *hv[] = {&h_or, &h_win, &h_geo, NULL};
 
@@ -37,58 +37,67 @@ transpose(
 	bool_t          need_orh;	/* ? write ORH			 */
 	double          hold;		/* temporary storage		 */
 	int             band;		/* current band #		 */
-	int             i_nlines;	/* # input lines		 */
-	int             i_nsamps;	/* # samples / input line	 */
+	int             nlines;	/* # input lines		 */
+	int             nsamps;	/* # samples / input line	 */
 	int             nbands;		/* # image bands		 */
+	int				N;			/* number of pixels */
+	fpixel_t		*i_buf;		/* -> input image buffer		 */
+	fpixel_t		*o_buf;		/* -> output image buffer		 */
+	int             i_size;		/* # bytes / input image		 */
+	int				samp_size;
 
- /*
-  * read BIH
-  */
+	/*
+	 * read BIH
+	 */
 	i_bihpp = bihread(i_fd);
 	if (i_bihpp == NULL) {
 		error("can't read basic image header");
 	}
 
 	nbands = hnbands(i_fd);
+	nlines = hnlines(i_fd);
+	nsamps = hnsamps(i_fd);
+	N = nlines * nsamps;
 
-	i_nlines = hnlines(i_fd);
-	i_nsamps = hnsamps(i_fd);
- /*
-  * reset o_byteorder from hostorder() to byte order of i_fd
-  * because this program will bypass the pixio layer
-  */
+	/*
+	 * reset o_byteorder from hostorder() to byte order of i_fd
+	 * because this program will bypass the pixio layer
+	 */
 	o_byteorder = hbyteorder(i_fd);
- /*
-  * create and write new BIH
-  */
+
+	/*
+	 * create and write new BIH
+	 */
 	o_bihpp = bihdup(i_bihpp);
 	if (o_bihpp == NULL) {
 		error("can't create basic image header");
 	}
 
-	bih_nlines(o_bihpp[0]) = i_nsamps;
-	bih_nsamps(o_bihpp[0]) = i_nlines;
+	bih_nlines(o_bihpp[0]) = nsamps;
+	bih_nsamps(o_bihpp[0]) = nlines;
 
 	if (bihwrite(o_fd, o_bihpp) == ERROR) {
 		error("can't write basic image header");
 	}
- /*
-  * process remaining headers
-  */
+
+	/*
+	 * process remaining headers
+	 */
 	gethdrs(i_fd, hv, nbands, o_fd);
 
 	need_orh = FALSE;
- /*
-  * if no orientation header then create one
-  */
+
+	/*
+	 * if no orientation header then create one
+	 */
 	if (!got_hdr(h_or)) {
 		orhp = orhmake(XT_ORIENT, IPW_ORIGIN);
 		if (orhp == NULL) {
 			error("can't make OR header");
 		}
- /* NOSTRICT */
+		/* NOSTRICT */
 		o_orhpp = (ORH_T **) hdralloc(nbands, sizeof(ORH_T *),
-					      ERROR, ORH_HNAME);
+				ERROR, ORH_HNAME);
 		if (o_orhpp == NULL) {
 			error("can't allocate OR header array");
 		}
@@ -99,11 +108,11 @@ transpose(
 
 		need_orh = TRUE;
 	}
- /*
-  * if existing orientation header then modify it
-  */
+	/*
+	 * if existing orientation header then modify it
+	 */
 	else {
- /* NOSTRICT */
+		/* NOSTRICT */
 		o_orhpp = (ORH_T **) hdr_addr(h_or);
 
 		for (band = 0; band < nbands; ++band) {
@@ -120,26 +129,28 @@ transpose(
 			}
 
 			if (strdiff(orh_orient(orhp), IPW_ORIENT) ||
-			    strdiff(orh_origin(orhp), IPW_ORIGIN)) {
+					strdiff(orh_origin(orhp), IPW_ORIGIN)) {
 				need_orh = TRUE;
 			}
 		}
 	}
- /*
-  * if output image not IPW standard orientation then write ORH header
-  */
+
+	/*
+	 * if output image not IPW standard orientation then write ORH header
+	 */
 	if (need_orh) {
 		if (orhwrite(o_fd, o_orhpp) == ERROR) {
 			error("can't write orientation header");
 		}
 	}
 	(void) orhfree(o_orhpp, nbands);
- /*
-  * Modify window header if there is one. Exchange bline & bsamp, dline
-  * & dsamp.
-  */
+
+	/*
+	 * Modify window header if there is one. Exchange bline & bsamp, dline
+	 * & dsamp.
+	 */
 	if (got_hdr(h_win)) {
- /* NOSTRICT */
+		/* NOSTRICT */
 		o_winhpp = (WINH_T **) hdr_addr(h_win);
 
 		for (band = 0; band < nbands; ++band) {
@@ -158,12 +169,13 @@ transpose(
 		}
 		(void) winhfree(o_winhpp, nbands);
 	}
- /*
-  * Modify geodetic header if there is one. Exchange bline & bsamp,
-  * dline & dsamp.
-  */
+
+	/*
+	 * Modify geodetic header if there is one. Exchange bline & bsamp,
+	 * dline & dsamp.
+	 */
 	if (got_hdr(h_geo)) {
- /* NOSTRICT */
+		/* NOSTRICT */
 		o_geohpp = (GEOH_T **) hdr_addr(h_geo);
 
 		for (band = 0; band < nbands; ++band) {
@@ -182,14 +194,64 @@ transpose(
 		}
 		(void) geohfree(o_geohpp, nbands);
 	}
- /*
-  * no more headers
-  */
+
+	/*
+	 * no more headers
+	 */
 	if (boimage(o_fd) == ERROR) {
 		error("can't terminate header output");
 	}
- /*
-  * read image data line by line, transpose, and write
-  */
-	ximg(i_fd, i_nlines, i_nsamps, sampsize(i_fd), o_fd);
+
+	/*
+	 * allocate buffers and read image data in
+	 */
+	samp_size = sizeof(fpixel_t);
+	i_size = N * samp_size;
+	i_buf = (fpixel_t *) ecalloc(N, samp_size);
+	if (i_buf == NULL) {
+		error("can't allocate input line buffer");
+	}
+
+	o_buf = (fpixel_t *) ecalloc(N, samp_size);
+	if (o_buf == NULL) {
+		error("output image won't fit in memory");
+	}
+
+	//	if (uread(i_fd, i_buf, i_size) != i_size) {
+	//		error("input image read failed");
+	//	}
+	if (fpvread (i_fd, i_buf, N) != N) {
+		error ("input image read error");
+	}
+
+	/*
+	 * transpose image
+	 */
+	ximg(i_buf, nlines, nsamps, o_buf);
+
+	/*
+	 * write out data
+	 */
+	//	for (line = 0; line < o_nlines; ++line) {
+	//	if (uwrite(o_fd, i_buf, i_size) != i_size) {
+	//		error("output image write failed");
+	//	}
+	if (fpvwrite (o_fd, o_buf, N) != N) {
+		error ("write error output image");
+	}
+	//		o_img += o_linesize;
+	//	}
+//	SAFE_FREE(i_buf);
+//	SAFE_FREE(o_buf);
 }
+
+
+
+
+
+
+
+
+
+
+

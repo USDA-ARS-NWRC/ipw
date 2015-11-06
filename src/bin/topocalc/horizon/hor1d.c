@@ -14,7 +14,7 @@ void
 hor1d(
 		PARM_T parm,		/* parameter structure */
 		fpixel_t *zbuf,		/* elevation buffer		 */
-		fpixel_t **hval		/* output buffer */
+		fpixel_t *hval		/* output buffer */
 )
 {
 	fpixel_t        fspace;			/* (fpixel_t)spacing		 */
@@ -47,27 +47,32 @@ hor1d(
 	//	if (hbuf == NULL || zbuf == NULL) {
 	//		bug("buffer allocation");
 	//	}
-	int *hbuf[nlines]; // array of pointers
+
+	int *hbuf; // array of pointers
+	hbuf = (int *) ecalloc(nsamps, sizeof(int));
+
 	fpixel_t *lbuf[nlines];
+	fpixel_t *obuf[nlines];
 	for(i = 0; i < nlines; i++) {
-		hbuf[i] = (int *) ecalloc(nsamps, sizeof(int));
 		lbuf[i] = (fpixel_t *) ecalloc(nsamps, sizeof(fpixel_t));
+		obuf[i] = (fpixel_t *) ecalloc(nsamps, sizeof(fpixel_t));
 		for(j = 0; j < nsamps; j++) {
 			lbuf[i][j] = zbuf[i*nlines + j];	// fill with the line
+			obuf[i][j] = hval[i*nlines + j];
 		}
 	}
 
 	/*
 	 * if horizon cosines to be computed, need to allocate storage vector
 	 */
-//	printf("here\n");
+	//	printf("here\n");
 	if (parm.nbits > 1) {
 		/* NOSTRICT */
 		hcos = (fpixel_t *) ecalloc(N, sizeof(fpixel_t));
-//		fpixel_t *hcos[nlines];
-//		for(i = 0; i < nlines; i++) {
-//			hcos[i] = (fpixel_t *) ecalloc(nsamps, sizeof(fpixel_t));
-//		}
+		//		fpixel_t *hcos[nlines];
+		//		for(i = 0; i < nlines; i++) {
+		//			hcos[i] = (fpixel_t *) ecalloc(nsamps, sizeof(fpixel_t));
+		//		}
 		if (hcos == NULL)
 			bug("buffer allocation");
 	}
@@ -98,34 +103,41 @@ hor1d(
 		/*
 		 * find points that form horizons
 		 */
-		(void) (*horfun) (nsamps, lbuf[i], hbuf[i]);
+		(void) (*horfun) (nsamps, lbuf[i], hbuf);
 
 		/*
 		 * if not mask output, compute and write horizons along each row
 		 */
 		if (parm.nbits > 1) {
-			horval(nsamps, lbuf[i], fspace, hbuf[i], hval[i]);
+			horval(nsamps, lbuf[i], fspace, hbuf, obuf[i]);
 		}
 
 		/*
 		 * if mask output, set mask and write
 		 */
 		else {
-			hormask(nsamps, lbuf[i], fspace, hbuf[i], thresh, hval[i]);
+			hormask(nsamps, lbuf[i], fspace, hbuf, thresh, obuf[i]);
 		}
 
 
 	}
 
+	// bring back the results into hval
+	for(i = 0; i < nlines; i++) {
+		for(j = 0; j < nsamps; j++) {
+			hval[i*nlines + j] = obuf[i][j];
+		}
+	}
+
 
 	//	SAFE_FREE(zbuf);
 	//	SAFE_FREE(hbuf);
-//	if (parm.nbits > 1) {
-//		//		SAFE_FREE(hcos);
-//		return hcos;
-//	} else {
-//		//		SAFE_FREE(hmask);
-//		return hmask;
-//	}
+	//	if (parm.nbits > 1) {
+	//		//		SAFE_FREE(hcos);
+	//		return hcos;
+	//	} else {
+	//		//		SAFE_FREE(hmask);
+	//		return hmask;
+	//	}
 
 }

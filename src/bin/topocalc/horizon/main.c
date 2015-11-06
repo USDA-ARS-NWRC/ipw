@@ -60,12 +60,13 @@ main(
 			0
 	};
 
-	fpixel_t	*zbuf;		/* elevation buffer		 */
-	int			N;			/* # pixels in row		 */
-//	fpixel_t	*hval;		/* return from hor1d */
-	int 		i;			/* loop index */
-	int 		nsamps;		/* number of samples */
-	int 		nlines;		/* number of lines */
+	fpixel_t	*zbuf;			/* elevation buffer		 */
+	int			N;				/* # pixels in row		 */
+	//	fpixel_t	*hval;			/* return from hor1d */
+	int 		i;				/* loop index */
+	int 		nsamps;			/* number of samples */
+	int 		nlines;			/* number of lines */
+	REG_6 int	samp_nbytes;	/* # bytes per sample		 */
 
 	/*
 	 * begin
@@ -75,7 +76,7 @@ main(
 	/*
 	 * azimuth
 	 */
-	parm.azimuth = azmf(real_arg(opt_a, 0));
+	parm.azimuth = real_arg(opt_a, 0);
 
 	/*
 	 * spacing
@@ -148,12 +149,12 @@ main(
 	/*
 	 * process azimuth direction
 	 */
-	if (parm.backward) {
-		if (parm.azimuth >= 0)
-			parm.azimuth -= M_PI;
-		else
-			parm.azimuth += M_PI;
-	}
+	//	if (parm.backward) {
+	//		if (parm.azimuth >= 0)
+	//			parm.azimuth -= M_PI;
+	//		else
+	//			parm.azimuth += M_PI;
+	//	}
 
 	/*
 	 * read/write headers
@@ -166,36 +167,39 @@ main(
 	nsamps = hnsamps(parm.i_fd);
 	nlines = hnlines(parm.i_fd);
 	N =  nsamps * nlines;
+	samp_nbytes = sampsize(parm.i_fd);
 
 	zbuf = (fpixel_t *) ecalloc(N, sizeof(fpixel_t));
+	if (zbuf == NULL) {
+		error ("can't allocate input buffer");
+	}
 	if (fpvread (parm.i_fd, zbuf, N) != N) {
 		error ("input image read error");
 	}
 
 	//	create output buffer
-	fpixel_t *hval[nlines];
-	for(i = 0; i < nlines; i++) {
-		hval[i] = (fpixel_t *) ecalloc(nsamps, sizeof(fpixel_t));
+	fpixel_t *hval;//[nlines];
+	hval = (fpixel_t *) ecalloc(N, sizeof(fpixel_t));
+	if (hval == NULL) {
+		error ("can't allocate output buffer");
 	}
 
 	/*
 	 * compute horizon
 	 */
-	hor1d(parm, zbuf, hval);
+	horizon(parm, zbuf, hval, samp_nbytes, nlines, nsamps);
 
 	/*
-	 * Wrtie to output file
+	 * Write to output file
 	 */
-	for (i = 0; i < nlines; i++ ) {
-		if (fpvwrite(parm.o_fd, hval[i], nsamps) != nsamps) {
-			error("error writing output file");
-		}
+	if (fpvwrite(parm.o_fd, hval, N) != N) {
+		error("error writing output file");
 	}
 
 	/*
 	 * all done
 	 */
-	(void) fpclose(parm.i_fd);
-	(void) fpclose(parm.o_fd);
+//	(void) fpclose(parm.i_fd);
+//	(void) fpclose(parm.o_fd);
 	ipwexit(EXIT_SUCCESS);
 }

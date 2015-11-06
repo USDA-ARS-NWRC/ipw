@@ -147,7 +147,7 @@ headers(void)
 	o_horh = (HORH_T **) hdralloc(1, sizeof(HORH_T *),
 			parm.o_fd, HORH_HNAME);
 	assert(o_horh != NULL);
-	assert((o_horh[0] = horhmake(parm.azimuth)) != NULL);
+	assert((o_horh[0] = horhmake(azmf(parm.azimuth))) != NULL);
 	/*
 	 * write output HORH
 	 */

@@ -4,30 +4,31 @@
 
 int
 main(
-	int             argc,
-	char          **argv)
+		int             argc,
+		char          **argv)
 {
 	static OPTION_T operands = {
-		OPERAND, "input image file",
-		STR_OPERANDS, "image",
-		OPTIONAL, 1, 1,
+			OPERAND, "input image file",
+			STR_OPERANDS, "image",
+			OPTIONAL, 1, 1,
 	};
 
 	static OPTION_T *optv[] = {
-		&operands,
-		0
+			&operands,
+			0
 	};
 
 	int             fdi;		/* input image file descriptor	 */
 	int             fdo;		/* output image file descriptor	 */
 
- /*
-  * begin
-  */
+	/*
+	 * begin
+	 */
 	ipwenter(argc, argv, optv, IPW_DESCRIPTION);
- /*
-  * access input file(s)
-  */
+
+	/*
+	 * access input file(s)
+	 */
 	if (!got_opt(operands)) {
 		fdi = ustdin();
 	}
@@ -39,17 +40,20 @@ main(
 	}
 
 	no_tty(fdi);
- /*
-  * access output file
-  */
+
+	/*
+	 * access output file
+	 */
 	fdo = ustdout();
 	no_tty(fdo);
- /*
-  * do it
-  */
+
+	/*
+	 * do it
+	 */
 	transpose(fdi, fdo);
- /*
-  * end
-  */
+
+	/*
+	 * end
+	 */
 	ipwexit(EXIT_SUCCESS);
 }
