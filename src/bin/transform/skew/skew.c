@@ -14,15 +14,93 @@
  * skew -- image horizontal skew/deskew
  */
 
-double *skew(
-		int             i_fd,		/* input image file descriptor	 */
+void skew (
+		fpixel_t        *image,		/* input image file descriptor	 */
+		int				nlines,		/* number of input lines */
+		int				nsamps,		/* number of input samples */
+		int				nbands, 	/* number of bands */
 		bool_t          fwd,		/* ? forward : inverse skew	 */
 		double          angle,		/* skew angle			 */
-		int             o_fd)		/* output image file descriptor	 */
+		int				nthreads,	/* number of threads */
+		fpixel_t        *oimage)	/* output image file descriptor	 */
 {
+	int line;						/* current line #		 */
+	bool_t negflag;					/* ? angle < 0			 */
+	int N;							/* number of pixels */
+	int n;							/* counter */
+	double slope;					/* tan(angle)			 */
+	int max_skew;					/* maximum skew (# samples)	 */
+	int o_nsamps;					/* # samples / output line	 */
+	int *offset;						/* read offset into image line		 */
+	int pix;						/* pixel in line */
 
-	double *w;
-	w = 2.0;
-	return w;
+	N = nlines * nsamps;
+	offset = (int *)ecalloc(N, sizeof(int));
+
+	/* set threads */
+	if (nthreads != 1) {
+		omp_set_dynamic(0);     		// Explicitly disable dynamic teams
+		omp_set_num_threads(nthreads); 	// Use N threads for all consecutive parallel regions
+	}
+
+	/*
+	 * calculate output line length
+	 */
+	if (angle >= 0.0) {
+		negflag = FALSE;
+	}
+	else {
+		negflag = TRUE;
+		angle = -angle;
+	}
+
+	/*
+	 ** can't find DTR function
+	 **
+	 **	slope = tan(DTR(angle));
+	 */
+	slope = tan(angle * (M_PI / 180.0));
+	max_skew = (nlines - 1) * slope + 0.5;
+
+	o_nsamps = nsamps;
+	if (fwd) {
+		o_nsamps += max_skew;
+	}
+	else {
+		o_nsamps -= max_skew;
+		assert(o_nsamps > 0);
+	}
+
+
+	// offset into output line
+	for (line = 0; line < nlines; ++line) {
+		offset[line] = (negflag ? line : nlines - line - 1) * nbands * slope + 0.5;
+	}
+
+	/*
+	 * process pixels
+	 */
+#pragma omp parallel shared(N, offset, nsamps, o_nsamps, nbands, oimage, image, fwd) private(n, pix, line)
+#pragma omp for
+	for (n = 0; n < N; ++n) {
+
+		// current line
+		line = floor(n/nsamps);
+
+		// offset of pixel into line
+		pix = n % nsamps;
+
+		if (fwd) {
+
+			oimage[line * o_nsamps * nbands + offset[line] + pix] = image[line * nsamps * nbands + pix];
+
+		}
+		else {
+
+			oimage[line * o_nsamps * nbands + pix] = image[line * nsamps * nbands + offset[line] + pix];
+		}
+
+	}
+
 
 }

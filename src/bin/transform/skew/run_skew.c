@@ -20,6 +20,7 @@ run_skew(
 		bool_t          fwd,		/* ? forward : inverse skew	 */
 		double          angle,		/* skew angle			 */
 		bool_t          skip_skewh,	/* ? skip input skew header	 */
+		int				nthreads,	/* number of threads */
 		int             o_fd)		/* output image file descriptor	 */
 {
 	/* NOSTRICT */
@@ -31,11 +32,15 @@ run_skew(
 	int             bufsiz;		/* size (# bytes) of I/O buffer	 */
 	BIH_T         **i_bihpp;	/* -> input BIH			 */
 	int             i_nsamps;	/* # samples / input line	 */
+	fpixel_t        *image;		/* -> I/O buffer		 */
 	int             line;		/* current line #		 */
 	int             max_skew;	/* maximum skew (# samples)	 */
 	int             nbands;		/* # image bands		 */
 	bool_t          negflag;	/* ? angle < 0			 */
+	int				Ni;			/* number of input pixels */
+	int				No;			/* number of output pixels */
 	int             nlines;		/* # image lines		 */
+	fpixel_t 		*oimage;	/* output image */
 	BIH_T         **o_bihpp;	/* -> output BIH		 */
 	int             o_nsamps;	/* # samples / output line	 */
 	int             scr_fd;		/* scratch file descriptor	 */
@@ -54,32 +59,7 @@ run_skew(
 	nlines = bih_nlines(i_bihpp[0]);
 	i_nsamps = bih_nsamps(i_bihpp[0]);
 	nbands = bih_nbands(i_bihpp[0]);
-
-	/*
-	 * construct scratch file name
-	 */
-	scr_name = mktemplate(SCR_PREFIX);
-	if (scr_name == NULL) {
-		error("can't generate scratch file name");
-	}
-
-	/*
-	 * divert all input headers to scratch file; glom skew header if there is one
-	 */
-	scr_fd = uwopen_temp(scr_name);
-	if (scr_fd == ERROR) {
-		error("can't open scratch file \"%s\"", scr_name);
-	}
-
-	gethdrs(i_fd, hv, nbands, scr_fd);
-
-	if (boimage(scr_fd) == ERROR) {
-		error("can't terminate header output");
-	}
-
-	if (uclose(scr_fd) == ERROR) {
-		error("can't close scratch file");
-	}
+	Ni = nlines * i_nsamps;
 
 	/*
 	 * forward skew: make skew header (there better not be one already)
@@ -140,10 +120,11 @@ run_skew(
 	 */
 	if (angle >= 0.0) {
 		negflag = FALSE;
+		slope = tan(angle * (M_PI / 180.0));
 	}
 	else {
 		negflag = TRUE;
-		angle = -angle;
+		slope = tan(-angle * (M_PI / 180.0));
 	}
 
 	/*
@@ -151,19 +132,20 @@ run_skew(
 	 **
 	 **	slope = tan(DTR(angle));
 	 */
-	slope = tan(angle * (M_PI / 180.0));
 	max_skew = (nlines - 1) * slope + 0.5;
 
 	o_nsamps = i_nsamps;
 	if (fwd) {
 		o_nsamps += max_skew;
-		bufsiz = o_nsamps * nbands * sizeof(pixel_t);
+		//		bufsiz = o_nsamps * nbands * sizeof(fpixel_t);
 	}
 	else {
 		o_nsamps -= max_skew;
 		assert(o_nsamps > 0);
-		bufsiz = i_nsamps * nbands * sizeof(pixel_t);
+		//		bufsiz = i_nsamps * nbands * sizeof(fpixel_t);
 	}
+	No = nlines * o_nsamps;
+	printf("%i\n",No);
 
 	/*
 	 * create and write output BIH
@@ -188,70 +170,45 @@ run_skew(
 		}
 	}
 
-	/*
-	 * copy remaining headers from scratch file
-	 */
-	scr_fd = uropen(scr_name);
-	if (scr_fd == ERROR) {
-		error("can't re-open scratch file \"%s\"", scr_name);
-	}
-
-	copyhdrs(scr_fd, nbands, o_fd);
-
-	if (uclose(scr_fd) == ERROR) {
-		error("can't close scratch file");
-	}
-
-	if (uremove(scr_name) == ERROR) {
-		error("can't remove scratch file \"%s\"", scr_name);
-	}
-	SAFE_FREE(scr_name);
+	gethdrs(i_fd, hv, nbands, o_fd);
 
 	if (boimage(o_fd) == ERROR) {
 		error("can't terminate header output");
 	}
 
 	/*
-	 * allocate I/O buffer
+	 * Allocate input/output images
 	 */
-	/* NOSTRICT */
-	buf = (pixel_t *) ecalloc(bufsiz, 1);
-	if (buf == NULL) {
-		error("can't allocate I/O buffer");
+	image = (fpixel_t *) ecalloc(Ni * nbands, sizeof(fpixel_t));
+	if (image == NULL) {
+		error("can't allocate input buffer");
+	}
+
+	oimage = (fpixel_t *) ecalloc(No * nbands, sizeof(fpixel_t));
+	if (oimage == NULL) {
+		error("can't allocate output buffer");
 	}
 
 	/*
-	 * process lines
+	 * Read in image
 	 */
-	for (line = 0; line < nlines; ++line) {
-		pixel_t        *i_bufp;	/* -> beginning of input line	 */
-		pixel_t        *o_bufp;	/* -> beginning of output line	 */
-		int             offset;	/* read offset into buf		 */
-
-		offset = (negflag ? line : nlines - line - 1)
-					* nbands * slope + 0.5;
-
-		if (fwd) {
-			i_bufp = &buf[offset];
-			o_bufp = buf;
-		}
-		else {
-			i_bufp = buf;
-			o_bufp = &buf[offset];
-		}
-
-		if (pvread(i_fd, i_bufp, i_nsamps) != i_nsamps) {
-			error("image read failed, line %d", line);
-		}
-
-		if (pvwrite(o_fd, o_bufp, o_nsamps) != o_nsamps) {
-			error("image write failed, line %d", line);
-		}
-		/* NOSTRICT */
-		bzero((char *) buf, bufsiz);
+	if (fpvread (i_fd, image, Ni) != Ni) {
+		error ("input image read error");
 	}
 
-	SAFE_FREE(buf);
+	/*
+	 * calculate the skew
+	 */
+	skew(image, nlines, i_nsamps, nbands, fwd, angle, nthreads, oimage);
+
+	/*
+	 * Write output file
+	 */
+	if (fpvwrite(o_fd, oimage, No) != No) {
+		error("error writing output file");
+	}
+
+	//	SAFE_FREE(buf);
 	if (fwd) {
 		SAFE_FREE(skewhpp[0]);
 		SAFE_FREE(skewhpp);
