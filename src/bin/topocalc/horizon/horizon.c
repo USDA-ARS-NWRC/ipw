@@ -39,6 +39,11 @@ horizon(
 	float N;				/* number of pixels */
 	fpixel_t *o_buf;			/* -> output image buffer if needed */
 	fpixel_t *h_buf;
+	fpixel_t *s_buf;
+	fpixel_t *s2_buf;
+	fpixel_t *t_buf;
+	int o_nlines;			/* skew output size */
+	int o_nsamps;			/* skew output size */
 
 	N = nlines * nsamps;
 	phi = parm.azimuth;
@@ -74,17 +79,21 @@ horizon(
 		hor1d(parm, o_buf, h_buf);			// calculate horizon
 		ximg(h_buf, nlines, nsamps, hval);	// transpose back
 
-//	} else if (phi == 180) {
-//		parm.backward = TRUE;
-//
-//		o_buf = (fpixel_t *) ecalloc(N, sizeof(fpixel_t));
-//		h_buf = (fpixel_t *) ecalloc(N, sizeof(fpixel_t));
-//
-//		ximg(zbuf, nlines, nsamps, o_buf);	// transpose
-//		hor1d(parm, o_buf, h_buf);			// calculate horizon
-//		ximg(h_buf, nlines, nsamps, hval);	// transpose back
-
 	} else if (-45 <= phi && phi <= 45) {
+
+		skew(zbuf, nlines, nsamps, 1, TRUE, phi, 1, &o_nsamps, &s_buf);
+
+		o_buf = (fpixel_t *) ecalloc(nlines * o_nsamps, sizeof(fpixel_t));
+		h_buf = (fpixel_t *) ecalloc(nlines * o_nsamps, sizeof(fpixel_t));
+		t_buf = (fpixel_t *) ecalloc(nlines * o_nsamps, sizeof(fpixel_t));
+//		s2_buf = (fpixel_t *) ecalloc(nlines * o_nsamps, sizeof(fpixel_t));
+
+		ximg(s_buf, nlines, o_nsamps, o_buf);	// transpose
+		hor1d(parm, o_buf, h_buf);			// calculate horizon
+
+		ximg(h_buf, o_nsamps, nlines, t_buf);	// transpose
+		skew(t_buf, nlines, o_nsamps, nsamps, 1, TRUE, phi, 1, &s2_buf);
+
 		//		print skew, phi, image, "|", xp, "|", hf, phi, "|", xp, "|", unskew
 	} else if (-135 >= phi && phi > -180) {
 		//		print skew, phi+180, image, "|", xp, "|", hb, phi+180, "|", xp, "|", unskew

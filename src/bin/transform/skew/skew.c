@@ -15,14 +15,15 @@
  */
 
 void skew (
-		fpixel_t        *image,		/* input image file descriptor	 */
+		fpixel_t        *image,		/* input image pointer	 */
 		int				nlines,		/* number of input lines */
 		int				nsamps,		/* number of input samples */
 		int				nbands, 	/* number of bands */
 		bool_t          fwd,		/* ? forward : inverse skew	 */
 		double          angle,		/* skew angle			 */
 		int				nthreads,	/* number of threads */
-		fpixel_t        *oimage)	/* output image file descriptor	 */
+		int				*o_nsamps,	/* ouput image nsamps */
+		fpixel_t        **oimage)	/* output image pointer	 */
 {
 	int line;						/* current line #		 */
 	bool_t negflag;					/* ? angle < 0			 */
@@ -30,7 +31,7 @@ void skew (
 	int n;							/* counter */
 	double slope;					/* tan(angle)			 */
 	int max_skew;					/* maximum skew (# samples)	 */
-	int o_nsamps;					/* # samples / output line	 */
+	int o_samp;					/* # samples / output line	 */
 	int *offset;						/* read offset into image line		 */
 	int pix;						/* pixel in line */
 
@@ -62,14 +63,16 @@ void skew (
 	slope = tan(angle * (M_PI / 180.0));
 	max_skew = (nlines - 1) * slope + 0.5;
 
-	o_nsamps = nsamps;
+	o_samp = nsamps;
 	if (fwd) {
-		o_nsamps += max_skew;
+		o_samp += max_skew;
 	}
 	else {
-		o_nsamps -= max_skew;
-		assert(o_nsamps > 0);
+		o_samp -= max_skew;
+		assert(o_samp > 0);
 	}
+	*oimage = ecalloc(nlines * o_samp * nbands, sizeof(fpixel_t));
+	*o_nsamps = o_samp;
 
 
 	// offset into output line
@@ -80,7 +83,7 @@ void skew (
 	/*
 	 * process pixels
 	 */
-#pragma omp parallel shared(N, offset, nsamps, o_nsamps, nbands, oimage, image, fwd) private(n, pix, line)
+#pragma omp parallel shared(N, offset, nsamps, o_samp, nbands, oimage, image, fwd) private(n, pix, line)
 #pragma omp for
 	for (n = 0; n < N; ++n) {
 
@@ -92,12 +95,12 @@ void skew (
 
 		if (fwd) {
 
-			oimage[line * o_nsamps * nbands + offset[line] + pix] = image[line * nsamps * nbands + pix];
+			(*oimage)[line * o_samp * nbands + offset[line] + pix] = image[line * nsamps * nbands + pix];
 
 		}
 		else {
 
-			oimage[line * o_nsamps * nbands + pix] = image[line * nsamps * nbands + offset[line] + pix];
+			(*oimage)[line * o_samp * nbands + pix] = image[line * nsamps * nbands + offset[line] + pix];
 		}
 
 	}

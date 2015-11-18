@@ -252,13 +252,14 @@ extract_data(
 
 			//	printf(";Ts %f Ta %f;", T_s_0, input_rec2.T_a);
 
-			/* set air pressure from site elev */
-
-			P_a = HYSTAT(SEA_LEVEL, STD_AIRTMP, STD_LAPSE, (elevation / 1000.0),
-					GRAVITY, MOL_AIR);
-
 		}
+
 	}
+
+	/* set air pressure from site elev */
+
+	P_a = HYSTAT(SEA_LEVEL, STD_AIRTMP, STD_LAPSE, (elevation / 1000.0),
+			GRAVITY, MOL_AIR);
 
 	return rt;
 

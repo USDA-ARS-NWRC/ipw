@@ -48,6 +48,13 @@ than 0.  The units should be the same as for the elevations.
 </DD>
 </DL>
 
+<DL>
+<DT><B>-P</B> <I>nthreads</I>
+<DD>
+number of threads to use, default=1 (parallel processing)
+</DD>
+</DL>
+
 <P>The following options change the output from linearly quantized
 
 <P>cosines to a 1-bit mask in which 1's indicate <B>%name</B> angles

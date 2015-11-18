@@ -43,6 +43,7 @@ run_skew(
 	fpixel_t 		*oimage;	/* output image */
 	BIH_T         **o_bihpp;	/* -> output BIH		 */
 	int             o_nsamps;	/* # samples / output line	 */
+	int junk;
 	int             scr_fd;		/* scratch file descriptor	 */
 	char           *scr_name;	/* scratch file name		 */
 	SKEWH_T       **skewhpp;	/* -> skew header		 */
@@ -118,43 +119,71 @@ run_skew(
 	/*
 	 * calculate output line length
 	 */
-	if (angle >= 0.0) {
-		negflag = FALSE;
-		slope = tan(angle * (M_PI / 180.0));
-	}
-	else {
-		negflag = TRUE;
-		slope = tan(-angle * (M_PI / 180.0));
-	}
+//	if (angle >= 0.0) {
+//		negflag = FALSE;
+//		slope = tan(angle * (M_PI / 180.0));
+//	}
+//	else {
+//		negflag = TRUE;
+//		slope = tan(-angle * (M_PI / 180.0));
+//	}
 
 	/*
 	 ** can't find DTR function
 	 **
 	 **	slope = tan(DTR(angle));
 	 */
-	max_skew = (nlines - 1) * slope + 0.5;
+//	max_skew = (nlines - 1) * slope + 0.5;
 
-	o_nsamps = i_nsamps;
-	if (fwd) {
-		o_nsamps += max_skew;
-		//		bufsiz = o_nsamps * nbands * sizeof(fpixel_t);
-	}
-	else {
-		o_nsamps -= max_skew;
-		assert(o_nsamps > 0);
-		//		bufsiz = i_nsamps * nbands * sizeof(fpixel_t);
-	}
-	No = nlines * o_nsamps;
-	printf("%i\n",No);
+//	o_nsamps = i_nsamps;
+//	if (fwd) {
+//		o_nsamps += max_skew;
+//		//		bufsiz = o_nsamps * nbands * sizeof(fpixel_t);
+//	}
+//	else {
+//		o_nsamps -= max_skew;
+//		assert(o_nsamps > 0);
+//		//		bufsiz = i_nsamps * nbands * sizeof(fpixel_t);
+//	}
 
 	/*
-	 * create and write output BIH
+	 * create output BIH
 	 */
 	o_bihpp = bihdup(i_bihpp);
 	if (o_bihpp == NULL) {
 		error("can't create basic image header");
 	}
+	gethdrs(i_fd, hv, nbands, o_fd);
 
+	/*
+	 * Allocate input/output images
+	 */
+	image = (fpixel_t *) ecalloc(Ni * nbands, sizeof(fpixel_t));
+	if (image == NULL) {
+		error("can't allocate input buffer");
+	}
+
+	//	oimage = (fpixel_t *) ecalloc(No * nbands, sizeof(fpixel_t));
+	//	if (oimage == NULL) {
+	//		error("can't allocate output buffer");
+	//	}
+
+	/*
+	 * Read in image
+	 */
+	if (fpvread (i_fd, image, Ni) != Ni) {
+		error ("input image read error");
+	}
+
+	/*
+	 * calculate the skew
+	 */
+	skew(image, nlines, i_nsamps, nbands, fwd, angle, nthreads, &o_nsamps, &oimage);
+
+
+	/*
+	 * Write output BIH
+	 */
 	bih_nsamps(o_bihpp[0]) = o_nsamps;
 
 	if (bihwrite(o_fd, o_bihpp) == ERROR) {
@@ -170,40 +199,14 @@ run_skew(
 		}
 	}
 
-	gethdrs(i_fd, hv, nbands, o_fd);
-
 	if (boimage(o_fd) == ERROR) {
 		error("can't terminate header output");
 	}
 
 	/*
-	 * Allocate input/output images
-	 */
-	image = (fpixel_t *) ecalloc(Ni * nbands, sizeof(fpixel_t));
-	if (image == NULL) {
-		error("can't allocate input buffer");
-	}
-
-	oimage = (fpixel_t *) ecalloc(No * nbands, sizeof(fpixel_t));
-	if (oimage == NULL) {
-		error("can't allocate output buffer");
-	}
-
-	/*
-	 * Read in image
-	 */
-	if (fpvread (i_fd, image, Ni) != Ni) {
-		error ("input image read error");
-	}
-
-	/*
-	 * calculate the skew
-	 */
-	skew(image, nlines, i_nsamps, nbands, fwd, angle, nthreads, oimage);
-
-	/*
 	 * Write output file
 	 */
+	No = nlines * o_nsamps;
 	if (fpvwrite(o_fd, oimage, No) != No) {
 		error("error writing output file");
 	}
