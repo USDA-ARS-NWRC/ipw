@@ -193,7 +193,7 @@ isnobal_v2(
 
 #pragma omp parallel shared(output_rec, ibuf1, ibuf2, icbuf, pbuf, mbuf, sbuf, embuf, fdp, fdm, restart, output, first_step)\
 		private(n) \
-		copyin(tstep_info, z_u, z_T, z_g, relative_hts, max_z_s_0, max_h2o_vol)
+		copyin(tstep_info, z_u, z_T, z_g, relative_hts, max_z_s_0, max_h2o_vol, out_func)
 			{
 #pragma omp for
 				for (n = 0; n < N; n++) {

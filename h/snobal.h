@@ -276,6 +276,6 @@ extern	double	ro_pred_sum;
 		P_a, relative_hts, z_g, z_u, z_T, z_0, precip_now, m_pp, percent_snow, rho_snow, T_pp, T_rain, T_snow, \
 		h2o_sat_snow, m_precip, m_rain, m_snow, z_snow, R_n, H, L_v_E, G, G_0, M, delta_Q, delta_Q_0, R_n_bar, \
 		H_bar, L_v_E_bar, G_bar, G_0_bar, M_bar, delta_Q_bar, delta_Q_0_bar, melt, E, E_s, ro_predict, \
-		melt_sum, E_s_sum, ro_pred_sum)
+		melt_sum, E_s_sum, ro_pred_sum, out_func)
 
 #endif /* _SNOBAL_H_ */

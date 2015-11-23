@@ -39,7 +39,7 @@
 
 #define VAP_SUB (2.501 / 2.835) /* ratio vaporization to sublimatin */
 
-void
+int
 _evap_cond(void)
 {
 	double  E_s_0;          /* mass of evaporation to air (kg/m^2) */
@@ -62,7 +62,7 @@ _evap_cond(void)
 	 */
 	if (!snowcover) {
 		E_s = 0.0;
-		return;
+		return TRUE;
 	}
 //	printf("-ev Tsl %f Ts0 %f Tg %f-", T_s_l, T_s_0, T_g);
 	/*
@@ -89,10 +89,14 @@ _evap_cond(void)
 	else {
 		if (layer_count == 2) {
 			e_s_l = sati(T_s_l);
+			if (e_s_l == FALSE)
+				return FALSE;
 			T_bar = (T_g + T_s_l) / 2.0;
 		}
 		else {  /* layer_count == 1 */
 			e_s_l = sati(T_s_0);
+			if (e_s_l == FALSE)
+				return FALSE;
 			T_bar = (T_g + T_s_0) / 2.0;
 		}
 
@@ -123,4 +127,6 @@ _evap_cond(void)
 	if (layer_count > 0)
 		_adj_snow( ((E_s + (prev_h2o_tot - h2o_total)) / rho) / 2.0,
 				E_s);
+
+	return TRUE;
 }

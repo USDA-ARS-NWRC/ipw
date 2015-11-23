@@ -1,0 +1,43 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+#include "ipw.h"
+#include "envphys.h"
+
+double
+sati(
+        double  tk)             /* air temperature (K)  */
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+%name returns the saturation vapor pressure over ice (in Pa)
+as a function of air temperature. Will return FALSE if an error
+so that the pixel can be determined.
+
+<H2>RETURN VALUE</H2>
+
+<P>
+saturation vapor pressure (Pa).
+
+<H2>HISTORY</H2>
+
+<DL>
+
+<DT>Jul 1982</DT>
+<DD>
+ written by J. Dozier, Department of Geography, UCSB
+</DD>
+
+<DT>Nov 2015</DT>
+<DD>
+ Modified to output useful error. Scott Havens, USDA-ARS
+</DD>
+
+</DL>
+

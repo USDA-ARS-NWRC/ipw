@@ -389,6 +389,7 @@ extern double   wetbulb(double ta, double dpt, double press);
 extern double   ri_no(double z2, double z1, double t2, double t1,
 		      double u2, double u1);
 extern double	sati(double tk);
+extern double	sati_mod(double tk);
 extern double	satw(double tk);
 extern double	ssxfr(double  k1, double  k2, double  t1, double  t2,
 		      double  d1, double  d2);

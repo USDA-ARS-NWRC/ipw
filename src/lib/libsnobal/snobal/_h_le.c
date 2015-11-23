@@ -33,13 +33,17 @@ _h_le(void)
 			     height) above snow surface */
 
 	/* calculate saturation vapor pressure */
-//	printf("-Ts0 %f Ta %f-", T_s_0, T_a);
+	//	printf("-Ts0 %f Ta %f-", T_s_0, T_a);
 	e_s = sati(T_s_0);
+	if (e_s == FALSE)
+		return FALSE;
 
 
 	/*** error check for bad vapor pressures ***/
 
 	sat_vp = sati(T_a);
+	if (sat_vp == FALSE)
+		return FALSE;
 	if (e_a > sat_vp) {
 		e_a = sat_vp;
 	}

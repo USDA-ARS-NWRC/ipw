@@ -1,4 +1,4 @@
-.TH "isnobal_v2" "1" "5 November 2015" "IPW v2" "IPW User Commands"
+.TH "isnobal_v2" "1" "23 November 2015" "IPW v2" "IPW User Commands"
 .SH NAME
 .PP
 \fBisnobal_v2\fP - energy-balance snowmelt model with 2 snow layers - optimized
@@ -10,7 +10,8 @@
       [ \fB-r\fP \fIrestart-index \fP ] [ \fB-n\fP \fI#steps \fP ]
       [ \fB-I\fP \fIinit-image \fP ] [ \fB-i\fP \fIinput-prefix \fP ] [ \fB-p\fP \fIprfile \fP ]
       [ \fB-m\fP \fImask \fP ] [ \fB-O\fP \fIoutput-frequency \fP ] [ \fB-d\fP \fImax-active \fP ]
-      [ \fB-e\fP \fIem_prefix \fP ] [ \fB-s\fP \fIsnow_prefix \fP ] [ \fB-U\fP ] [ \fB-K\fP ]
+      [ \fB-e\fP \fIem_prefix \fP ] [ \fB-s\fP \fIsnow_prefix \fP ] [ \fB-P\fP \fInthreads \fP]
+      [ \fB-h\fP ] [ \fB-U\fP ] [ \fB-K\fP ]
       [ \fB-M\fP \fImax-h2o \fP ] [ \fB-C\fP [\fIcompress_cmd\fP] ]
       [ \fB-T\fP \fInorm-threshold\fP[,\fImed-threshold\fP[,\fIsm-threshold\fP]]\fI \fP ]
 .ft R
@@ -420,6 +421,16 @@ current time-step.  N is padded with zeroes like the
 suffixes for the input images (see \fB-i option).
 .sp
 .TP
+\fB-P\fP \fInthreads \fP
+number of threads to use, Default = 1 (parallel processing)
+.sp
+.TP
+\fB-h\fP
+If set, relative heights will be FALSE and measurement heights will
+be relative to the ground.  Defaults to TRUE and measurement
+heights will be relative to the snow surface.
+.sp
+.TP
 \fB-U\fP
 The units field of each input images LQ headers are
 checked to make sure the proper units are being used.
@@ -513,7 +524,10 @@ Isnobal now checks to make sure prefixes for both types of output
 images are different (\fB-e and \fB-s options).  J. Domingo, OSU
 .TP
 July 2015
-Created option to change surface layer thickness (\fB-d option).  Scott Havens, ARS
+Created option to change surface layer thickness (\fB-d\fP option).  Scott Havens, ARS
+.TP
+November 2015
+iSnobal multi processor (\fB-P\fP option) and can change relative heights of measurements (\fB-h\fP option) Scott Havens, ARS
 .SH BUGS
 .PP
 None.

@@ -22,7 +22,7 @@
 #include        "_snobal.h"
 #include        "snow.h"
 
-void
+int
 _mass_bal(void)
 {
 	/***    adjust mass and calc. runoff    ***/
@@ -39,7 +39,9 @@ _mass_bal(void)
 
 	/*      calculate evaporation and adjust snowpack       */
 
-	_evap_cond();
+	if(! _evap_cond())
+		return FALSE;
+
 
 	/*	compact snow due to H2O generated (melt & rain) */
 	_h2o_compact();

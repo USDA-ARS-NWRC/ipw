@@ -87,6 +87,12 @@ main (
 			REQUIRED, 1, 1
 	};
 
+	static OPTION_T opt_h = {
+			'h', "relative measurement heights",
+			STR_OPTARGS, "relative_heights",
+			REQUIRED, 1, 1
+	};
+
 	static OPTION_T opt_U = {
 			'U', "check units in input images"
 	};
@@ -121,6 +127,7 @@ main (
 			&opt_O,
 			&opt_e,
 			&opt_s,
+			&opt_h,
 			&opt_U,
 			&opt_M,
 			&opt_C,
@@ -151,7 +158,7 @@ main (
 	z_u	     = DEFAULT_Z_U;
 	/*	z_T          = 5.0;	*/
 	z_T	     = DEFAULT_Z_T;
-	relative_hts = TRUE;
+	//	relative_hts = TRUE;
 	z_g          = DEFAULT_Z_G;
 
 	/* begin */
@@ -163,7 +170,6 @@ main (
 	/*      get input data's time step  */
 
 	/*      check option for maximum active-surface depth */
-
 	if (got_opt(opt_d)) {
 		max_z_s_0 = real_arg(opt_d, 0);
 		check_range (max_z_s_0, .001, 0.5,
@@ -171,6 +177,14 @@ main (
 	}
 	else {
 		max_z_s_0 = DEFAULT_MAX_Z_S_0;
+	}
+
+	/* Check relative heights */
+	if (got_opt(opt_h)) {
+		relative_hts = FALSE;
+	}
+	else {
+		relative_hts = TRUE;
 	}
 
 	/* check number of threads to use */
