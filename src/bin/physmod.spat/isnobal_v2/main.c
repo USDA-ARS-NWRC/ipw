@@ -90,7 +90,7 @@ main (
 	static OPTION_T opt_h = {
 			'h', "relative measurement heights",
 			STR_OPTARGS, "relative_heights",
-			REQUIRED, 1, 1
+			OPTIONAL, 1, 1
 	};
 
 	static OPTION_T opt_U = {
