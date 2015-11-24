@@ -1,4 +1,5 @@
 #include <omp.h>
+#include <stdio.h>
 #include "ipw.h"
 #include "pgm.h"
 #include "snobal.h"
@@ -142,6 +143,8 @@ main (
 					    layer's mass */
 	int nthreads;
 
+	// force flush of stdout
+	setbuf(stdout, NULL);
 
 	/* Some initialization first */
 
