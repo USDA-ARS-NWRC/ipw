@@ -84,7 +84,7 @@ isnobal_v2(
 
 	/* set threads */
 	if (nthreads != 1) {
-		omp_set_dynamic(0);     		// Explicitly disable dynamic teams
+//		omp_set_dynamic(0);     		// Explicitly disable dynamic teams
 		omp_set_num_threads(nthreads); 	// Use N threads for all consecutive parallel regions
 	}
 
@@ -195,7 +195,7 @@ isnobal_v2(
 		private(n) \
 		copyin(tstep_info, z_u, z_T, z_g, relative_hts, max_z_s_0, max_h2o_vol, out_func)
 			{
-#pragma omp for
+#pragma omp for schedule(dynamic, 100)
 				for (n = 0; n < N; n++) {
 
 					/* initialize some global variables for
