@@ -1,7 +1,7 @@
 PGM := skew
 DESCRIPTION := skew the lines of an IPW image
 
-SRCS := main.c run_skew.c skew.c
+SRCS := main.c skew.c
 
 include $(IPW)/make/command
 

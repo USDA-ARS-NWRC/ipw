@@ -1,0 +1,134 @@
+.TH "skew" "1" "9 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBskew\fP - skew the lines of an IPW image
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBskew\fP [ \fB-a\fP \fIangle\fP ] [ \fB-h\fP ] [\fIimage\fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBskew\fP copies \fIimage\fP (default: standard input) to the standard
+output, skewing the origin of successive lines by a specified
+angle.
+.SH OPTIONS
+.TP
+\fB-a\fP \fIangle\fP
+Introduce horizontal \fBskew\fP such the the left edge of the output
+image is tilted "angle" degrees clockwise from vertical.  The
+resulting "dead space" in the output image is 0-filled.  A
+\fBskew\fP header is written to the output image.
+.PP
+If \fB-a is not specified, then the \fBskew\fP indicated by the input \fBskew\fP
+.PP
+header is removed.
+.TP
+\fB-h\fP
+ignore input \fBskew\fP header.  This allows an image to be skewed
+more than once, e.g. during rotation by shearing.
+.sp
+.TP
+\fB-h\fP
+may not be specified unless \fB-a is also specified.
+.TP
+\fB-P\fP \fInthreads\fP
+number of threads to use, default=1 (parallel processing)
+.SH OPERANDS
+.TP
+[\fIimage\fP]
+	image
+.sp
+.SH EXAMPLES
+.PP
+The command:
+.sp
+.nf
+.ft CR
+	skew -a 30
+.ft R
+.fi
+
+.PP
+causes the following transformation:
+.sp
+.nf
+.ft CR
+	+-----------+		+---------------+
+	|           |		|000/          /|
+	|   input   |		|00/  output  /0|
+	|   image   |		|0/   image  /00|
+	|           |		|/          /000|
+	+-----------+		+---------------+
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     $TMPDIR/skew\fINNNNN\fP
+     	Temporary copy of all input headers.
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+image is already skewed
+.br
+	\fB-a was specified, and the input image contains a "\fBskew\fP"
+	header.
+.sp
+.TP
+image is not skewed
+.br
+	\fB-a was not specified, and the input image does not contain
+	a "\fBskew\fP" header.
+.sp
+.TP
+band \fIband\fP has no skew header
+different skew angles: bands 0, \fIband\fP
+.br
+	If \fB-a is not specified, then all input bands must have a
+	"\fBskew\fP" header, and they must be the same.
+.SH RESTRICTIONS
+.PP
+The \fBskew\fP angle given by \fB-a must be between -45 and 45 degrees.
+.PP
+If \fB-a is specified then the input image must NOT have a \fBskew\fP header,
+unless \fB-h is also specified, and a "\fBskew\fP" header is written to the
+output image.
+.PP
+If \fB-a is NOT specified then the input image must contain a "\fBskew\fP"
+header with the same \fBskew\fP angle for all bands.  The \fBskew\fP indicated
+by this header is removed from the output image, and no "\fBskew\fP"
+header is written to the output image.
+.SH HISTORY
+.TP
+Jul 1990
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+.TP
+Apr 1993
+	Converted to ANSI C, ran through Purify.
+Dana Jacobsen, ERL-C.
+.TP
+Nov 2015
+	Read in full image before transpose, parallel, allow skew.c to be called as a stand alone function. Scott Havens. USDA-ARS.
+.SH BUGS
+.PP
+None that we know of
+.SH SEE ALSO
+.TP
+IPW
+	\fBflip\fP,
+\fBgviewf\fP,
+\fBhorizon\fP,
+\fBrotate\fP,
+\fBtranspose\fP,
+\fBviewf\fP
+.PP
+Frew, J., 1990.  The Image Processing Workbench.  Ph.D. Thesis,
+	Department of Geography, University of California, Santa
+	Barbara, CA, 382pp.

@@ -48,13 +48,6 @@ may not be specified unless <B>-a</b> is also specified.
 </DD>
 </DL>
 
-<DL>
-<DT><B>-P</B> <I>nthreads</I>
-<DD>
-number of threads to use, default=1 (parallel processing)
-</DD>
-</DL>
-
 <H2>OPERANDS</H2>
 
 <DL>
@@ -145,13 +138,6 @@ Base IPW routine (Frew, 1990)
 <DD>
 	Converted to ANSI C, ran through Purify.
 Dana Jacobsen, ERL-C.
-</DD>
-</DL>
-
-<DL>
-<DT>Nov 2015</DT>
-<DD>
-	Read in full image before transpose, parallel, allow skew.c to be called as a stand alone function. Scott Havens. USDA-ARS. 
 </DD>
 </DL>
 

@@ -1,0 +1,3 @@
+%define(name,"horizon")
+%define(description,"find angles to local horizon along rows of elevation file")
+%define(category,"Topographic Calculations")

@@ -1,7 +1,7 @@
 /*
- **	Calculate whether tan(angle to horizon) is >= thresh.
- **	If it is, sun is hidden and mask is zero, otherwise mask is non-zero
- */
+**	Calculate whether tan(angle to horizon) is >= thresh.
+**	If it is, sun is hidden and mask is zero, otherwise mask is non-zero
+*/
 
 #include <math.h>
 #include "ipw.h"
@@ -10,12 +10,12 @@
 
 void
 hormask(
-		int             n,		/* length of horizon vector	 */
-		fpixel_t       *z,		/* elevations			 */
-		fpixel_t        delta,		/* spacing			 */
-		int            *h,		/* horizon function		 */
-		fpixel_t        thresh,		/* threshold			 */
-		fpixel_t        *hmask)		/* output mask			 */
+	int             n,		/* length of horizon vector	 */
+	fpixel_t       *z,		/* elevations			 */
+	fpixel_t        delta,		/* spacing			 */
+	int            *h,		/* horizon function		 */
+	fpixel_t        thresh,		/* threshold			 */
+	pixel_t        *hmask)		/* output mask			 */
 {
 	int             d;		/* difference in indices	 */
 	int             i;		/* index of point		 */
@@ -24,16 +24,16 @@ hormask(
 
 	for (i = 0; i < n; ++i) {
 
-		/* # grid points to horizon */
+ /* # grid points to horizon */
 		j = h[i];
 		d = j - i;
 
-		/* point is its own horizon */
+ /* point is its own horizon */
 		if (d == 0) {
 			*hmask++ = 1;
 		}
 
-		/* else need to compare with threshold */
+ /* else need to compare with threshold */
 		else {
 			if (d < 0)
 				d = -d;

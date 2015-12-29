@@ -1,4 +1,4 @@
-.TH "skew" "1" "9 November 2015" "IPW v2" "IPW User Commands"
+.TH "skew" "1" "10 April 1998" "IPW v2" "IPW User Commands"
 .SH NAME
 .PP
 \fBskew\fP - skew the lines of an IPW image
@@ -33,9 +33,6 @@ more than once, e.g. during rotation by shearing.
 .TP
 \fB-h\fP
 may not be specified unless \fB-a is also specified.
-.TP
-\fB-P\fP \fInthreads\fP
-number of threads to use, default=1 (parallel processing)
 .SH OPERANDS
 .TP
 [\fIimage\fP]
@@ -113,9 +110,6 @@ Base IPW routine (Frew, 1990)
 Apr 1993
 	Converted to ANSI C, ran through Purify.
 Dana Jacobsen, ERL-C.
-.TP
-Nov 2015
-	Read in full image before transpose, parallel, allow skew.c to be called as a stand alone function. Scott Havens. USDA-ARS.
 .SH BUGS
 .PP
 None that we know of

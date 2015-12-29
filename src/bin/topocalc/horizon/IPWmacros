@@ -1,3 +1,4 @@
 %define(name,"horizon")
-%define(description,"find angles to local horizon along rows of elevation file")
+%define(description,"horizon in one direction")
 %define(category,"Topographic Calculations")
+%define(auxDir,"/Users/scott/ipw/aux/horizon")

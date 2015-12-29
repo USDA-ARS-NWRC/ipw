@@ -1,0 +1,253 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> <B>-a</B> <I>azimuth</I> [ <B>-d</B> <I>delta</I> ] [ <B>-z</B> <I>zen</I> ] [ <B>-u</B> <I>cos</I> ]
+      [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+Horizon is part of a suite of radiation, solar, and topographic 
+geometry tools that are part of the IPW system
+</P><P>
+Horizon computes the local <B>%name</B> angles toward the direction
+azimuth, where azimuth=0 is toward the south and positive
+angles are counter-clockwise.
+</P><P>
+<B>%name</B> reads elevations from <I>image</I> (default: standard input)
+and writes to the standard output an image whose pixels encode
+the local <B>%name</B> angles in the direction <I>azimuth</I> degrees
+(ranging from -180 to 180) from south (positive east).  The
+value of each output pixel is the cosine of the angle from the
+zenith to the pixel's <B>%name</B> in the forward (increasing sample
+coordinates) direction.  (Note than this value is also the sine
+of the angle from true horizontal to the pixel's <B>%name</B>.)
+</P>
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-a</B> <I>azimuth</I>
+<DD>
+The direction of forward azimuth (i.e. increasing samples
+along a line) is <I>azimuth</I> degrees east of south (-180..180).
+</DD>
+
+<P>
+<DT><B>-d</B> <I>delta</I>
+<DD>
+grid spacing (default: get grid spacing from the &quot;geo&quot;
+header or set to 1 if no &quot;geo&quot; header).  Must be greater
+than 0.  The units should be the same as for the elevations.
+</DD>
+</DL>
+
+<DL>
+<DT><B>-P</B> <I>nthreads</I>
+<DD>
+number of threads to use, default=1 (parallel processing)
+</DD>
+</DL>
+
+<P>The following options change the output from linearly quantized
+
+<P>cosines to a 1-bit mask in which 1's indicate <B>%name</B> angles
+
+<P>greater than a specified threshold.  They are typically used to
+
+<P>specify a solar zenith angle, the output being a mask of pixels
+
+<P>where the sun is visible.
+</P>
+
+<DL>
+<DT><B>-z</B> <I>zen</I>
+<DD>
+mask <B>%name</B> angles with greater than <I>zen</I> degrees (0..90).
+</DD>
+
+<P>
+<DT><B>-u</B> <I>cos</I>
+<DD>
+mask <B>%name</B> angles with cosines greater than <I>cos</I>.
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	elevation image (stdin)
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To compute northwest horizons:
+</P><PRE>
+	horizon -a -135
+</PRE><P>
+To produce a mask of all northwest <B>%name</B> angles greater than
+45 degrees:
+</P><PRE>
+	horizon -a -135 -z 45
+</PRE><P>
+(i.e., any pixels that would be shadowed by adjacent terrain at
+this solar zenith and azimuth would be masked as 0.)
+</P>
+<H2>FILES</H2>
+
+<PRE>
+     $TMPDIR/horizon<I>NNNNN</I>
+     	temporary command file, removed when horizon exits
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>spacing in geodetic header ignored
+</DT>
+<DD><BR>	The <B>-d</b> option overrides any pixel spacing information
+	in the input image.
+</DD>
+
+<P>
+<DT>both <B>-u</b> and <B>-z</b> specified, <B>-z</b> over-ridden
+</DT>
+<DD><BR>	If both <B>-u</b> and <B>-z</b> are specified then <B>-z</b> is ignored.
+</DD>
+
+<P>
+<DT>input file has <I>nbands</I> bands
+</DT>
+<DD><BR>	The input image must have only 1 band.
+</DD>
+
+<P>
+<DT>only 1 line in input image
+only 1 samp in input image
+</DT>
+<DD><BR>	The input image must have at least 2 lines and 2 samples.
+</DD>
+
+<P>
+<DT>input file has no LQH, raw values used
+no geodetic header, spacing set to 1.0
+</DT>
+<DD><BR>	These deficiencies in the input image will introduce
+	linear errors into the <B>%name</B> calculations.
+</DD>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+<B>%name</B> is a shell script than skews and/or transposes the input
+image to orient its scan lines in the direction <I>azimuth</I>, then
+calls hor1d to perform the actual <B>%name</B> calculations.
+</P>
+<H2>HISTORY</H2>
+
+<DL>
+<DT>Jul 1990</DT>
+<DD>
+Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+<H2>SEE ALSO</H2>
+
+
+<DL>
+<DT>IPW</DT>
+<DD>
+<B>General:</B>
+<BR>
+<B><A href="skew.html">skew</A></B>,
+<B><A href="transpose.html">transpose</A></B>
+<BR>
+<BR>
+<B>Watershed Scale Modeling:</B>
+<BR>
+<B>solar geometry:</B>
+<B><A href="solar.html">solar</A></B>,
+<B><A href="sunang.html">sunang</A></B>,
+<B><A href="sunlight.html">sunlight</A></B>,
+<B><A href="sunweights.html">sunweights</A></B>
+<BR>
+<B>terrain processing:</B>
+<B><A href="gradient.html">gradient</A></B>,
+<B><A href="hor1d.html">hor1d</A></B>,
+<B><A href="shade.html">shade</A></B>,
+<B><A href="viewcalc.html">viewcalc</A></B>,
+<B><A href="viewf.html">viewf</A></B>
+<BR>
+<B>solar radiation:</B>
+<B><A href="elevrad.html">elevrad</A></B>,
+<B><A href="toporad.html">toporad</A></B>,
+<B><A href="toporad.24.html">toporad.24</A></B>,
+<B><A href="topquad.html">topquad</A></B>,
+<B><A href="twostream.html">twostream</A></B>
+<BR>
+<B>thermal radiation:</B>
+<B><A href="tcloud.html">tcloud</A></B>,
+<B><A href="thermin.html">thermin</A></B>,
+<B><A href="topotherm.html">topotherm</A></B>,
+<B><A href="trad.html">trad</A></B>,
+<B><A href="vptr.html">vptr</A></B>
+<BR>
+<B>radiation over snow:</B>
+<B><A href="albedo.html">albedo</A></B>,
+<B><A href="glob.alb.html">glob.alb</A></B>,
+<B><A href="salbedo.html">salbedo</A></B>,
+<B><A href="selevrad.html">selevrad</A></B>,
+<B><A href="stoporad.html">stoporad</A></B>
+<BR>
+<BR>
+<B>Global Scale Modeling:</B>
+<BR>
+<B>solar geometry:</B>
+<B><A href="gsunlight.html">gsunlight</A></B>
+<BR>
+<B>terrain processing:</B>
+<B><A href="ggradient.html">ggradient</A></B>,
+<B><A href="ghorizon.html">ghorizon</A></B>,
+<B><A href="gshade.html">gshade</A></B>,
+<B><A href="gviewf.html">gviewf</A></B>,
+<B><A href="gviewf-mp.html">gviewf-mp</A></B>
+<BR>
+<B>solar radiation:</B>
+<B><A href="gelevrad.html">gelevrad</A></B>,
+<B><A href="gtoporad.html">gtoporad</A></B>,
+<B><A href="gtoporad.24.html">gtoporad.24</A></B>,
+<B><A href="gtopquad.html">gtopquad</A></B>
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Marks 1979">Marks 1979</A>,
+<A HREF="../bib.html#Dozier 1980">Dozier 1980</A>,
+<A HREF="../bib.html#Dozier Bruno 1981">Dozier Bruno 1981</A>,
+<A HREF="../bib.html#Dozier 1990">Dozier 1990</A>,
+<A HREF="../bib.html#Dubayah 1990">Dubayah 1990</A>,
+<A HREF="../bib.html#Frew 1990">Frew 1990</A>,
+<A HREF="../bib.html#Marks 1991">Marks 1991</A>
+</P>
+

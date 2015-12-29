@@ -1,0 +1,79 @@
+.TH "transpose" "1" "6 November 2015" "IPW v2" "IPW User Commands"
+.SH NAME
+.PP
+\fBtranspose\fP - transpose the lines and samples of an IPW image
+.SH SYNOPSIS
+.sp
+.nf
+.ft CR
+\fBtranspose\fP [\fI image \fP]
+.ft R
+.fi
+.SH DESCRIPTION
+.PP
+\fBtranspose\fP reads \fIimage\fP (default: standard input) and writes its
+\fBtranspose\fP to the standard output.
+.SH OPTIONS
+.PP
+None
+.SH OPERANDS
+.TP
+[\fI image \fP]
+	image
+.sp
+.SH EXAMPLES
+.PP
+To rotate an image 90 degrees clockwise:
+.sp
+.nf
+.ft CR
+	flip -s image | transpose
+.ft R
+.fi
+.SH FILES
+.sp
+.nf
+.ft CR
+     None
+.ft R
+.fi
+.SH DIAGNOSTICS
+.sp
+.TP
+output image won't fit in memory
+.br
+	The entire image must fit into virtual memory.
+.SH RESTRICTIONS
+.PP
+The entire image must fit into (virtual) memory.
+.PP
+If the output image does not have the canonical IPW line (top to
+bottom) and sample (left to right) order, then it will be given
+an orientation ("or") header describing the non-standard ordering.
+.PP
+Geodetic ("geo") headers, window ("win") headers, and orientation
+("or") headers will be modified if they are present.
+.SH HISTORY
+.TP
+Jul 1990
+	Written by James Frew, UCSB.
+Base IPW routine (Frew, 1990)
+.TP
+Apr 1993
+	Ran through Purify.  Dana Jacobsen, ERL-C.
+.TP
+Nov 2015
+	Read in full image before transpose, allow ximg.c (transpose) to be called as a stand alone function. Scott Havens. USDA-ARS.
+.SH BUGS
+.PP
+None that we know of
+.SH SEE ALSO
+.TP
+IPW
+	\fBflip\fP,
+\fBskew\fP,
+\fBrotate\fP
+.PP
+Frew, J., 1990.  The Image Processing Workbench.  Ph.D. Thesis,
+	Department of Geography, University of California, Santa
+	Barbara, CA, 382pp.

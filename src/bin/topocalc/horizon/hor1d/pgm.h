@@ -28,11 +28,11 @@ extern double   zenf (double zend);
 extern int	hor1b (int n, fpixel_t *z, int *h);
 extern int	hor1f (int n, fpixel_t *z, int *h);
 extern void	hormask (int n, fpixel_t *z, fpixel_t delta, int *h,
-			 fpixel_t thresh, fpixel_t *hmask);
+			 fpixel_t thresh, pixel_t *hmask);
 extern void	horval (int n, fpixel_t *z, fpixel_t delta, int *h,
 			fpixel_t *hcos);
 extern void     headers (void);
-extern fpixel_t *hor1d (PARM_T parm, fpixel_t *zbuf);
+extern void     horizon (void);
 extern LQH_T  **newlqh (int fdo);
 
 #define NBANDS	1
