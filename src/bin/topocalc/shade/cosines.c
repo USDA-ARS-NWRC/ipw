@@ -9,8 +9,8 @@
 
 void
 cosines(
-	int             fdi,		/* input file desc	 */
-	int             fdo)		/* output file desc	 */
+		int             fdi,		/* input file desc	 */
+		int             fdo)		/* output file desc	 */
 {
 	REG_1 pixel_t  *sp;		/* -> slope index	 */
 	REG_2 int       j;		/* loop counter		 */
@@ -18,30 +18,30 @@ cosines(
 	int             ngot;		/* # pixels read	 */
 	int             nwrite;		/* # pixels to write	 */
 
- /* default values */
+	/* default values */
 	nwrite = nget;
 
- /*
-  * read pixels until done
-  */
+	/*
+	 * read pixels until done
+	 */
 
 	while ((ngot = pvread(fdi, ibuf, nget)) > 0) {
 		if (ngot < nget) {
 			nwrite = ngot;
 		}
 
- /* -> input */
+		/* -> input */
 		sp = ibuf;
 
- /* -> output */
+		/* -> output */
 		b = obuf;
 
 		for (j = nwrite; --j >= 0;) {
 
- /*
-  * fetch value from look-up table first band is slope, second azimuth
-  * (afterward sp -> slope of next sample)
-  */
+			/*
+			 * fetch value from look-up table first band is slope, second azimuth
+			 * (afterward sp -> slope of next sample)
+			 */
 
 			*b++ = shade[*sp][sp[1]];
 			sp += 2;

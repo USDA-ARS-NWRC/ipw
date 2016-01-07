@@ -8,11 +8,11 @@
 
 void
 trigtbl(
-	int             fdi,		/* input file descriptor	 */
-	double          phi,		/* solar illumination aziumth	 */
-	fpixel_t       *sintbl,		/* all possible values of sinS	 */
-	float          *costbl,		/* all possible values of cosS	 */
-	float          *cosdtbl)	/* all values of cos(phi-A)	 */
+		int             fdi,		/* input file descriptor	 */
+		double          phi,		/* solar illumination aziumth	 */
+		fpixel_t       *sintbl,		/* all possible values of sinS	 */
+		float          *costbl,		/* all possible values of cosS	 */
+		float          *cosdtbl)	/* all values of cos(phi-A)	 */
 {
 	FREG_1 double   x;		/* sinS or phi			 */
 	REG_1 unsigned  j;		/* loop counter and B.F.	 */
@@ -25,9 +25,9 @@ trigtbl(
 	map = fpmap(fdi);
 	maplen = fpmaplen(fdi);
 
- /*
-  * sines and cosines of each possible slope
-  */
+	/*
+	 * sines and cosines of each possible slope
+	 */
 
 	j = maplen[0] - 1;
 	fp2 = &costbl[j];
@@ -38,9 +38,9 @@ trigtbl(
 		*fp2-- = sqrt((1 - x) * (1 + x));
 	} while (j != 0);
 
- /*
-  * cosine differences for each possible azimuth
-  */
+	/*
+	 * cosine differences for each possible azimuth
+	 */
 
 	j = maplen[1] - 1;
 	fp1 = &cosdtbl[j];
