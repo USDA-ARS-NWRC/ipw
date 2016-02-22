@@ -1,77 +1,77 @@
 /*
-** NAME
-**      do_data_tstep -- run model for 1 data timestep between 2 input records
-**
-** SYNOPSIS
-**	#include "snobal.h"
-**
-**	int
-**	do_data_tstep(void)
-**
-** DESCRIPTION
-**	This routine performs the model's calculations for 1 data timestep
-**	between 2 input-data records which are in 'input_rec1' and 
-**	'input_rec2'.
-**
-**	If there's precipitation during the data timestep, the flag
-**	'precip_now' used be TRUE.  Furthermore, the routine requires
-**	that the following precipitation variables have been initialized:
-**
-**		m_pp
-**		percent_snow
-**		rho_snow
-**		T_pp
-**
-**	This routine divides the data timestep into the appropriate number
-**	of normal run timesteps.  The input values for each normal timestep
-**	are computed from the two input records by linear interpolation.
-**
-**	If output is desired for any of the run timesteps (normal, medium,
-**	or small), the appropriate output flags must be set in the proper
-**	timestep's record (i.e., the array 'tstep_info').  If any output
-**	flag is set, the routine requires that the global variable 'out_func'
-**	point to appropriate output function.
-**
-**	This routine may return in the middle of a data timestep if:
-**
-**		a)  the output function pointed to by 'out_func' is called, and
-**		b)  the flag 'run_no_snow' is FALSE, and
-**		c)  there is no snow remaining on the ground at the end of
-**		    timestep
-**
-**	In this happens, the flag 'stop_no_snow' is set to TRUE.
-**
-** RETURN VALUE
-**
-**	TRUE	The model's calculations were completed.
-**
-**	FALSE	An error occured, and a message explaining the error has
-**		been stored with the 'usrerr' routine.
-**
-** GLOBAL VARIABLES READ 
-**	e_a
-**	I_lw
-**	in_rec
-**	layer_count
-**	m_pp_data
-**	m_rain_data
-**	m_snow_data
-**	more_pr_recs
-**	precip_data
-**	ro
-**	ro_data
-**	run_no_snow
-**	S_n
-**	T_a
-**	T_g
-**	tstep_info
-**	u
-**	z_snow_data
-**
-** GLOBAL VARIABLES MODIFIED
-**	precip_now
-**	stop_no_snow
-*/
+ ** NAME
+   do_data_tstep -- run model for 1 data timestep between 2 input records
+ **
+ ** SYNOPSIS
+ **	#include "snobal.h"
+ **
+ **	int
+ **	do_data_tstep(void)
+ **
+ ** DESCRIPTION
+ **	This routine performs the model's calculations for 1 data timestep
+ **	between 2 input-data records which are in 'input_rec1' and
+ **	'input_rec2'.
+ **
+ **	If there's precipitation during the data timestep, the flag
+ **	'precip_now' used be TRUE.  Furthermore, the routine requires
+ **	that the following precipitation variables have been initialized:
+ **
+ **		m_pp
+ **		percent_snow
+ **		rho_snow
+ **		T_pp
+ **
+ **	This routine divides the data timestep into the appropriate number
+ **	of normal run timesteps.  The input values for each normal timestep
+ **	are computed from the two input records by linear interpolation.
+ **
+ **	If output is desired for any of the run timesteps (normal, medium,
+ **	or small), the appropriate output flags must be set in the proper
+ **	timestep's record (i.e., the array 'tstep_info').  If any output
+ **	flag is set, the routine requires that the global variable 'out_func'
+ **	point to appropriate output function.
+ **
+ **	This routine may return in the middle of a data timestep if:
+ **
+ **		a)  the output function pointed to by 'out_func' is called, and
+ **		b)  the flag 'run_no_snow' is FALSE, and
+ **		c)  there is no snow remaining on the ground at the end of
+ **		    timestep
+ **
+ **	In this happens, the flag 'stop_no_snow' is set to TRUE.
+ **
+ ** RETURN VALUE
+ **
+ **	TRUE	The model's calculations were completed.
+ **
+ **	FALSE	An error occured, and a message explaining the error has
+ **		been stored with the 'usrerr' routine.
+ **
+ ** GLOBAL VARIABLES READ
+ **	e_a
+ **	I_lw
+ **	in_rec
+ **	layer_count
+ **	m_pp_data
+ **	m_rain_data
+ **	m_snow_data
+ **	more_pr_recs
+ **	precip_data
+ **	ro
+ **	ro_data
+ **	run_no_snow
+ **	S_n
+ **	T_a
+ **	T_g
+ **	tstep_info
+ **	u
+ **	z_snow_data
+ **
+ ** GLOBAL VARIABLES MODIFIED
+ **	precip_now
+ **	stop_no_snow
+ */
 
 #include <omp.h>
 #include	"ipw.h"
@@ -81,16 +81,16 @@
 int
 do_data_tstep(void)
 {
-//	static PRECIP_REC *pp_info    = precip_info;
-					/* precip info for data timestep */
-//	static TSTEP_REC  *data_tstep = tstep_info;
-					/* timestep info for data timestep */
+	//	static PRECIP_REC *pp_info    = precip_info;
+	/* precip info for data timestep */
+	//	static TSTEP_REC  *data_tstep = tstep_info;
+	/* timestep info for data timestep */
 	static PRECIP_REC *pp_info;
-	#pragma omp threadprivate(pp_info)
+#pragma omp threadprivate(pp_info)
 	pp_info = precip_info;
 
 	static TSTEP_REC *data_tstep;
-	#pragma omp threadprivate(data_tstep)
+#pragma omp threadprivate(data_tstep)
 	data_tstep = tstep_info;
 
 	int	level;			/* loop index */
@@ -175,7 +175,7 @@ do_data_tstep(void)
 	 */
 	for (level = NORMAL_TSTEP; level <= SMALL_TSTEP; level++)
 		computed[level] = FALSE;
-	
+
 	/*
 	 *  Divide the data timestep into normal run timesteps.
 	 */

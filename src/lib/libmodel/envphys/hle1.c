@@ -26,8 +26,8 @@
 
 static double
 psi(
-	double	zeta,		/* z/lo				*/
-	int	code)		/* which psi function? (see above) */
+		double	zeta,		/* z/lo				*/
+		int	code)		/* which psi function? (see above) */
 {
 	double	x;		/* height function variable	*/
 	double	result;
@@ -45,7 +45,7 @@ psi(
 		switch (code) {
 		case SM:
 			result = 2 * log((1+x)/2) + log((1+x*x)/2) -
-				2 * atan(x) + M_PI_2;
+			2 * atan(x) + M_PI_2;
 			break;
 
 		case SH:
@@ -69,22 +69,22 @@ psi(
 
 int
 hle1(
-	double	press,	/* air pressure (Pa)			*/
-	double	ta,	/* air temperature (K) at height za	*/
-	double	ts,	/* surface temperature (K)		*/
-	double	za,	/* height of air temp measurement (m)	*/
-	double	ea,	/* vapor pressure (Pa) at height zq	*/
-	double	es,	/* vapor pressure (Pa) at surface	*/
-	double	zq,	/* height of spec hum measurement (m)	*/
-	double	u,	/* wind speed (m/s) at height zu	*/
-	double	zu,	/* height of wind speed measurement (m)	*/
-	double	z0,	/* roughness length (m)			*/
+		double	press,	/* air pressure (Pa)			*/
+		double	ta,	/* air temperature (K) at height za	*/
+		double	ts,	/* surface temperature (K)		*/
+		double	za,	/* height of air temp measurement (m)	*/
+		double	ea,	/* vapor pressure (Pa) at height zq	*/
+		double	es,	/* vapor pressure (Pa) at surface	*/
+		double	zq,	/* height of spec hum measurement (m)	*/
+		double	u,	/* wind speed (m/s) at height zu	*/
+		double	zu,	/* height of wind speed measurement (m)	*/
+		double	z0,	/* roughness length (m)			*/
 
-    /* output variables */
+		/* output variables */
 
-	double *h,	/* sens heat flux (+ to surf) (W/m^2)	*/
-	double *le,	/* latent heat flux (+ to surf) (W/m^2)	*/
-	double *e)	/* mass flux (+ to surf) (kg/m^2/s)	*/
+		double *h,	/* sens heat flux (+ to surf) (W/m^2)	*/
+		double *le,	/* latent heat flux (+ to surf) (W/m^2)	*/
+		double *e)	/* mass flux (+ to surf) (kg/m^2/s)	*/
 {
 	double	ah = AH;
 	double	av = AV;
@@ -114,7 +114,7 @@ hle1(
 	/* heights must be positive */
 	if (z0 <= 0 || zq <= z0 || zu <= z0 || za <= z0) {
 		usrerr ("height not positive; z0=%f\tzq=%f\tzu=%\tza=%f",
-		       z0, zq, zu, za);
+				z0, zq, zu, za);
 		ier = -2;
 		return (ier);
 	}
@@ -137,7 +137,7 @@ hle1(
 	/* if way off stop */
 	if ((es - 25.0) > sati(ts) || (ea - 25.0) > satw(ta)) {
 		usrerr ("vp > sat; es=%f\tessat=%f\tea=%f\teasat=%f",
-			es, sati(ts), ea, sati(ta));
+				es, sati(ts), ea, sati(ta));
 		ier = -2;
 		return (ier);
 	}
@@ -179,7 +179,7 @@ hle1(
 	 * air density at press, virtual temp of geometric mean
 	 * of air and surface
 	 */
-	
+
 	dens = GAS_DEN(press, MOL_AIR,
 			VIR_TEMP(sqrt(ta*ts), sqrt(ea*es), press));
 
@@ -218,7 +218,7 @@ hle1(
 			 */
 
 			lo = ustar * ustar * ustar * dens 
-				/ (k * g * (*h/(ta*cp) + 0.61 * *e));
+					/ (k * g * (*h/(ta*cp) + 0.61 * *e));
 
 			/*
 			 * friction velocity, eq. 4.34'
@@ -232,7 +232,7 @@ hle1(
 
 			factor = k * ustar * dens;
 			*e = (qa - qs) * factor * av /
-				(ltsv - psi(zq/lo, SV));
+					(ltsv - psi(zq/lo, SV));
 
 			/*
 			 * sensible heat flus, eq. 4.35'
@@ -240,17 +240,17 @@ hle1(
 			 */
 
 			*h = (ta - ts) * factor * ah * cp /
-				(ltsh - psi(za/lo, SH));
+					(ltsh - psi(za/lo, SH));
 
 			diff = last - lo;
 
 		} while (fabs(diff) > THRESH &&
-			fabs(diff/lo) > THRESH &&
-			++iter < ITMAX);
+				fabs(diff/lo) > THRESH &&
+				++iter < ITMAX);
 	}
 
 	ier = (iter >= ITMAX)? -1 : 0;
-	
+
 	xlh = LH_VAP(ts);
 	if (ts <= FREEZE)
 		xlh += LH_FUS(ts);

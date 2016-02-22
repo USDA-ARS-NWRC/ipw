@@ -1,92 +1,92 @@
 /*
-** NAME
-**      _do_tstep -- do model calculations for 1 timestep
-**
-** SYNOPSIS
-**      #include "_snobal.h"
-**
-**      int
-**	_do_tstep(
-**	    TSTEP_REC *tstep;  |* timestep's record *|
-**
-** DESCRIPTION
-**      This routine performs the model's calculations for a single timestep.
-**      It requires that these climate variables have been initialized:
-**      
-**      	S_n
-**      	I_lw
-**      	T_a
-**      	e_a
-**      	u
-**      	T_g
-**      	ro
-**
-**	The routine also requires the precipitation data have been adjusted
-**	for the timestep, and have been stored in the array:
-**
-**		precip_info
-**
-**	if the flag 'precip_now' is TRUE.  The routine will set the flag
-**	'stop_no_snow' to TRUE if
-**
-**		a)  the output function pointed to by 'out_func' is called, and
-**		b)  the flag 'run_no_snow' is FALSE, and
-**		c)  there is no snow remaining on the ground at the end of
-**		    timestep
-**
-** RETURN VALUE
-**
-**	TRUE	The model's calculations were completed.
-**
-**	FALSE	An error occured, and a message explaining the error has
-**		been stored with the 'usrerr' routine.
-**
-** GLOBAL VARIABLES READ
-**	delta_Q
-**	delta_Q_0
-**	E_s
-**	G
-**	H
-**	L_v_E
-**	layer_count
-**	M
-**	melt
-**	out_func
-**	precip_now
-**	R_n
-**	ro_data
-**	ro_predict
-**	run_no_snow
-**
-** GLOBAL VARIABLES MODIFIED
-**	current_time
-**	curr_time_hrs
-**	delta_Q_0_bar
-**	delta_Q_bar
-**	e_a
-**	E_s_sum
-**	G_bar
-**	H_bar
-**	h2o_total
-**	I_lw
-**	L_v_E_bar
-**	M_bar
-**	m_precip
-**	m_rain
-**	m_snow
-**	melt_sum
-**	R_n_bar
-**	ro
-**	ro_pred_sum
-**	S_n
-**	snowcover
-**	T_a
-**	T_g
-**	u
-**	time_since_out
-**	time_step
-**	z_snow
-*/
+ ** NAME
+ **      _do_tstep -- do model calculations for 1 timestep
+ **
+ ** SYNOPSIS
+ **      #include "_snobal.h"
+ **
+ **      int
+ **	_do_tstep(
+ **	    TSTEP_REC *tstep;  |* timestep's record *|
+ **
+ ** DESCRIPTION
+ **      This routine performs the model's calculations for a single timestep.
+ **      It requires that these climate variables have been initialized:
+ **
+ **      	S_n
+ **      	I_lw
+ **      	T_a
+ **      	e_a
+ **      	u
+ **      	T_g
+ **      	ro
+ **
+ **	The routine also requires the precipitation data have been adjusted
+ **	for the timestep, and have been stored in the array:
+ **
+ **		precip_info
+ **
+ **	if the flag 'precip_now' is TRUE.  The routine will set the flag
+ **	'stop_no_snow' to TRUE if
+ **
+ **		a)  the output function pointed to by 'out_func' is called, and
+ **		b)  the flag 'run_no_snow' is FALSE, and
+ **		c)  there is no snow remaining on the ground at the end of
+ **		    timestep
+ **
+ ** RETURN VALUE
+ **
+ **	TRUE	The model's calculations were completed.
+ **
+ **	FALSE	An error occured, and a message explaining the error has
+ **		been stored with the 'usrerr' routine.
+ **
+ ** GLOBAL VARIABLES READ
+ **	delta_Q
+ **	delta_Q_0
+ **	E_s
+ **	G
+ **	H
+ **	L_v_E
+ **	layer_count
+ **	M
+ **	melt
+ **	out_func
+ **	precip_now
+ **	R_n
+ **	ro_data
+ **	ro_predict
+ **	run_no_snow
+ **
+ ** GLOBAL VARIABLES MODIFIED
+ **	current_time
+ **	curr_time_hrs
+ **	delta_Q_0_bar
+ **	delta_Q_bar
+ **	e_a
+ **	E_s_sum
+ **	G_bar
+ **	H_bar
+ **	h2o_total
+ **	I_lw
+ **	L_v_E_bar
+ **	M_bar
+ **	m_precip
+ **	m_rain
+ **	m_snow
+ **	melt_sum
+ **	R_n_bar
+ **	ro
+ **	ro_pred_sum
+ **	S_n
+ **	snowcover
+ **	T_a
+ **	T_g
+ **	u
+ **	time_since_out
+ **	time_step
+ **	z_snow
+ */
 
 #include        "ipw.h"
 #include        "_snobal.h"
@@ -100,11 +100,11 @@
  */
 #define TIME_AVG(avg,total_time,value,time_incr) \
 		( ((avg) * (total_time) + (value) * (time_incr)) \
-		/ ((total_time) + (time_incr)) )
+				/ ((total_time) + (time_incr)) )
 
 int
 _do_tstep(
-	TSTEP_REC *tstep)  /* timestep's record */
+		TSTEP_REC *tstep)  /* timestep's record */
 {
 	time_step = tstep->time_step;
 
@@ -139,21 +139,21 @@ _do_tstep(
 	 */
 	if (time_since_out > 0.0) {
 		R_n_bar       = TIME_AVG(R_n_bar, 	time_since_out,
-					 R_n, 		time_step);
+				R_n, 		time_step);
 		H_bar         = TIME_AVG(H_bar, 	time_since_out,
-					 H, 		time_step);
+				H, 		time_step);
 		L_v_E_bar     = TIME_AVG(L_v_E_bar, 	time_since_out,
-					 L_v_E, 	time_step);
+				L_v_E, 	time_step);
 		G_bar         = TIME_AVG(G_bar, 	time_since_out,
-					 G, 		time_step);
+				G, 		time_step);
 		M_bar         = TIME_AVG(M_bar, 	time_since_out,
-					 M, 		time_step);
+				M, 		time_step);
 		delta_Q_bar   = TIME_AVG(delta_Q_bar,	time_since_out,
-					 delta_Q, 	time_step);
+				delta_Q, 	time_step);
 		G_0_bar       = TIME_AVG(G_0_bar, 	time_since_out,
-					 G_0, 		time_step);
+				G_0, 		time_step);
 		delta_Q_0_bar = TIME_AVG(delta_Q_0_bar, time_since_out,
-					 delta_Q_0, 	time_step);
+				delta_Q_0, 	time_step);
 
 		E_s_sum     += E_s;
 		melt_sum    += melt;

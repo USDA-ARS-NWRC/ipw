@@ -1,39 +1,39 @@
 /*
-** NAME
-**      _precip -- process a precipitation event
-** 
-** SYNOPSIS
-**	#include "_snobal.h"
-**
-**      void
-**	_precip(void)
-** 
-** DESCRIPTION
-**      This routine processes a precipitation event, i.e., the current
-**	precip record, if there's one for the current timestep.  It
-**	determines if the precip is rain or snow which increases the
-**	snowcover.
-** 
-** GLOBAL VARIABLES READ
-**	h2o_sat_snow
-**	m_rain
-**	m_precip
-**	max_h2o_vol
-**	precip_now
-**	rho_snow
-**	snowcover
-**	T_snow
-**	z_snow
-**
-** GLOBAL VARIABLES MODIFIED
-**	h2o
-**	h2o_sat
-**	h2o_total
-**	rho
-**	T_s
-**	T_s_0
-**	z_s
-*/
+ ** NAME
+ **      _precip -- process a precipitation event
+ **
+ ** SYNOPSIS
+ **	#include "_snobal.h"
+ **
+ **      void
+ **	_precip(void)
+ **
+ ** DESCRIPTION
+ **      This routine processes a precipitation event, i.e., the current
+ **	precip record, if there's one for the current timestep.  It
+ **	determines if the precip is rain or snow which increases the
+ **	snowcover.
+ **
+ ** GLOBAL VARIABLES READ
+ **	h2o_sat_snow
+ **	m_rain
+ **	m_precip
+ **	max_h2o_vol
+ **	precip_now
+ **	rho_snow
+ **	snowcover
+ **	T_snow
+ **	z_snow
+ **
+ ** GLOBAL VARIABLES MODIFIED
+ **	h2o
+ **	h2o_sat
+ **	h2o_total
+ **	rho
+ **	T_s
+ **	T_s_0
+ **	z_s
+ */
 
 #include "ipw.h"
 #include "snow.h"
@@ -61,7 +61,7 @@ _precip(void)
 			h2o_vol_snow = h2o_sat_snow * max_h2o_vol;
 			h2o += H2O_LEFT(z_snow, rho_snow, h2o_vol_snow);
 		}
-                else {
+		else {
 			/*
 			 *  Use snowfall, if any, to setup a new snowcover.
 			 */
@@ -82,8 +82,8 @@ _precip(void)
 		 *  liquid water.
 		 */
 		h2o_total += h2o + m_rain;
-        }
-        else
+	}
+	else
 		/*
 		 *  Add water in the snowcover to total liquid water.
 		 */
