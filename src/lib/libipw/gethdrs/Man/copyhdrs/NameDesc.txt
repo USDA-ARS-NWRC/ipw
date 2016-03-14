@@ -1,1 +1,0 @@
-copyhdrs - copy IPW image headers

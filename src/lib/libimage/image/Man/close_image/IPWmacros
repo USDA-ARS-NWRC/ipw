@@ -1,3 +1,0 @@
-%define(name,"close_image")
-%define(description,"close an image")
-%define(category,"image")

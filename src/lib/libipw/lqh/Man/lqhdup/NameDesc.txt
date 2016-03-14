@@ -1,1 +1,0 @@
-lqhdup - duplicate an IPW LQH header

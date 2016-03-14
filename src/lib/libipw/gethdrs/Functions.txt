@@ -1,6 +1,0 @@
-
-gethdrs - general header processing
-
-  copyhdrs - copy IPW image headers
-  gethdrs  - process IPW image headers
-  skiphdrs - skip IPW image headers

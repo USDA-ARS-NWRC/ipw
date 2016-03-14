@@ -1,3 +1,0 @@
-%define(name,"bihread")
-%define(description,"read an IPW BIH header")
-%define(category,"bih")

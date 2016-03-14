@@ -1,3 +1,0 @@
-%define(name,"pbm2ipw")
-%define(description,"convert PGM or PPM images to IPW image")
-%define(category,"Importing Image Data")

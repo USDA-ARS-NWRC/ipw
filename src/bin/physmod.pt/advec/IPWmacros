@@ -1,3 +1,0 @@
-%define(name,"advec")
-%define(description,"advected energy for a snowcover")
-%define(category,"Physical Modeling: Point")

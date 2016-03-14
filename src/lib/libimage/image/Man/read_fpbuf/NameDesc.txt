@@ -1,1 +1,0 @@
-read_fpbuf - read floating-point pixels from image into buffer

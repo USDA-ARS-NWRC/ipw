@@ -1,3 +1,0 @@
-%define(name,"open_mask")
-%define(description,"open an image as a mask")
-%define(category,"mask")

@@ -1,3 +1,0 @@
-%define(name,"fpfmin")
-%define(description,"access fpio minimum fpixel values")
-%define(category,"fpio")

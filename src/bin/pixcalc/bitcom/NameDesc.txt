@@ -1,1 +1,0 @@
-bitcom - bitwise combination of pixels (AND, OR, exclusive-OR)

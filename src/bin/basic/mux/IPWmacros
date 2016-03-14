@@ -1,3 +1,0 @@
-%define(name,"mux")
-%define(description,"multiplex (combine) images into one multi-band image")
-%define(category,"Basic Image Commands")

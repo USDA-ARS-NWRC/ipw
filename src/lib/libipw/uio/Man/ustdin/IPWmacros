@@ -1,3 +1,0 @@
-%define(name,"ustdin")
-%define(description,"initialize UIO on standard input")
-%define(category,"uio")

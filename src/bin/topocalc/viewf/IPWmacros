@@ -1,4 +1,0 @@
-%define(name,"viewf")
-%define(description,"sky view and terrain configuration factors")
-%define(category,"Topographic Calculations")
-%define(auxDir,"/Users/scott/ipw/aux/viewf")

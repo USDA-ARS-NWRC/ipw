@@ -1,3 +1,0 @@
-%define(name,"winhfree")
-%define(description,"free all left over parts of a WIN header")
-%define(category,"winh")

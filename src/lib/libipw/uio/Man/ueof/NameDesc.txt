@@ -1,1 +1,0 @@
-ueof - check for UIO end-of-file

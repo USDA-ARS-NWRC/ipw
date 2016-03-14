@@ -1,3 +1,0 @@
-%define(name,"read_pbuf")
-%define(description,"read unsigned-integer pixels from image into buffer")
-%define(category,"image")

@@ -1,6 +1,0 @@
-
-Dates and Times
-
-  addtime  - add time to a given date and time
-  cvtime   - convert dates and times between different formats
-  mkpptime - computes time since last precipitation event for albedo decay computation

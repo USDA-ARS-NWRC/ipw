@@ -1,3 +1,0 @@
-%define(name,"sati_mod")
-%define(description,"saturation vapor pressure over ice")
-%define(category,"envphys")

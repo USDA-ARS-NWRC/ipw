@@ -1,3 +1,0 @@
-%define(name,"wday2mday")
-%define(description,"converts a waterday into a month and day")
-%define(category,"datetime")

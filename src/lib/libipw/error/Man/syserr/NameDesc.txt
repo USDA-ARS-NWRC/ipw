@@ -1,1 +1,0 @@
-syserr - note occurrence of UNIX system error

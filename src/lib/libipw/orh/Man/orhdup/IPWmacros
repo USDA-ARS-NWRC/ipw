@@ -1,3 +1,0 @@
-%define(name,"orhdup")
-%define(description,"duplicate an IPW ORH header")
-%define(category,"orh")

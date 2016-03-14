@@ -1,1 +1,0 @@
-geohfree - free all left over parts of a GEO header

@@ -1,3 +1,0 @@
-%define(name,"proport")
-%define(description,"compute monthly proportions from daily precipitation data")
-%define(category,"Climate Data in Text Files")

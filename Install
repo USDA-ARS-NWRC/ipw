@@ -1,3 +1,18 @@
+Required versions of software
+------------------------
+
+IPW has been tested and confirmed to work with the following software versions
+
+gcc:
+	5.2.1 >= gcc >= 4.8.2
+	Must have OpenMP v4.0 specification, see https://gcc.gnu.org/wiki/openmpfor
+	more details
+	
+make:
+	make <= 3.81
+	IPW will not compile with make version 4.0
+	
+
 Configuring the Software
 ------------------------
 

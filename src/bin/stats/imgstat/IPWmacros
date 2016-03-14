@@ -1,3 +1,0 @@
-%define(name,"imgstat")
-%define(description,"statistics for an IPW image")
-%define(category,"Image Statistics")

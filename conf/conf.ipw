@@ -1,5 +1,0 @@
-%define(SH,/bin/sh)
-%define(AWK,/opt/local/bin/mawk)
-%define(SED,/usr/bin/sed)
-%define(PERL,/opt/local/bin/perl)
-%define(GRAPH,)

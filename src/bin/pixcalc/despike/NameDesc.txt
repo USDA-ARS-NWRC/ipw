@@ -1,1 +1,0 @@
-despike - remove abnormally large pixel values (spikes)

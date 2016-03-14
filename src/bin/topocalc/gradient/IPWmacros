@@ -1,3 +1,0 @@
-%define(name,"gradient")
-%define(description,"slope and aspect from elevation")
-%define(category,"Topographic Calculations")

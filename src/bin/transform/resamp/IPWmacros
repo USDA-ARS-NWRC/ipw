@@ -1,3 +1,0 @@
-%define(name,"resamp")
-%define(description,"resample an IPW image (decrease resolution) by averaging pixels")
-%define(category,"Image Transformation")

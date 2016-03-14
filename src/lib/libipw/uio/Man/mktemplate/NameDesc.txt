@@ -1,1 +1,0 @@
-mktemplate - create a template for the name of a temporary file

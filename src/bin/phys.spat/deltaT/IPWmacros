@@ -1,3 +1,0 @@
-%define(name,"deltaT")
-%define(description,"adjusted diurnal temperature range")
-%define(category,"Environmental Physics and Properties: Spatial")

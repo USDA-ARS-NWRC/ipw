@@ -1,3 +1,0 @@
-%define(name,"histeq")
-%define(description,"make histogram-equalization look-up table for IPW histogram")
-%define(category,"Image Statistics")

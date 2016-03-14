@@ -1,1 +1,0 @@
-yday2mday - convert yearday into month and day

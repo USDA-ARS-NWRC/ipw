@@ -1,3 +1,0 @@
-%define(name,"ah2vp")
-%define(description,"convert between absolute humidity and vapor pressure")
-%define(category,"Environmental Physics and Properties: Point")

@@ -1,1 +1,0 @@
-nbands - get # of bands in an image

@@ -1,3 +1,0 @@
-%define(name,"history")
-%define(description,"get history of an image's band")
-%define(category,"image")

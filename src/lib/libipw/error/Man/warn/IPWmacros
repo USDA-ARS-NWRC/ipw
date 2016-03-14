@@ -1,3 +1,0 @@
-%define(name,"warn")
-%define(description,"print warning message")
-%define(category,"error")

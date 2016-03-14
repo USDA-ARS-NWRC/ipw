@@ -1,3 +1,0 @@
-%define(name,"idewptp")
-%define(description,"dew point temperature from vapor pressure - parallel")
-%define(category,"Environmental Physics and Properties: Spatial")

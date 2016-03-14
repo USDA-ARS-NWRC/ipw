@@ -1,3 +1,0 @@
-%define(name,"sunlight")
-%define(description,"sunrise and sunset times, and quadrature weights")
-%define(category,"Radiation Modeling: Point")

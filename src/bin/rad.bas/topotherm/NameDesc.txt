@@ -1,1 +1,0 @@
-topotherm - atmospheric thermal radiation over a topographic grid

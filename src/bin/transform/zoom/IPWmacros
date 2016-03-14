@@ -1,3 +1,0 @@
-%define(name,"zoom")
-%define(description,"enlarge or reduce an IPW image by replication or subsampling")
-%define(category,"Image Transformation")

@@ -1,1 +1,0 @@
-cmpimg - compare two IPW images

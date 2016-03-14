@@ -1,1 +1,0 @@
-rmlead - skip leading white space in string

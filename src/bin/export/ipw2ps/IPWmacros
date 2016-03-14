@@ -1,3 +1,0 @@
-%define(name,"ipw2ps")
-%define(description,"convert IPW image to PostScript")
-%define(category,"Exporting IPW Image Data")

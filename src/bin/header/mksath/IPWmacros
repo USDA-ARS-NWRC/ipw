@@ -1,3 +1,0 @@
-%define(name,"mksath")
-%define(description,"add a satellite (SAT) header to an image")
-%define(category,"Image Header Manipulation")

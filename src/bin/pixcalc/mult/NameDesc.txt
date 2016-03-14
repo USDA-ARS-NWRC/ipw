@@ -1,1 +1,0 @@
-mult - perform multiplication or division on pixels (DEPRECIATED)

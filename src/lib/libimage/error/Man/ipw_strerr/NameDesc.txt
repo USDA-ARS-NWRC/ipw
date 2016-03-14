@@ -1,1 +1,0 @@
-ipw_strerr - get message for IPW error code

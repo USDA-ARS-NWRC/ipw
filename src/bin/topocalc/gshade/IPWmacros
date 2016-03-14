@@ -1,3 +1,0 @@
-%define(name,"gshade")
-%define(description,"cosine of illumination angle (global-scale)")
-%define(category,"Topographic Calculations")

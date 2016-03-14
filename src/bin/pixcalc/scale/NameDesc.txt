@@ -1,1 +1,0 @@
-scale - multiply all pixels by a scaling factor (DEPRECIATED)

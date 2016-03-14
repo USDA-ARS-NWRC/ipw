@@ -1,1 +1,0 @@
-nsamples - fetch # of samples per line in an image

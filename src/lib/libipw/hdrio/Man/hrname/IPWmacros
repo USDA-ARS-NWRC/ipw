@@ -1,3 +1,0 @@
-%define(name,"hrname")
-%define(description,"get name of current input image header")
-%define(category,"hdrio")

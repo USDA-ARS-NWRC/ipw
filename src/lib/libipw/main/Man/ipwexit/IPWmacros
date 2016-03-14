@@ -1,3 +1,0 @@
-%define(name,"ipwexit")
-%define(description,"terminate an IPW program")
-%define(category,"main")

@@ -1,3 +1,0 @@
-%define(name,"isatvp")
-%define(description,"saturation vapor pressure from dew point temperature")
-%define(category,"Environmental Physics and Properties: Spatial")

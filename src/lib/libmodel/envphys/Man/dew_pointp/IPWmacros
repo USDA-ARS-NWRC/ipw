@@ -1,3 +1,0 @@
-%define(name,"dew_pointp")
-%define(description,"dew point temperature with tolerance")
-%define(category,"envphys")

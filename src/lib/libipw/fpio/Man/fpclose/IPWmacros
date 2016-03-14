@@ -1,3 +1,0 @@
-%define(name,"fpclose")
-%define(description,"close floating-point I/O file descriptor")
-%define(category,"fpio")

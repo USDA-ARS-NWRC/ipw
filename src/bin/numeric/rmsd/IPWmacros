@@ -1,3 +1,0 @@
-%define(name,"rmsd")
-%define(description,"computes model fitting statistics  RMSD, ME, and MBD")
-%define(category,"Numeric Data in Text Files")

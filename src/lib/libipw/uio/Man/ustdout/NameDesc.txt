@@ -1,1 +1,0 @@
-ustdout - initialize UIO on standard output

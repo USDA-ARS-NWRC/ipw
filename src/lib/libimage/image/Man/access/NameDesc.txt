@@ -1,1 +1,0 @@
-access - get pixel-access level of an image

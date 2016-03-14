@@ -1,1 +1,0 @@
-mkpcp_a - make precip files for 'snobal' command with adj for Ta

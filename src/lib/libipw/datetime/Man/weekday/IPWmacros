@@ -1,3 +1,0 @@
-%define(name,"weekday")
-%define(description,"returns the day of the week for a given date")
-%define(category,"datetime")

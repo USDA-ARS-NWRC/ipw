@@ -1,1 +1,0 @@
-ipw2sun - convert IPW image to Sun rasterfile

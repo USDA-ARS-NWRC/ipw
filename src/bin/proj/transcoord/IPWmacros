@@ -1,3 +1,0 @@
-%define(name,"transcoord")
-%define(description,"translate coordinates between geographic projections")
-%define(category,"Geographic (Map) Projections")
