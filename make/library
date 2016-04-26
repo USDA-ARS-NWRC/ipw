@@ -133,12 +133,13 @@ $(INSTALLED_LIST_HTML) : $(FUNC_LIST_HTML)
 uninstall-list :
 	rm -f $(INSTALLED_LIST_HTML)
 
+# 2060426 Scott Havens
+# Make v4.1 on Ubuntu didn't like the following section and 
+# needed everything spelled out a little better in the 
+# if/else statement
+
 ifdef NO_FUNCS_IN_LIST
   $(FUNC_LIST_HTML) :
-else
-  FUNC_HTML_FILES := $(foreach dir, $(DIRS), $(dir)/$(FUNC_LIST_HTML))
-  $(FUNC_LIST_HTML) : $(FUNC_HTML_FILES)
-endif
 	@printf "Making file \"$@\"\n"
 	@printf "%%Title(\"lib$(NAME) - $(DESCRIPTION)\")\n" | \
 		$(IPW_MACRO_DOC) - >$@
@@ -149,6 +150,25 @@ ifneq ($(FUNC_HTML_FILES),)
 	@cat $^ 					    >> $@
 endif
 	@$(IPW_MACRO_DOC) $(DOC_SRC_DIR)/PageBottom2 >> $@
+else
+  FUNC_HTML_FILES := $(foreach dir, $(DIRS), $(dir)/$(FUNC_LIST_HTML))
+  $(FUNC_LIST_HTML) : $(FUNC_HTML_FILES)
+	@printf "Making file \"$@\"\n"
+	@printf "%%Title(\"lib$(NAME) - $(DESCRIPTION)\")\n" | \
+		$(IPW_MACRO_DOC) - >$@
+	@if [ -r $(DESC_FILE_HTML) -a -f $(DESC_FILE_HTML) ] ; then \
+		cat $(DESC_FILE_HTML)   >> $@ ; \
+	fi
+ifneq ($(FUNC_HTML_FILES),)
+	@cat $^ 					    >> $@
+endif
+	@$(IPW_MACRO_DOC) $(DOC_SRC_DIR)/PageBottom2 >> $@
+endif
+	
+#ifneq ($(FUNC_HTML_FILES),)
+#	@cat $^ 					    >> $@
+#endif
+#	@$(IPW_MACRO_DOC) $(DOC_SRC_DIR)/PageBottom2 >> $@
 
 ifneq ($(FUNC_HTML_FILES),)
   $(FUNC_HTML_FILES) :

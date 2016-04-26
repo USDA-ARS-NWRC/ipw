@@ -37,6 +37,7 @@ void
 isnobal_v2(
 		int	out_step,		/* # of data tsteps per output img   */
 		int nthreads,		/* number of threads to use */
+		int dynamic_teams, 	/* number of dynamic teams to use */
 		int	got_opt_F)		/* got option F?		     */
 {
 	double	data_tstep;			/* data timestep		     */
@@ -47,8 +48,8 @@ isnobal_v2(
 	bool_t	last_step;			/* is last step? 		     */
 	int	out_counter;			/* counter for data tsteps per output*/
 	bool_t	output;				/* output images this step? 	     */
-	char	emfile[255];		/* name for temp e/m output file     */
-	char	snowfile[255];		/* name for temp snow output file    */
+//	char	emfile[255];		/* name for temp e/m output file     */
+//	char	snowfile[255];		/* name for temp snow output file    */
 	//	int	tempin;					/* index of temp filename for input  */
 	//	int	tempout;				/* index of temp filename for output */
 	double	timeSinceOut;		/* local copy of 'time_since_out'    */
@@ -73,18 +74,8 @@ isnobal_v2(
 		output_rec[n] = malloc(sizeof(OUTPUT_REC));	// initialize the memory (in heap) at that pointer
 
 
-	//	OUTPUT_REC *output_rec[N];
-	//	for(n = 0; n < N; ++n)
-	//		output_rec[n] = (OUTPUT_REC *) malloc(sizeof(OUTPUT_REC));	// initialize the memory (in heap) at that pointer
-
-	//	first_em_pix = TRUE;
-	//	first_snow_pix = TRUE;
-
-	//	tempout = 0;
-
 	/* set threads */
 	if (nthreads != 1) {
-//		omp_set_dynamic(0);     		// Explicitly disable dynamic teams
 		omp_set_num_threads(nthreads); 	// Use N threads for all consecutive parallel regions
 	}
 
@@ -97,12 +88,6 @@ isnobal_v2(
 	/* Allocate I/O buffers for image files */
 
 	buffers();
-
-	/* open temporary files for output images */
-
-	//	temp_filename("isnobal", emfile);
-	//	temp_filename("isnobal", snowfile);
-
 
 	/* initialize time of starting step */
 
@@ -167,27 +152,9 @@ isnobal_v2(
 			output = FALSE;
 		}
 
-		//		if (output) {
-		//			fdem = uwopen(emfile);
-		//			if (fdem == ERROR) {
-		//				error("Can't open temporary file '%s' for output",
-		//						emfile);
-		//			}
-		//			fds = uwopen(snowfile);
-		//			if (fds == ERROR) {
-		//				error("Can't open temporary file '%s' for output",
-		//						snowfile);
-		//			}
-		//		}
-
 		/* read input data and do calculations */
 
 		read_data(first_step);
-
-		/* reset pointers for output buffers */
-
-		//		ot_nbytes = 0;
-
 
 		if (nthreads != 1) {
 
@@ -195,7 +162,7 @@ isnobal_v2(
 		private(n) \
 		copyin(tstep_info, z_u, z_T, z_g, relative_hts, max_z_s_0, max_h2o_vol, out_func)
 			{
-#pragma omp for schedule(dynamic, 100)
+#pragma omp for schedule(dynamic, dynamic_teams)
 				for (n = 0; n < N; n++) {
 
 					/* initialize some global variables for
@@ -298,8 +265,8 @@ isnobal_v2(
 
 	/* remove temp files */
 
-	uremove(emfile);
-	uremove(snowfile);
+//	uremove(emfile);
+//	uremove(snowfile);
 
 	//	for(n = 0; n < N; ++n)
 	//		free(output_rec);

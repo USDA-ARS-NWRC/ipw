@@ -53,9 +53,9 @@ main (
 	};
 
 	static OPTION_T opt_P = {
-			'P', "Number of threads",
-			REAL_OPTARGS, "threads",
-			OPTIONAL, 1, 1
+			'P', "Number of threads, [dynamic]",
+			INT_OPTARGS, "threads",
+			OPTIONAL, 1, 2
 	};
 
 	static OPTION_T opt_m = {
@@ -141,7 +141,8 @@ main (
 	int		small_tstep_min; /* small run timestep as minutes */
 	double		threshold;	 /* timestep's threshold for 
 					    layer's mass */
-	int nthreads;
+	int nthreads;				/* number of threads to use */
+	int dynamic_teams;			/* number for dynamic teams */
 
 	// force flush of stdout
 	setbuf(stdout, NULL);
@@ -189,15 +190,18 @@ main (
 	}
 
 	/* check number of threads to use */
+	nthreads = 1;
+	dynamic_teams = 100;
 	if (got_opt(opt_P)) {
-		nthreads = real_arg(opt_P, 0);
+		nthreads = int_arg(opt_P, 0);
 		if (nthreads > omp_get_max_threads()){
 			nthreads = omp_get_max_threads();
 			printf("WARNING - maximum number of threads is %i, using %i\n", omp_get_max_threads(), nthreads);
 		}
-	}
-	else {
-		nthreads = 1;
+
+		if (n_args(opt_t) > 1) {
+			dynamic_teams = int_arg(opt_P, 1);
+		}
 	}
 
 	/*
@@ -413,7 +417,7 @@ main (
 	/* do all the work */
 
 	/*	isnobal(out_step);	*/
-	isnobal_v2(out_step, nthreads, got_opt(opt_F));
+	isnobal_v2(out_step, nthreads, dynamic_teams, got_opt(opt_F));
 
 	/* all done */
 
