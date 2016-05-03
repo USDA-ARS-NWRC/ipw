@@ -11,7 +11,7 @@
       [ <B>-I</B> <I>init-image </I> ] [ <B>-i</B> <I>input-prefix </I> ] [ <B>-p</B> <I>prfile </I> ]
       [ <B>-m</B> <I>mask </I> ] [ <B>-O</B> <I>output-frequency </I> ] [ <B>-d</B> <I>max-active </I> ]
       [ <B>-e</B> <I>em_prefix </I> ] [ <B>-s</B> <I>snow_prefix </I> ] [ <B>-P</B> <I>nthreads </I>] 
-      [ <B>-h</B> ] [ <B>-U</B> ] [ <B>-K</B> ]
+      [ <B>-h</B> ] [ <B>-U</B> ] [ <B>-K</B> ] [ <B>-v</B> ]
       [ <B>-M</B> <I>max-h2o </I> ] [ <B>-C</B> [<I>compress_cmd</I>] ]
       [ <B>-T</B> <I>norm-threshold</I>[,<I>med-threshold</I>[,<I>sm-threshold</I>]]<I> </I> ] 
 </PRE>
@@ -439,6 +439,12 @@ be specified to force use of a specific compression
 command.  If compress_cmd is not specified, then the
 model uses &quot;gzip&quot; (default: output images are not
 compressed).
+</DD>
+
+<P>
+<DT><B>-v</B> 
+<DD>
+Verbose output to the command prompt, default none
 </DD>
 
 </DL>

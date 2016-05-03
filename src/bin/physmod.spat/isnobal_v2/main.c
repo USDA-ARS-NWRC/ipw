@@ -112,6 +112,10 @@ main (
 			'F', "use temp filenames: isnobal.tmp1 isnobal.tmp2 and don't remove them"
 	};
 
+	static OPTION_T opt_v = {
+				'v', "verbose output of time step"
+		};
+
 	static OPTION_T *optv[] = {
 			&opt_t,
 			&opt_T,
@@ -131,6 +135,7 @@ main (
 			&opt_M,
 			&opt_C,
 			&opt_F,
+			&opt_v,
 			0
 	};
 
@@ -417,7 +422,7 @@ main (
 	/* do all the work */
 
 	/*	isnobal(out_step);	*/
-	isnobal_v2(out_step, nthreads, dynamic_teams, got_opt(opt_F));
+	isnobal_v2(out_step, nthreads, dynamic_teams, got_opt(opt_F), got_opt(opt_v));
 
 	/* all done */
 

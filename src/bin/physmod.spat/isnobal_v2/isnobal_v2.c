@@ -38,7 +38,8 @@ isnobal_v2(
 		int	out_step,		/* # of data tsteps per output img   */
 		int nthreads,		/* number of threads to use */
 		int dynamic_teams, 	/* number of dynamic teams to use */
-		int	got_opt_F)		/* got option F?		     */
+		int	got_opt_F,		/* got option F?		     */
+		int verbose)		/* verbose output */
 {
 	double	data_tstep;			/* data timestep		     */
 	double	step_time;			/* start time of current data tstep  */
@@ -68,7 +69,6 @@ isnobal_v2(
 	N = nsamps*nlines;
 
 	// array of pointers to OUTPUT_REC
-	printf("Allocating memory for model outputs...\n");
 	OUTPUT_REC ** output_rec = (OUTPUT_REC **) calloc(N, sizeof(OUTPUT_REC *));
 	for(n = 0; n < N; ++n)
 		output_rec[n] = malloc(sizeof(OUTPUT_REC));	// initialize the memory (in heap) at that pointer
@@ -108,7 +108,9 @@ isnobal_v2(
 		first_step = (step == start_step);
 		last_step =  (step == end_step);
 
-		printf("Time step -- %i\n", step);
+		if (verbose) {
+			printf("Time step -- %i\n", step);
+		}
 
 		/* open input image files */
 
