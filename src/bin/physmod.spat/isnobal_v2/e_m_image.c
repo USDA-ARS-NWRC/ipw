@@ -69,7 +69,8 @@ char *em_units[] = {
 void
 e_m_image(
 		int	 step,		/* current step #			*/
-		OUTPUT_REC *output_rec[])		/* ouput sturcture */
+		OUTPUT_REC *output_rec[],		/* ouput sturcture */
+		int nbits)							/* number of bits */
 {
 	char filename[255];		/* name for new energy/mass image	*/
 	int	 fd;				/* file descriptor for energy/mass img	*/
@@ -113,7 +114,7 @@ e_m_image(
 
 	sprintf(filename, "%s.%0*d", em_prefix, nDigits, step);
 	fd = output_image(filename, EMBANDS, em_units, em_annot, em_mins,
-			em_maxs);
+			em_maxs, nbits);
 
 	//	copy_image(tempfile, EMBANDS, embuf, fd);
 	if (fpvwrite (fd, embuf, N) != N) {

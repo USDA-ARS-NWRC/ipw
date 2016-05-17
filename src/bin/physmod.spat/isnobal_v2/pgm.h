@@ -69,21 +69,21 @@ extern	void	check_units    (LQH_T **lq_headers, UNITS_T *units, int nbands,
 		int fd);
 extern	void	copy_image     (char *tempfile, int nbands, fpixel_t * buf,
 		int fdo);
-extern	void 	e_m_image      (int step, OUTPUT_REC **output_rec);
+extern	void 	e_m_image      (int step, OUTPUT_REC **output_rec, int nbits);
 extern	bool_t	extract_data   (bool_t first_step, int n, bool_t sun_up[], OUTPUT_REC **output_rec);
 extern	void	headers        (void);
-extern	void	isnobal_v2      (int out_step, int nthreads, int dynamic_teams, int got_opt_F, int verbose);
+extern	void	isnobal_v2      (int out_step, int nthreads, int dynamic_teams, int got_opt_F, int verbose, int nbits);
 /*extern	void	isnobal        (int out_step);*/
 extern	void	newlqh         (int fdo, int nbands, fpixel_t *mins,
 		fpixel_t *maxs, char **units);
 extern	int	open_input     (char *prefix, int index, bool_t *sun_up);
 extern	int	output_image   (char * filename, int nbands, char ** units,
 		char ** annots, fpixel_t * mins,
-		fpixel_t * maxs);
+		fpixel_t * maxs, int nbits);
 extern	bool_t	precip_event   (float curr_time, char *pre_img);
 extern	void	precip_hdrs    (char *filename);
 extern	void	read_data      (int first_step);
-extern	void 	snow_image     (int step, OUTPUT_REC **output_rec);
+extern	void 	snow_image     (int step, OUTPUT_REC **output_rec, int nbits);
 extern	void	temp_filename  (char *prefix, char *filename);
 extern	void	write_data     (int output, int last_step);
 

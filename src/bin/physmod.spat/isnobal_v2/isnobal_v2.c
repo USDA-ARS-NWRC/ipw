@@ -39,7 +39,8 @@ isnobal_v2(
 		int nthreads,		/* number of threads to use */
 		int dynamic_teams, 	/* number of dynamic teams to use */
 		int	got_opt_F,		/* got option F?		     */
-		int verbose)		/* verbose output */
+		int verbose,		/* verbose output */
+		int nbits)			/* number of bits for output image */
 {
 	double	data_tstep;			/* data timestep		     */
 	double	step_time;			/* start time of current data tstep  */
@@ -255,11 +256,11 @@ isnobal_v2(
 
 		if (output) {
 			uclose(fdem);
-			e_m_image(step, output_rec);
+			e_m_image(step, output_rec, nbits);
 			//			first_em_pix = TRUE;
 
 			uclose(fds);
-			snow_image(step, output_rec);
+			snow_image(step, output_rec, nbits);
 			//			first_snow_pix = TRUE;
 		}
 

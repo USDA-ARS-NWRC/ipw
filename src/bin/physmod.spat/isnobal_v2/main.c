@@ -113,8 +113,15 @@ main (
 	};
 
 	static OPTION_T opt_v = {
-				'v', "verbose output of time step"
-		};
+			'v', "verbose output of time step"
+	};
+
+	static OPTION_T opt_b = {
+			'b', "number of bits for output image",
+			INT_OPTARGS, "nbits",
+			OPTIONAL, 1, 1
+	};
+
 
 	static OPTION_T *optv[] = {
 			&opt_t,
@@ -136,6 +143,7 @@ main (
 			&opt_C,
 			&opt_F,
 			&opt_v,
+			&opt_b,
 			0
 	};
 
@@ -148,6 +156,7 @@ main (
 					    layer's mass */
 	int nthreads;				/* number of threads to use */
 	int dynamic_teams;			/* number for dynamic teams */
+	int nbits;					/* number of bits */
 
 	// force flush of stdout
 	setbuf(stdout, NULL);
@@ -415,6 +424,15 @@ main (
 		compress_cmd = NULL;
 	}
 
+	/* output images output bits */
+	if (got_opt(opt_b)) {
+		nbits = int_arg(opt_b, 0);
+		if (nbits <= 0)
+			error("number of bits (%d) must be > 0", nbits);
+	}
+	else
+		nbits = 8;
+
 	/* process headers */
 
 	headers();
@@ -422,7 +440,7 @@ main (
 	/* do all the work */
 
 	/*	isnobal(out_step);	*/
-	isnobal_v2(out_step, nthreads, dynamic_teams, got_opt(opt_F), got_opt(opt_v));
+	isnobal_v2(out_step, nthreads, dynamic_teams, got_opt(opt_F), got_opt(opt_v), nbits);
 
 	/* all done */
 

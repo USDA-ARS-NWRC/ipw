@@ -66,7 +66,8 @@ char *s_units[] = {
 void
 snow_image(
 		int	 step,						/* current step #			*/
-		OUTPUT_REC *output_rec[])		/* ouput sturcture */
+		OUTPUT_REC *output_rec[],		/* ouput sturcture */
+		int nbits)							/* number of bits */
 {
 	char filename[255];		/* name for new snow image		*/
 	int	 fd;				/* file descriptor for snow image	*/
@@ -108,7 +109,7 @@ snow_image(
 	}
 
 	sprintf(filename, "%s.%0*d", snow_prefix, nDigits, step);
-	fd = output_image(filename, SBANDS, s_units, s_annot, s_mins, s_maxs);
+	fd = output_image(filename, SBANDS, s_units, s_annot, s_mins, s_maxs, nbits);
 
 	//	copy_image(tempfile, SBANDS, sbuf, fd);
 	if (fpvwrite (fd, sbuf, N) != N) {
