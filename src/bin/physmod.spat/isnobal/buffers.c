@@ -37,14 +37,17 @@ void
 buffers(void)
 {
 	int		ic_nbands;	/* # bands in init-conds image   */
+	int N;			/* number of points */
+
+	N = nsamps*nlines;
 
    /* Allocate input buffers */
 
-	ibuf1 = (fpixel_t *) ecalloc (nsamps * IBANDS, sizeof(fpixel_t));
+	ibuf1 = (fpixel_t *) ecalloc (N * IBANDS, sizeof(fpixel_t));
 	if (ibuf1 == NULL) {
 		error ("can't allocate first input buffer");
 	}
-	ibuf2 = (fpixel_t *) ecalloc (nsamps * IBANDS, sizeof(fpixel_t));
+	ibuf2 = (fpixel_t *) ecalloc (N * IBANDS, sizeof(fpixel_t));
 	if (ibuf2 == NULL) {
 		error ("can't allocate second input buffer");
 	}
@@ -56,7 +59,7 @@ buffers(void)
 	} else {
 		ic_nbands = ICBANDS;
 	}
-	icbuf = (fpixel_t *) ecalloc (nsamps * ic_nbands, sizeof(fpixel_t));
+	icbuf = (fpixel_t *) ecalloc (N * ic_nbands, sizeof(fpixel_t));
 	if (icbuf == NULL) {
 		error("can't allocate init/restart buffer");
 	}
@@ -64,7 +67,7 @@ buffers(void)
    /* Allocate precip buffer */
 
 	if (pfp != NULL) {
-		pbuf = (fpixel_t *) ecalloc (nsamps * PBANDS, sizeof(fpixel_t));
+		pbuf = (fpixel_t *) ecalloc (N * PBANDS, sizeof(fpixel_t));
 		if (pbuf == NULL) {
 			error("can't allocate precip buffer");
 		}
@@ -75,7 +78,7 @@ buffers(void)
    /* Allocate mask buffer */
 
 	if (fdm != ERROR) {
-		mbuf = (pixel_t *) ecalloc (nsamps, sizeof(pixel_t));
+		mbuf = (pixel_t *) ecalloc (N, sizeof(pixel_t));
 		if (mbuf == NULL) {
 			error("can't allocate mask buffer");
 		}
@@ -85,14 +88,14 @@ buffers(void)
 
    /* Allocate energy/mass output buffer */
 
-	embuf = (fpixel_t *) ecalloc (nsamps * EMBANDS, sizeof(fpixel_t));
+	embuf = (fpixel_t *) ecalloc (N * EMBANDS, sizeof(fpixel_t));
 	if (embuf == NULL) {
 		error("can't allocate energy/mass output buffer");
 	}
 
    /* Allocate snow output buffer */
 
-	sbuf = (fpixel_t *) ecalloc (nsamps * SBANDS, sizeof(fpixel_t));
+	sbuf = (fpixel_t *) ecalloc (N * SBANDS, sizeof(fpixel_t));
 	if (sbuf == NULL) {
 		error("can't allocate snow output buffer");
 	}
@@ -100,11 +103,11 @@ buffers(void)
    /* Allocate temporary results buffers
     * Each sample requires TBANDS doubles + 1 double for mask value */
 
-	itbuf = (double *) ecalloc (nsamps * (TBANDS + 1), sizeof(double));
+	itbuf = (double *) ecalloc (N * (TBANDS + 1), sizeof(double));
 	if (itbuf == NULL) {
 		error("can't allocate temporary results buffer");
 	}
-	otbuf = (double *) ecalloc (nsamps * (TBANDS + 1), sizeof(double));
+	otbuf = (double *) ecalloc (N * (TBANDS + 1), sizeof(double));
 	if (otbuf == NULL) {
 		error("can't allocate temporary results buffer");
 	}

@@ -1,3 +1,5 @@
+#include <omp.h>
+#include <stdio.h>
 #include "ipw.h"
 #include "pgm.h"
 #include "snobal.h"
@@ -7,6 +9,7 @@ main (
 		int             argc,
 		char          **argv)
 {
+
 	static OPTION_T opt_t = {
 			't', "time steps: data [normal, [,medium [,small]]] (minutes)",
 			INT_OPTARGS, "timestep",
@@ -49,6 +52,12 @@ main (
 			OPTIONAL, 1, 1
 	};
 
+	static OPTION_T opt_P = {
+			'P', "Number of threads, [dynamic]",
+			INT_OPTARGS, "threads",
+			OPTIONAL, 1, 2
+	};
+
 	static OPTION_T opt_m = {
 			'm', "mask image",
 			STR_OPTARGS, "mask",
@@ -79,6 +88,10 @@ main (
 			REQUIRED, 1, 1
 	};
 
+	static OPTION_T opt_h = {
+			'h', "relative measurement heights",
+	};
+
 	static OPTION_T opt_U = {
 			'U', "check units in input images"
 	};
@@ -99,6 +112,17 @@ main (
 			'F', "use temp filenames: isnobal.tmp1 isnobal.tmp2 and don't remove them"
 	};
 
+	static OPTION_T opt_v = {
+			'v', "verbose output of time step"
+	};
+
+	static OPTION_T opt_b = {
+			'b', "number of bits for output image",
+			INT_OPTARGS, "nbits",
+			OPTIONAL, 1, 1
+	};
+
+
 	static OPTION_T *optv[] = {
 			&opt_t,
 			&opt_T,
@@ -107,15 +131,19 @@ main (
 			&opt_I,
 			&opt_i,
 			&opt_p,
+			&opt_P,
 			&opt_m,
 			&opt_d,
 			&opt_O,
 			&opt_e,
 			&opt_s,
+			&opt_h,
 			&opt_U,
 			&opt_M,
 			&opt_C,
 			&opt_F,
+			&opt_v,
+			&opt_b,
 			0
 	};
 
@@ -126,7 +154,12 @@ main (
 	int		small_tstep_min; /* small run timestep as minutes */
 	double		threshold;	 /* timestep's threshold for 
 					    layer's mass */
+	int nthreads;				/* number of threads to use */
+	int dynamic_teams;			/* number for dynamic teams */
+	int nbits;					/* number of bits */
 
+	// force flush of stdout
+	setbuf(stdout, NULL);
 
 	/* Some initialization first */
 
@@ -135,13 +168,13 @@ main (
 		tstep_info[level].output = 0;
 	}
 
-//	max_z_s_0    = DEFAULT_MAX_Z_S_0;
-//	max_z_s_0 = 0.15;
+	//	max_z_s_0    = DEFAULT_MAX_Z_S_0;
+	//	max_z_s_0 = 0.15;
 	/*	z_u          = 5.0;	*/
 	z_u	     = DEFAULT_Z_U;
 	/*	z_T          = 5.0;	*/
 	z_T	     = DEFAULT_Z_T;
-	relative_hts = TRUE;
+	//	relative_hts = TRUE;
 	z_g          = DEFAULT_Z_G;
 
 	/* begin */
@@ -153,7 +186,6 @@ main (
 	/*      get input data's time step  */
 
 	/*      check option for maximum active-surface depth */
-
 	if (got_opt(opt_d)) {
 		max_z_s_0 = real_arg(opt_d, 0);
 		check_range (max_z_s_0, .001, 0.5,
@@ -161,6 +193,29 @@ main (
 	}
 	else {
 		max_z_s_0 = DEFAULT_MAX_Z_S_0;
+	}
+
+	/* Check relative heights */
+	if (got_opt(opt_h)) {
+		relative_hts = FALSE;
+	}
+	else {
+		relative_hts = TRUE;
+	}
+
+	/* check number of threads to use */
+	nthreads = 1;
+	dynamic_teams = 100;
+	if (got_opt(opt_P)) {
+		nthreads = int_arg(opt_P, 0);
+		if (nthreads > omp_get_max_threads()){
+			nthreads = omp_get_max_threads();
+			printf("WARNING - maximum number of threads is %i, using %i\n", omp_get_max_threads(), nthreads);
+		}
+
+		if (n_args(opt_t) > 1) {
+			dynamic_teams = int_arg(opt_P, 1);
+		}
 	}
 
 	/*
@@ -369,6 +424,15 @@ main (
 		compress_cmd = NULL;
 	}
 
+	/* output images output bits */
+	if (got_opt(opt_b)) {
+		nbits = int_arg(opt_b, 0);
+		if (nbits <= 0)
+			error("number of bits (%d) must be > 0", nbits);
+	}
+	else
+		nbits = 8;
+
 	/* process headers */
 
 	headers();
@@ -376,7 +440,7 @@ main (
 	/* do all the work */
 
 	/*	isnobal(out_step);	*/
-	isnobal(out_step, got_opt(opt_F));
+	isnobal(out_step, nthreads, dynamic_teams, got_opt(opt_F), got_opt(opt_v), nbits);
 
 	/* all done */
 

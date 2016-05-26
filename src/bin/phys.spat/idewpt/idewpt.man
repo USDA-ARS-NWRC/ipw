@@ -6,7 +6,7 @@
 <H2>SYNOPSIS</H2>
 
 <PRE>
-<B>%name</B> [ <B>-m</B> <I>mask</I> ] [<I>image</I>]
+<B>%name</B> [ <B>-m</B> <I>mask</I> ] [ <B>-P</B> <I>nthreads</I> ] [ <B>-t</B> <I>tolerance</I> ] [<I>image</I>]
 </PRE>
 
 <H2>DESCRIPTION</H2>
@@ -35,6 +35,20 @@ Output image is to standard output;
 <DT><B>-m</B> <I>mask</I>
 <DD>
 mask image
+</DD>
+</DL>
+
+<DL>
+<DT><B>-P</B> <I>nthreads</I>
+<DD>
+number of threads to use, default=1 (parallel processing)
+</DD>
+</DL>
+
+<DL>
+<DT><B>-t</B> <I>tolerance</I>
+<DD>
+tolerance threshold for calculations, default=0.0
 </DD>
 </DL>
 
@@ -93,6 +107,13 @@ Corvallis, OR
 <DD>
 	Converted to IPW by Danny Marks, USGS,
 EPA ERL/Corvallis, OR
+</DD>
+</DL>
+
+<DL>
+<DT>Oct 2015</DT>
+<DD>
+	Reads full image, parallel processing, and tolerance threshold, USDA ARS, Boise, ID
 </DD>
 </DL>
 

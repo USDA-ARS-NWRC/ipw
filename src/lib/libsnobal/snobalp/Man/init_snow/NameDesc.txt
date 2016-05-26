@@ -1,1 +1,0 @@
-init_snow - initialize the properties for the snowcover

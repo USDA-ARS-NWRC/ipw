@@ -1,3 +1,0 @@
-%define(name,"isnobal_v2")
-%define(description,"energy-balance snowmelt model with 2 snow layers - parallel")
-%define(category,"Physical Modeling: Spatial")

@@ -21,45 +21,64 @@
 
 #include <math.h>
 #include <string.h>
-
+//#include <omp.h>
 #include "ipw.h"
 #include "fpio.h"
 #include "pgm.h"
 #include "snobal.h"
 
+
+
+//OUTPUT_REC *create_output( int num) {
+//
+//}
+
 void
 isnobal(
-		int		out_step,	/* # of data tsteps per output img   */
-		int		got_opt_F)	/* got option F?		     */
+		int	out_step,		/* # of data tsteps per output img   */
+		int nthreads,		/* number of threads to use */
+		int dynamic_teams, 	/* number of dynamic teams to use */
+		int	got_opt_F,		/* got option F?		     */
+		int verbose,		/* verbose output */
+		int nbits)			/* number of bits for output image */
 {
-	double	data_tstep;		/* data timestep		     */
-	double	step_time;		/* start time of current data tstep  */
-	int	step;			/* step loop counter		     */
-	int	end_step;		/* end step index		     */
-	bool_t	first_step;		/* is first step? 		     */
-	bool_t	last_step;		/* is last step? 		     */
-	int	out_counter;		/* counter for data tsteps per output*/
-	bool_t	output;			/* output images this step? 	     */
-	char	emfile[255];		/* name for temp e/m output file     */
-	char	snowfile[255];		/* name for temp snow output file    */
-	char	tempfiles[2][255];	/* names for temporary results files:
-					   one for input; another for output */
-	int	tempin;			/* index of temp filename for input  */
-	int	tempout;		/* index of temp filename for output */
+	double	data_tstep;			/* data timestep		     */
+	double	step_time;			/* start time of current data tstep  */
+	int	step;					/* step loop counter		     */
+	int	end_step;				/* end step index		     */
+	bool_t	first_step;			/* is first step? 		     */
+	bool_t	last_step;			/* is last step? 		     */
+	int	out_counter;			/* counter for data tsteps per output*/
+	bool_t	output;				/* output images this step? 	     */
+//	char	emfile[255];		/* name for temp e/m output file     */
+//	char	snowfile[255];		/* name for temp snow output file    */
+	//	int	tempin;					/* index of temp filename for input  */
+	//	int	tempout;				/* index of temp filename for output */
 	double	timeSinceOut;		/* local copy of 'time_since_out'    */
-	bool_t	sun_up[2];		/* is S_n band in input images?      */
+	bool_t	sun_up[2];			/* is S_n band in input images?      */
 	char	pre_img[255];		/* file name for precip image	     */
+	int N;						/* number of grid point */
+	int n;						/* loop iteration */
 
+
+	//	printf("here\n");
 
 	data_tstep = tstep_info[DATA_TSTEP].time_step;
 
 	nsamps = hnsamps(fdic);
 	nlines = hnlines(fdic);
+	N = nsamps*nlines;
 
-	first_em_pix = TRUE;
-	first_snow_pix = TRUE;
+	// array of pointers to OUTPUT_REC
+	OUTPUT_REC ** output_rec = (OUTPUT_REC **) calloc(N, sizeof(OUTPUT_REC *));
+	for(n = 0; n < N; ++n)
+		output_rec[n] = malloc(sizeof(OUTPUT_REC));	// initialize the memory (in heap) at that pointer
 
-	tempout = 0;
+
+	/* set threads */
+	if (nthreads != 1) {
+		omp_set_num_threads(nthreads); 	// Use N threads for all consecutive parallel regions
+	}
 
 	/*
 	 * Since no output required by 'snobal' library, don't give it an output
@@ -70,27 +89,6 @@ isnobal(
 	/* Allocate I/O buffers for image files */
 
 	buffers();
-
-	/* open temporary files for output images */
-
-	temp_filename("isnobal", emfile);
-	temp_filename("isnobal", snowfile);
-
-	/*
-	 * if more than 1 time step, create two temporary results files: one for
-	 * input, another for output.  For now, they're empty; we're just reserving
-	 * the names.
-	 */
-	if (nstep > 1) {
-		if (got_opt_F) {
-			strcpy(tempfiles[0], "isnobal.tmp1");
-			strcpy(tempfiles[1], "isnobal.tmp2");
-		}
-		else {
-			temp_filename("isnobal", tempfiles[0]);
-			temp_filename("isnobal", tempfiles[1]);
-		}
-	}
 
 	/* initialize time of starting step */
 
@@ -111,9 +109,17 @@ isnobal(
 		first_step = (step == start_step);
 		last_step =  (step == end_step);
 
+		if (verbose) {
+			printf("Time step -- %i\n", step);
+		}
+
 		/* open input image files */
 
-		fdi1 = open_input(in_prefix, step,   &sun_up[0]);
+		if (first_step) {
+			fdi1 = open_input(in_prefix, step,   &sun_up[0]);
+		} else {
+			sun_up[0] = sun_up[1];
+		}
 		fdi2 = open_input(in_prefix, step+1, &sun_up[1]);
 
 		/* check for precip data this time step */
@@ -149,68 +155,53 @@ isnobal(
 			output = FALSE;
 		}
 
-		if (output) {
-			fdem = uwopen(emfile);
-			if (fdem == ERROR) {
-				error("Can't open temporary file '%s' for output",
-						emfile);
-			}
-			fds = uwopen(snowfile);
-			if (fds == ERROR) {
-				error("Can't open temporary file '%s' for output",
-						snowfile);
-			}
-		}
-
-		/*
-		 *  If not first timestep, open the temporary-results file
-		 *  from previous timestep for input.
-		 */
-
-		if (! first_step) {
-			tempin = tempout;
-			tempout = 1 - tempin;	/* toggle between 0 and 1 */
-			fdti = uropen(tempfiles[tempin]);
-			if (fdti == ERROR) {
-				error("Can't re-open temporary file '%s' for input",
-						tempfiles[tempin]);
-			}
-		}
-
-		/*
-		 *  Open temporary results file for writing if more than 1
-		 *  time step.
-		 */
-		if (nstep > 1) {
-			fdto = uwopen(tempfiles[tempout]);
-			if (fdto == ERROR) {
-				error("Can't re-open temporary file '%s' for output",
-						tempfiles[tempout]);
-			}
-		}
-
 		/* read input data and do calculations */
 
-		for (line = 0; line < nlines; line++) {
+		read_data(first_step);
 
-			/* read next line from all input files */
+		if (nthreads != 1) {
 
-			read_data(first_step);
+#pragma omp parallel shared(output_rec, ibuf1, ibuf2, icbuf, pbuf, mbuf, sbuf, embuf, fdp, fdm, restart, output, first_step)\
+		private(n) \
+		copyin(tstep_info, z_u, z_T, z_g, relative_hts, max_z_s_0, max_h2o_vol, out_func)
+			{
+#pragma omp for schedule(dynamic, dynamic_teams)
+				for (n = 0; n < N; n++) {
 
-			/* reset pointers for output buffers */
+					/* initialize some global variables for
+			   'snobal' library for each pass since
+			   the routine 'do_data_tstep' modifies them */
 
-			embuf_p = embuf;
-			sbuf_p  = sbuf;
-			otbuf_p = otbuf;
-			ot_nbytes = 0;
+					current_time = step_time;
+					time_since_out = timeSinceOut;
 
-			/* Do calculations on each sample of line */
+					precip_now = (fdp != ERROR);
 
-			for (samp=0; samp < nsamps; samp++) {
+					/* extract data from I/O buffers */
+
+					if (extract_data(first_step, n, sun_up, output_rec)) {
+
+						/* run model on data for this pixel */
+
+						if (! do_data_tstep())
+							error("During step %d, at pixel %i", step, n);
+
+						/* assign data to output buffers */
+
+						assign_buffers(FALSE, n, output, output_rec);
+
+					} else { /* masked point */
+						assign_buffers(TRUE, n, output, output_rec);
+					}
+
+				}  /* for loop on grid */
+			} /* end of parallel region */
+		} else {
+			for (n = 0; n < N; n++) {
 
 				/* initialize some global variables for
-				   'snobal' library for each pass since
-				   the routine 'do_data_tstep' modifies them */
+						   'snobal' library for each pass since
+						   the routine 'do_data_tstep' modifies them */
 
 				current_time = step_time;
 				time_since_out = timeSinceOut;
@@ -219,32 +210,32 @@ isnobal(
 
 				/* extract data from I/O buffers */
 
-				if (extract_data(first_step, sun_up)) {
+				if (extract_data(first_step, n, sun_up, output_rec)) {
 
 					/* run model on data for this pixel */
 
 					if (! do_data_tstep())
-						error("During step %d, at line %d, sample %d",
-								step, line, samp);
+						error("During step %d, at pixel %i", step, n);
 
 					/* assign data to output buffers */
 
-					assign_buffers(FALSE, output);
+					assign_buffers(FALSE, n, output, output_rec);
 
 				} else { /* masked point */
-					assign_buffers(TRUE, output);
+					assign_buffers(TRUE, n, output, output_rec);
 				}
-			}  /* for loop on samples */
 
-			/* write output buffers to output files */
+			}  /* for loop on grid */
+		}
 
-			write_data(output, last_step);
+		/* write output buffers to output files */
 
-		}  /* for loop on lines */
+		//		write_data(output, last_step);
 
 		/* close input images */
-
-		fpclose(fdi1);
+		if (first_step) {
+			fpclose(fdi1);
+		}
 		fpclose(fdi2);
 
 		if (fdp != ERROR) {
@@ -265,29 +256,28 @@ isnobal(
 
 		if (output) {
 			uclose(fdem);
-			e_m_image(step, emfile);
-			first_em_pix = TRUE;
+			e_m_image(step, output_rec, nbits);
+			//			first_em_pix = TRUE;
 
 			uclose(fds);
-			snow_image(step, snowfile);
-			first_snow_pix = TRUE;
+			snow_image(step, output_rec, nbits);
+			//			first_snow_pix = TRUE;
 		}
 
-		/* close any open temporary results files */
-
-		if (fdti != ERROR)
-			uclose(fdti);
-		if (fdto != ERROR)
-			uclose(fdto);
 	}  /* for loop on timesteps */
 
 	/* remove temp files */
 
-	uremove(emfile);
-	uremove(snowfile);
+//	uremove(emfile);
+//	uremove(snowfile);
 
-	if ((nstep > 1) && (! got_opt_F)) {
-		uremove(tempfiles[0]);
-		uremove(tempfiles[1]);
+	//	for(n = 0; n < N; ++n)
+	//		free(output_rec);
+	for(n=0;n<N;n++){
+		if (output_rec[n] != NULL){ //don't want to free(NULL), cause coredump
+			free(output_rec[n]); //free allocated memory within array
+		}
 	}
+	free(output_rec); //free array
+
 }

@@ -44,8 +44,8 @@ write_data(
 {
 
 	if (first_call) {
-		em_nbytes = nsamps * EMBANDS * sizeof(fpixel_t);
-		s_nbytes = nsamps * SBANDS * sizeof(fpixel_t);
+		em_nbytes = nsamps * nlines * EMBANDS * sizeof(fpixel_t);
+		s_nbytes = nsamps * nlines * SBANDS * sizeof(fpixel_t);
 		first_call = FALSE;
 	}
 
@@ -54,14 +54,14 @@ write_data(
 	if (! last_step) {
 		/* write length of line to temp file */
 
-		if (uwrite(fdto, (addr_t) &ot_nbytes, sizeof(int))
-			 				!= sizeof(int)) {
-			error("temp file write error, line %d", line);
-		}
-
-		if (uwrite(fdto, (addr_t) otbuf, ot_nbytes) != ot_nbytes) {
-			error("temp file write error, line %d", line);
-		}
+//		if (uwrite(fdto, (addr_t) &ot_nbytes, sizeof(int))
+//			 				!= sizeof(int)) {
+//			error("temp file write error, line %d", line);
+//		}
+//
+//		if (uwrite(fdto, (addr_t) otbuf, ot_nbytes) != ot_nbytes) {
+//			error("temp file write error, line %d", line);
+//		}
 	}
 
    /* if output this time step, write to output files */
