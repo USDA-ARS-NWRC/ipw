@@ -1,0 +1,129 @@
+<H2>NAME</H2>
+
+<P><B>%name</B> - %description</P>
+
+
+<H2>SYNOPSIS</H2>
+
+<PRE>
+<B>%name</B> [ <B>-m</B> <I>mask</I> ] [<I>image</I>]
+</PRE>
+
+<H2>DESCRIPTION</H2>
+
+<P>
+<B>%name</B> is one of a group of commands designed to simulate energy,
+climate, or hydrologic processes or properties over an area.
+Most were originally written as &quot;qdips&quot; (Quick and Dirty Image
+Processing System) programs to simulate the process at a point
+by D. Marks, during the 1980's at UCSB.  <B>%name</B> is the spatial version
+of <B>dewpt</B>.
+</P><P>
+<B>%name</B> converts a vapor pressure image to a dew point
+temperature image.
+Reads vapor pressure image from standard input;
+Vapor pressure input in Pa;
+Calculates dew point temperature in C;
+Output image is to standard output;
+</P><P>
+(see <I>General Meterology, Byers, 1974</I>)
+
+<H2>OPTIONS</H2>
+
+
+<DL>
+<DT><B>-m</B> <I>mask</I>
+<DD>
+mask image
+</DD>
+</DL>
+
+<H2>OPERANDS</H2>
+
+<DL>
+<DT>[<I>image</I>]</DT>
+
+<DD>	image	vapor pressure image
+</DD><P>
+</P>
+</DL>
+
+<H2>EXAMPLES</H2>
+
+<P>
+To calculate dew point temperatures from temperature and relative
+humidity:
+</P>
+<PRE>
+	mux rh temp | irh2vp | isatvp
+</PRE>
+<H2>FILES</H2>
+
+<PRE>
+     None
+</PRE>
+
+<H2>DIAGNOSTICS</H2>
+
+<DL>
+
+<P>
+<DT>terminates with error message;
+</DT>
+</DL>
+
+<H2>RESTRICTIONS</H2>
+
+<P>
+None
+</P>
+<H2>HISTORY</H2>
+
+
+<DL>
+<DT>Apr 1989</DT>
+<DD>
+	Written as a Qdips program by D. Marks, USEPA,
+Corvallis, OR
+</DD>
+</DL>
+
+<DL>
+<DT>Oct 1992</DT>
+<DD>
+	Converted to IPW by Danny Marks, USGS,
+EPA ERL/Corvallis, OR
+</DD>
+</DL>
+
+<H2>BUGS</H2>
+
+<P>
+None that we know of
+</P>
+
+<H2>SEE ALSO</H2>
+
+<DL>
+<DT>IPW</DT>
+<B><A href="dewpt.html">dewpt</A></B>,
+<B><A href="irh2vp.html">irh2vp</A></B>,
+<B><A href="rh2vp.html">rh2vp</A></B>,
+<B><A href="isatvp.html">isatvp</A></B>,
+<B><A href="satvp.html">satvp</A></B>,
+<B><A href="sling.html">sling</A></B>,
+<B><A href="vptr.html">vptr</A></B>
+</DD>
+</DL>
+
+<DL>
+<DT>Unix</DT>
+<DD>
+mux
+</DD>
+</DL>
+
+<P>
+<A HREF="../bib.html#Byers 1974">Byers 1974</A>,
+</P>
+
