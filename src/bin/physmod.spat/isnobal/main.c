@@ -188,7 +188,7 @@ main (
 	/*      check option for maximum active-surface depth */
 	if (got_opt(opt_d)) {
 		max_z_s_0 = real_arg(opt_d, 0);
-		check_range (max_z_s_0, .001, 0.5,
+		check_range (0, max_z_s_0, .001, 0.5,
 				"max active layer depth", FALSE);
 	}
 	else {
@@ -224,7 +224,7 @@ main (
 	 *  2 hours, 3 hours, etc.
 	 */
 	data_tstep_min = int_arg(opt_t, 0);
-	check_range (data_tstep_min, 1.0, HR_TO_MIN(6.0),
+	check_range (0, data_tstep_min, 1.0, HR_TO_MIN(6.0),
 			"input data's timestep", FALSE);
 	if ((data_tstep_min > 60) && (data_tstep_min % 60 != 0))
 		error("Data timestep > 60 min must be multiple of 60 min (whole hrs)");
@@ -238,7 +238,7 @@ main (
 	 */
 	if (n_args(opt_t) > 1) {
 		norm_tstep_min = int_arg(opt_t, 1);
-		check_range (norm_tstep_min, 1.0,
+		check_range (0, norm_tstep_min, 1.0,
 				(data_tstep_min > 60 ? 60 : data_tstep_min),
 				"normal run timestep", FALSE);
 	}
@@ -258,7 +258,7 @@ main (
 	 */
 	if (n_args(opt_t) > 2) {
 		med_tstep_min = int_arg(opt_t, 2);
-		check_range (med_tstep_min, 1.0, (float) norm_tstep_min,
+		check_range (0, med_tstep_min, 1.0, (float) norm_tstep_min,
 				"medium run timestep", FALSE);
 	}
 	else if (norm_tstep_min < DEFAULT_MEDIUM_TSTEP)
@@ -277,7 +277,7 @@ main (
 	 */
 	if (n_args(opt_t) > 3) {
 		small_tstep_min = int_arg(opt_t, 3);
-		check_range (small_tstep_min, 1.0, (float) med_tstep_min,
+		check_range (0, small_tstep_min, 1.0, (float) med_tstep_min,
 				"small run timestep", FALSE);
 	}
 	else if (med_tstep_min < DEFAULT_SMALL_TSTEP)
@@ -295,7 +295,7 @@ main (
 
 	if (got_opt(opt_T)) {
 		threshold = real_arg(opt_T, 0);
-		check_range(threshold, 0.0, 1000.0,
+		check_range(0, threshold, 0.0, 1000.0,
 				"normal run timestep's threshold for layer's mass",
 				FALSE);
 	}
@@ -305,7 +305,7 @@ main (
 
 	if (n_args(opt_T) > 1) {
 		threshold = real_arg(opt_T, 1);
-		check_range(threshold, 0.0, 1000.0,
+		check_range(0, threshold, 0.0, 1000.0,
 				"medium run timestep's threshold for layer's mass",
 				FALSE);
 	}
@@ -317,7 +317,7 @@ main (
 
 	if (n_args(opt_T) > 2) {
 		threshold = real_arg(opt_T, 2);
-		check_range(threshold, 0.0, 1000.0,
+		check_range(0, threshold, 0.0, 1000.0,
 				"small run timestep's threshold for layer's mass",
 				FALSE);
 	}
@@ -404,7 +404,7 @@ main (
 
 	if (got_opt(opt_M)) {
 		max_h2o_vol = real_arg(opt_M, 0);
-		check_range(max_h2o_vol, .001, 1.0,
+		check_range(0, max_h2o_vol, .001, 1.0,
 				"max liquid h2o content as vol ratio", FALSE);
 	}
 	else {

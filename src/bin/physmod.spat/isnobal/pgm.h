@@ -63,7 +63,7 @@ typedef struct {
 
 extern	void	assign_buffers (int masked, int n, int output, OUTPUT_REC **output_rec);
 extern	void	buffers        (void);
-extern	void	check_range    (double value, double min, double max,
+extern	void	check_range    (int index, double value, double min, double max,
 		char * descrip, bool_t print_line_samp);
 extern	void	check_units    (LQH_T **lq_headers, UNITS_T *units, int nbands,
 		int fd);
@@ -119,8 +119,8 @@ extern	fpixel_t       *ibuf2;		/*  "     "     "    "     "   2     */
 //extern	fpixel_t       *ibuf1_p;	/* -> into line buff for input img 1 */
 //extern	fpixel_t       *ibuf2_p;	/* ->  "    "    "    "    "    "  2 */
 
-extern	int		line;		/* current line in input image	     */
-extern	int		samp;		/* current sample in input image     */
+//extern	int		line;		/* current line in input image	     */
+//extern	int		samp;		/* current sample in input image     */
 
 extern	int		fdm;		/* mask img file desc		     */
 extern	pixel_t        *mbuf;		/* mask line buffer		     */
