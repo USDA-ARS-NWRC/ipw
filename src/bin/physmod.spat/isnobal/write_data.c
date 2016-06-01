@@ -68,12 +68,11 @@ write_data(
 
 	if (output) {
 		if (uwrite(fdem, (addr_t) embuf, em_nbytes) != em_nbytes) {
-			error("energy/mass output file write error, line %d",
-				line);
+			error("energy/mass output file write error");
 		}
 
 		if (uwrite(fds, (addr_t) sbuf, s_nbytes) != s_nbytes) {
-			error("snow output file write error, line %d", line);
+			error("snow output file write error");
 		}
 	}
 }

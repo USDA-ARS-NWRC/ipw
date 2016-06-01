@@ -58,14 +58,14 @@ read_data(
 
 	if (first_step) {
 		if (fpvread(fdi1, ibuf1, N) != N) {
-			error("error reading first input image, line %d", line);
+			error("error reading first input image");
 		}
 	} else {
 		memcpy(ibuf1, ibuf2, N * IBANDS * sizeof(fpixel_t));
 	}
 
 	if (fpvread(fdi2, ibuf2, N) != N) {
-		error("error reading second input image, line %d", line);
+		error("error reading second input image");
 	}
 
 //	ibuf1_p = ibuf1;
@@ -76,12 +76,12 @@ read_data(
 	if (first_step) {
 		if (fdm != ERROR) {
 			if (pvread(fdm, mbuf, N) != N) {
-				error("error reading mask image, line %d", line);
+				error("error reading mask image");
 			}
 //			mbuf_p = mbuf;
 		}
 		if (fpvread (fdic, icbuf, N) != N) {
-			error("error reading init-cond file, line %d", line);
+			error("error reading init-cond file");
 		}
 //		icbuf_p = icbuf;
 	} else {
@@ -96,7 +96,7 @@ read_data(
 
 	if (fdp != ERROR) {
 		if (fpvread(fdp, pbuf, N) != N) {
-			error("error reading precip image, line %d", line);
+			error("error reading precip image");
 		}
 //		pbuf_p = pbuf;
 	}
