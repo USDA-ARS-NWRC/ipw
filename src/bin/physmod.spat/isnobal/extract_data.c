@@ -126,12 +126,12 @@ extract_data(
 	check_range (input_rec1.u, 0.0, 500.0, "u", PRINT_LINE_SAMP);
 	check_range (input_rec1.T_g, 180.0, 300.0, "T_g", PRINT_LINE_SAMP);
 
-	check_range (input_rec2.S_n, 0.0, 800.0, "S_n", PRINT_LINE_SAMP);
-	check_range (input_rec2.I_lw, 0.0, 600.0, "I_lw", PRINT_LINE_SAMP);
-	check_range (input_rec2.T_a, 200.0, 320.0, "T_a", PRINT_LINE_SAMP);
-	check_range (input_rec2.e_a, 0.0, 2000.0, "e_a", PRINT_LINE_SAMP);
-	check_range (input_rec2.u, 0.0, 500.0, "u", PRINT_LINE_SAMP);
-	check_range (input_rec2.T_g, 180.0, 300.0, "T_g", PRINT_LINE_SAMP);
+//	check_range (input_rec2.S_n, 0.0, 800.0, "S_n", PRINT_LINE_SAMP);
+//	check_range (input_rec2.I_lw, 0.0, 600.0, "I_lw", PRINT_LINE_SAMP);
+//	check_range (input_rec2.T_a, 200.0, 320.0, "T_a", PRINT_LINE_SAMP);
+//	check_range (input_rec2.e_a, 0.0, 2000.0, "e_a", PRINT_LINE_SAMP);
+//	check_range (input_rec2.u, 0.0, 500.0, "u", PRINT_LINE_SAMP);
+//	check_range (input_rec2.T_g, 180.0, 300.0, "T_g", PRINT_LINE_SAMP);
 
 
 	/* if precip event, extract bands from precip buffer */
