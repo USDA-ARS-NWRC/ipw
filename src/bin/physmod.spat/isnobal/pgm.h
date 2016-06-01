@@ -42,6 +42,7 @@ typedef struct {
 	double T_s_l;			/* lower layer temp (C) */
 	double T_s;
 	double h2o_sat;
+	int layer_count;
 	double R_n_bar;
 	double H_bar;
 	double L_v_E_bar;

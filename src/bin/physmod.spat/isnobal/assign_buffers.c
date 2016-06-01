@@ -173,6 +173,7 @@ assign_buffers (
 			output_rec[n]->T_s_l = T_s_l;
 			output_rec[n]->T_s = T_s;
 			output_rec[n]->h2o_sat = h2o_sat;
+			output_rec[n]->layer_count = layer_count;
 
 			output_rec[n]->R_n_bar = R_n_bar;
 			output_rec[n]->H_bar = H_bar;

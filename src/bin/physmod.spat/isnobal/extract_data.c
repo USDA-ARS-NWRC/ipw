@@ -228,6 +228,7 @@ extract_data(
 			T_s_l	     = output_rec[n]->T_s_l;
 			T_s	         = output_rec[n]->T_s;
 			h2o_sat	     = output_rec[n]->h2o_sat;
+			layer_count  = output_rec[n]->layer_count;
 
 			R_n_bar	     = output_rec[n]->R_n_bar;
 			H_bar	     = output_rec[n]->H_bar;

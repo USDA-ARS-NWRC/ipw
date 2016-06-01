@@ -49,10 +49,10 @@ check_range(
 		if (print_line_samp) {
 
 			line = (int) floor((double) index / nlines);
-			samp = index - line*nsamps;
+			samp = index - line*nsamps - 1;
 
-			error("At line %d, sample %d, %s (%f) out of range: %f to %f",
-					line, samp, descrip, value, min, max);
+			error("At index %d, line %d, sample %d, %s (%f) out of range: %f to %f",
+					index, line, samp, descrip, value, min, max);
 		}
 		else {
 			error("%s (%f) out of range: %f to %f", descrip, value,
