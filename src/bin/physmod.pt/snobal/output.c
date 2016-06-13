@@ -62,37 +62,69 @@ output(void)
 	curr_time_hrs = SEC_TO_HR(current_time);
 
 	if (out_file) {
+		//		/* time */
+		//		fprintf(out, "%g", curr_time_hrs);
+		//		/* energy budget terms */
+		//		fprintf(out, " %.1f %.1f %.1f %.1f %.1f %.1f",
+		//				R_n_bar, H_bar, L_v_E_bar, G_bar, M_bar, delta_Q_bar);
+		//
+		//		/* layer terms */
+		//		fprintf(out, " %.1f %.1f",
+		//				G_0_bar, delta_Q_0_bar);
+		//
+		//		/* heat storage and mass changes */
+		//		fprintf(out, " %.6e %.6e %.6e",
+		//				cc_s_0, cc_s_l, cc_s);
+		//		fprintf(out, " %.5f %.5f %.5f",
+		//				E_s_sum, melt_sum, ro_pred_sum);
+		//
+		//		/* runoff error if data included */
+		//		if (ro_data)
+		//			fprintf(out, " %.1f",
+		//					(ro_pred_sum - (ro * time_since_out)));
+		//
+		//		/* sno properties */
+		//		fprintf(out, " %.3f %.3f %.3f %.1f",
+		//				z_s_0, z_s_l, z_s, rho);
+		//		fprintf(out, " %.1f %.1f %.1f %.1f",
+		//				m_s_0, m_s_l, m_s, h2o);
+		//		if (temps_in_C)
+		//			fprintf(out, " %.2f %.2f %.2f\n",
+		//					K_TO_C(T_s_0), K_TO_C(T_s_l), K_TO_C(T_s));
+		//		else
+		//			fprintf(out, " %.2f %.2f %.2f\n",
+		//					T_s_0, T_s_l, T_s);
 		/* time */
 		fprintf(out, "%g", curr_time_hrs);
 		/* energy budget terms */
-		fprintf(out, " %.1f %.1f %.1f %.1f %.1f %.1f",
+		fprintf(out, " %.3f %.3f %.3f %.3f %.3f %.3f",
 				R_n_bar, H_bar, L_v_E_bar, G_bar, M_bar, delta_Q_bar);
 
 		/* layer terms */
-		fprintf(out, " %.1f %.1f",
+		fprintf(out, " %.3f %.3f",
 				G_0_bar, delta_Q_0_bar);
 
 		/* heat storage and mass changes */
-		fprintf(out, " %.6e %.6e %.6e",
+		fprintf(out, " %.9e %.9e %.9e",
 				cc_s_0, cc_s_l, cc_s);
-		fprintf(out, " %.5f %.5f %.5f",
+		fprintf(out, " %.8f %.8f %.8f",
 				E_s_sum, melt_sum, ro_pred_sum);
 
 		/* runoff error if data included */
 		if (ro_data)
-			fprintf(out, " %.1f",
+			fprintf(out, " %.3f",
 					(ro_pred_sum - (ro * time_since_out)));
 
 		/* sno properties */
-		fprintf(out, " %.3f %.3f %.3f %.1f",
+		fprintf(out, " %.6f %.6f %.6f %.3f",
 				z_s_0, z_s_l, z_s, rho);
-		fprintf(out, " %.1f %.1f %.1f %.1f",
+		fprintf(out, " %.3f %.3f %.3f %.3f",
 				m_s_0, m_s_l, m_s, h2o);
 		if (temps_in_C)
-			fprintf(out, " %.2f %.2f %.2f\n",
+			fprintf(out, " %.5f %.5f %.5f\n",
 					K_TO_C(T_s_0), K_TO_C(T_s_l), K_TO_C(T_s));
 		else
-			fprintf(out, " %.2f %.2f %.2f\n",
+			fprintf(out, " %.5f %.5f %.5f\n",
 					T_s_0, T_s_l, T_s);
 	}
 	else {
