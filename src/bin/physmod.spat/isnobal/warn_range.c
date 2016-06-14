@@ -34,7 +34,7 @@
 #include "pgm.h"
 
 void
-check_range(
+warn_range(
 		int		index,		 /* index value */
 		double	value,		 /* value to check */
 		double	min,		 /* minimum acceptable value */
@@ -51,11 +51,11 @@ check_range(
 			line = (int) floor((double) index / nsamps);
 			samp = index - (line*nsamps) - 1;
 
-			error("At index %d, line %d, sample %d, %s (%f) out of range: %f to %f",
+			warn("At index %d, line %d, sample %d, %s (%f) out of range: %f to %f",
 					index, line, samp, descrip, value, min, max);
 		}
 		else {
-			error("%s (%f) out of range: %f to %f", descrip, value,
+			warn("%s (%f) out of range: %f to %f", descrip, value,
 					min, max);
 		}
 	}

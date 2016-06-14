@@ -260,8 +260,8 @@ extract_data(
 	}
 
 	if (first_step | !masked) {
-		check_range(n, z_s, 0.0, 50.0, "z_s", PRINT_LINE_SAMP);
-		check_range(n, rho, 0.0, 1000.0, "rho", PRINT_LINE_SAMP);
+		warn_range(n, z_s, 0.0, 50.0, "z_s", PRINT_LINE_SAMP);
+		warn_range(n, rho, 0.0, 1000.0, "rho", PRINT_LINE_SAMP);
 
 		/*
 		 *  Only check snow temperatures when there's snow.
@@ -269,17 +269,17 @@ extract_data(
 		 *  snowcover because we need to know how many layers first.
 		 */
 		if (z_s > 0.0) {
-			check_range(n, T_s_0 - FREEZE, MIN_SNOW_TEMP, 0, "T_s_0", PRINT_LINE_SAMP);
-			check_range(n, T_s - FREEZE, MIN_SNOW_TEMP, 0, "T_s", PRINT_LINE_SAMP);
+			warn_range(n, T_s_0 - FREEZE, MIN_SNOW_TEMP, 0, "T_s_0", PRINT_LINE_SAMP);
+			warn_range(n, T_s - FREEZE, MIN_SNOW_TEMP, 0, "T_s", PRINT_LINE_SAMP);
 		}
-		check_range(n, h2o_sat, 0.0, 1.0, "h2o_sat", PRINT_LINE_SAMP);
+		warn_range(n, h2o_sat, 0.0, 1.0, "h2o_sat", PRINT_LINE_SAMP);
 
 		/*
 		 *  If more than 1 layer, check the range on lower layer's
 		 *  temperature.
 		 */
 		if (layer_count > 1) {
-			check_range(n, T_s_l - FREEZE, MIN_SNOW_TEMP, 0, "T_s_l", PRINT_LINE_SAMP);
+			warn_range(n, T_s_l - FREEZE, MIN_SNOW_TEMP, 0, "T_s_l", PRINT_LINE_SAMP);
 		}
 	}
 

@@ -86,6 +86,8 @@ extern	void	precip_hdrs    (char *filename);
 extern	void	read_data      (int first_step);
 extern	void 	snow_image     (int step, OUTPUT_REC **output_rec, int nbits);
 extern	void	temp_filename  (char *prefix, char *filename);
+extern	void	warn_range    (int index, double value, double min, double max,
+		char * descrip, bool_t print_line_samp);
 extern	void	write_data     (int output, int last_step);
 
 /* ------------------------------------------------------------------------- */
