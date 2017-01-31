@@ -84,7 +84,7 @@ causes the following transformation:
 <H2>FILES</H2>
 
 <PRE>
-     $TMPDIR/skew<I>NNNNN</I>
+     $WORKDIR/skew<I>NNNNN</I>
      	Temporary copy of all input headers.
 </PRE>
 

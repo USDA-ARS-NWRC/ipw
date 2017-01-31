@@ -78,7 +78,7 @@ area dem, on a machine with 4 processors:
 <H2>FILES</H2>
 
 <PRE>
-     $TMPDIR/gviewf.<I>NNNNN</I>/*
+     $WORKDIR/gviewf.<I>NNNNN</I>/*
      	Temporary directory containing intermediate gradient
      	and horizon files.
 </PRE>

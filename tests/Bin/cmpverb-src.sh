@@ -22,7 +22,7 @@
 
 : ${IPW?}
 
-TMPDIR=${TMPDIR:-$IPW/scratch}
+WORKDIR=${WORKDIR:-$IPW/scratch}
 
 dolitbig=""    # Set when script is built
 dotouch="true"
@@ -59,9 +59,9 @@ do
   esac
 done
 
-tmp0=$TMPDIR/`basename $0`$$-0
-tmp1=$TMPDIR/`basename $0`$$-1
-tmpf=$TMPDIR/`basename $0`$$-f
+tmp0=$WORKDIR/`basename $0`$$-0
+tmp1=$WORKDIR/`basename $0`$$-1
+tmpf=$WORKDIR/`basename $0`$$-f
 
 progfail="$prog-fail"
 file2=Outputs/$file1

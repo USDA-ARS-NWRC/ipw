@@ -31,8 +31,8 @@ case $2 in
 	;;
 esac
 
-tmp=$TMPDIR/`basename $0`$$
-tmp2=$TMPDIR/`basename $0`$$-2
+tmp=$WORKDIR/`basename $0`$$
+tmp2=$WORKDIR/`basename $0`$$-2
 trap 'rm -f $tmp $tmp2' 0
 trap 'exit 0' 1 2 3 15
 

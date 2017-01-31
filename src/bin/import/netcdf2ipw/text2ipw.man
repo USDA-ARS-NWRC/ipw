@@ -122,7 +122,7 @@ None.
 <DT>write error - output file likely incomplete
 </DT>
 <DD><BR>	It is likely that the program ran out of temporary space.  By
-	changing the value of your environment variable &quot;TMPDIR&quot; to
+	changing the value of your environment variable &quot;WORKDIR&quot; to
 	a directory with more space, it may succeed.
 </DD>
 </DL>

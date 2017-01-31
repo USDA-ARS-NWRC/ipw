@@ -117,7 +117,7 @@ at UTM northing 4051800 and easting 349350:
 <H2>FILES</H2>
 
 <PRE>
-     $TMPDIR/windo<I>NNNNN</I>
+     $WORKDIR/windo<I>NNNNN</I>
      	Temporary copy of all input headers.
 </PRE>
 

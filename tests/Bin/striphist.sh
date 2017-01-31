@@ -4,7 +4,7 @@
 
 PATH="$PATH:$IPW/lib"
 
-tmp=$TMPDIR/`basename $0`$$-1
+tmp=$WORKDIR/`basename $0`$$-1
 trap 'rm -f $tmp' 0
 trap 'exit 0' 1 2 3 15
 

@@ -59,7 +59,7 @@
 ##		gviewf-mp -x -m basin_mask dem_image
 ##
 ## FILES
-##	$TMPDIR/gviewf.{NNNNN}/*
+##	$WORKDIR/gviewf.{NNNNN}/*
 ##
 ##		Temporary directory containing intermediate gradient
 ##		and horizon files.

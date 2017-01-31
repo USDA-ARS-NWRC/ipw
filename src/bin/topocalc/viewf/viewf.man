@@ -58,11 +58,11 @@ is equivalent to:
 <H2>FILES</H2>
 
 <PRE>
-     $TMPDIR/viewf.<I>NNNNN</I>/*
+     $WORKDIR/viewf.<I>NNNNN</I>/*
      	Temporary directory containing intermediate gradient
      	and horizon files.
-     $TMPDIR/mux<I>NNNNN</I>
-     $TMPDIR/skew<I>NNNNN</I>
+     $WORKDIR/mux<I>NNNNN</I>
+     $WORKDIR/skew<I>NNNNN</I>
      	Temporary files used by mux and skew
 </PRE>
 

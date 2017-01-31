@@ -100,7 +100,7 @@ trap 'exit 1' 1 2 15
 
 # This shell variable is my proudest work .. or something. --bje
 
-set_cc_for_build='tmpdir=${TMPDIR-/tmp}/config-guess-$$ ;
+set_cc_for_build='tmpdir=${WORKDIR-/tmp}/config-guess-$$ ;
 (old=`umask` && umask 077 && mkdir $tmpdir && umask $old && unset old)
    || (echo "$me: cannot create $tmpdir" >&2 && exit 1) ;
 dummy=$tmpdir/dummy ;

@@ -57,7 +57,7 @@ mux rn ta pt_parm | <B>%name</B> <B>-m</b> basin_mask
 <H2>FILES</H2>
 
 <PRE>
-     $TMPDIR/iptx*	temporary file
+     $WORKDIR/iptx*	temporary file
 </PRE>
 
 <H2>DIAGNOSTICS</H2>

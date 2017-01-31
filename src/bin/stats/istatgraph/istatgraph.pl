@@ -6,11 +6,11 @@ $SIG{'QUIT'} = 'sighandler';
 #
 $istatcom = "/usr/packages/sparc/ipw/bin/istatrel";
 
-$TMPDIR = ($ENV{'TMPDIR'}) ? $ENV{'TMPDIR'} : '/tmp';
+$WORKDIR = ($ENV{'WORKDIR'}) ? $ENV{'WORKDIR'} : '/tmp';
 
-$tdfile = "$TMPDIR/f12.$$";
-$tgfile = "$TMPDIR/gnup.$$";
-$trfile = "$TMPDIR/istat.$$";
+$tdfile = "$WORKDIR/f12.$$";
+$tgfile = "$WORKDIR/gnup.$$";
+$trfile = "$WORKDIR/istat.$$";
 
 if ($#ARGV == -1 || $ARGV[0] eq "-H" || $ARGV[0] eq "-help") {
   print <<"EOF";

@@ -373,7 +373,7 @@ OPTIONS
 	     compressed).
 
 FILES
-	TMPDIR/isnobal*     (temporary image files)
+	WORKDIR/isnobal*     (temporary image files)
 
 HISTORY
 	     Sep 1990       Modified D. Marks point model (QDIPS program

@@ -11,7 +11,7 @@
 **	    char       *filename)	|* returned name of temp file	 *|
 ** 
 ** DESCRIPTION
-**	temp_filename creates the name of a temporary file in the TMPDIR
+**	temp_filename creates the name of a temporary file in the WORKDIR
 **	directory.  The given prefix will be used to construct
 **	the filename.  If an error occurs, the routine prints a message
 **	and exits the program.

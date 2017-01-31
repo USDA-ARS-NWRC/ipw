@@ -28,17 +28,17 @@ while :; do
 	shift
 done
 
-trap 'rm -f $TMPDIR/*$$' 0
+trap 'rm -f $WORKDIR/*$$' 0
 trap 'exit 0' 1 2 3 15
 
 case $# in
-0)	cat > $TMPDIR/rmize$$
-	image=$TMPDIR/rmize$$
+0)	cat > $WORKDIR/rmize$$
+	image=$WORKDIR/rmize$$
 	;;
 1)	image=$1
 	case $image in
-	'-')	cat > $TMPDIR/rmize$$
-		image=$TMPDIR/rmize$$
+	'-')	cat > $WORKDIR/rmize$$
+		image=$WORKDIR/rmize$$
 		;;
 	*)	test -r $image || {
 			exec sherror $pgm "can't open file" $image
@@ -46,28 +46,28 @@ case $# in
 		;;
 	esac
 	;;
-*)	rm -f $TMPDIR/rmize$$
+*)	rm -f $WORKDIR/rmize$$
 	for image in $*
 	do
 		case $image in
-		-)	cat >> $TMPDIR/rmize$$
+		-)	cat >> $WORKDIR/rmize$$
 			;;
 		*)	test -r $image || {
 				exec sherror $pgm "can't open file" $image
 			}
-			cat $image >> $TMPDIR/rmize$$
+			cat $image >> $WORKDIR/rmize$$
 			;;
 		esac
 	done
-	image=$TMPDIR/rmize$$
+	image=$WORKDIR/rmize$$
 	;;
 esac
 
 
-random -r 0,1000000 $seed -n `cat $image | wc -l` > $TMPDIR/rnd$$
+random -r 0,1000000 $seed -n `cat $image | wc -l` > $WORKDIR/rnd$$
 
-paste $TMPDIR/rnd$$ $image | sort -n | sed 's/^[0-9]*[ 	]*//'
+paste $WORKDIR/rnd$$ $image | sort -n | sed 's/^[0-9]*[ 	]*//'
 
-rm -f $TMPDIR/*$$
+rm -f $WORKDIR/*$$
 
 exit 0

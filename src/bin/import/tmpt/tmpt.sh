@@ -36,7 +36,7 @@ offset=`expr $offset + 1`
 
 mt fsf $offset
 
-hdr=$TMPDIR/`basename $0`$$
+hdr=$WORKDIR/`basename $0`$$
 trap 'rm -f $hdr' 0
 trap 'exit 0' 1 2 3 15
 

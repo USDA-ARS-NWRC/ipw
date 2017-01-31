@@ -17,6 +17,7 @@ lib/*
 !aux/.please_save
 *Man*
 man/man5/*
+*.man
 
 conf/conf.h
 conf/conf.ipw

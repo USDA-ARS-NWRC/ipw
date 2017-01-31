@@ -67,7 +67,7 @@ a dem image:
 <H2>FILES</H2>
 
 <PRE>
-	$TMPDIR/ipmx*	temporary file
+	$WORKDIR/ipmx*	temporary file
 </PRE>
 
 <H2>DIAGNOSTICS</H2>

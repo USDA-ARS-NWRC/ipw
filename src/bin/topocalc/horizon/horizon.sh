@@ -79,7 +79,7 @@ test -t 1 && {
 }
 
 # see if we can remove temp file if we get stopped early
-trap 'rm -f $TMPDIR/$pgm$$' 0
+trap 'rm -f $WORKDIR/$pgm$$' 0
 trap 'exit 0' 1 2 3 15
 
 # awk script creates output command string and puts in temporary file
@@ -138,15 +138,15 @@ echo $phi $delta $zen $cosZ $image | %AWK '
 			print xp, image, "|", skew, -90-phi, "|", xp, "|", hb, phi+180, "|", xp, "|", unskew, "|", xp
 		else
 			print "error: phi =", phi
-	}' > $TMPDIR/$pgm$$
+	}' > $WORKDIR/$pgm$$
 
 # run command string from temporary file
 
-chmod +x $TMPDIR/$pgm$$
-sh -c $TMPDIR/$pgm$$
+chmod +x $WORKDIR/$pgm$$
+sh -c $WORKDIR/$pgm$$
 
 # remove temporary file
 
-rm -f $TMPDIR/$pgm$$
+rm -f $WORKDIR/$pgm$$
 
 exit 0

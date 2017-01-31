@@ -6,7 +6,7 @@ optstring='xm:'
 synopsis='[-x] [-m mask] elev_image'
 description='%description'
 
-tdir=$TMPDIR/$pgm.$$
+tdir=$WORKDIR/$pgm.$$
 
 set -- `getopt "$optstring" $* 2>/dev/null` || {
 	usage $pgm "$synopsis" "$description"

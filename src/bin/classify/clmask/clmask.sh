@@ -41,7 +41,7 @@ case $image in
 ''|'-')
 	trap 'rm -f $tmpimg' 0
 	trap 'exit' 1 2 3 15
-	tmpimg=$TMPDIR/$pgm.$$
+	tmpimg=$WORKDIR/$pgm.$$
 	cat > $tmpimg
 	image=$tmpimg
 	;;

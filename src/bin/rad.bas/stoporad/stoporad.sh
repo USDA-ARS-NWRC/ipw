@@ -118,7 +118,7 @@ while :; do
 done
 
 # list of temporary files used
-# directory for all is $TMPDIR/$pgm.$$
+# directory for all is $WORKDIR/$pgm.$$
 #
 # iX - copy of input if stdin
 # iZ - elevation image (1 band)
@@ -273,7 +273,7 @@ fi
 S0=`solar -d $year,$month,$day -w $wrange -a` || exit 1
 
 
-tdir=$TMPDIR/$pgm.$$
+tdir=$WORKDIR/$pgm.$$
 mkdir $tdir
 
 case $img in

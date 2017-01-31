@@ -77,11 +77,11 @@ while :; do
 	shift
 done
 
-tdir=$TMPDIR/$pgm.$$
+tdir=$WORKDIR/$pgm.$$
 mkdir $tdir
 
 # list of temporary files used (i.. image; a.. ascii)
-# directory for all is $TMPDIR/$pgm.$$
+# directory for all is $WORKDIR/$pgm.$$
 #
 # iX - copy of input if stdin
 # iZ - elevation image (1 band)
