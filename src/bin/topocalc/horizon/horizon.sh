@@ -1,6 +1,8 @@
 PATH="$PATH:$IPW/lib"
-
+ws="$WORKDIR"
 pgm=`basename $0`
+tdir="$ws/$pgm.$$"
+
 optstring='a:d:z:u:'
 synopsis='-a azimuth [-d delta] [-z zenith] [-u cos] [image]'
 description='%description'

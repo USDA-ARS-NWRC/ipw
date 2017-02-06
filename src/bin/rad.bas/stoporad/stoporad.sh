@@ -272,8 +272,9 @@ fi
 
 S0=`solar -d $year,$month,$day -w $wrange -a` || exit 1
 
+ws=`echo $WORKDIR`
+tdir=$ws/$pgm.$$
 
-tdir=$WORKDIR/$pgm.$$
 mkdir $tdir
 
 case $img in

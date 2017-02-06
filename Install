@@ -126,14 +126,16 @@ Installing the Software
 Using IPW software
 ------------------
 
-1.  Modify your shell initialization file to set the IPW environment variable,
-    and to include the IPW directory in your paths for commands and for
-    man pages.
+1.  Modify your shell initialization file to: 
+    a. Set the IPW environment variable0
+    b. To include the IPW directory in your paths for commands
+    c. To include the man pages
+    d. Set the WORKDIR environment variable to create a temporary work space for IPW.
 
     For example, if the IPW directory is "/usr/local/ipw", then Bourne shell
     users should add these lines to their ".profile" file in their HOME
     directory:
-
+  
      #  This example assumes that PATH and MANPATH are already
      #  set somewhere else in the file
      #
@@ -141,6 +143,7 @@ Using IPW software
      export IPW
      PATH=`$IPW/path user`:$PATH
      MANPATH=`$IPW/path man`:$MANPATH
+     export WORKDIR=/usr/local/tmp
 
     C shell users should add these lines to their ".cshrc" file in their
     HOME directory:
@@ -151,6 +154,7 @@ Using IPW software
      setenv IPW /usr/local/ipw
      set path=($path `$IPW/path -s user`)
      setenv MANPATH ${MANPATH}:`$IPW/path man`
+     setenv WORKDIR /usr/local/tmp
 
     If a user is going to be programming IPW software, they should replace
     the argument "user" with "system" in the calls to $IPW/path.
