@@ -1,11 +1,10 @@
-#!/bin/sh
 PATH="$PATH:$IPW/lib"
 
 pgm=`basename $0`
 synopsis='[-x] elev_image'
 description='%description'
 
-ws=`echo $TMPDIR`
+ws=`echo $WORKDIR`
 tdir=$ws/$pgm.$$
 
 angles=16
