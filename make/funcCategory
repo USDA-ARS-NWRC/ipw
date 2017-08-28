@@ -110,6 +110,8 @@ MAN_DIR := Man
 CATEGORY_MAN_DIR := $(MAN_DIR)/Category
 FUNC_MAN_DIRS := $(foreach f, $(FUNCS), $(MAN_DIR)/$(f))
 
+
+
 .PHONY : man install-man uninstall-man clean-man all.DIRS clean.DIRS \
 	 uninstall+clean.DIRS
 

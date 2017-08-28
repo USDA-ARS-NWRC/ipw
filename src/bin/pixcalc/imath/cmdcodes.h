@@ -1,38 +1,38 @@
-#define CMD_ADD               0
-#define CMD_AND               1
-#define CMD_ARCCOS            2
-#define CMD_ARCSIN            3
-#define CMD_ARCTAN            4
-#define CMD_BAND              5
-#define CMD_BAND_AND_NUM      6
-#define CMD_COS               7
-#define CMD_DIVIDE            8
-#define CMD_E                 9
-#define CMD_EQUAL             10
-#define CMD_EXPONENTATION     11
-#define CMD_FLOAT             12
-#define CMD_GOTO              13
-#define CMD_GOTO_IF_0         14
-#define CMD_GREATER           15
-#define CMD_GREATER_EQUAL     16
-#define CMD_INTEGER           17
-#define CMD_LESS              18
-#define CMD_LESS_EQUAL        19
-#define CMD_LOG               20
-#define CMD_LOG10             21
-#define CMD_MAX               22
-#define CMD_MEDIAN            23
-#define CMD_MIN               24
-#define CMD_MULTIPLY          25
-#define CMD_NBANDS            26
-#define CMD_NEGATE            27
-#define CMD_NOT               28
-#define CMD_NOT_EQUAL         29
-#define CMD_PI                30
-#define CMD_ROUND             31
-#define CMD_OR                32
-#define CMD_SIN               33
-#define CMD_SUBTRACT          34
-#define CMD_SUM               35
-#define CMD_TAN               36
-#define CMD_TRUNC             37
+#define      0
+#define      1
+#define      2
+#define      3
+#define      4
+#define      5
+#define      6
+#define      7
+#define      8
+#define      9
+#define      10
+#define      11
+#define      12
+#define      13
+#define      14
+#define      15
+#define      16
+#define      17
+#define      18
+#define      19
+#define      20
+#define      21
+#define      22
+#define      23
+#define      24
+#define      25
+#define      26
+#define      27
+#define      28
+#define      29
+#define      30
+#define      31
+#define      32
+#define      33
+#define      34
+#define      35
+#define      36
+#define      37

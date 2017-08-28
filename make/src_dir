@@ -30,6 +30,6 @@ libs install-libs uninstall-libs :
 
 #  For remaining targets, recurse on each subdirectory with the target
 
-all install uninstall clean man install-man uninstall-man uninstall+clean : 
+all funcs install uninstall clean man install-man uninstall-man uninstall+clean : 
 	@target=$@ ; subdirs='$(DIRS)' ; \
 	    $(recurse-on-subdirs)

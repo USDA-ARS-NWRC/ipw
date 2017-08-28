@@ -191,7 +191,7 @@ endif
 
 .PHONY : redo-name-desc
 
-redo-name-desc all.DIRS clean.DIRS install.DIRS uninstall.DIRS \
+funcs redo-name-desc all.DIRS clean.DIRS install.DIRS uninstall.DIRS \
     uninstall+clean.DIRS :
 ifdef DIRS
 	@target=$(@:.DIRS=) ; subdirs='$(DIRS)' ; \

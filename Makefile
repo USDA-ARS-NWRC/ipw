@@ -15,7 +15,7 @@
 #                   what the "clean" and "uninstall" targets do, also
 #                   remove files created during configuration and testing.
 
-.PHONY : all install tests clean uninstall distclean help
+.PHONY : all install tests clean uninstall distclean help funcs
 
 all :
 	$(MAKE) -C make $@
@@ -37,3 +37,9 @@ distclean :
 
 help :
 	@sed -n 's/^#[- ]//p' Makefile
+	
+funcs : 
+	$(MAKE) -C src libs
+	$(MAKE) -C src install-libs
+	$(MAKE) -C src cmds
+	$(MAKE) -C src install-cmds

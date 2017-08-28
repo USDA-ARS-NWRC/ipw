@@ -16,7 +16,7 @@
 #			    $(recurse-on-subdirs)
 
 define recurse-on-subdirs
-  cwd=`pwd` ;							\
+  cwd=`pwd` ;	  \
   for dir in $$subdirs ; do 					\
   	printf '%s\n' "--> Entering dir: $$cwd/$$dir" ;		\
   	$(MAKE) -C $$dir --no-print-directory $$target ;	\

@@ -1,46 +1,46 @@
-#define TOKEN_EOI               0
-#define TOKEN_PLUS              1
-#define TOKEN_SLASH             2
-#define TOKEN_EQUAL             3
-#define TOKEN_NOT_EQUAL         4
-#define TOKEN_COMMA             5
-#define TOKEN_L_PAREN           6
-#define TOKEN_R_PAREN           7
-#define TOKEN_L_BRACKET         8
-#define TOKEN_R_BRACKET         9
-#define TOKEN_L_BRACE           10
-#define TOKEN_R_BRACE           11
-#define TOKEN_LESS_EQUAL        12
-#define TOKEN_LESS              13
-#define TOKEN_GREATER_EQUAL     14
-#define TOKEN_GREATER           15
-#define TOKEN_NOT               16
-#define TOKEN_AND               17
-#define TOKEN_OR                18
-#define TOKEN_CARET             19
-#define TOKEN_STAR              20
-#define TOKEN_MINUS             21
-#define TOKEN_QUESTION          22
-#define TOKEN_COLON             23
-#define TOKEN_INTEGER           24
-#define TOKEN_FLOAT             25
-#define TOKEN_IDENTIFIER        26
-#define TOKEN_BAND              27
-#define TOKEN_BAND_AND_NUM      28
-#define TOKEN_E                 29
-#define TOKEN_PI                30
-#define TOKEN_NBANDS            31
-#define TOKEN_SUM               32
-#define TOKEN_LOG               33
-#define TOKEN_LOG10             34
-#define TOKEN_COS               35
-#define TOKEN_SIN               36
-#define TOKEN_TAN               37
-#define TOKEN_ARCCOS            38
-#define TOKEN_ARCSIN            39
-#define TOKEN_ARCTAN            40
-#define TOKEN_TRUNC             41
-#define TOKEN_ROUND             42
-#define TOKEN_MIN               43
-#define TOKEN_MAX               44
-#define TOKEN_MEDIAN            45
+#define      0
+#define      1
+#define      2
+#define      3
+#define      4
+#define      5
+#define      6
+#define      7
+#define      8
+#define      9
+#define      10
+#define      11
+#define      12
+#define      13
+#define      14
+#define      15
+#define      16
+#define      17
+#define      18
+#define      19
+#define      20
+#define      21
+#define      22
+#define      23
+#define      24
+#define      25
+#define      26
+#define      27
+#define      28
+#define      29
+#define      30
+#define      31
+#define      32
+#define      33
+#define      34
+#define      35
+#define      36
+#define      37
+#define      38
+#define      39
+#define      40
+#define      41
+#define      42
+#define      43
+#define      44
+#define      45

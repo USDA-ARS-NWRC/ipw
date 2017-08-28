@@ -226,11 +226,13 @@ endif
 
 #  Targets for IPW commands
 
-.PHONY : install install-cmd uninstall uninstall-cmd uninstall+clean clean \
+.PHONY : funcs install install-cmd uninstall uninstall-cmd uninstall+clean clean \
 	 clean-cmd
 .PHONY : all
 
 all : cmd man name-desc $(aux-cmds)
+
+funcs : cmd $(aux-cmds)
 
 install : install-cmd $(install-aux) install-man name-desc
 
