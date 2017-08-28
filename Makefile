@@ -14,6 +14,8 @@
 # distclean       Remove all the generated files; in addition to removing
 #                   what the "clean" and "uninstall" targets do, also
 #                   remove files created during configuration and testing.
+# no-man		  Build without man pages, the only way a Windows 10 user
+#				    can compile.
 
 .PHONY : all install tests clean uninstall distclean help funcs
 
@@ -38,7 +40,7 @@ distclean :
 help :
 	@sed -n 's/^#[- ]//p' Makefile
 	
-funcs : 
+no-man : 
 	$(MAKE) -C src libs
 	$(MAKE) -C src install-libs
 	$(MAKE) -C src cmds
