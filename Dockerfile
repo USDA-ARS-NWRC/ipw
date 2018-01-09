@@ -18,16 +18,6 @@ RUN apt-get update -y && \
 # IPW
 ####################################################
 
-# add the bash profile so that the paths get set
-#COPY bashrc /root/.bashrc
-
-#RUN echo "IPW=/code/ipw-2.3.0" >> /.bash_profile
-#RUN echo "export IPW" >> /.bash_profile
-#RUN echo "PATH=`$IPW/path user`:$PATH" >> /.bash_profile
-#RUN echo "MANPATH=`$IPW/path man`:$MANPATH" >> /.bash_profile
-#RUN echo "export WORKDIR=/usr/local/tmp" >> /.bash_profile
-
-
 # create the IPW environment variables for compiling
 ENV IPW=/code/ipw
 ENV WORKDIR=/tmp
