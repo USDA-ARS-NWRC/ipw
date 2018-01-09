@@ -23,7 +23,8 @@ ENV IPW=/code/ipw
 ENV WORKDIR=/tmp
 
 # lets compile IPW
-COPY . / /code/ipw/
+#COPY . / /code/ipw/
+COPY /ipw /code/ipw
 RUN cd /code/ipw \
     && cp bashrc /root/.bashrc \
     && /bin/bash -c "source /root/.bashrc" \
