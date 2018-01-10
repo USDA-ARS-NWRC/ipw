@@ -1,5 +1,5 @@
 # IPW is built on a ubuntu 16.04 image
-FROM ubuntu:16.04
+FROM ubuntu:17.10
 
 MAINTAINER Scott Havens <scott.havens@ars.usda.gov>
 
