@@ -30,7 +30,8 @@ RUN cd /code/ipw \
     && /bin/bash -c "source /root/.bashrc" \
     && ./configure \
     && make \
-    && make install
+    && make install \
+    && cp /code/ipw/bin/* /usr/local/bin/
     
 ENTRYPOINT ["/bin/bash"]
 
