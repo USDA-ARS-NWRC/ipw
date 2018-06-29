@@ -1,4 +1,4 @@
-# IPW is built on a ubuntu 17.10 image
+# IPW is built on a ubuntu 18.04 image
 FROM ubuntu:18.04
 
 MAINTAINER Scott Havens <scott.havens@ars.usda.gov>
@@ -10,7 +10,9 @@ RUN mkdir -p /code && mkdir -p /code/ipw
 # System requirements
 ####################################################
 
-RUN apt-get update -y \
+RUN echo 'Etc/UTC' > /etc/timezone \
+    && ln -s /usr/share/zoneinfo/Etc/UTC /etc/localtime \
+    && apt-get update -y \
     && apt-get install -y build-essential man \
     && rm -rf /var/lib/apt/lists/*
 
