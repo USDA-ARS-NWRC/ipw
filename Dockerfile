@@ -13,7 +13,7 @@ RUN mkdir -p /code && mkdir -p /code/ipw
 RUN echo 'Etc/UTC' > /etc/timezone \
     && ln -s /usr/share/zoneinfo/Etc/UTC /etc/localtime \
     && apt-get update -y \
-    && apt-get install -y build-essential man \
+    && apt-get install -y gcc make man \
     && rm -rf /var/lib/apt/lists/*
 
 ####################################################
@@ -33,7 +33,9 @@ RUN cd /code/ipw \
     && ./configure \
     && make \
     && make install \
-    && cp /code/ipw/bin/* /usr/local/bin/
+    && make clean \
+    # && cp /code/ipw/bin/* /usr/local/bin/ \
+    && apt-get autoremove -y gcc make
     
 ENTRYPOINT ["/bin/bash"]
 
