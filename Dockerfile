@@ -33,7 +33,6 @@ RUN cd /code/ipw \
     && ./configure \
     && make \
     && make install \
-    && make clean \
     # && cp /code/ipw/bin/* /usr/local/bin/ \
     && apt-get autoremove -y gcc make
     
