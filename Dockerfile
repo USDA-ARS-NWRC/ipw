@@ -13,7 +13,7 @@ RUN mkdir -p /code && mkdir -p /code/ipw
 RUN echo 'Etc/UTC' > /etc/timezone \
     && ln -s /usr/share/zoneinfo/Etc/UTC /etc/localtime \
     && apt-get update -y \
-    && apt-get install -y gcc make man \
+    && apt-get install -y gcc make \
     && rm -rf /var/lib/apt/lists/*
 
 ####################################################
@@ -27,13 +27,16 @@ ENV IPW=/code/ipw
 # lets compile IPW
 COPY . / /code/ipw/
 
+# copy the compiled programs to /usr/local/bin as the
+# IPW environment variable will not be set most of the
+# time when the docker image is used with 'docker run'
 RUN cd /code/ipw \
     && cp bashrc /root/.bashrc \
     && /bin/bash -c "source /root/.bashrc" \
     && ./configure \
     && make \
     && make install \
-    # && cp /code/ipw/bin/* /usr/local/bin/ \
+    && cp /code/ipw/bin/* /usr/local/bin/ \
     && apt-get autoremove -y gcc make
     
 ENTRYPOINT ["/bin/bash"]
