@@ -13,7 +13,7 @@ RUN mkdir -p /code && mkdir -p /code/ipw
 RUN echo 'Etc/UTC' > /etc/timezone \
     && ln -s /usr/share/zoneinfo/Etc/UTC /etc/localtime \
     && apt-get update -y \
-    && apt-get install -y gcc make \
+    && apt-get install -y libgomp1 gcc make \
     && rm -rf /var/lib/apt/lists/*
 
 ####################################################
@@ -38,7 +38,7 @@ RUN cd /code/ipw \
     && make install \
     && cp /code/ipw/bin/* /usr/local/bin/ \
     && apt-get autoremove -y gcc make
-    
+
 ENTRYPOINT ["/bin/bash"]
 
 
