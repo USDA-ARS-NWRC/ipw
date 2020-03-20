@@ -19,13 +19,7 @@ token.h : tokentypes.h
 
 token.o : tokentypes.c token.h
 
-tokentypes.c tokentypes.h : tokentypes.in
-	$(PERL) makeCode.pl tokentypes.h tokentypes.c < $^
-
 command.h : cmdcodes.h
 	touch $@
 
 command.o : cmdcodes.c
-
-cmdcodes.c cmdcodes.h : cmdcodes.in
-	$(PERL) makeCode.pl cmdcodes.h cmdcodes.c < $^
